@@ -11,4 +11,4 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "mournyl-mtg"
-database_id = "PASTE-YOUR-D1-DATABASE-ID-HERE"
+database_id = "e6f4ba7a-02f2-44b3-ba56-b75a86e30757"
