@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Finder — Magic: The Gathering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0e12; --panel:#16181f; --panel2:#1d2029; --line:#2a2e3a;
+    --text:#e8e6e1; --muted:#9a9aa3; --accent:#c9a45c; --accent2:#e2c47f;
+    --danger:#d26b6b; --radius:12px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,sans-serif}
+  a{color:var(--accent2)}
+  button,input,select{font:inherit;color:inherit}
+  header{position:sticky;top:0;z-index:20;background:rgba(13,14,18,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 20px}
+  .top{display:flex;align-items:center;gap:16px;padding:14px 0}
+  .logo{font-family:Cinzel,serif;font-size:22px;font-weight:700;letter-spacing:.04em;color:var(--accent2);white-space:nowrap;cursor:pointer}
+  .searchbox{position:relative;flex:1}
+  .searchbox input{width:100%;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);outline:none}
+  .searchbox input:focus{border-color:var(--accent)}
+  .ac{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:none;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .ac div{padding:9px 16px;cursor:pointer}
+  .ac div.on,.ac div:hover{background:#2a2f3d}
+  .btn{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer;white-space:nowrap}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#1a1408;font-weight:600}
+  .btn.primary:hover{background:var(--accent2)}
+  .filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:0 0 14px}
+  .fgroup{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px}
+  .fgroup select,.fgroup input[type=number]{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+  .fgroup input[type=number]{width:58px}
+  .pips{display:flex;gap:4px}
+  .pip{width:30px;height:30px;border-radius:50%;border:2px solid transparent;background:none;padding:0;cursor:pointer;opacity:.35;transition:.15s}
+  .pip img{width:100%;height:100%;display:block}
+  .pip.on{opacity:1;border-color:var(--accent2)}
+  main{padding:20px 0 60px}
+  .status{color:var(--muted);margin:0 0 16px;min-height:22px}
+  .status b{color:var(--text)}
+  .err{color:var(--danger)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+  .card{position:relative;aspect-ratio:488/680;border-radius:4.75%/3.5%;overflow:hidden;background:var(--panel);cursor:pointer;transition:transform .15s, box-shadow .15s}
+  .card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,.6)}
+  .card img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .noimg{padding:14px;font-size:13px}
+  .tile{display:flex;flex-direction:column;gap:6px}
+  .roles{display:flex;flex-wrap:wrap;gap:4px;min-height:0}
+  .badge{font-size:11px;line-height:1.5;padding:0 8px;border-radius:999px;border:1px solid var(--bc);color:var(--bc);background:color-mix(in srgb,var(--bc) 12%,transparent);white-space:nowrap;cursor:pointer}
+  .badge:hover{background:color-mix(in srgb,var(--bc) 28%,transparent)}
+  .whatdoes{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .whatdoes div{display:flex;gap:10px;align-items:baseline;font-size:14px}
+  .whatdoes q{color:var(--muted)}
+  .card .price{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.75);font-size:12px;padding:2px 7px;border-radius:6px}
+  .more{display:flex;justify-content:center;margin-top:24px}
+  .hero{text-align:center;padding:60px 20px;color:var(--muted)}
+  .hero h1{font-family:Cinzel,serif;color:var(--text);font-size:34px;margin:0 0 10px}
+  .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+  .chip{font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+  .chip:hover{border-color:var(--accent)}
+  .help{max-width:720px;margin:28px auto 0;text-align:left;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px}
+  .help code{background:#262a35;padding:1px 6px;border-radius:5px;color:var(--accent2)}
+  .help td{padding:3px 12px 3px 0;vertical-align:top}
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;z-index:50;overflow:auto;padding:30px 16px}
+  .modal.open{display:block}
+  .sheet{max-width:1000px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:28px;position:relative}
+  .close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:26px;color:var(--muted);cursor:pointer}
+  .bigimg{width:100%;border-radius:4.75%/3.5%;display:block;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+  .flip{margin-top:10px;width:100%}
+  .face{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+  .face:last-of-type{border-bottom:none}
+  .nameline{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .nameline h2{margin:0;font-family:Cinzel,serif;font-size:24px}
+  .typeline{color:var(--muted);margin:4px 0 10px}
+  .oracle p{margin:0 0 8px}
+  .flavor{font-style:italic;color:var(--muted)}
+  .pt{font-weight:600;margin-top:6px}
+  .sym{width:17px;height:17px;vertical-align:-3px;margin:0 1px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted);margin:10px 0 16px}
+  .meta b{color:var(--text);font-weight:500}
+  .prices{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .prices span{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:13px}
+  .legal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-bottom:18px}
+  .legal div{display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;border-radius:6px;background:var(--panel2)}
+  .legal .legal-legal{color:#7fc98c}
+  .legal .legal-not_legal{color:#6f7280}
+  .legal .legal-banned{color:var(--danger)}
+  .legal .legal-restricted{color:#d9b45c}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .links a,.links button{font-size:13px;text-decoration:none}
+  h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:20px}
+  @media (max-width:760px){
+    .sheet{grid-template-columns:1fr}
+    .top{flex-wrap:wrap}.searchbox{order:3;flex-basis:100%}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="logo" id="home">Card Finder</div>
+      <div class="searchbox">
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder='Search cards — e.g. "lightning bolt" or o:"draw a card" t:instant'>
+        <div class="ac" id="ac"></div>
+      </div>
+      <button class="btn primary" id="go">Search</button>
+      <button class="btn" id="random" title="Random card matching filters">🎲 Random</button>
+    </div>
+    <div class="filters">
+      <div class="fgroup">
+        <div class="pips" id="pips"></div>
+        <select id="cmode" title="How colors are matched">
+          <option value="id">Commander identity ⊆</option>
+          <option value="incl">Includes</option>
+          <option value="exact">Exactly</option>
+        </select>
+      </div>
+      <label class="fgroup">Type
+        <select id="type">
+          <option value="">Any</option>
+          <option>creature</option><option>instant</option><option>sorcery</option>
+          <option>artifact</option><option>enchantment</option><option>planeswalker</option>
+          <option>land</option><option>battle</option><option value="legendary creature">legendary creature</option>
+        </select>
+      </label>
+      <label class="fgroup">Role
+        <select id="role"><option value="">Any</option></select>
+      </label>
+      <label class="fgroup">Format
+        <select id="format">
+          <option value="">Any</option>
+          <option value="commander">Commander</option><option value="standard">Standard</option>
+          <option value="pioneer">Pioneer</option><option value="modern">Modern</option>
+          <option value="legacy">Legacy</option><option value="vintage">Vintage</option>
+          <option value="pauper">Pauper</option><option value="brawl">Brawl</option>
+        </select>
+      </label>
+      <label class="fgroup">Rarity
+        <select id="rarity">
+          <option value="">Any</option><option>common</option><option>uncommon</option>
+          <option>rare</option><option>mythic</option>
+        </select>
+      </label>
+      <div class="fgroup">MV
+        <input type="number" id="mvmin" min="0" max="20" placeholder="min">–
+        <input type="number" id="mvmax" min="0" max="20" placeholder="max">
+      </div>
+      <label class="fgroup">Sort
+        <select id="order">
+          <option value="name">Name</option><option value="edhrec">EDHREC rank</option>
+          <option value="released">Newest</option><option value="cmc">Mana value</option>
+          <option value="usd">Price (USD)</option><option value="power">Power</option>
+          <option value="rarity">Rarity</option>
+        </select>
+      </label>
+      <label class="fgroup">Show
+        <select id="unique">
+          <option value="cards">One per card</option><option value="prints">All printings</option>
+          <option value="art">Unique art</option>
+        </select>
+      </label>
+      <button class="btn" id="clear" style="padding:6px 12px;font-size:13px">Clear filters</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="status" id="status"></div>
+  <div id="hero" class="hero">
+    <h1>Find any Magic card</h1>
+    <div>Type a name, or use Scryfall search syntax. The filters above stack on top of your query.</div>
+    <div class="chips" id="chips"></div>
+    <div class="help">
+      <table>
+        <tr><td><code>o:"draw a card"</code></td><td>Rules text contains</td></tr>
+        <tr><td><code>t:dragon</code></td><td>Type line contains</td></tr>
+        <tr><td><code>id&lt;=UR</code></td><td>Fits in an Izzet commander deck</td></tr>
+        <tr><td><code>is:commander</code></td><td>Can be your commander</td></tr>
+        <tr><td><code>pow&gt;=5 mv&lt;=4</code></td><td>Power / mana value comparisons</td></tr>
+        <tr><td><code>otag:ramp</code></td><td>Community function tags (ramp, removal, tutor…)</td></tr>
+        <tr><td><code>usd&lt;2</code></td><td>Price under $2</td></tr>
+        <tr><td><code>s:dsk</code></td><td>From a set (by code)</td></tr>
+        <tr><td><code>-t:creature</code></td><td>Prefix with − to exclude</td></tr>
+      </table>
+      Full reference: <a href="https://scryfall.com/docs/syntax" target="_blank" rel="noopener">scryfall.com/docs/syntax</a>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="more"><button class="btn" id="more" style="display:none">Load more</button></div>
+</main>
+
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+
+<footer>Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Unofficial fan content.</footer>
+
+<script>
+(() => {
+  const API = "https://api.scryfall.com";
+  const SYM = s => `https://svgs.scryfall.io/card-symbols/${s.replace(/\//g, "")}.svg`;
+  const $ = id => document.getElementById(id);
+  const el = { q:$("q"), ac:$("ac"), grid:$("grid"), status:$("status"), more:$("more"), hero:$("hero"),
+               modal:$("modal"), sheet:$("sheet"), cmode:$("cmode"), type:$("type"), format:$("format"),
+               rarity:$("rarity"), mvmin:$("mvmin"), mvmax:$("mvmax"), order:$("order"), unique:$("unique") };
+  const COLORS = ["W","U","B","R","G","C"];
+
+  // ---- card roles: client-side regex (badges) + matching Scryfall query (filter) ----
+  const PERM = "(creature|permanent|artifact|enchantment|planeswalker|battle)";
+  const ROLES = [
+    { k:"removal", label:"Removal", col:"#e07a7a",
+      re:[new RegExp(`\\b(destroy|exile) (up to [a-z]+ )?target ([a-z-]+ )*${PERM}`, "i"),
+          /deals? [0-9x]+ damage to (target creature|any target|target (creature|planeswalker) or)/i,
+          /target creature [^.]*gets -[0-9x]+\/-[0-9x]+/i,
+          /fights? (target|another target|up to one target)/i,
+          /(target (player|opponent)|each opponent) sacrifices/i,
+          new RegExp(`target ([a-z-]+ )*${PERM}[^.]*(shuffles it into|on the bottom of)`, "i"),
+          new RegExp(`put target ([a-z-]+ )*${PERM}[^.]*on (the )?(top|bottom) of`, "i")],
+      sf:`(o:/(destroy|exile) (up to [a-z]+ )?target ([a-z-]+ )*${PERM}/ or o:/deals [0-9x]+ damage to (target creature|any target)/ or o:/target creature [^.]*gets -[0-9x]+/ or o:/fights (target|another target|up to one target)/ or o:/(target player|target opponent|each opponent) sacrifices/ or o:/target ([a-z-]+ )*${PERM}[^.]*(shuffles it into|on the bottom of)/)` },
+    { k:"wipe", label:"Board wipe", col:"#ff9d5c",
+      re:[/\b(destroy|exile) all (other )?(nonland |non-[a-z]+ )?(creatures|permanents|artifacts|enchantments|planeswalkers|nonland)/i,
+          /damage to each (other )?creature/i,
+          /all (other )?creatures get -/i,
+          /return all [^.]*to (their|its) owners?'?s? hands?/i,
+          /each player sacrifices (all|[a-z]+ creatures)/i],
+      sf:`(o:/(destroy|exile) all (other )?(nonland |non-[a-z]+ )?(creatures|permanents|artifacts|enchantments|planeswalkers|nonland)/ or o:/damage to each (other )?creature/ or o:/all (other )?creatures get -/ or o:/return all [^.]*to (their|its) owner/)` },
+    { k:"counter", label:"Counterspell", col:"#6fa8ff",
+      re:[/\bcounter target\b/i, /\bcounter that spell\b/i, /\bcounter it( unless|\.)/i],
+      sf:`(o:"counter target" or o:"counter that spell" or o:/counter it( unless|\\.)/)` },
+    { k:"bounce", label:"Bounce", col:"#7fd0e0",
+      re:[/return (up to [a-z]+ )?target [^.]*to (its|their) owners?'?s? hands?/i],
+      sf:`o:/return (up to [a-z]+ )?target [^.]*to (its|their) owner/` },
+    { k:"burn", label:"Burn", col:"#ff7043",
+      re:[/damage to (any target|each opponent|target player|target opponent|each player)/i],
+      sf:`o:/damage to (any target|each opponent|target player|target opponent|each player)/` },
+    { k:"ramp", label:"Ramp", col:"#6fcf7f", test: ty => !/\bLand\b/.test(ty),
+      re:[/\badd \{/i, /\badd (one|two|three|x) mana/i, /mana of any (one )?(color|type)/i,
+          /search your library for [^.]*land cards?/i, /put [^.]*land cards? [^.]*onto the battlefield/i,
+          /play (an )?additional lands?/i],
+      sf:`-t:land (o:/add \\{/ or o:/add (one|two|three|x) mana/ or o:/search your library for [^.]*land card/ or o:/put [^.]*land cards? [^.]*onto the battlefield/ or o:/play (an )?additional land/)` },
+    { k:"draw", label:"Card draw", col:"#a98cf0",
+      re:[/\bdraws? (a|an|one|two|three|four|five|six|seven|x|that many|[0-9]+) (additional )?cards?\b/i],
+      sf:`o:/draws? (a|one|two|three|four|five|seven|x|that many) (additional )?cards?/` },
+    { k:"tutor", label:"Tutor", col:"#e0b85c",
+      test: ty => !/\bLand\b/.test(ty),
+      re:[/search your library for [^.]*/i], reject:/\b(lands?|plains|island|swamp|mountain|forest|basic)\b/i,
+      sf:`-t:land (o:"search your library for" -o:/search your library for [^.]*(land|plains|island|swamp|mountain|forest|basic)/)` },
+    { k:"protect", label:"Protection", col:"#f0e08c",
+      re:[/\b(gains?|have|has) [^.]*\b(hexproof|indestructible|shroud|protection from)\b/i, /\bphases? out\b/i,
+          /can't be countered/i],
+      sf:`(o:/(gains?|have|has) [^.]*(hexproof|indestructible|shroud|protection from)/ or o:/phases? out/)` },
+    { k:"recursion", label:"Recursion", col:"#9ccc65",
+      re:[/return [^.]*from (your|a) graveyard to (the battlefield|your hand)/i, /(cast|play) [^.]*from your graveyard/i,
+          /put [^.]*cards? from (your|a|any) graveyards? onto the battlefield/i],
+      sf:`(o:/return [^.]*from (your|a) graveyard to (the battlefield|your hand)/ or o:/(cast|play) [^.]*from your graveyard/ or o:/put [^.]*cards? from (your|a|any) graveyards? onto the battlefield/)` },
+    { k:"gyhate", label:"Graveyard hate", col:"#b0a4c8",
+      re:[/exile (target player's|each opponent's|all cards from|all graveyards|target card from a graveyard|up to [a-z]+ target cards? from)/i],
+      sf:`o:/exile (target player's|each opponent's|all cards from|all graveyards|target card from a graveyard)/` },
+    { k:"tokens", label:"Tokens", col:"#8fd3c0",
+      re:[/(?<!(controller|owner) )\bcreates? [^.]*\btokens?\b/i],
+      sf:`o:/creates? [^.]*token/ -o:/(controller|owner) creates/` },
+  ];
+  const textOf = c => ((c.card_faces?.length ? c.card_faces.map(f => f.oracle_text || "").join("\n") : c.oracle_text) || "")
+    .replace(/\([^)]*\)/g, "");            // strip reminder text to avoid false hits
+  const typeOf = c => c.type_line || (c.card_faces || []).map(f => f.type_line).join(" // ");
+  function sentenceAt(t, i) {
+    const s = Math.max(t.lastIndexOf(".", i - 1), t.lastIndexOf("\n", i - 1)) + 1;
+    let e = t.length; for (const ch of [".", "\n"]) { const j = t.indexOf(ch, i); if (j >= 0 && j < e) e = j + (ch === "." ? 1 : 0); }
+    const out = t.slice(s, e).trim(); return out.length > 160 ? out.slice(0, 157) + "…" : out;
+  }
+  function rolesOf(c) {
+    if (c._roles) return c._roles;
+    const t = textOf(c), ty = typeOf(c), out = [];
+    for (const r of ROLES) {
+      if (r.test && !r.test(ty)) continue;
+      for (const re of r.re) {
+        const m = t.match(re);
+        if (m && !(r.reject && r.reject.test(m[0]))) { out.push({ r, snip: sentenceAt(t, m.index) }); break; }
+      }
+    }
+    return (c._roles = out);
+  }
+  const badge = r => `<span class="badge" style="--bc:${r.col}" data-role="${r.k}" title="Find more ${r.label.toLowerCase()}">${r.label}</span>`;
+  const roleSel = $("role");
+  ROLES.forEach(r => roleSel.insertAdjacentHTML("beforeend", `<option value="${r.k}">${r.label}</option>`));
+  el.role = roleSel;
+  const selected = new Set();
+  let nextPage = null, busy = false, lastReq = 0, searchToken = 0;
+
+  // ---- Scryfall polite rate limit (~10 req/s max) ----
+  async function sf(url) {
+    const wait = Math.max(0, lastReq + 110 - Date.now());
+    if (wait) await new Promise(r => setTimeout(r, wait));
+    lastReq = Date.now();
+    const res = await fetch(url, { headers: { Accept: "application/json" } });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) { const e = new Error(body.details || `HTTP ${res.status}`); e.status = res.status; throw e; }
+    return body;
+  }
+
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const syms = s => esc(s).replace(/\{([^}]+)\}/g, (_, x) => `<img class="sym" src="${SYM(x)}" alt="{${esc(x)}}" title="{${esc(x)}}">`);
+  const para = s => (s || "").split("\n").map(l => `<p>${syms(l)}</p>`).join("");
+  const img = (c, size = "normal") => c.image_uris?.[size] || c.card_faces?.[0]?.image_uris?.[size] || null;
+  const price = c => c.prices?.usd ? `$${c.prices.usd}` : c.prices?.usd_foil ? `$${c.prices.usd_foil} f` : c.prices?.eur ? `€${c.prices.eur}` : "";
+
+  // ---- color pips ----
+  COLORS.forEach(c => {
+    const b = document.createElement("button");
+    b.className = "pip"; b.dataset.c = c; b.title = { W:"White",U:"Blue",B:"Black",R:"Red",G:"Green",C:"Colorless" }[c];
+    b.innerHTML = `<img src="${SYM(c)}" alt="${c}">`;
+    b.onclick = () => { selected.has(c) ? selected.delete(c) : selected.add(c); b.classList.toggle("on"); if (hasAnything()) search(); };
+    $("pips").appendChild(b);
+  });
+
+  // ---- query building ----
+  function buildQuery() {
+    const parts = [];
+    const raw = el.q.value.trim();
+    if (raw) parts.push(raw);
+    if (selected.size) {
+      const cs = COLORS.filter(c => selected.has(c) && c !== "C").join("") || "C";
+      const op = { id: "id<=", incl: "c>=", exact: "c=" }[el.cmode.value];
+      parts.push(op + cs);
+    }
+    if (el.type.value) el.type.value.split(" ").forEach(t => parts.push(`t:${t}`));
+    if (el.role.value) parts.push(ROLES.find(r => r.k === el.role.value).sf);
+    if (el.format.value) parts.push(`f:${el.format.value}`);
+    if (el.rarity.value) parts.push(`r:${el.rarity.value}`);
+    if (el.mvmin.value !== "") parts.push(`mv>=${+el.mvmin.value}`);
+    if (el.mvmax.value !== "") parts.push(`mv<=${+el.mvmax.value}`);
+    return parts.join(" ");
+  }
+  const hasAnything = () => !!buildQuery();
+
+  function saveState() {
+    const p = new URLSearchParams();
+    if (el.q.value.trim()) p.set("q", el.q.value.trim());
+    if (selected.size) p.set("c", [...selected].join(""));
+    ["cmode","role","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+      const v = el[k].value, d = el[k].querySelector?.("option")?.value ?? "";
+      if (v !== "" && v !== d) p.set(k, v);
+    });
+    const h = p.toString();
+    try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch {}
+  }
+  function loadState() {
+    const p = new URLSearchParams(location.hash.slice(1));
+    el.q.value = p.get("q") || "";
+    selected.clear();
+    (p.get("c") || "").split("").forEach(c => COLORS.includes(c) && selected.add(c));
+    document.querySelectorAll(".pip").forEach(b => b.classList.toggle("on", selected.has(b.dataset.c)));
+    ["cmode","role","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+      if (p.has(k)) el[k].value = p.get(k);
+    });
+    return hasAnything();
+  }
+
+  // ---- search ----
+  async function search() {
+    const q = buildQuery();
+    hideAc();
+    if (!q) { reset(); return; }
+    saveState();
+    const token = ++searchToken;
+    el.hero.style.display = "none";
+    el.grid.innerHTML = ""; el.more.style.display = "none";
+    el.status.innerHTML = "Searching…";
+    const order = el.order.value;
+    const dir = ["released","usd","power","rarity"].includes(order) ? "desc" : "auto";
+    const url = `${API}/cards/search?` + new URLSearchParams({ q, order, dir, unique: el.unique.value, include_extras: "false" });
+    try {
+      const r = await sf(url);
+      if (token !== searchToken) return;
+      el.status.innerHTML = `<b>${r.total_cards.toLocaleString()}</b> card${r.total_cards === 1 ? "" : "s"} · <span style="opacity:.7">${esc(q)}</span>`;
+      render(r.data);
+      nextPage = r.has_more ? r.next_page : null;
+      el.more.style.display = nextPage ? "" : "none";
+      if (r.total_cards === 1) openCard(r.data[0]);
+    } catch (e) {
+      if (token !== searchToken) return;
+      el.status.innerHTML = e.status === 404
+        ? `No cards found for <b>${esc(q)}</b>.`
+        : `<span class="err">${esc(e.message)}</span>`;
+    }
+  }
+
+  async function loadMore() {
+    if (!nextPage || busy) return;
+    busy = true; el.more.textContent = "Loading…";
+    const token = searchToken;
+    try {
+      const r = await sf(nextPage);
+      if (token !== searchToken) return;
+      render(r.data);
+      nextPage = r.has_more ? r.next_page : null;
+    } catch (e) { el.status.innerHTML += ` <span class="err">(${esc(e.message)})</span>`; }
+    finally { busy = false; el.more.textContent = "Load more"; el.more.style.display = nextPage ? "" : "none"; }
+  }
+
+  function render(cards) {
+    const frag = document.createDocumentFragment();
+    cards.forEach(c => {
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      const d = document.createElement("div");
+      d.className = "card";
+      const src = img(c);
+      const p = price(c);
+      d.innerHTML = src
+        ? `<img loading="lazy" src="${src}" alt="${esc(c.name)}">${p ? `<span class="price">${p}</span>` : ""}`
+        : `<div class="noimg"><b>${esc(c.name)}</b><br>${syms(c.mana_cost)}<br><small>${esc(c.type_line)}</small></div>`;
+      d.onclick = () => openCard(c);
+      const rb = document.createElement("div");
+      rb.className = "roles";
+      rb.innerHTML = rolesOf(c).map(x => badge(x.r)).join("");
+      tile.append(d, rb);
+      frag.appendChild(tile);
+    });
+    el.grid.appendChild(frag);
+  }
+
+  function reset() {
+    searchToken++;
+    el.grid.innerHTML = ""; el.status.innerHTML = ""; el.more.style.display = "none";
+    el.hero.style.display = ""; saveState();
+  }
+
+  // ---- random ----
+  async function random() {
+    const q = buildQuery();
+    try {
+      const c = await sf(`${API}/cards/random` + (q ? `?q=${encodeURIComponent(q)}` : ""));
+      openCard(c);
+    } catch (e) {
+      el.status.innerHTML = e.status === 404 ? "No cards match those filters." : `<span class="err">${esc(e.message)}</span>`;
+    }
+  }
+
+  // ---- detail modal ----
+  function openCard(c) {
+    const faces = c.card_faces?.length ? c.card_faces : [c];
+    const faceImgs = c.card_faces?.every(f => f.image_uris) ? c.card_faces.map(f => f.image_uris.large || f.image_uris.normal) : [img(c, "large") || img(c)];
+    let faceIdx = 0;
+    const legal = Object.entries(c.legalities || {})
+      .filter(([f]) => ["standard","pioneer","modern","legacy","vintage","commander","pauper","brawl","historic","timeless","oathbreaker","penny"].includes(f))
+      .map(([f, s]) => `<div class="legal-${s}"><span>${f}</span><span>${s.replace("_"," ")}</span></div>`).join("");
+    const pr = c.prices || {};
+    const priceTags = [
+      pr.usd && `USD $${pr.usd}`, pr.usd_foil && `Foil $${pr.usd_foil}`, pr.usd_etched && `Etched $${pr.usd_etched}`,
+      pr.eur && `EUR €${pr.eur}`, pr.tix && `MTGO ${pr.tix} tix`
+    ].filter(Boolean).map(t => `<span>${t}</span>`).join("") || `<span>No price data</span>`;
+    const spellbook = `https://commanderspellbook.com/search/?q=${encodeURIComponent(`card:"${c.name}"`)}`;
+
+    el.sheet.innerHTML = `
+      <button class="close" aria-label="Close">×</button>
+      <div>
+        ${faceImgs[0] ? `<img class="bigimg" id="bigimg" src="${faceImgs[0]}" alt="${esc(c.name)}">` : ""}
+        ${faceImgs.length > 1 ? `<button class="btn flip" id="flip">↻ Flip card</button>` : ""}
+      </div>
+      <div>
+        ${faces.map(f => `
+          <div class="face">
+            <div class="nameline"><h2>${esc(f.name)}</h2><div>${syms(f.mana_cost)}</div></div>
+            <div class="typeline">${esc(f.type_line || c.type_line)}</div>
+            <div class="oracle">${para(f.oracle_text)}</div>
+            ${f.flavor_text ? `<div class="flavor">${para(f.flavor_text)}</div>` : ""}
+            ${f.power != null ? `<div class="pt">${esc(f.power)}/${esc(f.toughness)}</div>` : ""}
+            ${f.loyalty != null ? `<div class="pt">Loyalty ${esc(f.loyalty)}</div>` : ""}
+            ${f.defense != null ? `<div class="pt">Defense ${esc(f.defense)}</div>` : ""}
+          </div>`).join("")}
+        <h3>What it does</h3>
+        <div class="whatdoes">${rolesOf(c).length
+          ? rolesOf(c).map(x => `<div>${badge(x.r)}<q>${syms(x.snip)}</q></div>`).join("")
+          : `<div style="color:var(--muted)">No role detected — read the rules text above.</div>`}</div>
+        <div class="meta">
+          <span>Set <b>${esc(c.set_name)} (${esc(c.set?.toUpperCase())}) #${esc(c.collector_number)}</b></span>
+          <span>Rarity <b>${esc(c.rarity)}</b></span>
+          <span>Artist <b>${esc(c.artist)}</b></span>
+          ${c.edhrec_rank ? `<span>EDHREC rank <b>#${c.edhrec_rank.toLocaleString()}</b></span>` : ""}
+          ${c.color_identity ? `<span>Identity <b>${c.color_identity.length ? c.color_identity.map(x => `<img class="sym" src="${SYM(x)}" alt="${x}">`).join("") : "Colorless"}</b></span>` : ""}
+        </div>
+        <h3>Prices</h3><div class="prices">${priceTags}</div>
+        <h3>Legality</h3><div class="legal">${legal}</div>
+        <div class="links">
+          <button class="btn" id="prints">All printings</button>
+          <a class="btn" href="${esc(c.scryfall_uri)}" target="_blank" rel="noopener">Scryfall</a>
+          ${c.related_uris?.edhrec ? `<a class="btn" href="${esc(c.related_uris.edhrec)}" target="_blank" rel="noopener">EDHREC</a>` : ""}
+          <a class="btn" href="${esc(spellbook)}" target="_blank" rel="noopener">Combos (Spellbook)</a>
+          ${c.related_uris?.gatherer ? `<a class="btn" href="${esc(c.related_uris.gatherer)}" target="_blank" rel="noopener">Gatherer</a>` : ""}
+          <button class="btn" id="copyname">Copy name</button>
+        </div>
+      </div>`;
+    el.sheet.querySelector(".close").onclick = closeCard;
+    const flip = $("flip");
+    if (flip) flip.onclick = () => { faceIdx = (faceIdx + 1) % faceImgs.length; $("bigimg").src = faceImgs[faceIdx]; };
+    $("prints").onclick = () => {
+      closeCard();
+      el.q.value = `!"${c.name}"`; selected.clear();
+      document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
+      ["role","type","format","rarity","mvmin","mvmax"].forEach(k => el[k].value = "");
+      el.unique.value = "prints"; el.order.value = "released";
+      search();
+    };
+    $("copyname").onclick = async e => {
+      try { await navigator.clipboard.writeText(c.name); e.target.textContent = "Copied ✓"; }
+      catch { e.target.textContent = "Copy failed"; }
+    };
+    el.modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeCard() { el.modal.classList.remove("open"); document.body.style.overflow = ""; }
+  el.modal.addEventListener("click", e => { if (e.target === el.modal) closeCard(); });
+
+  // ---- autocomplete (names) ----
+  let acTimer, acItems = [], acIdx = -1;
+  function hideAc() { el.ac.style.display = "none"; acItems = []; acIdx = -1; }
+  function showAc() {
+    if (!acItems.length) return hideAc();
+    el.ac.innerHTML = acItems.map((n, i) => `<div data-i="${i}" class="${i === acIdx ? "on" : ""}">${esc(n)}</div>`).join("");
+    el.ac.style.display = "block";
+  }
+  el.ac.addEventListener("mousedown", e => {
+    const d = e.target.closest("div[data-i]"); if (!d) return;
+    e.preventDefault(); pickAc(+d.dataset.i);
+  });
+  function pickAc(i) { el.q.value = `!"${acItems[i]}"`; hideAc(); search(); }
+  el.q.addEventListener("input", () => {
+    clearTimeout(acTimer);
+    const v = el.q.value.trim();
+    // only autocomplete plain-name typing, not syntax queries
+    if (v.length < 2 || /[:<>=!"()]/.test(v)) return hideAc();
+    acTimer = setTimeout(async () => {
+      try {
+        const r = await sf(`${API}/cards/autocomplete?q=${encodeURIComponent(v)}`);
+        if (el.q.value.trim() !== v) return;
+        acItems = r.data.slice(0, 10); acIdx = -1; showAc();
+      } catch { hideAc(); }
+    }, 220);
+  });
+  el.q.addEventListener("keydown", e => {
+    if (el.ac.style.display === "block" && acItems.length) {
+      if (e.key === "ArrowDown") { e.preventDefault(); acIdx = (acIdx + 1) % acItems.length; showAc(); return; }
+      if (e.key === "ArrowUp") { e.preventDefault(); acIdx = (acIdx - 1 + acItems.length) % acItems.length; showAc(); return; }
+      if (e.key === "Enter" && acIdx >= 0) { e.preventDefault(); pickAc(acIdx); return; }
+    }
+    if (e.key === "Enter") { e.preventDefault(); clearTimeout(acTimer); search(); }
+    if (e.key === "Escape") hideAc();
+  });
+  el.q.addEventListener("blur", () => setTimeout(hideAc, 120));
+
+  // ---- wiring ----
+  $("go").onclick = search;
+  $("random").onclick = random;
+  el.more.onclick = loadMore;
+  $("home").onclick = () => { el.q.value = ""; reset(); };
+  ["cmode","role","type","format","rarity","order","unique"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
+  ["mvmin","mvmax"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
+  $("clear").onclick = () => {
+    selected.clear(); document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
+    el.cmode.value = "id"; ["role","type","format","rarity","mvmin","mvmax"].forEach(k => el[k].value = "");
+    el.order.value = "name"; el.unique.value = "cards";
+    hasAnything() ? search() : reset();
+  };
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && el.modal.classList.contains("open")) closeCard();
+    if (e.key === "/" && document.activeElement !== el.q && !el.modal.classList.contains("open")) { e.preventDefault(); el.q.focus(); }
+  });
+  // click a role badge -> show more cards with that role (keeps color/format filters, clears text)
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".badge[data-role]"); if (!b) return;
+    e.stopPropagation(); closeCard();
+    el.role.value = b.dataset.role; el.q.value = ""; el.unique.value = "cards";
+    search();
+  });
+  // infinite scroll
+  new IntersectionObserver(es => { if (es[0].isIntersecting && nextPage) loadMore(); }, { rootMargin: "600px" }).observe(el.more);
+
+  // example chips
+  const examples = [
+    ["Izzet commanders", "is:commander id=UR"],
+    ["Green ramp under $2", "c:g usd<2", "ramp"],
+    ["Cheap counterspells", "mv<=2", "counter"],
+    ["Board wipes", "", "wipe"],
+    ["Izzet removal", "id<=UR", "removal"],
+    ["Pingers", 'o:"deals 1 damage to any target" t:creature'],
+    ["Legendary dragons", "t:legendary t:dragon"],
+  ];
+  examples.forEach(([label, q, role]) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = label;
+    b.onclick = () => { el.q.value = q; el.role.value = role || ""; search(); };
+    $("chips").appendChild(b);
+  });
+
+  if (loadState()) search();
+})();
+</script>
+</body>
+</html>

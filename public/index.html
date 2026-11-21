@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mournyl mtg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0b; --panel:#141414; --panel2:#1b1b1b; --line:#262626;
+    --text:#ececec; --muted:#8c8c8c; --accent:#ffffff; --accent2:#ffffff;
+    --danger:#e06c6c; --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,sans-serif}
+  a{color:var(--text)}
+  button,input,select{font:inherit;color:inherit}
+  header{position:sticky;top:0;z-index:20;background:rgba(11,11,11,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 20px}
+  .top{display:flex;align-items:center;gap:16px;padding:14px 0}
+  .logo{font-family:"UnifrakturMaguntia",serif;font-size:38px;line-height:1;color:#fff;white-space:nowrap;cursor:pointer;display:flex;align-items:baseline;gap:8px;text-decoration:none}
+  .logo small{font-family:Inter,sans-serif;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
+  nav{display:flex;gap:4px;margin-left:auto}
+  nav button{background:none;border:none;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:14px;white-space:nowrap}
+  nav button:hover,nav button.on{color:#fff;background:var(--panel2)}
+  nav .count{font-size:11px;background:#fff;color:#000;border-radius:999px;padding:0 6px;margin-left:4px;font-weight:600}
+  .searchbox{position:relative;flex:1}
+  .searchbox input{width:100%;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);outline:none}
+  .searchbox input:focus{border-color:var(--accent)}
+  .ac{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--panel2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:none;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .ac div{padding:9px 16px;cursor:pointer}
+  .ac div.on,.ac div:hover{background:#262626}
+  .btn{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer;white-space:nowrap}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:#fff;border-color:#fff;color:#000;font-weight:600}
+  .btn.primary:hover{background:#d6d6d6}
+  .filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding:0 0 14px}
+  .fgroup{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:13px}
+  .fgroup select,.fgroup input[type=number]{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+  .fgroup input[type=number]{width:58px}
+  .pips{display:flex;gap:4px}
+  .pip{width:30px;height:30px;border-radius:50%;border:2px solid transparent;background:none;padding:0;cursor:pointer;opacity:.35;transition:.15s}
+  .pip img{width:100%;height:100%;display:block}
+  .pip.on{opacity:1;border-color:#fff}
+  main{padding:20px 0 60px}
+  .status{color:var(--muted);margin:0 0 16px;min-height:22px}
+  .status b{color:var(--text)}
+  .err{color:var(--danger)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+  .card{position:relative;aspect-ratio:488/680;border-radius:4.75%/3.5%;overflow:hidden;background:var(--panel);cursor:pointer;transition:transform .15s, box-shadow .15s}
+  .card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,.6)}
+  .card img{width:100%;height:100%;object-fit:cover;display:block}
+  .card .noimg{padding:14px;font-size:13px}
+  .tile{display:flex;flex-direction:column;gap:6px}
+  .roles{display:flex;flex-wrap:wrap;gap:4px;min-height:0}
+  .badge{font-size:11px;line-height:1.6;padding:0 8px;border-radius:999px;border:1px solid #333;color:#cfcfcf;background:#141414;white-space:nowrap;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+  .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--bc)}
+  .badge:hover{border-color:#777;color:#fff}
+  .whatdoes{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .whatdoes div{display:flex;gap:10px;align-items:baseline;font-size:14px}
+  .whatdoes q{color:var(--muted)}
+  .card .price{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.75);font-size:12px;padding:2px 7px;border-radius:6px}
+  .more{display:flex;justify-content:center;margin-top:24px}
+  .hero{text-align:center;padding:60px 20px;color:var(--muted)}
+  .hero h1{font-family:"UnifrakturMaguntia",serif;font-weight:400;color:#fff;font-size:56px;margin:0 0 6px}
+  .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+  .chip{font-size:13px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+  .chip:hover{border-color:var(--accent)}
+  .help{max-width:720px;margin:28px auto 0;text-align:left;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px}
+  .help code{background:#222;padding:1px 6px;border-radius:5px;color:#fff}
+  .help td{padding:3px 12px 3px 0;vertical-align:top}
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;z-index:50;overflow:auto;padding:30px 16px}
+  .modal.open{display:block}
+  .sheet{max-width:1000px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:28px;position:relative}
+  .close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:26px;color:var(--muted);cursor:pointer}
+  .bigimg{width:100%;border-radius:4.75%/3.5%;display:block;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+  .flip{margin-top:10px;width:100%}
+  .face{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+  .face:last-of-type{border-bottom:none}
+  .nameline{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .nameline h2{margin:0;font-size:24px;font-weight:600}
+  .typeline{color:var(--muted);margin:4px 0 10px}
+  .oracle p{margin:0 0 8px}
+  .flavor{font-style:italic;color:var(--muted)}
+  .pt{font-weight:600;margin-top:6px}
+  .sym{width:17px;height:17px;vertical-align:-3px;margin:0 1px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted);margin:10px 0 16px}
+  .meta b{color:var(--text);font-weight:500}
+  .prices{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .prices span{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:13px}
+  .legal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-bottom:18px}
+  .legal div{display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;border-radius:6px;background:var(--panel2)}
+  .legal .legal-legal{color:#e8e8e8}
+  .legal .legal-not_legal{color:#555}
+  .legal .legal-banned{color:var(--danger)}
+  .legal .legal-restricted{color:#bdbdbd}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .links a,.links button{font-size:13px;text-decoration:none}
+  h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px}
+  /* save controls */
+  .card .acts{position:absolute;top:6px;right:6px;display:flex;gap:4px;opacity:0;transition:opacity .15s}
+  .card:hover .acts,.card .acts.keep{opacity:1}
+  .iconbtn{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.72);color:#fff;cursor:pointer;display:grid;place-items:center;font-size:15px;line-height:1;padding:0}
+  .iconbtn:hover{background:#000;border-color:#fff}
+  .iconbtn.fav.on{background:#fff;color:#000;border-color:#fff}
+  .pop{position:fixed;z-index:60;background:var(--panel2);border:1px solid #333;border-radius:10px;min-width:220px;padding:6px;box-shadow:0 14px 40px rgba(0,0,0,.7);display:none}
+  .pop.open{display:block}
+  .pop .ttl{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:6px 10px}
+  .pop button{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:none;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:14px}
+  .pop button:hover{background:#262626}
+  .pop form{display:flex;gap:6px;padding:6px}
+  .pop input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
+  .savebar{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap}
+  .savebar .btn.on{background:#fff;color:#000;border-color:#fff}
+  /* saved view */
+  #savedView{display:none}
+  .shead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .shead h2{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:40px;margin:0 12px 0 0}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+  .tab{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:none;cursor:pointer;font-size:13px;color:var(--muted)}
+  .tab.on{background:#fff;color:#000;border-color:#fff}
+  .tab small{opacity:.7;margin-left:4px}
+  .empty{color:var(--muted);padding:40px 0;text-align:center}
+  /* auth */
+  .authbox{max-width:380px;margin:60px auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+  .authbox h2{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:42px;margin:0;text-align:center}
+  .authbox p{color:var(--muted);text-align:center;margin:4px 0 20px;font-size:14px}
+  .authbox label{display:block;font-size:12px;color:var(--muted);margin:12px 0 4px}
+  .authbox input{width:100%;padding:11px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);outline:none}
+  .authbox input:focus{border-color:#fff}
+  .authbox .btn{width:100%;margin-top:18px}
+  .authbox .swap{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
+  .authbox .swap a{cursor:pointer;text-decoration:underline}
+  .authbox .msg{color:var(--danger);font-size:13px;min-height:18px;margin-top:10px;text-align:center}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#fff;color:#000;padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;transition:.2s;z-index:80;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%)}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:20px}
+  @media (max-width:760px){
+    .sheet{grid-template-columns:1fr}
+    .top{flex-wrap:wrap;gap:10px}
+    .logo{font-size:30px;order:1}
+    nav{order:2}
+    nav button{padding:6px 8px}
+    #navSearch{display:none}
+    .searchbox{order:3;flex:1 1 calc(100% - 110px);min-width:0}
+    #go{order:4;padding:10px 14px}
+    #random{display:none}
+    .card .acts{opacity:1}
+    .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" id="home" href="#">mournyl<small>mtg</small></a>
+      <div class="searchbox">
+        <input id="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder='Search cards — e.g. "lightning bolt" or o:"draw a card" t:instant'>
+        <div class="ac" id="ac"></div>
+      </div>
+      <button class="btn primary" id="go">Search</button>
+      <button class="btn" id="random" title="Random card matching filters">Random</button>
+      <nav>
+        <button id="navSearch" class="on">Search</button>
+        <button id="navSaved">Saved<span class="count" id="savedCount" hidden>0</span></button>
+        <button id="navAcct">Log in</button>
+      </nav>
+    </div>
+    <div class="filters" id="filters">
+      <div class="fgroup">
+        <div class="pips" id="pips"></div>
+        <select id="cmode" title="How colors are matched">
+          <option value="id">Commander identity ⊆</option>
+          <option value="incl">Includes</option>
+          <option value="exact">Exactly</option>
+        </select>
+      </div>
+      <label class="fgroup">Type
+        <select id="type">
+          <option value="">Any</option>
+          <option>creature</option><option>instant</option><option>sorcery</option>
+          <option>artifact</option><option>enchantment</option><option>planeswalker</option>
+          <option>land</option><option>battle</option><option value="legendary creature">legendary creature</option>
+        </select>
+      </label>
+      <label class="fgroup">Role
+        <select id="role"><option value="">Any</option></select>
+      </label>
+      <label class="fgroup">Format
+        <select id="format">
+          <option value="">Any</option>
+          <option value="commander">Commander</option><option value="standard">Standard</option>
+          <option value="pioneer">Pioneer</option><option value="modern">Modern</option>
+          <option value="legacy">Legacy</option><option value="vintage">Vintage</option>
+          <option value="pauper">Pauper</option><option value="brawl">Brawl</option>
+        </select>
+      </label>
+      <label class="fgroup">Rarity
+        <select id="rarity">
+          <option value="">Any</option><option>common</option><option>uncommon</option>
+          <option>rare</option><option>mythic</option>
+        </select>
+      </label>
+      <div class="fgroup">MV
+        <input type="number" id="mvmin" min="0" max="20" placeholder="min">–
+        <input type="number" id="mvmax" min="0" max="20" placeholder="max">
+      </div>
+      <label class="fgroup">Sort
+        <select id="order">
+          <option value="name">Name</option><option value="edhrec">EDHREC rank</option>
+          <option value="released">Newest</option><option value="cmc">Mana value</option>
+          <option value="usd">Price (USD)</option><option value="power">Power</option>
+          <option value="rarity">Rarity</option>
+        </select>
+      </label>
+      <label class="fgroup">Show
+        <select id="unique">
+          <option value="cards">One per card</option><option value="prints">All printings</option>
+          <option value="art">Unique art</option>
+        </select>
+      </label>
+      <button class="btn" id="clear" style="padding:6px 12px;font-size:13px">Clear filters</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="savedView">
+    <div class="shead"><h2>saved</h2>
+      <button class="btn" id="newList" style="font-size:13px;padding:7px 14px">+ New list</button>
+      <span id="listTools" style="display:none;gap:8px">
+        <button class="btn" id="renameList" style="font-size:13px;padding:7px 14px">Rename</button>
+        <button class="btn" id="copyList" style="font-size:13px;padding:7px 14px">Copy as text</button>
+        <button class="btn" id="deleteList" style="font-size:13px;padding:7px 14px">Delete list</button>
+      </span>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="savedGrid"></div>
+    <div class="empty" id="savedEmpty" style="display:none"></div>
+  </section>
+  <section id="searchView">
+  <div class="status" id="status"></div>
+  <div id="hero" class="hero">
+    <h1>mournyl</h1>
+    <div>Type a name, or use Scryfall search syntax. The filters above stack on top of your query.</div>
+    <div class="chips" id="chips"></div>
+    <div class="help">
+      <table>
+        <tr><td><code>o:"draw a card"</code></td><td>Rules text contains</td></tr>
+        <tr><td><code>t:dragon</code></td><td>Type line contains</td></tr>
+        <tr><td><code>id&lt;=UR</code></td><td>Fits in an Izzet commander deck</td></tr>
+        <tr><td><code>is:commander</code></td><td>Can be your commander</td></tr>
+        <tr><td><code>pow&gt;=5 mv&lt;=4</code></td><td>Power / mana value comparisons</td></tr>
+        <tr><td><code>otag:ramp</code></td><td>Community function tags (ramp, removal, tutor…)</td></tr>
+        <tr><td><code>usd&lt;2</code></td><td>Price under $2</td></tr>
+        <tr><td><code>s:dsk</code></td><td>From a set (by code)</td></tr>
+        <tr><td><code>-t:creature</code></td><td>Prefix with − to exclude</td></tr>
+      </table>
+      Full reference: <a href="https://scryfall.com/docs/syntax" target="_blank" rel="noopener">scryfall.com/docs/syntax</a>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="more"><button class="btn" id="more" style="display:none">Load more</button></div>
+  </section>
+</main>
+
+<div class="modal" id="authModal">
+  <form class="authbox" id="authForm" novalidate>
+    <button type="button" class="close" id="authClose" aria-label="Close">×</button>
+    <h2>mournyl</h2>
+    <p id="authSub">Log in to save cards</p>
+    <label for="authUser">Username</label>
+    <input id="authUser" autocomplete="username" required>
+    <label for="authPass">Password</label>
+    <input id="authPass" type="password" autocomplete="current-password" required>
+    <button class="btn primary" id="authGo" type="submit">Log in</button>
+    <div class="msg" id="authMsg"></div>
+    <div class="swap" id="authSwap"></div>
+  </form>
+</div>
+<div class="pop" id="pop"></div>
+<div class="toast" id="toast"></div>
+
+<div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
+
+<footer><span style="font-family:UnifrakturMaguntia,serif;font-size:16px;color:#fff">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Unofficial fan content.</footer>
+
+<script>
+(() => {
+  const API = "https://api.scryfall.com";
+  const SYM = s => `https://svgs.scryfall.io/card-symbols/${s.replace(/\//g, "")}.svg`;
+  const $ = id => document.getElementById(id);
+  const el = { q:$("q"), ac:$("ac"), grid:$("grid"), status:$("status"), more:$("more"), hero:$("hero"),
+               modal:$("modal"), sheet:$("sheet"), cmode:$("cmode"), type:$("type"), format:$("format"),
+               rarity:$("rarity"), mvmin:$("mvmin"), mvmax:$("mvmax"), order:$("order"), unique:$("unique") };
+  const COLORS = ["W","U","B","R","G","C"];
+
+  // ---- card roles: client-side regex (badges) + matching Scryfall query (filter) ----
+  const PERM = "(creature|permanent|artifact|enchantment|planeswalker|battle)";
+  const ROLES = [
+    { k:"removal", label:"Removal", col:"#e07a7a",
+      re:[new RegExp(`\\b(destroy|exile) (up to [a-z]+ )?target ([a-z-]+ )*${PERM}`, "i"),
+          /deals? [0-9x]+ damage to (target creature|any target|target (creature|planeswalker) or)/i,
+          /target creature [^.]*gets -[0-9x]+\/-[0-9x]+/i,
+          /fights? (target|another target|up to one target)/i,
+          /(target (player|opponent)|each opponent) sacrifices/i,
+          new RegExp(`target ([a-z-]+ )*${PERM}[^.]*(shuffles it into|on the bottom of)`, "i"),
+          new RegExp(`put target ([a-z-]+ )*${PERM}[^.]*on (the )?(top|bottom) of`, "i")],
+      sf:`(o:/(destroy|exile) (up to [a-z]+ )?target ([a-z-]+ )*${PERM}/ or o:/deals [0-9x]+ damage to (target creature|any target)/ or o:/target creature [^.]*gets -[0-9x]+/ or o:/fights (target|another target|up to one target)/ or o:/(target player|target opponent|each opponent) sacrifices/ or o:/target ([a-z-]+ )*${PERM}[^.]*(shuffles it into|on the bottom of)/)` },
+    { k:"wipe", label:"Board wipe", col:"#ff9d5c",
+      re:[/\b(destroy|exile) all (other )?(nonland |non-[a-z]+ )?(creatures|permanents|artifacts|enchantments|planeswalkers|nonland)/i,
+          /damage to each (other )?creature/i,
+          /all (other )?creatures get -/i,
+          /return all [^.]*to (their|its) owners?'?s? hands?/i,
+          /each player sacrifices (all|[a-z]+ creatures)/i],
+      sf:`(o:/(destroy|exile) all (other )?(nonland |non-[a-z]+ )?(creatures|permanents|artifacts|enchantments|planeswalkers|nonland)/ or o:/damage to each (other )?creature/ or o:/all (other )?creatures get -/ or o:/return all [^.]*to (their|its) owner/)` },
+    { k:"counter", label:"Counterspell", col:"#6fa8ff",
+      re:[/\bcounter target\b/i, /\bcounter that spell\b/i, /\bcounter it( unless|\.)/i],
+      sf:`(o:"counter target" or o:"counter that spell" or o:/counter it( unless|\\.)/)` },
+    { k:"bounce", label:"Bounce", col:"#7fd0e0",
+      re:[/return (up to [a-z]+ )?target [^.]*to (its|their) owners?'?s? hands?/i],
+      sf:`o:/return (up to [a-z]+ )?target [^.]*to (its|their) owner/` },
+    { k:"burn", label:"Burn", col:"#ff7043",
+      re:[/damage to (any target|each opponent|target player|target opponent|each player)/i],
+      sf:`o:/damage to (any target|each opponent|target player|target opponent|each player)/` },
+    { k:"ramp", label:"Ramp", col:"#6fcf7f", test: ty => !/\bLand\b/.test(ty),
+      re:[/\badd \{/i, /\badd (one|two|three|x) mana/i, /mana of any (one )?(color|type)/i,
+          /search your library for [^.]*land cards?/i, /put [^.]*land cards? [^.]*onto the battlefield/i,
+          /play (an )?additional lands?/i],
+      sf:`-t:land (o:/add \\{/ or o:/add (one|two|three|x) mana/ or o:/search your library for [^.]*land card/ or o:/put [^.]*land cards? [^.]*onto the battlefield/ or o:/play (an )?additional land/)` },
+    { k:"draw", label:"Card draw", col:"#a98cf0",
+      re:[/\bdraws? (a|an|one|two|three|four|five|six|seven|x|that many|[0-9]+) (additional )?cards?\b/i],
+      sf:`o:/draws? (a|one|two|three|four|five|seven|x|that many) (additional )?cards?/` },
+    { k:"tutor", label:"Tutor", col:"#e0b85c",
+      test: ty => !/\bLand\b/.test(ty),
+      re:[/search your library for [^.]*/i], reject:/\b(lands?|plains|island|swamp|mountain|forest|basic)\b/i,
+      sf:`-t:land (o:"search your library for" -o:/search your library for [^.]*(land|plains|island|swamp|mountain|forest|basic)/)` },
+    { k:"protect", label:"Protection", col:"#f0e08c",
+      re:[/\b(gains?|have|has) [^.]*\b(hexproof|indestructible|shroud|protection from)\b/i, /\bphases? out\b/i,
+          /can't be countered/i],
+      sf:`(o:/(gains?|have|has) [^.]*(hexproof|indestructible|shroud|protection from)/ or o:/phases? out/)` },
+    { k:"recursion", label:"Recursion", col:"#9ccc65",
+      re:[/return [^.]*from (your|a) graveyard to (the battlefield|your hand)/i, /(cast|play) [^.]*from your graveyard/i,
+          /put [^.]*cards? from (your|a|any) graveyards? onto the battlefield/i],
+      sf:`(o:/return [^.]*from (your|a) graveyard to (the battlefield|your hand)/ or o:/(cast|play) [^.]*from your graveyard/ or o:/put [^.]*cards? from (your|a|any) graveyards? onto the battlefield/)` },
+    { k:"gyhate", label:"Graveyard hate", col:"#b0a4c8",
+      re:[/exile (target player's|each opponent's|all cards from|all graveyards|target card from a graveyard|up to [a-z]+ target cards? from)/i],
+      sf:`o:/exile (target player's|each opponent's|all cards from|all graveyards|target card from a graveyard)/` },
+    { k:"tokens", label:"Tokens", col:"#8fd3c0",
+      re:[/(?<!(controller|owner) )\bcreates? [^.]*\btokens?\b/i],
+      sf:`o:/creates? [^.]*token/ -o:/(controller|owner) creates/` },
+  ];
+  const textOf = c => ((c.card_faces?.length ? c.card_faces.map(f => f.oracle_text || "").join("\n") : c.oracle_text) || "")
+    .replace(/\([^)]*\)/g, "");            // strip reminder text to avoid false hits
+  const typeOf = c => c.type_line || (c.card_faces || []).map(f => f.type_line).join(" // ");
+  function sentenceAt(t, i) {
+    const s = Math.max(t.lastIndexOf(".", i - 1), t.lastIndexOf("\n", i - 1)) + 1;
+    let e = t.length; for (const ch of [".", "\n"]) { const j = t.indexOf(ch, i); if (j >= 0 && j < e) e = j + (ch === "." ? 1 : 0); }
+    const out = t.slice(s, e).trim(); return out.length > 160 ? out.slice(0, 157) + "…" : out;
+  }
+  function rolesOf(c) {
+    if (c._roles) return c._roles;
+    const t = textOf(c), ty = typeOf(c), out = [];
+    for (const r of ROLES) {
+      if (r.test && !r.test(ty)) continue;
+      for (const re of r.re) {
+        const m = t.match(re);
+        if (m && !(r.reject && r.reject.test(m[0]))) { out.push({ r, snip: sentenceAt(t, m.index) }); break; }
+      }
+    }
+    return (c._roles = out);
+  }
+  const badge = r => `<span class="badge" style="--bc:${r.col}" data-role="${r.k}" title="Find more ${r.label.toLowerCase()}">${r.label}</span>`;
+  const roleSel = $("role");
+  ROLES.forEach(r => roleSel.insertAdjacentHTML("beforeend", `<option value="${r.k}">${r.label}</option>`));
+  el.role = roleSel;
+  const selected = new Set();
+  let nextPage = null, busy = false, lastReq = 0, searchToken = 0;
+
+  // ---- Scryfall polite rate limit (~10 req/s max) ----
+  async function sf(url) {
+    const wait = Math.max(0, lastReq + 110 - Date.now());
+    if (wait) await new Promise(r => setTimeout(r, wait));
+    lastReq = Date.now();
+    const res = await fetch(url, { headers: { Accept: "application/json" } });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) { const e = new Error(body.details || `HTTP ${res.status}`); e.status = res.status; throw e; }
+    return body;
+  }
+
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const syms = s => esc(s).replace(/\{([^}]+)\}/g, (_, x) => `<img class="sym" src="${SYM(x)}" alt="{${esc(x)}}" title="{${esc(x)}}">`);
+  const para = s => (s || "").split("\n").map(l => `<p>${syms(l)}</p>`).join("");
+  const img = (c, size = "normal") => c.image_uris?.[size] || c.card_faces?.[0]?.image_uris?.[size] || null;
+  const price = c => c.prices?.usd ? `$${c.prices.usd}` : c.prices?.usd_foil ? `$${c.prices.usd_foil} f` : c.prices?.eur ? `€${c.prices.eur}` : "";
+
+  // ---- color pips ----
+  COLORS.forEach(c => {
+    const b = document.createElement("button");
+    b.className = "pip"; b.dataset.c = c; b.title = { W:"White",U:"Blue",B:"Black",R:"Red",G:"Green",C:"Colorless" }[c];
+    b.innerHTML = `<img src="${SYM(c)}" alt="${c}">`;
+    b.onclick = () => { selected.has(c) ? selected.delete(c) : selected.add(c); b.classList.toggle("on"); if (hasAnything()) search(); };
+    $("pips").appendChild(b);
+  });
+
+  // ---- query building ----
+  function buildQuery() {
+    const parts = [];
+    const raw = el.q.value.trim();
+    if (raw) parts.push(raw);
+    if (selected.size) {
+      const cs = COLORS.filter(c => selected.has(c) && c !== "C").join("") || "C";
+      const op = { id: "id<=", incl: "c>=", exact: "c=" }[el.cmode.value];
+      parts.push(op + cs);
+    }
+    if (el.type.value) el.type.value.split(" ").forEach(t => parts.push(`t:${t}`));
+    if (el.role.value) parts.push(ROLES.find(r => r.k === el.role.value).sf);
+    if (el.format.value) parts.push(`f:${el.format.value}`);
+    if (el.rarity.value) parts.push(`r:${el.rarity.value}`);
+    if (el.mvmin.value !== "") parts.push(`mv>=${+el.mvmin.value}`);
+    if (el.mvmax.value !== "") parts.push(`mv<=${+el.mvmax.value}`);
+    return parts.join(" ");
+  }
+  const hasAnything = () => !!buildQuery();
+
+  let lastSearch = (() => { try { return sessionStorage.getItem("mtg-last-search") || ""; } catch { return ""; } })();
+  function saveState() {
+    const p = new URLSearchParams();
+    if (el.q.value.trim()) p.set("q", el.q.value.trim());
+    if (selected.size) p.set("c", [...selected].join(""));
+    ["cmode","role","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+      const v = el[k].value, d = el[k].querySelector?.("option")?.value ?? "";
+      if (v !== "" && v !== d) p.set(k, v);
+    });
+    const h = p.toString();
+    lastSearch = h;
+    try { sessionStorage.setItem("mtg-last-search", h); } catch {}
+    try { history.replaceState(null, "", h ? "#" + h : location.pathname + location.search); } catch {}
+  }
+  function loadState() {
+    const p = new URLSearchParams(location.hash.slice(1));
+    el.q.value = p.get("q") || "";
+    selected.clear();
+    (p.get("c") || "").split("").forEach(c => COLORS.includes(c) && selected.add(c));
+    document.querySelectorAll(".pip").forEach(b => b.classList.toggle("on", selected.has(b.dataset.c)));
+    ["cmode","role","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+      if (p.has(k)) el[k].value = p.get(k);
+    });
+    return hasAnything();
+  }
+
+  // ---- search ----
+  async function search() {
+    const q = buildQuery();
+    hideAc();
+    showView("search");
+    if (!q) { reset(); return; }
+    saveState();
+    const token = ++searchToken;
+    el.hero.style.display = "none";
+    el.grid.innerHTML = ""; el.more.style.display = "none";
+    el.status.innerHTML = "Searching…";
+    const order = el.order.value;
+    const dir = ["released","usd","power","rarity"].includes(order) ? "desc" : "auto";
+    const url = `${API}/cards/search?` + new URLSearchParams({ q, order, dir, unique: el.unique.value, include_extras: "false" });
+    try {
+      const r = await sf(url);
+      if (token !== searchToken) return;
+      el.status.innerHTML = `<b>${r.total_cards.toLocaleString()}</b> card${r.total_cards === 1 ? "" : "s"} · <span style="opacity:.7">${esc(q)}</span>`;
+      render(r.data);
+      nextPage = r.has_more ? r.next_page : null;
+      el.more.style.display = nextPage ? "" : "none";
+      if (r.total_cards === 1) openCard(r.data[0]);
+    } catch (e) {
+      if (token !== searchToken) return;
+      el.status.innerHTML = e.status === 404
+        ? `No cards found for <b>${esc(q)}</b>.`
+        : `<span class="err">${esc(e.message)}</span>`;
+    }
+  }
+
+  async function loadMore() {
+    if (!nextPage || busy) return;
+    busy = true; el.more.textContent = "Loading…";
+    const token = searchToken;
+    try {
+      const r = await sf(nextPage);
+      if (token !== searchToken) return;
+      render(r.data);
+      nextPage = r.has_more ? r.next_page : null;
+    } catch (e) { el.status.innerHTML += ` <span class="err">(${esc(e.message)})</span>`; }
+    finally { busy = false; el.more.textContent = "Load more"; el.more.style.display = nextPage ? "" : "none"; }
+  }
+
+  function render(cards) {
+    const frag = document.createDocumentFragment();
+    cards.forEach(c => {
+      cardCache.set(c.id, c);
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      const d = document.createElement("div");
+      d.className = "card";
+      const src = img(c);
+      const p = price(c);
+      d.innerHTML = src
+        ? `<img loading="lazy" src="${src}" alt="${esc(c.name)}">${p ? `<span class="price">${p}</span>` : ""}`
+        : `<div class="noimg"><b>${esc(c.name)}</b><br>${syms(c.mana_cost)}<br><small>${esc(c.type_line)}</small></div>`;
+      d.insertAdjacentHTML("beforeend", actsHtml(c));
+      d.onclick = e => { if (!handleActs(e, c)) openCard(c); };
+      const rb = document.createElement("div");
+      rb.className = "roles";
+      rb.innerHTML = rolesOf(c).map(x => badge(x.r)).join("");
+      tile.append(d, rb);
+      frag.appendChild(tile);
+    });
+    el.grid.appendChild(frag);
+  }
+
+  function reset() {
+    searchToken++;
+    el.grid.innerHTML = ""; el.status.innerHTML = ""; el.more.style.display = "none";
+    el.hero.style.display = ""; if (view === "search") saveState();
+  }
+
+  // ---- random ----
+  async function random() {
+    const q = buildQuery();
+    try {
+      const c = await sf(`${API}/cards/random` + (q ? `?q=${encodeURIComponent(q)}` : ""));
+      openCard(c);
+    } catch (e) {
+      el.status.innerHTML = e.status === 404 ? "No cards match those filters." : `<span class="err">${esc(e.message)}</span>`;
+    }
+  }
+
+  // ---- detail modal ----
+  function openCard(c) {
+    const faces = c.card_faces?.length ? c.card_faces : [c];
+    const faceImgs = c.card_faces?.every(f => f.image_uris) ? c.card_faces.map(f => f.image_uris.large || f.image_uris.normal) : [img(c, "large") || img(c)];
+    let faceIdx = 0;
+    const legal = Object.entries(c.legalities || {})
+      .filter(([f]) => ["standard","pioneer","modern","legacy","vintage","commander","pauper","brawl","historic","timeless","oathbreaker","penny"].includes(f))
+      .map(([f, s]) => `<div class="legal-${s}"><span>${f}</span><span>${s.replace("_"," ")}</span></div>`).join("");
+    const pr = c.prices || {};
+    const priceTags = [
+      pr.usd && `USD $${pr.usd}`, pr.usd_foil && `Foil $${pr.usd_foil}`, pr.usd_etched && `Etched $${pr.usd_etched}`,
+      pr.eur && `EUR €${pr.eur}`, pr.tix && `MTGO ${pr.tix} tix`
+    ].filter(Boolean).map(t => `<span>${t}</span>`).join("") || `<span>No price data</span>`;
+    const spellbook = `https://commanderspellbook.com/search/?q=${encodeURIComponent(`card:"${c.name}"`)}`;
+
+    el.sheet.innerHTML = `
+      <button class="close" aria-label="Close">×</button>
+      <div>
+        ${faceImgs[0] ? `<img class="bigimg" id="bigimg" src="${faceImgs[0]}" alt="${esc(c.name)}">` : ""}
+        ${faceImgs.length > 1 ? `<button class="btn flip" id="flip">↻ Flip card</button>` : ""}
+      </div>
+      <div>
+        ${faces.map(f => `
+          <div class="face">
+            <div class="nameline"><h2>${esc(f.name)}</h2><div>${syms(f.mana_cost)}</div></div>
+            <div class="typeline">${esc(f.type_line || c.type_line)}</div>
+            <div class="oracle">${para(f.oracle_text)}</div>
+            ${f.flavor_text ? `<div class="flavor">${para(f.flavor_text)}</div>` : ""}
+            ${f.power != null ? `<div class="pt">${esc(f.power)}/${esc(f.toughness)}</div>` : ""}
+            ${f.loyalty != null ? `<div class="pt">Loyalty ${esc(f.loyalty)}</div>` : ""}
+            ${f.defense != null ? `<div class="pt">Defense ${esc(f.defense)}</div>` : ""}
+          </div>`).join("")}
+        <h3>What it does</h3>
+        <div class="whatdoes">${rolesOf(c).length
+          ? rolesOf(c).map(x => `<div>${badge(x.r)}<q>${syms(x.snip)}</q></div>`).join("")
+          : `<div style="color:var(--muted)">No role detected — read the rules text above.</div>`}</div>
+        <div class="meta">
+          <span>Set <b>${esc(c.set_name)} (${esc(c.set?.toUpperCase())}) #${esc(c.collector_number)}</b></span>
+          <span>Rarity <b>${esc(c.rarity)}</b></span>
+          <span>Artist <b>${esc(c.artist)}</b></span>
+          ${c.edhrec_rank ? `<span>EDHREC rank <b>#${c.edhrec_rank.toLocaleString()}</b></span>` : ""}
+          ${c.color_identity ? `<span>Identity <b>${c.color_identity.length ? c.color_identity.map(x => `<img class="sym" src="${SYM(x)}" alt="${x}">`).join("") : "Colorless"}</b></span>` : ""}
+        </div>
+        <h3>Prices</h3><div class="prices">${priceTags}</div>
+        <h3>Legality</h3><div class="legal">${legal}</div>
+        <div class="savebar">
+          <button class="btn ${store.fav.has(c.id) ? "on" : ""}" data-fav="${c.id}" id="mFav">${store.fav.has(c.id) ? "♥ Favorited" : "♡ Favorite"}</button>
+          <button class="btn" id="mAdd">+ Add to list</button>
+        </div>
+        <div class="links">
+          <button class="btn" id="prints">All printings</button>
+          <a class="btn" href="${esc(c.scryfall_uri)}" target="_blank" rel="noopener">Scryfall</a>
+          ${c.related_uris?.edhrec ? `<a class="btn" href="${esc(c.related_uris.edhrec)}" target="_blank" rel="noopener">EDHREC</a>` : ""}
+          <a class="btn" href="${esc(spellbook)}" target="_blank" rel="noopener">Combos (Spellbook)</a>
+          ${c.related_uris?.gatherer ? `<a class="btn" href="${esc(c.related_uris.gatherer)}" target="_blank" rel="noopener">Gatherer</a>` : ""}
+          <button class="btn" id="copyname">Copy name</button>
+        </div>
+      </div>`;
+    el.sheet.querySelector(".close").onclick = closeCard;
+    const flip = $("flip");
+    if (flip) flip.onclick = () => { faceIdx = (faceIdx + 1) % faceImgs.length; $("bigimg").src = faceImgs[faceIdx]; };
+    $("prints").onclick = () => {
+      closeCard();
+      el.q.value = `!"${c.name}"`; selected.clear();
+      document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
+      ["role","type","format","rarity","mvmin","mvmax"].forEach(k => el[k].value = "");
+      el.unique.value = "prints"; el.order.value = "released";
+      search();
+    };
+    $("mFav").onclick = () => toggleFav(c);
+    $("mAdd").onclick = e => openListPop(e.currentTarget, c);
+    $("copyname").onclick = async e => {
+      try { await navigator.clipboard.writeText(c.name); e.target.textContent = "Copied ✓"; }
+      catch { e.target.textContent = "Copy failed"; }
+    };
+    el.modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeCard() { el.modal.classList.remove("open"); document.body.style.overflow = ""; }
+  el.modal.addEventListener("click", e => { if (e.target === el.modal) closeCard(); });
+
+  // ---- autocomplete (names) ----
+  let acTimer, acItems = [], acIdx = -1;
+  function hideAc() { el.ac.style.display = "none"; acItems = []; acIdx = -1; }
+  function showAc() {
+    if (!acItems.length) return hideAc();
+    el.ac.innerHTML = acItems.map((n, i) => `<div data-i="${i}" class="${i === acIdx ? "on" : ""}">${esc(n)}</div>`).join("");
+    el.ac.style.display = "block";
+  }
+  el.ac.addEventListener("mousedown", e => {
+    const d = e.target.closest("div[data-i]"); if (!d) return;
+    e.preventDefault(); pickAc(+d.dataset.i);
+  });
+  function pickAc(i) { el.q.value = `!"${acItems[i]}"`; hideAc(); search(); }
+  el.q.addEventListener("input", () => {
+    clearTimeout(acTimer);
+    const v = el.q.value.trim();
+    // only autocomplete plain-name typing, not syntax queries
+    if (v.length < 2 || /[:<>=!"()]/.test(v)) return hideAc();
+    acTimer = setTimeout(async () => {
+      try {
+        const r = await sf(`${API}/cards/autocomplete?q=${encodeURIComponent(v)}`);
+        if (el.q.value.trim() !== v || document.activeElement !== el.q) return;
+        acItems = r.data.slice(0, 10); acIdx = -1; showAc();
+      } catch { hideAc(); }
+    }, 220);
+  });
+  el.q.addEventListener("keydown", e => {
+    if (el.ac.style.display === "block" && acItems.length) {
+      if (e.key === "ArrowDown") { e.preventDefault(); acIdx = (acIdx + 1) % acItems.length; showAc(); return; }
+      if (e.key === "ArrowUp") { e.preventDefault(); acIdx = (acIdx - 1 + acItems.length) % acItems.length; showAc(); return; }
+      if (e.key === "Enter" && acIdx >= 0) { e.preventDefault(); pickAc(acIdx); return; }
+    }
+    if (e.key === "Enter") { e.preventDefault(); clearTimeout(acTimer); el.q.blur(); search(); }
+    if (e.key === "Escape") hideAc();
+  });
+  el.q.addEventListener("blur", () => setTimeout(hideAc, 120));
+
+  // ================= saving: favorites + lists =================
+  // mode "remote": Worker API with login. mode "local": no backend (opened as a file) -> this browser only.
+  const store = { mode: "local", user: null, fav: new Map(), lists: [] };   // lists: [{id, name, cards: Map}]
+  const LS = "mournyl-mtg-saved";
+  const cardCache = new Map();
+  const isUuid = s => /^[0-9a-f-]{36}$/i.test(s || "");
+
+  async function apiCall(method, path, body) {
+    const opt = { method, credentials: "same-origin", headers: {} };
+    if (body !== undefined) { opt.headers["content-type"] = "application/json"; opt.body = JSON.stringify(body); }
+    const r = await fetch(path, opt);
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || `HTTP ${r.status}`); e.status = r.status; throw e; }
+    return j;
+  }
+  const snap = c => c.image_uris || c.card_faces || c.oracle_text !== undefined || c.legalities
+    ? { id: c.id, name: c.name, image: img(c) || "", type_line: typeOf(c), mana_cost: c.mana_cost || c.card_faces?.[0]?.mana_cost || "", set: c.set || "" }
+    : { id: c.id, name: c.name, image: c.image || "", type_line: c.type_line || "", mana_cost: c.mana_cost || "", set: c.set || "" };
+
+  function loadLocal() {
+    try {
+      const d = JSON.parse(localStorage.getItem(LS) || "{}");
+      store.fav = new Map((d.favorites || []).map(c => [c.id, c]));
+      store.lists = (d.lists || []).map(l => ({ id: l.id, name: l.name, cards: new Map(l.cards.map(c => [c.id, c])) }));
+    } catch { store.fav = new Map(); store.lists = []; }
+  }
+  function saveLocal() {
+    if (store.mode !== "local") return;
+    try {
+      localStorage.setItem(LS, JSON.stringify({
+        favorites: [...store.fav.values()],
+        lists: store.lists.map(l => ({ id: l.id, name: l.name, cards: [...l.cards.values()] })),
+      }));
+    } catch { toast("Couldn't save on this device"); }
+  }
+  async function loadRemote() {
+    const d = await apiCall("GET", "/api/saved");
+    store.fav = new Map(d.favorites.map(c => [c.id, c]));
+    store.lists = d.lists.map(l => ({ id: l.id, name: l.name, cards: new Map(l.cards.map(c => [c.id, c])) }));
+  }
+  async function initStore() {
+    if (location.protocol !== "file:") {
+      try {
+        const r = await apiCall("GET", "/api/me");
+        store.mode = "remote"; store.user = r.user;
+        if (r.user) await loadRemote();
+        return refreshAll();
+      } catch { /* no backend -> local */ }
+    }
+    store.mode = "local"; loadLocal(); refreshAll();
+  }
+  function needLogin() {
+    if (store.mode === "remote" && !store.user) { openAuth("login", "Log in to save cards"); return true; }
+    return false;
+  }
+  // run a change optimistically; roll back if the server refuses
+  async function mutate(apply, undo, remote) {
+    apply(); refreshAll(); saveLocal();
+    if (store.mode !== "remote") return true;
+    try { await remote(); return true; }
+    catch (e) {
+      undo(); refreshAll();
+      if (e.status === 401) { store.user = null; refreshAll(); openAuth("login", "Session expired — log in again"); }
+      else toast(e.message);
+      return false;
+    }
+  }
+  async function toggleFav(c) {
+    if (needLogin()) return;
+    const sc = snap(c);
+    if (store.fav.has(sc.id)) {
+      const old = store.fav.get(sc.id);
+      await mutate(() => store.fav.delete(sc.id), () => store.fav.set(sc.id, old), () => apiCall("DELETE", `/api/favorites/${sc.id}`));
+    } else {
+      const ok = await mutate(() => store.fav.set(sc.id, sc), () => store.fav.delete(sc.id), () => apiCall("POST", "/api/favorites", { card: sc }));
+      if (ok) toast(`♥ ${sc.name}`);
+    }
+  }
+  async function toggleInList(list, c) {
+    const sc = snap(c);
+    if (list.cards.has(sc.id)) {
+      const old = list.cards.get(sc.id);
+      await mutate(() => list.cards.delete(sc.id), () => list.cards.set(sc.id, old), () => apiCall("DELETE", `/api/lists/${list.id}/cards/${sc.id}`));
+    } else {
+      const ok = await mutate(() => list.cards.set(sc.id, sc), () => list.cards.delete(sc.id), () => apiCall("POST", `/api/lists/${list.id}/cards`, { card: sc }));
+      if (ok) toast(`Added to ${list.name}`);
+    }
+  }
+  async function createList(name) {
+    name = name.trim().slice(0, 60); if (!name) return null;
+    if (store.mode === "remote") {
+      try { const r = await apiCall("POST", "/api/lists", { name }); const l = { id: r.list.id, name, cards: new Map() }; store.lists.push(l); refreshAll(); return l; }
+      catch (e) { toast(e.message); return null; }
+    }
+    const l = { id: Date.now(), name, cards: new Map() }; store.lists.push(l); saveLocal(); refreshAll(); return l;
+  }
+
+  // ---- tile overlay buttons ----
+  const actsHtml = c => `<div class="acts${store.fav.has(c.id) ? " keep" : ""}">
+      <button class="iconbtn fav${store.fav.has(c.id) ? " on" : ""}" data-fav="${c.id}" data-act="fav" title="Favorite" aria-label="Favorite">♥</button>
+      <button class="iconbtn" data-act="add" title="Add to list" aria-label="Add to list">+</button></div>`;
+  function handleActs(e, c) {
+    const b = e.target.closest("[data-act]"); if (!b) return false;
+    e.stopPropagation();
+    if (b.dataset.act === "fav") toggleFav(c);
+    if (b.dataset.act === "add") openListPop(b, c);
+    if (b.dataset.act === "rm") removeFromCurrent(c);
+    return true;
+  }
+
+  // ---- add-to-list popover ----
+  const pop = $("pop");
+  function openListPop(anchor, c) {
+    if (needLogin()) return;
+    const draw = () => {
+      pop.innerHTML = `<div class="ttl">Add ${esc(c.name)} to…</div>` +
+        store.lists.map((l, i) => `<button data-i="${i}"><span>${esc(l.name)}</span><span>${l.cards.has(c.id) ? "✓" : ""}</span></button>`).join("") +
+        `<form><input placeholder="New list name" maxlength="60"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>`;
+      pop.querySelectorAll("button[data-i]").forEach(b => b.onclick = async () => { await toggleInList(store.lists[+b.dataset.i], c); draw(); });
+      pop.querySelector("form").onsubmit = async ev => {
+        ev.preventDefault();
+        const l = await createList(pop.querySelector("input").value);
+        if (l) { await toggleInList(l, c); draw(); }
+      };
+    };
+    draw();
+    const r = anchor.getBoundingClientRect();
+    pop.classList.add("open");
+    const w = pop.offsetWidth, h = pop.offsetHeight;
+    pop.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.right - w)) + "px";
+    pop.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, r.top - h - 6) : r.bottom + 6) + "px";
+    if (!store.lists.length) pop.querySelector("input").focus();
+  }
+  const closePop = () => pop.classList.remove("open");
+  document.addEventListener("mousedown", e => { if (pop.classList.contains("open") && !pop.contains(e.target) && !e.target.closest("[data-act=add],#mAdd")) closePop(); });
+  addEventListener("scroll", closePop, { passive: true });
+
+  // ---- keep every heart / count in sync ----
+  function refreshAll() {
+    const n = store.fav.size;
+    $("savedCount").hidden = !n; $("savedCount").textContent = n;
+    document.querySelectorAll("[data-fav]").forEach(b => {
+      const on = store.fav.has(b.dataset.fav);
+      b.classList.toggle("on", on);
+      if (b.id === "mFav") b.textContent = on ? "♥ Favorited" : "♡ Favorite";
+      else b.closest(".acts")?.classList.toggle("keep", on);
+    });
+    const acct = $("navAcct");
+    acct.textContent = store.mode === "local" ? "This device" : store.user ? store.user.username : "Log in";
+    acct.title = store.mode === "local" ? "No server found — saves stay in this browser" : "";
+    if (view === "saved") renderSaved();
+  }
+
+  // ---- saved view ----
+  let view = "search", tab = "fav";
+  function showView(v) {
+    if (v === view) return;
+    view = v;
+    $("savedView").style.display = v === "saved" ? "block" : "none";
+    $("searchView").style.display = v === "search" ? "" : "none";
+    $("filters").style.display = v === "search" ? "" : "none";
+    $("navSearch").classList.toggle("on", v === "search");
+    $("navSaved").classList.toggle("on", v === "saved");
+    if (v === "saved") { try { history.replaceState(null, "", "#saved"); } catch {} renderSaved(); scrollTo(0, 0); }
+    else saveState();
+  }
+  const currentList = () => tab === "fav" ? null : store.lists.find(l => String(l.id) === String(tab));
+  function renderSaved() {
+    if (tab !== "fav" && !currentList()) tab = "fav";
+    const list = currentList();
+    $("tabs").innerHTML = `<button class="tab ${tab === "fav" ? "on" : ""}" data-tab="fav">♥ Favorites<small>${store.fav.size}</small></button>` +
+      store.lists.map(l => `<button class="tab ${String(l.id) === String(tab) ? "on" : ""}" data-tab="${l.id}">${esc(l.name)}<small>${l.cards.size}</small></button>`).join("");
+    $("tabs").querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { tab = b.dataset.tab; renderSaved(); });
+    $("listTools").style.display = "inline-flex";
+    $("renameList").style.display = $("deleteList").style.display = list ? "" : "none";
+    const cards = [...(list ? list.cards : store.fav).values()];
+    const g = $("savedGrid"); g.innerHTML = "";
+    const empty = $("savedEmpty");
+    if (store.mode === "remote" && !store.user) {
+      empty.style.display = ""; empty.innerHTML = `<a style="cursor:pointer;text-decoration:underline" id="emptyLogin">Log in</a> to see your saved cards.`;
+      $("emptyLogin").onclick = () => openAuth("login"); return;
+    }
+    empty.style.display = cards.length ? "none" : "";
+    empty.textContent = list ? "This list is empty — use + on any card to add it." : "No favorites yet — tap ♥ on any card.";
+    cards.forEach(c => {
+      const d = document.createElement("div"); d.className = "card";
+      d.innerHTML = (c.image ? `<img loading="lazy" src="${esc(c.image)}" alt="${esc(c.name)}">` : `<div class="noimg"><b>${esc(c.name)}</b><br>${syms(c.mana_cost)}<br><small>${esc(c.type_line)}</small></div>`) +
+        `<div class="acts keep">${list ? "" : `<button class="iconbtn" data-act="add" title="Add to list">+</button>`}<button class="iconbtn" data-act="rm" title="${list ? "Remove from list" : "Unfavorite"}">×</button></div>`;
+      d.onclick = e => { if (!handleActs(e, c)) openById(c.id); };
+      g.appendChild(d);
+    });
+  }
+  function removeFromCurrent(c) { const l = currentList(); l ? toggleInList(l, c) : toggleFav(c); }
+  async function openById(id) {
+    if (!isUuid(id)) return;
+    try { const c = cardCache.get(id) || await sf(`${API}/cards/${id}`); cardCache.set(id, c); openCard(c); }
+    catch (e) { toast(e.message); }
+  }
+  $("navSaved").onclick = () => showView("saved");
+  $("navSearch").onclick = () => {
+    const h = lastSearch;
+    try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch {}
+    const has = loadState();
+    showView("search");
+    if (!has) reset();
+    else if (!el.grid.children.length) search();
+  };
+  $("newList").onclick = () => {
+    if (needLogin()) return;
+    ask("New list", "", async name => { const l = await createList(name); if (l) { tab = String(l.id); renderSaved(); } });
+  };
+  $("renameList").onclick = () => {
+    const l = currentList(); if (!l) return;
+    ask("Rename list", l.name, async name => {
+      name = name.trim().slice(0, 60); if (!name || name === l.name) return;
+      const old = l.name;
+      await mutate(() => l.name = name, () => l.name = old, () => apiCall("PATCH", `/api/lists/${l.id}`, { name }));
+    });
+  };
+  $("deleteList").onclick = () => {
+    const l = currentList(); if (!l) return;
+    ask(`Delete "${l.name}"? Type DELETE to confirm`, "", async v => {
+      if (v.trim().toUpperCase() !== "DELETE") return toast("Not deleted");
+      const i = store.lists.indexOf(l);
+      const ok = await mutate(() => store.lists.splice(i, 1), () => store.lists.splice(i, 0, l), () => apiCall("DELETE", `/api/lists/${l.id}`));
+      if (ok) { tab = "fav"; renderSaved(); toast("List deleted"); }
+    });
+  };
+  $("copyList").onclick = async () => {
+    const l = currentList();
+    const txt = [...(l ? l.cards : store.fav).values()].map(c => `1 ${c.name}`).join("\n");
+    try { await navigator.clipboard.writeText(txt); toast("Copied — paste into Moxfield / Archidekt"); }
+    catch { toast("Copy failed"); }
+  };
+
+  // small inline prompt (no window.prompt)
+  function ask(title, value, done) {
+    pop.innerHTML = `<div class="ttl">${esc(title)}</div><form><input maxlength="60" value="${esc(value)}"><button class="btn primary" style="width:auto;padding:6px 12px">OK</button></form>`;
+    const a = $("newList").getBoundingClientRect();
+    pop.classList.add("open"); pop.style.left = Math.max(8, a.left) + "px"; pop.style.top = (a.bottom + 6) + "px";
+    const inp = pop.querySelector("input"); inp.focus(); inp.select();
+    pop.querySelector("form").onsubmit = e => { e.preventDefault(); closePop(); done(inp.value); };
+  }
+
+  // ---- auth ----
+  let authMode = "login";
+  function openAuth(mode, sub) {
+    if (store.mode !== "remote") return;
+    authMode = mode;
+    $("authSub").textContent = sub || (mode === "login" ? "Log in to save cards" : "Make an account to save cards");
+    $("authGo").textContent = mode === "login" ? "Log in" : "Create account";
+    $("authPass").autocomplete = mode === "login" ? "current-password" : "new-password";
+    $("authSwap").innerHTML = mode === "login" ? `No account? <a id="swapA">Sign up</a>` : `Have an account? <a id="swapA">Log in</a>`;
+    $("swapA").onclick = () => openAuth(mode === "login" ? "signup" : "login");
+    $("authMsg").textContent = "";
+    $("authModal").classList.add("open");
+    setTimeout(() => $("authUser").focus(), 30);
+  }
+  const closeAuth = () => $("authModal").classList.remove("open");
+  $("authClose").onclick = closeAuth;
+  $("authModal").addEventListener("click", e => { if (e.target === $("authModal")) closeAuth(); });
+  $("authForm").onsubmit = async e => {
+    e.preventDefault();
+    const username = $("authUser").value.trim(), password = $("authPass").value;
+    $("authGo").disabled = true; $("authMsg").textContent = "";
+    try {
+      const r = await apiCall("POST", authMode === "login" ? "/api/login" : "/api/signup", { username, password });
+      store.user = r.user; await loadRemote();
+      $("authPass").value = ""; closeAuth(); refreshAll(); renderSavedIfOpen();
+      toast(`Welcome, ${r.user.username}`);
+    } catch (err) { $("authMsg").textContent = err.message; }
+    finally { $("authGo").disabled = false; }
+  };
+  const renderSavedIfOpen = () => view === "saved" && renderSaved();
+  $("navAcct").onclick = e => {
+    if (store.mode === "local") return toast("No server found — saves stay in this browser");
+    if (!store.user) return openAuth("login");
+    pop.innerHTML = `<div class="ttl">Signed in as ${esc(store.user.username)}</div><button id="logoutBtn"><span>Log out</span></button>`;
+    const r = e.currentTarget.getBoundingClientRect();
+    pop.classList.add("open"); pop.style.left = Math.max(8, r.right - 220) + "px"; pop.style.top = (r.bottom + 6) + "px";
+    $("logoutBtn").onclick = async () => {
+      closePop();
+      try { await apiCall("POST", "/api/logout", {}); } catch {}
+      store.user = null; store.fav = new Map(); store.lists = []; refreshAll(); toast("Logged out");
+    };
+  };
+
+  let toastT;
+  function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200); }
+
+  // ---- wiring ----
+  $("go").onclick = search;
+  $("random").onclick = random;
+  el.more.onclick = loadMore;
+  $("home").onclick = e => { e.preventDefault(); el.q.value = ""; showView("search"); reset(); };
+  ["cmode","role","type","format","rarity","order","unique"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
+  ["mvmin","mvmax"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
+  $("clear").onclick = () => {
+    selected.clear(); document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
+    el.cmode.value = "id"; ["role","type","format","rarity","mvmin","mvmax"].forEach(k => el[k].value = "");
+    el.order.value = "name"; el.unique.value = "cards";
+    hasAnything() ? search() : reset();
+  };
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") { closePop(); closeAuth(); if (el.modal.classList.contains("open")) closeCard(); }
+    if (e.key === "/" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName) && !el.modal.classList.contains("open")) { e.preventDefault(); el.q.focus(); }
+  });
+  // click a role badge -> show more cards with that role (keeps color/format filters, clears text)
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".badge[data-role]"); if (!b) return;
+    e.stopPropagation(); closeCard();
+    el.role.value = b.dataset.role; el.q.value = ""; el.unique.value = "cards";
+    search();
+  });
+  // infinite scroll
+  new IntersectionObserver(es => { if (es[0].isIntersecting && nextPage) loadMore(); }, { rootMargin: "600px" }).observe(el.more);
+
+  // example chips
+  const examples = [
+    ["Izzet commanders", "is:commander id=UR"],
+    ["Green ramp under $2", "c:g usd<2", "ramp"],
+    ["Cheap counterspells", "mv<=2", "counter"],
+    ["Board wipes", "", "wipe"],
+    ["Izzet removal", "id<=UR", "removal"],
+    ["Pingers", 'o:"deals 1 damage to any target" t:creature'],
+    ["Legendary dragons", "t:legendary t:dragon"],
+  ];
+  examples.forEach(([label, q, role]) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = label;
+    b.onclick = () => { el.q.value = q; el.role.value = role || ""; search(); };
+    $("chips").appendChild(b);
+  });
+
+  initStore();
+  if (location.hash === "#saved") showView("saved");
+  else if (loadState()) search();
+})();
+</script>
+</body>
+</html>
