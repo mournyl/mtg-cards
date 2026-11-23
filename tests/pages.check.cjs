@@ -82,10 +82,12 @@ async function newPage(browser, mode, viewport) {
     // filters + show more
     await page.goto(`${BASE}/tiers/#draw`); await page.waitForTimeout(300);
     await page.waitForSelector("[data-more]");
-    const before = await page.$$eval("#tier-d .row", r => r.length);
+    const before = await page.$$eval("#tier-d .tile", r => r.length);
     await page.click("#tier-d [data-more]");
-    const after = await page.$$eval("#tier-d .row", r => r.length);
-    ok(after === before + 100, `show more adds 100 rows (${before} -> ${after})`);
+    const after = await page.$$eval("#tier-d .tile", r => r.length);
+    ok(after === before + 48, `lower tiers show full cards, 48 more at a time (${before} -> ${after})`);
+    ok(!(await page.isVisible("#mv")), "filters stay folded until asked");
+    await page.click("#filtersBtn");
     await page.selectOption("#mv", "1");
     await page.check("#inst");
     const mvs = await page.$$eval("#board [data-n]", els => els.length);
@@ -120,7 +122,9 @@ async function newPage(browser, mode, viewport) {
       await page.fill("#q", "t:instant"); await page.keyboard.press("Enter");
       await page.waitForSelector("#grid .tile"); await page.waitForTimeout(800);
       ok(/Ramp #1/.test(await page.textContent("#grid")), "result tiles show tier badges (Sol Ring: Ramp #1)");
+      await page.click("#filtersBtn");
       await page.selectOption("#tier", "B"); await page.waitForTimeout(2500);
+      ok(/Filters\s*1/.test(await page.textContent("#filtersBtn")), "Filters button counts active filters");
       const shown = await page.$$eval("#grid .tile .card img", els => els.map(e => e.alt));
       ok(shown.includes("Sol Ring") && !shown.includes("Divination") && !shown.includes("Cancel"), `tier B or better filters across all pages (${shown.join(", ")})`);
       await page.selectOption("#order", "tier"); await page.waitForTimeout(2500);
@@ -135,6 +139,7 @@ async function newPage(browser, mode, viewport) {
       await page.keyboard.press("Escape");
     } else {
       ok(await page.$eval("#format", e => e.value) === "commander", "format starts on Commander");
+      ok(!(await page.isVisible("#format")), "search filters stay folded until asked");
       ok(!(await page.$("#random")), "Random button is gone");
       ok(await page.isVisible("#navAcct") && await page.isVisible("#navSaved"), "profile and Saved sit in the header");
       await page.click("#navSaved"); await page.waitForTimeout(300);

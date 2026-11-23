@@ -19,11 +19,11 @@
       <nav class="site" aria-label="Site"><a data-page="search">Card search</a><a data-page="tiers">Tier lists</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Find a card on every list"></div>
+      <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters" hidden>Filters</button>
       <div class="me"><a class="melink" id="navSaved" data-page="saved">Saved<span class="count" id="savedCount" hidden>0</span></a><button type="button" class="melink acct" id="navAcct">Log in</button></div>
     </div>
-    <div class="filters" id="filters" hidden>
+    <div class="filters" id="filters">
       <div class="tabs" id="tabs" role="group" aria-label="Show tiers"></div>
-      <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="moreFilters">Filters</button>
       <div class="more-filters" id="moreFilters">
       <label class="fgroup">Type
         <select id="type"><option value="">Any</option><option>Creature</option><option>Artifact</option><option>Enchantment</option>
@@ -78,7 +78,7 @@
   const state = { role: null, view: "all", sub: "", mine: M.store.get("mine", "WUBRG").replace(/[^WUBRG]/g, ""), q: "",
     tiers: new Set("SABCDF"), type: "", mv: "", inst: false, free: false, gc: "", rev: false, hard: false, prices: M.store.get("prices", false), shown: {} };
   let hub = null, role = null, entries = [];
-  const ROW_STEP = 100, ROW_FIRST = 40, TILE_MAX = 60;
+  const ROW_STEP = 48, ROW_FIRST = 48;
 
   // ---------- routing: #ramp, #ramp/green, #ramp/green/rocks, #ramp/id-ug ----------
   function parseHash() {
@@ -162,7 +162,7 @@
   // ---------- hub ----------
   function renderHub() {
     document.title = "Tier Lists · mournyl mtg";
-    $("filters").hidden = true; $("method").hidden = false;
+    $("filtersBtn").hidden = true; $("filters").classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false"); $("method").hidden = false;
     const total = hub.roles.reduce((a, r) => a + r.count, 0), revd = hub.roles.reduce((a, r) => a + r.reviewed, 0);
     $("hero").innerHTML = `<h1>Tier lists</h1><p>Ten deck-building jobs, every Commander-legal card that does them, ranked S to F on one scale. ` +
       `${fmt(total)} placements, ${fmt(revd)} checked by hand. Updated ${esc(hub.built)}.</p>`;
@@ -192,7 +192,7 @@
   function buildRoleChrome() {
     const info = M.ROLE_INFO[role.key] || {};
     document.title = `${role.name} Tier List · mournyl mtg`;
-    $("filters").hidden = false; $("method").hidden = false;
+    $("filtersBtn").hidden = false; $("method").hidden = false;
     $("q").placeholder = `Search ${role.name.toLowerCase()} by name or rules text`;
     $("hardGroup").hidden = role.key !== "counterspells";
     if (role.key !== "counterspells") state.hard = false;
@@ -234,13 +234,11 @@
       if (!state.tiers.has(T.t)) continue;
       const all = view.filter(e => e.t === T.t); if (!all.length) continue;
       const list = all.filter(matches); shown += list.length;
-      const tiles = view.length <= 40 || T.t === "S" || T.t === "A" || (T.t === "B" && list.length <= TILE_MAX);
-      const lim = tiles ? list.length : (state.shown[T.t] || ROW_FIRST), part = list.slice(0, lim);
-      visible.push(...part.slice(0, tiles ? 80 : 40).map(e => e.n));
+      const part = list.slice(0, state.shown[T.t] || ROW_FIRST);
+      visible.push(...part.slice(-ROW_STEP).map(e => e.n));
       const more = list.length - part.length;
       const inner = !list.length ? `<p class="empty">No ${T.t}-tier cards match your filters.</p>`
-        : tiles ? `<div class="grid">${part.map(tile).join("")}</div>`
-        : `<div class="rows${M.hasImages() ? " imgs" : ""}">${part.map(row).join("")}</div>` +
+        : `<div class="grid">${part.map(tile).join("")}</div>` +
           (more ? `<button type="button" class="btn small showmore" data-more="${T.t}">Show ${fmt(Math.min(more, ROW_STEP))} more (${fmt(more)} left)</button>` : "");
       html += `<section class="tier" id="tier-${T.t.toLowerCase()}" aria-labelledby="h-${T.t}">` +
         `<div class="tier-tag t${T.t}"><span class="L">${T.t}</span><span class="h">${esc(T.h)}</span>` +
@@ -249,6 +247,8 @@
     }
     $("board").innerHTML = html || `<p class="empty">${state.tiers.size ? "Nothing here matches your filters." : "Pick at least one tier above."}</p>`;
     $("status").innerHTML = `<b>${fmt(shown)}</b> of ${fmt(view.length)} cards`;
+    const nf = [state.type, state.mv !== "", state.inst, state.free, state.gc, state.rev, state.hard, state.tiers.size < 6].filter(Boolean).length;
+    $("filtersBtn").innerHTML = `Filters${nf ? ` <span class="n">${nf}</span>` : ""}`;
     loadImages(visible);
   }
   let imgT;
@@ -282,7 +282,7 @@
     ["type", "mv", "gc"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.value)));
     ["inst", "free", "rev", "hard"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.checked)));
     $("filtersBtn").addEventListener("click", e => {
-      const open = $("moreFilters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", open);
+      const open = $("filters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", open);
     });
     $("prices").checked = state.prices;
     $("prices").addEventListener("change", e => { state.prices = e.target.checked; M.store.set("prices", state.prices); render(); });

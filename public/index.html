@@ -20,7 +20,7 @@
   .pip img{width:100%;height:100%;display:block}
   .fgroup input[type=number]{width:60px}
   .qchips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
-  .qchip{font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+  .qchip{font-size:14px;padding:7px 14px;border-radius:var(--rc);border:1px solid var(--line);background:var(--panel);cursor:pointer}
   .qchip:hover{border-color:#fff}
   .help{max-width:720px;margin:28px auto 0;text-align:left;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;color:var(--muted)}
   .help code{background:#222;padding:1px 6px;border-radius:5px;color:#fff}
@@ -71,7 +71,7 @@
   .authbox .swap{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
   .authbox .swap a{cursor:pointer;text-decoration:underline}
   .authbox .msg{color:var(--danger);font-size:13px;min-height:18px;margin-top:10px;text-align:center}
-  .tbadge{font-size:11px;line-height:1.6;padding:0 8px 0 0;border-radius:999px;border:1px solid var(--line2);color:var(--soft);background:#141414;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;text-decoration:none;overflow:hidden}
+  .tbadge{font-size:11px;line-height:1.6;padding:0 8px 0 0;border-radius:5px;border:1px solid var(--line2);color:var(--soft);background:#141414;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;text-decoration:none;overflow:hidden}
   .tbadge:hover{border-color:#777;color:#fff}
   .tbadge b,.tl{font:800 11px/1.6 var(--ui);padding:0 7px;min-width:20px;text-align:center}
   .tl{display:inline-grid;place-items:center;border-radius:5px;padding:2px 7px;font-size:13px}
@@ -99,6 +99,7 @@
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder='Search cards: "lightning bolt" or o:"draw a card" t:instant'>
         <div class="ac" id="ac"></div>
       </div>
+      <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
       <div class="me"><button type="button" class="melink" id="navSaved">Saved<span class="count" id="savedCount" hidden>0</span></button><button type="button" class="melink acct" id="navAcct">Log in</button></div>
     </div>
     <div class="filters" id="filters">
@@ -110,7 +111,6 @@
           <option value="exact">Exactly</option>
         </select>
       </div>
-      <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="moreFilters">Filters</button>
       <div class="more-filters" id="moreFilters">
       <label class="fgroup">Type
         <select id="type">
@@ -398,6 +398,7 @@
     const p = new URLSearchParams();
     if (el.q.value.trim()) p.set("q", el.q.value.trim());
     if (selected.size) p.set("c", [...selected].join(""));
+    setTimeout(() => typeof countFilters === "function" && countFilters());
     ["cmode","role","tier","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
       const v = el[k].value, d = el[k].querySelector?.("option")?.value ?? "";
       if (v !== "" && v !== d) p.set(k, v);
@@ -1014,7 +1015,15 @@
 
   if (MT) [["navTiers","tiers"],["footTiers","tiers"]].forEach(([id, pg]) => { if ($(id)) $(id).href = MT.page(pg); });
   addEventListener("hashchange", () => { if (location.hash === "#saved") showView("saved"); });
-  $("filtersBtn").onclick = e => { const o = $("moreFilters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", o); };
+  $("filtersBtn").onclick = e => { const o = $("filters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", o); };
+  // the Filters button shows how many filters are on
+  function countFilters() {
+    const n = (selected.size ? 1 : 0) + ["type", "role", "tier", "rarity", "mvmin", "mvmax"].filter(k => el[k].value !== "").length +
+      (el.format.value !== "commander" ? 1 : 0) + (el.order.value !== "name" ? 1 : 0) + (el.unique.value !== "cards" ? 1 : 0);
+    $("filtersBtn").innerHTML = `Filters${n ? ` <span class="n">${n}</span>` : ""}`;
+  }
+  $("filters").addEventListener("change", countFilters); $("filters").addEventListener("click", () => setTimeout(countFilters));
+  countFilters();
   if (MT) MT.loadSprite().then(() => document.querySelectorAll(".pip").forEach(b => { b.innerHTML = MT.bigSym(b.dataset.c); }));
   initStore();
   if (location.hash === "#saved") showView("saved");
