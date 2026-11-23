@@ -1,0 +1,61 @@
+name	sub	score	reason
+Reanimate	reanimate	88	1 mana: any creature from any graveyard, for life equal to its mana value.
+Animate Dead	reanimate	86	2 mana: any creature from any graveyard.
+Necromancy	reanimate	82	3 mana; you can cast it at instant speed for a surprise.
+Living Death	reanimate	78	Every player's creatures come back; build so yours are better.
+Sun Titan	reanimate	76	6-mana body that returns a cheap permanent every attack.
+Dance of the Dead	reanimate	74	2 mana: any creature from any graveyard, untapped.
+Persist	reanimate	72	2 mana: any nonlegendary creature back with a -1/-1 counter.
+Exhume	reanimate	72	Each player returns a creature; you pick yours.
+Victimize	reanimate	70	Two creatures back for the price of one sacrifice.
+Eerie Ultimatum	reanimate	70	Returns every permanent card from your graveyard.
+Unburial Rites	reanimate	66	Reanimation with flashback.
+Eternal Witness	to-hand	80	3-mana body: any card back to hand.
+Regrowth	to-hand	72	2 mana: any card back to hand.
+Bala Ged Recovery // Bala Ged Sanctuary	to-hand	72	Spell-land: a creature back to hand, or a land that enters tapped.
+Timeless Witness	to-hand	70	Eternal Witness you can eternalize later.
+Archaeomancer	to-hand	66	Body that returns an instant or sorcery.
+Seasons Past	to-hand	66	Returns any number of cards with different mana values.
+Underworld Breach	cast	86	Every card in your graveyard gains escape this turn. Game Changer.
+Yawgmoth's Will	cast	82	Play lands and cast spells from your graveyard this turn.
+Lurrus of the Dream-Den	cast	74	Cast a permanent with mana value 2 or less from your graveyard each turn.
+Muldrotha, the Gravetide	cast	74	Play a permanent of each type from your graveyard each turn.
+Snapcaster Mage	cast	70	Flash body: an instant or sorcery in your graveyard gains flashback.
+Torrential Gearhulk	cast	70	Flash 5/6: cast an instant or sorcery from your graveyard free.
+Crucible of Worlds	cast	66	Play lands from your graveyard.
+Past in Flames	cast	66	Instants and sorceries in your graveyard gain flashback this turn.
+Command the Dreadhorde	reanimate	68	Pay life to steal every creature and planeswalker from all graveyards.
+Goryo's Vengeance	reanimate	66	2-mana instant: a legendary creature returns with haste, then exiled.
+Kaya's Ghostform	reanimate	66	Aura: when the creature dies or is exiled, it comes back.
+Noxious Revival	to-hand	66	Free: any card from a graveyard to the top of its library.
+Karmic Guide	reanimate	64	Flying body that returns a creature on entry.
+Reveillark	reanimate	64	Leaves play: two creatures with power 2 or less return.
+Stitch Together	reanimate	64	2 mana: any creature to hand, or the battlefield with threshold.
+Patriarch's Bidding	reanimate	64	Each player returns all creatures of a type; pick yours.
+Malakir Rebirth // Malakir Mire	reanimate	64	Spell-land: a creature to hand at instant speed, or a land.
+Greenwarden of Murasa	to-hand	64	Body that returns a card on entry and again when exiled from your graveyard.
+Mnemonic Wall	to-hand	62	Body that returns an instant or sorcery.
+Greasefang, Okiba Boss	reanimate	62	Returns a Vehicle every combat; best in Vehicle decks.
+Finale of Eternity	reanimate	62	X: destroy small creatures, X 10 returns your whole graveyard.
+Mission Briefing	cast	62	Surveil 2, then an instant or sorcery gains flashback.
+Dreadhorde Arcanist	cast	62	Attacks to recast cheap instants and sorceries free.
+Ramunap Excavator	cast	62	Play lands from your graveyard.
+Gaea's Will	cast	60	Suspend: play lands and cast spells from your graveyard for a turn.
+Gravedigger	to-hand	60	Body that returns a creature on entry.
+Apprentice Necromancer	reanimate	60	Sacrifice it: a creature returns with haste for a turn.
+Zombify	reanimate	60	3 mana: any creature from your graveyard.
+Kess, Dissident Mage	cast	60	Cast one instant or sorcery from your graveyard each turn.
+Dread Return	reanimate	60	3 mana: a creature back, with flashback.
+Priest of Fell Rites	reanimate	58	Sacrifice it: a creature with power 3 or less returns.
+Restock	to-hand	58	Two cards back to hand.
+Shallow Grave	reanimate	58	Instant: the top creature of your graveyard with haste for a turn.
+Stormchaser's Talent	to-hand	58	1-mana body that later returns an instant or sorcery.
+Breath of Life	reanimate	56	4 mana: any creature from your graveyard.
+Nature's Spiral	to-hand	54	A permanent card back to hand.
+Divergent Equation	to-hand	52	X instant: up to X instants and sorceries back.
+Misery Charm	to-hand	52	Modal: a Cleric back to hand, or kill a Cleric.
+Resurgent Belief	reanimate	52	Suspend: every enchantment returns from your graveyard.
+Raise Dead	to-hand	50	1 mana: a creature back to hand.
+Codex Shredder	to-hand	50	Mill tool that returns a card for {5}.
+Argivian Find	to-hand	50	An artifact or enchantment back to hand.
+Tragic Poet	to-hand	50	Sacrifice it: an enchantment back to hand.

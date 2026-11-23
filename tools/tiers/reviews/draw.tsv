@@ -1,0 +1,81 @@
+name	sub	score	reason
+Rhystic Study	engine	95	Every opponent spell draws you a card unless they pay {1}. Game Changer.
+Necropotence	engine	92	Pay life for cards; the strongest draw engine in black. Game Changer.
+The One Ring	engine	90	A turn of protection, then draws that grow every turn. Game Changer.
+Mystic Remora	engine	88	1 mana: draws off every noncreature spell opponents cast in the early turns.
+Sylvan Library	engine	88	2 mana: see three cards a turn and pay life to keep the extras.
+Consecrated Sphinx	engine	88	6 mana: draw two whenever an opponent draws. Game Changer.
+Skullclamp	engine	86	1 mana: two cards for every small creature of yours that dies.
+Esper Sentinel	engine	84	1 mana: draws off each opponent's first noncreature spell unless they pay.
+Bolas's Citadel	engine	84	Play cards off the top of your library by paying life. Game Changer.
+Phyrexian Arena	engine	80	3 mana: an extra card every turn for 1 life.
+Black Market Connections	engine	80	3 mana: pick cards, Treasures or bodies each turn for life.
+Notion Thief	engine	80	Takes opponents' extra draws and draws you a card instead. Game Changer.
+Guardian Project	engine	76	4 mana: draw whenever a creature with a new name enters on your side.
+Ohran Frostfang	engine	76	5 mana: your attackers draw on combat damage and get deathtouch.
+Welcoming Vampire	engine	74	3 mana: draws when a creature with power 2 or less enters, once each turn.
+Tymna the Weaver	engine	74	Partner: pay life to draw a card for each opponent your creatures hit.
+Archivist of Oghma	engine	72	2 mana: draws whenever an opponent searches their library.
+Kindred Discovery	engine	72	5 mana: draws when your chosen creature type enters or attacks.
+Faerie Mastermind	engine	70	2-mana flash flyer: draws when an opponent draws their second card each turn.
+Morbid Opportunist	engine	70	3 mana: draws on the first creature death each turn.
+Beast Whisperer	engine	70	6 mana: draw whenever you cast a creature spell.
+Mangara, the Diplomat	engine	70	3 mana: draws when an opponent attacks you with two or more creatures or casts a second spell.
+Thrasios, Triton Hero	engine	70	Partner: {4} to scry and draw or ramp, as often as you have mana.
+Dark Confidant	engine	68	2 mana: an extra card each upkeep for life equal to its mana value.
+Trouble in Pairs	engine	68	4 mana: draws whenever an opponent draws two cards in a turn.
+Garruk's Uprising	engine	66	3 mana: draws when big creatures enter, and gives trample.
+Midnight Reaper	engine	66	3 mana: draws whenever a nontoken creature of yours dies, for 1 damage each.
+Tocasia's Welcome	engine	66	2 mana: draws once a turn when a creature with mana value 3 or less enters on your side.
+Mentor of the Meek	engine	66	Pay {1} to draw when a small creature enters.
+Arguel's Blood Fast // Temple of Aclazotz	engine	66	2 mana: pay {1}{B} and 2 life to draw, as often as you like.
+Coastal Piracy	engine	66	Draws when your creatures hit opponents.
+Reconnaissance Mission	engine	66	Draws when your creatures hit opponents.
+Scrawling Crawler	engine	58	Every player draws an extra card each upkeep; opponents lose 1 life per draw.
+Elemental Bond	engine	62	3 mana: draws whenever a creature with power 3 or more enters on your side.
+Howling Mine	engine	52	Everyone draws more; helps opponents as much as you.
+Kami of the Crescent Moon	engine	52	Everyone draws more; helps opponents as much as you.
+Jeska's Will	burst	80	Ritual plus three cards you can play this turn. Game Changer.
+Wheel of Fortune	burst	76	3 mana: every player discards and draws seven; a refill for fast decks.
+Night's Whisper	burst	72	2 mana: draw two for 2 life.
+Painful Truths	burst	72	3 mana: draws one per color spent, usually three.
+Fact or Fiction	burst	72	4-mana instant: the better pile out of five cards.
+Dig Through Time	burst	72	Delve instant: the best two of seven.
+Return of the Wildspeaker	burst	72	Instant: draw equal to your biggest non-Human, or pump your team.
+Windfall	burst	72	3 mana: everyone refills to the biggest hand.
+Read the Bones	burst	70	3 mana: scry 2 and draw two.
+Deadly Dispute	burst	70	2-mana instant: sacrifice a body to draw two and make a Treasure.
+Rishkar's Expertise	burst	70	6 mana: draw by your biggest creature's power, then a free spell.
+Timetwister	burst	70	Shuffles every hand and graveyard back, then everyone draws seven.
+Mulldrifter	burst	68	5-mana flyer that draws two; evoke it for just the cards at 3.
+Treasure Cruise	burst	68	Delve: draw three, often for one or two mana late.
+Echo of Eons	burst	68	Everyone shuffles hand and graveyard back and draws seven; flash it back for {2}{U}.
+Sign in Blood	burst	66	2 mana: draw two for 2 life.
+Harmonize	burst	66	4 mana: draw three.
+Shamanic Revelation	burst	66	Draw one per creature you control.
+Pull from Tomorrow	burst	66	X-mana instant: draw X, discard one.
+Memory Deluge	burst	66	Instant: the best two of seven, again from the graveyard.
+Stroke of Genius	burst	64	X-mana instant: draw X; scales late.
+Blue Sun's Zenith	burst	64	X-mana instant: draw X; scales late.
+Tezzeret's Gambit	burst	64	4 mana, or 3 and 2 life: draw two, then proliferate.
+Big Score	burst	62	Instant: discard one, draw two, and make two Treasures.
+Unexpected Windfall	burst	62	Instant: discard one, draw two, and make two Treasures.
+Village Rites	burst	62	Sacrifice a creature to draw two.
+Frantic Search	burst	62	Draw three, discard two and untap three lands; often free.
+Wheel of Misfortune	burst	60	Everyone discards and draws seven after a damage auction.
+Outpost Siege	impulse	66	4 mana: an extra card to play every turn in Khans mode.
+Experimental Frenzy	impulse	64	Play cards off the top until you play one from hand.
+Prosper, Tome-Bound	impulse	64	Partner commander: impulse draw every end step.
+Mystic Forge	impulse	64	Play colorless cards off the top.
+Valakut Exploration	impulse	62	3 mana: every land drop exiles a card you can play.
+Light Up the Stage	impulse	58	1 mana with spectacle: two cards you can play through next turn.
+Commune with Lava	impulse	56	2-mana instant: three cards you can play until next turn.
+Brainstorm	cantrip	70	1 mana: draw three, put back two; perfect with fetch lands and shuffles.
+Ponder	cantrip	62	1 mana: sort the top three, then draw.
+Preordain	cantrip	62	1 mana: sort the top three, then draw.
+Consider	cantrip	56	1-mana instant: look at two, keep one.
+Opt	cantrip	54	1-mana instant: scry 1, draw.
+Manamorphose	cantrip	54	Free fixing that draws a card.
+Faithless Looting	cantrip	54	1 mana: draw two, discard two, flashback; fuels the graveyard.
+Serum Visions	cantrip	52	1 mana: scry 2 after drawing.
+Thrill of Possibility	cantrip	50	1-mana loot.

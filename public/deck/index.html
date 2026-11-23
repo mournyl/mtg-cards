@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deck Checker · mournyl mtg</title>
+<meta name="description" content="Paste a Commander decklist and get role counts, the curve, mana sources, a bracket check against your table's rules, and upgrade picks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/mtg.css">
+</head>
+<body>
+<div id="spritebox" hidden></div>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" data-page="search">mournyl<small>mtg</small></a>
+      <nav class="site" aria-label="Site">
+        <a data-page="search">Card search</a><a data-page="tiers">Tier lists</a><a data-page="deck">Deck checker</a><a data-page="build">Slot finder</a><a data-page="saved">Saved</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="wrap narrow">
+  <section class="hero"><h1>deck checker</h1>
+    <p>Paste a decklist in the text format any deck site exports, one card per line. You get role counts against targets, the curve, colored sources, a bracket check against your table's rules, and upgrade picks for the weakest cards. Card lookups use this site's own card index, so a check costs no Scryfall requests.</p></section>
+
+  <section class="panels" style="margin-top:22px">
+    <div class="two">
+      <div class="panel">
+        <label for="list" class="sr">Decklist</label>
+        <textarea id="list" class="deck" spellcheck="false" placeholder="Commander
+1 Niv-Mizzet, Parun
+
+Deck
+1 Sol Ring
+1 Arcane Signet
+…"></textarea>
+        <div class="row2" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+          <button class="btn primary" id="check" type="button">Check deck</button>
+          <button class="btn small" id="sample" type="button">Try a sample deck</button>
+          <button class="btn small" id="clearList" type="button">Clear</button>
+        </div>
+      </div>
+      <div class="panel form">
+        <div class="field"><label>Commander<input id="cmd1" autocomplete="off" spellcheck="false" placeholder="Found in the list, or type it here"></label><div class="ac" id="ac1" hidden></div></div>
+        <div class="field" id="cmd2Box" hidden><label>Partner or Background<input id="cmd2" autocomplete="off" spellcheck="false" placeholder="Second commander"></label><div class="ac" id="ac2" hidden></div></div>
+        <button type="button" class="btn tiny" id="addPartner" style="justify-self:start">+ Partner or Background</button>
+        <label>Table rules<select id="preset"></select></label>
+        <div id="custom" class="form" hidden style="gap:8px;padding:10px 12px;border:1px solid var(--line);border-radius:8px">
+          <div class="row2"><label style="flex:1">Max Game Changers<input id="rGC" type="number" min="0" max="99" value="3"></label>
+            <label style="flex:1">Extra turns<select id="rExtra"><option value="none">None</option><option value="no-chain">No chaining</option><option value="any">Any</option></select></label></div>
+          <label class="check"><input type="checkbox" id="rMLD">Mass land destruction allowed</label>
+          <label class="check"><input type="checkbox" id="rTwo">Two-card infinite combos allowed</label>
+          <div class="row2" style="font-size:13px;color:var(--muted)">Block Spellbook ratings:
+            <label class="check"><input type="checkbox" data-tag="P">Powerful</label><label class="check"><input type="checkbox" data-tag="S">Spicy</label><label class="check"><input type="checkbox" data-tag="R">Ruthless</label></div>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:12px;display:grid;gap:8px">
+          <h3 style="margin:0">Saved decks <span class="muted" id="whereNote" style="text-transform:none;letter-spacing:0;font-weight:400"></span></h3>
+          <div class="row2"><select id="savedSel" class="in" style="flex:1;min-width:0"><option value="">Open a saved deck…</option></select>
+            <button class="btn small" id="saveBtn" type="button">Save</button></div>
+          <div class="row2"><input id="deckName" class="in" placeholder="Deck name" maxlength="60" style="flex:1;min-width:0">
+            <button class="btn tiny" id="delBtn" type="button" hidden>Delete</button><button class="btn tiny" id="loginBtn" type="button" hidden>Log in</button></div>
+          <span class="msg" id="saveMsg"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="report" style="padding-top:22px" aria-live="polite"></main>
+</div>
+
+<footer><span class="g">mournyl</span> · Card data © Wizards of the Coast. Combo data from <a href="https://commanderspellbook.com" target="_blank" rel="noopener">Commander Spellbook</a>. Mana symbols from the <a href="https://github.com/andrewgioia/mana" target="_blank" rel="noopener">Mana font</a> (SIL OFL 1.1). Unofficial fan content.</footer>
+
+<script src="../assets/core.js"></script>
+<script src="../assets/mtg.js"></script>
+<script>
+(() => {
+  "use strict";
+  const M = window.MTG, K = window.MTGCore, { $, esc, fmt, tb, cost, sym, idSyms } = M;
+  M.initNav("deck");
+  let idx = null, deck = null, rep = null, spell = null, savedId = null, checksHtml = "";
+  const SAMPLE = `Commander
+1 Niv-Mizzet, Parun
+
+Deck
+1 Sol Ring
+1 Arcane Signet
+1 Izzet Signet
+1 Talisman of Creativity
+1 Mind Stone
+1 Fellwar Stone
+1 Commander's Sphere
+1 Thought Vessel
+1 Coldsteel Heart
+1 Rhystic Study
+1 Mystic Remora
+1 Curiosity
+1 Ophidian Eye
+1 Tandem Lookout
+1 Brainstorm
+1 Ponder
+1 Preordain
+1 Opt
+1 Consider
+1 Frantic Search
+1 Fact or Fiction
+1 Treasure Cruise
+1 Divination
+1 Psychosis Crawler
+1 Guttersnipe
+1 Young Pyromancer
+1 Talrand, Sky Summoner
+1 Murmuring Mystic
+1 Electrostatic Field
+1 Niv-Mizzet, the Firemind
+1 Ral, Storm Conduit
+1 Counterspell
+1 Arcane Denial
+1 Swan Song
+1 Negate
+1 Mana Drain
+1 Fierce Guardianship
+1 Cancel
+1 Lightning Bolt
+1 Chaos Warp
+1 Pongify
+1 Rapid Hybridization
+1 Reality Shift
+1 Abrade
+1 Shock
+1 Cyclonic Rift
+1 Blasphemous Act
+1 Vandalblast
+1 Lightning Greaves
+1 Swiftfoot Boots
+1 Slip Out the Back
+1 Windfall
+1 Wheel of Fortune
+1 Reforge the Soul
+1 Tormod's Crypt
+1 Mystical Tutor
+1 Expressive Iteration
+1 Big Score
+1 Unexpected Windfall
+1 Valakut Awakening // Valakut Stoneforge
+1 Sink into Stupor // Soporific Springs
+1 Thrill of Possibility
+1 Inspiration
+1 Command Tower
+1 Steam Vents
+1 Sulfur Falls
+1 Spirebluff Canal
+1 Shivan Reef
+1 Volcanic Island
+1 Scalding Tarn
+1 Fabled Passage
+1 Evolving Wilds
+1 Exotic Orchard
+1 Reliquary Tower
+1 Swiftwater Cliffs
+1 Izzet Boilerworks
+1 Frostboil Snarl
+1 Fiery Islet
+1 Riverglide Pathway // Lavaglide Pathway
+1 Stormcarved Coast
+1 Training Center
+1 Otawara, Soaring City
+1 Sokenzan, Crucible of Defiance
+8 Island
+8 Mountain`;
+
+  // ---------- table rules ----------
+  const PRESETS = { ...K.PRESETS, custom: { name: "Custom…" } };
+  $("preset").innerHTML = Object.entries(PRESETS).map(([k, p]) => `<option value="${k}">${esc(p.name)}</option>`).join("");
+  let rulesState = M.store.get("rules", { preset: "pod", custom: { ...K.PRESETS.pod } });
+  function rules() { return rulesState.preset === "custom" ? { ...rulesState.custom, name: "Custom" } : K.PRESETS[rulesState.preset] || K.PRESETS.pod; }
+  function showRules() {
+    $("preset").value = rulesState.preset; $("custom").hidden = rulesState.preset !== "custom";
+    const c = rulesState.custom;
+    $("rGC").value = c.maxGC; $("rExtra").value = c.extra; $("rMLD").checked = c.mld; $("rTwo").checked = c.twoCard;
+    document.querySelectorAll("[data-tag]").forEach(b => b.checked = c.blockTags.includes(b.dataset.tag));
+  }
+  function readRules() {
+    rulesState.preset = $("preset").value;
+    rulesState.custom = { maxGC: Math.max(0, +$("rGC").value || 0), extra: $("rExtra").value, mld: $("rMLD").checked, twoCard: $("rTwo").checked,
+      blockTags: [...document.querySelectorAll("[data-tag]:checked")].map(b => b.dataset.tag) };
+    M.store.set("rules", rulesState); $("custom").hidden = rulesState.preset !== "custom";
+    if (rep) runCheck();
+  }
+
+  // ---------- commander autocomplete ----------
+  function autocomplete(input, box) {
+    let items = [], on = -1;
+    const close = () => { box.hidden = true; items = []; on = -1; };
+    const draw = () => { box.innerHTML = items.map((c, i) => `<button type="button" data-i="${i}" class="${i === on ? "on" : ""}">${esc(c.n)} ${idSyms(c.id)}</button>`).join(""); box.hidden = !items.length; };
+    input.addEventListener("input", () => {
+      const q = K.norm(input.value); if (!idx || q.length < 2) return close();
+      items = idx.list.filter(c => K.flagsOf(c).commander && K.norm(c.n).includes(q)).sort((a, b) => K.norm(a.n).indexOf(q) - K.norm(b.n).indexOf(q)).slice(0, 8);
+      on = -1; draw();
+    });
+    input.addEventListener("keydown", e => {
+      if (box.hidden) return;
+      if (e.key === "ArrowDown") { e.preventDefault(); on = (on + 1) % items.length; draw(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); on = (on - 1 + items.length) % items.length; draw(); }
+      else if (e.key === "Enter" && on >= 0) { e.preventDefault(); input.value = items[on].n; close(); }
+      else if (e.key === "Escape") close();
+    });
+    box.addEventListener("mousedown", e => { const b = e.target.closest("[data-i]"); if (!b) return; e.preventDefault(); input.value = items[+b.dataset.i].n; close(); });
+    input.addEventListener("blur", () => setTimeout(close, 150));
+  }
+
+  // ---------- check ----------
+  async function runCheck(opts = {}) {
+    idx = idx || await M.loadCards();
+    const text = $("list").value;
+    if (!text.trim()) { $("report").innerHTML = `<p class="empty">Paste a decklist above, or try the sample deck.</p>`; return; }
+    const parsed = K.parseList(text);
+    const typed = [$("cmd1").value, $("cmd2").value].map(s => s.trim()).filter(Boolean);
+    deck = K.resolveDeck(parsed, idx, typed.length ? typed : null);
+    if (!typed.length && deck.commanders.length) {
+      $("cmd1").value = deck.commanders[0].n;
+      if (deck.commanders[1]) { $("cmd2").value = deck.commanders[1].n; $("cmd2Box").hidden = false; }
+    }
+    rep = K.analyzeDeck(deck, idx, { rules: rules() });
+    spell = null;
+    render();
+    M.draft.set({ list: text, commanders: deck.commanders.map(c => c.n), savedId });
+    if (opts.scroll !== false) $("report").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (deck.commanders.length) checkCombos();
+    if (savedId && opts.log !== false) logCheck();
+  }
+
+  const chip = (n, t, half, title) => `<button type="button" class="nm-chip${half ? " half" : ""}" data-open="${esc(n)}"${title ? ` title="${esc(title)}"` : ""}>${t ? tb(t) : ""}${esc(n)}</button>`;
+  const statusTxt = { low: '<span class="warn"><span class="dot"></span>Low</span>', high: '<span class="muted"><span class="dot"></span>Plenty</span>', ok: '<span class="ok"><span class="dot"></span>On target</span>', info: '<span class="muted">—</span>' };
+  const half = n => Number.isInteger(n) ? n : n.toFixed(1);
+
+  function render() {
+    const r = rep, cmds = deck.commanders;
+    const ruleBad = r.rules.filter(x => !x.ok).length;
+    const sec = (title, body, id) => `<section class="panel" ${id ? `id="${id}"` : ""} style="margin-bottom:18px"><h2>${title}</h2>${body}</section>`;
+    let html = "";
+    html += sec("summary", `
+      <div class="stat">
+        <div><b>${r.total}<span class="muted" style="font-size:14px">/100</span></b><span>cards</span></div>
+        <div><b>${cmds.length ? idSyms(r.identity) || sym("C") : "—"}</b><span>${cmds.length ? esc(cmds.map(c => c.n).join(" + ")) : "no commander"}</span></div>
+        <div><b>${half(r.mana.lands)}</b><span>lands</span></div>
+        <div><b>${r.mana.avg.toFixed(2)}</b><span>average mana value</span></div>
+        <div><b>${r.gcs.length}</b><span>Game Changers</span></div>
+        <div><b class="${r.legal ? "ok" : "bad"}">${r.legal ? "Legal" : "Not legal"}</b><span>Commander rules</span></div>
+        <div><b class="${ruleBad ? "bad" : "ok"}" id="rulesStat">${ruleBad ? ruleBad + " broken" : "Pass"}</b><span>${esc(rules().name)}</span></div>
+      </div>
+      ${deck.guessed ? `<p class="muted" style="margin:12px 0 0">Took ${esc(cmds.map(c => c.n).join(" + "))} as the commander because it sits apart from the rest of the list. Change it above if that's wrong.</p>` : ""}`);
+
+    const issues = r.issues.filter(i => i.k !== "unknown");
+    const unknown = deck.unknown;
+    if (issues.length || unknown.length) {
+      html += sec("problems", issues.map(i => `<p class="${i.sev === "bad" ? "bad" : "warn"}" style="margin:0 0 6px"><span class="dot"></span>${esc(i.msg)}</p>` +
+        (i.cards ? `<div class="namelist" style="margin:0 0 12px">${i.cards.map(n => chip(n.replace(/^\d+ /, ""), "", false, n)).join("")}</div>` : "")).join("") +
+        (unknown.length ? `<h3 style="margin-top:8px">Lines that didn't match a Commander-legal card</h3><table class="t"><tbody>` + unknown.map(u =>
+          `<tr><td><code>${esc(u.raw.trim())}</code> <span class="muted">line ${u.line}</span></td><td>${u.suggestions.length ? "Did you mean " + u.suggestions.map(s => `<button type="button" class="btn tiny" data-fix="${u.line}" data-to="${esc(s)}">${esc(s)}</button>`).join(" ") + "?" : `<span class="muted">No close match. Digital-only, Un-set and banned-from-paper cards aren't in the index.</span>`}</td></tr>`).join("") + `</tbody></table>` : ""));
+    }
+
+    html += sec("roles", `<p class="muted">Targets for a typical 100-card deck. A card counts from D tier up; cards in F show dashed and don't count. Click a card for its tiers and better options.</p>
+      <div class="tscroll"><table class="t"><thead><tr><th>Job</th><th class="num">Count</th><th>Target</th><th class="hide-sm" style="width:22%"></th><th>Status</th></tr></thead><tbody>` +
+      r.roles.map(x => {
+        const pctFill = x.info ? 0 : Math.min(100, (x.count / Math.max(1, x.max)) * 100);
+        const need = Math.max(0, Math.ceil(x.min - x.count));
+        const find = x.k !== "lands" && !x.info && cmds.length ? `<a class="btn tiny" href="${M.page("build", `need=${encodeURIComponent((need || 1) + " " + x.label.toLowerCase())}`)}">Find ${need || "more"}</a>` : "";
+        return `<tr><td><b>${esc(x.label)}</b><div class="muted" style="font-size:12px">${esc(x.note)}</div></td><td class="num"><b>${half(x.count)}</b></td>
+          <td class="num">${x.info ? "—" : x.min === x.max ? x.min : x.min + "–" + x.max}</td>
+          <td class="hide-sm"><div class="bar ${x.status === "low" ? "low" : x.status === "high" ? "over" : ""}"><i style="width:${pctFill}%"></i></div></td>
+          <td>${statusTxt[x.status]} ${find}</td></tr>
+          <tr><td colspan="5" style="padding-top:0"><div class="namelist">${x.rows.filter(y => x.k !== "lands" || y.t).map(y => chip(y.n, y.t, y.w === 0.5 || y.w === 0, y.w === 0 ? "F tier: doesn't count" : y.w === 0.5 ? "Counts as half" : "")).join("") || `<span class="muted">None</span>`}
+            ${x.k === "lands" ? `<span class="muted" style="font-size:12px;align-self:center">${x.rows.filter(y => !y.t).reduce((a, y) => a + y.w, 0)} basic and untiered lands</span>` : ""}</div></td></tr>`;
+      }).join("") + `</tbody></table></div>`);
+
+    const curveMax = Math.max(1, ...r.mana.curve);
+    html += sec("mana", `<div class="two"><div>
+        <h3>Curve (spells, commander left out)</h3>
+        <div class="curve">${r.mana.curve.map((n, i) => `<div><b>${n}</b><i style="height:${(n / curveMax) * 100}%"></i><span>${i === 7 ? "7+" : i}</span></div>`).join("")}</div>
+        <p class="muted" style="margin-top:10px">${r.mana.spells} spells, average mana value ${r.mana.avg.toFixed(2)}. ${half(r.mana.lands)} lands${r.mana.lands < 36 ? ", below the usual 36–38" : r.mana.lands > 38 ? ", above the usual 36–38" : ""}.</p></div>
+      <div><h3>Colored mana</h3>${r.mana.colors.length ? `<div class="tscroll"><table class="t"><thead><tr><th>Color</th><th class="num">Pips</th><th class="num">Share</th><th class="num">Sources</th><th class="num">Share</th><th></th></tr></thead><tbody>` +
+        r.mana.colors.map(c => `<tr><td>${sym(c.k)}</td><td class="num">${c.pips}</td><td class="num">${Math.round(c.share * 100)}%</td><td class="num">${half(c.sources)}</td><td class="num">${Math.round(c.sshare * 100)}%</td>
+          <td>${c.short ? '<span class="warn"><span class="dot"></span>Short</span>' : '<span class="ok"><span class="dot"></span>OK</span>'}</td></tr>`).join("") + `</tbody></table></div>
+        <p class="muted" style="margin-top:10px;font-size:13px">Sources are lands (spell-lands as half) plus mana rocks and dorks that make the color; fetch lands count for the colors they can find. A color is short when it has under 8 sources or its share of sources trails its share of pips by a quarter.</p>`
+        : `<p class="muted">Pick a commander to check colored sources.</p>`}</div></div>`);
+
+    html += sec("bracket", `<table class="t"><tbody>` + r.rules.map(x => `<tr><td>${x.ok ? (x.warn ? '<span class="warn"><span class="dot"></span>Check</span>' : '<span class="ok"><span class="dot"></span>Pass</span>') : '<span class="bad"><span class="dot"></span>Broken</span>'}</td>
+        <td><b>${esc(x.label)}</b>${x.warn ? `<div class="muted" style="font-size:12px">One extra-turn card is fine as long as nothing recurs or copies it.</div>` : ""}<div class="namelist">${x.cards.map(n => chip(n, "")).join("")}</div></td></tr>`).join("") +
+      `<tbody id="comboRows"><tr><td><span class="muted">…</span></td><td class="muted">${cmds.length ? "Asking Commander Spellbook for combos and a bracket estimate…" : "Pick a commander to check combos."}</td></tr></tbody></table>`, "bracketSec");
+
+    html += sec("weak links", r.weak.length ? `<p class="muted">Cards whose best job sits in D or F, with the top replacements that fit the deck's colors, cost at most one more and aren't already in it${r.gcs.length >= rules().maxGC ? " (Game Changers left out: the deck is at its limit)" : ""}. Keep the ones that are there for synergy.</p>` +
+      r.weak.map((w, i) => `<div class="swap"><div>${chip(w.n, w.t)}<div class="muted" style="font-size:12px;margin-top:4px">${esc(M.ROLE_INFO[w.role].label)} · ${esc(M.hubSubName(w.role, w.sub))} · score ${w.s}${w.rev ? "" : " · unreviewed"}</div></div>
+        <div class="picks" role="radiogroup" aria-label="Replacement for ${esc(w.n)}"><label class="pick"><input type="radio" name="w${i}" value="" checked>Keep it</label>` +
+        (w.options.length ? w.options.map(o => `<label class="pick"><input type="radio" name="w${i}" value="${esc(o.n)}" data-out="${esc(w.n)}">${tb(o.t)}<button type="button" class="nm-chip" data-open="${esc(o.n)}" style="padding:1px 8px">${esc(o.n)}</button>${cost(o.cost)}${o.gc ? '<span class="badge" style="--bc:var(--dot-gc)">Game Changer</span>' : ""}</label>`).join("")
+          : `<span class="muted" style="font-size:13px">Nothing better in these colors at this cost.</span>`) + `</div></div>`).join("") +
+      `<div class="row2" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn small" id="copySwaps" type="button">Copy swaps</button><button class="btn small" id="copyDeck" type="button">Copy updated list</button><button class="btn small" id="applySwaps" type="button">Apply swaps to my list</button><span class="msg" id="swapMsg"></span></div>`
+      : `<p class="muted">Nothing in D or F. Every card with a tier earns its slot.</p>`);
+
+    html += `<div id="historySec">${checksHtml}</div>`;
+    $("report").innerHTML = html;
+  }
+
+  // ---------- Commander Spellbook (through the site's /api/spellbook route, cached a week) ----------
+  async function checkCombos() {
+    const body = { commanders: deck.commanders.map(c => c.n), main: deck.main.map(x => x.card.n) };
+    const box = () => $("comboRows");
+    try {
+      spell = await M.api("POST", "/api/spellbook", body);
+    } catch (e) {
+      spell = { error: e.message };
+      if (box()) box().innerHTML = `<tr><td><span class="muted"><span class="dot"></span>Skipped</span></td><td><b>Combos</b><div class="muted" style="font-size:13px">${e.offline ? "Commander Spellbook is checked through the site's server, which this preview doesn't have." : "Couldn't reach Commander Spellbook (" + esc(e.message) + ")."} Paste the list into <a href="https://commanderspellbook.com/find-my-combos" target="_blank" rel="noopener">Find My Combos</a> instead.</div>
+        <button class="btn tiny" type="button" id="copyForSb" style="margin-top:6px">Copy list for Spellbook</button></td></tr>`;
+      return;
+    }
+    const rows = K.comboRules(spell, rules()) || [];
+    const bad = rows.filter(x => !x.ok).length;
+    if (bad) { const s = $("rulesStat"); if (s) { const n = rep.rules.filter(x => !x.ok).length + bad; s.className = "bad"; s.textContent = n + " broken"; } }
+    const comboLine = c => `<div style="margin:6px 0"><div class="namelist">${c.cards.map(n => chip(n, "")).join(" ")}</div><div class="muted" style="font-size:12px">${esc(c.produces.slice(0, 3).join(", "))}${c.tag ? ` · Spellbook: ${esc(K.TAG_NAMES[c.tag] || c.tag)}` : ""} · <a href="https://commanderspellbook.com/combo/${encodeURIComponent(c.id)}/" target="_blank" rel="noopener">details</a></div></div>`;
+    if (!box()) return;
+    box().innerHTML = rows.map(x => `<tr><td>${x.ok ? '<span class="ok"><span class="dot"></span>Pass</span>' : '<span class="bad"><span class="dot"></span>Broken</span>'}</td><td><b>${esc(x.label)}</b>${x.combos.map(comboLine).join("")}</td></tr>`).join("") +
+      `<tr><td><span class="muted"><span class="dot"></span>Info</span></td><td><b>Spellbook bracket estimate: ${esc(K.TAG_NAMES[spell.bracketTag] || "none")}</b>
+        <div class="muted" style="font-size:13px">${spell.combos.length} combo${spell.combos.length === 1 ? "" : "s"} in the deck${spell.cached ? " (cached result)" : ""}. ${spell.combos.length ? "" : "None found."}</div>
+        ${spell.combos.filter(c => !c.twoCard && !rules().blockTags.includes(c.tag)).slice(0, 8).map(comboLine).join("")}</td></tr>`;
+  }
+
+  // ---------- swaps ----------
+  function chosenSwaps() {
+    return [...document.querySelectorAll('#report input[type=radio]:checked')].filter(i => i.value).map(i => ({ out: i.dataset.out, in: i.value }));
+  }
+  async function copy(text, msg) {
+    try { await navigator.clipboard.writeText(text); M.toast(msg); }
+    catch { M.toast("Copy failed. Select the text and copy it by hand."); }
+  }
+
+  // ---------- saving ----------
+  async function refreshSaved() {
+    const where = await M.decks.where(), m = await M.me();
+    $("whereNote").textContent = where === "server" ? `· ${m.user.username}` : m.online ? "· this browser (log in to keep them in your account)" : "· this browser";
+    $("loginBtn").hidden = !(m.online && !m.user);
+    try {
+      const list = await M.decks.list();
+      $("savedSel").innerHTML = `<option value="">Open a saved deck…</option>` + list.map(d => `<option value="${esc(d.id)}"${String(d.id) === String(savedId) ? " selected" : ""}>${esc(d.name)}${d.commander ? " · " + esc(d.commander) : ""}</option>`).join("");
+    } catch (e) { $("saveMsg").textContent = e.message; }
+    $("delBtn").hidden = !savedId;
+  }
+  async function openSaved(id) {
+    const d = await M.decks.get(id); if (!d) return M.toast("That deck is gone");
+    savedId = d.id; $("deckName").value = d.name; $("list").value = d.list;
+    const cs = (d.commander || "").split(" + ").filter(Boolean);
+    $("cmd1").value = cs[0] || ""; $("cmd2").value = cs[1] || ""; $("cmd2Box").hidden = !cs[1];
+    if (d.settings && d.settings.rules) { rulesState = d.settings.rules; showRules(); }
+    renderHistory(d.checks || []);
+    $("delBtn").hidden = false;
+    await runCheck({ log: false, scroll: false });
+  }
+  function renderHistory(checks) {
+    checksHtml = checks.length ? `<section class="panel" style="margin-bottom:18px"><h2>check history</h2><div class="tscroll"><table class="t"><thead><tr><th>When</th><th class="num">Cards</th><th>Legal</th><th class="num">Lands</th><th class="num">Avg MV</th><th class="num">GCs</th><th class="num">Weak</th><th>Low on</th></tr></thead><tbody>` +
+      checks.map(c => { const s = c.summary || {}; return `<tr><td>${new Date(c.created_at).toLocaleString()}</td><td class="num">${s.total ?? ""}</td><td>${s.legal ? "Yes" : "No"}</td><td class="num">${s.lands ?? ""}</td><td class="num">${s.avg ?? ""}</td><td class="num">${s.gcs ?? ""}</td><td class="num">${s.weak ?? ""}</td><td>${esc((s.low || []).join(", "))}</td></tr>`; }).join("") +
+      `</tbody></table></div></section>` : "";
+    const h = $("historySec"); if (h) h.innerHTML = checksHtml;
+  }
+  const summary = () => ({ total: rep.total, legal: rep.legal, lands: rep.mana.lands, avg: +rep.mana.avg.toFixed(2), gcs: rep.gcs.length, weak: rep.weak.length,
+    low: rep.roles.filter(x => x.status === "low").map(x => x.label), roles: Object.fromEntries(rep.roles.map(x => [x.k, x.count])) });
+  async function logCheck() {
+    try { await M.decks.addCheck(savedId, summary()); const d = await M.decks.get(savedId); renderHistory((d && d.checks) || []); } catch { /* history is best-effort */ }
+  }
+  async function save() {
+    const msg = $("saveMsg"); msg.className = "msg";
+    if (!$("list").value.trim()) { msg.textContent = "Paste a list first."; return; }
+    const commander = [$("cmd1").value, $("cmd2").value].map(s => s.trim()).filter(Boolean).join(" + ");
+    const name = $("deckName").value.trim() || commander || "Untitled deck";
+    try {
+      savedId = await M.decks.save({ id: savedId, name, commander, list: $("list").value, settings: { rules: rulesState } });
+      $("deckName").value = name; msg.textContent = "Saved."; await refreshSaved();
+      if (rep) logCheck();
+    } catch (e) {
+      if (e.status === 401) { const u = await M.login("Log in to save decks"); if (u) return save(); }
+      msg.className = "msg bad"; msg.textContent = e.message;
+    }
+  }
+
+  // ---------- wiring ----------
+  function wire() {
+    $("check").onclick = () => runCheck();
+    $("sample").onclick = () => { $("list").value = SAMPLE; $("cmd1").value = ""; $("cmd2").value = ""; savedId = null; $("deckName").value = ""; checksHtml = ""; runCheck(); };
+    $("clearList").onclick = () => { $("list").value = ""; $("cmd1").value = ""; $("cmd2").value = ""; $("report").innerHTML = ""; rep = null; };
+    $("addPartner").onclick = () => { $("cmd2Box").hidden = false; $("cmd2").focus(); };
+    $("preset").onchange = readRules;
+    ["rGC", "rExtra", "rMLD", "rTwo"].forEach(k => $(k).addEventListener("change", readRules));
+    document.querySelectorAll("[data-tag]").forEach(b => b.addEventListener("change", readRules));
+    $("saveBtn").onclick = save;
+    $("loginBtn").onclick = async () => { if (await M.login()) refreshSaved(); };
+    $("savedSel").onchange = e => { if (e.target.value) openSaved(e.target.value); };
+    $("delBtn").onclick = async () => {
+      if (!savedId || !confirmDelete()) return;
+      await M.decks.remove(savedId); savedId = null; $("deckName").value = ""; checksHtml = ""; renderHistory([]); refreshSaved(); M.toast("Deck deleted");
+    };
+    $("report").addEventListener("click", e => {
+      const f = e.target.closest("[data-fix]");
+      if (f) {
+        const lines = $("list").value.split("\n"), i = +f.dataset.fix - 1, m = /^(\s*\d+\s*[xX]?\s+)/.exec(lines[i] || "");
+        lines[i] = (m ? m[1] : "1 ") + f.dataset.to; $("list").value = lines.join("\n"); runCheck({ scroll: false }); return;
+      }
+      const o = e.target.closest("[data-open]");
+      if (o) { e.preventDefault(); M.openCard(o.dataset.open, { allowed: deck.commanders.length ? rep.identity : undefined, exclude: new Set(rep.names), noGC: rep.gcs.length >= rules().maxGC }); return; }
+      if (e.target.id === "copySwaps") { const s = chosenSwaps(); if (!s.length) return M.toast("Pick at least one replacement"); copy(K.swapsText(s), `Copied ${s.length} swap${s.length > 1 ? "s" : ""}`); }
+      if (e.target.id === "copyDeck") copy(K.deckText(deck, chosenSwaps()), "Copied the updated list");
+      if (e.target.id === "copyForSb") copy(K.deckText(deck), "Copied. Paste it into Find My Combos");
+      if (e.target.id === "applySwaps") {
+        const s = chosenSwaps(); if (!s.length) return M.toast("Pick at least one replacement");
+        $("list").value = K.deckText(deck, s); M.toast(`Applied ${s.length} swap${s.length > 1 ? "s" : ""}`); runCheck({ scroll: false });
+      }
+    });
+    autocomplete($("cmd1"), $("ac1")); autocomplete($("cmd2"), $("ac2"));
+  }
+  // deleting asks once in the page instead of a browser dialog
+  let delArmed = 0;
+  function confirmDelete() {
+    if (Date.now() - delArmed < 4000) { delArmed = 0; $("delBtn").textContent = "Delete"; return true; }
+    delArmed = Date.now(); $("delBtn").textContent = "Click again to delete"; setTimeout(() => { $("delBtn").textContent = "Delete"; }, 4000); return false;
+  }
+
+  Promise.all([M.loadSprite(), M.loadCards()]).then(async ([, i]) => {
+    idx = i; showRules(); wire(); refreshSaved();
+    const h = new URLSearchParams(location.hash.slice(1));
+    const d = M.draft.get();
+    if (h.get("deck")) return openSaved(h.get("deck"));
+    if (h.get("list")) { $("list").value = h.get("list"); return runCheck({ scroll: false }); }
+    if (d && d.list) {
+      $("list").value = d.list; savedId = d.savedId || null;
+      if (d.commanders && d.commanders[0]) { $("cmd1").value = d.commanders[0]; if (d.commanders[1]) { $("cmd2").value = d.commanders[1]; $("cmd2Box").hidden = false; } }
+      if (savedId) { const sd = await M.decks.get(savedId).catch(() => null); if (sd) { $("deckName").value = sd.name; renderHistory(sd.checks || []); } else savedId = null; }
+      runCheck({ scroll: false, log: false });
+    }
+  }).catch(err => { $("report").innerHTML = `<p class="empty">The card index didn't load (${esc(err.message)}). Reload to try again.</p>`; });
+})();
+</script>
+</body>
+</html>

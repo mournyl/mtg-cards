@@ -1,0 +1,65 @@
+name	sub	score	reason
+Teferi's Protection	board	94	You and everything you control phase out; nothing touches you for a turn. Game Changer.
+Heroic Intervention	board	88	2-mana instant: your permanents gain hexproof and indestructible.
+Flawless Maneuver	board	86	Free with your commander out: your creatures gain indestructible.
+Boros Charm	board	80	2-mana instant: your permanents gain indestructible, or other modes.
+Akroma's Will	board	78	Creatures gain protection from colors or flying and double strike for a turn.
+Shalai, Voice of Plenty	board	78	Body that gives you and your other permanents hexproof.
+Clever Concealment	board	76	Convoke instant: your nonland permanents phase out.
+Asceticism	board	70	Your creatures have hexproof and can regenerate.
+Privileged Position	board	70	Your creatures and enchantments have hexproof.
+Unbreakable Formation	board	70	Instant: indestructible, +2/+2 and vigilance for the team.
+Leyline of Sanctity	board	66	You have hexproof; free in your opening hand.
+Mother of Runes	one	76	1-mana body: repeatable protection from a color.
+Giver of Runes	one	76	1-mana body: repeatable protection from a color.
+Blossoming Defense	one	74	1 mana: +2/+2 and hexproof.
+Tyvar's Stand	one	74	X: hexproof, indestructible and +X/+X.
+Tamiyo's Safekeeping	one	72	1 mana: hexproof and indestructible until end of turn.
+Snakeskin Veil	one	70	1 mana: +2/+2, hexproof and indestructible.
+Loran's Escape	one	64	1 mana: an artifact or creature gains hexproof and indestructible.
+Apostle's Blessing	one	64	Instant: blink a creature or give it protection from a color.
+Gods Willing	one	62	1 mana: indestructible plus scry.
+Benevolent Bodyguard	one	62	Sacrifice it to make a creature indestructible.
+Lightning Greaves	equipment	84	Shroud and haste; equip for {0}.
+Swiftfoot Boots	equipment	82	Hexproof and haste; equip for {1}.
+Mithril Coat	equipment	70	Indestructible equipment that attaches on entry.
+Darksteel Plate	equipment	64	Indestructible for the equipped creature.
+Grand Abolisher	counter	76	Opponents can't cast spells or activate abilities on your turn.
+Veil of Summer	counter	76	1-mana instant: your spells can't be countered, and you draw if theirs is blue or black.
+Silence	counter	72	1 mana: opponents can't cast spells this turn.
+Orim's Chant	counter	70	1 mana: opponents can't cast spells this turn; kicked, no attacks either.
+Autumn's Veil	counter	64	1-mana instant: your spells can't be countered by blue or black.
+Destiny Spinner	counter	60	Creature and enchantment spells can't be countered.
+Cavern of Souls	counter	76	Land: creature spells of the named type can't be countered.
+Dawn's Truce	board	72	2-mana instant: your permanents gain hexproof; promise a gift for indestructible too.
+Flare of Fortitude	board	66	Free by sacrificing a white creature: your life can't change and your permanents gain hexproof and indestructible.
+Surge of Salvation	board	64	1-mana instant: hexproof for you and your permanents, and black and red damage is prevented.
+Guardian of Faith	board	64	Flash body: phase out any of your other creatures.
+Lazotep Plating	board	62	2-mana instant: hexproof for you and your permanents, plus an Army.
+Brave the Elements	board	62	1 mana: your white creatures gain protection from a color.
+Divine Resilience	board	60	1 mana for one creature; kicked, all your creatures gain indestructible.
+Simic Charm	board	60	Modal: your permanents gain hexproof, or bounce or pump.
+Sterling Grove	board	60	Your other enchantments have shroud; sacrifice it to tutor an enchantment.
+Plaxmanta	board	60	Flash body: your other creatures gain shroud until end of turn.
+Boseiju, Who Shelters All	counter	60	Land: an instant or sorcery you cast with its mana can't be countered.
+Silkguard	board	56	1 mana: +1/+1 counters and hexproof for creatures with counters.
+Display of Dominance	board	56	Green spells can't be targeted by blue or black, or destroy a blue or black permanent.
+Ranger's Guile	one	54	1 mana: +1/+1 and hexproof.
+Darksteel Forge	board	50	9 mana: your artifacts are indestructible.
+Glaring Spotlight	board	48	Strips opponents' hexproof; sacrifice it for hexproof and evasion.
+Saving Grace	board	40	Redirects damage to one creature; protection in name only.
+Emergency Regeneration	board	40	Regenerate everything once; rarely matters.
+Restoration Magic	board	72	One mana shields a permanent; five gives your whole board hexproof and indestructible.
+Spectacular Spider-Man	board	70	Flash two-drop you can sacrifice for hexproof and indestructible on your creatures.
+The Needs of the Many	board	66	Two mana and a creature: your creatures and you get hexproof, creatures indestructible.
+Gideon's Sacrifice	board	40	Sends one turn's damage to a single permanent. Narrow.
+K-9, Mark I	board	30	Ward {1} for your other legends while it stays untapped.
+Blacksmith's Skill	one	68	One mana, instant: hexproof and indestructible on one permanent.
+Defend the Rider	one	68	One mana, instant: hexproof and indestructible on one of your permanents.
+Leather Armor	equipment	30	Ward {1} for free each turn. Barely slows anyone down.
+Duty Beyond Death	board	55	Two mana and a creature: your creatures survive a destroy wipe and grow.
+Family Reunion	board	55	Two mana: hexproof for your creatures. Doesn't stop wipes.
+Grand Crescendo	board	62	Instant tokens plus indestructible for your creatures: answers a wipe and leaves a board.
+Invisible Force Field	board	60	Two mana: four permanents survive destroy effects, and it comes back next turn.
+Lost in the Maze	board	45	Flash stun on X creatures; your tapped creatures have hexproof. Costly for what it protects.
+Resistance Reunited	board	30	Indestructible only for equipped creatures.

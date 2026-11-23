@@ -24,6 +24,8 @@
   nav{display:flex;gap:4px;margin-left:auto}
   nav button{background:none;border:none;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:14px;white-space:nowrap}
   nav button:hover,nav button.on{color:#fff;background:var(--panel2)}
+  nav a{color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px;white-space:nowrap;text-decoration:none}
+  nav a:hover{color:#fff;background:var(--panel2)}
   nav .count{font-size:11px;background:#fff;color:#000;border-radius:999px;padding:0 6px;margin-left:4px;font-weight:600}
   .searchbox{position:relative;flex:1}
   .searchbox input{width:100%;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);outline:none}
@@ -137,11 +139,33 @@
   .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#fff;color:#000;padding:9px 16px;border-radius:999px;font-size:14px;opacity:0;transition:.2s;z-index:80;pointer-events:none}
   .toast.show{opacity:1;transform:translateX(-50%)}
   footer{color:var(--muted);font-size:12px;text-align:center;padding:20px}
+  /* tiers (data from the site's tier lists) */
+  .tbadge{font-size:11px;line-height:1.6;padding:0 8px 0 0;border-radius:999px;border:1px solid #333;color:#cfcfcf;background:#141414;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;text-decoration:none;overflow:hidden}
+  .tbadge:hover{border-color:#777;color:#fff}
+  .tbadge b,.tl{font:400 13px/1.3 "UnifrakturMaguntia",serif;padding:0 6px;min-width:20px;text-align:center}
+  .tl{display:inline-grid;place-items:center;border-radius:5px;padding:2px 6px;font-size:16px}
+  .tS b,.tl.tS{background:#fff;color:#000} .tA b,.tl.tA{background:#d4d4d4;color:#000} .tB b,.tl.tB{background:#a8a8a8;color:#000}
+  .tC b,.tl.tC{background:#6f6f6f;color:#fff} .tD b,.tl.tD{background:#3b3b3b;color:#fff} .tF b,.tl.tF{background:#151515;color:#8c8c8c}
+  .tierrows{display:grid;gap:6px;margin-bottom:16px}
+  .tierrows div{display:flex;align-items:center;gap:10px;font-size:14px;flex-wrap:wrap}
+  .tierrows small{color:var(--muted)}
+  .better{display:grid;gap:6px;margin-bottom:16px}
+  .better button{display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);cursor:pointer;font-size:14px;text-align:left}
+  .better button:hover{border-color:#555}
+  .better button span.c{margin-left:auto}
+  .fb{display:grid;gap:8px;margin:0 0 16px;padding:12px;border:1px solid var(--line);border-radius:10px}
+  .fb select,.fb textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+  .fb .rowx{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
+  .decklist{display:grid;gap:10px}
+  .deckrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px}
+  .deckrow b{font-size:16px}
+  .deckrow small{color:var(--muted)}
   @media (max-width:760px){
     .sheet{grid-template-columns:1fr}
     .top{flex-wrap:wrap;gap:10px}
     .logo{font-size:30px;order:1}
-    nav{order:2}
+    nav{order:2;flex-wrap:wrap}
+    nav a{padding:6px 8px;font-size:13px}
     nav button{padding:6px 8px}
     #navSearch{display:none}
     .searchbox{order:3;flex:1 1 calc(100% - 110px);min-width:0}
@@ -166,6 +190,9 @@
       <button class="btn" id="random" title="Random card matching filters">Random</button>
       <nav>
         <button id="navSearch" class="on">Search</button>
+        <a href="tiers/" id="navTiers">Tier lists</a>
+        <a href="deck/" id="navDeck">Deck checker</a>
+        <a href="build/" id="navBuild">Slot finder</a>
         <button id="navSaved">Saved<span class="count" id="savedCount" hidden>0</span></button>
         <button id="navAcct">Log in</button>
       </nav>
@@ -190,6 +217,12 @@
       <label class="fgroup">Role
         <select id="role"><option value="">Any</option></select>
       </label>
+      <label class="fgroup" title="Tier from the site's tier lists: the role picked under Role, or the card's best role">Tier
+        <select id="tier">
+          <option value="">Any</option><option value="S">S</option><option value="A">A or better</option>
+          <option value="B">B or better</option><option value="C">C or better</option>
+        </select>
+      </label>
       <label class="fgroup">Format
         <select id="format">
           <option value="">Any</option>
@@ -211,7 +244,7 @@
       </div>
       <label class="fgroup">Sort
         <select id="order">
-          <option value="name">Name</option><option value="edhrec">EDHREC rank</option>
+          <option value="name">Name</option><option value="tier">Tier (best first)</option><option value="edhrec">EDHREC rank</option>
           <option value="released">Newest</option><option value="cmc">Mana value</option>
           <option value="usd">Price (USD)</option><option value="power">Power</option>
           <option value="rarity">Rarity</option>
@@ -235,11 +268,13 @@
       <span id="listTools" style="display:none;gap:8px">
         <button class="btn" id="renameList" style="font-size:13px;padding:7px 14px">Rename</button>
         <button class="btn" id="copyList" style="font-size:13px;padding:7px 14px">Copy as text</button>
+        <button class="btn" id="checkList" style="font-size:13px;padding:7px 14px">Check as a deck</button>
         <button class="btn" id="deleteList" style="font-size:13px;padding:7px 14px">Delete list</button>
       </span>
     </div>
     <div class="tabs" id="tabs"></div>
     <div class="grid" id="savedGrid"></div>
+    <div class="decklist" id="deckGrid" style="display:none"></div>
     <div class="empty" id="savedEmpty" style="display:none"></div>
   </section>
   <section id="searchView">
@@ -287,8 +322,10 @@
 
 <div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 
-<footer><span style="font-family:UnifrakturMaguntia,serif;font-size:16px;color:#fff">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Unofficial fan content.</footer>
+<footer><span style="font-family:UnifrakturMaguntia,serif;font-size:16px;color:#fff">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Tiers from the site's <a href="tiers/" id="footTiers">tier lists</a>. Unofficial fan content.</footer>
 
+<script src="assets/core.js"></script>
+<script src="assets/mtg.js"></script>
 <script>
 (() => {
   const API = "https://api.scryfall.com";
@@ -296,7 +333,8 @@
   const $ = id => document.getElementById(id);
   const el = { q:$("q"), ac:$("ac"), grid:$("grid"), status:$("status"), more:$("more"), hero:$("hero"),
                modal:$("modal"), sheet:$("sheet"), cmode:$("cmode"), type:$("type"), format:$("format"),
-               rarity:$("rarity"), mvmin:$("mvmin"), mvmax:$("mvmax"), order:$("order"), unique:$("unique") };
+               rarity:$("rarity"), mvmin:$("mvmin"), mvmax:$("mvmax"), order:$("order"), unique:$("unique"), tier:$("tier") };
+  const MT = window.MTG;   // shared tier data and helpers (assets/mtg.js)
   const COLORS = ["W","U","B","R","G","C"];
 
   // ---- card roles: client-side regex (badges) + matching Scryfall query (filter) ----
@@ -381,9 +419,9 @@
   const selected = new Set();
   let nextPage = null, busy = false, lastReq = 0, searchToken = 0;
 
-  // ---- Scryfall polite rate limit (~10 req/s max) ----
+  // ---- Scryfall rate limit: search, named, random and collection allow 2 requests a second ----
   async function sf(url) {
-    const wait = Math.max(0, lastReq + 110 - Date.now());
+    const wait = Math.max(0, lastReq + 550 - Date.now());
     if (wait) await new Promise(r => setTimeout(r, wait));
     lastReq = Date.now();
     const res = await fetch(url, { headers: { Accept: "application/json" } });
@@ -427,12 +465,34 @@
   }
   const hasAnything = () => !!buildQuery();
 
+  // ---- tiers from the site's tier lists (data/tier-index.json) ----
+  const TIER_ROLE = { removal:"removal", wipe:"wipes", counter:"counterspells", bounce:"removal", ramp:"ramp", draw:"draw",
+                      tutor:"tutors", protect:"protection", recursion:"recursion", gyhate:"gyhate" };
+  const TIER_MIN = { S:90, A:75, B:60, C:45 };
+  let tierIdx = null;
+  const tiersReady = MT ? MT.loadTierIndex().then(d => { tierIdx = d; return d; }).catch(() => null) : Promise.resolve(null);
+  function tiersOf(c) {
+    if (!tierIdx) return [];
+    const front = c.card_faces?.[0]?.name;
+    const rows = tierIdx.cards[c.name] || (front && tierIdx.cards[front]) || [];
+    return rows.map(([ri, s, si, r, rev]) => ({ k: tierIdx.roles[ri], s, r, rev, t: MT.tierOf(s), sub: tierIdx.subs[tierIdx.roles[ri]][si] }))
+      .sort((a, b) => b.s - a.s);
+  }
+  function tierScore(c) {
+    const ts = tiersOf(c); if (!ts.length) return null;
+    const want = TIER_ROLE[el.role.value];
+    if (want) { const x = ts.find(t => t.k === want); return x ? x.s : null; }
+    return ts[0].s;
+  }
+  const tierBadge = x => `<a class="tbadge t${x.t}" href="${MT.page("tiers", x.k)}" title="${MT.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}${x.rev ? "" : " (unreviewed)"}" onclick="event.stopPropagation()"><b>${x.t}</b>${MT.ROLE_INFO[x.k].short} #${x.r}</a>`;
+  const tierMode = () => !!el.tier.value || el.order.value === "tier";
+
   let lastSearch = (() => { try { return sessionStorage.getItem("mtg-last-search") || ""; } catch { return ""; } })();
   function saveState() {
     const p = new URLSearchParams();
     if (el.q.value.trim()) p.set("q", el.q.value.trim());
     if (selected.size) p.set("c", [...selected].join(""));
-    ["cmode","role","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+    ["cmode","role","tier","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
       const v = el[k].value, d = el[k].querySelector?.("option")?.value ?? "";
       if (v !== "" && v !== d) p.set(k, v);
     });
@@ -447,7 +507,7 @@
     selected.clear();
     (p.get("c") || "").split("").forEach(c => COLORS.includes(c) && selected.add(c));
     document.querySelectorAll(".pip").forEach(b => b.classList.toggle("on", selected.has(b.dataset.c)));
-    ["cmode","role","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+    ["cmode","role","tier","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
       if (p.has(k)) el[k].value = p.get(k);
     });
     return hasAnything();
@@ -464,9 +524,10 @@
     el.hero.style.display = "none";
     el.grid.innerHTML = ""; el.more.style.display = "none";
     el.status.innerHTML = "Searching…";
-    const order = el.order.value;
+    const order = el.order.value === "tier" ? "edhrec" : el.order.value;
     const dir = ["released","usd","power","rarity"].includes(order) ? "desc" : "auto";
     const url = `${API}/cards/search?` + new URLSearchParams({ q, order, dir, unique: el.unique.value, include_extras: "false" });
+    if (tierMode()) return searchTiered(q, url, token);
     try {
       const r = await sf(url);
       if (token !== searchToken) return;
@@ -480,6 +541,34 @@
       el.status.innerHTML = e.status === 404
         ? `No cards found for <b>${esc(q)}</b>.`
         : `<span class="err">${esc(e.message)}</span>`;
+    }
+  }
+
+  // Tier filter or tier sort: pull up to 6 pages (1,050 cards, 550 ms apart), then filter and sort here.
+  async function searchTiered(q, url, token) {
+    const all = []; let next = url, total = 0, pages = 0;
+    try {
+      while (next && pages < 6) {
+        const r = await sf(next);
+        if (token !== searchToken) return;
+        total = r.total_cards; all.push(...r.data); next = r.has_more ? r.next_page : null; pages++;
+        el.status.innerHTML = `Ranking by tier… ${all.length.toLocaleString()} of ${total.toLocaleString()}`;
+      }
+      await tiersReady;
+      if (token !== searchToken) return;
+      const min = TIER_MIN[el.tier.value] ?? -1;
+      let rows = all.map(c => ({ c, s: tierScore(c) })).filter(x => min < 0 || (x.s != null && x.s >= min));
+      if (el.order.value === "tier") rows.sort((a, b) => (b.s ?? -1) - (a.s ?? -1));
+      const role = TIER_ROLE[el.role.value] ? " for " + MT.ROLE_INFO[TIER_ROLE[el.role.value]].label.toLowerCase() : "";
+      el.status.innerHTML = `<b>${rows.length.toLocaleString()}</b> card${rows.length === 1 ? "" : "s"}${el.tier.value ? ` at ${el.tier.value === "S" ? "S" : el.tier.value + " or better"}${role}` : ""}` +
+        `${el.order.value === "tier" ? ", best tier first" : ""} · <span style="opacity:.7">${esc(q)}</span>` +
+        (next ? ` <span style="opacity:.7">(ranked the first ${all.length.toLocaleString()} of ${total.toLocaleString()} matches; narrow the search to rank the rest)</span>` : "") +
+        (!tierIdx ? ` <span class="err">(tier data didn't load)</span>` : "");
+      render(rows.map(x => x.c));
+      nextPage = null; el.more.style.display = "none";
+    } catch (e) {
+      if (token !== searchToken) return;
+      el.status.innerHTML = e.status === 404 ? `No cards found for <b>${esc(q)}</b>.` : `<span class="err">${esc(e.message)}</span>`;
     }
   }
 
@@ -501,7 +590,7 @@
     cards.forEach(c => {
       cardCache.set(c.id, c);
       const tile = document.createElement("div");
-      tile.className = "tile";
+      tile.className = "tile"; tile.dataset.id = c.id;
       const d = document.createElement("div");
       d.className = "card";
       const src = img(c);
@@ -513,11 +602,13 @@
       d.onclick = e => { if (!handleActs(e, c)) openCard(c); };
       const rb = document.createElement("div");
       rb.className = "roles";
-      rb.innerHTML = rolesOf(c).map(x => badge(x.r)).join("");
+      const ts = tiersOf(c), have = new Set(ts.map(x => x.k));
+      rb.innerHTML = ts.slice(0, 2).map(tierBadge).join("") + rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).map(x => badge(x.r)).join("");
       tile.append(d, rb);
       frag.appendChild(tile);
     });
     el.grid.appendChild(frag);
+    if (!tierIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile").forEach(t => { const c = cardCache.get(t.dataset.id); if (c) { const ts = tiersOf(c), have = new Set(ts.map(x => x.k)); t.querySelector(".roles").innerHTML = ts.slice(0, 2).map(tierBadge).join("") + rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).map(x => badge(x.r)).join(""); } }); });
   }
 
   function reset() {
@@ -569,6 +660,7 @@
             ${f.loyalty != null ? `<div class="pt">Loyalty ${esc(f.loyalty)}</div>` : ""}
             ${f.defense != null ? `<div class="pt">Defense ${esc(f.defense)}</div>` : ""}
           </div>`).join("")}
+        <div id="tierBox"></div>
         <h3>What it does</h3>
         <div class="whatdoes">${rolesOf(c).length
           ? rolesOf(c).map(x => `<div>${badge(x.r)}<q>${syms(x.snip)}</q></div>`).join("")
@@ -614,6 +706,42 @@
     };
     el.modal.classList.add("open");
     document.body.style.overflow = "hidden";
+    fillTiers(c);
+  }
+  async function fillTiers(c) {
+    const box = $("tierBox"); if (!box || !MT) return;
+    await tiersReady;
+    const ts = tiersOf(c); if (!ts.length || $("tierBox") !== box) return;
+    const idx = await MT.loadCards().catch(() => null);
+    const me = idx && MT.findCard(idx, c.name);
+    const total = k => idx ? idx.byRole[k].length.toLocaleString() : "";
+    let html = `<h3>Tiers</h3><div class="tierrows">` + ts.map(x => `<div><span class="tl t${x.t}">${x.t}</span><a href="${MT.page("tiers", x.k)}"><b>${esc(MT.ROLE_INFO[x.k].label)}</b></a>
+      <small>${esc(MT.hubSubName(x.k, x.sub))} · #${x.r}${total(x.k) ? " of " + total(x.k) : ""} · score ${x.s}${x.rev ? "" : " · unreviewed"}</small></div>`).join("") + `</div>`;
+    if (me) html += ts.filter(x => x.k !== "lands").map(x => {
+      const opts = MT.betterOptions(idx, me, x.k, { limit: 4 });
+      return opts.length ? `<h3>Better ${esc(MT.ROLE_INFO[x.k].label.toLowerCase())} in these colors</h3><div class="better">` +
+        opts.map(o => `<button type="button" data-better="${esc(o.c.n)}"><span class="tl t${o.t}">${o.t}</span><span>${esc(o.c.n)}</span><span class="c">${syms(o.c.cost.map(t => "{" + t + "}").join(""))}</span></button>`).join("") + `</div>` : "";
+    }).join("");
+    html += `<div style="margin:-4px 0 16px"><button class="btn" id="suggestTier" style="font-size:13px;padding:6px 12px">Suggest a tier</button></div><div id="fbBox"></div>`;
+    box.innerHTML = html;
+    box.querySelectorAll("[data-better]").forEach(b => b.onclick = async () => {
+      try { const n = b.dataset.better; const x = await sf(`${API}/cards/named?exact=${encodeURIComponent(n.split(" // ")[0])}`); cardCache.set(x.id, x); openCard(x); }
+      catch (e) { toast(e.message); }
+    });
+    $("suggestTier").onclick = () => {
+      $("fbBox").innerHTML = `<form class="fb" id="fbForm"><div class="rowx">List <select name="role">${ts.map(x => `<option value="${x.k}">${esc(MT.ROLE_INFO[x.k].label)} (now ${x.t})</option>`).join("")}</select>
+        Should be <select name="tier">${["S","A","B","C","D","F"].map(t => `<option${t === ts[0].t ? " selected" : ""}>${t}</option>`).join("")}</select></div>
+        <textarea name="note" rows="2" maxlength="500" placeholder="Why? (optional)"></textarea>
+        <div class="rowx"><button class="btn primary" style="padding:6px 12px;font-size:13px">Send</button><span id="fbMsg"></span></div></form>`;
+      const f = $("fbForm");
+      f.onsubmit = async e => {
+        e.preventDefault();
+        const x = ts.find(t => t.k === f.role.value);
+        $("fbMsg").textContent = "Sending…";
+        try { await MT.api("POST", "/api/feedback", { role: x.k, card: me ? me.n : c.name, tier: x.t, suggested: f.tier.value, note: f.note.value.trim() }); $("fbMsg").textContent = "Thanks, it's in the review queue."; f.querySelector("button").disabled = true; }
+        catch (err) { $("fbMsg").textContent = err.offline ? "No server here, so feedback can't be sent." : err.message; }
+      };
+    };
   }
   function closeCard() { el.modal.classList.remove("open"); document.body.style.overflow = ""; }
   el.modal.addEventListener("click", e => { if (e.target === el.modal) closeCard(); });
@@ -823,10 +951,18 @@
   }
   const currentList = () => tab === "fav" ? null : store.lists.find(l => String(l.id) === String(tab));
   function renderSaved() {
-    if (tab !== "fav" && !currentList()) tab = "fav";
+    if (tab !== "fav" && tab !== "decks" && !currentList()) tab = "fav";
     const list = currentList();
     $("tabs").innerHTML = `<button class="tab ${tab === "fav" ? "on" : ""}" data-tab="fav">♥ Favorites<small>${store.fav.size}</small></button>` +
-      store.lists.map(l => `<button class="tab ${String(l.id) === String(tab) ? "on" : ""}" data-tab="${l.id}">${esc(l.name)}<small>${l.cards.size}</small></button>`).join("");
+      store.lists.map(l => `<button class="tab ${String(l.id) === String(tab) ? "on" : ""}" data-tab="${l.id}">${esc(l.name)}<small>${l.cards.size}</small></button>`).join("") +
+      (MT ? `<button class="tab ${tab === "decks" ? "on" : ""}" data-tab="decks">Decks</button>` : "");
+    $("deckGrid").style.display = tab === "decks" ? "" : "none";
+    $("savedGrid").style.display = tab === "decks" ? "none" : "";
+    if (tab === "decks") {
+      $("tabs").querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { tab = b.dataset.tab; renderSaved(); });
+      $("listTools").style.display = "none"; $("savedEmpty").style.display = "none";
+      return renderDecks();
+    }
     $("tabs").querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { tab = b.dataset.tab; renderSaved(); });
     $("listTools").style.display = "inline-flex";
     $("renameList").style.display = $("deleteList").style.display = list ? "" : "none";
@@ -845,6 +981,20 @@
         `<div class="acts keep">${list ? "" : `<button class="iconbtn" data-act="add" title="Add to list">+</button>`}<button class="iconbtn" data-act="rm" title="${list ? "Remove from list" : "Unfavorite"}">×</button></div>`;
       d.onclick = e => { if (!handleActs(e, c)) openById(c.id); };
       g.appendChild(d);
+    });
+  }
+  async function renderDecks() {
+    const g = $("deckGrid");
+    g.innerHTML = `<p style="color:var(--muted);margin:0">Decks saved from the <a href="${MT.page("deck")}">deck checker</a>${store.mode === "remote" && store.user ? "" : " (in this browser until you log in)"}.</p>`;
+    let list = [];
+    try { MT.refreshMe(); list = await MT.decks.list(); } catch (e) { g.innerHTML += `<p class="err">${esc(e.message)}</p>`; return; }
+    if (!list.length) { g.innerHTML += `<div class="empty">No saved decks yet. Check a deck and press Save.</div>`; return; }
+    g.innerHTML += list.map(d => { const s = d.last || {}; return `<div class="deckrow"><div style="flex:1;min-width:0"><b>${esc(d.name)}</b><br><small>${esc(d.commander || "No commander")}${d.updated_at ? " · saved " + new Date(d.updated_at).toLocaleDateString() : ""}${s.total != null ? ` · last check: ${s.total} cards, ${s.legal ? "legal" : "not legal"}, ${s.weak} weak` : ""}</small></div>
+      <a class="btn" href="${MT.page("deck", "deck=" + encodeURIComponent(d.id))}" style="font-size:13px;padding:7px 14px;text-decoration:none">Open in deck checker</a>
+      <a class="btn" href="${MT.page("build")}" data-deck="${esc(d.id)}" style="font-size:13px;padding:7px 14px;text-decoration:none">Find cards</a></div>`; }).join("");
+    g.querySelectorAll("[data-deck]").forEach(a => a.onclick = async e => {
+      e.preventDefault(); const d = await MT.decks.get(a.dataset.deck); if (!d) return;
+      MT.draft.set({ list: d.list, commanders: (d.commander || "").split(" + ").filter(Boolean), savedId: d.id }); location.href = MT.page("build");
     });
   }
   function removeFromCurrent(c) { const l = currentList(); l ? toggleInList(l, c) : toggleFav(c); }
@@ -882,6 +1032,13 @@
       const ok = await mutate(() => store.lists.splice(i, 1), () => store.lists.splice(i, 0, l), () => apiCall("DELETE", `/api/lists/${l.id}`));
       if (ok) { tab = "fav"; renderSaved(); toast("List deleted"); }
     });
+  };
+  $("checkList").onclick = () => {
+    const l = currentList();
+    const txt = [...(l ? l.cards : store.fav).values()].map(c => `1 ${c.name}`).join("\n");
+    if (!txt) return toast("Nothing to check yet");
+    MT.draft.set({ list: txt, commanders: [], savedId: null });
+    location.href = MT.page("deck");
   };
   $("copyList").onclick = async () => {
     const l = currentList();
@@ -922,7 +1079,7 @@
     $("authGo").disabled = true; $("authMsg").textContent = "";
     try {
       const r = await apiCall("POST", authMode === "login" ? "/api/login" : "/api/signup", { username, password });
-      store.user = r.user; await loadRemote();
+      store.user = r.user; await loadRemote(); if (MT) MT.refreshMe();
       $("authPass").value = ""; closeAuth(); refreshAll(); renderSavedIfOpen();
       toast(`Welcome, ${r.user.username}`);
     } catch (err) { $("authMsg").textContent = err.message; }
@@ -938,7 +1095,7 @@
     $("logoutBtn").onclick = async () => {
       closePop();
       try { await apiCall("POST", "/api/logout", {}); } catch {}
-      store.user = null; store.fav = new Map(); store.lists = []; refreshAll(); toast("Logged out");
+      store.user = null; store.fav = new Map(); store.lists = []; refreshAll(); toast("Logged out"); if (MT) MT.refreshMe();
     };
   };
 
@@ -950,11 +1107,11 @@
   $("random").onclick = random;
   el.more.onclick = loadMore;
   $("home").onclick = e => { e.preventDefault(); el.q.value = ""; showView("search"); reset(); };
-  ["cmode","role","type","format","rarity","order","unique"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
+  ["cmode","role","tier","type","format","rarity","order","unique"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
   ["mvmin","mvmax"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
   $("clear").onclick = () => {
     selected.clear(); document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
-    el.cmode.value = "id"; ["role","type","format","rarity","mvmin","mvmax"].forEach(k => el[k].value = "");
+    el.cmode.value = "id"; ["role","tier","type","format","rarity","mvmin","mvmax"].forEach(k => el[k].value = "");
     el.order.value = "name"; el.unique.value = "cards";
     hasAnything() ? search() : reset();
   };
@@ -989,6 +1146,7 @@
     $("chips").appendChild(b);
   });
 
+  if (MT) [["navTiers","tiers"],["navDeck","deck"],["navBuild","build"],["footTiers","tiers"]].forEach(([id, pg]) => { if ($(id)) $(id).href = MT.page(pg); });
   initStore();
   if (location.hash === "#saved") showView("saved");
   else if (loadState()) search();

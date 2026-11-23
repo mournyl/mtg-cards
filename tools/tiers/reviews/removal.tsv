@@ -1,0 +1,84 @@
+name	sub	score	reason
+Generous Gift	any	90	2-mana instant: destroy any permanent; they get a 3/3.
+Beast Within	any	90	2-mana instant: destroy any permanent; they get a 3/3.
+Assassin's Trophy	any	86	2-mana instant: destroy any permanent an opponent controls; they get a basic.
+Chaos Warp	any	86	3-mana instant: shuffle away any permanent; they flip a random replacement.
+Anguished Unmaking	any	86	3-mana instant: exile any nonland permanent for 3 life.
+Vindicate	any	84	3-mana sorcery: destroy any permanent.
+Council's Judgment	any	84	3 mana: exile a nonland permanent by vote, past hexproof and protection.
+Utter End	any	82	4-mana instant: exile any nonland permanent.
+Abrupt Decay	any	80	2 mana, can't be countered: destroy a nonland permanent with mana value 3 or less.
+Song of the Dryads	any	78	3-mana aura: any permanent becomes a plain Forest.
+Mortify	any	78	3-mana instant: destroy a creature or enchantment.
+Putrefy	any	78	3-mana instant: destroy an artifact or creature.
+Get Lost	any	76	2-mana instant: destroy a creature, enchantment or planeswalker; they get two Maps.
+Oblivion Ring	any	74	3-mana enchantment: exile any nonland permanent until it leaves.
+Banishing Light	any	74	3-mana enchantment: exile any nonland permanent until it leaves.
+Detention Sphere	any	74	Exile a nonland permanent and every other permanent with its name.
+Bedevil	any	74	3-mana instant: destroy an artifact, creature or planeswalker.
+Feed the Swarm	any	72	2-mana sorcery: destroy a creature or enchantment for life equal to its mana value.
+Vanishing Verse	any	72	2-mana instant: exile a monocolored permanent.
+Unexpectedly Absent	any	72	Instant: tuck a nonland permanent under the top few cards of its owner's library.
+Despark	any	72	2-mana instant: exile a permanent with mana value 4 or more.
+Tear Asunder	any	70	2 mana for an artifact or enchantment; kicked, any nonland permanent.
+Grasp of Fate	any	70	Exile one nonland permanent from each opponent until it leaves.
+Prismatic Ending	any	68	Converge: exile a nonland permanent with mana value up to the colors you spend.
+Leyline Binding	any	66	Domain makes it cheap: instant exile for any nonland permanent.
+Swords to Plowshares	creature	96	1-mana instant: exile any creature.
+Path to Exile	creature	92	1-mana instant: exile any creature; they get a basic land.
+Infernal Grasp	creature	82	2-mana instant: destroy any creature for 2 life.
+Terminate	creature	82	2-mana instant: destroy any creature; no regeneration.
+Rapid Hybridization	creature	80	1-mana instant: destroy a creature; they get a 3/3.
+Pongify	creature	80	1-mana instant: destroy a creature; they get a 3/3.
+Deadly Rollick	creature	78	Free with your commander out: exile a creature.
+Reality Shift	creature	78	2-mana instant: exile a creature; they get a 2/2 from their library.
+Bitter Triumph	creature	76	1-mana instant: destroy a creature or planeswalker for a discard or 3 life.
+Heartless Act	creature	76	2-mana instant: destroy a creature without counters, or strip its counters.
+Go for the Throat	creature	76	2-mana instant: destroy a nonartifact creature.
+Ravenous Chupacabra	creature	76	4-mana creature that destroys a creature on entry.
+Kenrith's Transformation	creature	74	2-mana aura: a creature becomes a 3/3 Elk, and you draw a card.
+Hero's Downfall	creature	74	3-mana instant: destroy a creature or planeswalker.
+Sheoldred's Edict	creature	72	2-mana instant: each opponent sacrifices a nontoken creature, token or planeswalker, your choice of mode.
+Murderous Rider // Swift End	creature	72	Adventure: destroy a creature or planeswalker, then a lifelink 2/3 later.
+Power Word Kill	creature	72	2-mana instant: destroy a creature that isn't an Angel, Demon or Dragon.
+Snuff Out	creature	70	Free for 4 life: destroy a nonblack creature.
+Dismember	creature	70	1 mana and 4 life: -5/-5, enough for most creatures.
+Shriekmaw	creature	70	Evoke for 2: destroy a nonartifact, nonblack creature.
+Doom Blade	creature	70	2-mana instant: destroy a nonblack creature.
+Imprisoned in the Moon	creature	70	A creature, land or planeswalker becomes a colorless land.
+Murder	creature	68	3-mana instant: destroy any creature.
+Liliana's Triumph	creature	66	2-mana instant: each opponent sacrifices a creature with the greatest power.
+Fatal Push	creature	66	1-mana instant: destroy a creature with mana value 2 or less, 4 with revolt.
+Darksteel Mutation	creature	66	A creature becomes a 0/1 with no abilities.
+Bloodchief's Thirst	creature	64	2 mana: destroy a small creature, or any creature or planeswalker kicked.
+Noxious Gearhulk	creature	64	6-mana artifact creature that destroys a creature on entry.
+Tragic Slip	creature	62	1-mana instant: -1/-1, or -13/-13 if a permanent of yours left this turn.
+Cut Down	creature	60	1-mana instant: destroy a small creature.
+Fleshbag Marauder	creature	52	Every player sacrifices a creature; you pick the cheapest of yours.
+Nature's Claim	artifact-enchantment	82	1-mana instant: destroy an artifact or enchantment.
+Aura Shards	artifact-enchantment	78	Creatures entering on your side destroy artifacts or enchantments. Game Changer.
+Krosan Grip	artifact-enchantment	76	3-mana split second: destroy an artifact or enchantment.
+Vandalblast	artifact-enchantment	76	1 mana: destroy an artifact you don't control, or all of them overloaded.
+Wear // Tear	artifact-enchantment	74	Split card: destroy an artifact, an enchantment, or both.
+Return to Nature	artifact-enchantment	72	2-mana instant: artifact, enchantment, or a graveyard card.
+Force of Vigor	artifact-enchantment	72	Free on opponents' turns: destroy up to two artifacts or enchantments.
+Haywire Mite	artifact-enchantment	70	1-mana artifact creature: sacrifice it to exile a noncreature artifact or enchantment.
+Reclamation Sage	artifact-enchantment	70	3-mana creature that destroys an artifact or enchantment on entry.
+Fracture	artifact-enchantment	68	2-mana instant: destroy an artifact, enchantment or planeswalker.
+Disenchant	artifact-enchantment	66	2-mana instant: destroy an artifact or enchantment.
+Manglehorn	artifact-enchantment	64	Body that kills an artifact on entry and taxes artifacts.
+Thrashing Brontodon	artifact-enchantment	64	3-mana creature you sacrifice to destroy an artifact or enchantment.
+Caustic Caterpillar	artifact-enchantment	62	1-mana creature you sacrifice to destroy an artifact or enchantment.
+Fiery Confluence	damage	72	Modal: 2 damage to each creature, 2 to each opponent, or destroy artifacts.
+Kolaghan's Command	damage	66	Destroy an artifact and deal 2 damage; or other useful modes.
+Abrade	damage	64	2-mana instant: 3 damage to a creature, or destroy an artifact.
+Bonecrusher Giant // Stomp	damage	64	Adventure: 2 damage to any target, then a 4/3.
+Comet Storm	damage	62	X instant: split damage across creatures and players.
+Fire // Ice	damage	62	Split card: 2 damage split, or tap two and draw.
+Lightning Bolt	damage	56	1-mana instant: 3 damage to any target; small next to Commander creatures.
+Lightning Helix	damage	58	3 damage to any target and 3 life.
+Cyclonic Rift	bounce	92	2-mana instant bounce, or a one-sided bounce of every opponent permanent at 7. Game Changer.
+Into the Roil	bounce	66	Bounce a nonland permanent; kicked, draw a card.
+Venser, Shaper Savant	bounce	66	Flash body that bounces a spell or permanent.
+Repulse	bounce	58	Bounce a creature and draw a card.
+Snap	bounce	58	Free bounce: untaps two lands.

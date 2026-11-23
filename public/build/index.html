@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Slot Finder · mournyl mtg</title>
+<meta name="description" content="Pick a commander, say what the deck is short on, and get ranked picks that fit its colors and aren't already in the list.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/mtg.css">
+</head>
+<body>
+<div id="spritebox" hidden></div>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" data-page="search">mournyl<small>mtg</small></a>
+      <nav class="site" aria-label="Site">
+        <a data-page="search">Card search</a><a data-page="tiers">Tier lists</a><a data-page="deck">Deck checker</a><a data-page="build">Slot finder</a><a data-page="saved">Saved</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="wrap narrow">
+  <section class="hero"><h1>slot finder</h1>
+    <p>Pick a commander and say what the deck is short on, like “2 ramp at 3 mana or less” or “an instant-speed board wipe”. You get the best cards for the job that fit its colors and aren't already in your list, ranked by tier.</p></section>
+
+  <section class="panel form" style="margin-top:22px">
+    <div class="two">
+      <div class="field"><label>Commander<input id="cmd1" autocomplete="off" spellcheck="false" placeholder="Start typing a commander"></label><div class="ac" id="ac1" hidden></div></div>
+      <div class="field"><label>Partner or Background (optional)<input id="cmd2" autocomplete="off" spellcheck="false" placeholder="Second commander"></label><div class="ac" id="ac2" hidden></div></div>
+    </div>
+    <label>What does the deck need?<span style="display:flex;gap:8px"><input id="need" style="flex:1;min-width:0" placeholder="2 ramp at 3 mana or less" autocomplete="off"><button class="btn primary" id="go" type="button">Find</button></span></label>
+    <div class="row2" style="gap:10px 16px">
+      <label class="fgroup">Job<select id="role" class="in"></select></label>
+      <label class="fgroup">Kind<select id="sub" class="in"><option value="">Any</option></select></label>
+      <label class="fgroup">How many<input id="n" class="in" type="number" min="1" max="20" value="3" style="width:64px"></label>
+      <label class="fgroup">Max MV<select id="mv" class="in"><option value="">Any</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+      <label class="fgroup">Type<select id="type" class="in"><option value="">Any</option><option>Creature</option><option>Artifact</option><option>Enchantment</option><option>Instant</option><option>Sorcery</option><option>Planeswalker</option><option>Land</option></select></label>
+      <label class="check"><input type="checkbox" id="inst">Instant speed</label>
+      <label class="check"><input type="checkbox" id="gcOk" checked>Game Changers</label>
+      <label class="check"><input type="checkbox" id="revOnly">Hand-reviewed only</label>
+    </div>
+    <details id="listBox"><summary style="cursor:pointer;color:var(--muted);font-size:13px">Your list <span id="listNote"></span></summary>
+      <p class="muted" style="font-size:13px;margin:8px 0">Cards here are left out of the picks, and Game Changers are left out once the list reaches your table's limit. The deck checker fills this in for you.</p>
+      <textarea id="list" class="deck" style="min-height:180px" spellcheck="false" placeholder="1 Sol Ring&#10;1 Arcane Signet&#10;…"></textarea>
+      <div class="row2" style="margin-top:8px"><select id="savedSel" class="in" style="flex:1;min-width:0"><option value="">Or open a saved deck…</option></select></div>
+    </details>
+  </section>
+
+  <main id="out" style="padding-top:22px;display:block" aria-live="polite"></main>
+
+  <section class="panel" id="tray" hidden style="position:sticky;bottom:12px;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,.6)">
+    <div class="row2" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <b id="trayCount"></b><div class="namelist" id="trayList" style="margin:0;flex:1"></div>
+      <button class="btn small" id="copyPicks" type="button">Copy picks</button>
+      <button class="btn small primary" id="toDeck" type="button">Add to my list and check</button>
+      <button class="btn small" id="toSaved" type="button" hidden>Save into deck</button>
+    </div>
+  </section>
+</div>
+
+<footer><span class="g">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Mana symbols from the <a href="https://github.com/andrewgioia/mana" target="_blank" rel="noopener">Mana font</a> (SIL OFL 1.1). Unofficial fan content.</footer>
+
+<script src="../assets/core.js"></script>
+<script src="../assets/mtg.js"></script>
+<script>
+(() => {
+  "use strict";
+  const M = window.MTG, K = window.MTGCore, { $, esc, fmt, tb, cost, idSyms, syms } = M;
+  M.initNav("build");
+  let idx = null, hub = null, entries = [], results = [], shown = 0, savedId = null;
+  const picks = new Map();
+
+  // ---------- commander autocomplete (same as the deck checker) ----------
+  function autocomplete(input, box, after) {
+    let items = [], on = -1;
+    const close = () => { box.hidden = true; items = []; on = -1; };
+    const draw = () => { box.innerHTML = items.map((c, i) => `<button type="button" data-i="${i}" class="${i === on ? "on" : ""}">${esc(c.n)} ${idSyms(c.id)}</button>`).join(""); box.hidden = !items.length; };
+    const pick = c => { input.value = c.n; close(); after && after(); };
+    input.addEventListener("input", () => {
+      const q = K.norm(input.value); if (!idx || q.length < 2) return close();
+      items = idx.list.filter(c => K.flagsOf(c).commander && K.norm(c.n).includes(q)).sort((a, b) => K.norm(a.n).indexOf(q) - K.norm(b.n).indexOf(q)).slice(0, 8);
+      on = -1; draw();
+    });
+    input.addEventListener("keydown", e => {
+      if (box.hidden) { if (e.key === "Enter") { e.preventDefault(); after && after(); } return; }
+      if (e.key === "ArrowDown") { e.preventDefault(); on = (on + 1) % items.length; draw(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); on = (on - 1 + items.length) % items.length; draw(); }
+      else if (e.key === "Enter") { e.preventDefault(); if (on >= 0) pick(items[on]); else { close(); after && after(); } }
+      else if (e.key === "Escape") close();
+    });
+    box.addEventListener("mousedown", e => { const b = e.target.closest("[data-i]"); if (!b) return; e.preventDefault(); pick(items[+b.dataset.i]); });
+    input.addEventListener("blur", () => setTimeout(close, 150));
+  }
+
+  // ---------- form <-> phrase ----------
+  function fillSubs() {
+    const r = hub.roles.find(x => x.key === $("role").value);
+    $("sub").innerHTML = `<option value="">Any</option>` + (r ? r.subs.map(s => `<option value="${s.key}">${esc(s.name)}</option>`).join("") : "");
+  }
+  function applyNeed(text) {
+    const n = K.parseNeed(text);
+    if (n.role) { $("role").value = n.role; fillSubs(); $("sub").value = n.sub || ""; }
+    if (n.n) $("n").value = n.n;
+    $("mv").value = n.maxMv != null ? String(Math.min(6, n.maxMv)) : "";
+    $("inst").checked = n.inst; $("type").value = n.type || "";
+    return n;
+  }
+  function deckState() {
+    const parsed = K.parseList($("list").value);
+    const d = K.resolveDeck(parsed, idx, [$("cmd1").value, $("cmd2").value].map(s => s.trim()).filter(Boolean));
+    const names = new Set([...d.main.map(x => x.card.n), ...d.commanders.map(c => c.n)]);
+    const gcs = [...d.main, ...d.commanders.map(c => ({ card: c }))].filter(x => K.flagsOf(x.card).gc).length;
+    const rules = (() => { const r = M.store.get("rules", null); return r ? (r.preset === "custom" ? r.custom : K.PRESETS[r.preset] || K.PRESETS.pod) : K.PRESETS.pod; })();
+    return { d, names, gcs, rules };
+  }
+
+  async function find() {
+    const out = $("out");
+    const cmds = [$("cmd1").value, $("cmd2").value].map(s => s.trim()).filter(Boolean).map(n => K.norm(n));
+    const cs = cmds.map(n => idx.byName.get(n)).filter(Boolean);
+    if (!cs.length) { out.innerHTML = `<p class="empty">Pick a commander first${cmds.length ? " (that name isn't in the card index)" : ""}.</p>`; return; }
+    const identity = "WUBRG".split("").filter(k => cs.some(c => c.id.includes(k))).join("");
+    const role = $("role").value, info = M.ROLE_INFO[role];
+    out.innerHTML = `<p class="empty">Ranking ${esc(info.label.toLowerCase())}…</p>`;
+    entries = (await M.loadRole(role)).list;
+    const st = deckState();
+    const atCap = st.gcs >= st.rules.maxGC;
+    if (atCap && $("gcOk").checked && st.names.size > 1) $("gcOk").checked = false;
+    const opt = { identity, exclude: st.names, sub: $("sub").value, maxMv: $("mv").value === "" ? null : +$("mv").value, inst: $("inst").checked,
+      type: $("type").value, noGC: !$("gcOk").checked, reviewedOnly: $("revOnly").checked };
+    cs.forEach(c => st.names.add(c.n));
+    results = K.findSlots(entries, opt);
+    const n = Math.max(1, Math.min(20, +$("n").value || 3));
+    shown = Math.max(12, n * 4);
+    const sub = $("sub").value ? M.hubSubName(role, $("sub").value).toLowerCase() : info.label.toLowerCase();
+    const bits = [opt.maxMv != null && `${opt.maxMv} mana or less`, opt.inst && "instant speed", opt.type && opt.type.toLowerCase() + "s", opt.noGC && "no Game Changers", opt.reviewedOnly && "hand-reviewed"].filter(Boolean);
+    $("listNote").textContent = st.names.size > cs.length ? `(${st.names.size - cs.length} cards left out)` : "";
+    out.dataset.title = `${n} ${sub}`;
+    out.dataset.head = `<div class="tier-head" style="margin-bottom:6px"><h2 style="font-family:var(--gothic);font-weight:400;font-size:40px;margin:0;color:#fff">best ${esc(sub)} for ${esc(cs.map(c => c.n.split(",")[0]).join(" + "))}</h2></div>
+      <p class="muted" style="margin:0 0 14px">${idSyms(identity) || M.sym("C")} ${fmt(results.length)} cards fit${bits.length ? " (" + esc(bits.join(", ")) + ")" : ""}. You asked for ${n}; the top ${n} are marked. ${atCap ? "Your list is at its Game Changer limit, so they're left out." : ""}</p>`;
+    render(n);
+    try { history.replaceState(null, "", "#" + new URLSearchParams({ cmd: cs.map(c => c.n).join(" + "), need: $("need").value || `${n} ${sub}` })); } catch { /* sandboxed */ }
+  }
+  function render(n = +$("n").value || 3) {
+    const out = $("out");
+    if (!results.length) { out.innerHTML = out.dataset.head + `<p class="empty">Nothing fits. Loosen a filter: raise the max mana value, allow any type, or turn off hand-reviewed only.</p>`; return; }
+    const part = results.slice(0, shown);
+    out.innerHTML = out.dataset.head + `<div class="grid">` + part.map((e, i) => {
+      const src = M.img(e.n, "normal"), on = picks.has(e.n);
+      return `<div class="tile"><button type="button" class="card${src ? "" : " text"}" data-n="${esc(e.n)}" aria-label="${esc(e.n)}, ${e.t} tier">${src ? `<img loading="lazy" src="${src}" alt="${esc(e.n)}">` : `<span class="nm">${esc(e.n)}</span>${cost(e.c)}<span class="ty">${esc(e.ty)}</span>`}
+        <span class="chip rank">${i < n ? "★ " : ""}#${i + 1}</span><span class="chip sc">${e.t} · ${e.s}</span></button>
+        <p class="why">${syms(e.why)}</p>
+        <div class="roles">${!e.rev ? `<span class="badge" style="--bc:var(--dot-unrev)">Unreviewed</span>` : ""}${e.gc ? `<span class="badge" style="--bc:var(--dot-gc)">Game Changer</span>` : ""}${e.clr.length > 1 ? `<span class="badge ids">${idSyms(e.clr)}</span>` : ""}</div>
+        <button type="button" class="btn small" data-pick="${esc(e.n)}" aria-pressed="${on}" style="justify-content:center">${on ? "✓ Picked" : "+ Pick"}</button></div>`;
+    }).join("") + `</div>` + (results.length > shown ? `<p style="margin-top:14px"><button class="btn small" id="more" type="button">Show ${Math.min(24, results.length - shown)} more (${fmt(results.length - shown)} left)</button></p>` : "");
+    M.scryfall(part.map(e => e.n)).then(ok => { if (ok) render(n); });
+  }
+  function drawTray() {
+    $("tray").hidden = !picks.size;
+    $("trayCount").textContent = `${picks.size} picked`;
+    $("trayList").innerHTML = [...picks.keys()].map(n => `<button type="button" class="nm-chip" data-unpick="${esc(n)}" title="Remove">${esc(n)} ×</button>`).join("");
+  }
+  function togglePick(name) { picks.has(name) ? picks.delete(name) : picks.set(name, true); drawTray(); render(); }
+
+  async function refreshSaved() {
+    try {
+      const list = await M.decks.list();
+      $("savedSel").innerHTML = `<option value="">Or open a saved deck…</option>` + list.map(d => `<option value="${esc(d.id)}"${String(d.id) === String(savedId) ? " selected" : ""}>${esc(d.name)}${d.commander ? " · " + esc(d.commander) : ""}</option>`).join("");
+    } catch { /* offline: keep the empty list */ }
+    $("toSaved").hidden = !savedId;
+  }
+
+  function wire() {
+    $("role").innerHTML = hub.roles.map(r => `<option value="${r.key}">${esc(r.name)}</option>`).join("");
+    $("role").value = "ramp"; fillSubs();
+    $("role").onchange = fillSubs;
+    $("go").onclick = () => { if ($("need").value.trim()) applyNeed($("need").value); find(); };
+    $("need").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("go").click(); } });
+    ["role", "sub", "n", "mv", "type", "inst", "gcOk", "revOnly"].forEach(k => $(k).addEventListener("change", () => { if (results.length || $("out").dataset.head) find(); }));
+    autocomplete($("cmd1"), $("ac1"), () => $("need").focus()); autocomplete($("cmd2"), $("ac2"));
+    $("out").addEventListener("click", e => {
+      const p = e.target.closest("[data-pick]"); if (p) return togglePick(p.dataset.pick);
+      if (e.target.id === "more") { shown += 24; return render(); }
+      const c = e.target.closest("[data-n]");
+      if (c) {
+        const st = deckState(), cs = [$("cmd1").value, $("cmd2").value].map(s => idx.byName.get(K.norm(s))).filter(Boolean);
+        const identity = "WUBRG".split("").filter(k => cs.some(x => x.id.includes(k))).join("");
+        M.openCard(c.dataset.n, { allowed: cs.length ? identity : undefined, exclude: st.names, onPick: n => { if (!picks.has(n)) togglePick(n); }, pickLabel: picks.has(c.dataset.n) ? "Picked" : "Pick this card" });
+      }
+    });
+    $("trayList").addEventListener("click", e => { const b = e.target.closest("[data-unpick]"); if (b) togglePick(b.dataset.unpick); });
+    $("copyPicks").onclick = async () => { try { await navigator.clipboard.writeText([...picks.keys()].map(n => `1 ${n}`).join("\n") + "\n"); M.toast("Copied"); } catch { M.toast("Copy failed"); } };
+    $("toDeck").onclick = () => {
+      const cmds = [$("cmd1").value, $("cmd2").value].map(s => s.trim()).filter(Boolean);
+      let list = $("list").value.trim();
+      if (!list && cmds.length) list = `Commander\n${cmds.map(n => "1 " + n).join("\n")}\n\nDeck`;
+      list += "\n" + [...picks.keys()].map(n => `1 ${n}`).join("\n");
+      M.draft.set({ list, commanders: cmds, savedId });
+      location.href = M.page("deck");
+    };
+    $("toSaved").onclick = async () => {
+      const d = await M.decks.get(savedId); if (!d) return M.toast("That deck is gone");
+      d.list = d.list.trimEnd() + "\n" + [...picks.keys()].map(n => `1 ${n}`).join("\n") + "\n";
+      try { await M.decks.save(d); $("list").value = d.list; M.toast(`Saved ${picks.size} card${picks.size > 1 ? "s" : ""} into ${d.name}`); picks.clear(); drawTray(); find(); }
+      catch (e) { M.toast(e.message); }
+    };
+    $("savedSel").onchange = async e => {
+      if (!e.target.value) return;
+      const d = await M.decks.get(e.target.value); if (!d) return;
+      savedId = d.id; $("list").value = d.list;
+      const cs = (d.commander || "").split(" + "); $("cmd1").value = cs[0] || ""; $("cmd2").value = cs[1] || "";
+      $("toSaved").hidden = false; find();
+    };
+  }
+
+  Promise.all([M.loadSprite(), M.loadCards(), M.loadHub()]).then(([, i, h]) => {
+    idx = i; hub = h; wire(); refreshSaved();
+    const d = M.draft.get();
+    if (d) {
+      $("list").value = d.list || ""; savedId = d.savedId || null;
+      if (d.commanders && d.commanders[0]) { $("cmd1").value = d.commanders[0]; $("cmd2").value = d.commanders[1] || ""; }
+      if (savedId) $("toSaved").hidden = false;
+    }
+    const p = new URLSearchParams(location.hash.slice(1));
+    if (p.get("cmd")) { const cs = p.get("cmd").split(" + "); $("cmd1").value = cs[0]; $("cmd2").value = cs[1] || ""; }
+    if (p.get("need")) { $("need").value = p.get("need"); applyNeed(p.get("need")); }
+    if ($("cmd1").value && (p.get("need") || p.get("cmd"))) find();
+    else if (!$("cmd1").value) $("cmd1").focus();
+  }).catch(err => { $("out").innerHTML = `<p class="empty">The card index didn't load (${esc(err.message)}). Reload to try again.</p>`; });
+})();
+</script>
+</body>
+</html>

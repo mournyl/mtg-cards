@@ -1,0 +1,25 @@
+{
+"note": "Share of decks on EDHREC that run the card (counterspells: share of blue decks over two years; Dovin's Veto: white-blue). Shown beside the tier as a sanity check; never used in the score.",
+"counterspells": {
+"Fierce Guardianship": 17.0,
+"Force of Will": 9.4,
+"Mana Drain": 14.2,
+"Counterspell": 42.1,
+"An Offer You Can't Refuse": 26.9,
+"Swan Song": 19.0,
+"Force of Negation": 7.9,
+"Pact of Negation": 6.3,
+"Flusterstorm": 7.2,
+"Arcane Denial": 20.8,
+"Dovin's Veto": 19.1,
+"Negate": 20.0,
+"Mindbreak Trap": 4.8,
+"Mental Misstep": 5.4,
+"Spell Pierce": 3.3,
+"Narset's Reversal": 3.9,
+"Sink into Stupor // Soporific Springs": 10.8,
+"Muddle the Mixture": 3.9,
+"Hullbreaker Horror": 7.8,
+"Jwari Disruption // Jwari Ruins": 1.2
+}
+}

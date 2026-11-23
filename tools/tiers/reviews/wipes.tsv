@@ -1,0 +1,64 @@
+name	sub	score	reason
+Cyclonic Rift	nonland	94	Overloaded at 7: bounces every nonland permanent your opponents control, at instant speed. Game Changer.
+Farewell	nonland	92	Exile any mix of creatures, artifacts, enchantments and graveyards. Game Changer.
+Austere Command	nonland	86	6 mana: pick two of creatures, artifacts, enchantments and lands... the right two every time.
+Ruinous Ultimatum	nonland	84	7 mana: destroy every nonland permanent your opponents control.
+Pernicious Deed	nonland	82	Destroy every artifact, creature and enchantment with mana value X or less, when you choose.
+Merciless Eviction	nonland	80	6 mana: exile every permanent of one type; you pick which.
+Hour of Revelation	nonland	74	Destroy all nonland permanents; costs less with a full board.
+Nevinyrral's Disk	nonland	72	Artifact you crack to destroy all creatures, artifacts and enchantments.
+Oblivion Stone	nonland	72	Artifact you crack to exile everything nonland without a fate counter.
+Cleansing Nova	nonland	70	Destroy all creatures, or all artifacts and enchantments.
+Planar Cleansing	nonland	66	6 mana: destroy all nonland permanents.
+Toxic Deluge	creatures	92	3 mana: pay life for -X/-X on every creature; gets past indestructible.
+Blasphemous Act	creatures	88	Often costs 1: 13 damage to each creature.
+Damnation	creatures	88	4-mana sorcery: destroy all creatures; they can't regenerate.
+Wrath of God	creatures	84	4 mana: destroy all creatures; they can't regenerate.
+Day of Judgment	creatures	82	4 mana: destroy all creatures.
+Vanquish the Horde	creatures	82	Usually 2 to 4 mana: destroy all creatures.
+In Garruk's Wake	creatures	82	9 mana: destroy every creature and planeswalker your opponents control.
+Damn	creatures	80	2-mana removal, or overload at 4 to destroy all creatures.
+Sunfall	creatures	80	5 mana: exile all creatures and leave yourself a body.
+Crux of Fate	creatures	80	5 mana: destroy all Dragons or all non-Dragons.
+Black Sun's Zenith	creatures	78	X: -1/-1 counters on every creature, then it shuffles back to use again.
+Terminus	creatures	76	Miracle for {W}: tuck every creature into its owner's library.
+Doomskar	creatures	76	Foretell it, then wrath for 3 later.
+Massacre Wurm	creatures	76	6-mana creature: opponents' creatures get -2/-2 and each death costs them 2 life.
+Plague Wind	creatures	76	9 mana: destroy every creature you don't control.
+Extinction Event	creatures	76	Exile all creatures with even or odd mana value, your pick.
+Rout	creatures	74	Instant wrath for 7, or a 5-mana sorcery.
+Decree of Pain	creatures	74	Destroy all creatures and draw a card for each one you lose.
+Fumigate	creatures	74	Destroy all creatures and gain life for each.
+Settle the Wreckage	creatures	74	Instant: exile every attacking creature.
+Mizzium Mortars	creatures	74	Overloaded at 6: 4 damage to every creature you don't control.
+Kindred Dominance	creatures	74	7 mana: destroy all creatures not of the type you name.
+Hallowed Burial	creatures	72	5 mana: tuck every creature into its owner's library.
+Massacre Girl	creatures	72	Body that chains -1/-1 through the board.
+Deadly Tempest	creatures	72	Destroy all creatures; each player loses life for theirs.
+Starstorm	creatures	70	Instant X damage to each creature; cycles when you don't need it.
+Anger of the Gods	creatures	66	3 damage to each creature, exiling what dies.
+Dusk // Dawn	creatures	66	Destroy creatures with power 3 or more, or recast small ones later.
+Sweltering Suns	creatures	62	3 damage to each creature; cycles.
+Evacuation	creatures	58	Instant: bounce every creature.
+Vandalblast	artifacts-enchantments	80	Overloaded at 5: destroy every artifact you don't control.
+Bane of Progress	artifacts-enchantments	64	Destroy all artifacts and enchantments every time it or another creature you control... dies.
+Tranquility	artifacts-enchantments	62	3 mana: destroy all enchantments.
+Shatterstorm	artifacts-enchantments	60	3 mana: destroy all artifacts.
+The Meathook Massacre	creatures	80	X: every creature gets -X/-X, and it drains opponents as their creatures die.
+Council's Judgment		x	Single-target removal by vote; listed under targeted removal.
+Swift Demise	creatures	40	Kills one creature unless you've already dealt damage around the board this turn.
+Electrickery	creatures	55	Overloaded, 1 damage to each creature you don't control for two mana. Only kills X/1s.
+Spring Cleaning	artifacts-enchantments	42	Kills one enchantment; the clash for the rest is a coin flip at best.
+Final Showdown	creatures	70	Instant-speed Wrath for six mana, seven to keep your best creature.
+Glyph of Doom	creatures	x	Needs a Wall that blocked; not a real wipe.
+Glyph of Reincarnation	creatures	x	Needs a Wall that blocked; not a real wipe.
+Siren's Call	creatures	15	Forces one player's attack and kills what stayed home. Rarely hits much.
+Ghostway	creatures	x	Blinks your own creatures; protection, not a wipe.
+Savage Alliance	creatures	35	Four mana to ping one opponent's board and shoot a creature. Kills only small creatures.
+Iroh's Demonstration	creatures	50	Two mana: 1 damage to every creature your opponents control, or 4 to one. Small-creature sweeper.
+Simoon	creatures	35	Pings one opponent's creatures for 1. Kills only X/1s.
+Smash to Dust	creatures	46	Two-mana flex: kill an artifact, or ping every creature your opponents control.
+Winds of Abandon	creatures	80	Overloaded, exiles every creature you don't control for six. They all get basics, though.
+Planar Guide	creatures	25	Blinks every creature; only tokens and auras stay gone.
+Blot Out the Sky	nonland	50	At X=6 or more, eight mana for six fliers and a wipe of every noncreature, nonland permanent.
+Make an Example	creatures	58	Each opponent loses one of two piles they make. Four mana, one-sided, about half their creatures.

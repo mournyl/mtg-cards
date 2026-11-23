@@ -1,0 +1,60 @@
+name	sub	score	reason
+Demonic Tutor	any	96	2 mana: any card to your hand. Game Changer.
+Vampiric Tutor	any	92	1-mana instant: any card to the top for 2 life. Game Changer.
+Imperial Seal	any	88	1 mana: any card to the top for 2 life. Game Changer.
+Diabolic Intent	any	84	2 mana plus a creature or Treasure: any card to hand.
+Grim Tutor	any	84	3 mana: any card to hand for 3 life.
+Gifts Ungiven	any	80	Four different cards; an opponent picks two for your hand. Game Changer.
+Intuition	any	80	Three cards; an opponent picks one for your hand. Game Changer.
+Beseech the Mirror	any	78	4 mana: any card; bargain it to cast the card free.
+Wishclaw Talisman	any	78	Any card to hand, then the talisman goes to an opponent.
+Gamble	any	76	1 mana: any card to hand, then discard one at random. Game Changer.
+Rune-Scarred Demon	any	76	6-mana body that tutors any card on entry.
+Scheming Symmetry	any	74	1 mana: you and an opponent each put a card on top.
+Entomb	any	72	1-mana instant: any card straight to your graveyard; reanimator's best tutor.
+Diabolic Tutor	any	72	4 mana: any card to hand.
+Profane Tutor	any	70	Suspend for {1}{B}: any card to hand two turns later.
+Increasing Ambition	any	66	5 mana: any card to hand, with flashback.
+Lim-Dûl's Vault	any	66	1 mana: dig five deep and set up the top of your library.
+Mastermind's Acquisition	any	60	4 mana: any card to hand.
+Worldly Tutor	creature	86	1-mana instant: a creature to the top. Game Changer.
+Natural Order	creature	86	Sacrifice a green creature: any green creature onto the battlefield. Game Changer.
+Survival of the Fittest	creature	86	Discard a creature for a creature, over and over. Game Changer.
+Green Sun's Zenith	creature	82	X+1: a green creature with mana value X onto the battlefield.
+Finale of Devastation	creature	80	X: a creature from library or graveyard onto the battlefield; X 10 pumps the team.
+Eladamri's Call	creature	76	3-mana instant: any creature to hand.
+Eldritch Evolution	creature	76	2 mana: sacrifice a creature for one up to 2 mana value higher, onto the battlefield.
+Chord of Calling	creature	74	Convoke instant: a creature onto the battlefield.
+Fauna Shaman	creature	72	2-mana body: discard a creature to find one, every turn.
+Imperial Recruiter	creature	70	2 mana: any creature with power 2 or less to hand.
+Tooth and Nail	creature	66	Entwined at 9: two creatures onto the battlefield.
+Recruiter of the Guard	creature	64	Body that tutors a creature with toughness 2 or less.
+Buried Alive	creature	64	Three creatures into your graveyard for reanimation.
+Mystical Tutor	instant-sorcery	86	1-mana instant: an instant or sorcery to the top. Game Changer.
+Personal Tutor	instant-sorcery	72	1 mana: a sorcery to the top.
+Spellseeker	instant-sorcery	66	1-mana body: an instant or sorcery with mana value 2 or less to hand.
+Merchant Scroll	instant-sorcery	66	2 mana: a blue instant to hand.
+Solve the Equation	instant-sorcery	64	3 mana: an instant or sorcery to hand.
+Enlightened Tutor	artifact-enchantment	86	1-mana instant: an artifact or enchantment to the top. Game Changer.
+Whir of Invention	artifact-enchantment	72	X instant: an artifact onto the battlefield; improvise helps pay.
+Idyllic Tutor	artifact-enchantment	70	3 mana: an enchantment to hand.
+Stoneforge Mystic	artifact-enchantment	70	2-mana body: an Equipment to hand, then cheat it in.
+Academy Rector	artifact-enchantment	68	When it dies, an enchantment onto the battlefield.
+Fabricate	artifact-enchantment	66	4 mana: an artifact to hand.
+Trophy Mage	artifact-enchantment	66	Body that finds an artifact with mana value 3.
+Summoner's Pact	creature	74	Free now: a green creature to hand; pay {2}{G}{G} next upkeep or lose.
+Rushed Rebirth	creature	64	Instant: when a creature dies this turn, fetch a cheaper one onto the battlefield.
+Long-Term Plans	any	62	3-mana instant: any card, but third from the top.
+Muddle the Mixture	any	62	Counters an instant or sorcery, or transmutes for a 2-drop.
+Steelshaper's Gift	artifact-enchantment	62	1 mana: an Equipment to hand.
+Demonic Bargain	any	60	3 mana: exile the top 13 cards, then any card to hand.
+Rhystic Tutor	any	60	3 mana: any card to hand unless an opponent pays 2 life.
+Servant of the Stinger	any	58	Sacrifice after it connects: any card to hand.
+Ringsight	any	58	3 mana: a card sharing a color with your commander, to hand.
+Archmage Ascension	any	56	Slow quest, then every draw becomes a tutor.
+Insatiable Avarice	any	52	Spree: a card to the top, or draw three for 3 life.
+Shred Memory	any	52	Transmute for a 2-drop, or exile graveyard cards.
+Dizzy Spell	any	50	Transmute for a 1-drop.
+Foresight		x	Exiles three cards from your library; not a tutor.
+Manipulate Fate		x	Exiles three cards from your library; not a tutor.
+Treasure Chest		x	A random roll that rarely finds what you need.

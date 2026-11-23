@@ -1,0 +1,62 @@
+name	sub	score	reason
+Bojuka Bog	one-shot	84	Land that exiles a graveyard when it enters; it costs no spell slot.
+Soul-Guide Lantern	one-shot	78	1 mana: exile a graveyard on entry, or every graveyard later; cycles.
+Relic of Progenitus	one-shot	78	1 mana: exile cards one at a time, or every graveyard and draw.
+Tormod's Crypt	one-shot	74	Free: exile a graveyard whenever you need to.
+Faerie Macabre	one-shot	72	Free from hand: exile two cards from graveyards.
+Endurance	one-shot	70	Flash body that puts a graveyard on the bottom of its library.
+Ravenous Trap	one-shot	66	Free if they put three cards in graveyards this turn: exile a graveyard.
+Nihil Spellbomb	one-shot	66	1 mana: exile a graveyard and draw a card.
+Rakdos Charm	one-shot	64	Modal: exile a graveyard, or other useful modes.
+Leyline of the Void	repeatable	82	Opponents' cards are exiled instead of going to the graveyard; free in your opening hand.
+Scavenging Ooze	repeatable	80	Body that eats a graveyard card for {G}, any time.
+Rest in Peace	repeatable	80	Every graveyard stays empty; it hits yours too.
+Dauthi Voidwalker	repeatable	80	Opponents' cards are exiled with void counters, and you can cast one later.
+Grafdigger's Cage	repeatable	78	No creatures from graveyards or libraries, and no casting from graveyards.
+Unlicensed Hearse	repeatable	72	Exiles two graveyard cards a turn and grows.
+Lion Sash	repeatable	66	Equipment that exiles graveyard cards and grows.
+Crook of Condemnation	repeatable	64	Exile a creature card from a graveyard each turn.
+Farewell	one-shot	72	One mode exiles every graveyard; the others wipe the board. Game Changer.
+Scavenger Grounds	one-shot	66	Land: sacrifice a Desert to exile every graveyard.
+Remorseful Cleric	one-shot	64	2-mana flyer you sacrifice to exile a graveyard.
+Abstergo Entertainment	one-shot	64	Land: sacrifice it to exile every graveyard.
+Keen-Eyed Curator	repeatable	62	2-mana body that exiles graveyard cards for {1} and grows.
+Deathrite Shaman	repeatable	62	1-mana body that eats graveyard cards for mana, drain or life.
+Ashiok, Dream Render	repeatable	62	3-mana walker: opponents' library searches fail, and it mills and exiles graveyards.
+Calamity's Wake	one-shot	60	Instant: exile a graveyard and stop graveyard casting for the turn.
+Silent Gravestone	repeatable	60	Cards in graveyards can't be targeted; cash it in to exile them.
+Ashes of the Abhorrent	repeatable	60	Nobody casts spells from graveyards or uses their abilities; you gain life.
+Cling to Dust	one-shot	60	1-mana instant: exile a graveyard card; repeatable with escape.
+Stone of Erech	one-shot	58	1 mana: creatures can't reanimate past it; sacrifice to exile a graveyard.
+Ground Seal	repeatable	58	Cards in graveyards can't be targeted; draws a card.
+Lantern of the Lost	one-shot	58	1 mana: exile a graveyard card, or sacrifice to exile all graveyards.
+Restless Cottage	repeatable	58	Creature land that exiles a graveyard card each attack.
+Soulless Jailer	repeatable	58	Stops casting from graveyards and exile; also stops your own.
+Weathered Runestone	repeatable	56	Nothing gets played from graveyards or libraries.
+Yixlid Jailer	repeatable	56	Cards in graveyards lose all abilities.
+Soul-Guide Gryff	one-shot	56	Flash flyer that exiles graveyards on entry.
+Sentinel Totem	one-shot	54	1 mana: exile every graveyard later.
+Tomik, Distinguished Advokist	repeatable	54	Lands in graveyards can't be targeted or played.
+Wheel of Sun and Moon	repeatable	54	Aura that sends a player's cards to the bottom instead of the graveyard.
+Leonin of the Lost Pride	one-shot	52	Dies: exile a card from an opponent's graveyard.
+Cremate	one-shot	50	1 mana: exile one graveyard card and draw.
+Agent of Erebos	one-shot	50	Constellation: exile a player's graveyard.
+Ruin Rat	one-shot	50	Dies: exile a card from an opponent's graveyard.
+Planar Void	repeatable	50	Exiles every card that hits a graveyard after it.
+Withered Wretch	repeatable	52	Body that exiles a graveyard card for {1}, as often as you pay.
+Containment Priest	repeatable	58	Flash body: creatures that weren't cast are exiled instead of entering, stopping reanimation.
+Sanctifier en-Vec	repeatable	60	Black and red cards are exiled instead of hitting graveyards; protection from both.
+Kaya, Orzhov Usurper	repeatable	58	+1 exiles up to two cards from a graveyard every turn.
+Graveyard Trespasser // Graveyard Glutton	repeatable	56	Exiles a graveyard card on entry and each attack.
+Scrabbling Claws	repeatable	56	1 mana: make them discard, then exile graveyard cards.
+Phyrexian Furnace	one-shot	50	Free artifact: exile the bottom card of a graveyard, or sacrifice to exile any card.
+Tormod's Cryptkeeper	one-shot	48	3-mana body you sacrifice to exile a graveyard.
+Disciple of Perdition	one-shot	38	Exiles one opponent's graveyard when it dies, if you choose that over a card.
+Negative Zone Portal	repeatable	42	Two mana a turn to exile one card from a graveyard; draws on creatures.
+Dennick, Pious Apprentice // Dennick, Pious Apparition	repeatable	55	Cards in graveyards can't be targeted: stops most reanimation spells, yours too.
+Gollum the Abandoned	one-shot	30	Exiles a single card from a graveyard when it enters.
+Nezumi Graverobber // Nighteyes the Desecrator	repeatable	55	Two mana a card to empty a graveyard, then flips into a reanimator.
+Samurai of the Pale Curtain	repeatable	55	Permanents are exiled instead of going to the graveyard. Two mana, symmetric, easy to kill.
+Honor the Fallen	one-shot	58	Instant, two mana: exiles every creature card in every graveyard.
+Dauntless Scrapbot	one-shot	58	Colorless three-drop that exiles every opponent's graveyard and leaves a Lander.
+Elspeth's Nightmare	one-shot	35	Slow: exiles one graveyard on chapter III, after a small kill and a discard.
