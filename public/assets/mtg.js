@@ -12,7 +12,7 @@
   const ROOT = new URL("..", document.currentScript ? document.currentScript.src : location.href);
   const PREVIEW = !!window.MTG_PREVIEW;
   const url = p => new URL(p, ROOT).href;
-  const PAGES = { search: "", tiers: "tiers/", deck: "deck/", build: "build/", saved: "#saved" };
+  const PAGES = { search: "", tiers: "tiers/", saved: "#saved" };
   // MTG_PREVIEW is set only by the stand-alone preview build (no server, no card search): links use explicit files
   function page(key, hash) {
     let p = PAGES[key] ?? "";
@@ -186,52 +186,13 @@
   const me = () => meP ||= (PREVIEW || location.protocol === "file:" ? Promise.resolve({ online: false, user: null })
     : api("GET", "/api/me").then(r => ({ online: true, user: r.user })).catch(() => ({ online: false, user: null })));
 
-  // saved decks: the account's decks on the server when logged in, otherwise this browser only
-  const LOCAL_DECKS = "decks";
-  const decks = {
-    async where() { const m = await me(); return m.online && m.user ? "server" : "local"; },
-    async list() {
-      if (await this.where() === "server") return (await api("GET", "/api/decks")).decks;
-      return store.get(LOCAL_DECKS, []).map(({ id, name, commander, updated_at, last }) => ({ id, name, commander, updated_at, last }));
-    },
-    async get(id) {
-      if (await this.where() === "server") return (await api("GET", `/api/decks/${id}`)).deck;
-      return store.get(LOCAL_DECKS, []).find(d => String(d.id) === String(id)) || null;
-    },
-    async save(d) {                       // d: { id?, name, commander, list, settings }
-      if (await this.where() === "server") {
-        if (d.id && !String(d.id).startsWith("l")) { await api("PATCH", `/api/decks/${d.id}`, d); return d.id; }
-        return (await api("POST", "/api/decks", d)).deck.id;
-      }
-      const all = store.get(LOCAL_DECKS, []), now = Date.now();
-      let x = d.id && all.find(y => String(y.id) === String(d.id));
-      if (!x) { x = { id: "l" + now, checks: [], created_at: now }; all.unshift(x); }
-      Object.assign(x, { name: d.name, commander: d.commander, list: d.list, settings: d.settings, updated_at: now });
-      store.set(LOCAL_DECKS, all.slice(0, 50)); return x.id;
-    },
-    async remove(id) {
-      if (await this.where() === "server" && !String(id).startsWith("l")) return api("DELETE", `/api/decks/${id}`);
-      store.set(LOCAL_DECKS, store.get(LOCAL_DECKS, []).filter(d => String(d.id) !== String(id)));
-    },
-    async addCheck(id, summary) {
-      if (await this.where() === "server" && !String(id).startsWith("l")) return api("POST", `/api/decks/${id}/checks`, { summary });
-      const all = store.get(LOCAL_DECKS, []), x = all.find(d => String(d.id) === String(id)); if (!x) return;
-      x.checks = [{ created_at: Date.now(), summary }, ...(x.checks || [])].slice(0, 20); x.last = summary; store.set(LOCAL_DECKS, all);
-    },
-  };
-  // the deck being worked on, shared by the deck checker, slot finder and card search (this tab only)
-  const draft = {
-    get() { try { return JSON.parse(sessionStorage.getItem("mournyl-deck-draft") || "null"); } catch { return null; } },
-    set(d) { try { sessionStorage.setItem("mournyl-deck-draft", JSON.stringify(d)); } catch { /* storage off */ } },
-  };
-
   // small log-in / sign-up dialog for pages other than card search (same /api/login and /api/signup)
   function login(sub) {
     return new Promise(resolve => {
       const box = document.createElement("div");
       box.className = "modal open";
       box.innerHTML = `<div class="sheet small" role="dialog" aria-modal="true" aria-label="Log in"><button type="button" class="close" aria-label="Close">×</button>
-        <form class="form" novalidate><h2 class="sec-h" style="text-align:center;margin:0">mournyl</h2><p class="muted" style="text-align:center;margin:0" id="lgSub">${esc(sub || "Log in to save decks")}</p>
+        <form class="form" novalidate><h2 class="sec-h" style="text-align:center;margin:0;font:400 40px/1 var(--gothic)">mournyl</h2><p class="muted" style="text-align:center;margin:0" id="lgSub">${esc(sub || "Log in to save cards")}</p>
         <label>Username<input name="u" autocomplete="username" required></label>
         <label>Password<input name="p" type="password" autocomplete="current-password" required></label>
         <button class="btn primary" type="submit" style="justify-content:center">Log in</button><div class="msg bad" id="lgMsg"></div>
@@ -255,6 +216,33 @@
       };
       setTimeout(() => form.u.focus(), 30);
     });
+  }
+
+  // ---------- Saved + profile, top right on every page ----------
+  // Favorites live in the account when logged in, otherwise in this browser (same key the card search uses).
+  async function initAccount() {
+    const acct = $("navAcct"), saved = $("navSaved"), count = $("savedCount");
+    if (!acct) return;
+    const m = await me();
+    let n = 0;
+    if (m.online && m.user) { try { n = (await api("GET", "/api/saved")).favorites.length; } catch { /* keep 0 */ } }
+    else { try { n = (JSON.parse(localStorage.getItem("mournyl-mtg-saved") || "{}").favorites || []).length; } catch { /* storage off */ } }
+    if (count) { count.hidden = !n; count.textContent = n; }
+    if (saved && saved.tagName === "A") saved.href = page("saved");
+    acct.textContent = m.user ? m.user.username : m.online ? "Log in" : "This device";
+    acct.title = m.online ? "" : "No server here; saves stay in this browser";
+    acct.onclick = async e => {
+      if (!m.online) return toast("No server here; saves stay in this browser");
+      if (!m.user) { if (await login("Log in to save cards")) { meP = null; initAccount(); } return; }
+      document.querySelector(".menu")?.remove();
+      const r = e.currentTarget.getBoundingClientRect(), menu = document.createElement("div");
+      menu.className = "menu";
+      menu.innerHTML = `<div class="ttl">Signed in as ${esc(m.user.username)}</div><button type="button">Log out</button>`;
+      menu.style.top = r.bottom + 6 + "px"; menu.style.left = Math.max(8, r.right - 200) + "px";
+      document.body.appendChild(menu);
+      menu.querySelector("button").onclick = async () => { menu.remove(); try { await api("POST", "/api/logout", {}); } catch { /* already out */ } meP = null; toast("Logged out"); initAccount(); };
+      setTimeout(() => document.addEventListener("mousedown", function off(ev) { if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener("mousedown", off); } }), 0);
+    };
   }
 
   // ---------- header ----------
@@ -340,8 +328,7 @@
       ].filter(Boolean).join("");
       sheet.innerHTML = `
         <button type="button" class="close" aria-label="Close">×</button>
-        <div>${big ? `<img class="bigimg" src="${big}" alt="${esc(c.n)}">`
-          : `<div class="bigtext"><span class="L">${roles[0] ? roles[0].t : "·"}</span><span class="nm">${esc(c.n)}</span>${cost(c.cost)}</div>`}
+        <div><div class="bigimgbox" style="aspect-ratio:488/680;border-radius:4.75%/3.5%;overflow:hidden">${big ? `<img class="bigimg" src="${big}" alt="${esc(c.n)}">` : ""}</div>
           ${ctxOpt.onPick ? `<button type="button" class="btn primary" id="sheetPick" style="width:100%;justify-content:center;margin-top:12px">${esc(ctxOpt.pickLabel || "Add to deck")}</button>` : ""}</div>
         <div>
           ${faces.map(fc => `<div class="face"><div class="nameline"><h2>${esc(fc.n)}</h2>${cost(fc.c)}</div>
@@ -397,6 +384,6 @@
     TIERS, TIER, tierOf, tb, ROLE_INFO, COLORS, TYPE_NAMES, fits, BROADER,
     loadSprite, sym, bigSym, syms, cost, para, idSyms,
     loadCards, loadHub, loadTierIndex, loadRole, findCard, flags, betterOptions, hubSubName,
-    scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; }, login, decks, draft, initNav, openCard, closeCard, isCardOpen: isOpen, pct,
+    scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
   };
 })();

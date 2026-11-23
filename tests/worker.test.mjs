@@ -67,43 +67,6 @@ test("existing account, favorites and list routes still work", async () => {
   assert.equal((await call("GET", "/api/me")).body.user, null);
 });
 
-test("decks: create, list, open, update, check history, delete", async () => {
-  const { call } = setup();
-  assert.equal((await call("POST", "/api/decks", { name: "x", list: "1 Sol Ring" })).status, 401);
-  await call("POST", "/api/signup", { username: "tyler", password: "correct horse" });
-  const made = await call("POST", "/api/decks", { name: "Niv", commander: "Niv-Mizzet, Parun", list: "1 Sol Ring\n1 Island", settings: { rules: { preset: "pod" } } });
-  assert.equal(made.status, 200);
-  const id = made.body.deck.id;
-  let list = await call("GET", "/api/decks");
-  assert.equal(list.body.decks.length, 1);
-  assert.equal(list.body.decks[0].last, null);
-  for (let i = 0; i < 25; i++) assert.equal((await call("POST", `/api/decks/${id}/checks`, { summary: { total: 100, weak: i } })).status, 200);
-  const open = await call("GET", `/api/decks/${id}`);
-  assert.equal(open.body.deck.checks.length, 20);                 // history keeps the last 20
-  assert.equal(open.body.deck.checks[0].summary.weak, 24);        // newest first
-  assert.equal(open.body.deck.settings.rules.preset, "pod");
-  list = await call("GET", "/api/decks");
-  assert.equal(list.body.decks[0].last.weak, 24);
-  assert.equal((await call("PATCH", `/api/decks/${id}`, { name: "Niv 2", commander: "Niv-Mizzet, Parun", list: "1 Sol Ring" })).status, 200);
-  assert.equal((await call("GET", `/api/decks/${id}`)).body.deck.name, "Niv 2");
-  assert.equal((await call("POST", "/api/decks", { name: "empty", list: "  " })).status, 400);
-  assert.equal((await call("POST", "/api/decks", { name: "huge", list: "x".repeat(20001) })).status, 400);
-  assert.equal((await call("DELETE", `/api/decks/${id}`)).status, 200);
-  assert.equal((await call("GET", `/api/decks/${id}`)).status, 404);
-});
-
-test("decks are private to their owner", async () => {
-  const a = setup();
-  await a.call("POST", "/api/signup", { username: "alice", password: "password one" });
-  const id = (await a.call("POST", "/api/decks", { name: "Mine", list: "1 Sol Ring" })).body.deck.id;
-  const aliceCookie = a.getCookie();
-  await a.call("POST", "/api/signup", { username: "bob", password: "password two" });
-  assert.notEqual(a.getCookie(), aliceCookie);
-  assert.equal((await a.call("GET", `/api/decks/${id}`)).status, 404);
-  assert.equal((await a.call("DELETE", `/api/decks/${id}`)).status, 404);
-  assert.equal((await a.call("GET", "/api/decks")).body.decks.length, 0);
-});
-
 test("tier feedback: anyone can send, it's validated and rate-limited, admins can read it", async () => {
   const { call, env } = setup({ ADMINS: "tyler" });
   const fb = { role: "ramp", card: "Cultivate", tier: "A", suggested: "B", note: "Slower than a Signet" };
@@ -122,42 +85,6 @@ test("tier feedback: anyone can send, it's validated and rate-limited, admins ca
   assert.equal(q.body.feedback.length, 20);
   assert.equal((await call("PATCH", `/api/feedback/${q.body.feedback[0].id}`, { status: "done" })).status, 200);
   assert.equal((await call("GET", "/api/feedback?status=done")).body.feedback.length, 1);
-});
-
-test("Spellbook proxy: trims the answer, flags two-card combos, caches per card list", async () => {
-  const { call } = setup();
-  const calls = [];
-  const realFetch = globalThis.fetch;
-  globalThis.fetch = async (url, opt) => {
-    calls.push({ url: String(url), body: JSON.parse(opt.body) });
-    if (String(url).includes("find-my-combos")) return Response.json({ count: 1, next: null, previous: null, results: {
-      identity: "UR",
-      included: [{ id: "123-456", uses: [{ card: { name: "Niv-Mizzet, Parun" } }, { card: { name: "Curiosity" } }], requires: [],
-        produces: [{ feature: { name: "Infinite card draw" } }, { feature: { name: "Infinite damage" } }], bracketTag: "S" }],
-      almostIncluded: [{ id: "9" }] } });
-    if (String(url).includes("estimate-bracket")) return Response.json({ bracketTag: "S", cards: [], templates: [],
-      combos: [{ combo: { id: "123-456" }, definitelyTwoCard: true, arguablyTwoCard: true }] });
-    return new Response("no", { status: 404 });
-  };
-  try {
-    const deck = { commanders: ["Niv-Mizzet, Parun"], main: ["Curiosity", "Sol Ring", "Island"] };
-    const r = await call("POST", "/api/spellbook", deck);
-    assert.equal(r.status, 200);
-    assert.equal(calls.length, 2);
-    assert.deepEqual(calls[0].body.commanders, [{ card: "Niv-Mizzet, Parun", quantity: 1 }]);
-    assert.equal(calls[0].body.main.length, 3);
-    assert.ok(calls[0].url.startsWith("https://backend.commanderspellbook.com/find-my-combos"));
-    assert.deepEqual(r.body.combos, [{ id: "123-456", cards: ["Niv-Mizzet, Parun", "Curiosity"], produces: ["Infinite card draw", "Infinite damage"], tag: "S", twoCard: true }]);
-    assert.equal(r.body.bracketTag, "S");
-    assert.equal(r.body.cached, false);
-    const again = await call("POST", "/api/spellbook", { commanders: ["Niv-Mizzet, Parun"], main: ["Island", "Sol Ring", "Curiosity"] });
-    assert.equal(again.body.cached, true);                   // same cards in another order: cache hit
-    assert.equal(calls.length, 2);
-    globalThis.fetch = async () => new Response("down", { status: 503 });
-    const down = await call("POST", "/api/spellbook", { commanders: ["Kenrith, the Returned King"], main: ["Sol Ring"] });
-    assert.equal(down.status, 502);
-    assert.equal((await call("POST", "/api/spellbook", { commanders: [], main: [] })).status, 400);
-  } finally { globalThis.fetch = realFetch; }
 });
 
 test("state-changing requests must be same-origin JSON", async () => {

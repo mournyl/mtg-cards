@@ -16,11 +16,10 @@
   <div class="wrap">
     <div class="top">
       <a class="logo" data-page="search">mournyl<small>mtg</small></a>
+      <nav class="site" aria-label="Site"><a data-page="search">Card search</a><a data-page="tiers">Tier lists</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Find a card on every list"></div>
-      <nav class="site" aria-label="Site">
-        <a data-page="search">Card search</a><a data-page="tiers">Tier lists</a><a data-page="deck">Deck checker</a><a data-page="build">Slot finder</a><a data-page="saved">Saved</a>
-      </nav>
+      <div class="me"><a class="melink" id="navSaved" data-page="saved">Saved<span class="count" id="savedCount" hidden>0</span></a><button type="button" class="melink acct" id="navAcct">Log in</button></div>
     </div>
     <div class="filters" id="filters" hidden>
       <div class="tabs" id="tabs" role="group" aria-label="Show tiers"></div>
@@ -67,7 +66,7 @@
 (() => {
   "use strict";
   const M = window.MTG, { $, esc, cap, fmt, tb, sym, cost, syms, idSyms } = M;
-  M.initNav("tiers");
+  M.initNav("tiers"); M.initAccount();
 
   const VIEWS = [
     { k: "all", label: "All", test: () => true },
@@ -142,9 +141,9 @@
   function tile(e) {
     const src = M.img(e.n, "normal"), pr = state.prices ? price(e) : "";
     const chips = `<span class="chip rank" title="${esc(rankTitle(e))}">${rankLabel(e)}</span>` + (pr ? `<span class="chip edh">${esc(pr)}</span>` : e.e != null ? `<span class="chip edh" title="EDHREC play rate">${M.pct(e.e)}</span>` : "");
-    const face = src ? `<img loading="lazy" src="${src}" alt="${esc(e.n)}">`
-      : `<span class="nm">${esc(e.n)}</span>${cost(e.c)}<span class="ty">${esc(e.ty)}</span>`;
-    return `<div class="tile"><button type="button" class="card${src ? "" : " text"}" data-n="${esc(e.n)}" aria-label="${esc(e.n)}, ${esc(rankTitle(e))}, ${e.t} tier">${face}${chips}</button>` +
+    const face = src ? `<img loading="lazy" src="${src}" alt="${esc(e.n)}" onload="this.classList.add('in')">`
+      : `<span class="lbl"><b>${esc(e.n)}</b><span>${cost(e.c)} ${esc(e.ty)}</span></span>`;
+    return `<div class="tile"><button type="button" class="card" data-n="${esc(e.n)}" aria-label="${esc(e.n)}, ${esc(rankTitle(e))}, ${e.t} tier">${face}${chips}</button>` +
       `<p class="why">${syms(e.why)}</p><div class="roles">${badges(e, false)}</div></div>`;
   }
   function rankTitle(e) {
@@ -165,7 +164,7 @@
     document.title = "Tier Lists · mournyl mtg";
     $("filters").hidden = true; $("method").hidden = false;
     const total = hub.roles.reduce((a, r) => a + r.count, 0), revd = hub.roles.reduce((a, r) => a + r.reviewed, 0);
-    $("hero").innerHTML = `<h1>tier lists</h1><p>Ten deck-building jobs, every Commander-legal card that does them, ranked S to F on one scale. ` +
+    $("hero").innerHTML = `<h1>Tier lists</h1><p>Ten deck-building jobs, every Commander-legal card that does them, ranked S to F on one scale. ` +
       `${fmt(total)} placements, ${fmt(revd)} checked by hand. Updated ${esc(hub.built)}.</p>`;
     $("q").placeholder = "Find a card on every list";
     if (state.q) return renderFind();
@@ -173,7 +172,7 @@
       const info = M.ROLE_INFO[r.key] || {};
       const bar = M.TIERS.map(T => r.tiers[T.t] ? `<i class="t${T.t}" style="flex:${Math.max(r.tiers[T.t], r.count * .02)}" title="${T.t}: ${r.tiers[T.t]}"></i>` : "").join("");
       return `<a class="rcard" href="#${r.key}" style="border-top:3px solid ${info.col || "#555"}">
-        <h2>${esc(r.name.toLowerCase())}</h2><p>${esc(r.desc)} ${r.subs.map(s => esc(s.name)).join(" · ")}.</p>
+        <h2>${esc(r.name)}</h2><p>${esc(r.desc)} ${r.subs.map(s => esc(s.name)).join(" · ")}.</p>
         <div class="mbar" aria-hidden="true">${bar}</div>
         <ol>${r.top.map(t => `<li>${tb(t.t)}<span>${esc(t.n)}</span>${cost(t.c)}</li>`).join("")}</ol>
         <span class="foot">${fmt(r.count)} cards · ${fmt(r.reviewed)} hand-reviewed</span></a>`;
@@ -209,7 +208,7 @@
     $("hero").innerHTML = `
       <nav class="colors" aria-label="${esc(role.name)} by color">${VIEWS.map(v => `<a class="clr" href="#${hashFor(role.key, v.k, state.sub)}"${cur(v.k)} aria-label="${esc(v.label)}, ${counts[v.k]} cards">${viewIcon(v)}<b>${esc(v.label)}</b><span>${fmt(counts[v.k])}</span></a>`).join("")}</nav>
       ${state.view === "mine" ? `<div class="mine"><span>Your commander's colors:</span><div class="pips" id="minePips">${"WUBRG".split("").map(k => `<button type="button" class="pip" data-c="${k}" aria-pressed="${state.mine.includes(k)}" title="${cap(M.COLORS.find(c => c.k === k).name)}">${M.bigSym(k)}</button>`).join("")}</div><span class="muted">plus colorless</span></div>` : ""}
-      <h1>${esc((vname + role.name).toLowerCase())}</h1>
+      <h1>${esc(cap((vname + role.name).toLowerCase()))}</h1>
       <p>${esc(lede(counts))}</p>
       ${role.subs.length > 1 ? `<div class="subs"><div class="seg" role="group" aria-label="Sub-lists"><a href="#${hashFor(role.key, state.view, "")}"${state.sub ? "" : ' aria-current="page"'}>All<small>${fmt(inV.length)}</small></a>${role.subs.map(s => `<a href="#${hashFor(role.key, state.view, s.key)}"${state.sub === s.key ? ' aria-current="page"' : ""}>${esc(s.name)}<small>${fmt(subCounts[s.key])}</small></a>`).join("")}</div></div>` : ""}
       <div class="dist" role="group" aria-label="Jump to a tier">${M.TIERS.map(T => `<button type="button" class="t${T.t}" data-jump="${T.t}" style="flex:${Math.max(n[T.t] || 0, shown.length * .04)} 1 0" aria-label="${T.t} tier, ${n[T.t] || 0} cards">${T.t}<small>${fmt(n[T.t] || 0)}</small></button>`).join("")}</div>
@@ -246,7 +245,7 @@
       html += `<section class="tier" id="tier-${T.t.toLowerCase()}" aria-labelledby="h-${T.t}">` +
         `<div class="tier-tag t${T.t}"><span class="L">${T.t}</span><span class="h">${esc(T.h)}</span>` +
         `<span class="k">${fmt(list.length)}${list.length !== all.length ? " of " + fmt(all.length) : ""} card${all.length === 1 ? "" : "s"}</span></div>` +
-        `<div class="tier-body"><div class="tier-head"><h2 id="h-${T.t}">${esc(T.h.toLowerCase())}</h2><p>${esc(T.d)}</p></div>${inner}</div></section>`;
+        `<div class="tier-body"><div class="tier-head"><h2 id="h-${T.t}">${esc(T.h)}</h2><p>${esc(T.d)}</p></div>${inner}</div></section>`;
     }
     $("board").innerHTML = html || `<p class="empty">${state.tiers.size ? "Nothing here matches your filters." : "Pick at least one tier above."}</p>`;
     $("status").innerHTML = `<b>${fmt(shown)}</b> of ${fmt(view.length)} cards`;

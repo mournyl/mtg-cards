@@ -113,54 +113,6 @@ async function newPage(browser, mode, viewport) {
     ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
     await ctx.close();
 
-    console.log(`\n== deck checker (${mode})`);
-    ({ ctx, page, errors } = await newPage(browser, mode));
-    await page.goto(`${BASE}/deck/`);
-    await page.click("#sample");
-    await page.waitForSelector(".stat");
-    const txt = await page.textContent("#report");
-    ok(txt.includes("100/100") && txt.includes("Legal"), "sample deck: 100 cards, legal");
-    ok(/Game Changers: 4 \(max 3\)/.test(txt), "house rules flag 4 Game Changers");
-    ok(txt.includes("Divination"), "weak links list Divination");
-    ok(/didn't|isn't|preview/i.test(await page.textContent("#comboRows")), "Spellbook falls back without a server");
-    await page.screenshot({ path: `${OUT}/deck-${mode}.png`, fullPage: true });
-    // pick the first replacement for the first weak card and apply it
-    const firstOpt = await page.$("#report .picks input[type=radio][value]:not([value=''])");
-    const swapIn = await firstOpt.getAttribute("value"), swapOut = await firstOpt.getAttribute("data-out");
-    await firstOpt.check();
-    await page.click("#applySwaps"); await page.waitForTimeout(400);
-    const list = await page.inputValue("#list");
-    ok(list.includes("1 " + swapIn) && !list.includes("1 " + swapOut + "\n"), `apply swaps: ${swapOut} -> ${swapIn}`);
-    // save in this browser (no server here)
-    await page.fill("#deckName", "Niv test"); await page.click("#saveBtn"); await page.waitForTimeout(300);
-    ok((await page.textContent("#savedSel")).includes("Niv test"), "deck saves in this browser without a server");
-    // typo fix
-    await page.fill("#list", "Commander\n1 Niv-Mizzet, Parun\n\nDeck\n1 Brainstrom\n1 Sol Ring");
-    await page.click("#check"); await page.waitForSelector("[data-fix]");
-    await page.click("[data-fix][data-to='Brainstorm']"); await page.waitForTimeout(300);
-    ok((await page.inputValue("#list")).includes("1 Brainstorm"), "did-you-mean fixes the line");
-    ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
-    await ctx.close();
-
-    console.log(`\n== slot finder (${mode})`);
-    ({ ctx, page, errors } = await newPage(browser, mode));
-    await page.goto(`${BASE}/build/`);
-    await page.fill("#cmd1", "Niv-Mizzet, Parun");
-    await page.fill("#need", "2 ramp at 3 mana or less");
-    await page.click("#go");
-    await page.waitForSelector("#out .tile");
-    const sel = await page.evaluate(() => [document.querySelector("#role").value, document.querySelector("#n").value, document.querySelector("#mv").value].join(","));
-    ok(sel === "ramp,2,3", "phrase fills the form (ramp, 2, max 3)");
-    const names = await page.$$eval("#out .tile .card", els => els.map(e => e.dataset.n));
-    ok(names.includes("Sol Ring") && !names.includes("Cultivate"), "picks fit Izzet colors (Sol Ring yes, Cultivate no)");
-    await page.screenshot({ path: `${OUT}/build-${mode}.png` });
-    await page.click(`[data-pick='${names[0]}']`); await page.click(`[data-pick='${names[1]}']`);
-    ok((await page.textContent("#trayCount")) === "2 picked", "two picks in the tray");
-    await page.click("#toDeck"); await page.waitForURL(/deck\//); await page.waitForSelector(".stat");
-    ok((await page.inputValue("#list")).includes("1 " + names[0]), "picks carry over to the deck checker");
-    ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
-    await ctx.close();
-
     console.log(`\n== card search (${mode})`);
     ({ ctx, page, errors, sf } = await newPage(browser, mode));
     await page.goto(`${BASE}/`);
@@ -182,24 +134,25 @@ async function newPage(browser, mode, viewport) {
       await page.screenshot({ path: `${OUT}/search-modal.png` });
       await page.keyboard.press("Escape");
     } else {
-      ok((await page.$$("nav a")).length >= 3, "nav links to the new pages");
-      await page.click("#navSaved"); await page.waitForTimeout(500);
-      await page.click("[data-tab='decks']"); await page.waitForTimeout(300);
-      ok(/No saved decks|deck checker/i.test(await page.textContent("#deckGrid")), "Saved view has a Decks tab");
+      ok(await page.$eval("#format", e => e.value) === "commander", "format starts on Commander");
+      ok(!(await page.$("#random")), "Random button is gone");
+      ok(await page.isVisible("#navAcct") && await page.isVisible("#navSaved"), "profile and Saved sit in the header");
+      await page.click("#navSaved"); await page.waitForTimeout(300);
+      ok(await page.isVisible("#savedView"), "Saved opens");
     }
     ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
     await ctx.close();
   }
 
   console.log("\n== phone layout");
-  for (const [name, url, wait] of [["tiers-hub", "/tiers/", ".rcard"], ["tiers-ramp", "/tiers/#ramp/green", ".tier"], ["deck", "/deck/", "#sample"], ["build", "/build/#cmd=Niv-Mizzet%2C%20Parun&need=2%20ramp", "#out .tile"]]) {
+  for (const [name, url, wait] of [["tiers-hub", "/tiers/", ".rcard"], ["tiers-ramp", "/tiers/#ramp/green", ".tier"], ["search", "/", "#hero"]]) {
     const { ctx, page, errors } = await newPage(browser, "images", { ...devices["iPhone 13"] });
     await page.goto(BASE + url); await page.waitForSelector(wait);
-    if (name === "deck") { await page.click("#sample"); await page.waitForSelector(".stat"); }
     await page.waitForTimeout(600);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     ok(over <= 1, `${name}: no sideways scroll on a phone (${over}px)`);
     await page.screenshot({ path: `${OUT}/phone-${name}.png` });
+    ok(await page.isVisible("#navAcct"), `${name}: profile visible on a phone`);
     ok(errors.length === 0, `${name}: no script errors` + (errors.length ? ": " + errors.join(" | ") : ""));
     await ctx.close();
   }
