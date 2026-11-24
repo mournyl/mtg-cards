@@ -25,7 +25,6 @@
   .help{max-width:720px;margin:28px auto 0;text-align:left;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;color:var(--muted)}
   .help code{background:#222;padding:1px 6px;border-radius:5px;color:#fff}
   .help td{padding:3px 12px 3px 0;vertical-align:top}
-  .card .price{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.78);font-size:12px;padding:2px 7px;border-radius:6px}
   .more{display:flex;justify-content:center;margin-top:24px}
   .badge[data-role]{cursor:pointer}
   .badge[data-role]:hover{border-color:#777;color:#fff}
@@ -71,13 +70,10 @@
   .authbox .swap{text-align:center;margin-top:14px;font-size:13px;color:var(--muted)}
   .authbox .swap a{cursor:pointer;text-decoration:underline}
   .authbox .msg{color:var(--danger);font-size:13px;min-height:18px;margin-top:10px;text-align:center}
-  .tbadge{font-size:11px;line-height:1.6;padding:0 8px 0 0;border-radius:5px;border:1px solid var(--line2);color:var(--soft);background:#141414;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;text-decoration:none;overflow:hidden}
-  .tbadge:hover{border-color:#777;color:#fff}
-  .tbadge b,.tl{font:800 11px/1.6 var(--ui);padding:0 7px;min-width:20px;text-align:center}
+  .tl{font:800 11px/1.6 var(--ui);min-width:20px;text-align:center}
   .tl{display:inline-grid;place-items:center;border-radius:5px;padding:2px 7px;font-size:13px}
-  .tbadge.tS,.tbadge.tA,.tbadge.tB,.tbadge.tC,.tbadge.tD,.tbadge.tF{background:#141414;color:var(--soft)}
-  .tbadge.tS b,.tl.tS{background:var(--tS);color:var(--tS-ink)} .tbadge.tA b,.tl.tA{background:var(--tA);color:var(--tA-ink)} .tbadge.tB b,.tl.tB{background:var(--tB);color:var(--tB-ink)}
-  .tbadge.tC b,.tl.tC{background:var(--tC);color:var(--tC-ink)} .tbadge.tD b,.tl.tD{background:var(--tD);color:var(--tD-ink)} .tbadge.tF b,.tl.tF{background:var(--tF);color:var(--tF-ink)}
+  .tl.tS{background:var(--tS);color:var(--tS-ink)} .tl.tA{background:var(--tA);color:var(--tA-ink)} .tl.tB{background:var(--tB);color:var(--tB-ink)}
+  .tl.tC{background:var(--tC);color:var(--tC-ink)} .tl.tD{background:var(--tD);color:var(--tD-ink)} .tl.tF{background:var(--tF);color:var(--tF-ink)}
   .tierrows{display:grid;gap:6px;margin-bottom:16px}
   .tierrows div{display:flex;align-items:center;gap:10px;font-size:15px;flex-wrap:wrap}
   .tierrows small{color:var(--muted)}
@@ -85,7 +81,27 @@
   .fb{display:grid;gap:8px;margin:0 0 16px;padding:12px;border:1px solid var(--line);border-radius:10px}
   .fb select,.fb textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
   .fb .rowx{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
-  @media (max-width:760px){ .card .acts{opacity:1} }
+  /* filters: one option per line, in a panel under the Filters button, or centered on the start page */
+  header .wrap{position:relative}
+  #filters{flex-direction:column;align-items:stretch;gap:10px;width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  header #filters.open{display:flex;position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:calc(100% - 6px);z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.6);border-top:1px solid var(--line)}
+  .hero #filters{display:flex;margin:26px auto 0;text-align:left}
+  .frow{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+  .frow select,.frow input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--rc);padding:8px 10px;color:var(--text)}
+  .frow .pips{gap:6px}
+  .mvrange{display:flex;align-items:center;gap:8px}
+  .mvrange span{color:var(--muted)}
+  .adv{border-top:1px solid var(--line);padding-top:10px}
+  .adv summary{cursor:pointer;font-size:14px;color:var(--soft);margin-bottom:10px}
+  .adv[open] summary{margin-bottom:10px}
+  .adv .frow+.frow{margin-top:10px}
+  .fbtns{display:flex;gap:8px;justify-content:flex-end;border-top:1px solid var(--line);padding-top:12px}
+  .fchips{display:inline-flex;flex-wrap:wrap;gap:6px;vertical-align:middle;margin-left:6px}
+  .fchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:3px 4px 3px 9px;border-radius:6px;border:1px solid var(--line2);background:var(--panel)}
+  .fchip button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px;line-height:1;padding:0 4px}
+  .fchip button:hover{color:#fff}
+  .fchip .ms{width:14px;height:14px}
+  @media (max-width:760px){ .card .acts{opacity:1} header #filters.open{left:16px;right:16px;width:auto} }
 </style>
 </head>
 <body>
@@ -94,7 +110,7 @@
   <div class="wrap">
     <div class="top">
       <a class="logo" id="home" href="./">mournyl<small>mtg</small></a>
-      <nav class="site" aria-label="Site"><a href="./" id="navSearch" aria-current="page">Card search</a><a href="tiers/" id="navTiers">Tier lists</a></nav>
+      <nav class="site" aria-label="Site"><a href="./" id="navSearch" aria-current="page">Card search</a><a href="tiers/" id="navTiers">Tier lists</a><a href="decks/" id="navDecks">My decks</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search cards</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder='Search cards: "lightning bolt" or o:"draw a card" t:instant'>
         <div class="ac" id="ac"></div>
@@ -102,69 +118,54 @@
       <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
       <div class="me"><button type="button" class="melink" id="navSaved">Saved<span class="count" id="savedCount" hidden>0</span></button><button type="button" class="melink acct" id="navAcct">Log in</button></div>
     </div>
-    <div class="filters" id="filters">
-      <div class="fgroup">
-        <div class="pips" id="pips"></div>
-        <select id="cmode" title="How colors are matched">
-          <option value="id">Commander identity ⊆</option>
-          <option value="incl">Includes</option>
-          <option value="exact">Exactly</option>
-        </select>
-      </div>
-      <div class="more-filters" id="moreFilters">
-      <label class="fgroup">Type
+    <div class="filters" id="filters" role="group" aria-label="Filters">
+      <input type="hidden" id="cmode" value="id"><input type="hidden" id="unique" value="cards">
+      <div class="frow"><span class="flabel">Colors</span><div class="pips" id="pips"></div></div>
+      <label class="frow"><span class="flabel">Type</span>
         <select id="type">
           <option value="">Any</option>
-          <option>creature</option><option>instant</option><option>sorcery</option>
-          <option>artifact</option><option>enchantment</option><option>planeswalker</option>
-          <option>land</option><option>battle</option><option value="legendary creature">legendary creature</option>
+          <option value="creature">Creature</option><option value="instant">Instant</option><option value="sorcery">Sorcery</option>
+          <option value="artifact">Artifact</option><option value="enchantment">Enchantment</option><option value="planeswalker">Planeswalker</option>
+          <option value="land">Land</option><option value="battle">Battle</option><option value="legendary creature">Legendary Creature</option>
         </select>
       </label>
-      <label class="fgroup">Role
-        <select id="role"><option value="">Any</option></select>
-      </label>
-      <label class="fgroup" title="Tier from the site's tier lists: the role picked under Role, or the card's best role">Tier
+      <label class="frow"><span class="flabel">Role</span><select id="role"><option value="">Any</option></select></label>
+      <label class="frow" title="Tier from the site's tier lists: the role picked under Role, or the card's best role"><span class="flabel">Tier</span>
         <select id="tier">
           <option value="">Any</option><option value="S">S</option><option value="A">A or better</option>
           <option value="B">B or better</option><option value="C">C or better</option>
         </select>
       </label>
-      <label class="fgroup">Format
-        <select id="format">
-          <option value="commander">Commander</option><option value="">Any format</option>
-          <option value="standard">Standard</option>
-          <option value="pioneer">Pioneer</option><option value="modern">Modern</option>
-          <option value="legacy">Legacy</option><option value="vintage">Vintage</option>
-          <option value="pauper">Pauper</option><option value="brawl">Brawl</option>
-        </select>
-      </label>
-      <label class="fgroup">Rarity
-        <select id="rarity">
-          <option value="">Any</option><option>common</option><option>uncommon</option>
-          <option>rare</option><option>mythic</option>
-        </select>
-      </label>
-      <div class="fgroup">MV
-        <input type="number" id="mvmin" min="0" max="20" placeholder="min" aria-label="Minimum mana value">–
-        <input type="number" id="mvmax" min="0" max="20" placeholder="max" aria-label="Maximum mana value">
+      <div class="frow"><span class="flabel">Mana value</span>
+        <span class="mvrange"><input type="number" id="mvmin" min="0" max="20" placeholder="Min" aria-label="Minimum mana value"><span>to</span>
+        <input type="number" id="mvmax" min="0" max="20" placeholder="Max" aria-label="Maximum mana value"></span>
       </div>
-      <label class="fgroup">Sort
+      <label class="frow"><span class="flabel">Sort</span>
         <select id="order">
           <option value="name">Name</option><option value="tier">Tier (best first)</option><option value="edhrec">EDHREC rank</option>
           <option value="released">Newest</option><option value="cmc">Mana value</option>
-          <option value="usd">Price (USD)</option><option value="power">Power</option>
+          <option value="power">Power</option>
           <option value="rarity">Rarity</option>
         </select>
       </label>
-      <label class="fgroup">Show
-        <select id="unique">
-          <option value="cards">One per card</option><option value="prints">All printings</option>
-          <option value="art">Unique art</option>
-        </select>
-      </label>
-      <button class="btn small" id="clear" type="button">Clear filters</button>
-      </div>
-      <button class="btn small primary" id="go" type="button">Search</button>
+      <details class="adv" id="adv"><summary>Advanced</summary>
+        <label class="frow"><span class="flabel">Format</span>
+          <select id="format">
+            <option value="commander">Commander</option><option value="">Any format</option>
+            <option value="standard">Standard</option>
+            <option value="pioneer">Pioneer</option><option value="modern">Modern</option>
+            <option value="legacy">Legacy</option><option value="vintage">Vintage</option>
+            <option value="pauper">Pauper</option><option value="brawl">Brawl</option>
+          </select>
+        </label>
+        <label class="frow"><span class="flabel">Rarity</span>
+          <select id="rarity">
+            <option value="">Any</option><option value="common">Common</option><option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option><option value="mythic">Mythic</option>
+          </select>
+        </label>
+      </details>
+      <div class="fbtns"><button class="btn small" id="clear" type="button">Clear filters</button><button class="btn small primary" id="go" type="button">Search</button></div>
     </div>
   </div>
 </header>
@@ -187,7 +188,8 @@
   <div class="status" id="status"></div>
   <div id="hero" class="hero">
     <h1>Card search</h1>
-    <p>Type a name, or use Scryfall search syntax. The filters above stack on top of your query, and every search is limited to Commander-legal cards unless you pick another format.</p>
+    <p>Type a name in the search box, or pick filters below. Every search sticks to Commander-legal cards unless you change the format under Advanced.</p>
+    <div id="heroFilters"></div>
     <div class="qchips" id="chips"></div>
     <div class="help">
       <table>
@@ -197,7 +199,6 @@
         <tr><td><code>is:commander</code></td><td>Can be your commander</td></tr>
         <tr><td><code>pow&gt;=5 mv&lt;=4</code></td><td>Power / mana value comparisons</td></tr>
         <tr><td><code>otag:ramp</code></td><td>Community function tags (ramp, removal, tutor…)</td></tr>
-        <tr><td><code>usd&lt;2</code></td><td>Price under $2</td></tr>
         <tr><td><code>s:dsk</code></td><td>From a set (by code)</td></tr>
         <tr><td><code>-t:creature</code></td><td>Prefix with − to exclude</td></tr>
       </table>
@@ -340,14 +341,13 @@
   const syms = s => MT ? MT.syms(s) : esc(s).replace(/\{([^}]+)\}/g, (_, x) => `<img class="sym" src="${SYM(x)}" alt="{${esc(x)}}" title="{${esc(x)}}">`);
   const para = s => (s || "").split("\n").map(l => `<p>${syms(l)}</p>`).join("");
   const img = (c, size = "normal") => c.image_uris?.[size] || c.card_faces?.[0]?.image_uris?.[size] || null;
-  const price = c => c.prices?.usd ? `$${c.prices.usd}` : c.prices?.usd_foil ? `$${c.prices.usd_foil} f` : c.prices?.eur ? `€${c.prices.eur}` : "";
 
   // ---- color pips ----
   COLORS.forEach(c => {
     const b = document.createElement("button");
     b.className = "pip"; b.dataset.c = c; b.title = { W:"White",U:"Blue",B:"Black",R:"Red",G:"Green",C:"Colorless" }[c];
     b.innerHTML = `<img src="${SYM(c)}" alt="${c}">`;
-    b.onclick = () => { selected.has(c) ? selected.delete(c) : selected.add(c); b.classList.toggle("on"); if (hasAnything()) search(); };
+    b.type = "button"; b.onclick = () => { selected.has(c) ? selected.delete(c) : selected.add(c); b.classList.toggle("on"); if (!inHero() && hasAnything()) search(); };
     $("pips").appendChild(b);
   });
 
@@ -371,6 +371,36 @@
   }
   const hasAnything = () => !!buildQuery({ userOnly: true });
 
+  // ---- filters: centered on the start page, in a panel under the Filters button once you've searched ----
+  const inHero = () => view === "search" && el.hero.style.display !== "none";
+  function placeFilters() {
+    const f = $("filters"), slot = $("heroFilters"), home = inHero();
+    if (home && f.parentElement !== slot) slot.appendChild(f);
+    if (!home && f.parentElement === slot) {      // first search: fold the filters into the header
+      document.querySelector("header .wrap").appendChild(f);
+      f.classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false");
+    }
+    $("filtersBtn").hidden = home;
+  }
+  // what the status line shows instead of the query: your own words plus a chip per filter
+  function filterChips() {
+    const c = [], txt = k => el[k].selectedOptions[0].text;
+    if (selected.size) c.push(["c", COLORS.filter(x => selected.has(x)).map(x => MT ? MT.sym(x) : x).join("")]);
+    if (el.type.value) c.push(["type", txt("type")]);
+    if (el.role.value) c.push(["role", txt("role")]);
+    if (el.tier.value) c.push(["tier", "Tier " + txt("tier")]);
+    if (el.mvmin.value !== "" || el.mvmax.value !== "")
+      c.push(["mv", el.mvmin.value !== "" && el.mvmax.value !== "" ? `MV ${el.mvmin.value}–${el.mvmax.value}` : el.mvmin.value !== "" ? `MV ${el.mvmin.value}+` : `MV ${el.mvmax.value} or less`]);
+    if (el.format.value !== "commander") c.push(["format", txt("format")]);
+    if (el.rarity.value) c.push(["rarity", txt("rarity")]);
+    if (el.order.value !== "name") c.push(["order", "Sort: " + txt("order")]);
+    return c.length ? `<span class="fchips">${c.map(([k, l]) => `<span class="fchip">${l}<button type="button" data-unf="${k}" aria-label="Remove filter">×</button></span>`).join("")}</span>` : "";
+  }
+  function describe() {
+    const raw = el.q.value.trim();
+    return (raw ? `“${esc(raw)}”` : "") + filterChips();
+  }
+
   // ---- tiers from the site's tier lists (data/tier-index.json) ----
   const TIER_ROLE = { removal:"removal", wipe:"wipes", counter:"counterspells", bounce:"removal", ramp:"ramp", draw:"draw",
                       tutor:"tutors", protect:"protection", recursion:"recursion", gyhate:"gyhate" };
@@ -390,7 +420,15 @@
     if (want) { const x = ts.find(t => t.k === want); return x ? x.s : null; }
     return ts[0].s;
   }
-  const tierBadge = x => `<a class="tbadge t${x.t}" href="${MT.page("tiers", x.k)}" title="${MT.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}${x.rev ? "" : " (unreviewed)"}" onclick="event.stopPropagation()"><b>${x.t}</b>${MT.ROLE_INFO[x.k].short} #${x.r}</a>`;
+  // tags under a result tile: its two best tier placements, then other jobs it does, one per row
+  function tileTags(c) {
+    const ts = tiersOf(c), have = new Set(ts.map(x => x.k));
+    const t = ts.slice(0, 2).map(x => { const R = MT.ROLE_INFO[x.k];
+      return MT.tag({ tier: x.t, text: R.label, rank: "#" + x.r, href: MT.page("tiers", x.k), title: `${R.label}: ${x.t} tier, #${x.r}${x.rev ? "" : " (unreviewed)"}` }); });
+    rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).forEach(x => t.push(MT.tag({ icon: MT.ROLE_ICON[x.r.k], text: x.r.label, role: x.r.k, title: `Find more ${x.r.label.toLowerCase()}` })));
+    if (c.game_changer) t.push(MT.tag({ icon: "star", text: "Game Changer" }));
+    return t.join("");
+  }
   const tierMode = () => !!el.tier.value || el.order.value === "tier";
 
   let lastSearch = (() => { try { return sessionStorage.getItem("mtg-last-search") || ""; } catch { return ""; } })();
@@ -399,7 +437,7 @@
     if (el.q.value.trim()) p.set("q", el.q.value.trim());
     if (selected.size) p.set("c", [...selected].join(""));
     setTimeout(() => typeof countFilters === "function" && countFilters());
-    ["cmode","role","tier","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+    ["role","tier","type","format","rarity","mvmin","mvmax","order"].forEach(k => {
       const v = el[k].value, d = el[k].querySelector?.("option")?.value ?? "";
       if (v !== "" && v !== d) p.set(k, v);
     });
@@ -414,7 +452,7 @@
     selected.clear();
     (p.get("c") || "").split("").forEach(c => COLORS.includes(c) && selected.add(c));
     document.querySelectorAll(".pip").forEach(b => b.classList.toggle("on", selected.has(b.dataset.c)));
-    ["cmode","role","tier","type","format","rarity","mvmin","mvmax","order","unique"].forEach(k => {
+    ["role","tier","type","format","rarity","mvmin","mvmax","order"].forEach(k => {
       if (p.has(k)) el[k].value = p.get(k);
     });
     return hasAnything();
@@ -425,20 +463,21 @@
     const q = buildQuery();
     hideAc();
     showView("search");
-    if (!q) { reset(); return; }
+    if (!hasAnything()) { reset(); return; }
     saveState();
     const token = ++searchToken;
     el.hero.style.display = "none";
+    placeFilters();
     el.grid.innerHTML = ""; el.more.style.display = "none";
     el.status.innerHTML = "Searching…";
     const order = el.order.value === "tier" ? "edhrec" : el.order.value;
-    const dir = ["released","usd","power","rarity"].includes(order) ? "desc" : "auto";
+    const dir = ["released","power","rarity"].includes(order) ? "desc" : "auto";
     const url = `${API}/cards/search?` + new URLSearchParams({ q, order, dir, unique: el.unique.value, include_extras: "false" });
     if (tierMode()) return searchTiered(q, url, token);
     try {
       const r = await sf(url);
       if (token !== searchToken) return;
-      el.status.innerHTML = `<b>${r.total_cards.toLocaleString()}</b> card${r.total_cards === 1 ? "" : "s"} · <span style="opacity:.7">${esc(q)}</span>`;
+      el.status.innerHTML = `<b>${r.total_cards.toLocaleString()}</b> card${r.total_cards === 1 ? "" : "s"} · ${describe()}`;
       render(r.data);
       nextPage = r.has_more ? r.next_page : null;
       el.more.style.display = nextPage ? "" : "none";
@@ -446,7 +485,7 @@
     } catch (e) {
       if (token !== searchToken) return;
       el.status.innerHTML = e.status === 404
-        ? `No cards found for <b>${esc(q)}</b>.`
+        ? `No cards found for ${describe() || "that search"}.`
         : `<span class="err">${esc(e.message)}</span>`;
     }
   }
@@ -468,14 +507,14 @@
       if (el.order.value === "tier") rows.sort((a, b) => (b.s ?? -1) - (a.s ?? -1));
       const role = TIER_ROLE[el.role.value] ? " for " + MT.ROLE_INFO[TIER_ROLE[el.role.value]].label.toLowerCase() : "";
       el.status.innerHTML = `<b>${rows.length.toLocaleString()}</b> card${rows.length === 1 ? "" : "s"}${el.tier.value ? ` at ${el.tier.value === "S" ? "S" : el.tier.value + " or better"}${role}` : ""}` +
-        `${el.order.value === "tier" ? ", best tier first" : ""} · <span style="opacity:.7">${esc(q)}</span>` +
+        `${el.order.value === "tier" ? ", best tier first" : ""} · ${describe()}` +
         (next ? ` <span style="opacity:.7">(ranked the first ${all.length.toLocaleString()} of ${total.toLocaleString()} matches; narrow the search to rank the rest)</span>` : "") +
         (!tierIdx ? ` <span class="err">(tier data didn't load)</span>` : "");
       render(rows.map(x => x.c));
       nextPage = null; el.more.style.display = "none";
     } catch (e) {
       if (token !== searchToken) return;
-      el.status.innerHTML = e.status === 404 ? `No cards found for <b>${esc(q)}</b>.` : `<span class="err">${esc(e.message)}</span>`;
+      el.status.innerHTML = e.status === 404 ? `No cards found for ${describe() || "that search"}.` : `<span class="err">${esc(e.message)}</span>`;
     }
   }
 
@@ -501,47 +540,50 @@
       const d = document.createElement("div");
       d.className = "card";
       const src = img(c);
-      const p = price(c);
       d.innerHTML = src
-        ? `<img loading="lazy" src="${src}" alt="${esc(c.name)}" onload="this.classList.add('in')">${p ? `<span class="price">${p}</span>` : ""}`
+        ? `<img loading="lazy" src="${src}" alt="${esc(c.name)}" onload="this.classList.add('in')">`
         : `<span class="lbl"><b>${esc(c.name)}</b><span>${esc(c.type_line)}</span></span>`;
       d.insertAdjacentHTML("beforeend", actsHtml(c));
       d.onclick = e => { if (!handleActs(e, c)) openCard(c); };
       const rb = document.createElement("div");
-      rb.className = "roles";
-      const ts = tiersOf(c), have = new Set(ts.map(x => x.k));
-      rb.innerHTML = ts.slice(0, 2).map(tierBadge).join("") + rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).map(x => badge(x.r)).join("");
+      rb.className = "tags";
+      rb.innerHTML = tileTags(c);
       tile.append(d, rb);
       frag.appendChild(tile);
     });
     el.grid.appendChild(frag);
-    if (!tierIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile").forEach(t => { const c = cardCache.get(t.dataset.id); if (c) { const ts = tiersOf(c), have = new Set(ts.map(x => x.k)); t.querySelector(".roles").innerHTML = ts.slice(0, 2).map(tierBadge).join("") + rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).map(x => badge(x.r)).join(""); } }); });
+    if (!tierIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile").forEach(t => { const c = cardCache.get(t.dataset.id); if (c) t.querySelector(".tags").innerHTML = tileTags(c); }); });
   }
 
   function reset() {
     searchToken++;
     el.grid.innerHTML = ""; el.status.innerHTML = ""; el.more.style.display = "none";
     el.hero.style.display = ""; if (view === "search") saveState();
+    placeFilters();
   }
 
 
-  // ---- detail modal ----
-  function openCard(c) {
+  // ---- detail modal (each card gets a history entry: Back returns to the card you came from) ----
+  const nav = MT.sheetHistory("search", id => showById(id), () => { el.modal.classList.remove("open"); document.body.style.overflow = ""; closePop(); });
+  async function showById(id) {
+    if (!isUuid(id)) return;
+    try { const c = cardCache.get(id) || await sf(`${API}/cards/${id}`); cardCache.set(id, c); openCard(c, { fromHistory: true }); }
+    catch (e) { toast(e.message); }
+  }
+  function openCard(c, opt = {}) {
+    if (!opt.fromHistory) nav.push(c.id, c.name);
+    const prev = nav.prev();
     const faces = c.card_faces?.length ? c.card_faces : [c];
     const faceImgs = c.card_faces?.every(f => f.image_uris) ? c.card_faces.map(f => f.image_uris.large || f.image_uris.normal) : [img(c, "large") || img(c)];
     let faceIdx = 0;
     const legal = Object.entries(c.legalities || {})
       .filter(([f]) => ["standard","pioneer","modern","legacy","vintage","commander","pauper","brawl","historic","timeless","oathbreaker","penny"].includes(f))
       .map(([f, s]) => `<div class="legal-${s}"><span>${f}</span><span>${s.replace("_"," ")}</span></div>`).join("");
-    const pr = c.prices || {};
-    const priceTags = [
-      pr.usd && `USD $${pr.usd}`, pr.usd_foil && `Foil $${pr.usd_foil}`, pr.usd_etched && `Etched $${pr.usd_etched}`,
-      pr.eur && `EUR €${pr.eur}`, pr.tix && `MTGO ${pr.tix} tix`
-    ].filter(Boolean).map(t => `<span>${t}</span>`).join("") || `<span>No price data</span>`;
     const spellbook = `https://commanderspellbook.com/search/?q=${encodeURIComponent(`card:"${c.name}"`)}`;
 
     el.sheet.innerHTML = `
       <button class="close" aria-label="Close">×</button>
+      ${prev ? `<button type="button" class="sheetback" id="sheetBack">← Back to ${esc(prev)}</button>` : ""}
       <div>
         <div class="bigimgbox" style="aspect-ratio:488/680;border-radius:4.75%/3.5%;overflow:hidden">${faceImgs[0] ? `<img class="bigimg" id="bigimg" src="${faceImgs[0]}" alt="${esc(c.name)}">` : ""}</div>
         ${faceImgs.length > 1 ? `<button class="btn flip" id="flip">↻ Flip card</button>` : ""}
@@ -569,14 +611,12 @@
           ${c.edhrec_rank ? `<span>EDHREC rank <b>#${c.edhrec_rank.toLocaleString()}</b></span>` : ""}
           ${c.color_identity ? `<span>Identity <b>${c.color_identity.length ? c.color_identity.map(x => `<img class="sym" src="${SYM(x)}" alt="${x}">`).join("") : "Colorless"}</b></span>` : ""}
         </div>
-        <h3>Prices</h3><div class="prices">${priceTags}</div>
         <h3>Legality</h3><div class="legal">${legal}</div>
         <div class="savebar">
           <button class="btn ${store.fav.has(c.id) ? "on" : ""}" data-fav="${c.id}" id="mFav">${store.fav.has(c.id) ? "♥ Favorited" : "♡ Favorite"}</button>
-          <button class="btn" id="mAdd">+ Add to list</button>
+          <button class="btn" id="mAdd">+ Add to list or deck</button>
         </div>
         <div class="links">
-          <button class="btn" id="prints">All printings</button>
           <a class="btn" href="${esc(c.scryfall_uri)}" target="_blank" rel="noopener">Scryfall</a>
           ${c.related_uris?.edhrec ? `<a class="btn" href="${esc(c.related_uris.edhrec)}" target="_blank" rel="noopener">EDHREC</a>` : ""}
           <a class="btn" href="${esc(spellbook)}" target="_blank" rel="noopener">Combos (Spellbook)</a>
@@ -585,24 +625,18 @@
         </div>
       </div>`;
     el.sheet.querySelector(".close").onclick = closeCard;
+    if (prev) $("sheetBack").onclick = () => history.back();
     const flip = $("flip");
     if (flip) flip.onclick = () => { faceIdx = (faceIdx + 1) % faceImgs.length; $("bigimg").src = faceImgs[faceIdx]; };
-    $("prints").onclick = () => {
-      closeCard();
-      el.q.value = `!"${c.name}"`; selected.clear();
-      document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
-      ["role","type","rarity","mvmin","mvmax"].forEach(k => el[k].value = ""); el.format.value = "commander";
-      el.unique.value = "prints"; el.order.value = "released";
-      search();
-    };
     $("mFav").onclick = () => toggleFav(c);
     $("mAdd").onclick = e => openListPop(e.currentTarget, c);
     $("copyname").onclick = async e => {
       try { await navigator.clipboard.writeText(c.name); e.target.textContent = "Copied ✓"; }
       catch { e.target.textContent = "Copy failed"; }
     };
-    el.modal.classList.add("open");
+    el.modal.classList.add("open"); el.modal.scrollTop = 0;
     document.body.style.overflow = "hidden";
+    (prev ? $("sheetBack") : el.sheet.querySelector(".close")).focus({ preventScroll: true });
     fillTiers(c);
   }
   async function fillTiers(c) {
@@ -619,28 +653,13 @@
       return opts.length ? `<h3>Better ${esc(MT.ROLE_INFO[x.k].label.toLowerCase())} in these colors</h3><div class="better">` +
         opts.map(o => `<button type="button" data-better="${esc(o.c.n)}"><span class="tl t${o.t}">${o.t}</span><span>${esc(o.c.n)}</span><span class="c">${syms(o.c.cost.map(t => "{" + t + "}").join(""))}</span></button>`).join("") + `</div>` : "";
     }).join("");
-    html += `<div style="margin:-4px 0 16px"><button class="btn" id="suggestTier" style="font-size:13px;padding:6px 12px">Suggest a tier</button></div><div id="fbBox"></div>`;
     box.innerHTML = html;
     box.querySelectorAll("[data-better]").forEach(b => b.onclick = async () => {
       try { const n = b.dataset.better; const x = await sf(`${API}/cards/named?exact=${encodeURIComponent(n.split(" // ")[0])}`); cardCache.set(x.id, x); openCard(x); }
       catch (e) { toast(e.message); }
     });
-    $("suggestTier").onclick = () => {
-      $("fbBox").innerHTML = `<form class="fb" id="fbForm"><div class="rowx">List <select name="role">${ts.map(x => `<option value="${x.k}">${esc(MT.ROLE_INFO[x.k].label)} (now ${x.t})</option>`).join("")}</select>
-        Should be <select name="tier">${["S","A","B","C","D","F"].map(t => `<option${t === ts[0].t ? " selected" : ""}>${t}</option>`).join("")}</select></div>
-        <textarea name="note" rows="2" maxlength="500" placeholder="Why? (optional)"></textarea>
-        <div class="rowx"><button class="btn primary" style="padding:6px 12px;font-size:13px">Send</button><span id="fbMsg"></span></div></form>`;
-      const f = $("fbForm");
-      f.onsubmit = async e => {
-        e.preventDefault();
-        const x = ts.find(t => t.k === f.role.value);
-        $("fbMsg").textContent = "Sending…";
-        try { await MT.api("POST", "/api/feedback", { role: x.k, card: me ? me.n : c.name, tier: x.t, suggested: f.tier.value, note: f.note.value.trim() }); $("fbMsg").textContent = "Thanks, it's in the review queue."; f.querySelector("button").disabled = true; }
-        catch (err) { $("fbMsg").textContent = err.offline ? "No server here, so feedback can't be sent." : err.message; }
-      };
-    };
   }
-  function closeCard() { el.modal.classList.remove("open"); document.body.style.overflow = ""; }
+  const closeCard = () => nav.close();
   el.modal.addEventListener("click", e => { if (e.target === el.modal) closeCard(); });
 
   // ---- autocomplete (names) ----
@@ -794,24 +813,42 @@
   const pop = $("pop");
   function openListPop(anchor, c) {
     if (needLogin()) return;
+    let decks = null;
     const draw = () => {
-      pop.innerHTML = `<div class="ttl">Add ${esc(c.name)} to…</div>` +
+      pop.innerHTML = `<div class="ttl">Add ${esc(c.name)} to a list</div>` +
         store.lists.map((l, i) => `<button data-i="${i}"><span>${esc(l.name)}</span><span>${l.cards.has(c.id) ? "✓" : ""}</span></button>`).join("") +
-        `<form><input placeholder="New list name" maxlength="60"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>`;
+        `<form data-new="list"><input placeholder="New list name" maxlength="60" aria-label="New list name"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>` +
+        (decks ? `<div class="ttl" style="margin-top:6px">…or a deck</div>` +
+          decks.map((d, i) => `<button data-d="${i}"><span>${esc(d.name)}</span><span>${MT.inDeck(d, c.name) ? "✓" : ""}</span></button>`).join("") +
+          `<form data-new="deck"><input placeholder="New deck name" maxlength="60" aria-label="New deck name"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>` : "");
       pop.querySelectorAll("button[data-i]").forEach(b => b.onclick = async () => { await toggleInList(store.lists[+b.dataset.i], c); draw(); });
-      pop.querySelector("form").onsubmit = async ev => {
+      pop.querySelectorAll("button[data-d]").forEach(b => b.onclick = async () => {
+        const d = decks[+b.dataset.d];
+        if (MT.inDeck(d, c.name)) { MT.removeFromDeck(d, c.name); toast(`Took it out of ${d.name}`); }
+        else if (await MT.addToDeck(d, c.name)) toast(`Added to ${d.name}`);
+        draw();
+      });
+      pop.querySelector("form[data-new=list]").onsubmit = async ev => {
         ev.preventDefault();
-        const l = await createList(pop.querySelector("input").value);
+        const l = await createList(ev.target.querySelector("input").value);
         if (l) { await toggleInList(l, c); draw(); }
+      };
+      const df = pop.querySelector("form[data-new=deck]");
+      if (df) df.onsubmit = async ev => {
+        ev.preventDefault();
+        const d = await MT.createDeck(ev.target.querySelector("input").value);
+        if (d && await MT.addToDeck(d, c.name)) { toast(`Added to ${d.name}`); decks = MT.deckInfo().decks; draw(); }
       };
     };
     draw();
-    const r = anchor.getBoundingClientRect();
-    pop.classList.add("open");
-    const w = pop.offsetWidth, h = pop.offsetHeight;
-    pop.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.right - w)) + "px";
-    pop.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, r.top - h - 6) : r.bottom + 6) + "px";
-    if (!store.lists.length) pop.querySelector("input").focus();
+    MT.loadDecks().then(list => { decks = list; if (pop.classList.contains("open")) { draw(); place(); } }).catch(() => {});
+    const place = () => {
+      const r = anchor.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
+      pop.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.right - w)) + "px";
+      pop.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, Math.min(innerHeight - h - 8, r.top - h - 6)) : r.bottom + 6) + "px";
+    };
+    pop.classList.add("open"); place();
+    if (!store.lists.length) pop.querySelector("form[data-new=list] input").focus();
   }
   const closePop = () => pop.classList.remove("open");
   document.addEventListener("mousedown", e => { if (pop.classList.contains("open") && !pop.contains(e.target) && !e.target.closest("[data-act=add],#mAdd")) closePop(); });
@@ -845,6 +882,7 @@
     v === "saved" ? $("navSaved").setAttribute("aria-current", "page") : $("navSaved").removeAttribute("aria-current");
     if (v === "saved") { try { history.replaceState(null, "", "#saved"); } catch {} renderSaved(); scrollTo(0, 0); }
     else saveState();
+    placeFilters();
   }
   const currentList = () => tab === "fav" ? null : store.lists.find(l => String(l.id) === String(tab));
   function renderSaved() {
@@ -878,6 +916,8 @@
     try { const c = cardCache.get(id) || await sf(`${API}/cards/${id}`); cardCache.set(id, c); openCard(c); }
     catch (e) { toast(e.message); }
   }
+  // a card that was open when the page was reloaded comes back
+  if (nav.current()) setTimeout(() => showById(nav.current()), 0);
   $("navSaved").onclick = () => showView("saved");
   $("navSearch").onclick = e => { e.preventDefault();
     const h = lastSearch;
@@ -971,15 +1011,29 @@
   function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2200); }
 
   // ---- wiring ----
-  $("go").onclick = search;
+  $("go").onclick = () => { const wasHome = inHero(); if (!hasAnything()) { if (!wasHome) reset(); return toast("Type a name or pick a filter first"); } search(); };
+  el.status.addEventListener("click", e => {
+    const b = e.target.closest("[data-unf]"); if (!b) return;
+    const k = b.dataset.unf;
+    if (k === "c") { selected.clear(); document.querySelectorAll(".pip").forEach(p => p.classList.remove("on")); }
+    else if (k === "mv") { el.mvmin.value = ""; el.mvmax.value = ""; }
+    else if (k === "format") el.format.value = "commander";
+    else if (k === "order") el.order.value = "name";
+    else el[k].value = "";
+    hasAnything() ? search() : reset();
+  });
+  document.addEventListener("mousedown", e => {
+    const f = $("filters");
+    if (f.classList.contains("open") && !f.contains(e.target) && !e.target.closest("#filtersBtn")) { f.classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false"); }
+  });
   el.more.onclick = loadMore;
   $("home").onclick = e => { e.preventDefault(); el.q.value = ""; showView("search"); reset(); };
-  ["cmode","role","tier","type","format","rarity","order","unique"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
-  ["mvmin","mvmax"].forEach(k => el[k].addEventListener("change", () => hasAnything() && search()));
+  ["role","tier","type","format","rarity","order"].forEach(k => el[k].addEventListener("change", () => { if (!inHero() && hasAnything()) search(); }));
+  ["mvmin","mvmax"].forEach(k => el[k].addEventListener("change", () => { if (!inHero() && hasAnything()) search(); }));
   $("clear").onclick = () => {
     selected.clear(); document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
     el.cmode.value = "id"; ["role","tier","type","rarity","mvmin","mvmax"].forEach(k => el[k].value = ""); el.format.value = "commander";
-    el.order.value = "name"; el.unique.value = "cards";
+    el.order.value = "name"; $("adv").open = false;
     hasAnything() ? search() : reset();
   };
   document.addEventListener("keydown", e => {
@@ -988,10 +1042,9 @@
   });
   // click a role badge -> show more cards with that role (keeps color/format filters, clears text)
   document.addEventListener("click", e => {
-    const b = e.target.closest(".badge[data-role]"); if (!b) return;
-    e.stopPropagation(); closeCard();
-    el.role.value = b.dataset.role; el.q.value = ""; el.unique.value = "cards";
-    search();
+    const b = e.target.closest(".badge[data-role],.tag[data-role]"); if (!b) return;
+    e.stopPropagation();
+    closeCard().then(() => { el.role.value = b.dataset.role; el.q.value = ""; el.unique.value = "cards"; search(); });
   });
   // infinite scroll
   new IntersectionObserver(es => { if (es[0].isIntersecting && nextPage) loadMore(); }, { rootMargin: "600px" }).observe(el.more);
@@ -999,8 +1052,8 @@
   // example chips
   const examples = [
     ["Izzet commanders", "is:commander id=UR"],
-    ["Green ramp under $2", "c:g usd<2", "ramp"],
-    ["Cheap counterspells", "mv<=2", "counter"],
+    ["Green ramp", "c:g", "ramp"],
+    ["Counterspells for 2 or less", "mv<=2", "counter"],
     ["Board wipes", "", "wipe"],
     ["Izzet removal", "id<=UR", "removal"],
     ["Pingers", 'o:"deals 1 damage to any target" t:creature'],
@@ -1019,7 +1072,7 @@
   // the Filters button shows how many filters are on
   function countFilters() {
     const n = (selected.size ? 1 : 0) + ["type", "role", "tier", "rarity", "mvmin", "mvmax"].filter(k => el[k].value !== "").length +
-      (el.format.value !== "commander" ? 1 : 0) + (el.order.value !== "name" ? 1 : 0) + (el.unique.value !== "cards" ? 1 : 0);
+      (el.format.value !== "commander" ? 1 : 0) + (el.order.value !== "name" ? 1 : 0);
     $("filtersBtn").innerHTML = `Filters${n ? ` <span class="n">${n}</span>` : ""}`;
   }
   $("filters").addEventListener("change", countFilters); $("filters").addEventListener("click", () => setTimeout(countFilters));
@@ -1028,6 +1081,7 @@
   initStore();
   if (location.hash === "#saved") showView("saved");
   else if (loadState()) search();
+  else placeFilters();
 })();
 </script>
 </body>

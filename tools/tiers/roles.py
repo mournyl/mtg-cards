@@ -550,6 +550,28 @@ def tutors(card):
 KW = r"(hexproof|indestructible|shroud|protection from|ward)"
 
 
+# protection written as something other than "gains hexproof": phasing in a second sentence, blink, redirect, comes back
+P_PHASE_IT = r"target (creature|permanent|nonland permanent|creature or planeswalker|artifact or creature)( you control)?[^.]*\. (it|that creature|that permanent) phases out"
+P_PHASE_ALL = r"(creatures|permanents|nonland permanents|other creatures|artifacts and creatures) you control phase out"
+P_BLINK_ONE = r"exile (up to (one|two) )?(another )?target (non-[a-z]+ )?(creature|permanent|nonland permanent|artifact or creature|creature or artifact|creature or planeswalker|creature or enchantment)s?( you (control|own))?[^.]*?(, then return|\. return|then return) (it|that card|them|those cards)[^.]*to the battlefield"
+P_BLINK_ALL = r"exile (all|each|any number of target) (other )?(creatures|creature|nonland permanents|permanents)[^.]* you control[^.]*(\. |, then |then )?return (them|those cards|each card exiled this way|the exiled cards)[^.]*to the battlefield"
+P_REDIRECT = r"(change the target of|choose new targets for) target (spell or ability|instant or sorcery spell|spell|activated or triggered ability)"
+P_RETURNS = r"(when|whenever) (enchanted|equipped|this|that) (creature|permanent|creature or planeswalker)[^.]*(dies|is put into a graveyard)[^.]*return (it|that card)[^.]*to the battlefield|gains? \"when this creature dies, return it to the battlefield"
+P_PREVENT_ALL = r"prevent all (combat )?damage that would be dealt (this turn )?to (creatures|permanents|other creatures) you control"
+PROTECTION_TYPES = [
+    ("hexproof", "Hexproof", r"hexproof"), ("shroud", "Shroud", r"\bshroud\b"), ("indestructible", "Indestructible", r"indestructible"),
+    ("phasing", "Phasing", r"phases? out"), ("blink", "Blink", P_BLINK_ONE + "|" + P_BLINK_ALL), ("protection", "Protection from", r"protection from"),
+    ("ward", "Ward", r"\bward\b"), ("redirect", "Redirect", P_REDIRECT), ("returns", "Comes back", P_RETURNS),
+    ("prevent", "Damage prevention", r"prevent all[^.]*damage"), ("uncounterable", "Can't be countered", r"can't be countered|can't cast spells"),
+]
+
+
+def protection_types(card):
+    """Kinds of protection a card gives, for the protection page's filter (a card can give several)."""
+    t = " ".join(text_of(f) for f in card["faces"])
+    return [k for k, _, rx in PROTECTION_TYPES if re.search(rx, t)] or ["other"]
+
+
 def protection(card):
     best = None
     for i, f in spell_faces(card):
@@ -565,6 +587,12 @@ def protection(card):
             sub = "one"
         elif re.search(r"(spells|creature spells|noncreature spells|spells you control|commander spells)( you control)? can't be countered|your opponents can't cast spells (during your turn|this turn)|each opponent can't cast spells|spells and abilities your opponents control can't be cast|your opponents can't cast spells or activate abilities", t):
             sub = "counter"
+        elif re.search(P_PHASE_ALL + "|" + P_BLINK_ALL + "|" + P_PREVENT_ALL, t):
+            sub = "board"
+        elif re.search(P_PHASE_IT + "|" + P_BLINK_ONE + "|" + P_REDIRECT, t):
+            sub = "one"
+        elif re.search(P_RETURNS, t):
+            sub = "equipment" if is_type(f, "Equipment", "Aura") else "one"
         if not sub: continue
         s = {"board": 66, "one": 54, "equipment": 56, "counter": 52}[sub]
         s += {0: 12, 1: 8, 2: 4, 3: 0, 4: -8, 5: -12}.get(mv, -16)
@@ -579,7 +607,8 @@ def protection(card):
         if not is_type(f, "Instant", "Sorcery") and sub in ("one", "board") and re.search(r"\{[^}]*\}[^:]*:|whenever|at the beginning", t): s += 4
         if re.search(r"until end of turn", t) and sub == "counter": s -= 2
         label = {"board": "your whole board", "one": "one creature", "equipment": "the equipped creature", "counter": "your spells"}[sub]
-        how = "can't be countered" if sub == "counter" else "with " + "/".join(sorted(set(re.findall(r"hexproof|indestructible|shroud|protection|phases? out|ward", t)) or {"protection"}))
+        kinds = [name.lower() for k, name, rx in PROTECTION_TYPES if k != "uncounterable" and re.search(rx, t)]
+        how = "can't be countered" if sub == "counter" else "with " + "/".join(kinds or ["protection"])
         why = "%s %s that protects %s%s." % (mana_str(mv, f), speed_word(f, t), label, "" if sub == "counter" else " (" + how.replace("with ", "") + ")")
         r = dict(sub=sub, score=clamp(s), why=why, face=i)
         if best is None or r["score"] > best["score"]: best = r

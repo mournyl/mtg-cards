@@ -2,14 +2,14 @@
 // Serves the static site from ./public (via [assets]) and a small JSON API under /api/*
 // backed by D1 (binding: DB). Accounts are username + password; passwords are hashed
 // with PBKDF2-SHA256, sessions are random tokens stored hashed, sent as an HttpOnly cookie.
-// Also: "suggest a tier" feedback from the tier lists and card search.
+// Also: decks (My decks page), stored as card names + counts; the page fills in the rest from data/cards.json.
 
 const COOKIE = "mtg_session";
 const SESSION_DAYS = 30;
 const PBKDF2_ITERS = 100000;        // Workers' WebCrypto maximum
 const MAX_FAILS = 5, LOCK_MS = 10 * 60 * 1000;
 const MAX_LISTS = 50, MAX_CARDS = 2000;
-const LIMITS = { fb: [20, 3600e3] };               // per IP: feedback per hour
+const MAX_DECKS = 50, MAX_DECK_CARDS = 250;
 
 export default {
   async fetch(req, env) {
@@ -51,28 +51,10 @@ async function api(req, env, url) {
     const u = await currentUser(req, env);
     return u ? json({ user: { username: u.username } }) : json({ user: null });
   }
-  // open to everyone (rate-limited per IP)
-  if (p === "/api/feedback" && m === "POST") return feedback(req, env);
-
   const user = await currentUser(req, env);
   if (!user) throw new HttpError(401, "Log in first");
 
   if (p === "/api/saved" && m === "GET") return saved(env, user);
-
-  // ---- feedback queue (admins only: usernames in the ADMINS variable, comma-separated) ----
-  if (p === "/api/feedback" && m === "GET") {
-    requireAdmin(env, user);
-    const status = url.searchParams.get("status") || "open";
-    const rows = await env.DB.prepare("SELECT id, role, card, tier, suggested, note, status, created_at FROM tier_feedback WHERE status = ? ORDER BY created_at DESC LIMIT 500").bind(status).all();
-    return json({ feedback: rows.results });
-  }
-  if ((r = p.match(/^\/api\/feedback\/(\d+)$/)) && m === "PATCH") {
-    requireAdmin(env, user);
-    const st = String((await body(req)).status || "");
-    if (!["open", "done", "rejected"].includes(st)) throw new HttpError(400, "Status must be open, done or rejected");
-    await env.DB.prepare("UPDATE tier_feedback SET status = ? WHERE id = ?").bind(st, +r[1]).run();
-    return json({ ok: true });
-  }
 
   if (p === "/api/favorites" && m === "POST") {
     const card = cleanCard((await body(req)).card);
@@ -123,37 +105,57 @@ async function api(req, env, url) {
     return json({ ok: true });
   }
 
+  // ---- decks ----
+  if (p === "/api/decks" && m === "GET") {
+    const rows = await env.DB.prepare("SELECT id, name, data, updated_at FROM decks WHERE user_id = ? ORDER BY updated_at DESC").bind(user.id).all();
+    return json({ decks: rows.results.map(deckOut) });
+  }
+  if (p === "/api/decks" && m === "POST") {
+    const b = await body(req), name = cleanName(b.name), data = cleanDeck(b);
+    const { n } = await env.DB.prepare("SELECT COUNT(*) AS n FROM decks WHERE user_id = ?").bind(user.id).first();
+    if (n >= MAX_DECKS) throw new HttpError(400, `Limit of ${MAX_DECKS} decks`);
+    const now = Date.now();
+    const row = await env.DB.prepare("INSERT INTO decks (user_id, name, data, created_at, updated_at) VALUES (?, ?, ?, ?, ?) RETURNING id")
+      .bind(user.id, name, JSON.stringify(data), now, now).first();
+    return json({ deck: { id: row.id, name, ...data, updated: now } });
+  }
+  if ((r = p.match(/^\/api\/decks\/(\d+)$/))) {
+    const deck = await env.DB.prepare("SELECT id FROM decks WHERE id = ? AND user_id = ?").bind(+r[1], user.id).first();
+    if (!deck) throw new HttpError(404, "Deck not found");
+    if (m === "PUT") {
+      const b = await body(req), name = cleanName(b.name), data = cleanDeck(b), now = Date.now();
+      await env.DB.prepare("UPDATE decks SET name = ?, data = ?, updated_at = ? WHERE id = ?").bind(name, JSON.stringify(data), now, deck.id).run();
+      return json({ ok: true, updated: now });
+    }
+    if (m === "DELETE") {
+      await env.DB.prepare("DELETE FROM decks WHERE id = ?").bind(deck.id).run();
+      return json({ ok: true });
+    }
+  }
+
   throw new HttpError(404, "Not found");
 }
 
-// ---------- tier feedback ----------
-async function feedback(req, env) {
-  const b = await body(req);
-  const role = String(b.role || ""), card = String(b.card || "").trim().slice(0, 200);
-  const tier = String(b.tier || ""), suggested = String(b.suggested || ""), note = String(b.note || "").trim().slice(0, 500);
-  if (!/^[a-z]{3,20}$/.test(role) || !card || !/^[SABCDF]$/.test(suggested) || (tier && !/^[SABCDF]$/.test(tier)))
-    throw new HttpError(400, "Pick a list and a tier");
-  await rateLimit(env, req, "fb");
-  const user = await currentUser(req, env);
-  await env.DB.prepare("INSERT INTO tier_feedback (role, card, tier, suggested, note, user_id, ip_hash, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, 'open', ?)")
-    .bind(role, card, tier, suggested, note, user ? user.id : null, await ipHash(req), Date.now()).run();
-  return json({ ok: true });
+// ---------- decks: { commander, cards: [{ n: name, q: count, cat?: group the owner moved it to }] } ----------
+function cleanDeck(b) {
+  const cards = Array.isArray(b.cards) ? b.cards : [];
+  if (cards.length > MAX_DECK_CARDS) throw new HttpError(400, `Limit of ${MAX_DECK_CARDS} different cards in a deck`);
+  const seen = new Set(), out = [];
+  for (const c of cards) {
+    const n = typeof c?.n === "string" ? c.n.trim().slice(0, 200) : "";
+    if (!n || seen.has(n.toLowerCase())) continue;
+    seen.add(n.toLowerCase());
+    const q = Math.max(1, Math.min(99, Math.floor(Number(c.q) || 1)));
+    const x = { n, q };
+    if (typeof c.cat === "string" && /^[a-z-]{1,24}$/.test(c.cat)) x.cat = c.cat;
+    out.push(x);
+  }
+  const commander = typeof b.commander === "string" ? b.commander.trim().slice(0, 200) : "";
+  return { commander, cards: out };
 }
-function requireAdmin(env, user) {
-  const admins = String(env.ADMINS || "").split(",").map(s => s.trim().toLowerCase()).filter(Boolean);
-  if (!admins.includes(user.username.toLowerCase())) throw new HttpError(403, "Admins only");
-}
-
-// ---------- per-IP rate limits for the open endpoints ----------
-async function ipHash(req) { return sha256("ip:" + (req.headers.get("cf-connecting-ip") || "local")); }
-async function rateLimit(env, req, kind) {
-  const [max, windowMs] = LIMITS[kind], key = kind + ":" + await ipHash(req), now = Date.now();
-  const { n } = await env.DB.prepare("SELECT COUNT(*) AS n FROM rate_hits WHERE key = ? AND at > ?").bind(key, now - windowMs).first();
-  if (n >= max) throw new HttpError(429, "Too many requests — try again later");
-  await env.DB.batch([
-    env.DB.prepare("INSERT INTO rate_hits (key, at) VALUES (?, ?)").bind(key, now),
-    env.DB.prepare("DELETE FROM rate_hits WHERE at < ?").bind(now - 86400e3),
-  ]);
+function deckOut(row) {
+  let d = {}; try { d = JSON.parse(row.data); } catch { /* keep empty */ }
+  return { id: row.id, name: row.name, commander: d.commander || "", cards: d.cards || [], updated: row.updated_at };
 }
 
 // ---------- auth ----------

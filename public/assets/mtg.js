@@ -1,9 +1,9 @@
-/* mournyl mtg — shared helpers for the tier lists, deck checker, slot finder and card search.
+/* mournyl mtg — shared helpers for the tier lists, My decks and card search.
    Data comes from the site's own files (built weekly by tools/tiers/build.py):
      data/cards.json        every Commander-legal card: mana value, types, identity, cost, flags, role scores
      data/tier-index.json   card name -> [role, score, sub, rank, reviewed]
      tiers/data/<role>.json one entry per card in a role list (score, tier, reason, rules text)
-   Scryfall is only asked for images and prices of cards on screen, one request at a time, 550 ms apart
+   Scryfall is only asked for images of cards on screen, one request at a time, 550 ms apart
    (its limit is 2 a second); if Scryfall can't be reached the pages stay in text mode. */
 (() => {
   "use strict";
@@ -12,7 +12,7 @@
   const ROOT = new URL("..", document.currentScript ? document.currentScript.src : location.href);
   const PREVIEW = !!window.MTG_PREVIEW;
   const url = p => new URL(p, ROOT).href;
-  const PAGES = { search: "", tiers: "tiers/", saved: "#saved" };
+  const PAGES = { search: "", tiers: "tiers/", decks: "decks/", saved: "#saved" };
   // MTG_PREVIEW is set only by the stand-alone preview build (no server, no card search): links use explicit files
   function page(key, hash) {
     let p = PAGES[key] ?? "";
@@ -50,7 +50,7 @@
     { t: "A", min: 75, h: "Excellent", d: "Near auto-include when the deck needs this job done." },
     { t: "B", min: 60, h: "Strong", d: "Great in the right deck or against the right table." },
     { t: "C", min: 45, h: "Playable", d: "Filler, or a narrow answer that needs the right deck." },
-    { t: "D", min: 30, h: "Outclassed", d: "Works, but something cheaper or broader does it better." },
+    { t: "D", min: 30, h: "Outclassed", d: "Works, but something more efficient or broader does it better." },
     { t: "F", min: 0, h: "Don't bother", d: "Rarely does anything in Commander." },
   ];
   const tierOf = C.tierOf;
@@ -101,6 +101,90 @@
   const para = s => (s || "").split("\n").map(l => `<p>${syms(l)}</p>`).join("");
   const idSyms = id => id ? id.split("").map(sym).join("") : sym("C");
 
+  // ---------- tags under cards: one per row, a 28px block (tier letter or line icon) + label ----------
+  const P = d => `<path d="${d}"/>`, CI = (x, y, r, more = "") => `<circle cx="${x}" cy="${y}" r="${r}"${more}/>`;
+  const SHIELD = P("M12 3 5 6v6c0 4.4 3 7.6 7 9 4-1.4 7-4.6 7-9V6z");
+  const TAG_ICONS = {
+    // jobs
+    counter: CI(12, 12, 9) + P("m5.6 5.6 12.8 12.8"),
+    ramp: P("M12 21v-9") + P("M12 12c0-4.4 3-7.5 8-7.5 0 5-3 7.5-8 7.5z") + P("M12 15c0-3.3-2.2-5.5-6.5-5.5 0 3.9 2.2 5.5 6.5 5.5z"),
+    draw: `<rect x="8" y="3" width="12" height="16" rx="2"/>` + P("M5 7v12a2 2 0 0 0 2 2h9"),
+    removal: CI(12, 12, 7) + CI(12, 12, 1.5) + P("M12 2v4M12 18v4M2 12h4M18 12h4"),
+    wipes: `<rect x="4" y="4" width="16" height="16" rx="2"/>` + P("M4 20 20 4"),
+    tutor: CI(11, 11, 7) + P("m20 20-4-4"),
+    shield: SHIELD,
+    grave: P("M6 21V10a6 6 0 0 1 12 0v11") + P("M4 21h16") + P("m10 10 4 4M14 10l-4 4"),
+    rise: P("M4 21h16") + P("M12 17V4") + P("m7 9 5-5 5 5"),
+    land: P("m3 20 6-10 4 6 3-4 5 8z"),
+    bounce: P("M9 14 4 9l5-5") + P("M4 9h11a5 5 0 0 1 0 10h-3"),
+    flame: P("M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2.2 1-3.8 2.5-5 .2 1.7 1 2.7 2 3 0-3 0-5.2.5-8z"),
+    tokens: `<rect x="3" y="7" width="14" height="14" rx="2"/>` + P("M7 3h12a2 2 0 0 1 2 2v12") + P("M10 11v6M7 14h6"),
+    // sub-lists
+    bolt: P("M13 2 4 14h7l-1 8 9-12h-7l1-8z"),
+    creature: CI(12, 8, 4) + P("M4 21c0-4 3.6-7 8-7s8 3 8 7"),
+    creatures: CI(9, 8, 3.5) + P("M2 21c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5") + P("M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.8c2.4.9 4 3.2 4 6.2"),
+    permanent: P("M12 3 20 7.5v9L12 21 4 16.5v-9z") + P("M4 7.5 12 12l8-4.5M12 12v9"),
+    ability: CI(12, 12, 3) + P("M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"),
+    rock: CI(12, 12, 8) + CI(12, 12, 3),
+    plus: P("M12 5v14M5 12h14"),
+    repeat: P("M17 2l4 4-4 4") + P("M3 11V9a3 3 0 0 1 3-3h15") + P("M7 22l-4-4 4-4") + P("M21 13v2a3 3 0 0 1-3 3H3"),
+    eye: P("M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z") + CI(12, 12, 3),
+    card: `<rect x="6" y="3" width="12" height="18" rx="2"/>` + P("M10 8h4"),
+    funnel: P("M3 5h18l-7 8v6l-4 2v-8z"),
+    board: `<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>`,
+    sword: P("M21 3h-5L6 13l5 5L21 8z") + P("m4 15 5 5M3 21l3-3"),
+    play: P("M7 4v16l13-8z"),
+    // kinds of protection
+    hexproof: P("M12 3 20 7.5v9L12 21 4 16.5v-9z"),
+    shroud: P("M3 3l18 18") + P("M10.6 5.1A10 10 0 0 1 12 5c5 0 9 4.5 10 7-.5 1.2-1.5 2.7-2.9 4") + P("M6.6 6.6C4.4 8 2.8 10.1 2 12c1 2.5 5 7 10 7 1.9 0 3.6-.6 5.1-1.5"),
+    indestructible: P("M6.5 4h11L21 9l-9 11L3 9z") + P("M3 9h18"),
+    phasing: CI(12, 12, 8.5, ' stroke-dasharray="3.2 3"') + CI(12, 12, 2.5),
+    blink: P("M4.5 11A8 8 0 0 1 18 6.7L20 9") + P("M20 4v5h-5") + P("M19.5 13A8 8 0 0 1 6 17.3L4 15") + P("M4 20v-5h5"),
+    protection: SHIELD + P("m9 12 2 2 4-4"),
+    ward: SHIELD + P("M12 8v4.5M12 16h.01"),
+    redirect: P("M4 18v-3a6 6 0 0 1 6-6h10") + P("m16 5 4 4-4 4"),
+    returns: P("M3.5 12a8.5 8.5 0 1 0 2.8-6.3L3.5 8") + P("M3.5 3.5V8H8"),
+    prevent: SHIELD + P("M9 12h6"),
+    uncounterable: `<rect x="5" y="11" width="14" height="10" rx="2"/>` + P("M8 11V7.5a4 4 0 0 1 8 0V11"),
+    // flags
+    star: P("m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"),
+    crown: P("M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"),
+    free: CI(12, 12, 9) + `<ellipse cx="12" cy="12" rx="3" ry="5"/>`,
+    soft: CI(12, 12, 9, ' stroke-dasharray="4 3"') + P("m5.6 5.6 12.8 12.8"),
+    sparkle: P("M12 3c.6 4.5 2.5 6.4 7 7-4.5.6-6.4 2.5-7 7-.6-4.5-2.5-6.4-7-7 4.5-.6 6.4-2.5 7-7z"),
+    unrev: CI(12, 12, 9) + P("M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6h.01"),
+    identity: CI(9, 12, 6) + CI(15, 12, 6),
+    dot: CI(12, 12, 3),
+  };
+  // tier-list keys and card-search role keys
+  const ROLE_ICON = { counterspells: "counter", counter: "counter", ramp: "ramp", draw: "draw", removal: "removal", wipes: "wipes", wipe: "wipes",
+    tutors: "tutor", tutor: "tutor", protection: "shield", protect: "shield", gyhate: "grave", recursion: "rise", lands: "land",
+    bounce: "bounce", burn: "flame", tokens: "tokens" };
+  const SUB_ICON = {
+    counterspells: { spells: "bolt", creatures: "creature", permanents: "permanent", abilities: "ability", stack: "bounce" },
+    ramp: { rocks: "rock", dorks: "creature", lands: "land", other: "plus" },
+    draw: { burst: "draw", engine: "repeat", impulse: "eye", cantrip: "card" },
+    removal: { any: "removal", creature: "creature", "artifact-enchantment": "permanent", damage: "flame", bounce: "bounce" },
+    wipes: { creatures: "creatures", nonland: "wipes", "artifacts-enchantments": "permanent" },
+    tutors: { any: "tutor", creature: "creature", "instant-sorcery": "bolt", "artifact-enchantment": "permanent", other: "funnel" },
+    protection: { board: "board", one: "creature", equipment: "sword", counter: "uncounterable" },
+    gyhate: { "one-shot": "grave", repeatable: "repeat" },
+    recursion: { reanimate: "rise", "to-hand": "returns", cast: "play" },
+    lands: { fixing: "identity", utility: "ability", "spell-lands": "draw" },
+  };
+  const subIcon = (role, sub) => (SUB_ICON[role] || {})[sub] || ROLE_ICON[role] || "dot";
+  const tagIcon = k => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${TAG_ICONS[k] || TAG_ICONS.dot}</svg>`;
+  // o: { tier | icon, text | html, rank, href | role, title }
+  function tag(o) {
+    const blk = o.tier ? `<b class="ti t${o.tier}">${o.tier}</b>` : `<span class="ti">${tagIcon(o.icon)}</span>`;
+    const body = blk + `<span class="tx">${o.html ?? esc(o.text)}</span>` + (o.rank ? `<span class="rk">${esc(o.rank)}</span>` : "");
+    const t = o.title ? ` title="${esc(o.title)}"` : "";
+    if (o.href) return `<a class="tag" href="${o.href}"${t} onclick="event.stopPropagation()">${body}</a>`;
+    if (o.role) return `<button type="button" class="tag" data-role="${o.role}"${t}>${body}</button>`;
+    return `<span class="tag"${t}>${body}</span>`;
+  }
+  const idTag = id => tag({ icon: "identity", html: `<span class="ids">${idSyms(id)}</span><span class="mut">Color identity</span>`, title: "Color identity" });
+
   // ---------- data ----------
   let cardsP, hubP, tierIdxP;
   const roleP = new Map();
@@ -118,7 +202,7 @@
 
   const betterOptions = C.betterOptions;
 
-  // ---------- Scryfall: images and prices for cards on screen ----------
+  // ---------- Scryfall: images for cards on screen ----------
   const SF = "https://api.scryfall.com";
   const sf = new Map(), asked = new Set();
   let last = 0, chain = Promise.resolve(), sfDown = false, downUntil = 0;
@@ -260,8 +344,37 @@
     }
   }
 
-  // ---------- card sheet: rules text, tier in every role, better options, feedback ----------
-  let modal, sheet, opener = null, ctxOpt = {};
+  // ---------- card sheets and the Back button ----------
+  // Each card opened in a sheet gets its own history entry (same address), so Back walks back through the
+  // cards you looked at, then closes the sheet, and Forward brings them back. ns keeps different sheets apart.
+  function sheetHistory(ns, show, hide) {
+    let settle = null;
+    const mine = st => !!(st && st.mtgSheet && st.mtgSheet.ns === ns);
+    addEventListener("popstate", e => {
+      if (mine(e.state)) show(e.state.mtgSheet.key); else hide();
+      if (settle) { const f = settle; settle = null; f(); }
+    });
+    return {
+      push(key, label) {
+        const st = history.state && typeof history.state === "object" ? history.state : {}, nested = mine(st);
+        const sh = { ns, key, label, depth: nested ? st.mtgSheet.depth + 1 : 1, prev: nested ? st.mtgSheet.label : "" };
+        try { history.pushState({ ...st, mtgSheet: sh }, ""); } catch { /* history off */ }
+      },
+      prev: () => mine(history.state) ? history.state.mtgSheet.prev : "",
+      current: () => mine(history.state) ? history.state.mtgSheet.key : null,
+      // hide now; resolve once the history is back where it was before the first card
+      close() {
+        const d = mine(history.state) ? history.state.mtgSheet.depth : 0;
+        hide();
+        if (!d) return Promise.resolve();
+        return new Promise(res => { settle = res; history.go(-d); setTimeout(() => { if (settle === res) { settle = null; res(); } }, 600); });
+      },
+    };
+  }
+
+  // ---------- card sheet: rules text, tier in every role, better options ----------
+  let modal, sheet, opener = null, ctxOpt = {}, navObj = null;
+  const nav = () => navObj ||= sheetHistory("card", name => openCard(name, { ...ctxOpt, keepOpener: true, fromHistory: true }), hideCard);
   function ensureModal() {
     if (modal) return;
     modal = document.createElement("div"); modal.className = "modal"; modal.id = "cardModal";
@@ -269,16 +382,22 @@
     document.body.appendChild(modal); sheet = modal.firstElementChild;
     modal.addEventListener("click", e => {
       if (e.target === modal || e.target.closest(".close")) return closeCard();
-      const b = e.target.closest("[data-open]"); if (b) { e.preventDefault(); openCard(b.dataset.open, { ...ctxOpt, keepOpener: true }); }
-      const f = e.target.closest("[data-feedback]"); if (f) showFeedback(f.dataset.feedback);
+      if (e.target.closest("[data-sheet-back]")) return history.back();
+      const b = e.target.closest("[data-open]"); if (b) { e.preventDefault(); openCard(b.dataset.open, { ...ctxOpt, keepOpener: true }); return; }
+      const d = e.target.closest("[data-adddeck]"); if (d) { deckMenu(d, d.dataset.adddeck); return; }
+      // a link to a list on this page: hide the sheet and let the link go; Back comes back to this card
+      const a = e.target.closest("a[href]");
+      if (a && a.target !== "_blank" && new URL(a.href, location.href).pathname === location.pathname) hideCard();
     });
-    document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeCard(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open") && !document.querySelector(".menu")) closeCard(); });
   }
-  function closeCard() {
-    if (!modal) return;
+  function hideCard() {
+    if (!modal || !modal.classList.contains("open")) return;
     modal.classList.remove("open"); document.body.style.overflow = "";
+    document.querySelector(".menu")?.remove();
     if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
   }
+  const closeCard = () => modal ? nav().close() : Promise.resolve();
   const isOpen = () => !!modal && modal.classList.contains("open");
   const slug = s => s.toLowerCase().replace(/[^a-z0-9 -]/g, "").trim().replace(/\s+/g, "-");
   const pct = e => (e >= 10 ? e.toFixed(0) : e.toFixed(1)) + "%";
@@ -290,18 +409,16 @@
     ctxOpt = { allowed: opt.allowed, exclude: opt.exclude, noGC: opt.noGC, onPick: opt.onPick, pickLabel: opt.pickLabel };
     const idx = await loadCards();
     const c = findCard(idx, name);
-    if (!c) { toast(`${name} isn't in the card index`); return; }
+    if (!c) { toast(`${name} isn't in the card index`); if (opt.fromHistory) hideCard(); return; }
     const roles = c.roles.slice().sort((a, b) => b.s - a.s);
     const files = await Promise.all(roles.map(x => loadRole(x.k).catch(() => null)));
     const entries = roles.map((x, i) => files[i]?.byN.get(c.n) || null);
     const e0 = entries.find(Boolean);
+    if (!opt.fromHistory) nav().push(c.n, c.n);
     const render = () => {
       const f = flags(c), s = scry(c.n), big = img(c.n, "large");
       const faces = e0 ? e0.o : (s ? (s.card_faces || [s]).map(x => ({ n: x.name, c: (x.mana_cost || "").match(/\{[^}]+\}/g)?.map(t => t.slice(1, -1)) || [], ty: x.type_line || s.type_line, pt: x.power != null ? `${x.power}/${x.toughness}` : "", o: x.oracle_text || "" }))
         : [{ n: c.n, c: c.cost, ty: c.ty.split("").map(l => TYPE_NAMES[l]).filter(Boolean).join(" "), pt: "", o: "" }]);
-      const pr = s?.prices || {};
-      const showPrices = store.get("prices", false);
-      const prices = [pr.usd && `USD $${pr.usd}`, pr.usd_foil && `Foil $${pr.usd_foil}`, pr.eur && `EUR €${pr.eur}`, pr.tix && `MTGO ${pr.tix} tix`].filter(Boolean);
       const front = c.n.split(" // ")[0];
       const sfUrl = s?.scryfall_uri || `https://scryfall.com/search?q=${encodeURIComponent(`!"${c.n}"`)}`;
       const edUrl = s?.related_uris?.edhrec || `https://edhrec.com/cards/${slug(front)}`;
@@ -326,10 +443,13 @@
         f.extra && `<span class="badge" style="--bc:var(--warn)">Extra turn</span>`,
         c.id.length > 1 && `<span class="badge ids" title="Color identity">${idSyms(c.id)}</span>`,
       ].filter(Boolean).join("");
+      const prev = nav().prev();
       sheet.innerHTML = `
         <button type="button" class="close" aria-label="Close">×</button>
+        ${prev ? `<button type="button" class="sheetback" data-sheet-back>← Back to ${esc(prev)}</button>` : ""}
         <div><div class="bigimgbox" style="aspect-ratio:488/680;border-radius:4.75%/3.5%;overflow:hidden">${big ? `<img class="bigimg" src="${big}" alt="${esc(c.n)}">` : ""}</div>
-          ${ctxOpt.onPick ? `<button type="button" class="btn primary" id="sheetPick" style="width:100%;justify-content:center;margin-top:12px">${esc(ctxOpt.pickLabel || "Add to deck")}</button>` : ""}</div>
+          ${ctxOpt.onPick ? `<button type="button" class="btn primary" id="sheetPick" style="width:100%;justify-content:center;margin-top:12px">${esc(ctxOpt.pickLabel || "Add to deck")}</button>`
+            : `<button type="button" class="btn" data-adddeck="${esc(c.n)}" style="width:100%;justify-content:center;margin-top:12px">+ Add to deck</button>`}</div>
         <div>
           ${faces.map(fc => `<div class="face"><div class="nameline"><h2>${esc(fc.n)}</h2>${cost(fc.c)}</div>
             <div class="typeline">${esc(fc.ty)}${fc.pt ? ` · ${esc(fc.pt)}` : ""}</div><div class="oracle">${para(fc.o) || `<p class="muted">Rules text loads from Scryfall when it can be reached.</p>`}</div></div>`).join("")}
@@ -337,53 +457,142 @@
           ${better}
           <div class="meta"><span>Mana value <b>${c.mv}</b></span><span>Identity <b>${c.id ? idSyms(c.id) : "Colorless"}</b></span></div>
           ${badges ? `<div class="roles" style="margin-bottom:12px">${badges}</div>` : ""}
-          ${showPrices && prices.length ? `<h3>Prices</h3><div class="prices">${prices.map(p => `<span>${esc(p)}</span>`).join("")}</div>` : ""}
           <div class="links"><a class="btn small" href="${esc(sfUrl)}" target="_blank" rel="noopener">Scryfall</a>
             <a class="btn small" href="${esc(edUrl)}" target="_blank" rel="noopener">EDHREC</a>
-            <a class="btn small" href="${esc(sbUrl)}" target="_blank" rel="noopener">Combos (Spellbook)</a>
-            ${roles.length ? `<button type="button" class="btn small" data-feedback="${esc(c.n)}">Suggest a tier</button>` : ""}</div>
-          <div id="fbBox"></div>
+            <a class="btn small" href="${esc(sbUrl)}" target="_blank" rel="noopener">Combos (Spellbook)</a></div>
         </div>`;
       const pick = sheet.querySelector("#sheetPick");
       if (pick) pick.onclick = () => { ctxOpt.onPick(c.n); closeCard(); };
     };
     render();
     modal.classList.add("open"); document.body.style.overflow = "hidden";
-    sheet.querySelector(".close").focus();
-    if (!scry(c.n)) scryfall([c.n]).then(ok => { if (ok && isOpen() && sheet.querySelector(".nameline h2")) render(); });
+    modal.scrollTop = 0;
+    (sheet.querySelector("[data-sheet-back]") || sheet.querySelector(".close")).focus();
+    if (!scry(c.n)) scryfall([c.n]).then(ok => { if (ok && isOpen() && nav().current() === c.n) render(); });
   }
   let hubNames = null;
   loadHubNames();
   function loadHubNames() { loadHub().then(h => { hubNames = {}; h.roles.forEach(r => { hubNames[r.key] = Object.fromEntries(r.subs.map(s => [s.key, s.name])); }); }).catch(() => {}); }
   const hubSubName = (k, sub) => (hubNames && hubNames[k] && hubNames[k][sub]) || sub;
 
-  async function showFeedback(name) {
-    const idx = await loadCards(), c = findCard(idx, name), box = sheet.querySelector("#fbBox");
-    if (!c || !box) return;
-    box.innerHTML = `<form class="form" id="fbForm" style="margin-top:16px;border-top:1px solid var(--line);padding-top:16px">
-      <h3 style="margin:0">Suggest a tier</h3>
-      <div class="row2"><label>List<select name="role">${c.roles.map(x => `<option value="${x.k}">${esc(ROLE_INFO[x.k].label)} (now ${x.t})</option>`).join("")}</select></label>
-        <label>Should be<select name="tier">${TIERS.map(T => `<option>${T.t}</option>`).join("")}</select></label></div>
-      <label>Why (optional)<textarea name="note" rows="3" maxlength="500" placeholder="What does the card do better or worse than its tier says?"></textarea></label>
-      <div class="row2"><button class="btn primary small" type="submit">Send</button><span class="msg" id="fbMsg"></span></div></form>`;
-    const form = box.querySelector("form");
-    form.tier.value = c.roles[0] ? c.roles[0].t : "C";
-    form.onsubmit = async ev => {
-      ev.preventDefault();
-      const x = c.roles.find(r => r.k === form.role.value);
-      const body = { role: x.k, card: c.n, tier: x.t, suggested: form.tier.value, note: form.note.value.trim() };
-      const msg = box.querySelector("#fbMsg"); msg.className = "msg"; msg.textContent = "Sending…";
-      try { await api("POST", "/api/feedback", body); msg.textContent = "Thanks, it's in the review queue."; form.querySelector("button").disabled = true; }
-      catch (e) { msg.className = "msg bad"; msg.textContent = e.offline ? "This preview has no server, so feedback can't be sent from here." : e.message; }
-    };
-    form.role.focus();
+
+  // ---------- decks (My decks): in the account when logged in, otherwise in this browser ----------
+  // A deck is { id, name, commander, cards: [{ n: name, q: count, cat?: group you moved it to }], updated }.
+  // Everything else about a card (type, mana value, tiers) comes from data/cards.json.
+  const DKEY = "mtg-decks";
+  let deckList = [], deckMode = "local", deckUser = null, deckP = null;
+  const saving = new Map();
+  function loadDecks(force) {
+    if (force) deckP = null;
+    return deckP ||= me().then(async m => {
+      deckMode = m.online ? "remote" : "local"; deckUser = m.user;
+      deckList = m.online ? (m.user ? (await api("GET", "/api/decks")).decks : []) : store.get(DKEY, []);
+      return deckList;
+    }).catch(e => { deckP = null; throw e; });
   }
+  const decksChanged = () => document.dispatchEvent(new CustomEvent("mtg:decks"));
+  const deckInfo = () => ({ mode: deckMode, user: deckUser, decks: deckList });
+  // true when the visitor still has to log in (and didn't)
+  async function deckLogin() {
+    await loadDecks();
+    if (deckMode !== "remote" || deckUser) return false;
+    const u = await login("Log in to build decks");
+    if (!u) return true;
+    await loadDecks(true); initAccount(); decksChanged();
+    return false;
+  }
+  async function pushDeck(d) {
+    const s = saving.get(d.id) || {}; saving.set(d.id, s);
+    if (s.busy) { s.again = true; return; }
+    s.busy = true;
+    try { do { s.again = false; await api("PUT", `/api/decks/${d.id}`, { name: d.name, commander: d.commander, cards: d.cards }); } while (s.again); }
+    catch (e) { toast(e.status === 401 ? "Log in again to keep saving this deck" : "Couldn't save the deck: " + e.message); }
+    finally { s.busy = false; }
+  }
+  function saveDeck(d) {
+    d.updated = Date.now();
+    if (deckMode === "local") store.set(DKEY, deckList); else pushDeck(d);
+    decksChanged();
+  }
+  async function createDeck(name, cards = []) {
+    name = String(name || "").trim().slice(0, 60) || "New deck";
+    if (await deckLogin()) return null;
+    let d;
+    if (deckMode === "remote") { try { d = (await api("POST", "/api/decks", { name, cards })).deck; } catch (e) { toast(e.message); return null; } }
+    else d = { id: "d" + Date.now().toString(36), name, commander: "", cards, updated: Date.now() };
+    deckList.unshift(d);
+    if (deckMode === "local") store.set(DKEY, deckList);
+    decksChanged();
+    return d;
+  }
+  async function deleteDeck(d) {
+    if (deckMode === "remote") { try { await api("DELETE", `/api/decks/${d.id}`); } catch (e) { toast(e.message); return false; } }
+    deckList = deckList.filter(x => x !== d);
+    if (deckMode === "local") store.set(DKEY, deckList);
+    decksChanged();
+    return true;
+  }
+  const inDeck = (d, name) => d.cards.find(x => norm(x.n) === norm(name)) || null;
+  // basics and "any number of" cards stack; everything else is one copy (Commander)
+  async function addToDeck(d, name, q = 1) {
+    const idx = await loadCards(), c = findCard(idx, name), n = c ? c.n : String(name).trim();
+    const have = inDeck(d, n);
+    if (have) {
+      const f = c ? flags(c) : {};
+      if (!(f.basic || f.any || f.max)) { toast(`${n} is already in ${d.name}`); return false; }
+      have.q = Math.min(f.max || 99, have.q + q);
+    } else d.cards.push({ n, q });
+    saveDeck(d);
+    return true;
+  }
+  function removeFromDeck(d, name) {
+    d.cards = d.cards.filter(x => norm(x.n) !== norm(name));
+    if (d.commander && norm(d.commander) === norm(name)) d.commander = "";
+    saveDeck(d);
+  }
+  // "Add <card> to…" menu: every deck (✓ = in it; click again to take it out) and a new-deck box
+  async function deckMenu(anchor, name) {
+    if (await deckLogin()) return;
+    document.querySelector(".menu")?.remove();
+    const menu = document.createElement("div");
+    menu.className = "menu deckmenu"; menu.setAttribute("role", "dialog"); menu.setAttribute("aria-label", `Add ${name} to a deck`);
+    const draw = () => {
+      menu.innerHTML = `<div class="ttl">Add ${esc(name)} to…</div>` +
+        deckList.map((d, i) => `<button type="button" data-i="${i}"><span>${esc(d.name)}</span><span>${inDeck(d, name) ? "✓" : ""}</span></button>`).join("") +
+        `<form><input placeholder="New deck name" maxlength="60" aria-label="New deck name"><button class="btn primary small" type="submit">Add</button></form>` +
+        `<a class="melink-sm" href="${page("decks")}">Open My decks</a>`;
+      menu.querySelectorAll("button[data-i]").forEach(b => b.onclick = async () => {
+        const d = deckList[+b.dataset.i];
+        if (inDeck(d, name)) { removeFromDeck(d, name); toast(`Took ${name} out of ${d.name}`); }
+        else if (await addToDeck(d, name)) toast(`Added to ${d.name}`);
+        draw();
+      });
+      menu.querySelector("form").onsubmit = async ev => {
+        ev.preventDefault();
+        const d = await createDeck(menu.querySelector("input").value, []);
+        if (d && await addToDeck(d, name)) { toast(`Added to ${d.name}`); draw(); }
+      };
+    };
+    draw();
+    document.body.appendChild(menu);
+    const r = anchor.getBoundingClientRect(), w = menu.offsetWidth, h = menu.offsetHeight;
+    menu.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left)) + "px";
+    menu.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, r.top - h - 6) : r.bottom + 6) + "px";
+    (deckList.length ? menu.querySelector("button[data-i]") : menu.querySelector("input")).focus();
+    const off = ev => { if (!menu.contains(ev.target) && ev.target !== anchor) { menu.remove(); document.removeEventListener("mousedown", off); document.removeEventListener("keydown", esc2); } };
+    const esc2 = ev => { if (ev.key === "Escape") { ev.stopPropagation(); menu.remove(); anchor.focus(); document.removeEventListener("mousedown", off); document.removeEventListener("keydown", esc2); } };
+    setTimeout(() => { document.addEventListener("mousedown", off); document.addEventListener("keydown", esc2); }, 0);
+  }
+
+  // a card sheet that was open when the page was reloaded comes back
+  if (history.state && history.state.mtgSheet && history.state.mtgSheet.ns === "card") setTimeout(() => openCard(history.state.mtgSheet.key, { fromHistory: true }), 0);
 
   window.MTG = {
     ROOT, PREVIEW, url, page, $, esc, cap, sleep, fmt, norm, store, toast, getJSON,
     TIERS, TIER, tierOf, tb, ROLE_INFO, COLORS, TYPE_NAMES, fits, BROADER,
-    loadSprite, sym, bigSym, syms, cost, para, idSyms,
+    loadSprite, sym, bigSym, syms, cost, para, idSyms, tag, idTag, tagIcon, subIcon, ROLE_ICON,
     loadCards, loadHub, loadTierIndex, loadRole, findCard, flags, betterOptions, hubSubName,
-    scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
+    scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; deckP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
+    sheetHistory, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
   };
 })();

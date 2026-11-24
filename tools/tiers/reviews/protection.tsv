@@ -63,3 +63,37 @@ Grand Crescendo	board	62	Instant tokens plus indestructible for your creatures: 
 Invisible Force Field	board	60	Two mana: four permanents survive destroy effects, and it comes back next turn.
 Lost in the Maze	board	45	Flash stun on X creatures; your tapped creatures have hexproof. Costly for what it protects.
 Resistance Reunited	board	30	Indestructible only for equipped creatures.
+Galadriel's Dismissal	one	76	One mana phases out a creature; kicked, your whole team phases out to dodge a wipe.
+Eerie Interlude	board	76	Three-mana instant: blink any of your creatures to dodge a wipe, back at end of turn.
+Slip Out the Back	one	74	One mana, instant: your creature phases out past removal and keeps a +1/+1 counter.
+Ephemerate	one	74	One-mana blink saves a creature from removal, then rebounds for a second enters trigger.
+Ghostway	board	72	Three-mana instant: blink every creature you control past a wipe. Tokens don't come back.
+Deflecting Swat	one	78	Free with your commander out: send their removal or counterspell somewhere else.
+Restoration Angel	one	72	Flash 3/4 that blinks a non-Angel creature: protection with a body.
+Cloudshift	one	68	One-mana instant blink. Saves a creature and repeats its enters trigger.
+Essence Flux	one	66	One-mana instant blink for blue.
+Momentary Blink	one	66	Two-mana instant blink you can flash back for a second save.
+Kaya's Ghostform	equipment	64	One-mana aura: the creature comes back if it dies or gets exiled.
+Feign Death	one	62	One mana: the creature comes back if it dies this turn. Doesn't stop exile.
+Undying Malice	one	62	One mana: the creature comes back with a counter if it dies this turn. Doesn't stop exile.
+Not Dead After All	one	62	One mana: your creature comes back if it dies this turn. Doesn't stop exile.
+Supernatural Stamina	one	60	One mana: the creature comes back if it dies this turn. Doesn't stop exile.
+Malakir Rebirth // Malakir Mire	one	62	One-mana death save, or a land when you don't need it.
+Teferi's Time Twist	one	62	Two-mana instant: blink any permanent you control until end of turn.
+Redirect Lightning	one	60	One red mana plus 5 life or {2}: redirect a removal spell.
+Flicker of Fate	one	60	Two-mana instant blink for a creature or enchantment.
+Liberate	one	58	Two-mana instant: a creature leaves until end of turn, dodging removal.
+Acrobatic Maneuver	one	58	Three-mana instant blink that draws a card.
+Return the Favor	one	58	Spree: redirect a spell or ability, or copy one. Flexible but pricey.
+Haystack	one	58	Colorless and repeatable: {2} phases out one of your creatures each turn.
+Turn to Mist	one	56	Two-mana instant: any creature leaves until end of turn.
+Vodalian Illusionist	one	56	Repeatable phasing on a creature, for {U}{U} and a tap.
+Untimely Malfunction	one	55	Two-mana modal: redirect a spell, kill an artifact, or stop blockers.
+Swerve	one	52	Two-mana redirect for single-target spells.
+Quantum Entanglement	one	52	Flash enchantment that can blink a creature each end step for {1}{W}.
+Imp's Mischief	one	50	Two-mana redirect; you lose life equal to the spell's mana value.
+Willbender	one	50	Face-down creature that redirects a spell or ability when turned up.
+Brago, King Eternal	board	45	Blinks your permanents only after combat damage; not reliable protection.
+Ricochet Trap	one	42	Four-mana redirect unless an opponent cast a blue spell this turn.
+Divert	one	40	Redirect they can pay {2} to stop.
+Shimmering Efreet	one	30	Random phasing that's hard to aim.

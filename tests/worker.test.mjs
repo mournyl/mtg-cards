@@ -67,28 +67,39 @@ test("existing account, favorites and list routes still work", async () => {
   assert.equal((await call("GET", "/api/me")).body.user, null);
 });
 
-test("tier feedback: anyone can send, it's validated and rate-limited, admins can read it", async () => {
-  const { call, env } = setup({ ADMINS: "tyler" });
-  const fb = { role: "ramp", card: "Cultivate", tier: "A", suggested: "B", note: "Slower than a Signet" };
-  assert.equal((await call("POST", "/api/feedback", fb)).status, 200);
-  assert.equal((await call("POST", "/api/feedback", { ...fb, suggested: "Z" })).status, 400);
-  assert.equal((await call("POST", "/api/feedback", { ...fb, role: "<script>" })).status, 400);
-  for (let i = 0; i < 19; i++) await call("POST", "/api/feedback", fb);
-  assert.equal((await call("POST", "/api/feedback", fb)).status, 429);
-  const row = env.DB.db.prepare("SELECT role, card, suggested, note, status, user_id FROM tier_feedback LIMIT 1").get();
-  assert.deepEqual({ ...row }, { role: "ramp", card: "Cultivate", suggested: "B", note: "Slower than a Signet", status: "open", user_id: null });
+test("decks: create, save, list, limits, and only your own", async () => {
+  const { call, setCookie, getCookie } = setup();
+  assert.equal((await call("GET", "/api/decks")).status, 401);
+  await call("POST", "/api/signup", { username: "tyler", password: "correct horse" });
+  const mine = getCookie();
+  const d = await call("POST", "/api/decks", { name: "Simic ramp", cards: [{ n: "Sol Ring", q: 1 }] });
+  assert.equal(d.status, 200);
+  const id = d.body.deck.id;
+  const put = await call("PUT", `/api/decks/${id}`, { name: "Simic ramp", commander: "Tatyova, Benthic Druid",
+    cards: [{ n: "Sol Ring", q: 1 }, { n: "Forest", q: 30 }, { n: "Forest", q: 2 }, { n: "Cultivate", q: 500, cat: "ramp" }, { n: "", q: 1 }, { n: "Bad", cat: "<x>" }] });
+  assert.equal(put.status, 200);
+  const list = await call("GET", "/api/decks");
+  const deck = list.body.decks[0];
+  assert.equal(deck.commander, "Tatyova, Benthic Druid");
+  assert.deepEqual(deck.cards, [{ n: "Sol Ring", q: 1 }, { n: "Forest", q: 30 }, { n: "Cultivate", q: 99, cat: "ramp" }, { n: "Bad", q: 1 }]);
+  assert.equal((await call("POST", "/api/decks", { name: "" })).status, 400);
+  assert.equal((await call("PUT", `/api/decks/${id}`, { name: "x", cards: Array.from({ length: 251 }, (_, i) => ({ n: "c" + i })) })).status, 400);
   await call("POST", "/api/signup", { username: "someone", password: "password one" });
-  assert.equal((await call("GET", "/api/feedback")).status, 403);
-  await call("POST", "/api/signup", { username: "tyler", password: "password two" });
-  const q = await call("GET", "/api/feedback");
-  assert.equal(q.status, 200);
-  assert.equal(q.body.feedback.length, 20);
-  assert.equal((await call("PATCH", `/api/feedback/${q.body.feedback[0].id}`, { status: "done" })).status, 200);
-  assert.equal((await call("GET", "/api/feedback?status=done")).body.feedback.length, 1);
+  assert.equal((await call("PUT", `/api/decks/${id}`, { name: "mine now" })).status, 404);
+  assert.equal((await call("DELETE", `/api/decks/${id}`)).status, 404);
+  assert.equal((await call("GET", "/api/decks")).body.decks.length, 0);
+  setCookie(mine);
+  assert.equal((await call("DELETE", `/api/decks/${id}`)).status, 200);
+  assert.equal((await call("GET", "/api/decks")).body.decks.length, 0);
+});
+
+test("feedback routes are gone", async () => {
+  const { call } = setup();
+  assert.equal((await call("POST", "/api/feedback", { role: "ramp", card: "Cultivate", suggested: "B" })).status, 401);
 });
 
 test("state-changing requests must be same-origin JSON", async () => {
   const { call } = setup();
-  assert.equal((await call("POST", "/api/feedback", { role: "ramp", card: "Cultivate", suggested: "B" }, { headers: { origin: "https://evil.example" } })).status, 403);
-  assert.equal((await call("POST", "/api/feedback", "role=ramp", { headers: { "content-type": "application/x-www-form-urlencoded" } })).status, 415);
+  assert.equal((await call("POST", "/api/decks", { name: "x" }, { headers: { origin: "https://evil.example" } })).status, 403);
+  assert.equal((await call("POST", "/api/decks", "name=x", { headers: { "content-type": "application/x-www-form-urlencoded" } })).status, 415);
 });

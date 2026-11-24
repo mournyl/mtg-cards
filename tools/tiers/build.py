@@ -146,6 +146,7 @@ def main():
             if free_to_cast(c, face): e["free"] = 1
             txt = R.text_of(face)
             if R.instant_speed(face, txt): e["inst"] = 1
+            if key == "protection": e["pt"] = R.protection_types(c)
             if key == "counterspells" and ((r and r.get("soft")) or re.search(r"unless (its|that|the spell's) (controller|player)|unless they pay|unless that player", txt)): e["soft"] = 1
             entries.append(e); seen.add(c["name"])
         entries.sort(key=lambda e: (-e["s"], e["mv"], e["n"]))

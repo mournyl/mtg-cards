@@ -16,7 +16,7 @@
   <div class="wrap">
     <div class="top">
       <a class="logo" data-page="search">mournyl<small>mtg</small></a>
-      <nav class="site" aria-label="Site"><a data-page="search">Card search</a><a data-page="tiers">Tier lists</a></nav>
+      <nav class="site" aria-label="Site"><a data-page="search">Card search</a><a data-page="tiers">Tier lists</a><a data-page="decks">My decks</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Find a card on every list"></div>
       <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters" hidden>Filters</button>
@@ -35,8 +35,8 @@
       <label class="fgroup">Game Changers
         <select id="gc"><option value="">Show</option><option value="hide">Hide</option><option value="only">Only</option></select></label>
       <label class="check"><input type="checkbox" id="rev">Hand-reviewed only</label>
+      <label class="fgroup" id="ptGroup" hidden>Protection type <select id="ptype"><option value="">Any</option></select></label>
       <label class="check" id="hardGroup" hidden><input type="checkbox" id="hard">Hide soft counters</label>
-      <label class="check" title="Show Scryfall prices on cards"><input type="checkbox" id="prices">Prices</label>
       <button class="btn small" id="clear" type="button">Clear filters</button>
       </div>
       <span class="status" id="status" aria-live="polite"></span>
@@ -54,7 +54,7 @@
     <p><b>Hand-reviewed vs unreviewed.</b> Every list's top cards were placed by hand, with a one-line reason that names the cost and the catch. The rest are scored by the detectors and carry an <b>Unreviewed</b> badge; their scores are squeezed into C, D and F (58 at most) until someone reviews them. Anchor cards keep lists consistent: Counterspell, Swords to Plowshares, Cultivate, Phyrexian Arena and Wrath of God.</p>
     <p><b>Badges never change a score:</b> Game Changer, free to cast, new this year, and the EDHREC play rate where we have it. Sub-lists rank cards only against cards that do the same job, and a card that does two jobs sits on both lists.</p>
     <p><b>Colors</b> follow color identity: mana cost, color indicator, mana symbols in the rules text and basic land types. Single-color pages hold mono-color cards; Multicolor holds the rest; My colors merges every card that fits your commander.</p>
-    <p><b>Pool:</b> every card legal in Commander with a paper printing, from the Forge card database, rebuilt every week. Disagree with a tier? Open the card and use <b>Suggest a tier</b>.</p>
+    <p><b>Pool:</b> every card legal in Commander with a paper printing, from the Forge card database, rebuilt every week.</p>
   </section>
 </div>
 
@@ -76,8 +76,11 @@
   ];
   const VIEW = Object.fromEntries(VIEWS.map(v => [v.k, v]));
   const state = { role: null, view: "all", sub: "", mine: M.store.get("mine", "WUBRG").replace(/[^WUBRG]/g, ""), q: "",
-    tiers: new Set("SABCDF"), type: "", mv: "", inst: false, free: false, gc: "", rev: false, hard: false, prices: M.store.get("prices", false), shown: {} };
+    tiers: new Set("SABCDF"), type: "", mv: "", pt: "", inst: false, free: false, gc: "", rev: false, hard: false, shown: {} };
   let hub = null, role = null, entries = [];
+  const PT_NAMES = { hexproof: "Hexproof", shroud: "Shroud", indestructible: "Indestructible", phasing: "Phasing", blink: "Blink",
+    protection: "Protection from", ward: "Ward", redirect: "Redirect", returns: "Comes back", prevent: "Damage prevention",
+    uncounterable: "Can't be countered", other: "Other" };
   const ROW_STEP = 48, ROW_FIRST = 48;
 
   // ---------- routing: #ramp, #ramp/green, #ramp/green/rocks, #ramp/id-ug ----------
@@ -113,6 +116,7 @@
     if (state.gc === "only" && !e.gc) return false;
     if (state.rev && !e.rev) return false;
     if (state.hard && e.soft) return false;
+    if (state.pt && !(e.pt || []).includes(state.pt)) return false;
     if (state.q) {
       const hay = e._hay || (e._hay = (e.n + " " + e.why + " " + e.ty + " " + e.o.map(f => f.o).join(" ")).toLowerCase());
       if (!hay.includes(state.q)) return false;
@@ -131,20 +135,33 @@
     if (e.y >= 2026) b.push(badge("New " + e.y, "var(--dot-new)"));
     if (e.soft) b.push(badge("Soft counter", "var(--dot-plain)", "They can pay to keep the spell"));
     if (!state.sub && role.subs.length > 1) b.push(badge(subName(e.sub), ROLE_COL(), "Sub-list"));
+    if (e.pt) e.pt.filter(k => k !== "other").forEach(k => b.push(badge(PT_NAMES[k], ROLE_COL(), "Kind of protection")));
     if (e.clr.length > 1) b.push(`<span class="badge ids" title="Color identity">${idSyms(e.clr)}</span>`);
     return b.join("");
   }
+  // tags under a card tile: one per row, an icon block + label (tier letters are the only color)
+  function tileTags(e) {
+    const t = [];
+    if (!state.sub && role.subs.length > 1) t.push(M.tag({ icon: M.subIcon(state.role, e.sub), text: subName(e.sub), title: "Sub-list" }));
+    if (e.pt) e.pt.filter(k => k !== "other").forEach(k => t.push(M.tag({ icon: k, text: PT_NAMES[k], title: "Kind of protection" })));
+    if (e.gc) t.push(M.tag({ icon: "star", text: "Game Changer" }));
+    if (e.free) t.push(M.tag({ icon: "free", text: "Free option" }));
+    if (e.soft) t.push(M.tag({ icon: "soft", text: "Soft counter", title: "They can pay to keep the spell" }));
+    if (e.y >= 2026) t.push(M.tag({ icon: "sparkle", text: "New " + e.y }));
+    if (e.clr.length > 1) t.push(M.idTag(e.clr));
+    if (!e.rev) t.push(M.tag({ icon: "unrev", text: "Unreviewed", title: "Scored by the detectors; not checked by hand yet" }));
+    return t.join("");
+  }
   const ROLE_COL = () => (M.ROLE_INFO[state.role] || {}).col || "#8c8c8c";
   const subName = k => (role.subs.find(s => s.key === k) || { name: k }).name;
-  const price = e => { const c = M.scry(e.n), p = c && c.prices; return p ? (p.usd ? "$" + p.usd : p.usd_foil ? "$" + p.usd_foil + " f" : p.eur ? "€" + p.eur : "") : ""; };
   const rankLabel = e => state.view === "all" && !state.sub ? `#${e.r}` : `#${e._vr}`;
   function tile(e) {
-    const src = M.img(e.n, "normal"), pr = state.prices ? price(e) : "";
-    const chips = `<span class="chip rank" title="${esc(rankTitle(e))}">${rankLabel(e)}</span>` + (pr ? `<span class="chip edh">${esc(pr)}</span>` : e.e != null ? `<span class="chip edh" title="EDHREC play rate">${M.pct(e.e)}</span>` : "");
+    const src = M.img(e.n, "normal");
+    const chips = `<span class="chip rank" title="${esc(rankTitle(e))}">${rankLabel(e)}</span>` + (e.e != null ? `<span class="chip edh" title="EDHREC play rate">${M.pct(e.e)}</span>` : "");
     const face = src ? `<img loading="lazy" src="${src}" alt="${esc(e.n)}" onload="this.classList.add('in')">`
       : `<span class="lbl"><b>${esc(e.n)}</b><span>${cost(e.c)} ${esc(e.ty)}</span></span>`;
     return `<div class="tile"><button type="button" class="card" data-n="${esc(e.n)}" aria-label="${esc(e.n)}, ${esc(rankTitle(e))}, ${e.t} tier">${face}${chips}</button>` +
-      `<p class="why">${syms(e.why)}</p><div class="roles">${badges(e, false)}</div></div>`;
+      `<p class="why">${syms(e.why)}</p><div class="tags">${tileTags(e)}</div></div>`;
   }
   function rankTitle(e) {
     const v = state.view === "all" ? "" : state.view === "mine" ? " in your colors" : " " + VIEW[state.view].label.toLowerCase();
@@ -152,10 +169,10 @@
     return state.view === "all" && !state.sub ? `rank ${e.r} overall` : `rank ${e._vr}${v}${s} (${e.r} overall)`;
   }
   function row(e) {
-    const src = M.img(e.n, "small"), pr = state.prices ? price(e) : "";
+    const src = M.img(e.n, "small");
     return `<button type="button" class="row" data-n="${esc(e.n)}"><span class="rk" title="${esc(rankTitle(e))}">${rankLabel(e)}</span>` +
       `<img class="thumb" loading="lazy" ${src ? `src="${src}"` : ""} alt="">` +
-      `<span class="nm"><b>${esc(e.n)}</b>${cost(e.c)}${pr ? `<span class="muted">${esc(pr)}</span>` : ""}</span>` +
+      `<span class="nm"><b>${esc(e.n)}</b>${cost(e.c)}</span>` +
       `<span class="why">${syms(e.why)}</span><span class="roles">${badges(e, true)}</span></button>`;
   }
 
@@ -170,10 +187,8 @@
     if (state.q) return renderFind();
     $("board").innerHTML = `<div class="hub">` + hub.roles.map(r => {
       const info = M.ROLE_INFO[r.key] || {};
-      const bar = M.TIERS.map(T => r.tiers[T.t] ? `<i class="t${T.t}" style="flex:${Math.max(r.tiers[T.t], r.count * .02)}" title="${T.t}: ${r.tiers[T.t]}"></i>` : "").join("");
       return `<a class="rcard" href="#${r.key}" style="border-top:3px solid ${info.col || "#555"}">
         <h2>${esc(r.name)}</h2><p>${esc(r.desc)} ${r.subs.map(s => esc(s.name)).join(" · ")}.</p>
-        <div class="mbar" aria-hidden="true">${bar}</div>
         <ol>${r.top.map(t => `<li>${tb(t.t)}<span>${esc(t.n)}</span>${cost(t.c)}</li>`).join("")}</ol>
         <span class="foot">${fmt(r.count)} cards · ${fmt(r.reviewed)} hand-reviewed</span></a>`;
     }).join("") + `</div>`;
@@ -195,6 +210,12 @@
     $("filtersBtn").hidden = false; $("method").hidden = false;
     $("q").placeholder = `Search ${role.name.toLowerCase()} by name or rules text`;
     $("hardGroup").hidden = role.key !== "counterspells";
+    const isProt = role.key === "protection";
+    $("ptGroup").hidden = !isProt;
+    if (!isProt) state.pt = "";
+    const ptCounts = {};
+    if (isProt) entries.filter(e => VIEW[state.view].test(e) && (!state.sub || e.sub === state.sub)).forEach(e => (e.pt || []).forEach(k => ptCounts[k] = (ptCounts[k] || 0) + 1));
+    if (isProt) $("ptype").innerHTML = `<option value="">Any</option>` + Object.keys(PT_NAMES).filter(k => ptCounts[k]).map(k => `<option value="${k}"${state.pt === k ? " selected" : ""}>${PT_NAMES[k]} (${ptCounts[k]})</option>`).join("");
     if (role.key !== "counterspells") state.hard = false;
     $("freeGroup").hidden = !entries.some(e => e.free);
     const counts = Object.fromEntries(VIEWS.map(v => [v.k, entries.filter(e => v.test(e)).length]));
@@ -211,6 +232,7 @@
       <h1>${esc(cap((vname + role.name).toLowerCase()))}</h1>
       <p>${esc(lede(counts))}</p>
       ${role.subs.length > 1 ? `<div class="subs"><div class="seg" role="group" aria-label="Sub-lists"><a href="#${hashFor(role.key, state.view, "")}"${state.sub ? "" : ' aria-current="page"'}>All<small>${fmt(inV.length)}</small></a>${role.subs.map(s => `<a href="#${hashFor(role.key, state.view, s.key)}"${state.sub === s.key ? ' aria-current="page"' : ""}>${esc(s.name)}<small>${fmt(subCounts[s.key])}</small></a>`).join("")}</div></div>` : ""}
+      ${isProt ? `<div class="subs" style="margin-top:10px"><div class="seg" role="group" aria-label="Kind of protection"><button type="button" data-pt=""${state.pt ? "" : ' aria-pressed="true"'}>Any kind</button>${Object.keys(PT_NAMES).filter(k => ptCounts[k] && k !== "other").map(k => `<button type="button" data-pt="${k}"${state.pt === k ? ' aria-pressed="true"' : ""}>${PT_NAMES[k]}<small>${ptCounts[k]}</small></button>`).join("")}</div></div>` : ""}
       <div class="dist" role="group" aria-label="Jump to a tier">${M.TIERS.map(T => `<button type="button" class="t${T.t}" data-jump="${T.t}" style="flex:${Math.max(n[T.t] || 0, shown.length * .04)} 1 0" aria-label="${T.t} tier, ${n[T.t] || 0} cards">${T.t}<small>${fmt(n[T.t] || 0)}</small></button>`).join("")}</div>
       <p class="dist-note">Each segment is sized by how many cards sit in that tier. <a href="#" id="toHub">All tier lists</a></p>`;
     $("tabs").innerHTML = M.TIERS.map(T => `<button type="button" class="tab${state.tiers.has(T.t) ? " on" : ""}" data-t="${T.t}" aria-pressed="${state.tiers.has(T.t)}" title="${esc(T.h)}">${T.t}</button>`).join("");
@@ -247,7 +269,7 @@
     }
     $("board").innerHTML = html || `<p class="empty">${state.tiers.size ? "Nothing here matches your filters." : "Pick at least one tier above."}</p>`;
     $("status").innerHTML = `<b>${fmt(shown)}</b> of ${fmt(view.length)} cards`;
-    const nf = [state.type, state.mv !== "", state.inst, state.free, state.gc, state.rev, state.hard, state.tiers.size < 6].filter(Boolean).length;
+    const nf = [state.type, state.mv !== "", state.inst, state.free, state.gc, state.rev, state.hard, state.pt, state.tiers.size < 6].filter(Boolean).length;
     $("filtersBtn").innerHTML = `Filters${nf ? ` <span class="n">${nf}</span>` : ""}`;
     loadImages(visible);
   }
@@ -280,19 +302,18 @@
     $("q").addEventListener("input", e => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value.trim().toLowerCase(); state.shown = {}; render(); }, 140); });
     const set = (k, v) => { state[k] = v; state.shown = {}; render(); };
     ["type", "mv", "gc"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.value)));
+    $("ptype").addEventListener("change", e => { state.pt = e.target.value; state.shown = {}; buildRoleChrome(); render(); });
     ["inst", "free", "rev", "hard"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.checked)));
     $("filtersBtn").addEventListener("click", e => {
       const open = $("filters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", open);
     });
-    $("prices").checked = state.prices;
-    $("prices").addEventListener("change", e => { state.prices = e.target.checked; M.store.set("prices", state.prices); render(); });
     $("tabs").addEventListener("click", e => {
       const b = e.target.closest(".tab"); if (!b) return;
       const k = b.dataset.t; state.tiers.has(k) ? state.tiers.delete(k) : state.tiers.add(k);
       b.classList.toggle("on", state.tiers.has(k)); b.setAttribute("aria-pressed", state.tiers.has(k)); render();
     });
     $("clear").addEventListener("click", () => {
-      Object.assign(state, { q: "", type: "", mv: "", inst: false, free: false, gc: "", rev: false, hard: false, shown: {} });
+      Object.assign(state, { q: "", type: "", mv: "", inst: false, free: false, gc: "", rev: false, hard: false, pt: "", shown: {} });
       state.tiers = new Set("SABCDF");
       ["q", "type", "mv", "gc"].forEach(k => $(k).value = ""); ["inst", "free", "rev", "hard"].forEach(k => $(k).checked = false);
       buildRoleChrome(); render();
@@ -304,6 +325,8 @@
         if (!state.tiers.has(k)) { state.tiers.add(k); buildRoleChrome(); render(); }
         $("tier-" + k.toLowerCase())?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
+      const k2 = e.target.closest("[data-pt]");
+      if (k2) { state.pt = k2.dataset.pt; state.shown = {}; buildRoleChrome(); render(); return; }
       const p = e.target.closest("#minePips .pip");
       if (p) {
         const k = p.dataset.c;
