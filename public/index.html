@@ -188,14 +188,13 @@
         <button class="btn small" id="copyList" type="button">Copy as text</button>
         <button class="btn small" id="deleteList" type="button">Delete list</button>
       </span>
-      <div id="savedSize" style="margin-left:auto"></div>
     </div>
     <div class="tabs" id="tabs"></div>
     <div class="grid" id="savedGrid"></div>
     <div class="empty" id="savedEmpty" style="display:none"></div>
   </section>
   <section id="searchView" style="display:grid;gap:16px">
-  <div class="resbar"><div class="status" id="status"></div><div id="sizeBar" hidden></div></div>
+  <div class="status" id="status"></div>
   <div id="hero" class="hero">
     <h1>Card Search</h1>
     <p>Type a name in the search box, or pick filters below. Every search sticks to Commander-legal cards unless you change the format under Advanced.</p>
@@ -556,12 +555,11 @@
     return r;
   }
   let shown = [];
-  $("sizeBar").innerHTML = MT.sizeTabs();
+  MT.sizeBar();
   function render(cards) {
     shown.push(...cards);
     const cond = MT.condensed();
     el.grid.className = cond ? "crows" : "grid";
-    $("sizeBar").hidden = false;
     const frag = document.createDocumentFragment();
     cards.forEach(c => {
       cardCache.set(c.id, c);
@@ -597,7 +595,7 @@
 
   function reset() {
     searchToken++;
-    el.grid.innerHTML = ""; shown = []; $("sizeBar").hidden = true; el.status.innerHTML = ""; el.more.style.display = "none";
+    el.grid.innerHTML = ""; shown = []; el.status.innerHTML = ""; el.more.style.display = "none";
     el.hero.style.display = ""; if (view === "search") saveState();
     placeFilters();
   }
@@ -942,7 +940,6 @@
     }
     empty.style.display = cards.length ? "none" : "";
     empty.textContent = list ? "This list is empty — use + on any card to add it." : "No favorites yet — tap ♥ on any card.";
-    $("savedSize").innerHTML = MT.sizeTabs();
     g.className = MT.condensed() ? "crows" : "grid";
     if (MT.condensed()) {
       cards.forEach(c => {

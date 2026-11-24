@@ -37,20 +37,26 @@
     get(k, d) { try { const v = localStorage.getItem("mournyl-" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
     set(k, v) { try { localStorage.setItem("mournyl-" + k, JSON.stringify(v)); } catch { /* storage off */ } },
   };
-  // ---------- card size: Full, Medium or Small cards, or Condensed (names only). One setting for every page. ----------
-  const SIZES = [["full", "Full"], ["medium", "Medium"], ["small", "Small"], ["condensed", "Condensed"]];
-  const cardSize = () => { const v = store.get("card-size", "full"); return SIZES.some(x => x[0] === v) ? v : "full"; };
+  // ---------- card size: Large, Full or Medium cards, or Condensed (names only). One setting for every page,
+  // picked from the bar just under the header, below Saved and the account button. ----------
+  const SIZES = [["large", "Large"], ["full", "Full"], ["medium", "Medium"], ["condensed", "Condensed"]];
+  const cardSize = () => { const v = store.get("cardsize", "full"); return SIZES.some(x => x[0] === v) ? v : "full"; };
   document.documentElement.dataset.size = cardSize();
   const condensed = () => cardSize() === "condensed";
   function setCardSize(v) {
     if (!SIZES.some(x => x[0] === v) || v === cardSize()) return;
-    store.set("card-size", v); document.documentElement.dataset.size = v;
+    store.set("cardsize", v); document.documentElement.dataset.size = v;
     document.querySelectorAll("button[data-size]").forEach(b => b.setAttribute("aria-pressed", b.dataset.size === v));
     document.dispatchEvent(new CustomEvent("mtg:size", { detail: v }));
   }
   const sizeButtons = () => SIZES.map(([k, l]) => `<button type="button" data-size="${k}" aria-pressed="${k === cardSize()}">${l}</button>`).join("");
   const sizeTabs = () => `<div class="sizetabs"><span class="lab" aria-hidden="true">Card size</span><div class="seg" role="group" aria-label="Card size">${sizeButtons()}</div></div>`;
   document.addEventListener("click", e => { const b = e.target.closest("button[data-size]"); if (b) setCardSize(b.dataset.size); });
+  function sizeBar() {
+    const hdr = document.querySelector("header");
+    if (!hdr || document.querySelector(".sizetop")) return;
+    hdr.insertAdjacentHTML("afterend", `<div class="sizetop"><div class="wrap">${sizeTabs()}</div></div>`);
+  }
 
   let toastT;
   function toast(msg) {
@@ -362,6 +368,7 @@
 
   // ---------- header ----------
   function initNav(active) {
+    sizeBar();
     document.querySelectorAll("[data-page]").forEach(a => {
       if (PREVIEW && (a.dataset.page === "saved" || (a.dataset.page === "search" && !a.classList.contains("logo")))) { a.hidden = true; return; }
       a.href = page(a.dataset.page, a.dataset.hash);
@@ -416,6 +423,15 @@
       if (e.target.closest("[data-sheet-back]")) return history.back();
       const b = e.target.closest("[data-open]"); if (b) { e.preventDefault(); openCard(b.dataset.open, { ...ctxOpt, keepOpener: true }); return; }
       const d = e.target.closest("[data-adddeck]"); if (d) { deckMenu(d, d.dataset.adddeck); return; }
+      const ar = e.target.closest("[data-addrec]");
+      if (ar && ctxOpt.deck) {
+        addToDeck(ctxOpt.deck, ar.dataset.addrec).then(ok => {
+          if (!ok) return;
+          toast(`Added ${ar.dataset.addrec} to ${ctxOpt.deck.name}`);
+          const cur = nav().current(); if (cur) openCard(cur, { ...ctxOpt, keepOpener: true, fromHistory: true });
+        });
+        return;
+      }
       // a link to a list on this page: hide the sheet and let the link go; Back comes back to this card
       const a = e.target.closest("a[href]");
       if (a && a.target !== "_blank" && new URL(a.href, location.href).pathname === location.pathname) hideCard();
@@ -433,14 +449,68 @@
   const slug = s => s.toLowerCase().replace(/[^a-z0-9 -]/g, "").trim().replace(/\s+/g, "-");
   const pct = e => (e >= 10 ? e.toFixed(0) : e.toFixed(1)) + "%";
 
-  // opt.allowed (color identity to fit), opt.exclude (Set of names already in the deck), opt.noGC, opt.onPick(name)
+  // a card that isn't in data/cards.json (very new, or a name the list spells differently): build what the sheet needs from Scryfall
+  const TYPE_LETTER = { Land: "L", Creature: "C", Artifact: "A", Enchantment: "E", Instant: "I", Sorcery: "S", Planeswalker: "P", Battle: "B" };
+  async function stubCard(name) {
+    if (!scry(name)) await scryfall([name]);
+    const s = scry(name), front = s ? (s.card_faces ? s.card_faces[0] : s) : null;
+    const ty = front ? Object.keys(TYPE_LETTER).filter(w => (front.type_line || s.type_line || "").split(" // ")[0].includes(w)).map(w => TYPE_LETTER[w]).join("") : "";
+    return { n: s ? s.name : String(name), mv: s ? s.cmc || 0 : 0, ty, id: s ? (s.color_identity || []).join("") : "",
+      cost: ((front && front.mana_cost) || "").match(/\{[^}]+\}/g)?.map(t => t.slice(1, -1)) || [], prod: "", fl: "", roles: [] };
+  }
+
+  // ---------- recommendations for a card opened from a deck ----------
+  // Cards that do the same job (same sub-list first), fit the deck's colors, and aren't in the deck yet.
+  // A card on no list (or whose job the deck already covers fully) gets picks for the jobs the deck has least of.
+  const JOBS = ["ramp", "draw", "removal", "wipes", "counterspells", "protection", "tutors", "recursion", "gyhate"];
+  function deckRecs(idx, c, deck) {
+    const have = new Set(deck.cards.map(e => norm(e.n))); have.add(norm(c.n));
+    const inDeck = deck.cards.map(e => findCard(idx, e.n)).filter(Boolean);
+    const cmd = deck.commander && findCard(idx, deck.commander);
+    let allowed = cmd ? cmd.id : "WUBRG".split("").filter(l => inDeck.some(x => x.id.includes(l))).join("");
+    if (!allowed && !cmd) allowed = c.id;
+    const ok = x => !have.has(norm(x.c.n)) && fits(x.c.id, allowed) && !flags(x.c).banned;
+    const where = cmd ? `for ${cmd.n.split(",")[0]}` : "for this deck";
+    const pick = (k, sub, n) => {
+      const same = [], other = [];
+      for (const x of idx.byRole[k] || []) {
+        if (!ok(x)) continue;
+        if (sub && x.sub === sub) { same.push(x); if (same.length >= n) break; }
+        else if (other.length < n) other.push(x);
+      }
+      return same.concat(other).slice(0, n);
+    };
+    const out = [];
+    for (const r of c.roles.slice().sort((a, b) => b.s - a.s).slice(0, 3)) {
+      if (r.k === "lands" && !c.ty.includes("L")) continue;
+      const items = pick(r.k, r.sub, 5);
+      if (items.length) out.push({ title: `Recommended ${ROLE_INFO[r.k].label.toLowerCase()} ${where}`, items });
+    }
+    if (out.length) return out;
+    if (c.ty.includes("L")) { const items = pick("lands", "", 5); return items.length ? [{ title: `Recommended lands ${where}`, items }] : []; }
+    const count = k => inDeck.filter(x => x.roles.some(r => r.k === k)).length;
+    for (const k of JOBS.slice().sort((a, b) => count(a) - count(b)).slice(0, 2)) {
+      const items = pick(k, "", 3);
+      if (items.length) out.push({ title: `Recommended ${ROLE_INFO[k].label.toLowerCase()} ${where}`, note: `This deck has ${count(k)} so far.`, items });
+    }
+    return out;
+  }
+  function recHtml(secs) {
+    if (!secs.length) return "";
+    return secs.map(sec => `<h3>${esc(sec.title)}</h3>${sec.note ? `<p class="muted" style="margin:-4px 0 8px;font-size:13px">${esc(sec.note)}</p>` : ""}<div class="better">` +
+      sec.items.map(o => `<div class="rec"><button type="button" data-open="${esc(o.c.n)}">${tb(o.t)}<span>${esc(o.c.n)}</span><span class="muted">${o.s}</span>${cost(o.c.cost)}</button>` +
+        (ctxOpt.deckEdit ? `<button type="button" class="addrec" data-addrec="${esc(o.c.n)}" aria-label="Add ${esc(o.c.n)} to ${esc(ctxOpt.deck.name)}">+ Add</button>` : "") + `</div>`).join("") + `</div>`).join("");
+  }
+
+  // opt.allowed (color identity to fit), opt.exclude (Set of names already in the deck), opt.noGC, opt.onPick(name),
+  // opt.deck (opened from a deck: recommendations instead of "better" cards), opt.deckEdit (show "+ Add" on them)
   async function openCard(name, opt = {}) {
     ensureModal();
     if (!opt.keepOpener) opener = document.activeElement;
-    ctxOpt = { allowed: opt.allowed, exclude: opt.exclude, noGC: opt.noGC, onPick: opt.onPick, pickLabel: opt.pickLabel };
+    ctxOpt = { allowed: opt.allowed, exclude: opt.exclude, noGC: opt.noGC, onPick: opt.onPick, pickLabel: opt.pickLabel, deck: opt.deck, deckEdit: opt.deckEdit };
     const idx = await loadCards();
-    const c = findCard(idx, name);
-    if (!c) { toast(`${name} isn't in the card index`); if (opt.fromHistory) hideCard(); return; }
+    let c = findCard(idx, name);
+    if (!c) c = await stubCard(name);   // not in the site's card list: still open it, with what Scryfall knows
     const roles = c.roles.slice().sort((a, b) => b.s - a.s);
     const files = await Promise.all(roles.map(x => loadRole(x.k).catch(() => null)));
     const entries = roles.map((x, i) => files[i]?.byN.get(c.n) || null);
@@ -461,7 +531,7 @@
           <span class="muted">${esc(idx.subs[x.k] ? (hubSubName(x.k, x.sub)) : x.sub)} · #${fmt(x.r)} of ${fmt(total(x.k))} · score ${x.s}${x.rev ? "" : " · unreviewed"}${e?.e != null ? ` · EDHREC ${pct(e.e)}` : ""}</span></div>
           ${e ? `<p class="why" style="margin:-2px 0 6px 34px">${syms(e.why)}</p>` : ""}`;
       }).join("");
-      const better = roles.filter(x => x.k !== "lands" || c.ty.includes("L")).map(x => {
+      const better = ctxOpt.deck ? recHtml(deckRecs(idx, c, ctxOpt.deck)) : roles.filter(x => x.k !== "lands" || c.ty.includes("L")).map(x => {
         const opts = betterOptions(idx, c, x.k, { allowed: ctxOpt.allowed ?? c.id, exclude: ctxOpt.exclude, noGC: ctxOpt.noGC, limit: 4 });
         if (!opts.length) return "";
         return `<h3>Better ${esc(ROLE_INFO[x.k].label.toLowerCase())} ${ctxOpt.allowed != null ? "for this deck" : "in these colors"}</h3><div class="better">` +
@@ -629,6 +699,6 @@
     loadSprite, sym, bigSym, syms, cost, para, idSyms, tag, idTag, tagIcon, subIcon, ROLE_ICON,
     loadCards, loadHub, loadTierIndex, loadRole, findCard, flags, betterOptions, hubSubName,
     scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; deckP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
-    sheetHistory, setProfileHidden, cardSize, setCardSize, condensed, sizeButtons, sizeTabs, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
+    sheetHistory, setProfileHidden, cardSize, setCardSize, condensed, sizeButtons, sizeTabs, sizeBar, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
   };
 })();

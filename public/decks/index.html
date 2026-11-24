@@ -117,7 +117,7 @@
         <button type="button" data-g="role">Role</button><button type="button" data-g="type">Card Type</button><button type="button" data-g="mv">Mana Value</button><button type="button" data-g="tier">Tier</button></div></div>
       <div class="ctl"><span class="lab" id="sLab">Sort</span><div class="seg" id="sortSeg" role="group" aria-labelledby="sLab">
         <button type="button" data-s="tier">Tier</button><button type="button" data-s="mv">Mana Value</button><button type="button" data-s="name">Name</button></div></div>
-      <div class="ctl" id="sizeCtl"></div>
+
     </div>
     <div id="groups" class="groups"></div>
   </section>
@@ -134,9 +134,8 @@
   M.initNav("decks"); M.initAccount();
 
   let idx = null, deck = null, readOnly = null;   // readOnly = { user } while looking at someone else's deck
-  const pref = { group: M.store.get("deck-group", "role"), sort: M.store.get("deck-sort", "tier") };
+  const pref = { group: M.store.get("deck-grouping", "type"), sort: M.store.get("deck-sort", "tier") };   // Card Type unless changed
   const view = () => M.condensed() ? "list" : "cards";   // full cards unless Card size is Condensed
-  $("sizeCtl").innerHTML = M.sizeTabs();
 
   // ---------- how cards sort ----------
   // Role = the jobs from the tier lists. A card goes under its best-scored job unless you moved it.
@@ -319,7 +318,7 @@
     menu.addEventListener("click", ev => {
       const b = ev.target.closest("button[data-a]"); if (!b) return;
       const a = b.dataset.a; done();
-      if (a === "open") return M.openCard(e.n);
+      if (a === "open") return M.openCard(e.n, { deck, deckEdit: !readOnly });
       if (a === "cmd") { deck.commander = e.n; delete e.cat; toast(`${e.n} is the commander`); }
       if (a === "uncmd") deck.commander = "";
       if (a === "plus") e.q = Math.min(f.max || 99, e.q + 1);
@@ -331,7 +330,7 @@
     menu.querySelector("select")?.addEventListener("change", ev => {
       const k = ev.target.value; done();
       if (k === autoCat(c)) delete e.cat; else e.cat = k;
-      if (pref.group !== "role") { pref.group = "role"; M.store.set("deck-group", "role"); }
+      if (pref.group !== "role") { pref.group = "role"; M.store.set("deck-grouping", "role"); }
       M.saveDeck(deck); toast(`Moved to ${CAT[k].label}`);
     });
     document.body.appendChild(menu);
@@ -503,12 +502,12 @@
   $("importBtn").onclick = () => pasteDialog(true);
   $("pasteBtn").onclick = () => pasteDialog(false);
   $("allDecks").onclick = () => readOnly ? (location.href = M.page("users", "u-" + encodeURIComponent(readOnly.user))) : goList();
-  $("groupSeg").onclick = e => { const b = e.target.closest("[data-g]"); if (b) { pref.group = b.dataset.g; M.store.set("deck-group", pref.group); renderBody(); } };
+  $("groupSeg").onclick = e => { const b = e.target.closest("[data-g]"); if (b) { pref.group = b.dataset.g; M.store.set("deck-grouping", pref.group); renderBody(); } };
   $("sortSeg").onclick = e => { const b = e.target.closest("[data-s]"); if (b) { pref.sort = b.dataset.s; M.store.set("deck-sort", pref.sort); renderBody(); } };
   document.addEventListener("mtg:size", () => { if (deck) renderBody(); });
   $("groups").addEventListener("click", e => {
     const m = e.target.closest("[data-menu]"); if (m && !readOnly) { e.stopPropagation(); return cardMenu(m, m.dataset.menu); }
-    const o = e.target.closest("[data-open]"); if (o) M.openCard(o.dataset.open);
+    const o = e.target.closest("[data-open]"); if (o) M.openCard(o.dataset.open, { deck, deckEdit: !readOnly });
   });
   addEventListener("hashchange", route);
   document.addEventListener("mtg:decks", () => {

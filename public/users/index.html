@@ -58,7 +58,7 @@
     <button type="button" class="crumb" id="allUsers">← All Users</button>
     <div class="phead" id="phead"></div>
     <div id="pnote"></div>
-    <div class="pbar"><div class="seg ptabs" id="ptabs" role="group" aria-label="What to show"></div><div id="psize"></div></div>
+    <div class="pbar"><div class="seg ptabs" id="ptabs" role="group" aria-label="What to show"></div></div>
     <div id="pbody"></div>
   </section>
 </main>
@@ -112,7 +112,6 @@
   function renderProfile() {
     const tabs = [["decks", "Decks", prof.decks.length], ["fav", "Favorites", prof.favorites.length], ...prof.lists.map(l => ["l" + l.id, l.name, l.cards.length])];
     $("ptabs").innerHTML = tabs.map(([k, label, n]) => `<button type="button" data-tab="${esc(k)}" aria-pressed="${k === tab}">${esc(label)}<small>${fmt(n)}</small></button>`).join("");
-    $("psize").innerHTML = tab === "decks" ? "" : M.sizeTabs();
     if (tab === "decks") return renderDecks();
     const cards = tab === "fav" ? prof.favorites : (prof.lists.find(l => "l" + l.id === tab) || { cards: [] }).cards;
     if (!cards.length) { $("pbody").innerHTML = `<p class="empty">Nothing here yet.</p>`; return; }

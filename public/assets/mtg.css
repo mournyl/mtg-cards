@@ -111,24 +111,26 @@ main{padding-block:28px 60px;display:grid;gap:40px}
 
 /* card tiles and rows */
 /* card size (Full / Medium / Small) sets the column width of every card grid; Condensed swaps grids for name rows */
-:root{--cardw:200px}
-html[data-size="medium"]{--cardw:150px}
-html[data-size="small"]{--cardw:112px}
+:root{--cardw:150px}
+html[data-size="large"]{--cardw:220px}
+html[data-size="medium"]{--cardw:112px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cardw),1fr));gap:16px;align-items:start}
-html[data-size="medium"] .grid,html[data-size="small"] .grid{gap:12px}
-html[data-size="small"] .tile .why{display:none}
-html[data-size="medium"] .tag,html[data-size="small"] .tag{gap:8px;padding:6px 8px;font-size:13px}
-html[data-size="medium"] .tag .ti,html[data-size="small"] .tag .ti{width:22px;height:22px}
-html[data-size="medium"] .tag .ti svg,html[data-size="small"] .tag .ti svg{width:13px;height:13px}
-html[data-size="medium"] .tag b.ti,html[data-size="small"] .tag b.ti{font-size:12px}
-html[data-size="small"] .tag{font-size:12px;padding:5px 6px;gap:6px}
-html[data-size="small"] .tag .rk{font-size:11px}
-html[data-size="small"] .chip{font-size:11px;padding:1px 5px}
-html[data-size="small"] .card .lbl{left:4px;right:4px;bottom:4px;padding:4px 5px}
-html[data-size="small"] .card .lbl b{font-size:11px}
-html[data-size="small"] .card .lbl span{display:none}
+html[data-size="full"] .grid,html[data-size="medium"] .grid{gap:12px}
+html[data-size="medium"] .tile .why{display:none}
+html[data-size="full"] .tag,html[data-size="medium"] .tag{gap:8px;padding:6px 8px;font-size:13px}
+html[data-size="full"] .tag .ti,html[data-size="medium"] .tag .ti{width:22px;height:22px}
+html[data-size="full"] .tag .ti svg,html[data-size="medium"] .tag .ti svg{width:13px;height:13px}
+html[data-size="full"] .tag b.ti,html[data-size="medium"] .tag b.ti{font-size:12px}
+html[data-size="medium"] .tag{font-size:12px;padding:5px 6px;gap:6px}
+html[data-size="medium"] .tag .rk{font-size:11px}
+html[data-size="medium"] .chip{font-size:11px;padding:1px 5px}
+html[data-size="medium"] .card .lbl{left:4px;right:4px;bottom:4px;padding:4px 5px}
+html[data-size="medium"] .card .lbl b{font-size:11px}
+html[data-size="medium"] .card .lbl span{display:none}
 .sizetabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sizetabs .lab{font-size:13px;color:var(--muted)}
+.sizetop .wrap{display:flex;justify-content:flex-end;padding-top:10px}
+.sizetop .seg button{padding:5px 11px;font-size:12.5px}
 /* condensed rows (no images) */
 .crows{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
 .crow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.2fr) auto;gap:4px 14px;align-items:center;padding:8px 12px;min-width:0}
@@ -160,7 +162,8 @@ html[data-size="small"] .card .lbl span{display:none}
 /* tier tiles: card, reason and tags share row lines across each row, so every tag box starts level with the lowest one */
 @supports (grid-template-rows: subgrid) {
   .tier .grid{row-gap:6px}
-  .tier .grid>.tile{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:6px;margin-bottom:12px;align-content:start}
+  .tier .grid>.tile{display:grid;grid-row:span 3;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:6px;margin-bottom:12px;align-content:start}
+.tile .why{overflow-wrap:anywhere}
 }
 /* filter levels on a tier list: one labeled row each, so a wrapped row never reads as a new one */
 .levels{max-width:1000px;margin:22px auto 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);text-align:left}
@@ -258,6 +261,11 @@ button.badge{cursor:pointer;font:inherit;font-size:11px}
 .better button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);font-size:14px}
 .better button:hover{border-color:#555}
 .better button .cost{margin-left:auto}
+.better .rec{display:flex;gap:6px;align-items:stretch}
+.better .rec>[data-open]{flex:1;min-width:0}
+.better .rec>[data-open] span:not(.muted):not(.cost){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.better .addrec{flex:none;justify-content:center;padding:7px 12px;font-size:13px;font-weight:600;background:#fff;color:#000;border-color:#fff}
+.better .addrec:hover{background:#d6d6d6;border-color:#d6d6d6}
 .form{display:grid;gap:12px}
 .form label{display:grid;gap:4px;font-size:12px;color:var(--muted)}
 .form select,.form textarea,.form input{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;outline:none}
@@ -344,13 +352,13 @@ footer .g{font-family:var(--gothic);font-size:16px;color:#fff}
   .tier-tag{position:static;display:flex;align-items:center;gap:14px;text-align:left;padding:8px 14px}
   .tier-tag .L{font-size:38px}
   .tier-head h2{font-size:22px}
-  :root{--cardw:150px} html[data-size="medium"]{--cardw:104px} html[data-size="small"]{--cardw:76px}
+  :root{--cardw:104px} html[data-size="large"]{--cardw:150px} html[data-size="medium"]{--cardw:76px}
   .grid{gap:10px}
   .crow{grid-template-columns:minmax(0,1fr) auto}
   .crow .ty{display:none}
   .crow .ct{grid-column:1/-1;grid-row:2}
-  html[data-size="small"] .tag .tx,html[data-size="small"] .tag .rk{display:none}
-  html[data-size="small"] .tag{justify-content:center;padding:4px}
+  html[data-size="medium"] .tag .tx,html[data-size="medium"] .tag .rk{display:none}
+  html[data-size="medium"] .tag{justify-content:center;padding:4px}
   .row,.rows.imgs .row{grid-template-columns:2.9em minmax(0,1fr)}
   .row .thumb{display:none!important}
   .row .why,.row .roles{grid-column:2/-1;justify-content:flex-start}

@@ -213,7 +213,7 @@
             const face = src ? `<img loading="lazy" src="${src}" alt="${esc(c.n)}" onload="this.classList.add('in')">` : `<span class="lbl"><b>${esc(c.n)}</b><span>${cost(c.cost)}</span></span>`;
             return `<div class="tile"><button type="button" class="card" data-n="${esc(c.n)}" aria-label="${esc(c.n)}">${face}</button><div class="tags">${places(c).map(tierTag).join("")}</div></div>`;
           }).join("") + `</div>`;
-    $("board").innerHTML = `<div class="findbar"><span class="muted">${fmt(hits.length)} card${hits.length === 1 ? "" : "s"} on the tier lists</span>${M.sizeTabs()}</div>` + body;
+    $("board").innerHTML = `<div class="findbar"><span class="muted">${fmt(hits.length)} card${hits.length === 1 ? "" : "s"} on the tier lists</span></div>` + body;
     if (hits.length && !M.condensed()) M.scryfall(hits.map(c => c.n)).then(ok => { if (ok && !role && state.q) renderFind(); });
   }
 
@@ -249,7 +249,6 @@
         ${lvl("Colors", colorBtns, `<p class="lvl-n">Pick as many as you like. Cards show when all their colors are picked; colorless cards only with Colorless.</p>`)}
         ${role.subs.length > 1 ? lvl(SUB_LABEL[role.key] || "Sub-list", `<a href="#${hashFor(role.key, state.colors, "")}"${state.sub ? "" : ' aria-current="page"'}>All<small>${fmt(inC.length)}</small></a>${role.subs.map(s => `<a href="#${hashFor(role.key, state.colors, s.key)}"${state.sub === s.key ? ' aria-current="page"' : ""}>${esc(s.name)}<small>${fmt(subCounts[s.key])}</small></a>`).join("")}`) : ""}
         ${isProt ? lvl("How it protects", `<button type="button" data-pt=""${state.pt ? "" : ' aria-pressed="true"'}>Any kind</button>${Object.keys(PT_NAMES).filter(k => ptCounts[k] && k !== "other").map(k => `<button type="button" data-pt="${k}"${state.pt === k ? ' aria-pressed="true"' : ""}>${PT_NAMES[k]}<small>${ptCounts[k]}</small></button>`).join("")}`) : ""}
-        ${lvl("Card size", M.sizeButtons(), `<p class="lvl-n">Condensed is names only; the others are full cards.</p>`)}
       </div>
       <div class="dist" role="group" aria-label="Jump to a tier">${M.TIERS.map(T => `<button type="button" class="t${T.t}" data-jump="${T.t}" style="flex:${Math.max(n[T.t] || 0, shown.length * .04)} 1 0" aria-label="${T.t} tier, ${n[T.t] || 0} cards">${T.t}<small>${fmt(n[T.t] || 0)}</small></button>`).join("")}</div>
       <p class="dist-note">Each segment is sized by how many cards sit in that tier. <a href="#" id="toHub">All Tier Lists</a></p>`;
