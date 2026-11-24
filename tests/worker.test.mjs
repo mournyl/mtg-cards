@@ -93,6 +93,52 @@ test("decks: create, save, list, limits, and only your own", async () => {
   assert.equal((await call("GET", "/api/decks")).body.decks.length, 0);
 });
 
+test("decks work without the migration, even next to an old decks table", async () => {
+  const { call, env } = setup();
+  env.DB.db.exec("DROP TABLE user_decks");
+  env.DB.db.exec("CREATE TABLE decks (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL, name TEXT NOT NULL, commander TEXT NOT NULL DEFAULT '', list TEXT NOT NULL, settings TEXT NOT NULL DEFAULT '{}', created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL)");
+  await call("POST", "/api/signup", { username: "tyler", password: "correct horse" });
+  assert.equal((await call("GET", "/api/decks")).status, 200);
+  const d = await call("POST", "/api/decks", { name: "Server deck", cards: [{ n: "Sol Ring", q: 1 }] });
+  assert.equal(d.status, 200);
+  assert.equal((await call("GET", "/api/decks")).body.decks[0].cards[0].n, "Sol Ring");
+});
+
+test("Users page: anyone can list users and see their saved cards and decks; hidden profiles stay hidden", async () => {
+  const a = setup(), { call } = a;
+  const card = { id: "0afa0e33-4804-4b00-b625-c2d6b61090fc", name: "Counterspell", image: "", type_line: "Instant", mana_cost: "{U}{U}", set: "dmr" };
+  await call("POST", "/api/signup", { username: "tyler", password: "correct horse" });
+  const tyler = a.getCookie();
+  await call("POST", "/api/favorites", { card });
+  const l = await call("POST", "/api/lists", { name: "Blue staples" });
+  await call("POST", `/api/lists/${l.body.list.id}/cards`, { card });
+  await call("POST", "/api/decks", { name: "Simic ramp", cards: [{ n: "Sol Ring", q: 1 }] });
+  assert.equal((await call("GET", "/api/me")).body.user.hidden, false);
+  await call("POST", "/api/signup", { username: "erin", password: "password one" });
+  const erin = a.getCookie();
+  a.setCookie("");
+  const list = await call("GET", "/api/users", undefined, { noCookie: true });
+  assert.equal(list.status, 200);
+  assert.deepEqual(list.body.users.map(u => [u.username, u.favorites, u.lists, u.decks]), [["erin", 0, 0, 0], ["tyler", 1, 1, 1]]);
+  assert.ok(!JSON.stringify(list.body).match(/pass|salt|token|"id"/));
+  const prof = await call("GET", "/api/users/TYLER", undefined, { noCookie: true });
+  assert.equal(prof.status, 200);
+  assert.equal(prof.body.favorites[0].name, "Counterspell");
+  assert.equal(prof.body.lists[0].cards[0].name, "Counterspell");
+  assert.equal(prof.body.decks[0].cards[0].n, "Sol Ring");
+  assert.ok(!JSON.stringify(prof.body).match(/pass_hash|salt|token/));
+  // erin hides her profile
+  a.setCookie(erin);
+  assert.equal((await call("PUT", "/api/me/profile", { hidden: true })).body.hidden, true);
+  assert.equal((await call("GET", "/api/me")).body.user.hidden, true);
+  assert.equal((await call("GET", "/api/users/erin")).status, 200, "you can still see your own hidden profile");
+  a.setCookie(tyler);
+  assert.equal((await call("GET", "/api/users/erin")).status, 404);
+  assert.deepEqual((await call("GET", "/api/users")).body.users.map(u => u.username), ["tyler"]);
+  assert.equal((await call("GET", "/api/users/nobody")).status, 404);
+  assert.equal((await call("PUT", "/api/me/profile", { hidden: false }, { noCookie: true })).status, 401);
+});
+
 test("feedback routes are gone", async () => {
   const { call } = setup();
   assert.equal((await call("POST", "/api/feedback", { role: "ramp", card: "Cultivate", suggested: "B" })).status, 401);

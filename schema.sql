@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS list_cards (
   PRIMARY KEY (list_id, card_id)
 );
 
--- decks (also in migrations/0002_decks.sql): card names + counts as JSON in data
-CREATE TABLE IF NOT EXISTS decks (
+-- My decks: card names + counts as JSON in data. The worker also creates this table itself if it is missing.
+CREATE TABLE IF NOT EXISTS user_decks (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
   user_id     INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   name        TEXT NOT NULL,
@@ -51,4 +51,10 @@ CREATE TABLE IF NOT EXISTS decks (
   created_at  INTEGER NOT NULL,
   updated_at  INTEGER NOT NULL
 );
-CREATE INDEX IF NOT EXISTS decks_user ON decks(user_id, updated_at);
+CREATE INDEX IF NOT EXISTS user_decks_user ON user_decks(user_id, updated_at);
+
+-- Users page: a user can hide their profile. The worker also creates this table itself if it is missing.
+CREATE TABLE IF NOT EXISTS profile_prefs (
+  user_id     INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  hidden      INTEGER NOT NULL DEFAULT 0
+);

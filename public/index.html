@@ -12,6 +12,8 @@
 <style>
   /* card search: the shared look comes from assets/mtg.css; these rules are for what only this page has */
   #status{margin:0;min-height:22px;color:var(--muted);font-size:14px}
+  .resbar{display:flex;align-items:center;justify-content:space-between;gap:10px 18px;flex-wrap:wrap}
+  .resbar #status{flex:1;min-width:min(100%,280px)}
   #status b{color:var(--text)}
   .err{color:var(--danger)}
   #ac{display:none}
@@ -22,7 +24,7 @@
   .qchips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
   .qchip{font-size:14px;padding:7px 14px;border-radius:var(--rc);border:1px solid var(--line);background:var(--panel);cursor:pointer}
   .qchip:hover{border-color:#fff}
-  .help{max-width:720px;margin:28px auto 0;text-align:left;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;color:var(--muted)}
+  .help{max-width:1000px;margin:28px auto 0;text-align:left;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;color:var(--muted)}
   .help code{background:#222;padding:1px 6px;border-radius:5px;color:#fff}
   .help td{padding:3px 12px 3px 0;vertical-align:top}
   .more{display:flex;justify-content:center;margin-top:24px}
@@ -50,6 +52,8 @@
   .pop .ttl{font-size:12px;color:var(--muted);padding:6px 10px}
   .pop button{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:none;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:14px}
   .pop button:hover{background:#262626}
+  .pop .popa{display:block;padding:8px 10px;border-radius:6px;font-size:14px;color:var(--text);text-decoration:none}
+  .pop .popa:hover{background:#262626}
   .pop form{display:flex;gap:6px;padding:6px}
   .pop input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
   #savedView{display:none}
@@ -85,7 +89,12 @@
   header .wrap{position:relative}
   #filters{flex-direction:column;align-items:stretch;gap:10px;width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
   header #filters.open{display:flex;position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:calc(100% - 6px);z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.6);border-top:1px solid var(--line)}
-  .hero #filters{display:flex;margin:26px auto 0;text-align:left}
+  /* start page: a wide box with the options in two columns, the same width as the examples and the syntax help */
+  .hero #filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 36px;width:min(1000px,100%);margin:26px auto 0;text-align:left;padding:20px 22px}
+  .hero #filters>.adv,.hero #filters>.fbtns{grid-column:1/-1}
+  .hero #filters .adv .frow{max-width:calc(50% - 18px)}
+  .hero .qchips{max-width:1000px;margin-left:auto;margin-right:auto}
+  @media (max-width:720px){ .hero #filters{grid-template-columns:minmax(0,1fr);padding:16px} .hero #filters .adv .frow{max-width:none} }
   .frow{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:10px;font-size:14px;color:var(--muted)}
   .frow select,.frow input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--rc);padding:8px 10px;color:var(--text)}
   .frow .pips{gap:6px}
@@ -110,7 +119,7 @@
   <div class="wrap">
     <div class="top">
       <a class="logo" id="home" href="./">mournyl<small>mtg</small></a>
-      <nav class="site" aria-label="Site"><a href="./" id="navSearch" aria-current="page">Card search</a><a href="tiers/" id="navTiers">Tier lists</a><a href="decks/" id="navDecks">My decks</a></nav>
+      <nav class="site" aria-label="Site"><a href="./" id="navSearch" aria-current="page">Card Search</a><a href="tiers/" id="navTiers">Tier Lists</a><a href="decks/" id="navDecks">My Decks</a><a href="users/" id="navUsers">Users</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search cards</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder='Search cards: "lightning bolt" or o:"draw a card" t:instant'>
         <div class="ac" id="ac"></div>
@@ -179,15 +188,16 @@
         <button class="btn small" id="copyList" type="button">Copy as text</button>
         <button class="btn small" id="deleteList" type="button">Delete list</button>
       </span>
+      <div id="savedSize" style="margin-left:auto"></div>
     </div>
     <div class="tabs" id="tabs"></div>
     <div class="grid" id="savedGrid"></div>
     <div class="empty" id="savedEmpty" style="display:none"></div>
   </section>
   <section id="searchView" style="display:grid;gap:16px">
-  <div class="status" id="status"></div>
+  <div class="resbar"><div class="status" id="status"></div><div id="sizeBar" hidden></div></div>
   <div id="hero" class="hero">
-    <h1>Card search</h1>
+    <h1>Card Search</h1>
     <p>Type a name in the search box, or pick filters below. Every search sticks to Commander-legal cards unless you change the format under Advanced.</p>
     <div id="heroFilters"></div>
     <div class="qchips" id="chips"></div>
@@ -468,7 +478,7 @@
     const token = ++searchToken;
     el.hero.style.display = "none";
     placeFilters();
-    el.grid.innerHTML = ""; el.more.style.display = "none";
+    el.grid.innerHTML = ""; shown = []; el.more.style.display = "none";
     el.status.innerHTML = "Searching…";
     const order = el.order.value === "tier" ? "edhrec" : el.order.value;
     const dir = ["released","power","rarity"].includes(order) ? "desc" : "auto";
@@ -531,10 +541,35 @@
     finally { busy = false; el.more.textContent = "Load more"; el.more.style.display = nextPage ? "" : "none"; }
   }
 
+  // condensed: one row per card, no image (the only view without card images)
+  function condTags(c) {
+    const ts = tiersOf(c), have = new Set(ts.map(x => x.k));
+    return ts.slice(0, 2).map(x => `<a href="${MT.page("tiers", x.k)}" onclick="event.stopPropagation()" title="${MT.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}">${MT.tb(x.t)}${esc(MT.ROLE_INFO[x.k].label)} #${x.r}</a>`).join("") +
+      rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).map(x => `<span>${esc(x.r.label)}</span>`).join("") + (c.game_changer ? `<span>Game Changer</span>` : "");
+  }
+  function crowEl(c, extra = "") {
+    const r = document.createElement("div");
+    r.className = "crow"; r.dataset.id = c.id;
+    const mc = c.mana_cost ?? c.card_faces?.[0]?.mana_cost ?? "";
+    r.innerHTML = `<button type="button" class="nm"><span>${esc(c.name)}</span>${syms(mc)}</button><span class="ty">${esc(c.type_line || typeOf(c))}</span>` +
+      `<span class="ct">${condTags(c)}</span><span class="acts2">${extra}</span>`;
+    return r;
+  }
+  let shown = [];
+  $("sizeBar").innerHTML = MT.sizeTabs();
   function render(cards) {
+    shown.push(...cards);
+    const cond = MT.condensed();
+    el.grid.className = cond ? "crows" : "grid";
+    $("sizeBar").hidden = false;
     const frag = document.createDocumentFragment();
     cards.forEach(c => {
       cardCache.set(c.id, c);
+      if (cond) {
+        const r = crowEl(c, `<button class="iconbtn fav${store.fav.has(c.id) ? " on" : ""}" data-fav="${c.id}" data-act="fav" title="Favorite" aria-label="Favorite">♥</button><button class="iconbtn" data-act="add" title="Add to a list or deck" aria-label="Add to a list or deck">+</button>`);
+        r.onclick = e => { if (handleActs(e, c) || e.target.closest("a")) return; openCard(c); };
+        frag.appendChild(r); return;
+      }
       const tile = document.createElement("div");
       tile.className = "tile"; tile.dataset.id = c.id;
       const d = document.createElement("div");
@@ -552,12 +587,17 @@
       frag.appendChild(tile);
     });
     el.grid.appendChild(frag);
-    if (!tierIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile").forEach(t => { const c = cardCache.get(t.dataset.id); if (c) t.querySelector(".tags").innerHTML = tileTags(c); }); });
+    if (!tierIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile,.crow").forEach(t => { const c = cardCache.get(t.dataset.id); if (!c) return; if (t.classList.contains("crow")) t.querySelector(".ct").innerHTML = condTags(c); else t.querySelector(".tags").innerHTML = tileTags(c); }); });
   }
+  // a new card size redraws what's on screen
+  document.addEventListener("mtg:size", () => {
+    if (shown.length) { const all = shown; shown = []; el.grid.innerHTML = ""; render(all); }
+    if (view === "saved") renderSaved();
+  });
 
   function reset() {
     searchToken++;
-    el.grid.innerHTML = ""; el.status.innerHTML = ""; el.more.style.display = "none";
+    el.grid.innerHTML = ""; shown = []; $("sizeBar").hidden = true; el.status.innerHTML = ""; el.more.style.display = "none";
     el.hero.style.display = ""; if (view === "search") saveState();
     placeFilters();
   }
@@ -841,7 +881,7 @@
       };
     };
     draw();
-    MT.loadDecks().then(list => { decks = list; if (pop.classList.contains("open")) { draw(); place(); } }).catch(() => {});
+    MT.loadDecks().then(list => { if (MT.deckInfo().error) return; decks = list; if (pop.classList.contains("open")) { draw(); place(); } }).catch(() => {});
     const place = () => {
       const r = anchor.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
       pop.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.right - w)) + "px";
@@ -902,6 +942,16 @@
     }
     empty.style.display = cards.length ? "none" : "";
     empty.textContent = list ? "This list is empty — use + on any card to add it." : "No favorites yet — tap ♥ on any card.";
+    $("savedSize").innerHTML = MT.sizeTabs();
+    g.className = MT.condensed() ? "crows" : "grid";
+    if (MT.condensed()) {
+      cards.forEach(c => {
+        const r = crowEl(c, (list ? "" : `<button class="iconbtn" data-act="add" title="Add to a list or deck" aria-label="Add to a list or deck">+</button>`) + `<button class="iconbtn" data-act="rm" title="${list ? "Remove from list" : "Unfavorite"}" aria-label="${list ? "Remove from list" : "Unfavorite"}">×</button>`);
+        r.onclick = e => { if (!handleActs(e, c)) openById(c.id); };
+        g.appendChild(r);
+      });
+      return;
+    }
     cards.forEach(c => {
       const d = document.createElement("div"); d.className = "card";
       d.innerHTML = (c.image ? `<img loading="lazy" src="${esc(c.image)}" alt="${esc(c.name)}" onload="this.classList.add('in')">` : `<span class="lbl"><b>${esc(c.name)}</b><span>${esc(c.type_line)}</span></span>`) +
@@ -997,9 +1047,17 @@
   $("navAcct").onclick = e => {
     if (store.mode === "local") return toast("No server found — saves stay in this browser");
     if (!store.user) return openAuth("login");
-    pop.innerHTML = `<div class="ttl">Signed in as ${esc(store.user.username)}</div><button id="logoutBtn"><span>Log out</span></button>`;
+    pop.innerHTML = `<div class="ttl">Signed in as ${esc(store.user.username)}</div>` +
+      `<a class="popa" href="users/#u-${encodeURIComponent(store.user.username)}"><span>My profile</span></a>` +
+      `<button id="hideBtn"><span>${store.user.hidden ? "Show my profile on Users" : "Hide my profile from Users"}</span></button>` +
+      `<button id="logoutBtn"><span>Log out</span></button>`;
     const r = e.currentTarget.getBoundingClientRect();
     pop.classList.add("open"); pop.style.left = Math.max(8, r.right - 220) + "px"; pop.style.top = (r.bottom + 6) + "px";
+    $("hideBtn").onclick = async () => {
+      closePop();
+      try { store.user.hidden = await MT.setProfileHidden(!store.user.hidden); toast(store.user.hidden ? "Your profile is hidden from Users" : "Your profile shows on Users"); }
+      catch (err) { toast(err.message); }
+    };
     $("logoutBtn").onclick = async () => {
       closePop();
       try { await apiCall("POST", "/api/logout", {}); } catch {}

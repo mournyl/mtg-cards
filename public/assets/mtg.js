@@ -12,7 +12,7 @@
   const ROOT = new URL("..", document.currentScript ? document.currentScript.src : location.href);
   const PREVIEW = !!window.MTG_PREVIEW;
   const url = p => new URL(p, ROOT).href;
-  const PAGES = { search: "", tiers: "tiers/", decks: "decks/", saved: "#saved" };
+  const PAGES = { search: "", tiers: "tiers/", decks: "decks/", users: "users/", saved: "#saved" };
   // MTG_PREVIEW is set only by the stand-alone preview build (no server, no card search): links use explicit files
   function page(key, hash) {
     let p = PAGES[key] ?? "";
@@ -37,6 +37,21 @@
     get(k, d) { try { const v = localStorage.getItem("mournyl-" + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
     set(k, v) { try { localStorage.setItem("mournyl-" + k, JSON.stringify(v)); } catch { /* storage off */ } },
   };
+  // ---------- card size: Full, Medium or Small cards, or Condensed (names only). One setting for every page. ----------
+  const SIZES = [["full", "Full"], ["medium", "Medium"], ["small", "Small"], ["condensed", "Condensed"]];
+  const cardSize = () => { const v = store.get("card-size", "full"); return SIZES.some(x => x[0] === v) ? v : "full"; };
+  document.documentElement.dataset.size = cardSize();
+  const condensed = () => cardSize() === "condensed";
+  function setCardSize(v) {
+    if (!SIZES.some(x => x[0] === v) || v === cardSize()) return;
+    store.set("card-size", v); document.documentElement.dataset.size = v;
+    document.querySelectorAll("button[data-size]").forEach(b => b.setAttribute("aria-pressed", b.dataset.size === v));
+    document.dispatchEvent(new CustomEvent("mtg:size", { detail: v }));
+  }
+  const sizeButtons = () => SIZES.map(([k, l]) => `<button type="button" data-size="${k}" aria-pressed="${k === cardSize()}">${l}</button>`).join("");
+  const sizeTabs = () => `<div class="sizetabs"><span class="lab" aria-hidden="true">Card size</span><div class="seg" role="group" aria-label="Card size">${sizeButtons()}</div></div>`;
+  document.addEventListener("click", e => { const b = e.target.closest("button[data-size]"); if (b) setCardSize(b.dataset.size); });
+
   let toastT;
   function toast(msg) {
     let t = $("toast");
@@ -302,6 +317,13 @@
     });
   }
 
+  // the Users page lists everyone unless they hide their profile
+  async function setProfileHidden(hidden) {
+    const r = await api("PUT", "/api/me/profile", { hidden: !!hidden });
+    meP = null;
+    return r.hidden;
+  }
+
   // ---------- Saved + profile, top right on every page ----------
   // Favorites live in the account when logged in, otherwise in this browser (same key the card search uses).
   async function initAccount() {
@@ -321,10 +343,19 @@
       document.querySelector(".menu")?.remove();
       const r = e.currentTarget.getBoundingClientRect(), menu = document.createElement("div");
       menu.className = "menu";
-      menu.innerHTML = `<div class="ttl">Signed in as ${esc(m.user.username)}</div><button type="button">Log out</button>`;
-      menu.style.top = r.bottom + 6 + "px"; menu.style.left = Math.max(8, r.right - 200) + "px";
+      menu.innerHTML = `<div class="ttl">Signed in as ${esc(m.user.username)}</div>` +
+        `<a class="menu-a" href="${page("users", "u-" + encodeURIComponent(m.user.username))}">My profile</a>` +
+        `<button type="button" data-hide>${m.user.hidden ? "Show my profile on Users" : "Hide my profile from Users"}</button>` +
+        `<button type="button" data-out>Log out</button>`;
+      menu.style.top = r.bottom + 6 + "px"; menu.style.left = Math.max(8, r.right - 220) + "px";
       document.body.appendChild(menu);
-      menu.querySelector("button").onclick = async () => { menu.remove(); try { await api("POST", "/api/logout", {}); } catch { /* already out */ } meP = null; toast("Logged out"); initAccount(); };
+      menu.querySelector("[data-out]").onclick = async () => { menu.remove(); try { await api("POST", "/api/logout", {}); } catch { /* already out */ } meP = null; toast("Logged out"); initAccount(); };
+      menu.querySelector("[data-hide]").onclick = async () => {
+        menu.remove();
+        try { const r2 = await setProfileHidden(!m.user.hidden); toast(r2 ? "Your profile is hidden from Users" : "Your profile shows on Users"); }
+        catch (err) { toast(err.message); }
+        initAccount();
+      };
       setTimeout(() => document.addEventListener("mousedown", function off(ev) { if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener("mousedown", off); } }), 0);
     };
   }
@@ -441,7 +472,6 @@
         f.banned && `<span class="badge" style="--bc:var(--danger)">Banned in Commander</span>`,
         f.mld && `<span class="badge" style="--bc:var(--danger)">Mass land destruction</span>`,
         f.extra && `<span class="badge" style="--bc:var(--warn)">Extra turn</span>`,
-        c.id.length > 1 && `<span class="badge ids" title="Color identity">${idSyms(c.id)}</span>`,
       ].filter(Boolean).join("");
       const prev = nav().prev();
       sheet.innerHTML = `
@@ -480,18 +510,23 @@
   // A deck is { id, name, commander, cards: [{ n: name, q: count, cat?: group you moved it to }], updated }.
   // Everything else about a card (type, mana value, tiers) comes from data/cards.json.
   const DKEY = "mtg-decks";
-  let deckList = [], deckMode = "local", deckUser = null, deckP = null;
+  let deckList = [], deckMode = "local", deckUser = null, deckP = null, deckErr = "";
   const saving = new Map();
   function loadDecks(force) {
     if (force) deckP = null;
     return deckP ||= me().then(async m => {
-      deckMode = m.online ? "remote" : "local"; deckUser = m.user;
-      deckList = m.online ? (m.user ? (await api("GET", "/api/decks")).decks : []) : store.get(DKEY, []);
+      deckMode = m.online ? "remote" : "local"; deckUser = m.user; deckErr = "";
+      if (!m.online) deckList = store.get(DKEY, []);
+      else if (!m.user) deckList = [];
+      else {
+        try { deckList = (await api("GET", "/api/decks")).decks; }
+        catch (e) { deckList = []; deckErr = e.message || "the server didn't answer"; deckP = null; }   // try again next time
+      }
       return deckList;
-    }).catch(e => { deckP = null; throw e; });
+    });
   }
   const decksChanged = () => document.dispatchEvent(new CustomEvent("mtg:decks"));
-  const deckInfo = () => ({ mode: deckMode, user: deckUser, decks: deckList });
+  const deckInfo = () => ({ mode: deckMode, user: deckUser, decks: deckList, error: deckErr });
   // true when the visitor still has to log in (and didn't)
   async function deckLogin() {
     await loadDecks();
@@ -553,6 +588,7 @@
   // "Add <card> to…" menu: every deck (✓ = in it; click again to take it out) and a new-deck box
   async function deckMenu(anchor, name) {
     if (await deckLogin()) return;
+    if (deckErr) { await loadDecks(true); if (deckErr) return toast(`Your decks didn't load: ${deckErr}`); }
     document.querySelector(".menu")?.remove();
     const menu = document.createElement("div");
     menu.className = "menu deckmenu"; menu.setAttribute("role", "dialog"); menu.setAttribute("aria-label", `Add ${name} to a deck`);
@@ -560,7 +596,7 @@
       menu.innerHTML = `<div class="ttl">Add ${esc(name)} to…</div>` +
         deckList.map((d, i) => `<button type="button" data-i="${i}"><span>${esc(d.name)}</span><span>${inDeck(d, name) ? "✓" : ""}</span></button>`).join("") +
         `<form><input placeholder="New deck name" maxlength="60" aria-label="New deck name"><button class="btn primary small" type="submit">Add</button></form>` +
-        `<a class="melink-sm" href="${page("decks")}">Open My decks</a>`;
+        `<a class="melink-sm" href="${page("decks")}">Open My Decks</a>`;
       menu.querySelectorAll("button[data-i]").forEach(b => b.onclick = async () => {
         const d = deckList[+b.dataset.i];
         if (inDeck(d, name)) { removeFromDeck(d, name); toast(`Took ${name} out of ${d.name}`); }
@@ -593,6 +629,6 @@
     loadSprite, sym, bigSym, syms, cost, para, idSyms, tag, idTag, tagIcon, subIcon, ROLE_ICON,
     loadCards, loadHub, loadTierIndex, loadRole, findCard, flags, betterOptions, hubSubName,
     scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; deckP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
-    sheetHistory, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
+    sheetHistory, setProfileHidden, cardSize, setCardSize, condensed, sizeButtons, sizeTabs, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
   };
 })();

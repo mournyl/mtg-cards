@@ -62,8 +62,9 @@ async function newPage(browser, mode, viewport) {
     ok((await page.$$(".rcard")).length === 10, "hub shows 10 lists");
     await page.screenshot({ path: `${OUT}/tiers-hub-${mode}.png`, fullPage: false });
     await page.fill("#q", "sol ring");
-    await page.waitForSelector("#board .row");
-    ok((await page.textContent("#board")).includes("Ramp #1"), "hub search finds Sol Ring as Ramp #1");
+    await page.waitForSelector("#board .tile");
+    const found = await page.$$eval("#board .tile", ts => ts.map(t => t.querySelector(".card").dataset.n + ": " + [...t.querySelectorAll(".tag")].map(g => [...g.children].map(x => x.textContent).join(" ")).join(", ")));
+    ok(found.some(f => f.startsWith("Sol Ring: S Ramp #1")), "hub search shows Sol Ring as a full card tagged Ramp #1");
     await page.fill("#q", "");
     await page.click(".rcard[href='#counterspells']");
     await page.waitForSelector(".tier .card");
@@ -75,10 +76,18 @@ async function newPage(browser, mode, viewport) {
     await page.waitForSelector(".tier");
     ok((await page.textContent("h1")).toLowerCase().includes("green ramp"), "color route #ramp/green/rocks");
     ok(await page.$eval(".seg [aria-current='page']", e => e.textContent.startsWith("Mana rocks")), "sub-list route selects Mana rocks");
+    const pressedColors = () => page.$$eval(".levels [data-color][aria-pressed='true']", els => els.map(e => e.dataset.color).join(""));
     await page.goto(`${BASE}/tiers/#removal/id-ub`); await page.waitForTimeout(300);
     await page.waitForSelector(".tier");
-    const pipsOn = await page.$$eval("#minePips .pip[aria-pressed='true']", els => els.map(e => e.dataset.c).join(""));
-    ok(pipsOn === "UB", "My colors route picks U and B");
+    ok(await pressedColors() === "UBC", "old My colors link opens as Blue + Black + Colorless");
+    ok(!/Multicolor|My colors/.test(await page.textContent("#hero")), "Multicolor and My colors are gone");
+    await page.goto(`${BASE}/tiers/#removal`); await page.waitForTimeout(300); await page.waitForSelector(".tier");
+    await page.click(".levels [data-color='U']"); await page.click(".levels [data-color='B']"); await page.waitForTimeout(200);
+    ok(await pressedColors() === "UB" && page.url().endsWith("#removal/ub") && /^Dimir /.test(await page.textContent("h1")), "colors toggle on together: " + page.url().split("#")[1]);
+    const lede = await page.textContent("#hero p");
+    ok(/fit a blue-black deck/.test(lede), "the list explains what the picks show: " + lede.slice(0, 60));
+    await page.click(".levels [data-color='']"); await page.waitForTimeout(200);
+    ok(await pressedColors() === "" && page.url().endsWith("#removal"), "All colors clears the picks");
     // filters + show more
     await page.goto(`${BASE}/tiers/#draw`); await page.waitForTimeout(300);
     await page.waitForSelector("[data-more]");
@@ -86,6 +95,13 @@ async function newPage(browser, mode, viewport) {
     await page.click("#tier-d [data-more]");
     const after = await page.$$eval("#tier-d .tile", r => r.length);
     ok(after === before + 48, `lower tiers show full cards, 48 more at a time (${before} -> ${after})`);
+    const misaligned = await page.$$eval("#tier-d .tile", ts => {
+      const rows = new Map();
+      ts.forEach(t => { const top = Math.round(t.querySelector(".card").getBoundingClientRect().top), tg = t.querySelector(".tags");
+        if (tg && tg.offsetParent) { const r = rows.get(top) || []; r.push(Math.round(tg.getBoundingClientRect().top)); rows.set(top, r); } });
+      return [...rows.values()].filter(r => Math.max(...r) - Math.min(...r) > 1).length;
+    });
+    ok(misaligned === 0, `tag boxes line up across each row (${misaligned} rows off)`);
     ok(!(await page.isVisible("#mv")), "filters stay folded until asked");
     await page.click("#filtersBtn");
     await page.selectOption("#mv", "1");
@@ -96,6 +112,24 @@ async function newPage(browser, mode, viewport) {
     ok(!(await page.$("#tier-d")), "tier toggle hides D");
     await page.click("#clear");
     await page.goto(`${BASE}/tiers/#protection`); await page.waitForTimeout(300); await page.waitForSelector(".tier");
+    const levels = await page.$$eval(".levels .lvl", ls => ls.map(l => [l.querySelector(".lvl-l").textContent, l.querySelector(".seg").textContent]));
+    ok(levels.map(l => l[0]).join("|") === "Colors|What it protects|How it protects|Card size", "filter rows each have their own label: " + levels.map(l => l[0]).join(" | "));
+    ok(await page.$eval(".levels [data-size='full']", b => b.getAttribute("aria-pressed")) === "true" && (await page.$$(".tier .grid .card")).length > 0, "cards start at Full size");
+    await page.click(".levels [data-size='medium']"); await page.waitForTimeout(200);
+    const wMed = await page.$eval(".tier .grid .card", c => c.getBoundingClientRect().width);
+    await page.click(".levels [data-size='small']"); await page.waitForTimeout(200);
+    const wSmall = await page.$eval(".tier .grid .card", c => c.getBoundingClientRect().width);
+    ok(wMed > wSmall && wSmall > 60, `Medium and Small make the cards smaller (${Math.round(wMed)}px, ${Math.round(wSmall)}px)`);
+    await page.click(".levels [data-size='condensed']"); await page.waitForTimeout(200);
+    ok((await page.$$(".tier .rows .row")).length > 0 && !(await page.$(".tier .card")), "Condensed shows names only");
+    await page.goto(`${BASE}/`); await page.fill("#q", "t:instant"); await page.keyboard.press("Enter"); await page.waitForTimeout(1500);
+    const condSearch = await page.$$("#grid .crow");
+    ok(mode === "text" || (condSearch.length > 0 && !(await page.$("#grid .card"))), "the card size carries over to card search");
+    await page.goto(`${BASE}/tiers/#protection`); await page.waitForSelector(".tier");
+    await page.click(".levels [data-size='full']"); await page.waitForTimeout(200);
+    ok(/Can't be countered/.test(levels[1][1]) && !/Can't be countered/.test(levels[2][1]), "Can't be countered shows once, as a sub-list");
+    const tagText = await page.$$eval(".tier .tags", ts => ts.map(t => t.textContent).join(" "));
+    ok(!/Unreviewed|New 20\d\d|Color identity/.test(tagText), "no Unreviewed, New or color identity tags");
     await page.click("[data-pt='phasing']"); await page.waitForTimeout(300);
     const ph = await page.$$eval("#board [data-n]", els => els.map(e => e.dataset.n));
     ok(ph.includes("Slip Out the Back") && ph.includes("Teferi's Protection") && !ph.includes("Lightning Greaves"), `protection type filter: phasing (${ph.length} cards)`);
@@ -179,6 +213,8 @@ async function newPage(browser, mode, viewport) {
       ok(!(await page.isVisible("#modal.open")), "search popup closes");
     } else {
       ok(await page.$eval("#format", e => e.value) === "commander", "format starts on Commander");
+      const box = await page.$eval("#heroFilters #filters", f => ({ w: f.getBoundingClientRect().width, cols: getComputedStyle(f).gridTemplateColumns.split(" ").length, chips: document.querySelector("#chips").getBoundingClientRect().width }));
+      ok(box.cols === 2 && box.w > 950, `start-page filter box is wide with two columns (${Math.round(box.w)}px, ${box.cols} columns)`);
       ok(await page.isVisible("#heroFilters #type") && !(await page.isVisible("#filtersBtn")), "start page shows the filters in the middle");
       ok(!(await page.$("#cmode:not([type=hidden])")) && !(await page.$("select#unique")), "identity mode and Show are gone");
       ok(!(await page.isVisible("#format")), "Format and Rarity sit under Advanced");
@@ -196,13 +232,16 @@ async function newPage(browser, mode, viewport) {
   {
     const { ctx, page, errors } = await newPage(browser, "images");
     await page.goto(`${BASE}/decks/`); await page.waitForSelector("#newForm");
-    ok(await page.$eval("nav.site [aria-current=page]", a => a.textContent) === "My decks", "My decks tab is in the header");
+    ok(await page.$eval("nav.site [aria-current=page]", a => a.textContent) === "My Decks", "My Decks tab is in the header");
+    ok((await page.$$eval("nav.site a", as => as.map(a => a.textContent))).join("|") === "Card Search|Tier Lists|My Decks|Users", "tab names are title case");
     await page.fill("#newName", "Simic test"); await page.click("#newForm button[type=submit]");
     await page.waitForSelector("#deckView:not([hidden])");
     ok(/Simic test/.test(await page.textContent("#dtop h1")), "new deck opens");
     await page.fill("#addCard", "sol ri"); await page.waitForSelector("#sugg:not([hidden])");
     await page.keyboard.press("Enter"); await page.waitForTimeout(300);
-    ok(/Ramp[\s\S]*Sol Ring/.test(await page.textContent("#groups")), "typing a name adds it, sorted under Ramp");
+    const inGroup = (g, n) => page.$$eval("#groups .grp", (gs, [g, n]) => gs.some(x => x.querySelector(".dgh").textContent.trim().startsWith(g) && x.querySelector(`[data-open="${n}"]`)), [g, n]);
+    ok(await inGroup("Ramp", "Sol Ring"), "typing a name adds it, sorted under Ramp");
+    ok((await page.$$("#groups .gcards .tile .card")).length === 1 && !(await page.$("#groups .drow")), "decks show full cards by default");
     await page.click("#pasteBtn");
     await page.fill("#pasteTxt", "Commander\n1 Tatyova, Benthic Druid (C19) 220\nDeck\n1x Cultivate\n30 Forest\n1 Counterspell *F*\n1 Swords to Plowshares [Removal]\n1 Not A Real Card");
     await page.click(".paste button[type=submit]"); await page.waitForTimeout(400);
@@ -218,11 +257,12 @@ async function newPage(browser, mode, viewport) {
     await page.click("#groupSeg [data-g=role]");
     await page.click("[data-menu='Counterspell']");
     await page.selectOption(".cardmenu select", "protection"); await page.waitForTimeout(200);
-    ok(/Protection[\s\S]*Counterspell/.test(await page.$eval("#groups", g => [...g.querySelectorAll(".grp")].find(x => /Protection/.test(x.textContent))?.textContent || "")), "a card can be moved to another group");
-    await page.click("#viewSeg [data-v=cards]"); await page.waitForTimeout(1500);
-    ok((await page.$$("#groups .tile .card")).length >= 6, "card view shows the deck as cards");
+    ok(await inGroup("Protection", "Counterspell"), "a card can be moved to another group");
+    await page.waitForTimeout(1500);
+    ok((await page.$$("#groups .tile .card")).length >= 6, "the deck shows as full cards");
     await page.screenshot({ path: `${OUT}/deck-cards.png` });
-    await page.click("#viewSeg [data-v=list]");
+    await page.click("#sizeCtl [data-size=condensed]"); await page.waitForTimeout(200);
+    ok((await page.$$("#groups .drow")).length === 6 && !(await page.$("#groups .card")), "Condensed shows names only, no images");
     await page.screenshot({ path: `${OUT}/deck-list.png`, fullPage: true });
     await page.reload(); await page.waitForSelector("#deckView:not([hidden]) .drow");
     ok((await page.$$("#groups .drow")).length === 6, "the deck is still there after a reload");
@@ -232,7 +272,9 @@ async function newPage(browser, mode, viewport) {
     await page.goBack(); await page.waitForTimeout(400);
     ok(!(await page.$("#cardModal.open")) && page.url() === deckUrl, "Back closes a card sheet on the deck page");
     // + Add to deck from the tier lists
-    await page.goto(`${BASE}/tiers/#ramp`); await page.waitForSelector(".tier .card");
+    await page.goto(`${BASE}/tiers/#ramp`); await page.waitForSelector(".tier .rows .row");
+    ok(true, "Condensed stays on across pages");
+    await page.click(".levels [data-size='full']"); await page.waitForSelector(".tier .card");
     await page.click("[data-n='Arcane Signet']"); await page.waitForSelector("#cardModal.open [data-adddeck]");
     await page.click("#cardModal [data-adddeck]"); await page.waitForSelector(".deckmenu button[data-i]");
     await page.click(".deckmenu button[data-i]"); await page.waitForTimeout(300);
@@ -244,8 +286,17 @@ async function newPage(browser, mode, viewport) {
     await ctx.close();
   }
 
+  console.log("\n== users (no server)");
+  {
+    const { ctx, page, errors } = await newPage(browser, "text");
+    await page.goto(`${BASE}/users/`); await page.waitForTimeout(800);
+    ok(/needs the live site/.test(await page.textContent("#userCards")), "Users says it needs the live site when there's no server");
+    ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
+    await ctx.close();
+  }
+
   console.log("\n== phone layout");
-  for (const [name, url, wait] of [["tiers-hub", "/tiers/", ".rcard"], ["tiers-ramp", "/tiers/#ramp/green", ".tier"], ["search", "/", "#hero"], ["decks", "/decks/", "#newForm"]]) {
+  for (const [name, url, wait] of [["tiers-hub", "/tiers/", ".rcard"], ["tiers-ramp", "/tiers/#ramp/green", ".tier"], ["search", "/", "#hero"], ["decks", "/decks/", "#newForm"], ["users", "/users/", "#userCards"], ["tiers-protection", "/tiers/#protection", ".levels"]]) {
     const { ctx, page, errors } = await newPage(browser, "images", { ...devices["iPhone 13"] });
     await page.goto(BASE + url); await page.waitForSelector(wait);
     await page.waitForTimeout(600);
@@ -257,7 +308,7 @@ async function newPage(browser, mode, viewport) {
     await ctx.close();
   }
 
-  for (const [from, to] of [["/counterspells/#blue", /tiers\/#counterspells\/blue$/], ["/tiers/ramp/", /tiers\/#ramp$/], ["/saved/", /\/#saved$/]]) {
+  for (const [from, to] of [["/counterspells/#blue", /tiers\/#counterspells\/(blue|u)$/], ["/tiers/ramp/", /tiers\/#ramp$/], ["/saved/", /\/#saved$/]]) {
     const { ctx, page } = await newPage(browser, "text");
     await page.goto(BASE + from); await page.waitForTimeout(500);
     ok(to.test(page.url()), `${from} forwards to ${page.url().replace(BASE, "")}`);

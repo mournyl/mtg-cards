@@ -16,7 +16,7 @@
   <div class="wrap">
     <div class="top">
       <a class="logo" data-page="search">mournyl<small>mtg</small></a>
-      <nav class="site" aria-label="Site"><a data-page="search">Card search</a><a data-page="tiers">Tier lists</a><a data-page="decks">My decks</a></nav>
+      <nav class="site" aria-label="Site"><a data-page="search">Card Search</a><a data-page="tiers">Tier Lists</a><a data-page="decks">My Decks</a><a data-page="users">Users</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Find a card on every list"></div>
       <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters" hidden>Filters</button>
@@ -50,10 +50,10 @@
   <section class="method" id="method">
     <h2>how it's ranked</h2>
     <p><b>One scale for every list.</b> Each card gets a 0–100 score for each job it does, judged for a four-player Bracket 3 table: efficiency (30 points: mana value for the effect, free or alternate costs), reach (25: what it can hit or how much it does), speed (15: instant or flash), value (15: card advantage, a body left behind, more than one thing handled) and reliability (15: no symmetry, no tax they can pay, no condition, no gift to opponents). An A in ramp means the same as an A in removal.</p>
-    <p><b>Tiers by score:</b> S 90+, A 75–89, B 60–74, C 45–59, D 30–44, F under 30. Color pages sort by the same score and add a best-in-color rank, so white's best card shows first without an inflated tier.</p>
-    <p><b>Hand-reviewed vs unreviewed.</b> Every list's top cards were placed by hand, with a one-line reason that names the cost and the catch. The rest are scored by the detectors and carry an <b>Unreviewed</b> badge; their scores are squeezed into C, D and F (58 at most) until someone reviews them. Anchor cards keep lists consistent: Counterspell, Swords to Plowshares, Cultivate, Phyrexian Arena and Wrath of God.</p>
-    <p><b>Badges never change a score:</b> Game Changer, free to cast, new this year, and the EDHREC play rate where we have it. Sub-lists rank cards only against cards that do the same job, and a card that does two jobs sits on both lists.</p>
-    <p><b>Colors</b> follow color identity: mana cost, color indicator, mana symbols in the rules text and basic land types. Single-color pages hold mono-color cards; Multicolor holds the rest; My colors merges every card that fits your commander.</p>
+    <p><b>Tiers by score:</b> S 90+, A 75–89, B 60–74, C 45–59, D 30–44, F under 30. Picking colors keeps the same scores and adds a rank among the cards shown, so white's best card shows first without an inflated tier.</p>
+    <p><b>Hand-reviewed vs unreviewed.</b> Every list's top cards were placed by hand, with a one-line reason that names the cost and the catch. The rest are scored by the detectors (the card details say so); their scores are squeezed into C, D and F (58 at most) until someone reviews them. Anchor cards keep lists consistent: Counterspell, Swords to Plowshares, Cultivate, Phyrexian Arena and Wrath of God.</p>
+    <p><b>Tags never change a score:</b> Game Changer, free to cast, and the EDHREC play rate where we have it. Sub-lists rank cards only against cards that do the same job, and a card that does two jobs sits on both lists.</p>
+    <p><b>Colors</b> follow color identity: mana cost, color indicator, mana symbols in the rules text and basic land types. Pick one color or several: a card shows when all of its colors are picked, and colorless cards show when Colorless is picked, so picking your commander's colors plus Colorless shows everything that fits the deck.</p>
     <p><b>Pool:</b> every card legal in Commander with a paper printing, from the Forge card database, rebuilt every week.</p>
   </section>
 </div>
@@ -65,17 +65,18 @@
 <script>
 (() => {
   "use strict";
-  const M = window.MTG, { $, esc, cap, fmt, tb, sym, cost, syms, idSyms } = M;
+  const M = window.MTG, { $, esc, cap, fmt, tb, cost, syms } = M;
   M.initNav("tiers"); M.initAccount();
 
-  const VIEWS = [
-    { k: "all", label: "All", test: () => true },
-    ...M.COLORS.map(c => ({ k: c.k, slug: c.slug, label: cap(c.name), test: e => c.k === "C" ? e.clr === "" : e.clr === c.k })),
-    { k: "M", slug: "multicolor", label: "Multicolor", test: e => e.clr.length > 1 },
-    { k: "mine", slug: "mine", label: "My colors", test: e => M.fits(e.clr, state.mine) },
-  ];
-  const VIEW = Object.fromEntries(VIEWS.map(v => [v.k, v]));
-  const state = { role: null, view: "all", sub: "", mine: M.store.get("mine", "WUBRG").replace(/[^WUBRG]/g, ""), q: "",
+  // Colors: pick any of W U B R G C. A card shows when all its colors are among the picks;
+  // colorless cards only when Colorless is picked. No picks = every card.
+  const ORDER = "WUBRGC";
+  const canon = s => ORDER.split("").filter(k => s.includes(k)).join("");
+  const NAME = Object.fromEntries(M.COLORS.map(c => [c.k, c.name]));
+  const GROUPS = { WU: "Azorius", WB: "Orzhov", WR: "Boros", WG: "Selesnya", UB: "Dimir", UR: "Izzet", UG: "Simic", BR: "Rakdos", BG: "Golgari", RG: "Gruul",
+    WUB: "Esper", WUR: "Jeskai", WUG: "Bant", WBR: "Mardu", WBG: "Abzan", WRG: "Naya", UBR: "Grixis", UBG: "Sultai", URG: "Temur", BRG: "Jund" };
+  const inColors = e => !state.colors || (e.clr === "" ? state.colors.includes("C") : e.clr.split("").every(k => state.colors.includes(k)));
+  const state = { role: null, colors: "", sub: "", q: "",
     tiers: new Set("SABCDF"), type: "", mv: "", pt: "", inst: false, free: false, gc: "", rev: false, hard: false, shown: {} };
   let hub = null, role = null, entries = [];
   const PT_NAMES = { hexproof: "Hexproof", shroud: "Shroud", indestructible: "Indestructible", phasing: "Phasing", blink: "Blink",
@@ -83,29 +84,36 @@
     uncounterable: "Can't be countered", other: "Other" };
   const ROW_STEP = 48, ROW_FIRST = 48;
 
-  // ---------- routing: #ramp, #ramp/green, #ramp/green/rocks, #ramp/id-ug ----------
+  // ---------- routing: #ramp, #ramp/ub, #ramp/ubc/rocks (old links: #ramp/green, #ramp/multicolor, #ramp/id-ug) ----------
+  const OLD = { white: "W", blue: "U", black: "B", red: "R", green: "G", colorless: "C", multicolor: "WUBRG", mine: "WUBRGC", all: "" };
   function parseHash() {
     const [r, v, s] = decodeURIComponent(location.hash.slice(1)).toLowerCase().split("/");
-    const out = { role: hub && hub.roles.some(x => x.key === r) ? r : null, view: "all", sub: "" };
+    const out = { role: hub && hub.roles.some(x => x.key === r) ? r : null, colors: "", sub: "" };
     if (v) {
-      if (v.startsWith("id-")) { out.view = "mine"; const m = v.slice(3).toUpperCase().replace(/[^WUBRG]/g, ""); if (m) out.mine = m; }
-      else { const f = VIEWS.find(x => x.slug === v || x.k.toLowerCase() === v); if (f) out.view = f.k; }
+      if (v in OLD) out.colors = OLD[v];
+      else if (v.startsWith("id-")) out.colors = canon(v.slice(3).toUpperCase() + "C");
+      else if (/^[wubrgc]+$/.test(v)) out.colors = canon(v.toUpperCase());
     }
     if (s) out.sub = s;
     return out;
   }
-  const viewSlug = () => state.view === "mine" ? "id-" + state.mine.toLowerCase() : state.view === "all" ? "all" : VIEW[state.view].slug;
-  function hashFor(roleKey, view = state.view, sub = "") {
-    const vs = view === "mine" ? "id-" + state.mine.toLowerCase() : view === "all" ? "all" : VIEW[view].slug;
-    return roleKey + (vs !== "all" || sub ? "/" + vs : "") + (sub ? "/" + sub : "");
+  function hashFor(roleKey, colors = state.colors, sub = "") {
+    const cs = colors ? colors.toLowerCase() : "all";
+    return roleKey + (colors || sub ? "/" + cs : "") + (sub ? "/" + sub : "");
   }
   function setHash() {
-    const h = hashFor(state.role, state.view, state.sub);
-    if (location.hash.slice(1) !== h) history.replaceState(null, "", "#" + h);
+    const h = hashFor(state.role, state.colors, state.sub);
+    if (location.hash.slice(1) !== h) history.replaceState(history.state, "", "#" + h);
+  }
+  // "blue", "Dimir", "four-color", plus colorless
+  function colorWords(cs = state.colors) {
+    const c = cs.replace("C", "");
+    const base = !c ? "" : c.length === 1 ? NAME[c] : GROUPS[c] || (c.length === 4 ? "four-color" : "five-color");
+    return { base, hasC: cs.includes("C"), list: c.split("").map(k => NAME[k]) };
   }
 
   // ---------- filtering ----------
-  const inView = e => VIEW[state.view].test(e) && (!state.sub || e.sub === state.sub);
+  const inView = e => inColors(e) && (!state.sub || e.sub === state.sub);
   function matches(e) {
     if (!state.tiers.has(e.t)) return false;
     if (state.type && !new RegExp("\\b" + state.type + "\\b").test(e.ty)) return false;
@@ -126,35 +134,31 @@
 
   // ---------- pieces ----------
   const badge = (label, col, title) => `<span class="badge" style="--bc:${col}"${title ? ` title="${esc(title)}"` : ""}>${esc(label)}</span>`;
+  // kinds of protection worth a tag: "Can't be countered" is already its own sub-list
+  const ptKeys = e => (e.pt || []).filter(k => k !== "other" && !(k === "uncounterable" && e.sub === "counter"));
   function badges(e, more) {
     const b = [];
-    if (!e.rev) b.push(badge("Unreviewed", "var(--dot-unrev)", "Scored by the detectors; not checked by hand yet"));
     if (more && e.e != null) b.push(badge("EDHREC " + M.pct(e.e), "var(--dot-edh)", "Share of decks on EDHREC that run it"));
     if (e.gc) b.push(badge("Game Changer", "var(--dot-gc)"));
     if (e.free) b.push(badge("Free option", "var(--dot-free)"));
-    if (e.y >= 2026) b.push(badge("New " + e.y, "var(--dot-new)"));
     if (e.soft) b.push(badge("Soft counter", "var(--dot-plain)", "They can pay to keep the spell"));
     if (!state.sub && role.subs.length > 1) b.push(badge(subName(e.sub), ROLE_COL(), "Sub-list"));
-    if (e.pt) e.pt.filter(k => k !== "other").forEach(k => b.push(badge(PT_NAMES[k], ROLE_COL(), "Kind of protection")));
-    if (e.clr.length > 1) b.push(`<span class="badge ids" title="Color identity">${idSyms(e.clr)}</span>`);
+    ptKeys(e).forEach(k => b.push(badge(PT_NAMES[k], ROLE_COL(), "Kind of protection")));
     return b.join("");
   }
   // tags under a card tile: one per row, an icon block + label (tier letters are the only color)
   function tileTags(e) {
     const t = [];
     if (!state.sub && role.subs.length > 1) t.push(M.tag({ icon: M.subIcon(state.role, e.sub), text: subName(e.sub), title: "Sub-list" }));
-    if (e.pt) e.pt.filter(k => k !== "other").forEach(k => t.push(M.tag({ icon: k, text: PT_NAMES[k], title: "Kind of protection" })));
+    ptKeys(e).forEach(k => t.push(M.tag({ icon: k, text: PT_NAMES[k], title: "Kind of protection" })));
     if (e.gc) t.push(M.tag({ icon: "star", text: "Game Changer" }));
     if (e.free) t.push(M.tag({ icon: "free", text: "Free option" }));
     if (e.soft) t.push(M.tag({ icon: "soft", text: "Soft counter", title: "They can pay to keep the spell" }));
-    if (e.y >= 2026) t.push(M.tag({ icon: "sparkle", text: "New " + e.y }));
-    if (e.clr.length > 1) t.push(M.idTag(e.clr));
-    if (!e.rev) t.push(M.tag({ icon: "unrev", text: "Unreviewed", title: "Scored by the detectors; not checked by hand yet" }));
     return t.join("");
   }
   const ROLE_COL = () => (M.ROLE_INFO[state.role] || {}).col || "#8c8c8c";
   const subName = k => (role.subs.find(s => s.key === k) || { name: k }).name;
-  const rankLabel = e => state.view === "all" && !state.sub ? `#${e.r}` : `#${e._vr}`;
+  const rankLabel = e => !state.colors && !state.sub ? `#${e.r}` : `#${e._vr}`;
   function tile(e) {
     const src = M.img(e.n, "normal");
     const chips = `<span class="chip rank" title="${esc(rankTitle(e))}">${rankLabel(e)}</span>` + (e.e != null ? `<span class="chip edh" title="EDHREC play rate">${M.pct(e.e)}</span>` : "");
@@ -164,9 +168,9 @@
       `<p class="why">${syms(e.why)}</p><div class="tags">${tileTags(e)}</div></div>`;
   }
   function rankTitle(e) {
-    const v = state.view === "all" ? "" : state.view === "mine" ? " in your colors" : " " + VIEW[state.view].label.toLowerCase();
+    const w = colorWords(), v = state.colors ? ` in ${[w.base, w.hasC ? "colorless" : ""].filter(Boolean).join(" + ")}` : "";
     const s = state.sub ? " " + subName(state.sub).toLowerCase() : "";
-    return state.view === "all" && !state.sub ? `rank ${e.r} overall` : `rank ${e._vr}${v}${s} (${e.r} overall)`;
+    return !state.colors && !state.sub ? `rank ${e.r} overall` : `rank ${e._vr}${v}${s} (${e.r} overall)`;
   }
   function row(e) {
     const src = M.img(e.n, "small");
@@ -181,7 +185,7 @@
     document.title = "Tier Lists · mournyl mtg";
     $("filtersBtn").hidden = true; $("filters").classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false"); $("method").hidden = false;
     const total = hub.roles.reduce((a, r) => a + r.count, 0), revd = hub.roles.reduce((a, r) => a + r.reviewed, 0);
-    $("hero").innerHTML = `<h1>Tier lists</h1><p>Ten deck-building jobs, every Commander-legal card that does them, ranked S to F on one scale. ` +
+    $("hero").innerHTML = `<h1>Tier Lists</h1><p>Ten deck-building jobs, every Commander-legal card that does them, ranked S to F on one scale. ` +
       `${fmt(total)} placements, ${fmt(revd)} checked by hand. Updated ${esc(hub.built)}.</p>`;
     $("q").placeholder = "Find a card on every list";
     if (state.q) return renderFind();
@@ -197,10 +201,20 @@
     const idx = await M.loadCards(), q = M.norm(state.q);
     const hits = []; for (const c of idx.list) { if (c.roles.length && M.norm(c.n).includes(q)) { hits.push(c); if (hits.length >= 60) break; } }
     hits.sort((a, b) => (M.norm(a.n).startsWith(q) ? 0 : 1) - (M.norm(b.n).startsWith(q) ? 0 : 1) || Math.max(...b.roles.map(x => x.s)) - Math.max(...a.roles.map(x => x.s)));
-    $("board").innerHTML = hits.length ? `<div class="rows">` + hits.map(c => `<button type="button" class="row" data-n="${esc(c.n)}" style="grid-template-columns:minmax(170px,1fr) minmax(0,2fr)">` +
-      `<span class="nm"><b>${esc(c.n)}</b>${cost(c.cost)}</span><span class="roles" style="justify-content:flex-start">` +
-      c.roles.slice().sort((a, b) => b.s - a.s).map(x => `<span class="badge" style="--bc:${M.ROLE_INFO[x.k].col}">${x.t} · ${esc(M.ROLE_INFO[x.k].short)} #${fmt(x.r)}</span>`).join("") + `</span></button>`).join("") + `</div>`
-      : `<p class="empty">No card on any list matches “${esc(state.q)}”.</p>`;
+    const places = c => c.roles.slice().sort((a, b) => b.s - a.s);
+    const tierTag = x => M.tag({ tier: x.t, text: M.ROLE_INFO[x.k].label, rank: "#" + fmt(x.r), href: "#" + x.k, title: `${M.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}` });
+    const body = !hits.length ? `<p class="empty">No card on any list matches “${esc(state.q)}”.</p>`
+      : M.condensed()
+        ? `<div class="rows">` + hits.map(c => `<button type="button" class="row" data-n="${esc(c.n)}" style="grid-template-columns:minmax(170px,1fr) minmax(0,2fr)">` +
+          `<span class="nm"><b>${esc(c.n)}</b>${cost(c.cost)}</span><span class="roles" style="justify-content:flex-start">` +
+          places(c).map(x => `<span class="badge" style="--bc:${M.ROLE_INFO[x.k].col}">${x.t} · ${esc(M.ROLE_INFO[x.k].short)} #${fmt(x.r)}</span>`).join("") + `</span></button>`).join("") + `</div>`
+        : `<div class="grid findgrid">` + hits.map(c => {
+            const src = M.img(c.n, "normal");
+            const face = src ? `<img loading="lazy" src="${src}" alt="${esc(c.n)}" onload="this.classList.add('in')">` : `<span class="lbl"><b>${esc(c.n)}</b><span>${cost(c.cost)}</span></span>`;
+            return `<div class="tile"><button type="button" class="card" data-n="${esc(c.n)}" aria-label="${esc(c.n)}">${face}</button><div class="tags">${places(c).map(tierTag).join("")}</div></div>`;
+          }).join("") + `</div>`;
+    $("board").innerHTML = `<div class="findbar"><span class="muted">${fmt(hits.length)} card${hits.length === 1 ? "" : "s"} on the tier lists</span>${M.sizeTabs()}</div>` + body;
+    if (hits.length && !M.condensed()) M.scryfall(hits.map(c => c.n)).then(ok => { if (ok && !role && state.q) renderFind(); });
   }
 
   // ---------- one role ----------
@@ -214,36 +228,43 @@
     $("ptGroup").hidden = !isProt;
     if (!isProt) state.pt = "";
     const ptCounts = {};
-    if (isProt) entries.filter(e => VIEW[state.view].test(e) && (!state.sub || e.sub === state.sub)).forEach(e => (e.pt || []).forEach(k => ptCounts[k] = (ptCounts[k] || 0) + 1));
+    // "Can't be countered" is a sub-list (What it protects), so it isn't repeated as a kind of protection
+    if (isProt) entries.filter(inView).forEach(e => ptKeys(e).filter(k => k !== "uncounterable").forEach(k => ptCounts[k] = (ptCounts[k] || 0) + 1));
     if (isProt) $("ptype").innerHTML = `<option value="">Any</option>` + Object.keys(PT_NAMES).filter(k => ptCounts[k]).map(k => `<option value="${k}"${state.pt === k ? " selected" : ""}>${PT_NAMES[k]} (${ptCounts[k]})</option>`).join("");
     if (role.key !== "counterspells") state.hard = false;
     $("freeGroup").hidden = !entries.some(e => e.free);
-    const counts = Object.fromEntries(VIEWS.map(v => [v.k, entries.filter(e => v.test(e)).length]));
-    const cur = v => v === state.view ? ' aria-current="page"' : "";
-    const viewIcon = v => v.k === "all" ? `<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="3" width="17" height="23" rx="2.5" fill="none" stroke="#8c8c8c" stroke-width="2"/><rect x="5" y="7" width="17" height="23" rx="2.5" fill="#fff"/></svg>`
-      : v.k === "mine" ? `<span class="all" style="background:none;color:#fff;border:1px dashed #777">+</span>` : M.bigSym(v.k);
-    const inV = entries.filter(e => VIEW[state.view].test(e));
-    const subCounts = Object.fromEntries(role.subs.map(s => [s.key, inV.filter(e => e.sub === s.key).length]));
+    const inC = entries.filter(inColors);
+    const subCounts = Object.fromEntries(role.subs.map(s => [s.key, inC.filter(e => e.sub === s.key).length]));
     const shown = entries.filter(inView), n = {}; shown.forEach(e => n[e.t] = (n[e.t] || 0) + 1);
-    const vname = state.view === "all" ? "" : state.view === "mine" ? "" : VIEW[state.view].label.toLowerCase() + " ";
+    const w = colorWords();
+    const title = state.colors ? (w.base ? cap(w.base) + " " + role.name.toLowerCase() : "Colorless " + role.name.toLowerCase()) : role.name;
+    const pressed = on => ` aria-pressed="${on}"`;
+    const colorBtns = `<button type="button" data-color=""${pressed(!state.colors)}>All colors</button>` +
+      ORDER.split("").map(k => `<button type="button" class="cbtn" data-color="${k}"${pressed(state.colors.includes(k))}>${M.bigSym(k)}${esc(cap(NAME[k]))}</button>`).join("");
+    const lvl = (label, inner, note = "") => `<div class="lvl"><span class="lvl-l">${esc(label)}</span><div class="lvl-r"><div class="seg" role="group" aria-label="${esc(label)}">${inner}</div>${note}</div></div>`;
     $("hero").innerHTML = `
-      <nav class="colors" aria-label="${esc(role.name)} by color">${VIEWS.map(v => `<a class="clr" href="#${hashFor(role.key, v.k, state.sub)}"${cur(v.k)} aria-label="${esc(v.label)}, ${counts[v.k]} cards">${viewIcon(v)}<b>${esc(v.label)}</b><span>${fmt(counts[v.k])}</span></a>`).join("")}</nav>
-      ${state.view === "mine" ? `<div class="mine"><span>Your commander's colors:</span><div class="pips" id="minePips">${"WUBRG".split("").map(k => `<button type="button" class="pip" data-c="${k}" aria-pressed="${state.mine.includes(k)}" title="${cap(M.COLORS.find(c => c.k === k).name)}">${M.bigSym(k)}</button>`).join("")}</div><span class="muted">plus colorless</span></div>` : ""}
-      <h1>${esc(cap((vname + role.name).toLowerCase()))}</h1>
-      <p>${esc(lede(counts))}</p>
-      ${role.subs.length > 1 ? `<div class="subs"><div class="seg" role="group" aria-label="Sub-lists"><a href="#${hashFor(role.key, state.view, "")}"${state.sub ? "" : ' aria-current="page"'}>All<small>${fmt(inV.length)}</small></a>${role.subs.map(s => `<a href="#${hashFor(role.key, state.view, s.key)}"${state.sub === s.key ? ' aria-current="page"' : ""}>${esc(s.name)}<small>${fmt(subCounts[s.key])}</small></a>`).join("")}</div></div>` : ""}
-      ${isProt ? `<div class="subs" style="margin-top:10px"><div class="seg" role="group" aria-label="Kind of protection"><button type="button" data-pt=""${state.pt ? "" : ' aria-pressed="true"'}>Any kind</button>${Object.keys(PT_NAMES).filter(k => ptCounts[k] && k !== "other").map(k => `<button type="button" data-pt="${k}"${state.pt === k ? ' aria-pressed="true"' : ""}>${PT_NAMES[k]}<small>${ptCounts[k]}</small></button>`).join("")}</div></div>` : ""}
+      <h1>${esc(title)}</h1>
+      <p>${esc(lede(shown.length, inC.length))}</p>
+      <div class="levels">
+        ${lvl("Colors", colorBtns, `<p class="lvl-n">Pick as many as you like. Cards show when all their colors are picked; colorless cards only with Colorless.</p>`)}
+        ${role.subs.length > 1 ? lvl(SUB_LABEL[role.key] || "Sub-list", `<a href="#${hashFor(role.key, state.colors, "")}"${state.sub ? "" : ' aria-current="page"'}>All<small>${fmt(inC.length)}</small></a>${role.subs.map(s => `<a href="#${hashFor(role.key, state.colors, s.key)}"${state.sub === s.key ? ' aria-current="page"' : ""}>${esc(s.name)}<small>${fmt(subCounts[s.key])}</small></a>`).join("")}`) : ""}
+        ${isProt ? lvl("How it protects", `<button type="button" data-pt=""${state.pt ? "" : ' aria-pressed="true"'}>Any kind</button>${Object.keys(PT_NAMES).filter(k => ptCounts[k] && k !== "other").map(k => `<button type="button" data-pt="${k}"${state.pt === k ? ' aria-pressed="true"' : ""}>${PT_NAMES[k]}<small>${ptCounts[k]}</small></button>`).join("")}`) : ""}
+        ${lvl("Card size", M.sizeButtons(), `<p class="lvl-n">Condensed is names only; the others are full cards.</p>`)}
+      </div>
       <div class="dist" role="group" aria-label="Jump to a tier">${M.TIERS.map(T => `<button type="button" class="t${T.t}" data-jump="${T.t}" style="flex:${Math.max(n[T.t] || 0, shown.length * .04)} 1 0" aria-label="${T.t} tier, ${n[T.t] || 0} cards">${T.t}<small>${fmt(n[T.t] || 0)}</small></button>`).join("")}</div>
-      <p class="dist-note">Each segment is sized by how many cards sit in that tier. <a href="#" id="toHub">All tier lists</a></p>`;
+      <p class="dist-note">Each segment is sized by how many cards sit in that tier. <a href="#" id="toHub">All Tier Lists</a></p>`;
     $("tabs").innerHTML = M.TIERS.map(T => `<button type="button" class="tab${state.tiers.has(T.t) ? " on" : ""}" data-t="${T.t}" aria-pressed="${state.tiers.has(T.t)}" title="${esc(T.h)}">${T.t}</button>`).join("");
   }
-  function lede(counts) {
+  // what each list's sub-lists are about, so the row's label says which level it is
+  const SUB_LABEL = { counterspells: "What it counters", ramp: "Kind of ramp", draw: "Kind of draw", removal: "Kind of removal", wipes: "What it hits",
+    tutors: "What it finds", protection: "What it protects", gyhate: "How often", recursion: "How it comes back", lands: "Kind of land" };
+  function lede(nShown, nColors) {
     const all = entries.length, rv = entries.filter(e => e.rev).length;
-    if (state.view === "all") return `All ${fmt(all)} Commander cards that do this job, ${fmt(rv)} of them checked by hand. ${role.desc}`;
-    if (state.view === "mine") return `${fmt(counts.mine)} cards that fit a ${state.mine.split("").map(k => M.COLORS.find(c => c.k === k).name).join("-") || "colorless"} commander, colorless included, ranked on the same scale as every list.`;
-    if (state.view === "M") return `${fmt(counts.M)} multicolor cards. Tiers use the same scale as every list; the rank number is the card's place among multicolor cards.`;
-    const nm = VIEW[state.view].label.toLowerCase();
-    return `${fmt(counts[state.view])} ${state.view === "C" ? "colorless cards, so any deck can run them" : "mono-" + nm + " cards"}. Tiers use the same scale as every list; the rank number is the card's place in ${nm}.`;
+    if (!state.colors) return `All ${fmt(all)} Commander cards that do this job, ${fmt(rv)} of them checked by hand. ${role.desc}`;
+    const w = colorWords(), tail = " Tiers use the same scale as every list; the rank number is the card's place among these cards.";
+    if (!w.base) return `${fmt(nColors)} colorless cards, so any deck can run them.` + tail;
+    if (w.list.length === 1) return `${fmt(nColors)} mono-${w.list[0]} cards${w.hasC ? ", plus colorless cards" : ""}.` + tail;
+    return `${fmt(nColors)} cards that fit a ${w.list.join("-")} deck: any mix of ${w.list.slice(0, -1).join(", ")} and ${w.list.at(-1)}${w.hasC ? ", plus colorless cards" : ""}.` + tail;
   }
 
   function render() {
@@ -260,7 +281,7 @@
       visible.push(...part.slice(-ROW_STEP).map(e => e.n));
       const more = list.length - part.length;
       const inner = !list.length ? `<p class="empty">No ${T.t}-tier cards match your filters.</p>`
-        : `<div class="grid">${part.map(tile).join("")}</div>` +
+        : (M.condensed() ? `<div class="rows">${part.map(row).join("")}</div>` : `<div class="grid">${part.map(tile).join("")}</div>`) +
           (more ? `<button type="button" class="btn small showmore" data-more="${T.t}">Show ${fmt(Math.min(more, ROW_STEP))} more (${fmt(more)} left)</button>` : "");
       html += `<section class="tier" id="tier-${T.t.toLowerCase()}" aria-labelledby="h-${T.t}">` +
         `<div class="tier-tag t${T.t}"><span class="L">${T.t}</span><span class="h">${esc(T.h)}</span>` +
@@ -289,8 +310,7 @@
   }
   async function route(fromUser) {
     const h = parseHash();
-    if (h.mine) { state.mine = h.mine; M.store.set("mine", state.mine); }
-    state.view = h.view; state.sub = h.sub; state.shown = {};
+    state.colors = h.colors; state.sub = h.sub; state.shown = {};
     if (!h.role) { role = null; state.role = null; entries = []; render(); if (fromUser) scrollTo({ top: 0 }); return; }
     if (!role || role.key !== h.role) { state.q = ""; $("q").value = ""; }
     $("board").innerHTML = `<p class="empty">Loading ${esc(hub.roles.find(x => x.key === h.role).name.toLowerCase())}…</p>`;
@@ -327,11 +347,13 @@
       }
       const k2 = e.target.closest("[data-pt]");
       if (k2) { state.pt = k2.dataset.pt; state.shown = {}; buildRoleChrome(); render(); return; }
-      const p = e.target.closest("#minePips .pip");
-      if (p) {
-        const k = p.dataset.c;
-        state.mine = state.mine.includes(k) ? state.mine.replace(k, "") : "WUBRG".split("").filter(x => x === k || state.mine.includes(x)).join("");
-        M.store.set("mine", state.mine); state.shown = {}; setHash(); buildRoleChrome(); render();
+      const c = e.target.closest("[data-color]");
+      if (c) {
+        const k = c.dataset.color;
+        state.colors = !k ? "" : canon(state.colors.includes(k) ? state.colors.replace(k, "") : state.colors + k);
+        state.shown = {}; setHash(); buildRoleChrome(); render();
+        $("hero").querySelector(`[data-color="${k}"]`)?.focus({ preventScroll: true });
+        return;
       }
       if (e.target.id === "toHub") { e.preventDefault(); history.pushState(null, "", location.pathname + location.search); route(true); }
     });
@@ -341,6 +363,7 @@
       const b = e.target.closest("[data-n]"); if (b) M.openCard(b.dataset.n);
     });
     addEventListener("hashchange", () => route(true));
+    document.addEventListener("mtg:size", () => role ? render() : state.q ? renderFind() : null);
   }
 
   Promise.all([M.loadHub(), M.loadSprite()]).then(([h]) => {

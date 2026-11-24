@@ -2,7 +2,8 @@
 // Serves the static site from ./public (via [assets]) and a small JSON API under /api/*
 // backed by D1 (binding: DB). Accounts are username + password; passwords are hashed
 // with PBKDF2-SHA256, sessions are random tokens stored hashed, sent as an HttpOnly cookie.
-// Also: decks (My decks page), stored as card names + counts; the page fills in the rest from data/cards.json.
+// Also: decks (My Decks page), stored as card names + counts; the page fills in the rest from data/cards.json,
+// and the Users page: anyone can see each user's saved cards and decks unless that user hides their profile.
 
 const COOKIE = "mtg_session";
 const SESSION_DAYS = 30;
@@ -49,12 +50,24 @@ async function api(req, env, url) {
   if (p === "/api/logout" && m === "POST") return logout(req, env, url);
   if (p === "/api/me" && m === "GET") {
     const u = await currentUser(req, env);
-    return u ? json({ user: { username: u.username } }) : json({ user: null });
+    if (!u) return json({ user: null });
+    await tables(env);
+    const pr = await env.DB.prepare("SELECT hidden FROM profile_prefs WHERE user_id = ?").bind(u.id).first();
+    return json({ user: { username: u.username, hidden: !!(pr && pr.hidden) } });
   }
+  // ---- Users page: open to everyone, read-only ----
+  if (p === "/api/users" && m === "GET") return listUsers(env);
+  if ((r = p.match(/^\/api\/users\/([A-Za-z0-9_-]{3,24})$/)) && m === "GET") return userProfile(req, env, r[1]);
   const user = await currentUser(req, env);
   if (!user) throw new HttpError(401, "Log in first");
 
   if (p === "/api/saved" && m === "GET") return saved(env, user);
+  if (p === "/api/me/profile" && m === "PUT") {
+    const hidden = (await body(req)).hidden ? 1 : 0;
+    await tables(env);
+    await env.DB.prepare("INSERT INTO profile_prefs (user_id, hidden) VALUES (?, ?) ON CONFLICT(user_id) DO UPDATE SET hidden = excluded.hidden").bind(user.id, hidden).run();
+    return json({ ok: true, hidden: !!hidden });
+  }
 
   if (p === "/api/favorites" && m === "POST") {
     const card = cleanCard((await body(req)).card);
@@ -106,29 +119,30 @@ async function api(req, env, url) {
   }
 
   // ---- decks ----
+  if (p.startsWith("/api/decks")) await tables(env);
   if (p === "/api/decks" && m === "GET") {
-    const rows = await env.DB.prepare("SELECT id, name, data, updated_at FROM decks WHERE user_id = ? ORDER BY updated_at DESC").bind(user.id).all();
+    const rows = await env.DB.prepare("SELECT id, name, data, updated_at FROM user_decks WHERE user_id = ? ORDER BY updated_at DESC").bind(user.id).all();
     return json({ decks: rows.results.map(deckOut) });
   }
   if (p === "/api/decks" && m === "POST") {
     const b = await body(req), name = cleanName(b.name), data = cleanDeck(b);
-    const { n } = await env.DB.prepare("SELECT COUNT(*) AS n FROM decks WHERE user_id = ?").bind(user.id).first();
+    const { n } = await env.DB.prepare("SELECT COUNT(*) AS n FROM user_decks WHERE user_id = ?").bind(user.id).first();
     if (n >= MAX_DECKS) throw new HttpError(400, `Limit of ${MAX_DECKS} decks`);
     const now = Date.now();
-    const row = await env.DB.prepare("INSERT INTO decks (user_id, name, data, created_at, updated_at) VALUES (?, ?, ?, ?, ?) RETURNING id")
+    const row = await env.DB.prepare("INSERT INTO user_decks (user_id, name, data, created_at, updated_at) VALUES (?, ?, ?, ?, ?) RETURNING id")
       .bind(user.id, name, JSON.stringify(data), now, now).first();
     return json({ deck: { id: row.id, name, ...data, updated: now } });
   }
   if ((r = p.match(/^\/api\/decks\/(\d+)$/))) {
-    const deck = await env.DB.prepare("SELECT id FROM decks WHERE id = ? AND user_id = ?").bind(+r[1], user.id).first();
+    const deck = await env.DB.prepare("SELECT id FROM user_decks WHERE id = ? AND user_id = ?").bind(+r[1], user.id).first();
     if (!deck) throw new HttpError(404, "Deck not found");
     if (m === "PUT") {
       const b = await body(req), name = cleanName(b.name), data = cleanDeck(b), now = Date.now();
-      await env.DB.prepare("UPDATE decks SET name = ?, data = ?, updated_at = ? WHERE id = ?").bind(name, JSON.stringify(data), now, deck.id).run();
+      await env.DB.prepare("UPDATE user_decks SET name = ?, data = ?, updated_at = ? WHERE id = ?").bind(name, JSON.stringify(data), now, deck.id).run();
       return json({ ok: true, updated: now });
     }
     if (m === "DELETE") {
-      await env.DB.prepare("DELETE FROM decks WHERE id = ?").bind(deck.id).run();
+      await env.DB.prepare("DELETE FROM user_decks WHERE id = ?").bind(deck.id).run();
       return json({ ok: true });
     }
   }
@@ -137,6 +151,29 @@ async function api(req, env, url) {
 }
 
 // ---------- decks: { commander, cards: [{ n: name, q: count, cat?: group the owner moved it to }] } ----------
+// Tables added after launch make themselves the first time they're needed, so nothing has to be run by hand.
+// (Decks live in user_decks, not decks: an older deck-checker table called decks may already exist with other columns.)
+const LATE_TABLES = [
+  `CREATE TABLE IF NOT EXISTS user_decks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    data TEXT NOT NULL DEFAULT '{}',
+    created_at INTEGER NOT NULL,
+    updated_at INTEGER NOT NULL)`,
+  "CREATE INDEX IF NOT EXISTS user_decks_user ON user_decks(user_id, updated_at)",
+  `CREATE TABLE IF NOT EXISTS profile_prefs (
+    user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+    hidden INTEGER NOT NULL DEFAULT 0)`,
+];
+const tablesReady = new WeakMap();
+function tables(env) {
+  if (!tablesReady.has(env.DB)) {
+    const p = env.DB.batch(LATE_TABLES.map(sql => env.DB.prepare(sql))).catch(e => { tablesReady.delete(env.DB); throw e; });
+    tablesReady.set(env.DB, p);
+  }
+  return tablesReady.get(env.DB);
+}
 function cleanDeck(b) {
   const cards = Array.isArray(b.cards) ? b.cards : [];
   if (cards.length > MAX_DECK_CARDS) throw new HttpError(400, `Limit of ${MAX_DECK_CARDS} different cards in a deck`);
@@ -156,6 +193,35 @@ function cleanDeck(b) {
 function deckOut(row) {
   let d = {}; try { d = JSON.parse(row.data); } catch { /* keep empty */ }
   return { id: row.id, name: row.name, commander: d.commander || "", cards: d.cards || [], updated: row.updated_at };
+}
+
+// ---------- Users page ----------
+async function listUsers(env) {
+  await tables(env);
+  const rows = await env.DB.prepare(`SELECT u.username, u.created_at,
+      (SELECT COUNT(*) FROM favorites f WHERE f.user_id = u.id) AS favorites,
+      (SELECT COUNT(*) FROM lists l WHERE l.user_id = u.id) AS lists,
+      (SELECT COUNT(*) FROM user_decks d WHERE d.user_id = u.id) AS decks
+    FROM users u LEFT JOIN profile_prefs p ON p.user_id = u.id
+    WHERE COALESCE(p.hidden, 0) = 0 ORDER BY u.username COLLATE NOCASE LIMIT 2000`).all();
+  return json({ users: rows.results.map(x => ({ username: x.username, joined: x.created_at, favorites: x.favorites, lists: x.lists, decks: x.decks })) });
+}
+// one user's saved cards, lists and decks; a hidden profile is only visible to its owner
+async function userProfile(req, env, name) {
+  await tables(env);
+  const u = await env.DB.prepare("SELECT u.id, u.username, u.created_at, COALESCE(p.hidden, 0) AS hidden FROM users u LEFT JOIN profile_prefs p ON p.user_id = u.id WHERE u.username = ?").bind(name).first();
+  if (u && u.hidden) { const me = await currentUser(req, env); if (!me || me.id !== u.id) throw new HttpError(404, "No such user"); }
+  if (!u) throw new HttpError(404, "No such user");
+  const [favs, lists, cards, decks] = await env.DB.batch([
+    env.DB.prepare("SELECT data FROM favorites WHERE user_id = ? ORDER BY added_at DESC").bind(u.id),
+    env.DB.prepare("SELECT id, name FROM lists WHERE user_id = ? ORDER BY created_at").bind(u.id),
+    env.DB.prepare("SELECT lc.list_id, lc.data FROM list_cards lc JOIN lists l ON l.id = lc.list_id WHERE l.user_id = ? ORDER BY lc.added_at DESC").bind(u.id),
+    env.DB.prepare("SELECT id, name, data, updated_at FROM user_decks WHERE user_id = ? ORDER BY updated_at DESC").bind(u.id),
+  ]);
+  const byList = new Map(lists.results.map(l => [l.id, { id: l.id, name: l.name, cards: [] }]));
+  for (const c of cards.results) byList.get(c.list_id)?.cards.push(JSON.parse(c.data));
+  return json({ user: { username: u.username, joined: u.created_at, hidden: !!u.hidden },
+    favorites: favs.results.map(f => JSON.parse(f.data)), lists: [...byList.values()], decks: decks.results.map(deckOut) });
 }
 
 // ---------- auth ----------

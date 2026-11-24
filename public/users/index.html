@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Users · mournyl mtg</title>
+<meta name="description" content="Everyone's saved cards, lists and Commander decks on mournyl mtg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/mtg.css">
+<style>
+  .grow{flex:1}
+  .ufind{display:flex;justify-content:center;margin:20px auto 0;max-width:420px}
+  .ufind input{flex:1;min-width:0;padding:11px 14px;border-radius:var(--rc);border:1px solid var(--line);background:var(--panel);outline:none}
+  .ufind input:focus{border-color:#fff}
+  .ucard .stats{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:14px;color:var(--soft)}
+  .ucard .stats b{color:#fff;font-variant-numeric:tabular-nums}
+  .crumb{all:unset;cursor:pointer;display:inline-flex;margin-top:22px;font-size:14px;color:var(--muted);padding:4px 0}
+  .crumb:hover{color:#fff}
+  .phead{display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap;margin:6px 0 4px}
+  .phead h1{font:800 clamp(28px,4vw,40px)/1.15 var(--ui);margin:0;color:#fff;overflow-wrap:anywhere}
+  .phead .muted{font-size:14px}
+  .pnote{font-size:14px;color:var(--warn);margin:4px 0 0}
+  .ptabs{margin:18px 0 16px}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cardw),1fr));gap:16px;margin-bottom:60px}
+  .pbar{display:flex;justify-content:space-between;align-items:center;gap:10px 18px;flex-wrap:wrap;margin:18px 0 16px}
+  .pbar .ptabs{margin:0}
+  .crows{margin-bottom:60px}
+  .pgrid .card .nm{position:absolute;left:6px;right:6px;bottom:6px;background:rgba(0,0,0,.82);border-radius:6px;padding:6px 8px;font-size:13px;font-weight:600;line-height:1.25;overflow-wrap:anywhere}
+  .pgrid .card img.in+.nm{display:none}
+  @media (max-width:560px){ .pgrid{gap:10px} }
+</style>
+</head>
+<body>
+<div id="spritebox" hidden></div>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" data-page="search">mournyl<small>mtg</small></a>
+      <nav class="site" aria-label="Site"><a data-page="search">Card Search</a><a data-page="tiers">Tier Lists</a><a data-page="decks">My Decks</a><a data-page="users">Users</a></nav>
+      <div class="grow"></div>
+      <div class="me"><a class="melink" id="navSaved" data-page="saved">Saved<span class="count" id="savedCount" hidden>0</span></a><button type="button" class="melink acct" id="navAcct">Log in</button></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section id="listView">
+    <div class="hero"><h1>Users</h1>
+      <p>Everyone's saved cards, lists and decks. Pick a name to look through them; open any card to add it to your own decks.</p>
+      <div class="ufind"><label for="ufind" class="sr">Find a user</label><input id="ufind" type="search" placeholder="Find a user" autocomplete="off" spellcheck="false"></div>
+    </div>
+    <div id="userCards" class="decklist"><p class="empty" style="grid-column:1/-1;text-align:center">Loading…</p></div>
+  </section>
+
+  <section id="profileView" hidden>
+    <button type="button" class="crumb" id="allUsers">← All Users</button>
+    <div class="phead" id="phead"></div>
+    <div id="pnote"></div>
+    <div class="pbar"><div class="seg ptabs" id="ptabs" role="group" aria-label="What to show"></div><div id="psize"></div></div>
+    <div id="pbody"></div>
+  </section>
+</main>
+
+<footer><span class="g">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Mana symbols from the <a href="https://github.com/andrewgioia/mana" target="_blank" rel="noopener">Mana font</a> by Andrew Gioia (SIL OFL 1.1). Unofficial fan content.</footer>
+
+<script src="../assets/core.js"></script>
+<script src="../assets/mtg.js"></script>
+<script>
+(() => {
+  "use strict";
+  const M = window.MTG, { $, esc, fmt, idSyms, toast } = M;
+  M.initNav("users"); M.initAccount();
+
+  let users = null, idx = null, me = null, prof = null, tab = "decks";
+  const plural = (n, w) => `${fmt(n)} ${w}${n === 1 ? "" : "s"}`;
+  const joined = t => t ? new Date(t).toLocaleDateString(undefined, { month: "short", year: "numeric" }) : "";
+  const offline = msg => `<div class="panel" style="grid-column:1/-1;text-align:center"><p style="margin:0">${msg}</p></div>`;
+
+  // ---------- everyone ----------
+  async function renderList() {
+    document.title = "Users · mournyl mtg";
+    $("listView").hidden = false; $("profileView").hidden = true;
+    if (!users) {
+      try { users = (await M.api("GET", "/api/users")).users; }
+      catch (e) { $("userCards").innerHTML = offline(e.offline ? "Users needs the live site: there's no server here to ask." : `The user list didn't load: ${esc(e.message)}.`); return; }
+    }
+    const q = M.norm($("ufind").value.trim());
+    const list = users.filter(u => !q || M.norm(u.username).includes(q));
+    $("userCards").innerHTML = list.length ? list.map(u => `<a class="dcard ucard" href="#u-${esc(encodeURIComponent(u.username))}"><h2>${esc(u.username)}</h2>
+        <span class="stats"><span><b>${fmt(u.decks)}</b> deck${u.decks === 1 ? "" : "s"}</span><span><b>${fmt(u.favorites)}</b> saved card${u.favorites === 1 ? "" : "s"}</span><span><b>${fmt(u.lists)}</b> list${u.lists === 1 ? "" : "s"}</span></span>
+        <span class="foot">Joined ${esc(joined(u.joined))}${me && me.toLowerCase() === u.username.toLowerCase() ? " · you" : ""}</span></a>`).join("")
+      : `<p class="empty" style="grid-column:1/-1;text-align:center">${users.length ? "No user by that name." : "No users yet."}</p>`;
+  }
+
+  // ---------- one user ----------
+  async function openProfile(name) {
+    $("listView").hidden = true; $("profileView").hidden = false;
+    $("phead").innerHTML = `<h1>${esc(name)}</h1>`; $("pnote").innerHTML = ""; $("ptabs").innerHTML = "";
+    $("pbody").innerHTML = `<p class="empty">Loading…</p>`;
+    try { prof = await M.api("GET", `/api/users/${encodeURIComponent(name)}`); }
+    catch (e) { prof = null; $("pbody").innerHTML = `<p class="empty">${e.offline ? "Users needs the live site: there's no server here to ask." : e.status === 404 ? "No user by that name, or they've hidden their profile." : esc(e.message)}</p>`; return; }
+    const u = prof.user, mine = me && me.toLowerCase() === u.username.toLowerCase();
+    document.title = `${u.username} · Users · mournyl mtg`;
+    $("phead").innerHTML = `<h1>${esc(u.username)}</h1><span class="muted">Joined ${esc(joined(u.joined))}${mine ? " · this is you" : ""}</span>`;
+    $("pnote").innerHTML = mine && u.hidden ? `<p class="pnote">Your profile is hidden: only you can see this page. Show it again from your name at the top right.</p>` : "";
+    if (!["decks", "fav"].includes(tab) && !prof.lists.some(l => "l" + l.id === tab)) tab = "decks";
+    if (tab === "decks" && !prof.decks.length && prof.favorites.length) tab = "fav";
+    renderProfile();
+  }
+  function renderProfile() {
+    const tabs = [["decks", "Decks", prof.decks.length], ["fav", "Favorites", prof.favorites.length], ...prof.lists.map(l => ["l" + l.id, l.name, l.cards.length])];
+    $("ptabs").innerHTML = tabs.map(([k, label, n]) => `<button type="button" data-tab="${esc(k)}" aria-pressed="${k === tab}">${esc(label)}<small>${fmt(n)}</small></button>`).join("");
+    $("psize").innerHTML = tab === "decks" ? "" : M.sizeTabs();
+    if (tab === "decks") return renderDecks();
+    const cards = tab === "fav" ? prof.favorites : (prof.lists.find(l => "l" + l.id === tab) || { cards: [] }).cards;
+    if (!cards.length) { $("pbody").innerHTML = `<p class="empty">Nothing here yet.</p>`; return; }
+    if (M.condensed()) {
+      $("pbody").innerHTML = `<div class="crows">${cards.map(c => `<div class="crow" data-open="${esc(c.name)}"><button type="button" class="nm"><span>${esc(c.name)}</span>${M.syms(c.mana_cost || "")}</button>` +
+        `<span class="ty">${esc(c.type_line || "")}</span><span class="ct"></span><span></span></div>`).join("")}</div>`;
+      return;
+    }
+    $("pbody").innerHTML = `<div class="pgrid">${cards.map(c => {
+      const src = c.image || M.img(c.name, "normal");
+      return `<button type="button" class="card" data-open="${esc(c.name)}" aria-label="${esc(c.name)}">${src ? `<img loading="lazy" src="${esc(src)}" alt="${esc(c.name)}" onload="this.classList.add('in')">` : ""}<span class="nm">${esc(c.name)}</span></button>`;
+    }).join("")}</div>`;
+    const need = cards.filter(c => !c.image).map(c => c.name);
+    if (need.length) M.scryfall(need).then(ok => { if (ok && prof && tab !== "decks") renderProfile(); });
+  }
+  function identity(d) {
+    const cmd = d.commander && idx && M.findCard(idx, d.commander);
+    if (cmd) return cmd.id;
+    const set = new Set(); d.cards.forEach(e => { const c = idx && M.findCard(idx, e.n); if (c) for (const l of c.id) set.add(l); });
+    return "WUBRG".split("").filter(l => set.has(l)).join("");
+  }
+  function renderDecks() {
+    if (!prof.decks.length) { $("pbody").innerHTML = `<p class="empty">No decks yet.</p>`; return; }
+    const mine = me && me.toLowerCase() === prof.user.username.toLowerCase();
+    $("pbody").innerHTML = `<div class="decklist" style="margin-top:0">${prof.decks.map(d => {
+      const n = d.cards.reduce((a, e) => a + e.q, 0), id = identity(d);
+      const href = M.page("decks", mine ? "d-" + d.id : `u-${encodeURIComponent(prof.user.username)}/${d.id}`);
+      return `<a class="dcard" href="${href}"><h2>${esc(d.name)}</h2><span class="cmd">${d.commander ? esc(d.commander) : "No commander yet"}</span>
+        <span class="foot">${idx ? `<span class="ids" title="Color identity">${id ? idSyms(id) : idSyms("C")}</span>` : ""}<span>${fmt(n)} / 100 cards</span></span></a>`;
+    }).join("")}</div>`;
+  }
+
+  // ---------- routing: #u-<name> is a profile, nothing is the list ----------
+  function route() {
+    const m = /^#u-([A-Za-z0-9_-]{3,24})$/.exec(location.hash);
+    if (m) { openProfile(decodeURIComponent(m[1])); scrollTo(0, 0); } else renderList();
+  }
+  $("allUsers").onclick = () => { history.pushState(null, "", location.pathname); prof = null; route(); };
+  $("ufind").addEventListener("input", () => renderList());
+  $("ptabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) { tab = b.dataset.tab; renderProfile(); } });
+  $("pbody").addEventListener("click", e => { const o = e.target.closest("[data-open]"); if (o) M.openCard(o.dataset.open); });
+  addEventListener("hashchange", route);
+  document.addEventListener("mtg:size", () => { if (prof && tab !== "decks") renderProfile(); });
+
+  Promise.all([M.me(), M.loadSprite()]).then(([m]) => {
+    me = m.user ? m.user.username : null;
+    route();
+    M.loadCards().then(i => { idx = i; if (prof && tab === "decks") renderDecks(); }).catch(() => {});
+  });
+})();
+</script>
+</body>
+</html>
