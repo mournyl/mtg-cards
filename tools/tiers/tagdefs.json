@@ -1,0 +1,897 @@
+{
+ "version": 1,
+ "updated": "2026-11-24",
+ "tags": [
+  {
+   "key": "removal",
+   "label": "Removal",
+   "group": "Interaction",
+   "definition": "Permanently answers one opposing permanent: destroy, exile, tuck, -X/-X, fight or bite, an aura that neuters it, or damage that can hit a creature (Lightning Bolt is Removal and Burn).",
+   "exclude": "Tapping, temporary effects, bouncing (that's Bounce), damage only to players.",
+   "examples": "Swords to Plowshares, Beast Within, Lightning Bolt",
+   "status": "existing"
+  },
+  {
+   "key": "edict",
+   "label": "Edict",
+   "group": "Interaction",
+   "definition": "Makes an opponent sacrifice a permanent of their choice.",
+   "exclude": "You sacrificing.",
+   "examples": "Chainer's Edict",
+   "status": "existing"
+  },
+  {
+   "key": "wipe",
+   "label": "Board wipe",
+   "group": "Interaction",
+   "definition": "Hits every creature, or every permanent of a type, at once: destroy, exile, damage, -X/-X or mass bounce.",
+   "exclude": "One-sided pumps.",
+   "examples": "Wrath of God, Blasphemous Act",
+   "status": "existing"
+  },
+  {
+   "key": "counter",
+   "label": "Counterspell",
+   "group": "Interaction",
+   "definition": "Counters a spell or ability on the stack.",
+   "exclude": "Taxing spells (Stax).",
+   "examples": "Counterspell, Stifle",
+   "status": "existing"
+  },
+  {
+   "key": "bounce",
+   "label": "Bounce",
+   "group": "Interaction",
+   "definition": "Returns an opposing permanent to its owner's hand.",
+   "exclude": "Returning your own cards for value (Blink, Recursion).",
+   "examples": "Cyclonic Rift",
+   "status": "existing"
+  },
+  {
+   "key": "pinger",
+   "label": "Pinger",
+   "group": "Interaction",
+   "definition": "Deals 1-2 damage again and again, from a tap ability or a recurring trigger, to a creature or a player.",
+   "exclude": "One-shot burn.",
+   "examples": "Prodigal Pyromancer, Guttersnipe",
+   "status": "existing"
+  },
+  {
+   "key": "burn",
+   "label": "Burn",
+   "group": "Interaction",
+   "definition": "Direct damage that can hit a player or planeswalker: any target, target player, each opponent.",
+   "exclude": "Damage only to creatures (Removal), combat damage.",
+   "examples": "Lightning Bolt, Fireball",
+   "status": "existing"
+  },
+  {
+   "key": "steal",
+   "label": "Steal",
+   "group": "Interaction",
+   "definition": "Gains control of an opponent's permanent or spell, even temporarily.",
+   "exclude": "Copying (Clone).",
+   "examples": "Control Magic, Threaten",
+   "status": "existing"
+  },
+  {
+   "key": "gyhate",
+   "label": "Graveyard hate",
+   "group": "Interaction",
+   "definition": "Exiles graveyards or stops cards being cast or used from graveyards.",
+   "exclude": "Exiling your own graveyard as a cost.",
+   "examples": "Bojuka Bog, Rest in Peace",
+   "status": "existing"
+  },
+  {
+   "key": "tapper",
+   "label": "Tapper",
+   "group": "Interaction",
+   "definition": "Taps opposing creatures or keeps them from untapping.",
+   "exclude": "Tapping your own creatures.",
+   "examples": "Icy Manipulator",
+   "status": "existing"
+  },
+  {
+   "key": "stax",
+   "label": "Stax / tax",
+   "group": "Interaction",
+   "definition": "Restricts or taxes opponents: cost increases, can't search, cast, untap or draw extra.",
+   "exclude": "Pillow fort effects (their own tag).",
+   "examples": "Thalia, Rule of Law",
+   "status": "existing"
+  },
+  {
+   "key": "fog",
+   "label": "Fog",
+   "group": "Interaction",
+   "definition": "Prevents combat damage for a turn.",
+   "exclude": "Protecting one of your creatures.",
+   "examples": "Holy Day",
+   "status": "existing"
+  },
+  {
+   "key": "abilityremove",
+   "label": "Ability removal",
+   "group": "Interaction",
+   "definition": "Makes a permanent lose its abilities, or stops activated or triggered abilities.",
+   "exclude": "Countering a spell.",
+   "examples": "Witness Protection, Pithing Needle, Stifle",
+   "status": "new"
+  },
+  {
+   "key": "landdestroy",
+   "label": "Land destruction",
+   "group": "Interaction",
+   "definition": "Destroys, exiles or bounces lands opponents control, or keeps their lands tapped. Bracket-relevant.",
+   "exclude": "Your own land sacrifices.",
+   "examples": "Strip Mine, Armageddon",
+   "status": "new"
+  },
+  {
+   "key": "ramp",
+   "label": "Mana generation",
+   "group": "Resources",
+   "definition": "Adds mana beyond your land drop: rocks, dorks, rituals, mana doublers.",
+   "exclude": "A land's own mana ability.",
+   "examples": "Sol Ring, Llanowar Elves",
+   "status": "existing"
+  },
+  {
+   "key": "landramp",
+   "label": "Extra lands",
+   "group": "Resources",
+   "definition": "Puts lands onto the battlefield from library or hand, or lets you play extra lands.",
+   "exclude": "Fetch lands (Fixing land).",
+   "examples": "Cultivate, Azusa",
+   "status": "existing"
+  },
+  {
+   "key": "treasure",
+   "label": "Treasure tokens",
+   "group": "Resources",
+   "definition": "Creates Treasure tokens for you.",
+   "exclude": "Giving opponents Treasures (Helps an opponent).",
+   "examples": "Smothering Tithe",
+   "status": "existing"
+  },
+  {
+   "key": "costreduce",
+   "label": "Cost reducer",
+   "group": "Resources",
+   "definition": "Makes your spells or abilities cheaper.",
+   "exclude": "Raising opponents' costs (Stax).",
+   "examples": "Goblin Electromancer",
+   "status": "existing"
+  },
+  {
+   "key": "draw",
+   "label": "Card draw",
+   "group": "Resources",
+   "definition": "You draw cards, including cantrips.",
+   "exclude": "An opponent drawing.",
+   "examples": "Rhystic Study, Opt",
+   "status": "existing"
+  },
+  {
+   "key": "select",
+   "label": "Card selection",
+   "group": "Resources",
+   "definition": "Filters your draws: scry, surveil, loot, rummage, cycling, landcycling, look at the top and rearrange.",
+   "exclude": "Plain draw with no choice.",
+   "examples": "Ponder, Faithless Looting, Krosan Tusker",
+   "status": "existing"
+  },
+  {
+   "key": "tutor",
+   "label": "Tutor",
+   "group": "Resources",
+   "definition": "Searches your library for a nonland card, to hand, top, graveyard or battlefield.",
+   "exclude": "Basic land searches (Extra lands).",
+   "examples": "Demonic Tutor, Entomb",
+   "status": "existing"
+  },
+  {
+   "key": "wheel",
+   "label": "Wheel",
+   "group": "Resources",
+   "definition": "Each player, or you, discards or shuffles away a hand and draws a new one.",
+   "exclude": "Single-card loots.",
+   "examples": "Wheel of Fortune, Windfall",
+   "status": "new"
+  },
+  {
+   "key": "freecast",
+   "label": "Free to cast",
+   "group": "Resources",
+   "definition": "This card can be cast without paying mana under a common condition: pitch costs, controlling your commander, life instead of mana.",
+   "exclude": "Casting other cards for free (Cheat into play).",
+   "examples": "Fierce Guardianship, Force of Will, Deflecting Swat",
+   "status": "new"
+  },
+  {
+   "key": "protect",
+   "label": "Protection",
+   "group": "Defense",
+   "definition": "Gives your other permanents or you hexproof, shroud, indestructible or protection, or makes your spells uncounterable.",
+   "exclude": "Only protecting itself (Hard to kill).",
+   "examples": "Heroic Intervention, Swiftfoot Boots",
+   "status": "existing"
+  },
+  {
+   "key": "phasing",
+   "label": "Phasing",
+   "group": "Defense",
+   "definition": "Phases your permanents out on demand.",
+   "exclude": "The phasing keyword that phases on a schedule.",
+   "examples": "Slip Out the Back, Teferi's Protection",
+   "status": "existing"
+  },
+  {
+   "key": "blink",
+   "label": "Blink",
+   "group": "Defense",
+   "definition": "Exiles and returns your own permanents to reuse enters effects or dodge removal.",
+   "exclude": "Exiling opponents' permanents for good.",
+   "examples": "Ephemerate",
+   "status": "existing"
+  },
+  {
+   "key": "regen",
+   "label": "Regenerate",
+   "group": "Defense",
+   "definition": "Regenerates creatures.",
+   "exclude": "",
+   "examples": "Asceticism",
+   "status": "existing"
+  },
+  {
+   "key": "resilient",
+   "label": "Hard to kill",
+   "group": "Defense",
+   "definition": "The card protects itself: indestructible, hexproof, ward, persist, undying, or returns when it dies.",
+   "exclude": "Protecting other cards.",
+   "examples": "Darksteel Colossus",
+   "status": "existing"
+  },
+  {
+   "key": "pillowfort",
+   "label": "Pillow fort",
+   "group": "Defense",
+   "definition": "Discourages or limits attacks against you.",
+   "exclude": "Taxing spells (Stax).",
+   "examples": "Propaganda, Ghostly Prison, Maze of Ith",
+   "status": "new"
+  },
+  {
+   "key": "reanimate",
+   "label": "Reanimation",
+   "group": "Engines",
+   "definition": "Returns creatures or permanents from a graveyard to the battlefield.",
+   "exclude": "Return to hand (Recursion).",
+   "examples": "Animate Dead",
+   "status": "existing"
+  },
+  {
+   "key": "recursion",
+   "label": "Recursion",
+   "group": "Engines",
+   "definition": "Returns cards from your graveyard to your hand or library.",
+   "exclude": "Reanimation.",
+   "examples": "Eternal Witness",
+   "status": "existing"
+  },
+  {
+   "key": "cheat",
+   "label": "Cheat into play",
+   "group": "Engines",
+   "definition": "Puts permanents onto the battlefield without casting them, or casts other cards for free (cascade, discover).",
+   "exclude": "Land ramp; this card's own free cost (Free to cast).",
+   "examples": "Sneak Attack, Bloodbraid Elf",
+   "status": "existing"
+  },
+  {
+   "key": "tokens",
+   "label": "Tokens",
+   "group": "Engines",
+   "definition": "Creates creature tokens for you.",
+   "exclude": "Treasure, Clue and Food tokens.",
+   "examples": "Bitterblossom",
+   "status": "existing"
+  },
+  {
+   "key": "counters",
+   "label": "+1/+1 counters",
+   "group": "Engines",
+   "definition": "Puts +1/+1 counters on your creatures or rewards having them.",
+   "exclude": "-1/-1 counters.",
+   "examples": "Hardened Scales",
+   "status": "existing"
+  },
+  {
+   "key": "proliferate",
+   "label": "Proliferate",
+   "group": "Engines",
+   "definition": "Proliferates.",
+   "exclude": "",
+   "examples": "Flux Channeler",
+   "status": "existing"
+  },
+  {
+   "key": "sacoutlet",
+   "label": "Sac outlet",
+   "group": "Engines",
+   "definition": "Lets you sacrifice other permanents at will, cheaply and repeatably.",
+   "exclude": "Sacrificing only itself.",
+   "examples": "Viscera Seer",
+   "status": "existing"
+  },
+  {
+   "key": "death",
+   "label": "Death trigger",
+   "group": "Engines",
+   "definition": "Triggers or rewards you when creatures die.",
+   "exclude": "",
+   "examples": "Blood Artist",
+   "status": "existing"
+  },
+  {
+   "key": "lifegain",
+   "label": "Lifegain",
+   "group": "Engines",
+   "definition": "You gain life, including lifelink, or rewards life gain.",
+   "exclude": "Opponents gaining life.",
+   "examples": "Soul Warden",
+   "status": "existing"
+  },
+  {
+   "key": "drain",
+   "label": "Life drain",
+   "group": "Engines",
+   "definition": "Opponents lose life (not damage).",
+   "exclude": "Damage (Burn, Pinger).",
+   "examples": "Zulaport Cutthroat",
+   "status": "existing"
+  },
+  {
+   "key": "mill",
+   "label": "Mill",
+   "group": "Engines",
+   "definition": "Puts cards from an opponent's library into their graveyard.",
+   "exclude": "Milling yourself (Self-mill).",
+   "examples": "Maddening Cacophony",
+   "status": "changed"
+  },
+  {
+   "key": "selfmill",
+   "label": "Self-mill",
+   "group": "Engines",
+   "definition": "Puts cards from your library into your graveyard to fuel graveyard plans.",
+   "exclude": "Milling opponents.",
+   "examples": "Stitcher's Supplier",
+   "status": "new"
+  },
+  {
+   "key": "discard",
+   "label": "Discard",
+   "group": "Engines",
+   "definition": "Makes opponents discard.",
+   "exclude": "You discarding (a downside).",
+   "examples": "Hymn to Tourach",
+   "status": "existing"
+  },
+  {
+   "key": "copy",
+   "label": "Copy spells",
+   "group": "Engines",
+   "definition": "Copies spells or abilities.",
+   "exclude": "Copying permanents (Clone).",
+   "examples": "Reverberate",
+   "status": "existing"
+  },
+  {
+   "key": "clone",
+   "label": "Clone",
+   "group": "Engines",
+   "definition": "Copies a permanent: enters as a copy, becomes a copy, or makes token copies.",
+   "exclude": "",
+   "examples": "Clone, Spark Double",
+   "status": "existing"
+  },
+  {
+   "key": "landfall",
+   "label": "Landfall",
+   "group": "Engines",
+   "definition": "Triggers when lands enter under your control.",
+   "exclude": "",
+   "examples": "Lotus Cobra",
+   "status": "existing"
+  },
+  {
+   "key": "spellpayoff",
+   "label": "Spell payoff",
+   "group": "Engines",
+   "definition": "Triggers when you cast or copy an instant, sorcery or noncreature spell, or has prowess.",
+   "exclude": "Triggers on opponents' spells or on casting the card itself.",
+   "examples": "Guttersnipe, Young Pyromancer",
+   "status": "existing"
+  },
+  {
+   "key": "gycast",
+   "label": "Graveyard cast",
+   "group": "Engines",
+   "definition": "Lets you cast cards from a graveyard: flashback, escape, jump-start.",
+   "exclude": "",
+   "examples": "Underworld Breach",
+   "status": "existing"
+  },
+  {
+   "key": "triggerdouble",
+   "label": "Trigger doubler",
+   "group": "Engines",
+   "definition": "Makes triggered abilities trigger an additional time, or copies triggers.",
+   "exclude": "Copying spells (Copy spells).",
+   "examples": "Veyran, Panharmonicon, Strionic Resonator",
+   "status": "new"
+  },
+  {
+   "key": "doubler",
+   "label": "Doubler",
+   "group": "Engines",
+   "definition": "Doubles tokens, counters or mana you get.",
+   "exclude": "Damage (Damage amplifier).",
+   "examples": "Doubling Season, Mana Reflection",
+   "status": "new"
+  },
+  {
+   "key": "damageamp",
+   "label": "Damage amplifier",
+   "group": "Engines",
+   "definition": "Increases or doubles damage your sources deal.",
+   "exclude": "",
+   "examples": "Ojer Axonil, Torbran, Fiery Emancipation",
+   "status": "new"
+  },
+  {
+   "key": "artifactpay",
+   "label": "Artifact payoff",
+   "group": "Engines",
+   "definition": "Rewards casting artifacts or scales with artifacts you control.",
+   "exclude": "Being an artifact.",
+   "examples": "Urza, Lord High Artificer",
+   "status": "new"
+  },
+  {
+   "key": "enchantpay",
+   "label": "Enchantment payoff",
+   "group": "Engines",
+   "definition": "Rewards casting enchantments or scales with enchantments you control.",
+   "exclude": "Being an enchantment.",
+   "examples": "Enchantress's Presence",
+   "status": "new"
+  },
+  {
+   "key": "poison",
+   "label": "Poison / infect",
+   "group": "Engines",
+   "definition": "Infect, toxic, poison counters, or proliferating poison.",
+   "exclude": "",
+   "examples": "Blightsteel Colossus",
+   "status": "new"
+  },
+  {
+   "key": "cmdrpay",
+   "label": "Commander payoff",
+   "group": "Engines",
+   "definition": "Rules text refers to your commander or the command zone.",
+   "exclude": "",
+   "examples": "Jeska's Will, Command Tower",
+   "status": "new"
+  },
+  {
+   "key": "double",
+   "label": "Double power",
+   "group": "Combat",
+   "definition": "Doubles a creature's power.",
+   "exclude": "+X/+0 pumps.",
+   "examples": "Unleash Fury",
+   "status": "existing"
+  },
+  {
+   "key": "swap",
+   "label": "Switch P/T",
+   "group": "Combat",
+   "definition": "Switches power and toughness.",
+   "exclude": "",
+   "examples": "Twisted Image",
+   "status": "existing"
+  },
+  {
+   "key": "anthem",
+   "label": "Anthem",
+   "group": "Combat",
+   "definition": "Boosts your creatures as a group, as a static ability or a one-shot \"creatures you control get +N/+N\".",
+   "exclude": "One creature (Stat boost).",
+   "examples": "Glorious Anthem, Overrun",
+   "status": "existing"
+  },
+  {
+   "key": "pump",
+   "label": "Pump",
+   "group": "Combat",
+   "definition": "Temporary boost until end of turn.",
+   "exclude": "Lasting boosts.",
+   "examples": "Giant Growth",
+   "status": "existing"
+  },
+  {
+   "key": "buff",
+   "label": "Stat boost",
+   "group": "Combat",
+   "definition": "Makes one creature bigger for good: equipment and auras that add power, +1/+1 counters it puts on one creature, or a creature that gives itself +N/+N from a trigger or a condition.",
+   "exclude": "Team boosts (Anthem), until-end-of-turn pumps (Pump), paying mana to pump itself (Mana sink), power set by a count (Scaling body).",
+   "examples": "Bonesplitter, Rancor",
+   "status": "existing"
+  },
+  {
+   "key": "scaling",
+   "label": "Scaling body",
+   "group": "Combat",
+   "definition": "Its power or toughness is set by a count (\"equal to the number of\"), or it gets +N/+N for each of something.",
+   "exclude": "Bodies that grow by counters or pump abilities.",
+   "examples": "Tarmogoyf, Lord of Extinction",
+   "status": "existing"
+  },
+  {
+   "key": "extracombat",
+   "label": "Extra combat",
+   "group": "Combat",
+   "definition": "Gives additional combat phases.",
+   "exclude": "",
+   "examples": "Aggravated Assault",
+   "status": "existing"
+  },
+  {
+   "key": "untap",
+   "label": "Untap",
+   "group": "Combat",
+   "definition": "Untaps your permanents.",
+   "exclude": "",
+   "examples": "Seedborn Muse",
+   "status": "existing"
+  },
+  {
+   "key": "lure",
+   "label": "Lure",
+   "group": "Combat",
+   "definition": "Forces creatures to block it.",
+   "exclude": "",
+   "examples": "Lure",
+   "status": "existing"
+  },
+  {
+   "key": "animate",
+   "label": "Animate",
+   "group": "Combat",
+   "definition": "Turns noncreature permanents into creatures.",
+   "exclude": "",
+   "examples": "Mutavault",
+   "status": "existing"
+  },
+  {
+   "key": "manasink",
+   "label": "Mana sink",
+   "group": "Combat",
+   "definition": "A repeatable ability that pays mana to pump or animate this card itself (firebreathing, \"{1}: +1/+0\", a manland's own animation).",
+   "exclude": "Abilities that pay mana for anything else: counters on it, drawing, tokens, removal.",
+   "examples": "Shivan Dragon, Mishra's Factory",
+   "status": "existing"
+  },
+  {
+   "key": "evasion",
+   "label": "Evasion",
+   "group": "Combat",
+   "definition": "Flying, menace, trample, shadow, landwalk or can't be blocked, for itself or others.",
+   "exclude": "",
+   "examples": "Serra Angel",
+   "status": "existing"
+  },
+  {
+   "key": "deathtouch",
+   "label": "Deathtouch",
+   "group": "Combat",
+   "definition": "Has or grants deathtouch.",
+   "exclude": "",
+   "examples": "Typhoid Rats",
+   "status": "existing"
+  },
+  {
+   "key": "firststrike",
+   "label": "First strike",
+   "group": "Combat",
+   "definition": "Has or grants first strike or double strike.",
+   "exclude": "",
+   "examples": "Boros Swiftblade",
+   "status": "existing"
+  },
+  {
+   "key": "haste",
+   "label": "Haste",
+   "group": "Combat",
+   "definition": "Has or grants haste.",
+   "exclude": "",
+   "examples": "Lightning Greaves",
+   "status": "existing"
+  },
+  {
+   "key": "flash",
+   "label": "Flash",
+   "group": "Combat",
+   "definition": "Has flash, or lets you cast spells at instant speed.",
+   "exclude": "Instants.",
+   "examples": "Vedalken Orrery",
+   "status": "existing"
+  },
+  {
+   "key": "defender",
+   "label": "Defender",
+   "group": "Combat",
+   "definition": "Has defender.",
+   "exclude": "",
+   "examples": "Wall of Omens",
+   "status": "existing"
+  },
+  {
+   "key": "keyword",
+   "label": "Combat keyword",
+   "group": "Combat",
+   "definition": "Has or grants a combat keyword not covered elsewhere: vigilance, reach, lifelink-style keywords, exalted, mentor, ninjutsu, dash, blitz, myriad, rampage, bushido, \"can block additional creatures\".",
+   "exclude": "Flying, trample, menace (Evasion); first strike, deathtouch, haste have their own tags.",
+   "examples": "Vigilance creatures, Exalted creatures",
+   "status": "existing"
+  },
+  {
+   "key": "vanilla",
+   "label": "Vanilla",
+   "group": "Combat",
+   "definition": "A creature with no rules text beyond plain combat keywords and cost keywords (kicker, morph, echo).",
+   "exclude": "Any creature with a real ability, including shroud, hexproof or a drawback.",
+   "examples": "Grizzly Bears, Serra Angel",
+   "status": "existing"
+  },
+  {
+   "key": "extraturn",
+   "label": "Extra turn",
+   "group": "Politics",
+   "definition": "Takes extra turns.",
+   "exclude": "",
+   "examples": "Time Warp",
+   "status": "existing"
+  },
+  {
+   "key": "goad",
+   "label": "Goad",
+   "group": "Politics",
+   "definition": "Forces opponents' creatures to attack.",
+   "exclude": "",
+   "examples": "Disrupt Decorum",
+   "status": "existing"
+  },
+  {
+   "key": "monarch",
+   "label": "Monarch",
+   "group": "Politics",
+   "definition": "Makes you the monarch or takes the initiative.",
+   "exclude": "",
+   "examples": "Palace Jailer",
+   "status": "existing"
+  },
+  {
+   "key": "vote",
+   "label": "Vote",
+   "group": "Politics",
+   "definition": "Uses voting.",
+   "exclude": "",
+   "examples": "Council's Judgment",
+   "status": "existing"
+  },
+  {
+   "key": "grouphug",
+   "label": "Group hug",
+   "group": "Politics",
+   "definition": "Gives every player resources: cards, mana, lands or life.",
+   "exclude": "Symmetric effects that mainly hurt (Affects you too).",
+   "examples": "Howling Mine",
+   "status": "new"
+  },
+  {
+   "key": "kindred",
+   "label": "Kindred",
+   "group": "Kindred",
+   "definition": "Names or rewards a creature type: lords, type-matters triggers, tutoring or counting a type.",
+   "exclude": "Merely having a creature type.",
+   "examples": "Goblin King, Kindred Discovery",
+   "status": "existing"
+  },
+  {
+   "key": "fixing",
+   "label": "Fixing land",
+   "group": "Lands",
+   "definition": "A land that makes or finds two or more colors.",
+   "exclude": "",
+   "examples": "Steam Vents, Polluted Delta",
+   "status": "existing"
+  },
+  {
+   "key": "utilityland",
+   "label": "Utility land",
+   "group": "Lands",
+   "definition": "A land with a nonmana ability worth a slot.",
+   "exclude": "",
+   "examples": "Bojuka Bog, Maze of Ith",
+   "status": "existing"
+  },
+  {
+   "key": "basic",
+   "label": "Basic land",
+   "group": "Lands",
+   "definition": "Basic land.",
+   "exclude": "",
+   "examples": "Island",
+   "status": "existing"
+  },
+  {
+   "key": "monoland",
+   "label": "Mana land",
+   "group": "Lands",
+   "definition": "A land whose only job is tapping for one color or colorless: no second color, no other ability.",
+   "exclude": "Lands that make two or more colors (Fixing land) or do anything else (Utility land).",
+   "examples": "Ancient Tomb, Cabal Coffers",
+   "status": "existing"
+  },
+  {
+   "key": "etb",
+   "label": "Enters trigger",
+   "group": "Triggers",
+   "definition": "Has a trigger when it, or another creature, enters the battlefield.",
+   "exclude": "Landfall (lands entering); static effects.",
+   "examples": "Mulldrifter",
+   "status": "existing"
+  },
+  {
+   "key": "attack",
+   "label": "Attack trigger",
+   "group": "Triggers",
+   "definition": "Does something when it attacks, is blocked, or deals combat damage to a player.",
+   "exclude": "Enters or death triggers.",
+   "examples": "Hellrider, Ophidian",
+   "status": "existing"
+  },
+  {
+   "key": "aura",
+   "label": "Aura",
+   "group": "Permanents",
+   "definition": "Aura (card type only; never a card's main tag).",
+   "exclude": "",
+   "examples": "Curiosity",
+   "status": "existing"
+  },
+  {
+   "key": "equipment",
+   "label": "Equipment",
+   "group": "Permanents",
+   "definition": "Equipment (card type only).",
+   "exclude": "",
+   "examples": "Swiftfoot Boots",
+   "status": "existing"
+  },
+  {
+   "key": "vehicle",
+   "label": "Vehicle",
+   "group": "Permanents",
+   "definition": "Vehicle (card type only).",
+   "exclude": "",
+   "examples": "Smuggler's Copter",
+   "status": "existing"
+  },
+  {
+   "key": "saga",
+   "label": "Saga / class",
+   "group": "Permanents",
+   "definition": "Saga, Class, Case or Room (card type only).",
+   "exclude": "",
+   "examples": "Artist's Talent",
+   "status": "existing"
+  },
+  {
+   "key": "planeswalker",
+   "label": "Planeswalker",
+   "group": "Permanents",
+   "definition": "Planeswalker (card type only).",
+   "exclude": "",
+   "examples": "Jace, the Mind Sculptor",
+   "status": "existing"
+  },
+  {
+   "key": "lifecost",
+   "label": "Costs life",
+   "group": "Downsides",
+   "definition": "You pay or lose life: life in a cost, Phyrexian mana, 'you lose life', damage from your own land or rock.",
+   "exclude": "",
+   "examples": "Mana Confluence, Dismember",
+   "status": "downside"
+  },
+  {
+   "key": "selfdiscard",
+   "label": "You discard",
+   "group": "Downsides",
+   "definition": "You discard cards: discard as a cost or an effect on you.",
+   "exclude": "Making opponents discard.",
+   "examples": "Faithless Looting",
+   "status": "downside"
+  },
+  {
+   "key": "sacrifice",
+   "label": "Sacrifice cost",
+   "group": "Downsides",
+   "definition": "You sacrifice a creature, land or nontoken permanent you'd want to keep.",
+   "exclude": "Sacrificing Treasures, Clues or the card itself.",
+   "examples": "Village Rites",
+   "status": "downside"
+  },
+  {
+   "key": "exilecost",
+   "label": "Exiles your cards",
+   "group": "Downsides",
+   "definition": "Exiles cards from your hand or graveyard to pay.",
+   "exclude": "Delve-only cost reduction.",
+   "examples": "Force of Will",
+   "status": "downside"
+  },
+  {
+   "key": "helpsopp",
+   "label": "Helps an opponent",
+   "group": "Downsides",
+   "definition": "The opponent gets a token, Treasures, cards, life or a land.",
+   "exclude": "Symmetric effects (Affects you too).",
+   "examples": "Pongify, Arcane Denial",
+   "status": "downside"
+  },
+  {
+   "key": "upkeep",
+   "label": "Upkeep cost",
+   "group": "Downsides",
+   "definition": "Ongoing payment to keep it: cumulative upkeep, echo, fading, vanishing, 'pay or sacrifice', pacts.",
+   "exclude": "One-time costs.",
+   "examples": "Mystic Remora",
+   "status": "downside"
+  },
+  {
+   "key": "tapped",
+   "label": "Enters tapped",
+   "group": "Downsides",
+   "definition": "Always enters tapped.",
+   "exclude": "Checklands, fastlands and other conditional lands.",
+   "examples": "Thundering Falls",
+   "status": "downside"
+  },
+  {
+   "key": "symmetric",
+   "label": "Affects you too",
+   "group": "Downsides",
+   "definition": "The effect hits you as well: each player draws, discards or sacrifices.",
+   "exclude": "Board wipes (that's their job).",
+   "examples": "Wheel of Fortune",
+   "status": "downside"
+  },
+  {
+   "key": "restricted",
+   "label": "Combat drawback",
+   "group": "Downsides",
+   "definition": "Restrictions on its own combat: can't block, attacks each combat, doesn't untap.",
+   "exclude": "Defender (its own tag).",
+   "examples": "Juggernaut",
+   "status": "downside"
+  }
+ ]
+}

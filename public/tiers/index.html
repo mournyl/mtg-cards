@@ -146,6 +146,20 @@
     ptKeys(e).forEach(k => b.push(badge(PT_NAMES[k], ROLE_COL(), "Kind of protection")));
     return b.join("");
   }
+  // what each card does (data/cards.json): loaded alongside the lists, shown once it's here
+  let idx = null;
+  M.loadCards().then(i => { idx = i; if (role) render(); else if (state.q) renderFind(); }).catch(() => {});
+  // up to two function tags that don't repeat this list or its protection kinds
+  const PT_TAG = { phasing: "phasing", blink: "blink", hexproof: "protect", shroud: "protect", indestructible: "protect", protection: "protect", ward: "protect" };
+  // sub-lists that already say what a tag would
+  const SUB_TAG = { "removal/bounce": "bounce", "recursion/reanimate": "reanimate", "recursion/cast": "gycast", "lands/fixing": "fixing",
+    "lands/utility": "utilityland", "counterspells/stack": "bounce" };
+  function funcTags(e, n = 2, roleKeys = [state.role]) {
+    const c = idx && M.findCard(idx, e.n); if (!c) return "";
+    const dup = new Set(ptKeys(e).map(k => PT_TAG[k]).filter(Boolean));
+    if (SUB_TAG[state.role + "/" + e.sub]) dup.add(SUB_TAG[state.role + "/" + e.sub]);
+    return M.showTags(c, n + dup.size, roleKeys).filter(k => !dup.has(k)).slice(0, n).map(k => M.ftag(idx, k)).join("");
+  }
   // tags under a card tile: one per row, an icon block + label (tier letters are the only color)
   function tileTags(e) {
     const t = [];
@@ -154,7 +168,7 @@
     if (e.gc) t.push(M.tag({ icon: "star", text: "Game Changer" }));
     if (e.free) t.push(M.tag({ icon: "free", text: "Free option" }));
     if (e.soft) t.push(M.tag({ icon: "soft", text: "Soft counter", title: "They can pay to keep the spell" }));
-    return t.join("");
+    return t.join("") + funcTags(e);
   }
   const ROLE_COL = () => (M.ROLE_INFO[state.role] || {}).col || "#8c8c8c";
   const subName = k => (role.subs.find(s => s.key === k) || { name: k }).name;
@@ -202,7 +216,7 @@
     const hits = []; for (const c of idx.list) { if (c.roles.length && M.norm(c.n).includes(q)) { hits.push(c); if (hits.length >= 60) break; } }
     hits.sort((a, b) => (M.norm(a.n).startsWith(q) ? 0 : 1) - (M.norm(b.n).startsWith(q) ? 0 : 1) || Math.max(...b.roles.map(x => x.s)) - Math.max(...a.roles.map(x => x.s)));
     const places = c => c.roles.slice().sort((a, b) => b.s - a.s);
-    const tierTag = x => M.tag({ tier: x.t, text: M.ROLE_INFO[x.k].label, rank: "#" + fmt(x.r), href: "#" + x.k, title: `${M.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}` });
+    const tierTag = x => M.tag({ tier: x.t, html: M.tierLabel(x.k), rank: "#" + fmt(x.r), href: "#" + x.k, title: `${M.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}` });
     const body = !hits.length ? `<p class="empty">No card on any list matches “${esc(state.q)}”.</p>`
       : M.condensed()
         ? `<div class="rows">` + hits.map(c => `<button type="button" class="row" data-n="${esc(c.n)}" style="grid-template-columns:minmax(170px,1fr) minmax(0,2fr)">` +
@@ -211,7 +225,7 @@
         : `<div class="grid findgrid">` + hits.map(c => {
             const src = M.img(c.n, "normal");
             const face = src ? `<img loading="lazy" src="${src}" alt="${esc(c.n)}" onload="this.classList.add('in')">` : `<span class="lbl"><b>${esc(c.n)}</b><span>${cost(c.cost)}</span></span>`;
-            return `<div class="tile"><button type="button" class="card" data-n="${esc(c.n)}" aria-label="${esc(c.n)}">${face}</button><div class="tags">${places(c).map(tierTag).join("")}</div></div>`;
+            return `<div class="tile"><button type="button" class="card" data-n="${esc(c.n)}" aria-label="${esc(c.n)}">${face}</button><div class="tags">${places(c).map(tierTag).join("")}${M.ftags(idx, c, 2, c.roles.map(x => x.k))}</div></div>`;
           }).join("") + `</div>`;
     $("board").innerHTML = `<div class="findbar"><span class="muted">${fmt(hits.length)} card${hits.length === 1 ? "" : "s"} on the tier lists</span></div>` + body;
     if (hits.length && !M.condensed()) M.scryfall(hits.map(c => c.n)).then(ok => { if (ok && !role && state.q) renderFind(); });

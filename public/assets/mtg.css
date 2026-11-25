@@ -164,6 +164,7 @@ html[data-size="medium"] .card .lbl span{display:none}
   .tier .grid{row-gap:6px}
   .tier .grid>.tile{display:grid;grid-row:span 3;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:6px;margin-bottom:12px;align-content:start}
 .tile .why{overflow-wrap:anywhere}
+  .tier .grid>.tile>.tags{align-self:start}   /* tops line up; each box keeps its own height */
 }
 /* filter levels on a tier list: one labeled row each, so a wrapped row never reads as a new one */
 .levels{max-width:1000px;margin:22px auto 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);text-align:left}
@@ -180,6 +181,8 @@ html[data-size="medium"] .card .lbl span{display:none}
 /* tags under card tiles: one per row, 28px block (tier letter in its color, or a gray line icon) + label */
 .tags{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:var(--radius);background:var(--panel);overflow:hidden}
 .tags:empty{display:none}
+.tags.down{border-style:dashed}   /* downsides: what a card costs you */
+.tags.down .ti{background:transparent;border:1px solid var(--line2)}
 .tag{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:12px;padding:8px 12px;font:400 15px/1.3 var(--ui);color:var(--text);text-decoration:none;text-align:left;min-width:0}
 .tag+.tag{border-top:1px solid var(--line)}
 a.tag,button.tag{cursor:pointer}
@@ -195,6 +198,18 @@ a.tag:hover,button.tag:hover{background:var(--panel2)}
 .tag .ids{display:inline-flex;gap:3px;vertical-align:middle;margin-right:8px}
 .tag .ids .ms{width:18px;height:18px;margin:0}
 .tag .mut{color:var(--muted)}
+.tag .sh{display:none}
+html[data-size="full"] .tile .tag .lg,html[data-size="medium"] .tile .tag .lg{display:none}
+html[data-size="full"] .tile .tag .sh,html[data-size="medium"] .tile .tag .sh{display:inline}
+@media (max-width:760px){ .tile .tag .lg{display:none} .tile .tag .sh{display:inline} }
+/* the card sheet's "What it does": every tag, in a wrapping grid, always with its label */
+.tags.wide{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;border:0;background:none;overflow:visible;margin-bottom:14px}
+.tags.wide .tag{width:auto;border:1px solid var(--line2);border-radius:var(--radius);background:var(--panel);font-size:14px;padding:6px 12px 6px 6px;gap:10px}
+.tags.wide .tag+.tag{border-top:1px solid var(--line2)}
+.tags.wide .tag:hover{background:var(--panel2)}
+.tags.wide .tag .ti{width:24px;height:24px}
+html[data-size] .tags.wide .tag .tx{display:block}
+html[data-size] .tags.wide .tag{justify-content:flex-start}
 .badge{font-size:11px;line-height:1.6;padding:0 8px;border-radius:5px;border:1px solid var(--line2);color:var(--soft);background:#141414;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;text-decoration:none}
 .badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--bc,#8c8c8c)}
 .badge.ids{gap:1px;padding:0 6px}

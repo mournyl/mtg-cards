@@ -33,7 +33,8 @@ async function newPage(browser, mode, viewport) {
     r.fulfill({ status: 200, contentType: "image/svg+xml", body: `<svg xmlns="http://www.w3.org/2000/svg" width="488" height="680"><rect width="488" height="680" rx="22" fill="#2a3550"/><text x="24" y="60" font-size="30" fill="#fff" font-family="sans-serif">${name.replace(/[<&]/g, "")}</text></svg>` });
   });
   await page.route("https://api.scryfall.com/**", async r => {
-    sf.push({ t: Date.now(), url: r.request().url() });
+    let doc = ""; try { doc = r.request().frame().url().split("#")[0]; } catch { /* no frame */ }
+    sf.push({ t: Date.now(), url: r.request().url(), doc });
     if (mode === "text") return r.abort();
     const url = new URL(r.request().url());
     if (url.pathname === "/cards/collection") {
@@ -139,6 +140,10 @@ async function newPage(browser, mode, viewport) {
     ok(ph.includes("Slip Out the Back") && ph.includes("Teferi's Protection") && !ph.includes("Lightning Greaves"), `protection type filter: phasing (${ph.length} cards)`);
     const slip = await page.$$eval(".tile", ts => { const t = ts.find(x => x.querySelector("[data-n='Slip Out the Back']")); return t ? [...t.querySelectorAll(".tags .tag")].map(r => (r.querySelector(".ti svg") ? "icon " : "") + r.textContent.trim()) : []; });
     ok(slip.includes("icon One creature") && slip.includes("icon Phasing"), "tile tags are rows with icons: " + slip.join(" | "));
+    ok(slip.filter(t => /Phasing/.test(t)).length === 1, "a function tag doesn't repeat the protection kind (one Phasing row)");
+    await page.goto(`${BASE}/tiers/#counterspells`); await page.waitForSelector(".tier .card"); await page.waitForTimeout(500);
+    const ftags = await page.$$eval(".tier .tile .tags a.tag[href*='role=']", as => as.map(a => a.textContent.trim()));
+    ok(ftags.length > 0 && !ftags.includes("Counterspell"), "tier tiles add what else a card does, not the list's own job: " + [...new Set(ftags)].slice(0, 6).join(", "));
     // card sheet
     await page.goto(`${BASE}/tiers/#draw`); await page.waitForTimeout(300); await page.waitForSelector(".tier .card");
     await page.fill("#q", "divination"); await page.waitForTimeout(400);
@@ -146,6 +151,8 @@ async function newPage(browser, mode, viewport) {
     await page.waitForSelector("#cardModal.open .trole");
     const sheet = await page.textContent("#cardModal");
     ok(sheet.includes("Card draw") && sheet.includes("Better card draw"), "card sheet shows tiers and better options");
+    const what = await page.$$eval("#cardModal .tags.wide a.tag", as => as.map(a => a.textContent.trim() + " -> " + a.getAttribute("href")));
+    ok(what.some(t => /^Card draw -> .*#role=draw$/.test(t)), "the sheet lists what the card does, each tag linking to card search: " + what.join(" | "));
     await page.screenshot({ path: `${OUT}/card-sheet-${mode}.png` });
     ok(!(await page.$("[data-feedback]")) && !/Suggest a tier/.test(sheet), "no tier feedback in the card sheet");
     // Back walks back through the cards you opened, then closes the sheet
@@ -169,8 +176,9 @@ async function newPage(browser, mode, viewport) {
     await page.goBack(); await page.waitForTimeout(400);
     ok(!(await page.$("#cardModal.open")), "Back after closing doesn't reopen old cards");
     if (mode === "images") {
-      const gaps = sf.slice(1).map((x, i) => x.t - sf[i].t);
-      ok(gaps.every(g => g >= 500), `Scryfall calls are at least 500 ms apart (${sf.length} calls, min gap ${gaps.length ? Math.min(...gaps) : "n/a"} ms)`);
+      // pacing is per page: a new page can't know when the last one asked
+      const gaps = sf.slice(1).map((x, i) => x.doc === sf[i].doc ? x.t - sf[i].t : Infinity).filter(g => g !== Infinity);
+      ok(gaps.every(g => g >= 500), `Scryfall calls are at least 500 ms apart on each page (${sf.length} calls, min gap ${gaps.length ? Math.min(...gaps) : "n/a"} ms)`);
     }
     ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
     await ctx.close();
@@ -186,7 +194,9 @@ async function newPage(browser, mode, viewport) {
       const tierTags = await page.$$eval("#grid .tile .tags a.tag", els => els.map(a => a.querySelector(".ti").textContent + " " + a.querySelector(".tx").textContent + " " + a.querySelector(".rk").textContent));
       ok(tierTags.includes("S Ramp #1"), "result tiles show tier rows (Sol Ring: S Ramp #1)");
       ok(await page.$$eval("#grid .tile .tags", els => els.every(t => getComputedStyle(t).flexDirection === "column")), "tile tags stack one per row");
-      ok(await page.$$eval("#grid .tile button.tag[data-role='draw'] .ti svg", els => els.length > 0), "role rows lead with an icon block (Card draw)");
+      ok(await page.$$eval("#grid .tile button.tag[data-role] .ti svg", els => els.length > 0), "function tag rows lead with an icon block");
+      const cultTags = await page.$$eval("#grid .tile", ts => { const t = ts.find(x => x.querySelector("img[alt='Cultivate']")); return t ? [...t.querySelectorAll(".tag")].map(g => g.textContent.trim()) : []; });
+      ok(cultTags.some(t => /Ramp/.test(t)) && cultTags.includes("Card selection") && cultTags.filter(t => /Ramp/.test(t)).length === 1, "Cultivate: its Ramp tier row, then Card selection (no repeat): " + cultTags.join(" | "));
       ok(await page.$$eval("#grid .tile .tag", els => els.some(t => /Game Changer/.test(t.textContent) && t.querySelector(".ti svg"))), "Game Changer gets its own row on search tiles");
       await page.click("#filtersBtn");
       await page.selectOption("#tier", "B"); await page.waitForTimeout(2500);
@@ -202,6 +212,7 @@ async function newPage(browser, mode, viewport) {
       ok(gaps.every(g => g >= 500), `search pages are paced 500 ms+ apart (min gap ${Math.min(...gaps)} ms)`);
       await page.click("#grid .tile .card"); await page.waitForSelector("#tierBox .tierrows");
       ok((await page.textContent("#tierBox")).includes("Tiers"), "card modal shows tiers");
+      ok((await page.$$("#whatBox .tags.wide button.tag[data-role]")).length > 0, "card modal lists the card's tags");
       ok(!(await page.$("#suggestTier")), "no tier feedback in the search popup");
       await page.screenshot({ path: `${OUT}/search-modal.png` });
       await page.keyboard.press("Escape"); await page.waitForTimeout(400);
@@ -215,6 +226,26 @@ async function newPage(browser, mode, viewport) {
       }
       await page.keyboard.press("Escape"); await page.waitForTimeout(400);
       ok(!(await page.isVisible("#modal.open")), "search popup closes");
+      // the Tag filter: grouped, searched from the site's own list (no Scryfall search), pictures from the collection endpoint
+      await page.goto(`${BASE}/`); await page.waitForTimeout(300);
+      const groups = await page.$$eval("#role optgroup", gs => gs.map(g => g.label));
+      ok(groups.includes("Interaction") && groups.includes("Combat") && (await page.$$("#role option")).length > 60, "Tag filter is grouped: " + groups.join(", "));
+      const before = sf.filter(x => x.url.includes("/cards/search")).length;
+      await page.selectOption("#role", "pinger"); await page.click("#go"); await page.waitForSelector("#grid .tile"); await page.waitForTimeout(600);
+      const st = await page.textContent("#status");
+      ok(/\d+ cards tagged pinger/.test(st) && sf.filter(x => x.url.includes("/cards/search")).length === before, "a tag alone searches the site's list: " + st.trim().slice(0, 60));
+      const pingNames = await page.$$eval("#grid .tile .card img", els => els.map(e => e.alt));
+      const allPing = await page.evaluate(async ns => { const i = await window.MTG.loadCards(); return ns.every(n => (window.MTG.findCard(i, n)?.tags || []).includes("pinger")); }, pingNames);
+      ok(pingNames.length === 60 && allPing, `first page shows 60 cards, every one tagged pinger (${pingNames.slice(0, 4).join(", ")}…)`);
+      await page.click("#filtersBtn"); await page.click(".pip[data-c='R']"); await page.waitForTimeout(1500);
+      const redPing = await page.textContent("#status");
+      ok(/cards tagged pinger/.test(redPing) && +redPing.match(/([\d,]+) cards/)[1].replace(",", "") < +st.match(/([\d,]+) cards/)[1].replace(",", ""), "colors narrow a tag search: " + redPing.trim().slice(0, 40));
+      await page.goto(`${BASE}/#role=swap`); await page.waitForSelector("#grid .tile"); await page.waitForTimeout(400);
+      ok((await page.$$eval("#grid .tile .card img", els => els.map(e => e.alt))).includes("Twisted Image"), "a #role= link opens that tag (Twisted Image switches power and toughness)");
+      await page.fill("#q", "t:instant"); await page.keyboard.press("Enter"); await page.waitForTimeout(3500);
+      const both = await page.$$eval("#grid .tile .card img", els => els.map(e => e.alt));
+      ok(!both.length || both.every(n => n === "Twisted Image"), "a tag with a text search filters Scryfall's results: " + (both.join(", ") || "none") + " · " + (await page.textContent("#status")).trim().slice(0, 50));
+      await page.fill("#q", ""); await page.selectOption("#role", ""); await page.waitForTimeout(200);
     } else {
       ok(await page.$eval("#format", e => e.value) === "commander", "format starts on Commander");
       const box = await page.$eval("#heroFilters #filters", f => ({ w: f.getBoundingClientRect().width, cols: getComputedStyle(f).gridTemplateColumns.split(" ").length, chips: document.querySelector("#chips").getBoundingClientRect().width }));
@@ -295,11 +326,20 @@ async function newPage(browser, mode, viewport) {
     const bearRecs = await page.$$eval("#cardModal .sheet h3", hs => hs.map(h => h.textContent).filter(h => /Recommended/.test(h)));
     ok(bearRecs.length >= 1, "a card on no tier list still gets recommendations: " + bearRecs.join(" | "));
     await page.keyboard.press("Escape"); await page.waitForTimeout(300);
+    await page.fill("#addCard", "blood artist"); await page.waitForSelector("#sugg:not([hidden])"); await page.keyboard.press("Enter"); await page.waitForTimeout(300);
+    await page.click(".sizetop [data-size=full]"); await page.click("#groupSeg [data-g=role]"); await page.waitForTimeout(300);
+    ok(await inGroup("Death trigger", "Blood Artist") && await inGroup("Other creatures", "Grizzly Bears"), "Role grouping: a card on no tier list goes under its main tag (Blood Artist: Death trigger)");
+    await page.click("#groupSeg [data-g=tag]"); await page.waitForTimeout(300);
+    const tagGroups = await page.$$eval("#groups .dgh span", s => s.map(x => x.textContent));
+    ok(tagGroups.includes("Mana generation") && tagGroups.includes("Extra lands") && tagGroups.includes("Counterspell") && tagGroups.includes("Lands"), "Tag grouping: " + tagGroups.join(", "));
+    const artistTags = await page.$$eval("#groups .tile", ts => { const t = ts.find(x => x.querySelector("[data-open='Blood Artist']")); return t ? [...t.querySelectorAll(".tag")].map(g => g.textContent.trim()) : []; });
+    ok(artistTags.includes("Death trigger") && artistTags.length <= 4, "deck tiles show function tags: " + artistTags.join(" | "));
+    await page.click("#groupSeg [data-g=role]"); await page.click(".sizetop [data-size=condensed]"); await page.waitForTimeout(200);
     await page.evaluate(() => window.MTG.openCard("Some Card Not In The List", {})); await page.waitForTimeout(600);
     ok(await page.isVisible("#cardModal.open") && /Some Card Not In The List/.test(await page.textContent("#cardModal .nameline h2")), "a card missing from the site's list still opens");
     await page.keyboard.press("Escape"); await page.waitForTimeout(300);
     // remove the extra cards again so the later counts hold
-    await page.evaluate(([n]) => { const d = JSON.parse(localStorage.getItem("mournyl-mtg-decks")); d[0].cards = d[0].cards.filter(c => c.n !== n && c.n !== "Grizzly Bears"); localStorage.setItem("mournyl-mtg-decks", JSON.stringify(d)); }, [recNames[0]]);
+    await page.evaluate(([n]) => { const d = JSON.parse(localStorage.getItem("mournyl-mtg-decks")); d[0].cards = d[0].cards.filter(c => c.n !== n && c.n !== "Grizzly Bears" && c.n !== "Blood Artist"); localStorage.setItem("mournyl-mtg-decks", JSON.stringify(d)); }, [recNames[0]]);
     // + Add to deck from the tier lists
     await page.goto(`${BASE}/tiers/#ramp`); await page.waitForSelector(".tier .rows .row");
     ok(true, "Condensed stays on across pages");

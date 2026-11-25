@@ -1,0 +1,467 @@
+{
+"Twisted Image": {
+"name": "Twisted Image",
+"front": "Twisted Image",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Twisted Image",
+"types": "Instant",
+"oracle": "Switch target creature's power and toughness until end of turn.\nDraw a card.",
+"lines": [
+"A:SP$ Pump | ValidTgts$ Creature | KW$ HIDDEN CARDNAME's power and toughness are switched | SpellDescription$ Switch target creature's power and toughness until end of turn. | SubAbility$ DBDraw",
+"SVar:DBDraw:DB$ Draw | SpellDescription$ Draw a card."
+]
+}
+]
+},
+"Bulk Up": {
+"name": "Bulk Up",
+"front": "Bulk Up",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Bulk Up",
+"types": "Instant",
+"oracle": "Double target creature's power until end of turn.\nFlashback {4}{R}{R} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+"lines": [
+"A:SP$ Pump | ValidTgts$ Creature | NumAtt$ Double | StackDescription$ REP target creature_{c:Targeted} | SpellDescription$ Double target creature's power until end of turn.",
+"K:Flashback:4 R R"
+]
+}
+]
+},
+"Reality Ripple": {
+"name": "Reality Ripple",
+"front": "Reality Ripple",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Reality Ripple",
+"types": "Instant",
+"oracle": "Target artifact, creature, or land phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before its controller untaps during their next untap step.)",
+"lines": [
+"A:SP$ Phases | ValidTgts$ Artifact,Creature,Land | TgtPrompt$ Select target artifact, creature or land | IsCurse$ True | SpellDescription$ Target artifact, creature, or land phases out. (While it's phased out, it's treated as though it doesn't exist. It phases in before its controller untaps during their next untap step.)"
+]
+}
+]
+},
+"Prodigal Pyromancer": {
+"name": "Prodigal Pyromancer",
+"front": "Prodigal Pyromancer",
+"types": "Creature Human Wizard",
+"alt": "",
+"faces": [
+{
+"name": "Prodigal Pyromancer",
+"types": "Creature Human Wizard",
+"oracle": "{T}: Prodigal Pyromancer deals 1 damage to any target.",
+"lines": [
+"A:AB$ DealDamage | Cost$ T | ValidTgts$ Any | NumDmg$ 1 | SpellDescription$ CARDNAME deals 1 damage to any target.",
+"SVar:NonCombatPriority:1"
+]
+}
+]
+},
+"Kessig Flamebreather": {
+"name": "Kessig Flamebreather",
+"front": "Kessig Flamebreather",
+"types": "Creature Human Shaman",
+"alt": "",
+"faces": [
+{
+"name": "Kessig Flamebreather",
+"types": "Creature Human Shaman",
+"oracle": "Whenever you cast a noncreature spell, Kessig Flamebreather deals 1 damage to each opponent.",
+"lines": [
+"T:Mode$ SpellCast | ValidCard$ Card.nonCreature | ValidActivatingPlayer$ You | Execute$ TrigDamage | TriggerZones$ Battlefield | TriggerDescription$ Whenever you cast a noncreature spell, CARDNAME deals 1 damage to each opponent.",
+"SVar:TrigDamage:DB$ DealDamage | Defined$ Player.Opponent | NumDmg$ 1",
+"SVar:BuffedBy:Card.nonLand+nonCreature"
+]
+}
+]
+},
+"Slip Out the Back": {
+"name": "Slip Out the Back",
+"front": "Slip Out the Back",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Slip Out the Back",
+"types": "Instant",
+"oracle": "Put a +1/+1 counter on target creature. It phases out. (Treat it and anything attached to it as though they don't exist until your next turn.)",
+"lines": [
+"A:SP$ PutCounter | ValidTgts$ Creature | CounterType$ P1P1 | SubAbility$ DBPhase | SpellDescription$ Put a +1/+1 counter on target creature. It phases out. (Treat it and anything attached to it as though they don't exist until your next turn.)",
+"SVar:DBPhase:DB$ Phases | Defined$ Targeted"
+]
+}
+]
+},
+"Vex": {
+"name": "Vex",
+"front": "Vex",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Vex",
+"types": "Instant",
+"oracle": "Counter target spell. That spell's controller may draw a card.",
+"lines": [
+"A:SP$ Counter | TargetType$ Spell | TgtPrompt$ Select target spell | ValidTgts$ Card | SubAbility$ DBDraw | SpellDescription$ Counter target spell. That spell's controller may draw a card.",
+"SVar:DBDraw:DB$ Draw | Defined$ TargetedController | NumCards$ 1 | OptionalDecider$ TargetedController"
+]
+}
+]
+},
+"Liliana's Shade": {
+"name": "Liliana's Shade",
+"front": "Liliana's Shade",
+"types": "Creature Shade",
+"alt": "",
+"faces": [
+{
+"name": "Liliana's Shade",
+"types": "Creature Shade",
+"oracle": "When Liliana's Shade enters, you may search your library for a Swamp card, reveal it, put it into your hand, then shuffle.\n{B}: Liliana's Shade gets +1/+1 until end of turn.",
+"lines": [
+"A:AB$ Pump | Cost$ B | NumAtt$ +1 | NumDef$ +1 | SpellDescription$ CARDNAME gets +1/+1 until end of turn.",
+"T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ TrigChange | OptionalDecider$ You | TriggerDescription$ When CARDNAME enters, you may search your library for a Swamp card, reveal it, put it into your hand, then shuffle.",
+"SVar:TrigChange:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Swamp | ChangeNum$ 1 | ShuffleNonMandatory$ True"
+]
+}
+]
+},
+"Wild Nacatl": {
+"name": "Wild Nacatl",
+"front": "Wild Nacatl",
+"types": "Creature Cat Warrior",
+"alt": "",
+"faces": [
+{
+"name": "Wild Nacatl",
+"types": "Creature Cat Warrior",
+"oracle": "Wild Nacatl gets +1/+1 as long as you control a Mountain.\nWild Nacatl gets +1/+1 as long as you control a Plains.",
+"lines": [
+"S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ 1 | AddToughness$ 1 | IsPresent$ Mountain.YouCtrl | Description$ CARDNAME gets +1/+1 as long as you control a Mountain.",
+"S:Mode$ Continuous | AffectedDefined$ Self | AddPower$ 1 | AddToughness$ 1 | IsPresent$ Plains.YouCtrl | Description$ CARDNAME gets +1/+1 as long as you control a Plains."
+]
+}
+]
+},
+"In Bolas's Clutches": {
+"name": "In Bolas's Clutches",
+"front": "In Bolas's Clutches",
+"types": "Legendary Enchantment Aura",
+"alt": "",
+"faces": [
+{
+"name": "In Bolas's Clutches",
+"types": "Legendary Enchantment Aura",
+"oracle": "Enchant permanent\nYou control enchanted permanent.\nEnchanted permanent is legendary.",
+"lines": [
+"K:Enchant:Permanent",
+"SVar:AttachAILogic:GainControl",
+"S:Mode$ Continuous | AffectedDefined$ Enchanted | Affected$ Permanent | GainControl$ You | Description$ You control enchanted permanent.",
+"S:Mode$ Continuous | AffectedDefined$ Enchanted | Affected$ Permanent | AddType$ Legendary | Description$ Enchanted permanent is legendary."
+]
+}
+]
+},
+"Kessig Forgemaster": {
+"name": "Kessig Forgemaster // Flameheart Werewolf",
+"front": "Kessig Forgemaster",
+"types": "Creature Human Shaman Werewolf",
+"alt": "DoubleFaced",
+"faces": [
+{
+"name": "Kessig Forgemaster",
+"types": "Creature Human Shaman Werewolf",
+"oracle": "Whenever Kessig Forgemaster blocks or becomes blocked by a creature, Kessig Forgemaster deals 1 damage to that creature.\nAt the beginning of each upkeep, if no spells were cast last turn, transform Kessig Forgemaster.",
+"lines": [
+"T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigDamageAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, CARDNAME deals 1 damage to that creature.",
+"T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigDamageBlocker | Secondary$ True | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, CARDNAME deals 1 damage to that creature.",
+"SVar:TrigDamageAttacker:DB$ DealDamage | Defined$ TriggeredAttackerLKICopy | NumDmg$ 1",
+"SVar:TrigDamageBlocker:DB$ DealDamage | Defined$ TriggeredBlockerLKICopy | NumDmg$ 1",
+"T:Mode$ Phase | Phase$ Upkeep | WerewolfTransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if no spells were cast last turn, transform CARDNAME.",
+"SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform"
+]
+},
+{
+"name": "Flameheart Werewolf",
+"types": "Creature Werewolf",
+"oracle": "Whenever Flameheart Werewolf blocks or becomes blocked by a creature, Flameheart Werewolf deals 2 damage to that creature.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform Flameheart Werewolf.",
+"lines": [
+"T:Mode$ AttackerBlockedByCreature | ValidCard$ Creature | ValidBlocker$ Card.Self | Execute$ TrigDamageAttacker | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, CARDNAME deals 2 damage to that creature.",
+"T:Mode$ AttackerBlockedByCreature | ValidCard$ Card.Self | ValidBlocker$ Creature | Execute$ TrigDamageBlocker | Secondary$ True | TriggerDescription$ Whenever CARDNAME blocks or becomes blocked by a creature, CARDNAME deals 2 damage to that creature.",
+"SVar:TrigDamageAttacker:DB$ DealDamage | Defined$ TriggeredAttackerLKICopy | NumDmg$ 2",
+"SVar:TrigDamageBlocker:DB$ DealDamage | Defined$ TriggeredBlockerLKICopy | NumDmg$ 2",
+"T:Mode$ Phase | Phase$ Upkeep | WerewolfUntransformCondition$ True | TriggerZones$ Battlefield | Execute$ TrigTransform | TriggerDescription$ At the beginning of each upkeep, if a player cast two or more spells last turn, transform CARDNAME.",
+"SVar:TrigTransform:DB$ SetState | Defined$ Self | Mode$ Transform"
+]
+}
+]
+},
+"Lightning Greaves": {
+"name": "Lightning Greaves",
+"front": "Lightning Greaves",
+"types": "Artifact Equipment",
+"alt": "",
+"faces": [
+{
+"name": "Lightning Greaves",
+"types": "Artifact Equipment",
+"oracle": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)\nEquip {0}",
+"lines": [
+"K:Equip:0",
+"S:Mode$ Continuous | AffectedDefined$ Equipped | Affected$ Creature | AddKeyword$ Haste & Shroud | Description$ Equipped creature has haste and shroud."
+]
+}
+]
+},
+"Cultivate": {
+"name": "Cultivate",
+"front": "Cultivate",
+"types": "Sorcery",
+"alt": "",
+"faces": [
+{
+"name": "Cultivate",
+"types": "Sorcery",
+"oracle": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+"lines": [
+"A:SP$ ChangeZone | Origin$ Library | Destination$ Library | ChangeType$ Land.Basic | ChangeTypeDesc$ basic land | ChangeNum$ 2 | RememberChanged$ True | Reveal$ True | Shuffle$ False | StackDescription$ SpellDescription | SubAbility$ DBChangeZone1 | SpellDescription$ Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+"SVar:DBChangeZone1:DB$ ChangeZone | Origin$ Library | Destination$ Battlefield | ChangeType$ Land.IsRemembered | ChangeNum$ 1 | Mandatory$ True | NoLooking$ True | SelectPrompt$ Select a card to put onto the battlefield | Tapped$ True | Shuffle$ False | SubAbility$ DBChangeZone2 | StackDescription$ None",
+"SVar:DBChangeZone2:DB$ ChangeZone | Origin$ Library | Destination$ Hand | ChangeType$ Land.IsRemembered | Mandatory$ True | NoLooking$ True | SelectPrompt$ Select a card to put into your hand | StackDescription$ None | SubAbility$ DBCleanup",
+"SVar:DBCleanup:DB$ Cleanup | ClearRemembered$ True"
+]
+}
+]
+},
+"Enlightened Tutor": {
+"name": "Enlightened Tutor",
+"front": "Enlightened Tutor",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Enlightened Tutor",
+"types": "Instant",
+"oracle": "Search your library for an artifact or enchantment card, reveal it, then shuffle and put that card on top.",
+"lines": [
+"A:SP$ ChangeZone | Origin$ Library | Destination$ Library | LibraryPosition$ 0 | ChangeType$ Artifact,Enchantment | SpellDescription$ Search your library for an artifact or enchantment card, reveal it, then shuffle and put that card on top."
+]
+}
+]
+},
+"Grizzly Bears": {
+"name": "Grizzly Bears",
+"front": "Grizzly Bears",
+"types": "Creature Bear",
+"alt": "",
+"faces": [
+{
+"name": "Grizzly Bears",
+"types": "Creature Bear",
+"oracle": "",
+"lines": []
+}
+]
+},
+"Wolf Cove Villager": {
+"name": "Wolf Cove Villager",
+"front": "Wolf Cove Villager",
+"types": "Creature Human Peasant",
+"alt": "",
+"faces": [
+{
+"name": "Wolf Cove Villager",
+"types": "Creature Human Peasant",
+"oracle": "This creature enters tapped.",
+"lines": [
+"R:Event$ Moved | ValidCard$ Card.Self | Destination$ Battlefield | ReplacementResult$ Updated | ReplaceWith$ ETBTapped | Description$ This creature enters tapped.",
+"SVar:ETBTapped:DB$ Tap | Defined$ Self | ETB$ True"
+]
+}
+]
+},
+"Rishadan Footpad": {
+"name": "Rishadan Footpad",
+"front": "Rishadan Footpad",
+"types": "Creature Human Pirate",
+"alt": "",
+"faces": [
+{
+"name": "Rishadan Footpad",
+"types": "Creature Human Pirate",
+"oracle": "When Rishadan Footpad enters, each opponent sacrifices a permanent unless they pay {2}.",
+"lines": [
+"T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.Self | Execute$ RepeatEachOpp | TriggerDescription$ When CARDNAME enters, each opponent sacrifices a permanent unless they pay {2}.",
+"SVar:RepeatEachOpp:DB$ RepeatEach | RepeatPlayers$ Player.Opponent | RepeatSubAbility$ TrigSac",
+"SVar:TrigSac:DB$ Sacrifice | Defined$ Remembered | SacValid$ Permanent | UnlessCost$ 2 | UnlessPayer$ Remembered",
+"SVar:NeedsToPlayVar:Z LE1",
+"SVar:Z:Count$Valid Card.canProduceMana+OppCtrl+untapped"
+]
+}
+]
+},
+"Typhoon": {
+"name": "Typhoon",
+"front": "Typhoon",
+"types": "Sorcery",
+"alt": "",
+"faces": [
+{
+"name": "Typhoon",
+"types": "Sorcery",
+"oracle": "Typhoon deals damage to each opponent equal to the number of Islands that player controls.",
+"lines": [
+"A:SP$ RepeatEach | RepeatPlayers$ Player.Opponent | RepeatSubAbility$ TyphoonDmg | DamageMap$ True | SpellDescription$ CARDNAME deals damage to each opponent equal to the number of Islands that player controls.",
+"SVar:TyphoonDmg:DB$ DealDamage | Defined$ Remembered | NumDmg$ X",
+"SVar:X:Count$Valid Island.RememberedPlayerCtrl"
+]
+}
+]
+},
+"Council's Judgment": {
+"name": "Council's Judgment",
+"front": "Council's Judgment",
+"types": "Sorcery",
+"alt": "",
+"faces": [
+{
+"name": "Council's Judgment",
+"types": "Sorcery",
+"oracle": "Will of the council — Starting with you, each player votes for a nonland permanent you don't control. Exile each permanent with the most votes or tied for most votes.",
+"lines": [
+"A:SP$ Vote | Defined$ Player | VoteSubAbility$ DBExile | VoteCard$ Permanent.nonLand+YouDontCtrl | VoteMessage$ for a nonland permanent you don't control | AILogic$ Judgment | SpellDescription$ Will of the Council — Starting with you, each player votes for a nonland permanent you don't control. Exile each permanent with the most votes or tied for most votes.",
+"SVar:DBExile:DB$ ChangeZone | Defined$ Remembered | Origin$ Battlefield | Destination$ Exile"
+]
+}
+]
+},
+"Pacifism": {
+"name": "Pacifism",
+"front": "Pacifism",
+"types": "Enchantment Aura",
+"alt": "",
+"faces": [
+{
+"name": "Pacifism",
+"types": "Enchantment Aura",
+"oracle": "Enchant creature\nEnchanted creature can't attack or block.",
+"lines": [
+"K:Enchant:Creature",
+"SVar:AttachAILogic:Curse",
+"S:Mode$ CantAttack,CantBlock | ValidCard$ Creature.EnchantedBy | Description$ Enchanted creature can't attack or block."
+]
+}
+]
+},
+"Chameleon Blur": {
+"name": "Chameleon Blur",
+"front": "Chameleon Blur",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Chameleon Blur",
+"types": "Instant",
+"oracle": "Prevent all damage that creatures would deal to players this turn.",
+"lines": [
+"A:SP$ Effect | ReplacementEffects$ RPrevent | AILogic$ Fog | SpellDescription$ Prevent all damage that creatures would deal to players this turn.",
+"SVar:RPrevent:Event$ DamageDone | Prevent$ True | ActiveZones$ Command | ValidSource$ Creature.inZoneBattlefield | ValidTarget$ Player | Description$ Prevent all damage that creatures would deal to players this turn."
+]
+}
+]
+},
+"Rhystic Study": {
+"name": "Rhystic Study",
+"front": "Rhystic Study",
+"types": "Enchantment",
+"alt": "",
+"faces": [
+{
+"name": "Rhystic Study",
+"types": "Enchantment",
+"oracle": "Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.",
+"lines": [
+"T:Mode$ SpellCast | ValidCard$ Card | ValidActivatingPlayer$ Opponent | TriggerZones$ Battlefield | Execute$ TrigDraw | TriggerDescription$ Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.",
+"SVar:TrigDraw:DB$ Draw | Defined$ You | UnlessCost$ 1 | UnlessPayer$ TriggeredActivator | NumCards$ 1 | OptionalDecider$ You"
+]
+}
+]
+},
+"Ghoulsteed": {
+"name": "Ghoulsteed",
+"front": "Ghoulsteed",
+"types": "Creature Zombie Horse",
+"alt": "",
+"faces": [
+{
+"name": "Ghoulsteed",
+"types": "Creature Zombie Horse",
+"oracle": "{2}{B}, Discard two cards: Return Ghoulsteed from your graveyard to the battlefield tapped.",
+"lines": [
+"A:AB$ ChangeZone | Cost$ 2 B Discard<2/Card> | Origin$ Graveyard | Destination$ Battlefield | Tapped$ True | ActivationZone$ Graveyard | SpellDescription$ Return CARDNAME from your graveyard to the battlefield tapped."
+]
+}
+]
+},
+"Flooded Strand": {
+"name": "Flooded Strand",
+"front": "Flooded Strand",
+"types": "Land",
+"alt": "",
+"faces": [
+{
+"name": "Flooded Strand",
+"types": "Land",
+"oracle": "{T}, Pay 1 life, Sacrifice Flooded Strand: Search your library for a Plains or Island card, put it onto the battlefield, then shuffle.",
+"lines": [
+"A:AB$ ChangeZone | Cost$ T PayLife<1> Sac<1/CARDNAME> | Origin$ Library | Destination$ Battlefield | ChangeType$ Plains,Island | SpellDescription$ Search your library for a Plains or Island card, put it onto the battlefield, then shuffle."
+]
+}
+]
+},
+"Elvish Archdruid": {
+"name": "Elvish Archdruid",
+"front": "Elvish Archdruid",
+"types": "Creature Elf Druid",
+"alt": "",
+"faces": [
+{
+"name": "Elvish Archdruid",
+"types": "Creature Elf Druid",
+"oracle": "Other Elf creatures you control get +1/+1.\n{T}: Add {G} for each Elf you control.",
+"lines": [
+"S:Mode$ Continuous | Affected$ Creature.Elf+Other+YouCtrl | AddPower$ 1 | AddToughness$ 1 | Description$ Other Elf creatures you control get +1/+1.",
+"A:AB$ Mana | Cost$ T | Produced$ G | Amount$ X | SpellDescription$ Add {G} for each Elf you control.",
+"SVar:X:Count$Valid Elf.YouCtrl",
+"SVar:PlayMain1:TRUE"
+]
+}
+]
+},
+"Opt": {
+"name": "Opt",
+"front": "Opt",
+"types": "Instant",
+"alt": "",
+"faces": [
+{
+"name": "Opt",
+"types": "Instant",
+"oracle": "Scry 1.\nDraw a card.",
+"lines": [
+"A:SP$ Scry | ScryNum$ 1 | SubAbility$ DBDraw | SpellDescription$ Scry 1.",
+"SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 1 | SpellDescription$ Draw a card."
+]
+}
+]
+}
+}

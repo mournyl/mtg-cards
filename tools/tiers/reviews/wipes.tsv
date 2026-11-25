@@ -62,3 +62,807 @@ Winds of Abandon	creatures	80	Overloaded, exiles every creature you don't contro
 Planar Guide	creatures	25	Blinks every creature; only tokens and auras stay gone.
 Blot Out the Sky	nonland	50	At X=6 or more, eight mana for six fliers and a wipe of every noncreature, nonland permanent.
 Make an Example	creatures	58	Each opponent loses one of two piles they make. Four mana, one-sided, about half their creatures.
+# grade_api merged, 2026-11-24
+Abyssal Gorestalker	creatures	36	6-mana 6/6 that makes everyone sacrifice two creatures; it hurts you too.
+Acid Rain	nonland	22	Destroys all Forests, which is symmetric and narrow.
+Aether Snap	nonland	22	5-mana sorcery: exiles all tokens and clears counters; hits only a narrow slice of boards.
+Aetherize	creatures	48	4-mana instant: bounce every attacker; tempo only and needs an attack.
+Aetherspouts	creatures	50	5-mana instant: attackers go on top or bottom of library; strong blowout when attacked.
+Aethersquall Ancient	creatures	35	7-mana flyer that mass-bounces other creatures after three turns of energy.
+Aggravate	creatures	25	1 damage kills only tiny creatures; forces attacks for five mana.
+Ajani Unrelenting	creatures	50	6 mana: 4 damage to each creature but your tokens; leaves a walker and Cadet tokens.
+Akroma's Vengeance	nonland	70	6-mana sorcery that destroys artifacts, creatures and enchantments; cycles when not needed.
+Aligned Hedron Network	creatures	50	4-mana one-sided-ish wipe of big creatures, but it is an artifact that can be removed.
+All Is Dust	nonland	58	7-mana colorless wipe of every colored permanent; great in colorless decks, hits you too.
+Alpha Brawl	creatures	40	8-mana sorcery: one opposing creature fights the rest of its team; very costly.
+Amalia Benavides Aguirre	creatures	22	Wipes creatures only if its power is exactly 20; rarely happens outside lifegain combos.
+Anarchy	nonland	22	4-mana sorcery that only hits white permanents: rarely a real wipe.
+Angel of the Dire Hour	creatures	43	Flash for 7: exiles all attackers, but only works in combat and is expensive.
+Angrath, Minotaur Pirate	creatures	38	6 mana: pings each opposing creature for 1 each turn; ultimate wipes one player.
+Anzrag's Rampage	artifacts-enchantments	50	5-mana one-sided artifact wipe with a possible hasty creature; costs more than Vandalblast.
+Apocalypse	nonland	50	5-mana sorcery exiles every permanent including your own lands, and you discard your hand.
+Apocalypse Chime	nonland	3	Only hits permanents originally printed in Homelands, which almost never matters.
+Arashi, the Sky Asunder	creatures	34	Channel X: damage to every flyer at instant speed, which is narrow but can be a one-sided answer to a flyer deck.
+Arcbond	creatures	30	Instant needing damage on the target; combo-ish and unreliable as a wipe.
+Archfiend of Sorrows	creatures	40	Seven mana one-sided -2/-2 sweep on a flyer; unearth repeats it.
+Armageddon	nonland	54	4-mana sorcery destroys every land; strong only if you are ahead.
+Arms of Hadar	creatures	50	4-mana sorcery: one-sided -2/-2 on a player's creatures; kills small boards only.
+Artistic Process	creatures	46	One-sided 2 damage to each creature you don't control; small creatures only.
+Ashen Firebeast	creatures	38	8-mana body whose {1}{R} ping slowly wipes small non-flyers, including yours.
+Ashling the Pilgrim	creatures	34	Costly three activations deal 1-ish damage to all, symmetric; weak sweeper.
+Ashling's Command	creatures	44	Instant: 2 damage to each creature one player controls; small effect for five mana.
+Ashuza's Breath	creatures	18	Random 0-2 damage to every creature; only kills tiny things.
+Asinine Antics	creatures	40	Cursed Roles make opposing creatures 1/1 and can flash in for 6; shrinks, doesn't kill.
+Aurelia's Fury	creatures	50	Instant X damage divided up can sweep small creatures, but costs a lot to hit many.
+Aurelia's Vindicator	creatures	46	Big flip exiles many creatures but returns them if it leaves.
+Avatar's Wrath	creatures	60	4-mana one-sided-ish reset: airbend all but one creature; exiled after use.
+Avenge	creatures	62	Wrath that often costs 4 at a Commander table; 6 otherwise; small life gain.
+Avengers Disassembled	creatures	66	3 mana for 3 damage to each creature; optional land destruction mode as a bonus.
+Avengers: Under Siege	creatures	30	4-mana saga: 2 damage to non-Villain creatures on chapter II, only small creatures.
+Back to Nature	artifacts-enchantments	42	2-mana instant: destroy all enchantments, including yours.
+Baki's Curse	creatures	18	Sorcery that only hurts creatures wearing Auras; rarely does much.
+Balancing Act	nonland	50	4-mana sorcery: everyone sacrifices and discards down to the smallest count; good when behind.
+Balefire Dragon	creatures	30	7-mana flyer; wipe depends on connecting in combat and hits only one opponent.
+Bane of the Living	creatures	60	Morph flip for X: all creatures get -X/-X at instant speed; costs 3 to set up.
+Barrage of Boulders	creatures	33	1 damage to opposing creatures only kills tokens and x/1s.
+Barter in Blood	creatures	42	4-mana sorcery edict for two; a partial wipe that hits you too.
+Battle of Frost and Fire	creatures	57	5-mana sorcery-speed 4 damage to all creatures and planeswalkers, then scry 3.
+Battle of Wolf 359	creatures	32	5-mana one-sided wipe that needs artifact creatures; theme-only.
+Bearer of the Heavens	nonland	25	8-mana body; wipes everything only if it dies, and it hurts you too.
+Beyond the Quiet	creatures	68	5-mana sorcery: exile all creatures; beats recursion and indestructible.
+Bite of the Black Rose	creatures	40	4-mana sorcery: the vote often becomes discard, with -2/-2 only if an opponent sides with you.
+Biting Rain	creatures	48	4-mana symmetric -2/-2 sweep for small creatures; madness makes it cheaper.
+Blasphemous Edict	creatures	66	5-mana sorcery: every player sacrifices 13 creatures, so it works as a wrath.
+Blast Zone	nonland	50	Slow, flexible sweeper that hits one mana value, and it is a land slot.
+Blazing Volley	creatures	38	1-mana sorcery: pings each opposing creature for 1, only kills tiny ones.
+Blight Grenade	creatures	48	Hits all creatures with -3/-3 plus a kill; symmetric and sorcery.
+Blockbuster	creatures	33	Costs 7 total; only hits tapped creatures and hurts you too.
+Blood Money	creatures	60	7-mana sorcery wrath that refunds Treasures; too slow next to cheaper wraths.
+Blood on the Snow	creatures	70	6-mana wrath that returns a creature; snow mana is needed to get value from the rebuy.
+Bloodfire Colossus	creatures	40	8-mana body; R and sacrifice: 6 damage to every creature and player, hurting you too.
+Bloodfire Dwarf	creatures	22	Cheap but only 1 damage to nonflyers; kills tokens and x/1s.
+Bloodfire Infusion	creatures	36	Aura plus a sacrificed creature: damage equal to its power to all creatures, needs a big body.
+Bloodfire Kavu	creatures	38	4-mana body, R and sacrifice: 2 damage to each creature, a small instant-speed sweeper.
+Boiling Earth	creatures	38	2-mana sorcery: 1 damage to each opposing creature; awaken for 7.
+Boiling Seas	nonland	8	Destroys only Islands; hits you too and rarely matters.
+Bonfire of the Damned	creatures	72	One-sided X damage to a player's creatures and face; scales, cheap with miracle.
+Bontu's Last Reckoning	creatures	70	3-mana destroy all creatures; your lands skip next untap, a real tempo cost.
+Boom // Bust	nonland	38	Bust destroys all lands for 6; Boom is cheap LD. Niche for land-light stax plans.
+Boompile	nonland	38	4 mana: coin flip each turn to destroy all nonland permanents; unreliable.
+Breaking Point	creatures	52	3-mana wrath, but any opponent can pay 6 life to stop it; at 40 life they often will.
+Breath Weapon	creatures	50	3-mana instant sweeper for 2 damage; kills only small creatures and hits yours too.
+Breath of Darigaaz	creatures	52	2 mana for 1 damage or 4 mana for 4 damage to non-flyers; hits you too.
+Brightflame	creatures	47	Scalable one-color sweep that gains life, but costs RRWW and hits your own too.
+Brigid, Hero of Kinsbaile	creatures	22	Repeatable 2 damage only to attackers and blockers; it's a combat deterrent, not a wipe.
+Brotherhood's End	creatures	64	3-mana sweeper for 3 damage, or a mode that kills cheap artifacts; hits your own board.
+Builder's Bane	artifacts-enchantments	34	Scalable artifact sweep, but expensive and it hits your own artifacts if you target them.
+Burn Down the House	creatures	68	5-mana sorcery: 5 damage to each creature and planeswalker, or three hasty Devils.
+Burning of Xinye	creatures	30	6-mana 4-damage sweep that also costs you four lands.
+By Force	artifacts-enchantments	50	Scalable artifact wipe; pay X to destroy many artifacts at once.
+By Invitation Only	creatures	66	5-mana sorcery: everyone sacrifices X creatures, up to a full wrath.
+Cacophony Unleashed	creatures	66	7-mana sorcery-speed wrath that spares enchantment creatures and leaves a recurring 6/6 threat.
+Calamitous Cave-In	creatures	8	Damage scales with Caves, so it almost never does anything in a normal deck.
+Calamity of Cinders	creatures	50	Convoke wrath-ish: 6 damage to untapped creatures; tapping your own to convoke saves them.
+Calamity of the Titans	creatures	22	Needs {C}{C} and a colorless creature in hand; only works in colorless decks.
+Caldera Hellion	creatures	52	5-mana body that deals 3 to every creature, including itself unless it devours.
+Call Forth the Tempest	creatures	38	8 mana: two cascades, then one-sided damage equal to other spells' total mana value.
+Call to the Void	creatures	24	5 mana: secret picks kill a few creatures; unreliable and mostly symmetric.
+Calming Verse	artifacts-enchantments	40	4-mana sorcery: destroys all enchantments you don't control; yours only die if you have an untapped land.
+Canopy Surge	creatures	35	Kicked 4-mana sorcery: 4 damage to flyers and every player, including you. Hits only flyers.
+Captivating Gyre	creatures	30	One-sided-ish bounce of three targets for six mana; not a real wipe.
+Cataclysm	nonland	66	4-mana sorcery: everyone keeps one of each type; best when you're behind or built for it.
+Cataclysmic Gearhulk	nonland	64	5-mana 4/5 body that leaves each player one artifact, creature, enchantment and planeswalker.
+Cataclysmic Prospecting	creatures	58	Flexible X sorcery: damage to every creature; scales but also hits your board.
+Catastrophe	creatures	66	6-mana sorcery wrath that can also destroy all lands as a flexible mode.
+Caught in the Crossfire	creatures	50	Instant 2 damage to each creature; cheap but small, both modes cost four total.
+Cave-In	creatures	48	Pitch a red card for a 2-damage sweep; only kills small creatures and hurts you too.
+Cease // Desist	artifacts-enchantments	50	Desist costs six at sorcery speed to destroy every artifact and enchantment, yours too.
+Ceaseless Conflict	creatures	76	5-mana wrath that leaves you a 3/2 for each of your creatures lost.
+Celestial Judgment	creatures	50	6-mana sorcery; spares one creature per power, so it's a partial wrath.
+Celestial Kirin	nonland	30	3/3 flyer; wipes by mana value only when you cast Spirits or Arcane spells.
+Cerebral Eruption	creatures	30	Damage to one opponent's creatures equals a random top card's value; unreliable.
+Chain Reaction	creatures	60	4-mana sorcery: each creature takes damage equal to the creature count, so it scales with a full board.
+Chandra's Flame Wave	creatures	30	5-mana sorcery: 2 damage to one opponent's creatures only; weak sweeper.
+Chandra's Fury	creatures	32	5-mana instant: 1 damage to one opponent's creatures; barely a wipe.
+Chandra's Ignition	creatures	52	5-mana sorcery: one-sided-ish sweep and big damage to opponents, needs a big creature.
+Chandra, Awakened Inferno	creatures	47	-3 deals 3 to each non-Elemental creature, then it stays as a threat.
+Chandra, Flamecaller	creatures	56	6 mana: -X hits every creature, but it also hits yours and leaves a walker behind.
+Chaos Maw	creatures	47	7-mana 6/6 body; entry deals 3 to every other creature, yours too.
+Chaotic Transformation	nonland	32	Hits one of each type only, replaced by random permanents.
+Child of Alara	nonland	38	WUBRG 6/6 whose death wipes all nonland permanents; hard to cast and a symmetric trigger.
+Choking Fumes	creatures	38	Instant -1/-1 on every attacker; only kills small ones and only when attacked.
+Choking Miasma	creatures	56	3-mana -2/-2 sweep; kills small creatures and can save yours with kicker.
+Cinderclasm	creatures	50	2-mana instant: 1 damage to every creature, 2 with kicker; hits both sides.
+Cinderslash Ravager	creatures	36	6-mana 5/5 body; one-sided 1 damage to opposing creatures on entry.
+Citywide Bust	creatures	50	3 mana: destroys only big creatures, which often are the threats; leaves small ones.
+Claws of Wirewood	creatures	28	4-mana sorcery that only hits flyers and also damages you; cycling saves it.
+Cleanfall	artifacts-enchantments	43	3-mana sorcery that destroys every enchantment, yours too; hits one type only.
+Cleansing Beam	creatures	38	Instant radiance: 2 damage to a color group, so it only clears small creatures.
+Cleansing Meditation	artifacts-enchantments	42	3-mana sorcery: destroy all enchantments; threshold returns yours, but it only hits one type.
+Cloud's Limit Break	creatures	50	5 mana instant: destroy all tapped creatures, a one-sided wipe after attacks.
+Cloudkill	creatures	28	6-mana sorcery scaled to your commander's mana value; weak with cheap commanders and none without one.
+Cloudthresher	creatures	28	Flash 7/7 whose 2 damage only kills fliers; a body more than a wipe.
+Coastal Breach	nonland	38	Symmetric mass bounce for up to 7, cheaper with opponents; hits your board too.
+Coercive Portal	nonland	28	The wipe only happens if the table votes carnage, and you control the tie.
+Conductor of Cacophony	creatures	34	4-mana body that pings 1 damage to each other creature twice; clears only tiny ones.
+Consulate Crackdown	artifacts-enchantments	48	5-mana enchantment: exiles all opposing artifacts, but only artifacts and it can be undone.
+Consume the Meek	creatures	58	5-mana instant: destroys all creatures with mana value 3 or less, hitting small commanders.
+Consuming Tide	nonland	58	4-mana sorcery: bounces all but one nonland permanent each, and may draw.
+Contagion Engine	creatures	44	6 mana: -1/-1 on one player's creatures, then proliferate twice to grow it.
+Corpse Explosion	creatures	38	3-mana sorcery: needs a graveyard creature; damage equal to its power to every creature.
+Corrosion	artifacts-enchantments	22	Slow, upkeep-taxed artifact destruction aimed at one opponent; barely works.
+Corrosive Gale	creatures	33	Scalable sweeper that only hits flyers, including yours.
+Cosmotronic Wave	creatures	30	4-mana sorcery: 1 damage to opposing creatures and no blocks; kills only tiny ones.
+Covetous Elegy	creatures	45	6-mana partial wipe: everyone keeps two creatures, and you get Treasures for theirs.
+Cower in Fear	creatures	38	3-mana instant: -1/-1 to opposing creatures; kills only tokens and X/1s.
+Crater Hellion	creatures	50	6-mana 6/6 that deals 4 to each other creature on entry, but the echo is heavy.
+Creeping Corrosion	artifacts-enchantments	45	4 mana sorcery: destroys all artifacts, including yours.
+Cresting Mosasaurus	creatures	38	Expensive mass bounce of other creatures, including yours, with a big body; emerge helps.
+Crime // Punishment	nonland	50	Punishment: X-cost sweep of one mana value in BG; flexible but hits only one value.
+Crippling Fear	creatures	56	4-mana -3/-3 sweep that spares one type, so it can be one-sided in tribal decks.
+Crisis of Conscience	nonland	55	6-mana sorcery: destroy all nonland nontoken permanents, or all tokens; costly but flexible.
+Crush of Tentacles	nonland	52	6-mana sorcery bounces every nonland permanent; surge gives an 8/8 body.
+Crush the Weak	creatures	56	3-mana sorcery: 2 damage to every creature, exiling them; foretell for R.
+Cry of the Carnarium	creatures	58	3-mana sorcery: -2/-2 to all creatures, exiling them; also hoses reanimation.
+Crypt Rats	creatures	68	Scalable instant-speed sweeper on a body; black mana only and it hits every player.
+Crystalline Entity	creatures	48	8 mana, one-sided-ish wipe with a 7/7 flying body.
+Culling Ritual	nonland	42	4-mana sweep of cheap permanents, hits your own too, refunds mana.
+Culling Sun	creatures	52	5-mana sorcery: destroy all creatures with mana value 3 or less; gold and partial.
+Curse of the Swine	creatures	38	Exile all creatures for X plus UU but each leaves a 2/2 Boar; a one-sided option if only theirs.
+Cyclone	creatures	30	Slow, escalating symmetric damage to every creature and player; costs more each turn.
+Cyclone Summoner	nonland	55	7-mana 7/7 that bounces every nonland permanent but Giants and Wizards, yours included.
+D'Ghor Bloodletter	creatures	47	3-mana body: -1/-1 sweep kills tokens and X/1s, or an edict; small but flexible.
+Dagger Caster	creatures	40	4-mana one-sided 1 damage sweep on a body; only clears tokens and X/1s.
+Dakmor Plague	creatures	50	5-mana sorcery: 3 damage to every creature and player; hurts you too.
+Damning Verdict	creatures	71	5-mana wrath that spares creatures with counters.
+Darkness Descends	creatures	50	Sorcery that kills x/2s and shrinks the rest, hitting your board too.
+Dauntless Dismantler	artifacts-enchantments	38	Sacrifice for XXW: destroys artifacts of one mana value only, though the body also slows artifacts.
+Day of Black Sun	creatures	72	Scalable one-sided-ish wrath: BB plus X kills creatures up to MV X, hits indestructible.
+Dead of Winter	creatures	18	Needs snow permanents; almost useless outside snow decks.
+Deadly Cover-Up	creatures	72	5-mana wrath with an optional rider that removes a card from the opponent's whole deck.
+Deafening Clarion	creatures	64	3-mana sweeper for 3 damage to each creature, with optional team lifelink; two colors.
+Death Begets Life	nonland	56	8 mana in three colors: destroys creatures and enchantments and refills your hand.
+Death Cloud	nonland	50	BBB+X sorcery: each player sacrifices X creatures and lands; works as a scalable one-sided sweeper with setup.
+Death Frenzy	creatures	44	5-mana two-color sorcery: -2/-2 to all creatures, hits only small ones and hurts your own.
+Death's-Head Buzzard	creatures	14	A 2/1 flyer whose death shrinks every creature; only clears X/1s.
+Death-Rattle Oni	creatures	40	Flash body that kills damaged creatures; needs combat or damage first, but gets cheap.
+Deathbringer Regent	creatures	52	7-mana flyer with a conditional wrath; usually works in a crowded Commander board.
+Decree of Annihilation	nonland	38	10-mana sorcery: exile creatures, artifacts, lands and hands; the cycling mode only destroys lands.
+Defiler of Souls	creatures	30	Slow repeating edict on monocolored creatures; symmetric and costs seven.
+Delayed Blast Fireball	creatures	78	One-sided instant sweep: 2 damage for 3, or 5 damage foretold.
+Delete	creatures	50	X damage to nonartifact creatures and every player; symmetric.
+Deluge of Doom	creatures	40	3-mana sweeper that is small early; X is the card types in your graveyard, often 2-3.
+Demon of Dark Schemes	creatures	46	6-mana 5/5 flyer: -2/-2 to all other creatures on entry, a small one-sided-ish sweep.
+Demonic Junker	creatures	22	Only one creature per player dies, so it is not a real wipe.
+Depopulate	creatures	80	4-mana Wrath: destroy all creatures; multicolor decks get a card.
+Descend upon the Sinful	creatures	66	6-mana exile wrath; makes a 4/4 flyer with delirium.
+Descent of the Dragons	creatures	16	Gives each victim a 4/4 flyer; can target only your own creatures to ramp up.
+Desert Sandstorm	creatures	28	3 mana for 1 damage to every creature; hits only tiny things, and your own.
+Desolation Giant	creatures	56	4-mana 3/3 that survives a kicked wrath (6 mana, RRWW); unkicked it only kills your own creatures.
+Desolation of Smaug	creatures	55	4-mana sorcery: 3 damage to each non-Dragon creature, plus four mana for Dragon spells.
+Destined Confrontation	creatures	50	4-mana sorcery: everyone keeps 4 total power of creatures, sacrifices the rest.
+Destructive Force	creatures	42	7-mana sorcery wrath for most creatures that also costs everyone five lands.
+Desynchronization	nonland	52	4-mana instant mass bounce of nonhistoric permanents; hits your own board too.
+Devastating Dreams	creatures	38	RR sorcery: X damage to every creature, but you discard X at random and sacrifice X lands.
+Devastating Mastery	nonland	76	6-mana nonland wipe, or 4 mana if opponents keep two permanents; WWWW is demanding.
+Devastation	creatures	38	7-mana sorcery that destroys all creatures and lands, including yours.
+Devastation Tide	nonland	58	Mass bounce of all nonland permanents; miracle makes it {1}{U}, but it hits you too.
+Dimensional Breach	nonland	42	7 mana exiles everything, but each player gets permanents back one per upkeep.
+Disaster Radius	creatures	45	One-sided sweeper for 7; needs a big creature in hand to reveal.
+Disciple of Caelus Nin	nonland	42	One-sided at best; phases out everything past five permanents each and keeps them out.
+Dismantling Wave	artifacts-enchantments	50	Cycling for 8 destroys all artifacts and enchantments, including yours.
+Displacement Wave	nonland	48	X sorcery mass bounce that hits your own permanents too; scales but costs a lot to be big.
+Divine Reckoning	creatures	60	4-mana wrath that leaves each player one creature; flashback gives a second use.
+Do or Die	creatures	55	2 mana: one opponent loses about half their creatures, their choice of pile.
+Don't Move	creatures	46	5 mana: kills tapped creatures; sorcery speed rarely hits much.
+Doom Foretold	nonland	38	Slow symmetric sacrifice each upkeep; hurts you too and ends in a payoff.
+Downdraft	creatures	27	Sacrifice: 2 damage to each flyer; narrow and hits yours too.
+Draconic Intervention	creatures	42	4-mana one-shot: damage scales with a graveyard spell and hits your creatures too.
+Drag to the Bottom	creatures	50	4-mana sorcery: -X/-X to all creatures; X is 1 plus basic types, hits yours too.
+Dragonback Assault	creatures	46	6-mana Naya 3-damage sweep that also keeps making 4/4 flying Dragons.
+Dread Cacodemon	creatures	42	10 mana: one-sided creature wipe plus an 8/8 body, far too expensive.
+Dregs of Sorrow	creatures	42	Can kill many nonblack creatures, but you pick targets and pay heavily.
+Dromar, the Banisher	creatures	33	Needs to connect and pay extra; bounces one color of creatures.
+Drop of Honey	creatures	15	Kills the least powerful creature each upkeep, including yours; slow and random.
+Drown in Sorrow	creatures	55	3-mana sorcery: -2/-2 to all creatures; clears small boards and scries, but leaves big threats.
+Dry Spell	creatures	30	2-mana sorcery: 1 damage to each creature and player; only kills tokens and x/1s.
+Dwarven Catapult	creatures	48	Instant one-sided sweep, but X damage is split among all their creatures.
+Dystopia	nonland	32	3-mana enchantment: grinds green and white permanents every upkeep, but hits you and costs life.
+Earthquake	creatures	58	X sorcery: damages every non-flyer and every player, scalable but hits you too.
+Earthshaker	creatures	14	6-mana body; the 2-damage sweep only fires on Spirit or Arcane spells.
+Elesh Norn, Grand Cenobite	creatures	64	7-mana body: one-sided -2/-2 on opposing creatures, kills small ones and stays.
+Elspeth Tirel	nonland	50	5-mana walker: two turns to ultimate; leaves lands and your tokens.
+Elspeth, Sun's Champion	creatures	60	6-mana walker: -3 kills every creature with power 4+, and +1 makes three blockers.
+Encounter the Unknown	creatures	46	3-mana instant: 2 damage to every creature and player; small but flexible.
+End Hostilities	creatures	72	5-mana wrath that also kills auras and equipment attached to creatures; sorcery speed.
+End the Festivities	creatures	38	1 mana: one-sided 1 damage sweep; only kills tiny creatures.
+Endemic Plague	creatures	42	4-mana wipe that needs a sacrifice; selective by creature type, but a one-type sweep.
+Engineered Explosives	nonland	52	X artifact: sweeps one mana value, great against tokens and cheap permanents; hits yours too.
+Engineered Plague	creatures	36	3-mana enchantment: -1/-1 to one creature type; strong against tribal or tokens, narrow otherwise.
+Engulf the Shore	creatures	42	4-mana instant: bounce all creatures with toughness up to your Island count; hits your team too.
+Essence Filter	artifacts-enchantments	40	3-mana sorcery: destroy all enchantments; narrow and hits yours too.
+Essence Pulse	creatures	42	4-mana sorcery: -2/-2 to every creature; only kills small things, hits yours too.
+Ethereal Absolution	creatures	38	Static -1/-1 kills small opposing creatures, but it doesn't reset the board.
+Evaporate	creatures	22	1 damage to white and blue creatures only, hitting yours too; very narrow.
+Everything Comes to Dust	nonland	56	Exiles creatures, artifacts and enchantments; convoke helps, and your convoking types survive.
+Evincar's Justice	creatures	56	4-mana 2 damage sweep with buyback; hits all players and only small creatures.
+Exocrine	creatures	50	Scalable creature sweeper on a body; hits every player and your creatures too.
+Expel the Interlopers	creatures	66	5-mana sorcery: pick a power threshold and destroy every creature at or above it, sparing your small ones.
+Explosive Getaway	creatures	56	5-mana two-color sorcery: 4 damage to every creature, saving one of yours by exiling it first.
+Exterminatus	nonland	56	7-mana sorcery: destroy every nonland permanent, ignoring indestructible.
+Extinction	creatures	32	5-mana sorcery: kill one creature type; narrow and costly.
+Extinguish All Hope	creatures	58	6-mana sorcery: destroy all nonenchantment creatures; costly one-sided-ish wrath.
+Extinguisher Battleship	creatures	50	8 mana: kill a noncreature permanent and 4 damage to every creature, leaving a body later.
+Eye of Doom	nonland	32	Each player marks one permanent, then destroy them; only two or so permanents die.
+Eyeblight Massacre	creatures	50	4-mana sorcery: -2/-2 to all non-Elves; kills small creatures, hits yours too.
+Ezuri's Predation	creatures	44	Eight mana one-sided fight wipe that leaves a board of Beasts; slow but strong.
+Fade from History	artifacts-enchantments	50	4-mana sorcery: destroys all artifacts and enchantments, but gives Bears to those who had any.
+Faerie Slumber Party	creatures	45	6-mana sorcery bounces every creature, leaving you two flyers per opponent.
+Fall of the First Civilization	nonland	50	3-mana slow saga: trim everyone to three nonland permanents on chapter III.
+Fall of the Thran	nonland	22	Six-mana land wipe that gives lands back; a niche Armageddon-like reset.
+False Floor	creatures	38	Slow 4-mana artifact that taps new creatures, then exiles untapped ones at sorcery speed.
+False Prophet	creatures	55	4-mana 2/2 that exiles every creature when it dies; needs to die first.
+Famine	creatures	50	5-mana sorcery: 3 damage to every creature and player.
+Fang Dragon // Forktail Sweep	creatures	38	2 mana: 1 damage to each opposing creature; one-sided but only kills tiny things.
+Fast // Furious	creatures	42	5-mana sorcery: 3 damage to each nonflyer, hits your board too.
+Fated Clash	creatures	64	5-mana wrath; flash in combat, and one creature on each side survives.
+Fated Retribution	creatures	66	7-mana instant: destroy all creatures and planeswalkers; scry 2 on your turn.
+Fault Line	creatures	58	Instant X sweep of nonflyers; also hits every player, you included.
+Fear, Fire, Foes!	creatures	34	Only 1 damage to their other creatures; sweeps tokens and small ones.
+Feast of Succession	creatures	55	6-mana -4/-4 sweep that makes you monarch; hits your board too but replaces itself.
+Fell the Mighty	creatures	52	5-mana sorcery: kills bigger creatures; target your small one to keep it.
+Festercreep	creatures	33	2-mana body: one -1/-1 sweep for {1}{B}; clears only x/1s and hurts your own team.
+Festergloom	creatures	30	3-mana sorcery: -1/-1 to nonblack creatures; only kills x/1s and hits your own nonblack ones.
+Festering Evil	creatures	42	5-mana enchantment: 1 damage to everything each upkeep, or sacrifice for 3 to every creature and player.
+Festering March	creatures	33	Suspend for 3: -1/-1 on opposing creatures only kills tokens and x/1s.
+Fiery Cannonade	creatures	50	Instant 2 damage to each non-Pirate creature; small, and hits yours.
+Fiery Confluence	creatures	52	4-mana sorcery: 3 damage to every creature (yours too), or a flexible mix of modes.
+Fight to the Death	creatures	22	Only hits creatures in combat, including yours; rarely a real wipe.
+Filter Out	nonland	56	3-mana instant: bounce every noncreature, nonland permanent, yours too.
+Final Act	creatures	66	6-mana sorcery wrath that can also hit walkers and exile graveyards.
+Final Judgment	creatures	66	6-mana sorcery: exile all creatures, so it beats recursion and indestructible.
+Final Revels	creatures	38	5-mana sorcery: -0/-2 to all creatures; only kills small ones.
+Finale of Eternity	creatures	48	Kills up to three small creatures; a selective wipe, not a full reset.
+Find // Finality	creatures	55	Finality: 6 mana, all creatures get -4/-4 while one of yours gets counters.
+Fire Ants	creatures	38	3-mana body that pings non-flyers each turn; hurts your own board and kills only X/1s.
+Fire Covenant	creatures	82	Instant one-sided creature wipe, scaled by life paid.
+Fire Magic	creatures	50	Instant, scalable damage sweeper; 3 damage at 6 mana hits small creatures and hurts your own.
+Fire Tempest	creatures	52	7-mana sorcery: 6 damage to each creature and player; symmetric and costly.
+Firespout	creatures	58	3-mana sorcery: 3 damage to all non-flyers or flyers, or both with R and G; hits your board too.
+Flame Sweep	creatures	50	3-mana instant: 2 damage to each creature, sparing your fliers; only kills small ones.
+Flame Wave	creatures	38	7-mana sorcery: 4 damage to one opponent and their creatures; RRRR is steep.
+Flamebreak	creatures	50	RRR sorcery: 3 damage to each non-flyer and each player, you included.
+Flames of the Raze-Boar	creatures	33	Only hits one opponent's creatures, and only with a power-4 creature out.
+Flashfires	nonland	6	Destroys only Plains; hits almost nothing in most games.
+Flaying Tendrils	creatures	55	3-mana sorcery: -2/-2 to all creatures, exiling the dead; hits only small ones and your own.
+Flood of Tears	nonland	46	6-mana sorcery: bounce every nonland permanent, yours too; can cheat a permanent.
+Flowstone Slide	creatures	48	4+ mana sorcery: X kills every creature with toughness X or less, but hits your own board too.
+Force of Despair	creatures	45	Free instant: destroys creatures that entered this turn; answers ETB, flicker and reanimation.
+Force of Vigor	artifacts-enchantments	50	Hits two artifacts or enchantments, not a full wipe.
+Forced March	creatures	62	BBB+X sorcery: scalable wrath that can spare your bigger creatures.
+Forerunner of the Empire	creatures	18	1 damage to each creature only when a Dinosaur enters; rarely matters.
+Fortunate Few	nonland	56	5-mana wipe of nonland permanents; each opponent keeps one, you keep one.
+Fracturing Gust	artifacts-enchantments	60	5-mana instant: destroy all artifacts and enchantments, hits your own too.
+From the Ashes	nonland	38	4-mana sorcery hits every nonbasic land; players get basics back.
+Fuel the Flames	creatures	52	3-mana instant: 2 damage to each creature, hits yours too; cycles.
+Fulminous Forte	creatures	45	One-sided 1 damage to opposing creatures kills only tokens and x/1s.
+Furnace Dragon	artifacts-enchantments	30	Costly flyer; exiles all artifacts including yours when cast from hand.
+Fury	creatures	48	Splits 4 damage to clear several small creatures, can be free.
+Fyndhorn Pollen	creatures	12	Only shrinks power; kills nothing and costs rising upkeep.
+Gale Force	creatures	22	5-mana sorcery: 5 damage to every flyer, yours too.
+Gallifrey Falls // No More	creatures	57	6-mana instant: 4 damage to each creature, exiled; fuse phases out yours for a one-sided wipe.
+Game Over	creatures	72	Wrath for 5, often 3 mana in a 4-player game once someone is at 20 or less.
+Gangrenous Zombies	creatures	30	3-mana body that pings every creature and player for 1, or 2 with snow Swamp; kills tokens only.
+Gates Ablaze	creatures	20	3-mana sweeper that needs Gates; it is weak or does nothing in most decks.
+Gaze of Granite	nonland	72	X sorcery: destroy all nonland permanents with MV X or less; scales and can spare your bigger stuff.
+Genesis of the Daleks	creatures	42	Slow 6-mana saga: tokens first, then the opponent chooses which creatures die.
+Ghired's Belligerence	creatures	50	Divided X damage can clear several opposing creatures, but it is not a full wipe.
+Gideon, Champion of Justice	nonland	22	Needs 15 loyalty to exile all other permanents; far too slow to count as a wipe.
+Gideon, the Oathsworn	creatures	25	-9 ultimate exiles opposing creatures but starts at 4 loyalty and +2, so it's slow.
+Gix's Command	creatures	52	Destroys each creature with power 2 or less, paired with the edict or recursion.
+Glistening Deluge	creatures	40	3-mana sorcery: -1/-1 to all, -3/-3 to green or white; hits small stuff only.
+Gloomdrifter	creatures	38	4-mana flyer; with seven cards in graveyard, -2/-2 to nonblack creatures on entry.
+Gluttonous Hellkite	creatures	42	XX plus BRG: each player sacs X creatures, hits you too, three colors needed.
+Glóin the Mighty // Easy Pickings	creatures	30	3-mana sorcery: 1 damage to each opposing creature; only kills tiny things.
+Goblin Chainwhirler	creatures	50	3-mana 3/3 first strike: 1 damage to each opposing creature, planeswalker and player.
+Golden Demise	creatures	56	3-mana sorcery: -2/-2 to all, one-sided with the city's blessing.
+Golgari Charm	creatures	42	-1/-1 to all kills only small creatures, and hits yours too.
+Golgothian Sylex	nonland	8	Only hits Antiquities-named permanents; almost never does anything.
+Gouged Zealot	creatures	12	Delirium attack ping of 1 to each defender creature; barely a wipe.
+Granulate	artifacts-enchantments	38	4-mana sorcery that kills cheap artifacts including your own; hits fast mana.
+Grenzo's Rebuttal	nonland	38	6 mana: 4/4 token and each player destroys three of their left neighbor's permanents; not a true wipe.
+Grim Giganotosaurus	nonland	30	7-mana body; monstrosity costs 12 minus big opposing creatures to wipe creatures and artifacts.
+Grind // Dust	creatures	33	Needs two colors; Grind alone shrinks small creatures, Dust exiles those with counters.
+Gruul Charm	creatures	30	2-mana instant: 3 damage to flyers only; the other modes are utility.
+Guan Yu's 1,000-Li March	creatures	30	6-mana sorcery that only kills tapped creatures; mostly hits your own or leftovers.
+Hail Storm	creatures	32	Instant sweep of attackers only; small damage and it hurts your own board.
+Hammer Mage	artifacts-enchantments	37	2-mana body: discard a card to destroy artifacts up to X; hits your own too.
+Hammerfist Giant	creatures	44	6-mana body: repeatable 4 damage to non-flyers, but it hits players and itself too.
+Harbinger of the Hunt	creatures	58	5/3 flyer that pings each creature without flying, or each other flyer, at instant speed.
+Harmonic Convergence	artifacts-enchantments	30	Instant tucks all enchantments, but hits yours too and gives them redraws.
+Harsh Mercy	creatures	62	3-mana wrath that spares the chosen types; you can keep a tribe or pair.
+Harvester of Misery	creatures	56	5-mana menace body that hits all other creatures for -2/-2; hits yours too.
+Havoc Demon	creatures	36	7-mana flyer; wipe only if it dies, which you can't force.
+Hazardous Blast	creatures	20	1 damage to opposing creatures only kills tokens; mostly a combat trick.
+Hazardous Conditions	creatures	46	Two-color sorcery: -2/-2 to all counterless creatures, hits yours too; kills small stuff.
+Heartless Conscription	creatures	58	8-mana wrath that lets you cast the creatures it exiled.
+Heat Stroke	creatures	22	Symmetric combat-based destruction; only works if combat happens.
+Heaven // Earth	creatures	52	Flexible X sweeper: hits flyers or non-flyers, but Earth needs the graveyard and hits your own board.
+Heliod's Intervention	artifacts-enchantments	52	Instant X: can destroy many artifacts and enchantments, but you choose targets and pay per card.
+Hellfire	creatures	52	BBB wrath that spares black creatures; you take 3 plus one per creature.
+Hex	creatures	40	Needs exactly six targets, so it often kills your own creatures; clunky wrath at 6 mana.
+Hibernation	nonland	27	3-mana instant mass bounce, but only green permanents; narrow and temporary.
+Hideous Laughter	creatures	48	4-mana instant -2/-2 to everything; only clears small creatures and hits yours too.
+Hidetsugu Consumes All // Vessel of the All-Consuming	nonland	42	Chapter I kills only nonland permanents with mana value 1 or less, such as tokens and rocks.
+Holy Light	creatures	24	3-mana instant -1/-1 to nonwhite creatures; only kills x/1s.
+Hostile Takeover	creatures	48	Three colours for a 3-damage sweeper with a little selectivity; hard to cast and no better than Sweltering Suns.
+Hour of Devastation	creatures	62	5 mana: 5 damage to every creature and planeswalker, ignoring indestructible; hits your board too.
+Hour of Reckoning	creatures	66	7-mana convoke sorcery: destroys nontoken creatures; convoke helps, tokens survive.
+Howling Gale	creatures	26	2-mana instant: 1 damage to flyers and players; kills only tiny flyers.
+Hulk, Always Angry	artifacts-enchantments	30	7-mana 9/9 whose entry destroys all artifacts, yours included.
+Hunted by The Family	creatures	30	7 mana, and each opponent can instead give you a copy of the creature.
+Hurkyl's Final Meditation	nonland	50	7 mana, symmetric mass bounce that ends the turn; 10 mana off-turn.
+Hurly-Burly	creatures	32	2-mana sorcery that pings 1 damage; only kills tokens and tiny creatures.
+Hurricane	creatures	34	X sorcery that hits only flyers and also damages every player including you.
+Hush	artifacts-enchantments	44	4-mana sorcery that destroys all enchantments, and it cycles when there are none.
+Hythonia the Cruel	creatures	52	A 6-mana deathtouch body, with a one-sided wrath for 8 more mana that can be done later.
+Ichor Explosion	creatures	33	7 mana plus a creature sacrifice for a one-sided-ish -X/-X; only a big creature makes it a wipe.
+Ifh-Bíff Efreet	creatures	20	Only hits flyers, and any player can activate it, so it barely works as a wipe.
+Ill-Timed Explosion	creatures	58	4 mana: draw two, then discard for a scaled sweeper; hits your creatures too.
+Immolating Gyre	creatures	38	6-mana one-sided sweep sized by your graveyard spells; weak without a spells deck.
+Impending Flux	creatures	40	3-mana one-sided ping for opponents' creatures; only 1 damage without graveyard or exile casting.
+Incandescent Aria	creatures	48	3 mana for 3 to each nontoken creature, but it needs RGW and hits your own.
+Incendiary Command	creatures	58	5-mana sorcery: 2 damage to each creature plus a second mode.
+Incendiary Sabotage	creatures	50	Instant 3 damage to each creature, but needs an artifact sacrificed.
+Incinerator of the Guilty	creatures	30	6-mana Dragon; the sweep needs combat damage and graveyard cards, one player at a time.
+Incite Rebellion	creatures	46	6-mana sorcery: scales with creature counts, kills small boards but also hits you.
+Incremental Blight	creatures	30	Hits only three creatures with small counters; a mini-sweep for small boards.
+Indomitable Creativity	creatures	38	Costs RRR plus X to kill many creatures, but each owner gets a random artifact or creature in return.
+Infected Vermin	creatures	42	Repeatable damage sweep for mana; slow, hurts you too, threshold mode is the real wipe.
+Inferno	creatures	58	7-mana instant: 6 damage to each creature and player; hits you too.
+Infest	creatures	50	3-mana sorcery: -2/-2 to all creatures; clears small stuff, hits yours too.
+Inflame	creatures	30	1-mana instant: 2 damage to creatures already damaged this turn; needs setup.
+Inner Demon	creatures	38	Four-mana one-sided-ish -2/-2 sweep on an aura; kills only small creatures, and needs a creature to enchant.
+Into the Fire	creatures	50	3 mana: 2 damage to every creature, planeswalker and battle.
+Inundate	creatures	45	6 mana UUU sorcery: bounce every nonblue creature, including yours unless blue.
+Invasion of Fiora // Marchesa, Resolute Monarch	creatures	68	6-mana sorcery-speed wrath, flexible between legends and nonlegends; expensive but kills everything.
+Invasion of Karsus // Refraction Elemental	creatures	60	4 mana: 3 damage to each creature and planeswalker; a small-creature sweeper.
+Iridian Maelstrom	creatures	40	Five-color wrath for 5; needs WUBRG, which few decks can cast.
+Jaws of Stone	creatures	32	Can split damage among many small creatures, but costs six.
+Jaya Ballard, Task Mage	creatures	34	Seven-mana discard ability hits everything for 6, including you.
+Jennika's Technique	creatures	50	3-mana instant: 2 damage to each creature, hits yours too.
+Jiwari, the Earth Aflame	creatures	50	Channel: X damage to each non-flyer for XRRR at instant speed; hits your side too.
+Join the Collective	creatures	60	7-mana wrath that returns 1/1 tokens for your dead nonartifact creatures.
+Jokulhaups	nonland	58	6-mana sorcery that destroys all artifacts, creatures and lands; hits you too.
+Jund Charm	creatures	42	3-mana instant: 2 damage to each creature; only kills small creatures and needs three colors.
+Kaervek's Hex	creatures	30	4-mana sorcery: 1 damage to nonblack creatures, 2 to green; only kills small ones.
+Kaervek, the Spiteful	creatures	38	Static -1/-1 kills x/1s including your own, but doesn't reset a real board.
+Kagemaro, First to Suffer	creatures	46	5-mana body: sacrifice for -X/-X sweep by hand size; good only with a full hand.
+Kalemne's Captain	artifacts-enchantments	38	A 5/5 body; 7 more mana exiles every artifact and enchantment, including yours.
+Karn's Sylex	nonland	58	Colorless flexible nonland wipe that scales by X; enters tapped, sorcery speed, and hits your stuff too.
+Kaya's Wrath	creatures	80	4-mana wrath with WWBB and life for your dead creatures.
+Kederekt Leviathan	nonland	46	8 mana symmetric mass bounce on a body; unearth repeats it.
+Killing Wave	creatures	42	Symmetric X sorcery: creatures die unless their owner pays X life; hits yours too.
+Kindle the Carnage	creatures	33	3-mana random-discard sweep; unreliable and costs you cards, hits your board too.
+Kindred Judgment	creatures	72	7-mana one-sided-ish wrath that spares your chosen type; great in tribal.
+Kirtar's Wrath	creatures	66	6-mana wrath; with threshold you keep two 1/1 flyers.
+Klauth's Will	creatures	56	Instant X sweep of non-flyers; scalable and hits your own ground creatures too.
+Kozilek's Return	creatures	50	3-mana instant: 2 damage to each creature; hits small boards and hurts your own.
+Krark-Clan Shaman	creatures	22	Needs artifact fodder to ping each non-flyer for 1; hits one-toughness creatures and hurts your own.
+Languish	creatures	72	4-mana -4/-4 sweeper; kills most creatures but misses big ones.
+Last Laugh	creatures	30	Chain of 1-damage pings on any permanent dying; erratic and hurts you too.
+Last One Standing	creatures	58	3-mana near-wrath: one random creature survives, which may be an opponent's.
+Lavaball Trap	creatures	40	Instant 4 damage sweep plus two land kills; the discount rarely triggers.
+Lavabrink Floodgates	creatures	40	Can deal 6 to each creature, but needs doom counters and the opponents choose when.
+Lavalanche	creatures	38	Three-color X sorcery hitting one player's creatures; scales well but gold-locked.
+Let the Galaxy Burn	creatures	50	6+ mana scalable damage sweeper; cascade leaves a free spell and creatures that enter survive.
+Life's Finale	creatures	64	6-mana sorcery wrath that also puts three creatures from one opponent's library into their graveyard.
+Liliana's Influence	creatures	30	6 mana: -1/-1 on each opposing creature; only kills small ones.
+Liliana, Death's Majesty	creatures	30	Her -7 wipes non-Zombies, but it is slow and far off.
+Liliana, Dreadhorde General	creatures	50	-4 makes each player sacrifice two creatures, a one-shot partial wipe.
+Lithobraking	creatures	42	3-mana instant: sac the Lander for a 2-damage sweep that hits your creatures too.
+Living Death	creatures	50	Sacrifices every creature but returns all graveyard creatures; a swap, not a clean wipe.
+Living End	creatures	38	Sacrifices all creatures but returns graveyards' creatures; a wipe only by accident.
+Localized Destruction	creatures	72	5-mana sorcery wrath; energy can save your creatures but it takes a bit of setup.
+Lord of Shatterskull Pass	creatures	34	Needs about 14 mana in levels, then each attack hits one opponent's creatures for 6.
+M.O.D.O.K.	creatures	30	Static -1/-1 on opposing creatures kills only X/1s.
+Maddening Imp	creatures	30	3-mana flyer: forces an opponent's attack, destroying creatures that held back; one opponent only.
+Mageta the Lion	creatures	48	5-mana body with a repeatable wrath for 4 mana and two discards; slow, costly and fragile.
+Magister of Worth	creatures	62	6-mana flier that wipes everything else; the vote can go to mass reanimation.
+Magma Giant	creatures	32	7-mana 5/5; a 2-damage sweep hurts you too and kills little.
+Magma Phoenix	creatures	50	Repeatable 3-damage sweep that hits you too, but a flying body that comes back.
+Magma Vein	creatures	30	Costs a land per damage to each non-flyer; hard to sweep much with.
+Magmaquake	creatures	62	Instant-speed scalable sweeper that spares flyers; hits all non-flyers including yours.
+Magmasaur	creatures	32	Delayed one-sided-ish sweep that hurts everyone, including you; clunky.
+Magus of the Balance	nonland	46	2-mana body, then 5 more to sacrifice: Balance for lands, hands and creatures.
+Magus of the Disk	nonland	66	4-mana tapped body: {1},T wipes artifacts, creatures and enchantments each turn, like a Disk.
+Major Teroh	creatures	22	Costs five and a sacrifice to exile only black creatures.
+Make Obsolete	creatures	30	3-mana instant: -1/-1 to their team; only kills X/1s.
+Malicious Eclipse	creatures	56	3-mana -2/-2 to all creatures; opponents' dying creatures are exiled instead.
+Malicious Malfunction	creatures	55	3-mana -2/-2 to all creatures; any dying creature is exiled instead.
+Mandate of Abaddon	creatures	55	4-mana one-sided-ish wrath: needs a big creature of yours to spare your board.
+March of Souls	creatures	56	Sorcery wrath for 5 that leaves 1/1 flyers for each dead creature.
+Marrow Shards	creatures	30	1 mana instant: 1 damage to each attacker, only kills tiny ones.
+Marsh Casualties	creatures	47	2-mana sorcery: -1/-1 to one player's creatures, -2/-2 for 5; hits small boards.
+Martial Coup	creatures	74	7 mana sorcery: wrath that leaves five 1/1 Soldiers for you; flexible smaller mode.
+Martyr of Ashes	creatures	30	1-mana creature; needs red cards in hand to sweep small non-flyers, hurts your own board.
+Martyr's Cry	creatures	12	Only hits white creatures and hurts you in white decks; rarely useful.
+Mass Calcify	creatures	58	Seven-mana one-sided-ish wrath in white decks; expensive but spares your white creatures.
+Massacre	creatures	58	-2/-2 sweep for 4 that is sometimes free; hits small creatures but also yours.
+Meathook Massacre II	creatures	62	X-scaled symmetric sacrifice for BBBB; hits everyone, but you keep dying creatures by paying life.
+Megaton's Fate	creatures	55	6-mana sorcery: 8 damage to each creature, symmetric, with rad counters for all.
+Meltdown	artifacts-enchantments	42	Scalable artifact sweeper, but symmetric and only artifacts; sorcery speed.
+Mephitic Vapors	creatures	30	3-mana sorcery: -1/-1 to all creatures kills only tokens and x/1s; surveil 2.
+Meteor Blast	creatures	42	One-sided only if you pay X for each target; expensive, but it can hit players too.
+Miasma Demon	creatures	34	6-mana flyer: discard cards to shrink small creatures, costing cards.
+Mists of Lórien	nonland	34	Replicate can bounce multiple mana values, but it is slow and temporary.
+Mjölnir, Hammer of Thor	creatures	48	Discard for 3 mana: 2 damage to each creature, symmetric.
+Mob Verdict	creatures	38	4-mana sorcery vote: 2 damage to a player's board per vote; unreliable with opponents.
+Mogg Infestation	creatures	42	5 mana: kill one player's creatures, but they get double the bodies.
+Molten Disaster	creatures	55	Scalable X sweeper that spares flyers; hits you and every player, split second if kicked.
+Moment of Reckoning	nonland	48	Can destroy four chosen nonland permanents, not a true sweep, at seven mana.
+Monstrous Onslaught	creatures	38	One-sided-ish split damage, but needs a big creature and targets.
+Multani's Decree	artifacts-enchantments	38	4-mana sorcery hitting only enchantments, symmetric; narrow.
+Mutilate	creatures	66	4-mana wrath that scales with your Swamps; weak in light-black decks.
+Mutinous Massacre	creatures	58	7-mana half-wipe that also steals survivors for a turn.
+Myojin of Cleansing Fire	creatures	50	8 mana: indestructible body with an instant-speed one-sided creature wipe.
+Myojin of Infinite Rage	nonland	28	10 mana to destroy all lands; a one-shot that wrecks you too.
+Mythos of Snapdax	nonland	58	4-mana partial wipe: each player keeps one of each type; you choose all with BR.
+Mythos of Vadrok	creatures	47	Divided damage can kill several small creatures, but it is targeted.
+Nature's Ruin	creatures	22	3-mana sorcery that only kills green creatures; rarely hits much.
+Nausea	creatures	32	2-mana sorcery -1/-1 sweep; kills only tiny creatures, and yours too.
+Necromantic Selection	creatures	62	7-mana sorcery: destroy all creatures, then take the best one back for yourself.
+Necroplasm	creatures	50	3-mana body that sweeps by mana value each turn, hitting your own too; fragile and slow.
+Necrotic Hex	creatures	58	7-mana near-wipe that leaves you six Zombies to rebuild.
+Needle Storm	creatures	30	3-mana sorcery: 4 damage to every flyer; only good against flyer decks.
+Nevinyrral, Urborg Tyrant	nonland	46	Six mana, three colors; it wipes only when it dies and you pay {1}.
+Nibelheim Aflame	creatures	62	4-mana sorcery: your big creature hits all others; flashback later refills your hand.
+Nicol Bolas, God-Pharaoh	nonland	25	Wipe only at -12 loyalty; takes several turns to reach.
+Night Incarnate	creatures	55	Evoke for 4: -3/-3 sweep; or a deathtouch body that sweeps when it dies.
+Night of Souls' Betrayal	creatures	50	4-mana permanent -1/-1 to all creatures: kills x/1s and tokens, symmetrical.
+Nightmare Unmaking	creatures	60	5-mana exile wipe; choose big or small creatures by hand size, can spare yours.
+No Witnesses	creatures	79	4-mana sorcery wrath; the player with the most creatures gets a Clue.
+Nova Cleric	artifacts-enchantments	42	1-mana body that sacrifices for a 3-mana enchantment wipe; hits your own too.
+Nova Flame	creatures	50	4+ mana sorcery: one-sided-ish wipe if you have a big creature, but costs X and needs a body.
+Novablast Wurm	creatures	58	7-mana GW body: repeatable one-sided wrath on attack, but slow and must survive a turn.
+Noxious Field	creatures	40	3-mana repeatable 1 damage sweep that also hits you; clears only tiny creatures.
+Noxious Ghoul	creatures	38	5-mana body; -1/-1 to non-Zombies only kills small creatures, better with Zombies.
+Nuclear Fallout	creatures	68	Sorcery {X}{B}{B}: -2X/-2X to every creature; cheap and scalable, rad hits everyone.
+Nylea's Intervention	creatures	34	Flexible mode hits only flyers, which is a narrow wipe, though X scales.
+Ob Nixilis, the Ascended	creatures	44	7-mana flyer: kills only tapped opposing creatures, one-sided but conditional, then makes Angels.
+Obliterate	nonland	35	8 mana to destroy all artifacts, creatures and lands; it hits you too.
+Olivia's Wrath	creatures	22	Needs Vampires to scale; one-sided in a Vampire deck but too narrow elsewhere.
+Ondu Inversion // Ondu Skyruins	nonland	52	8-mana nonland wipe; the land side means it costs no slot.
+One Ring to Rule Them All	creatures	58	4-mana delayed wrath that spares legends and tempts you first.
+Orcus, Prince of Undeath	creatures	55	Flexible X sweeper on a flying body; you lose X life and it is two colors.
+Organic Extinction	creatures	46	10-mana sorcery wrath that spares artifact creatures; improvise helps only in artifact decks.
+Ori, Plate Stacker	artifacts-enchantments	52	7-mana body: one-sided destroy of all opposing artifacts and enchantments, with life gain.
+Oros, the Avenger	creatures	30	Six-mana three-color flyer; wipe needs a hit plus {2}{W}.
+Outbreak	creatures	30	Free with a Swamp discard: -1/-1 to one creature type, only hitting tokens or tribes.
+Oversimplify	creatures	66	5-mana exile wrath, but everyone gets a Fractal; gold and symmetric.
+Overwhelming Forces	creatures	50	8 mana: kills one opponent's creatures and draws for each; pricey.
+Overwrite the Multiverse	creatures	66	6-mana sorcery: exile all creatures, so it beats recursion and indestructible.
+Paraselene	artifacts-enchantments	46	3-mana sorcery: destroys every enchantment, yours too, and gains a little life.
+Path of Mettle // Metzali, Tower of Triumph	creatures	25	1 damage to creatures lacking certain keywords; kills only tiny ones.
+Path of Peril	creatures	56	3-mana sorcery kills only MV 2 or less; cleave at 6 is a full wrath in WB.
+Patrician's Scorn	artifacts-enchantments	42	Instant that destroys all enchantments, free with another white spell; hits your own too.
+Perilous Vault	nonland	68	Four to cast, five to exile all nonland permanents at instant speed, mine included.
+Perish	creatures	22	3-mana sorcery that only hits green creatures; hits green decks hard and nothing else.
+Perplexing Test	creatures	46	5-mana instant mass bounce of creatures; hits your own board too and only tempo.
+Pest Control	nonland	40	2 mana: destroys every nonland permanent with mana value 1 or less, including tokens; it cycles.
+Pest Infestation	artifacts-enchantments	46	Big X can destroy many artifacts and enchantments, but you pick targets and pay XX.
+Pestilence	creatures	72	4-mana enchantment: {B} pings everything at instant speed, repeatable wipe and finisher.
+Pestilence Demon	creatures	52	8-mana 7/6 flyer; {B} pings every creature and player repeatedly.
+Pestilent Haze	creatures	56	3-mana sorcery: all creatures get -2/-2, or remove two loyalty from each planeswalker.
+Phyresis Outbreak	creatures	37	3-mana one-sided -1/-1 that scales only with more poison.
+Phyrexian Purge	creatures	66	4-mana selective wipe: pay 3 life per creature, choose only opposing ones.
+Phyrexian Rebirth	creatures	66	6-mana wrath that leaves you an X/X token; costly but strong when behind.
+Phyrexian Scriptures	creatures	68	4-mana delayed one-sided-ish wrath: save one creature, kill nonartifacts.
+Pinnacle Starcage	nonland	50	3 mana: exiles all small artifacts and creatures, including yours, until it leaves.
+Piru, the Volatile	creatures	22	8 mana, four colors: only wipes when it dies.
+Plague Boiler	nonland	66	3-mana slow nonland wipe in three turns, faster with {1}{B}{G}; hits your own board too.
+Plague Dogs	creatures	25	Only -1/-1 to everything on death; kills tokens at best.
+Plague Spitter	creatures	46	Repeating 1 damage to everything; clears small creatures and tokens but hurts you too.
+Planar Collapse	creatures	50	2-mana delayed wrath; usually fires at four creatures, but slow and telegraphed.
+Planar Despair	creatures	42	5-mana sweeper scaling with your basic types; strong in 3-5 color decks, weak in two.
+Planar Outburst	creatures	76	5-mana wrath that spares animated lands; awaken at 8 leaves a 4/4 land.
+Planetary Annihilation	creatures	64	5 mana: 6 damage to every creature, plus a land cap that hurts everyone.
+Play of the Game	nonland	50	Exiles every nonland permanent, but costs 8 at sorcery speed; assist helps.
+Poison the Waters	creatures	42	2-mana -1/-1 sweep kills only tokens and X/1s, but is flexible with discard mode.
+Portal to Phyrexia	creatures	38	9 mana: each opponent sacrifices three creatures; one-sided but very expensive.
+Powder Keg	nonland	48	2 mana, slow fuse: hits one mana value of artifacts and creatures, and you choose when.
+Pox Plague	nonland	36	5 black mana: everyone halves life, hand and permanents; symmetric and hurts you too.
+Primeval Light	artifacts-enchantments	35	4-mana sorcery: destroy all enchantments one player controls; only hits enchantments.
+Primitive Justice	artifacts-enchantments	40	Scales to destroy many artifacts, but you pay for each target and it's R/G only.
+Profit // Loss	creatures	34	Loss gives opposing creatures -1/-1 at instant speed; only kills small ones.
+Psychotic Haze	creatures	38	Instant 1 damage to everything; only kills tiny creatures and hits you too.
+Pulverize	artifacts-enchantments	45	Destroys every artifact, yours too; alternate cost of two Mountains.
+Puppet's Verdict	creatures	42	3-mana instant coin-flip sweep of small or big creatures.
+Purify	artifacts-enchantments	52	5-mana sorcery that destroys every artifact and enchantment, yours included.
+Pyroclasm	creatures	55	2-mana sorcery: 2 damage to each creature; clears small creatures and tokens, hits yours too.
+Pyroclast Consul	creatures	22	5-mana 3/3; the kinship sweep rarely triggers in singleton.
+Pyrohemia	creatures	46	Repeatable {R} damage to every creature and player; flexible but hurts you and dies with no creatures.
+Pyrokinesis	creatures	48	Free instant that can kill several small creatures with 4 divided damage.
+Radiant Flames	creatures	50	3-mana sorcery: damage to each creature equal to colors spent; hits your board too.
+Radiating Lightning	creatures	32	4-mana instant: 1 damage to one player's creatures plus 3 to face; kills only tokens.
+Raging Swordtooth	creatures	30	5-mana 5/5 body that pings every other creature for 1; kills only tiny ones.
+Rags // Riches	creatures	56	4-mana -2/-2 sweep, plus a 7-mana aftermath that steals creatures.
+Rain of Blades	creatures	28	1 mana: 1 damage to each attacker; it only kills tiny creatures.
+Rain of Daggers	creatures	58	6 mana: one-sided wipe on one opponent, with life loss for each creature.
+Rain of Embers	creatures	33	2 mana: 1 damage to everything, you included; only kills small creatures.
+Raise the Palisade	creatures	42	Mass bounce that can spare your tribe; sorcery speed at 5 mana.
+Rakdos, the Showstopper	creatures	38	6-mana body: coin flips kill about half the other creatures, yours included.
+Ral and the Implicit Maze	creatures	40	Chapter I deals 2 to each opposing creature and planeswalker; one-sided but small.
+Rampage of the Clans	artifacts-enchantments	38	Instant artifact/enchantment wipe, but each destroyed permanent gives its controller a 3/3.
+Rankle's Prank	creatures	38	Each player sacrifices two creatures; symmetric and not a full wipe.
+Ratchet Bomb	nonland	52	2-mana artifact: wipes a chosen mana value, including tokens at 0; slow and flexible.
+Ravages of War	nonland	42	4-mana Armageddon: destroys all lands, hurts you unless you're ahead on board.
+Ravnica at War	nonland	22	4-mana sorcery: exiles only multicolored permanents; situational and often hits your own.
+Razia's Purification	nonland	56	6-mana RW: everyone keeps three permanents; lets you pick your best.
+Realm-Cloaked Giant // Cast Off	creatures	74	5-mana sorcery wrath, then cast a 7/7 vigilance Giant afterward.
+Rebuild	artifacts-enchantments	30	Instant: bounce all artifacts, including yours; cycles when unneeded.
+Reckless Blaze	creatures	66	5-mana sorcery: 5 damage to each creature, refunds mana for yours.
+Reckless Endeavor	creatures	46	7-mana sorcery: choose one d12 for damage to each creature, plus Treasures.
+Red Sun's Twilight	artifacts-enchantments	40	Destroys several artifacts for X plus RR; hits all players' artifacts.
+Reduce to Dreams	artifacts-enchantments	48	5-mana mass bounce of artifacts and enchantments; hits you too, only tempo.
+Reign of Terror	creatures	32	5-mana sorcery that kills only one color of creatures; costs you life.
+Reiver Demon	creatures	56	8 mana: one-sided-ish wipe of nonblack creatures plus a 6/6 flyer.
+Release the Gremlins	artifacts-enchantments	42	At X 3 or more it clears an artifact board and leaves tokens, but costs 7+.
+Restore Balance	nonland	40	Cheap suspend, but it only evens players down to the fewest.
+Restricted Office // Lecture Hall	creatures	62	4-mana sorcery-speed wipe of creatures with power 3 or more; spares small ones.
+Retaliate	creatures	32	4-mana instant that kills only creatures that hit you; after the damage is dealt.
+Retribution of the Meek	creatures	58	3-mana sorcery: destroy all creatures with power 4+, cheap and often one-sided.
+Reverent Silence	artifacts-enchantments	44	Free with a Forest (opponents gain 6 life): destroys every enchantment, yours too.
+Righteous Fury	creatures	36	6-mana sorcery: only tapped creatures die, so it misses untapped blockers on your turn.
+Rise of the Deathbringer	creatures	52	5-mana instant -3/-3 sweep that hits your own creatures too; or a draw mode.
+Rising Miasma	creatures	42	-2/-2 sweep that kills small creatures; hits your own, and awaken gives a land.
+Rite of Ruin	nonland	30	7 mana sorcery: symmetric partial sacrifice of artifacts, creatures and lands; slow and hurts you too.
+Ritual of Soot	creatures	50	4-mana sorcery: kills small creatures only, and your own with it.
+River's Rebuke	nonland	50	6-mana sorcery: bounce one player's whole nonland board; tempo, not permanent.
+Riveteers Confluence	creatures	44	Up to 3 damage to each opposing creature, one-sided but needs BRG.
+Rollick of Abandon	creatures	40	5-mana sorcery: kills toughness 2 or less, symmetric and pumps.
+Rolling Earthquake	creatures	64	Scalable X sweeper that also hits every player, including you.
+Rolling Spoil	creatures	18	4-mana sorcery: kills a land; -1/-1 to all creatures only if black mana was spent.
+Rolling Temblor	creatures	52	3-mana sweeper for 2 damage to ground creatures, with flashback for a second use.
+Rolling Thunder	creatures	34	Can split damage across many small creatures but costs a lot of mana to do so.
+Ronin Cliffrider	creatures	20	Attack trigger pings 1 to each defender creature; too small and slow to wipe.
+Root Greevil	artifacts-enchantments	30	Costly one-shot that only hits enchantments of one color.
+Rough // Tumble	creatures	55	Cheap 2-damage sweep of non-flyers, plus a flyer sweep half; hits small creatures only.
+Ruination	nonland	38	4-mana sorcery: destroys all nonbasic lands; hurts everyone and misses basics.
+Ruinous Rampage	artifacts-enchantments	38	3 mana: exile all artifacts with MV 3 or less, hitting your own too; or 3 damage to opponents.
+Ruinous Waterbending	creatures	50	3-mana sorcery: all creatures get -2/-2, optional lifegain; sweeps only small creatures.
+Rupture	creatures	32	3-mana sorcery: sacrifice a creature, damage all non-flyers and players; costs a creature.
+Ryusei, the Falling Star	creatures	33	6-mana flyer; wipes non-flyers only if it dies.
+Sadistic Shell Game	creatures	38	One-sided, but each opponent picks their worst creature.
+Sandman's Quicksand	creatures	55	3-mana -2/-2 sweep; mayhem makes it one-sided but needs a discard from graveyard.
+Sandstorm	creatures	18	1 damage to attackers only; kills almost nothing in Commander.
+Sanguine Praetor	creatures	34	8-mana body; sacrifice to wipe matching mana values, selective.
+Sarkhan, Dragonsoul	creatures	30	6 mana: +2 pings each opposing creature for 1 each turn; only kills tiny creatures.
+Sarulf, Realm Eater	nonland	45	3-mana body that grows, then can exile small nonland permanents (yours too) on upkeep.
+Savage Twister	creatures	55	Flexible X damage sweeper in Gruul; hits your own creatures too.
+Scalding Salamander	creatures	24	Attacking 2/1 pings non-flyers for 1; only kills tiny creatures and dies easily.
+Scattershot Archer	creatures	38	1-mana creature: tap to deal 1 to every flyer, including yours.
+Scavenger Regent // Exude Toxin	creatures	62	Flexible X sorcery -X/-X sweep that spares your Dragons, then shuffles back as a 4/4 flier.
+Scourge of Kher Ridges	creatures	56	8-mana dragon: repeatable 2 damage to non-flyers or 6 to flyers; hits your board too.
+Scourglass	nonland	56	Slow upkeep-only wipe that spares artifacts and lands; delayed a turn.
+Scouring Sands	creatures	38	2-mana one-sided ping that kills only X/1s, with scry 1.
+Scrap Mastery	artifacts-enchantments	22	5-mana symmetric artifact reset that gives everyone their dead artifacts back.
+Screams of the Damned	creatures	30	Repeatable 1 damage to all creatures, costing graveyard cards and hurting you too.
+Sculpted Sunburst	creatures	56	5-mana sorcery: exile everything but one creature each; opponents keep a weaker one.
+Sea God's Revenge	creatures	38	One-sided mass bounce of up to three creatures for six mana; only tempo.
+Season of Gathering	artifacts-enchantments	52	Destroys all artifacts or enchantments (or both) for six mana, plus counters or draw.
+Season of Weaving	nonland	42	6 mana: bounces every nonland nontoken permanent, yours too, as one mode.
+Season of the Witch	creatures	34	BBB enchantment: kills untapped non-attackers each turn, hits you too.
+Seeds of Innocence	artifacts-enchantments	42	3-mana sorcery: destroy all artifacts, hits yours too and gives life.
+Seismic Rupture	creatures	42	3 mana: 2 damage to each nonflyer; hits your own board and misses big creatures.
+Seismic Shudder	creatures	30	2-mana instant: 1 damage to nonflyers; only kills tokens and tiny creatures.
+Selective Obliteration	nonland	30	5 mana needing {C}{C}: exiles most permanents but hard to cast and hits you too.
+Selfless Glyphweaver // Deadly Vanity	creatures	50	8-mana one-sided-ish wipe saving one creature or walker.
+Sephiroth, Planet's Heir	creatures	36	6-mana body: opposing creatures get -2/-2 on entry, only kills small ones.
+Serene Heart	artifacts-enchantments	22	2-mana instant: destroys all Auras, hits yours too and rarely matters.
+Serenity	artifacts-enchantments	50	2 mana: destroys all artifacts and enchantments on your upkeep, yours too.
+Serra's Liturgy	artifacts-enchantments	30	Can mass-destroy artifacts and enchantments after several turns, but it is slow and telegraphed.
+Shadows' Verdict	creatures	50	5-mana sorcery that exiles cheap creatures and planeswalkers; misses big threats but also hits graveyards.
+Shai-Hulud	artifacts-enchantments	42	9-mana body that wipes artifacts and enchantments but hits you too.
+Shake the Foundations	creatures	30	3-mana instant: 1 damage to nonflyers; only kills tiny creatures, but cantrips.
+Shard Phoenix	creatures	48	5-mana flyer that sacs to deal 2 to non-flyers; recurs each upkeep for RRR.
+Shatter the Sky	creatures	80	4-mana Wrath of God that may give a card to players with 4-power creatures.
+Shefet Archfiend	creatures	50	7-mana flyer: all other creatures get -2/-2 on entry; cycles for 2.
+Showstopping Surprise	creatures	55	5-mana instant: your creature deals damage equal to its power to every other creature.
+Shrivel	creatures	33	2-mana symmetric -1/-1: only kills tokens and x/1s.
+Shrouded Shepherd // Cleave Shadows	creatures	38	Cheap one-sided -1/-1 that kills small creatures, plus a creature afterward.
+Sickening Dreams	creatures	40	2-mana sorcery wipe scaled by discards; costs cards and hurts you too.
+Siege Dragon	creatures	38	7-mana flyer; attacks ping non-flyers, but it is slow and not a true reset.
+Silence the Believers	creatures	50	Instant exile of many creatures but costs {2}{B} per extra target; one-sided.
+Silklash Spider	creatures	28	Repeatable damage to flyers only; rarely a real wipe.
+Single Combat	creatures	52	5-mana sorcery: everyone keeps one creature or walker, and you lock out casting.
+Singularity Rupture	creatures	57	6-mana two-color wrath with an optional half-library mill.
+Sivitri, Dragon Master	creatures	28	-7 wraths non-Dragons but takes several turns to reach.
+Skirk Fire Marshal	creatures	30	Needs five untapped Goblins to wipe; only works in a Goblin deck.
+Skyreaping	creatures	33	Cheap sorcery that only hits flyers and hits yours too.
+Slagstorm	creatures	63	3-mana sorcery: 3 damage to each creature; cheap but misses big creatures.
+Slash the Ranks	creatures	74	5-mana wrath that spares commanders, great for commander decks, also kills planeswalkers.
+Slaughter the Strong	creatures	52	3-mana sorcery: each player keeps 4 power of creatures; symmetric but cheap and you pick.
+Slice and Dice	creatures	58	6-mana sorcery: 4 damage to every creature, or cycle for 3 to ping 1; hits your board too.
+Slinn Voda, the Rising Deep	creatures	38	10 mana kicked: mass bounce of non-sea creatures, leaving an 8/8; very expensive.
+Solar Blaze	creatures	55	4-mana sorcery: kills creatures with power at least their toughness; hits yours too.
+Solar Tide	creatures	58	6-mana flexible wrath: half the creatures, or all with entwine at a two-land cost.
+Soul Immolation	creatures	56	5-mana sorcery: one-sided X damage sweep, capped by your biggest toughness and costing counters.
+Soul Snuffers	creatures	38	4-mana 3/3 that gives every creature -1/-1; only kills tokens and x/1s.
+Soulquake	creatures	30	7-mana mass bounce that also refills everyone's hand with graveyard creatures.
+Soulscour	nonland	38	10 mana: destroys every nonartifact permanent, lands included; too slow.
+Space Beleren	creatures	42	Needs three turns of -1 ... starts at 3; -5 needs +1 ticks first, wipes only one sector.
+Spectacular Pileup	creatures	76	5-mana sorcery wrath that beats indestructible, and it cycles for 2 when you don't need it.
+Specter of Mortality	creatures	40	5-mana flier; its sweep needs creature cards in your graveyard and also hits your other creatures.
+Spectral Deluge	creatures	50	One-sided mass bounce of creatures up to your Island count in toughness; foretell makes it cheaper.
+Sphere of Annihilation	creatures	50	Delayed scalable wipe that also exiles graveyards; it hits your own board too.
+Spinning Wheel Kick	creatures	36	One-sided but costly sweep of X targets; needs a big creature.
+Spiteful Banditry	creatures	58	Scalable sweeper that hits your creatures too, then makes Treasure each turn opponents' creatures die.
+Splatter Technique	creatures	58	5-mana sorcery: 4 damage to all creatures and walkers, or draw four.
+Split Up	creatures	72	3-mana wrath choice: kill all tapped or all untapped creatures, can be one-sided.
+Spontaneous Combustion	creatures	50	3-mana instant sweeper for 3 damage; needs a sacrifice and two colors.
+Spreading Flames	creatures	32	Seven mana to split 6 damage; targeted, so it is not a true wipe.
+Spreading Plague	creatures	38	5-mana enchantment: each creature entering kills others of its colors, yours too.
+Squall	creatures	22	3-mana sorcery: 2 damage to each flyer, which hits only small flyers.
+Squall Line	creatures	30	Instant X spell: damage to every flyer and player, including you.
+Squallmonger	creatures	22	Only pings flyers, and any player can use it; barely a wipe.
+Star of Extinction	creatures	66	7-mana sorcery: wipes every creature and planeswalker and destroys a land; costly but thorough.
+Starfall Invocation	creatures	80	5-mana wrath; promise a gift to bring back one of your creatures.
+Steam Blast	creatures	46	3-mana sorcery: 2 damage to all creatures and players; only clears small creatures.
+Steel Hellkite	nonland	46	6-mana flyer; needs combat damage to a player, then destroys nonland permanents of chosen MV.
+Stench of Decay	creatures	28	3-mana instant: -1/-1 to nonartifact creatures; only kills x/1s and hits your own.
+Stench of Evil	nonland	8	4-mana sorcery that only destroys Plains; almost never worth it.
+Stick Together	creatures	30	5-mana sorcery that keeps only a party; hits you too and rarely wipes enough.
+Storm's Wrath	creatures	72	4-mana sorcery: 4 damage to every creature and planeswalker; kills most boards.
+Street Spasm	creatures	50	Overloaded at 2X+RR: instant damage to each nonflying creature you don't control.
+Structural Assault	artifacts-enchantments	47	5-mana sorcery: destroys all artifacts (yours too), plus creature damage by count.
+Sublime Exhalation	creatures	66	Wrath that costs about 4 in a 4-player game through undaunted.
+Subterranean Shambler	creatures	30	Pings each nonflyer for 1 on entry and exit; kills only tiny creatures.
+Subterranean Spirit	creatures	37	Repeatable 1 damage to each nonflyer, hits your side too.
+Subterranean Tremors	creatures	50	Scalable sorcery sweeper that skips flyers and hits your own board; artifact wipe at X=4.
+Sudden Demise	creatures	48	Scalable one-color sweeper; great against mono-colored boards, but doesn't hit colorless or other colors.
+Sudden Disappearance	nonland	22	Temporary 6-mana sorcery blink on an opponent; mostly a tempo play for an alpha strike.
+Suicidal Charge	creatures	18	Five mana for -1/-1 and a forced attack; it barely kills anything.
+Sulfurous Blast	creatures	56	Instant sweeper for 2 or 3 damage; it hits only small creatures and also hurts every player.
+Summon: Kujata	creatures	28	6-mana body whose chapter I deals 3 damage to two creatures; not a real wipe.
+Summon: Leviathan	creatures	38	6-mana 6/6 that mass bounces creatures on entry, including your own.
+Sunblast Angel	creatures	48	6-mana 4/5 flyer; kills tapped creatures, which is a one-sided wipe after attacks.
+Sunderflock	creatures	50	Expensive flyer that bounces all non-Elemental creatures; cheaper with Elementals.
+Sunscour	creatures	66	Wrath that is free by exiling two white cards; costs 7 otherwise, but still a flexible wrath.
+Supreme Verdict	creatures	83	4-mana uncounterable wrath for creatures; WWU limits it to Azorius.
+Surtland Frostpyre	creatures	31	6 mana sorcery-speed 2 damage sweep, hits your creatures too, but costs no spell slot.
+Swarmyard Massacre	creatures	52	5 mana: two Squirrels, then -2/-2 or more to other creatures; one-sided-ish but small.
+Swathcutter Giant	creatures	28	6-mana body whose attack pings every defender's creature for 1.
+Sway of the Stars	nonland	38	10 mana shuffles every permanent away, but you lose yours too.
+Swirling Sandstorm	creatures	42	4-mana sweep that needs seven cards in your graveyard; hits your own board too.
+Tainted Specter	creatures	22	1 damage to everything only when they discard; too small to wipe.
+Take Down	creatures	22	Pings every flyer for 1; only kills tiny flyers.
+Taste of Death	creatures	44	6-mana sorcery: everyone sacrifices three creatures; symmetric, but Food softens it.
+Tectonic Hazard	creatures	42	One damage to opposing creatures only; kills tokens and x/1s cheaply.
+Tegwyll's Scouring	creatures	66	6-mana wrath that leaves you three 1/1 flyers; can flash with flyers.
+Tempest of Light	artifacts-enchantments	45	3-mana instant: destroy all enchantments, yours too.
+Temporal Firestorm	creatures	60	5 mana: 5 damage to all creatures; kicker phases your own out to spare them.
+Temporary Lockdown	nonland	56	3-mana enchantment: exiles all nonland permanents with MV 2 or less, including yours.
+Tergrid's Shadow	creatures	50	Instant: each player sacrifices two creatures; great with few creatures of your own.
+Terisiare's Devastation	creatures	50	X sorcery: makes Powerstones, then shrinks all creatures by your artifact count.
+Territorial Aetherkite	creatures	38	6-mana body whose sweep is only 2 damage to each other creature, once.
+Terror Tide	creatures	50	Four-mana sorcery wipe that scales with your graveyard; weak early.
+Tetzimoc, Primal Death	creatures	38	Mark creatures from hand over turns, then drop a 6/6 that kills them.
+Thanos, the Mad Titan	creatures	32	Needs all five colors plus colorless for a one-sided-ish wipe; rarely activated.
+The Abyss	creatures	38	Slowly kills everyone's creatures, one a turn each; symmetric.
+The Battle of Bywater	creatures	60	3-mana partial wrath: kills big creatures and leaves Food for your survivors.
+The Black Breath	creatures	42	3-mana sorcery: -1/-1 to their creatures, kills only tiny ones; one-sided.
+The Day of the Doctor	creatures	32	5 mana, wipe only on chapter IV; deals 13 to you and needs Doctors to keep.
+The Destruction of Praxis	creatures	66	5-mana sorcery: -X/-X to all, X is your differently named lands; basics barely count.
+The Echoverse Fulcrum	creatures	60	Cheap loot, then {5} and exile for a colorless sorcery-speed wrath.
+The Elder Dragon War	creatures	52	4-mana saga: 2 damage to each creature, then a 4/4 Dragon; small wipe but leaves a body.
+The Eternal Wanderer	creatures	72	6-mana walker: -4 leaves each player one creature, and it makes Samurai every turn.
+The Fall of Kroog	creatures	24	6 mana: 1 damage to one opponent's creatures, plus Stone Rain and 3 face damage.
+The Filigree Sylex	nonland	50	2-mana artifact: grow oil counters, then destroy every nonland permanent of that mana value.
+The First Eruption	creatures	50	3-mana saga: 1 damage, then 3 damage to all creatures two turns later for a Mountain.
+The Great Aurora	nonland	38	9-mana symmetric permanent reset; you also lose your board.
+The Horus Heresy	creatures	22	Chapter III is only a one-creature-each edict, not a real wipe.
+The Last Ronin	creatures	62	6-mana saga: wrath right away, then regrowth a creature and a big attacker.
+The Moment	nonland	58	Cheap slow wipe of nonland permanents by mana value that also protects one creature.
+The Night of the Doctor	creatures	66	6-mana sorcery-speed saga: destroys all creatures, then brings back a legend.
+The Nipton Lottery	creatures	58	4-mana sorcery: kills all creatures but one random survivor, which you control until end of turn.
+The Phasing of Zhalfir	creatures	52	Slow three-turn wrath that leaves 2/2s for everyone.
+The Rise of Sozin // Fire Lord Sozin	creatures	68	6-mana sorcery-speed wrath that leaves a 5/5 menace legend two turns later.
+The Rollercrusher Ride	creatures	58	Scalable one-sided-ish sweeper: X damage to up to X chosen creatures.
+Their Name Is Death	creatures	60	6-mana sorcery wrath that spares artifact creatures; costly with BBB.
+Themberchaud	creatures	46	7-mana 5/5 trample: pings non-flyers and players for your Mountain count; one-sided body.
+Thieves' Auction	nonland	48	7-mana sorcery: exiles all nontoken permanents, then you pick first; heavy RRR cost.
+Thing in the Ice // Awoken Horror	creatures	38	2-mana wall that flips after four instants or sorceries to bounce creatures.
+Thrashing Wumpus	creatures	50	Repeatable symmetric pinger that hurts you and the Wumpus too; scalable sweep.
+Thunder Dragon	creatures	52	7-mana flying body; 3 damage to each nonflyer on entry, a one-sided-ish sweep.
+Thundercloud Shaman	creatures	38	5-mana 4/4 that deals at least 1 to each non-Giant creature; hits your own board too.
+Thunderwave	creatures	45	Random 3-damage sweep that sometimes spares your creature; small damage.
+Tibor and Lumia	creatures	24	Pings non-flyers 1 per red spell; slow and deck-dependent.
+Time Bomb	creatures	40	4-mana slow wipe that also hits every player and you must wait for counters.
+Time Wipe	creatures	72	5-mana creature wrath that saves one of yours by bouncing it first; two colors needed.
+Tip the Scales	creatures	50	3-mana sorcery: sacrifice a big-toughness creature to shrink everything; hits yours too.
+Tivadar's Crusade	creatures	8	Only hits Goblins, which rarely matter at a typical table.
+Too Greedily, Too Deep	creatures	34	Seven-mana wipe that depends on the power of the creature you reanimate.
+Tornado Elemental	creatures	22	7 mana for a 6/6 that only kills flyers, hurting your own too.
+Torrent of Lava	creatures	50	Scalable one-sided-ish sweeper that spares flyers, but hits your own board.
+Total War	creatures	25	4-mana enchantment: kills non-attackers, but hits you too and is unreliable.
+Toxrill, the Corrosive	creatures	60	7-mana body that wipes opposing creatures over a turn cycle, one-sided and repeating.
+Tragic Arrogance	nonland	78	5-mana one-sided-ish wipe: you pick what each player keeps and sacrifice the rest of the nonland permanents.
+Tranquil Domain	artifacts-enchantments	40	2-mana instant hits only non-Aura enchantments, yours too; narrow.
+Tranquil Grove	artifacts-enchantments	38	Repeatable enchantment wipe for 1GG, but only hits enchantments.
+Tranquil Path	artifacts-enchantments	38	Five mana to hit only enchantments, with a cantrip; narrow and slow.
+Tremor	creatures	30	1 damage to each non-flyer only kills tiny creatures, though it is cheap.
+Tropical Storm	creatures	25	Only hits fliers (and blue ones extra); rarely good.
+Tsabo's Decree	creatures	30	6-mana instant that kills one creature type of one player; great only against tribal decks.
+Turtles in Time	creatures	38	7-mana mass bounce of creatures; temporary and it helps everyone.
+Twinstrike	creatures	28	Only hits two creatures; too small to count as a wipe.
+U.S.S. Enterprise-E, Sovereign	creatures	45	5 mana: destroy all tapped creatures, which mostly hits recent attackers.
+Ugin, the Spirit Dragon	nonland	66	8 mana: exile all colored permanents up to X; your colorless stuff survives.
+Ultima	nonland	72	5-mana sorcery: destroy all artifacts and creatures, then end the turn.
+Ultimate Magic: Meteor	creatures	66	6-mana sorcery: 7 damage to each creature, plus land or artifact kill if foretold.
+Ultimate Nullification	creatures	30	5-mana exile wrath that needs a legendary creature sacrificed; rarely worth it.
+Underworld Fires	creatures	38	2-mana sorcery: 1 damage to each creature and planeswalker; it only clears tokens and x/1s.
+Unstable Glyphbridge // Sandswirl Wanderglyph	creatures	70	5-mana wrath sparing a small creature per player; later becomes a 5/3 flyer.
+Ureni, the Song Unending	creatures	38	8-mana three-color dragon; ETB divides damage among their creatures, a lopsided sweep with a huge body.
+Urza's Ruinous Blast	nonland	72	5-mana exile of every nonlegendary nonland permanent; spares your legends.
+Urza's Sylex	nonland	52	Costs 3 then 4 more to destroy all but six lands each; slow and symmetric.
+V.A.T.S.	creatures	46	Instant split second kill of every creature sharing a toughness; conditional.
+Valiant Endeavor	creatures	52	6-mana dice wrath: you choose which result kills and which makes Knights; flexible.
+Vampires' Vengeance	creatures	50	3-mana instant: 2 damage to each non-Vampire creature, kills only small ones, leaves a Blood.
+Vault 11: Voter's Dilemma	creatures	42	Slow two-color saga; votes kill one or a few creatures at chapters II and III, or everyone draws.
+Vault 75: Middle School	creatures	58	4 mana: exile every big creature, then grow your team twice. Hits yours too.
+Vicious Rivalry	creatures	66	4-mana flexible sweeper: pay X life to hit artifacts and creatures up to X; two colors.
+Vile Requiem	creatures	48	Slow-building one-shot wipe of nonblack creatures; scalable but telegraphed.
+Village Pillagers	creatures	30	5/5 body that pings each opposing creature for 1; only clears tiny creatures.
+Villainous Wrath	creatures	76	5-mana sorcery wrath that also drains one opponent for their creature count.
+Virtue's Ruin	creatures	22	Only hits white creatures; rarely matters.
+Virulent Plague	creatures	30	Kills most tokens, also yours; narrow anti-token hate.
+Void	creatures	50	5-mana flexible sweep of one mana value, plus discard; two colors.
+Volatile Rig	creatures	25	Random coin-flip 4-damage sweep when it dies; unreliable and hits you too.
+Volcanic Eruption	creatures	8	Needs Mountains in play to do anything, and it hurts you; almost never works.
+Volcanic Fallout	creatures	60	3-mana instant uncounterable 2 damage sweep; only kills small creatures, but it is cheap.
+Volcanic Spray	creatures	27	1 damage to nonflyers twice; only kills tokens and tiny creatures, and hits you too.
+Volcanic Torrent	creatures	46	One-sided sweep; cascade makes it at least 2 damage, more with extra spells.
+Volcanic Vision	creatures	42	One-sided damage sweep scaled by the returned spell, for 7 mana.
+Volcanic Wind	creatures	45	Six mana to divide damage among creatures; scales with the board, can hit only chosen targets.
+Volley of Boulders	creatures	30	Divided damage can kill several small creatures, but costs nine.
+Vona's Hunger	creatures	40	Late game, an instant half-board edict against each opponent.
+Wail of the Nim	creatures	38	Instant 1 damage to all creatures and players; only kills small ones.
+Wakening Sun's Avatar	creatures	52	8 mana: a 7/7 body that wipes every non-Dinosaur creature.
+Waltz of Rage	creatures	48	5-mana one-sided-ish wipe if you have a big creature; needs a creature and kills your others.
+Warmonger	creatures	30	Any player can pay {2} to ping non-flyers; slow, symmetric, and hurts you too.
+Wash Out	nonland	48	4-mana sorcery: bounce every permanent of one color, including yours.
+Waterspout Elemental	creatures	38	Kicked mass bounce on a flyer, but you skip your next turn.
+Wave Goodbye	creatures	48	4-mana sorcery mass bounce; skips creatures with counters.
+Wave of Reckoning	creatures	58	5-mana sorcery: each creature takes damage equal to its power; fine in big-creature decks.
+Wave of Terror	creatures	34	3-mana enchantment: slow, escalating upkeep kills creatures by mana value; hits your own too.
+Wave of Vitriol	artifacts-enchantments	42	7-mana symmetric sorcery: sacrifices artifacts, enchantments and nonbasics; hits you too.
+What Must Be Done	creatures	70	5-mana wrath that also kills artifacts, or a mode to reanimate a historic permanent.
+Whelming Wave	creatures	40	Symmetric mass bounce at sorcery speed; tempo only, hits your own board.
+Whipflare	creatures	42	Cheap sweeper that only kills small creatures and spares artifacts.
+Whiptongue Hydra	creatures	28	6-mana reach body; kills only flyers, which is rarely enough at a Commander table.
+Whirling Catapult	creatures	24	4-mana artifact: repeatable 1 damage to flyers and all players, and it exiles your own library.
+Whirlwind	creatures	22	4-mana sorcery that kills only flyers; too narrow to count as a real wipe.
+White Sun's Twilight	creatures	60	At 7 mana: wipes other creatures, leaves 5 mites and 5 life; scalable early too.
+Widespread Brutality	creatures	52	4-mana RRB: a 2/2 Army and 2 damage to every other creature; it hits only small ones.
+Wildfire	creatures	46	Six-mana sorcery: 4 damage to each creature, but it also costs you four lands.
+Wildfire Cerberus	creatures	30	Seven mana to monstrosity for a one-sided 2 damage sweep; a slow body.
+Wildfire Howl	creatures	55	Three-mana sorcery: 2 damage to each creature, plus a ping if you gift a card.
+Winds of Rath	creatures	56	5-mana wrath that spares enchanted creatures; needs auras to be one-sided.
+Windstorm	creatures	30	Instant X damage to all flyers; narrow and symmetric.
+Winnowing	creatures	50	6-mana convoke one-sided-ish wipe: you keep your creature type, opponents' board is cut down.
+Winter Sky	creatures	10	1 mana coin flip for 1 damage to each creature; barely wipes anything.
+Winter, Cursed Rider	creatures	26	Exhaust -X/-X sweep needs artifacts in the graveyard and once only; niche.
+Witch's Vengeance	creatures	38	Cheap one-type -3/-3; great against tribal decks, small elsewhere.
+Withering Curse	creatures	58	3-mana sweeper: -2/-2 to all, or a full wrath if you gained life.
+Withering Wisps	creatures	14	Needs snow Swamps to activate, so it's nearly dead in normal decks.
+Worldfire	nonland	40	9-mana sorcery: exiles everything, but also your board and hand; mostly a combo finisher.
+Worldpurge	nonland	38	8-mana mass bounce of all permanents, yours included; slow and symmetric.
+Worlds Within Worlds	creatures	42	7-mana creature wipe that gives creatures back to hands; clunky and symmetric.
+Worldslayer	nonland	34	5 to cast and 5 to equip, needs a connecting creature, and it hits your own permanents too.
+Wrath of the Skies	nonland	72	XWW sorcery: destroy all artifacts, creatures and enchantments up to mana value X.
+Yahenni's Expertise	creatures	66	4-mana -3/-3 sweep with a free cheap spell; misses big creatures but leaves tempo.
+Yamabushi's Storm	creatures	48	2-mana symmetrical 1 damage sweep; kills only tokens and x/1s, but cheap and exiles.
+Zenos yae Galvus // Shinryu, Transcendent Rival	creatures	38	5-mana 4/4 that gives other creatures -2/-2 for a turn, killing small ones.
+Zero Point Ballad	creatures	68	Flexible X sweeper: cheap for small boards, reanimates at X 6; costs life.
+Zimone's Hypothesis	creatures	40	Instant mass bounce of odd or even power creatures; hits your own too.

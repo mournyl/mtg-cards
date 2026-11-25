@@ -115,3 +115,1755 @@ Pearl Medallion	other	56	2 mana; spells of one color cost {1} less.
 Emerald Medallion	other	56	2 mana; spells of one color cost {1} less.
 Dark Ritual	other	50	1 mana for {B}{B}{B} once; a burst, not lasting ramp.
 Cabal Ritual	other	46	2 mana for {B}{B}{B}, more with threshold; a burst.
+# grade_api merged, 2026-11-24
+A Realm Reborn	other	46	6 mana: all your other permanents tap for any color, a huge but slow burst.
+Aang's Journey	lands	40	2-mana sorcery: a basic to hand and 2 life, but it doesn't ramp this turn.
+Abstract Paintmage	other	45	3-mana 2/2 adds UR each turn for instants and sorceries; best in spells decks.
+Abstruse Interference	other	25	The Scion token makes one colorless mana once.
+Abzan Banner	rocks	48	3-mana rock for three colors; cashes in for a card late.
+Abzan Devotee	dorks	38	2-mana creature that only filters mana; fixes but adds none.
+Abzan Monument	lands	48	2 mana: fetch a basic to hand; slow ramp and later a body.
+Accomplished Alchemist	dorks	48	4-mana dork: one mana of any color, more with lifegain.
+Adverse Conditions	other	22	4-mana tempo spell; the Scion gives only a one-shot mana.
+Aerial Surveyor	lands	32	3-mana crewed vehicle; fetches a Plains only if attacking while behind on lands.
+Aesi, Tyrant of Gyre Strait	other	36	Extra land drop helps only if you hold lands; expensive for ramp.
+Aetheric Amplifier	rocks	50	3-mana rock for any color; slow but fixes, with a counter-doubling extra.
+Aftermath Analyst	lands	32	Mills three, then pays 4 and sacrifices to return graveyard lands; needs land setup.
+Agility Bobblehead	rocks	48	3-mana rock for any color; fixes, with a minor haste ability.
+Akki Rockspeaker	other	28	2 mana for {R}: net zero, only a goblin body and a Goblin enabler.
+Alchemist's Talent	other	46	4 mana for two Treasures; later levels double Treasure mana and burn for spells cast with it.
+Alena, Kessig Trapper	dorks	25	5-mana creature whose mana needs another creature entering that turn; mostly a body.
+Alicia Masters, Skilled Sculptor	other	50	2-mana wall that makes a Treasure each turn you cast a noncreature spell.
+All-Fates Scroll	rocks	50	3-mana rock for any color with a late-game draw mode.
+Alloy Myr	dorks	52	3-mana 2/2 dork that taps for any color; colorless and fixes.
+Alpine Guide	lands	42	3-mana 3/3 fetches a Mountain, but it must attack and costs a Mountain when it leaves.
+Altar of the Lost	rocks	22	3 mana tapped rock that only pays for flashback spells; needs a flashback deck.
+Altar of the Pantheon	rocks	44	3-mana rock for one mana of any color; devotion and life are minor.
+Ambitious Farmhand // Seasoned Cathar	lands	30	2-mana body that fetches a Plains to hand; it helps land drops but adds no mana.
+Ambulatory Reactor	other	30	4 mana: artifact creatures tap for artifact-only mana, which needs an artifact-creature deck.
+Aminatou's Augury	other	25	8-mana burst that puts a land and free spells in play; too expensive for ramp.
+Analyze the Pollen	lands	56	1-mana basic land to hand: fixes and keeps land drops, but doesn't put it onto the battlefield.
+Ancestors' Aid	other	35	2-mana trick that leaves a one-shot Treasure behind.
+Ancient Adamantoise	other	34	8 mana: ten tapped Treasures only when it dies.
+Ancient Cornucopia	rocks	58	3-mana rock for any color, with a small lifegain rider.
+Ancient Tomb	lands	80	Land that adds an extra colorless mana every tap; it's fast mana in land form.
+Animal Attendant	dorks	66	2-mana dork: any color of mana, and non-Human creatures get a counter.
+Animar, Soul of Elements	other	42	3-mana GUR creature that cuts creature costs as it grows; needs three colors and creatures.
+Animist's Awakening	lands	50	Reveals X cards and puts the lands onto the battlefield; swingy, and expensive for a reliable count.
+Ant-Man, Elusive Avenger	other	30	3-mana 1/2 that makes Treasures equal to damage dealt.
+Apex of Power	other	22	10 mana for ten mana back plus seven exiled cards; far too costly to ramp.
+Apprentice Wizard	dorks	55	3-mana dork: pay {U}, tap for three colorless, a net +2.
+Arbalest Engineers	other	32	Three-mana body that makes a tapped Powerstone, one-shot ramp with limited use.
+Arbor Adherent	dorks	50	4-mana dork: fixes and can tap for lots of mana with high-toughness creatures.
+Arboreal Grazer	lands	50	1 mana, puts a land tapped on entry; a one-shot ramp that leaves a blocker.
+Arc Reactor	rocks	42	5-mana tapped rock for {C}{C}{C}; improvise helps but it's slow.
+Archdruid's Charm	lands	48	Can fetch a land onto the battlefield tapped, but only as one of three modes.
+Arcum's Astrolabe	rocks	38	Needs {S} and only filters mana; no real ramp.
+Ardent Electromancer	other	28	Party-based one-shot mana on a 3-drop, usually small.
+Argothian Elder	dorks	52	4-mana creature: untap two lands each turn for net extra mana.
+Arid Archway	lands	42	Tapped land that bounces a land to tap for {C}{C}.
+Arixmethes, Slumbering Isle	dorks	56	4-mana tapped land-creature that taps for {G}{U}; becomes a 12/12.
+Arlinn, the Pack's Hope // Arlinn, the Moon's Fury	other	38	Night side adds {R}{G} each turn, but only after it flips.
+Armillary Sphere	lands	54	Pay 4 total over two turns for two basics in hand; slow but fixes.
+Armored Scrapgorger	dorks	69	2-mana dork: taps for any color and grows to a 3/3 attacker.
+Artist's Talent	other	40	Level 2 makes noncreature spells cost {1} less; needs a spells deck.
+Arzakon	other	42	Five-color walker: -3 makes a Black Lotus token once; hard to cast.
+Ashling, Rekindled // Ashling, Rimebound	dorks	44	Flipped, adds two mana each turn for 4+ cost spells; needs both colors.
+Ashnod's Altar	rocks	58	3 mana: sac a creature for {C}{C}; strong with tokens and combos but needs fodder.
+Astral Cornucopia	rocks	50	Pay 3X for a rock that taps for X mana of one color; slow.
+Astrolabe	rocks	38	3-mana one-shot: pay 1 for two mana of any color, then draw next turn.
+Atalan Jackal	lands	36	3-mana two-color haste body; ramps only if it connects with a player.
+Atarka Monument	rocks	47	3-mana two-color rock with a late-game manland mode.
+Atarka's Command	lands	32	Can drop an extra land from hand at instant speed, but that is a minor mode.
+Atsushi, the Blazing Sky	other	38	4-mana 4/4 flyer; gives three Treasures only when it dies.
+Attune with Aether	lands	50	1 mana: basic land to hand plus two energy; fixes and thins but doesn't add mana this turn.
+Atzocan Seer	dorks	50	3-mana 2/3 gold dork that taps for any color; sacrifice rebuys a Dinosaur only.
+Automated Artificer	dorks	38	2-mana 1/3 whose colorless mana only pays for artifacts and abilities.
+Autumn Willow, Harmony	other	38	5-mana hexproof body; token Dryad taps for GG, needs land creatures to do more.
+Avatar Roku, Firebender	other	42	6-mana 6/6 giving RRRRRR in combat whenever anyone attacks; mana only usable then.
+Avatar of Growth	lands	46	3-mana 4/4 at a 4-player table; ramps you two lands but everyone gets them too.
+Avenging Druid	lands	28	3-mana 1/3 that fetches a land only when it hits an opponent; unreliable.
+Avid Reclaimer	dorks	46	3-mana dork that taps for G or U; slow but fixes blue.
+Awakening Zone	other	50	3 mana: a one-shot mana Spawn every upkeep, repeated for free.
+Axebane Guardian	dorks	40	3-mana dork that taps for 1 alone; needs more defenders to ramp well.
+Axgard Artisan	other	27	Treasure only with +1/+1 counter support; a plain 2/1 otherwise.
+Azorius Cluestone	rocks	47	3-mana rock for W or U; it can cash in for a card later.
+Azorius Keyrune	rocks	47	3-mana two-color rock that can turn into a 2/2 flyer.
+Azorius Locket	rocks	46	3-mana two-color rock; sacrifice for two cards later.
+Azusa's Many Journeys // Likeness of the Seeker	other	40	2 mana: extra land drop, life, then a 3/3; ramp only if you have lands in hand.
+Badgermole Cub	dorks	66	2-mana creature that makes land creature, and doubles up on creature mana.
+Bag End Banquet	rocks	44	6-mana rock: three Food, taps for {C} per Food you control.
+Ballyrush Banneret	other	28	2-mana 2/1 that discounts only Kithkin and Soldier spells; needs a tribal deck.
+Bandit's Haul	rocks	47	3-mana any-color rock; the crime draw is a small bonus.
+Baral, Chief of Compliance	other	58	2-mana 1/3: instants and sorceries cost {1} less; loots when you counter.
+Barbed Sextant	rocks	33	Costs 1 and sacrifices for one mana: no net ramp, but it fixes and cantrips later.
+Baron Strucker, HYDRA Overlord	other	22	Only discounts Villain spells by {1}; needs a tribal theme.
+Barrels of Blasting Jelly	rocks	40	1-mana rock, but each mana costs {1}, so it only fixes; sacrifice for 5 damage later.
+Basal Sliver	other	30	3-mana creature that sacrifices for BB, mostly a Sliver theme card.
+Basal Thrull	dorks	32	One-shot ritual on a body: pay BB, get BB.
+Battery Bearer	other	30	Mana only pays for artifact spells; needs an artifact deck.
+Battle Hymn	other	42	2-mana instant ritual that scales with creatures; one-shot burst for go-wide decks.
+Baylen, the Haymaker	other	33	Taps two tokens for mana; needs a token deck and three colors.
+Beamtown Beatstick	other	36	1-mana equipment: Treasure only when the equipped creature connects.
+Beanstalk Giant // Fertile Footsteps	lands	70	3-mana sorcery puts a basic onto the battlefield, then a big body late.
+Beanstalk Wurm // Plant Beans	other	32	2-mana extra land drop only helps with a spare land in hand; body is on the back.
+Beastcaller Savant	dorks	58	2-mana dork, any color, for creature spells only.
+Bejeweled Warg	other	30	2-mana 3/2 trampler that makes Treasure only when it connects.
+Belbe, Corrupted Observer	other	47	2-mana 2/2 adding {C}{C} per opponent who lost life; helps everyone, needs damage.
+Bender's Waterskin	rocks	56	3-mana any-color rock that untaps each opponent's turn, so you get extra instant-speed mana.
+Beneath the Sands	lands	58	3-mana tapped basic ramp that cycles late; slower than Rampant Growth.
+Benthic Explorers	dorks	38	4-mana 2/4: taps for mana of an opponent's tapped lands; needs them to have tapped lands.
+Beorn, Reluctant Host // Till and Tend	other	34	Two-mana sorcery for an extra land drop, then a 5/5 trampler later.
+Berta, Wise Extrapolator	other	38	Makes mana only when counters land on it; needs a counters deck to matter.
+Beza, the Bounding Spring	other	30	Makes a Treasure only if an opponent has more lands; a conditional one-shot.
+Big Score	other	40	Two Treasures as a rider on a card-neutral draw spell.
+Bigger on the Inside	other	42	5-mana aura: taps for two mana and cascades, but needs two colors and a target.
+Bighorner Rancher	dorks	46	5-mana dork that taps for G equal to your biggest power; slow but big.
+Bilbo, Retired Burglar	other	38	Treasure needs a 1/3 to connect; the Ring temptation is a bonus.
+Bill Ferny, Bree Swindler	other	30	Treasure only when blocked, which is unreliable.
+Binding the Old Gods	lands	50	Chapter II puts a Forest onto the battlefield tapped.
+Biomancer's Familiar	other	36	Cuts creature ability costs by 2, but needs activated abilities to matter.
+Biophagus	dorks	64	2-mana 1/3 dork: any color, with a bonus counter on creatures.
+Birchlore Rangers	dorks	32	1-mana elf that needs two other Elves to make mana; only fits elf decks.
+Birgi, God of Storytelling // Harnfel, Horn of Bounty	other	58	3-mana 3/3 that refunds R on every spell you cast; strong in spell decks.
+Bitterthorn, Nissa's Animus	lands	50	3 mana: germ attacks to fetch a basic each turn, but it's slow and needs the creature to connect.
+Black Mana Battery	rocks	27	4 mana, slow to charge, black only; a poor rock.
+Black Market	other	38	5 mana; makes black mana as creatures die, good in sacrifice or wipe decks only.
+Black Market Connections	other	60	Makes a Treasure every turn, plus other modes.
+Black Market Tycoon	dorks	60	2-mana dork making a Treasure each turn; Treasures you hold hurt you, so spend them.
+Black Tom Cassidy	dorks	58	2-mana dork for {G}; sturdy 1/3 body, lifegain with Mutants.
+Blacker Lotus	rocks	70	0-mana one-shot: four mana of one color; explosive burst but gone after one use.
+Blighted Burgeoning	other	56	3-mana aura: enchanted land taps for double plus an Incubator token.
+Blighted Woodland	lands	40	Costs four mana and a land to net one extra land; slow but a land slot.
+Blightsoil Druid	dorks	46	2-mana dork for {G} with a life cost, awkward in black decks.
+Blinkmoth Urn	rocks	38	5-mana rock that scales with artifacts, but helps opponents too.
+Blisterpod	other	22	One-shot colorless mana from a Scion after it dies; barely ramp.
+Blitzball	rocks	56	Three-mana rock for any color; the draw clause rarely fires.
+Blood Celebrant	dorks	32	1-mana 1/1 that only filters {B} and 1 life into any color; no net mana.
+Blood Funnel	other	34	2-mana enchantment: noncreature spells cost {2} less, but each needs a creature sacrificed.
+Blood Pet	dorks	30	One-shot dork that pays for itself; a mana ritual at best.
+Blood Vassal	dorks	34	3-mana creature that sacs for {B}{B}: a net loss of tempo, only a ritual.
+Bloodroot Apothecary	other	40	3-mana 3/3 that makes a Treasure for you, but also one for an opponent.
+Bloodstone Cameo	rocks	48	3-mana rock for B or R: fixes two colors but slow for a rock.
+Bloomvine Regent // Claim Territory	lands	66	3-mana sorcery: a Forest onto the battlefield tapped and one to hand, then shuffles into a 4/5 flyer later.
+Blossoming Tortoise	lands	52	4-mana body that returns a land each attack, great with self-mill and land decks.
+Blue Mana Battery	rocks	22	4-mana rock that needs mana to charge and only makes blue.
+Bog Witch	dorks	34	3-mana creature; discard a card and pay B for BBB, a net gain of two mana.
+Bolg's Company	dorks	22	Needs spare Goblins to sacrifice; only a tribal ritual.
+Bonder's Ornament	rocks	60	3-mana rock for any color with a late-game draw mode.
+Bonehoard Dracosaur	other	45	Makes a Treasure most upkeeps, but it costs five mana.
+Bontu's Monument	other	38	3-mana cost cutter for black creatures only, with a small drain on creature spells.
+Bootleggers' Stash	other	50	6 mana: each land also makes a Treasure; big mana but slow and the Treasures are one-shot.
+Borderland Ranger	lands	46	3-mana 2/2 that tutors a basic to hand; it helps land drops, not extra mana.
+Boreas Charger	lands	52	3-mana flyer; when it leaves, catches you up on lands from Plains if behind.
+Boros Cluestone	rocks	50	3-mana two-color rock that cashes in for a card late.
+Boros Keyrune	rocks	50	3-mana two-color rock that can turn into a small creature.
+Boros Locket	rocks	52	3-mana two-color rock that later cashes in to draw two.
+Boseiju Reaches Skyward // Branch of Boseiju	lands	48	4-mana saga: two Forests to hand, then a land-count creature.
+Bosk Banneret	other	30	2-mana 1/3 that only discounts Treefolk and Shaman spells.
+Boundless Realms	lands	48	7 mana: fetch lands equal to your land count, tapped; huge but slow.
+Bounty Board	rocks	50	3-mana rock for any color with a small bounty rider.
+Bounty of Skemfar	lands	42	3 mana: usually a tapped land, plus an Elf to hand if you have one.
+Bounty of the Luxa	other	46	Every other turn adds three mana, but costs four.
+Boxing Ring	other	34	Makes a Treasure only after a fight this turn.
+Braid of Fire	other	15	Cumulative upkeep paid in its own mana; only gives a little mana in the first turn.
+Bramble Familiar // Fetch Quest	dorks	66	2-mana 2/2 dork for {G} with a late-game Fetch Quest bonus.
+Brass Infiniscope	rocks	50	4-mana rock for {C}{C}; small bonus with X spells.
+Brass's Bounty	other	42	7-mana one-shot: a Treasure per land, a big burst for storm-like turns.
+Brave the Wilds	lands	38	1 mana: basic land to hand; it only fixes land drops, not extra mana.
+Brazen Collector	dorks	42	2-mana first striker that adds R only when it attacks.
+Brazen Freebooter	other	34	4-mana 3/3 that leaves a one-shot Treasure.
+Breeches, Eager Pillager	other	50	3-mana first striker: a Treasure each attack, but it has to attack to do so.
+Brightcap Badger // Fungus Frolic	dorks	48	4-mana 3/4 that turns its Saprolings into mana dorks over time.
+Brighthearth Banneret	other	30	Cost cut only for Elementals and Warriors; tribal only.
+Brightstone Ritual	other	30	Ritual that needs Goblins on the battlefield; tribal only.
+Brigid, Clachan's Heart // Brigid, Doun's Mind	dorks	50	3-mana 3/2 with a token; flips to tap for mana per other creature.
+Broken Bond	lands	38	Extra land drop is a rider that needs a land in hand.
+Bronze Walrus	dorks	57	3-mana dork for any color with scry 2; slow but fixes.
+Brood Birthing	other	36	One-shot Spawn maker for two mana; better with spawn already out.
+Brood Monitor	other	38	6-mana body whose three Scions give a one-shot burst of colorless mana.
+Bubbling Muck	other	22	One-shot Swamp ritual that also helps opponents.
+Budoka Gardener // Dokai, Weaver of Life	lands	50	2-mana dork that drops an extra land each turn, but only from your hand.
+Bugenhagen, Wise Elder	dorks	68	2-mana dork with any-color mana and a 1/3 reach body.
+Burakos, Party Leader	other	40	4-mana attacker: Treasures on attack scaled by party; it's a fragile engine.
+Burdened Aerialist	other	34	3-mana 3/1 with one Treasure: a one-shot bit of ramp.
+Buried Treasure	rocks	38	2 mana for a one-shot Treasure, with a late discover 5 from the graveyard.
+Buried in the Garden	other	46	Enchanted land taps for an extra mana, but it costs four and sits on a land.
+Burning-Tree Emissary	other	34	Refunds its own cost, so it is only a free 2/2, and it needs red and green.
+Burnt Offering	other	40	1-mana ritual: sacrifice a creature for B/R mana equal to its value; needs fodder.
+Bushwhack	lands	48	1 mana: fetch a basic land to hand, not onto the battlefield.
+Cabal Coffers	other	62	Land that makes a lot of black mana in a heavy-Swamp deck.
+Cadaverous Bloom	other	38	5 mana; each card exiled gives two mana, only for combo or big turns.
+Caged Sun	rocks	50	6 mana; adds extra mana of one color from lands and an anthem; best in mono-color decks.
+Call the Mountain Chocobo	lands	38	4 mana: Mountain to hand and a 2/2, flashback; slow and not real ramp.
+Call the Scions	other	42	3 mana: two bodies that sacrifice for {C} each; a one-shot burst of mana.
+Canoptek Wraith	lands	33	3-mana unblockable 2/1; pay 3 and sacrifice after a hit for two basics. Slow and costly.
+Canopy Tactician	dorks	66	4-mana 3/3 dork that taps for GGG and pumps other Elves.
+Captain Kathryn Janeway	other	48	4-mana creature: extra land drop and explores on each creature; ramps only if you hold lands.
+Captain Kirk, Boldly Going	lands	47	Three-color 4-drop: a basic to hand on entry and each attack; slow, needs three colors.
+Captain Lannery Storm	other	56	3-mana haste creature: a Treasure each attack, but it has to survive and attack into blockers.
+Caravan Vigil	lands	50	1-mana basic land tutor; only ramps if a creature died this turn.
+Careening Mine Cart	other	38	3-mana vehicle: Treasure each attack, but needs a crew member and a safe attack.
+Careful Cultivation	other	50	3-mana aura gives a body {G}{G}; or channel for a 1/1 mana dork token.
+Cargo Ship	rocks	38	2-mana vehicle rock for artifacts only; needs crew to tap.
+Carnelian Orb of Dragonkind	rocks	42	3-mana rock for one red mana: slow and single-colored.
+Carnival of Souls	other	50	2 mana: add {B} whenever a creature enters for 1 life; strong in token or creature-heavy decks.
+Carpet of Flowers	other	52	1 mana: big mana each main phase if an opponent plays Islands; zero without them.
+Cartographer's Hawk	lands	33	2-mana flyer; fetches a Plains only if it connects against a player with more lands.
+Cartographer's Survey	lands	54	4-mana sorcery: up to two lands from the top seven enter tapped.
+Case of the Locked Hothouse	other	42	4 mana: extra land drops help only if you hold lands; solved mode adds card advantage.
+Case of the Ransacked Lab	other	50	3 mana: instants and sorceries cost {1} less; a good spellslinger piece.
+Case of the Shattered Pact	lands	34	2 mana: basic land to hand, not battlefield; this is smoothing, not ramp.
+Catacomb Sifter	other	33	3-mana 2/3 with a Scion that sacrifices for {C} once; minor ramp.
+Catalyst Elemental	dorks	32	3-mana creature that sacrifices for RR; net loss of mana unless a combo piece.
+Cathodion	other	30	3/3 body that refunds {C}{C}{C} when it dies; not real ramp.
+Cavalier of Thorns	lands	36	5-mana 5/6 that puts a land onto the battlefield on entry.
+Cavern-Hoard Dragon	other	22	Nine-mana body; Treasures come only after connecting against artifact decks.
+Celebrate the Harvest	lands	38	4-mana sorcery; lands equal to different powers, often only one or two.
+Celestial Prism	rocks	20	3 mana and pay 2 each tap: fixes but nets no mana.
+Cemetery Prowler	other	48	3/4 body that cuts spell costs by types it has exiled.
+Centaur Nurturer	dorks	52	4-mana body that taps for any color; slow but sturdy and fixes.
+Centaur Omenreader	other	36	Only discounts creatures while tapped, so it needs vigilance-less attacking or tapping.
+Centaur Rootcaster	lands	30	4-mana 2/2 that must connect to ramp; unreliable.
+Ceta Disciple	dorks	32	Needs G to tap for any color, so it only filters mana and doesn't add any.
+Chancellor of the Tangle	other	27	Free reveal adds one {G} in your first main phase; otherwise a 7-mana body.
+Chandra's Embercat	dorks	28	Dork whose mana is limited to Elemental and Chandra spells; theme only.
+Chandra, Bold Pyromancer	other	36	+1 adds RR each turn, but it costs six mana first.
+Chandra, Dressed to Kill	other	50	3 mana: +1 adds R each turn.
+Chandra, Novice Pyromancer	other	38	-1 adds RR, but it burns loyalty and is not a lasting source of mana.
+Chandra, Torch of Defiance	other	62	4 mana: +1 adds RR each turn while building loyalty.
+Chani, Blade of Sietch Tabr	other	42	5-mana body with an extra land drop each turn; only ramps if you hold extra lands, and only for RG.
+Channel the Suns	other	28	4 mana for 5 in all colors: a one-shot ritual that nets one mana and fixes in a 5-color deck.
+Channeler Initiate	dorks	62	2-mana fixing dork: three mana of any color, then becomes a 3/4.
+Charisma Bobblehead	rocks	55	3-mana rock tapping for any color, with a late token sink.
+Charitable Levy	lands	38	2-mana tax that eventually trades for a card and a Plains; symmetric and slow.
+Charmed Pendant	rocks	26	4-mana rock with random mana that mills you and often makes nothing on lands.
+Charming Scoundrel	other	46	2-mana creature that makes one Treasure on entry.
+Chartooth Cougar	lands	38	Mountaincycling {2} fetches a land, but it is a mono-red fetch with a big body late.
+Cheering Crowd	other	50	2-mana creature that gives growing colorless mana, but helps opponents on their turns too.
+Chira, All In	other	22	4-mana 3/3 that makes Treasure only on random effects; few decks trigger it.
+Chromatic Orrery	rocks	52	7-mana rock that taps for five and fixes any color, slow but huge.
+Chromatic Sphere	rocks	28	Costs {1} to make one mana: no net ramp, only fixing and a card.
+Chromatic Star	rocks	26	Costs {1} to make one mana: no net ramp, only fixing and a card.
+Chronatog Totem	rocks	44	3-mana rock that only makes {U}; the skip-turn pump is rarely worth it.
+Chulane, Teller of Tales	lands	42	Puts a land from hand onto the battlefield with each creature cast; needs three colors.
+Cid, Freeflier Pilot	other	30	Cost reducer for Equipment and Vehicles only.
+Circle of Dreams Druid	dorks	66	GGG dork that taps for G per creature; big in creature decks.
+Circle of Elders	dorks	38	4-mana dork needing 8 total power; strong when active but often off.
+Circuitous Route	lands	66	4 mana: two basics or Gates onto the battlefield tapped; slower than Cultivate, but ramps two lands.
+Citanul Hierophants	dorks	58	4 mana: every creature taps for {G}; strong in creature decks, but summoning sick.
+Citanul Stalwart	dorks	44	1-drop dork that taps another creature or artifact to make any color; awkward alone.
+City of Death	other	42	3 mana: one Treasure, then copies of a token, best with Treasures or other tokens.
+City of Traitors	other	55	Free land tapping for {C}{C}, but you lose it when you play another land.
+Civic Wayfinder	lands	30	3-mana body that puts a basic in hand; card advantage, not mana ramp.
+Claim Jumper	lands	48	3-mana 3/3 that fetches Plains when behind on lands; conditional, but catch-up ramp.
+Class-F Shuttlecraft	rocks	52	3-mana rock that taps for any color; slow, but it fixes and becomes a flyer later.
+Clay-Fired Bricks // Cosmium Kiln	lands	32	Fetches a Plains to hand, not onto the battlefield, so it doesn't ramp; it just fixes land drops.
+Clear the Land	lands	38	3-mana sorcery: random lands from the top five, symmetric and exiles spells.
+Clement, the Worrywort	dorks	38	3-mana body that taps for creature-only mana, mainly for Frogs.
+Clifftop Lookout	lands	66	3-mana body that finds a land tapped, like Wood Elves for any land.
+Coal Golem	other	25	5 mana 3/3: pay 3 and sacrifice for RRR; a net loss of mana.
+Coal Stoker	other	50	4-mana 3/3 that adds RRR on entry, refunding most of its cost.
+Coalition Relic	rocks	72	3-mana rock: any color, or store a charge for a big next turn.
+Codsworth, Handy Helper	dorks	33	Mana only for Auras and Equipment, so it's useful only in a theme deck.
+Coin of Mastery	other	50	4 mana: a Treasure every turn, plus counters on creatures cast with artifact mana.
+Collective Voyage	lands	48	Sorcery land ramp scaling with mana paid; helps opponents too, but you choose the amount.
+Collector's Vault	other	38	Makes Treasure at {2} cost; roughly mana-neutral, so only a small ramp piece.
+Command Chair	rocks	42	Six mana rock that enters tapped, then taps for three or more; slow but big.
+Commodore Guff	other	32	Wizard tokens only pay for planeswalkers, so it needs a superfriends deck.
+Common Crook	other	28	Vanilla-ish body; Treasure only arrives if it dies.
+Component Pouch	rocks	36	3-mana rock: slow, random counters, then two mana of different colors per tap.
+Composer of Spring	lands	34	2-mana 1/3: puts lands from hand in, but only with enchantments.
+Composite Golem	dorks	22	6 mana for a 4/4 that sacrifices for WUBRG; poor ramp.
+Conduit of Storms // Conduit of Emrakul	dorks	32	3-mana 2/3 that adds one mana only when it attacks; unreliable ramp.
+Contract Hero	other	37	3-mana body that leaves one Treasure behind; a one-shot ramp.
+Conversion Apparatus	rocks	44	3-mana rock for {C}; slow energy mode adds a burst of three colored mana.
+Copper Myr	dorks	50	2-mana artifact dork that taps for {G}; fragile but fine.
+Cormela, Glamour Thief	dorks	36	Nets two mana for spells only, for a 4-mana three-color body.
+Corrupted Grafstone	rocks	42	2-mana tapped rock; needs a colored card in your graveyard to make mana.
+Corsair Captain	other	42	3-mana 2/2 that leaves a one-shot Treasure; Pirate lord is a bonus.
+Cosmic Crucible	other	62	6 mana: adds four mana each turn and copies a noncreature spell once per turn.
+Courier's Briefcase	rocks	40	2-mana one-shot Treasure that also makes a 1/1 token; the five-color draw is rarely reachable.
+Court of Bounty	other	40	Extra land drop each upkeep, creatures too while monarch.
+Coveted Jewel	rocks	38	Six-mana rock for three mana, easily stolen.
+Covetous Elegy	other	32	Six mana for tapped Treasures depending on their board; a side effect.
+Cradle Clearcutter	dorks	50	3-mana green dork for G, or six mana for a 3/6 that taps for GGG; flexible.
+Creative Outburst	other	34	Discard for a Treasure at the cost of two hybrid mana; a one-shot.
+Creeping Peeper	dorks	32	2-mana dork whose mana only pays for enchantments; needs an enchantment theme.
+Crime Novelist	other	22	Only makes {R} when you sacrifice artifacts; needs a Treasure or artifact theme.
+Crop Rotation	lands	42	1 mana, sacrifice a land: fetch any land; no ramp, but it finds Gaea's Cradle or Bojuka Bog at instant speed.
+Crosis's Attendant	other	22	5-mana 3/3 that sacrifices for three mana; costs more than it returns.
+Crowded Crypt	rocks	46	3-mana rock for {B} only, with a late-game zombie payoff.
+Crypt Ghast	other	62	4-mana creature that doubles Swamp mana and has extort; strong in heavy-black decks.
+Cryptex	rocks	38	Rock that needs to exile 3 mana value of cards from your graveyard each tap.
+Cryptolith Fragment // Aurora of Emrakul	rocks	47	3-mana tapped rock for any color; each tap costs every player 1 life.
+Crystal Skull, Isu Spyglass	rocks	50	4-mana rock for {U} with a historic top-of-library engine, which is value in artifact decks.
+Crystal, Inhuman Princess	dorks	64	3-mana flying dork that fixes four colors and pings.
+Crystalline Crawler	dorks	34	4 mana for a slow, counter-based dork that fixes.
+Culber and Stamets, Star-Crossed	other	30	4-mana body that refunds two mana once on entry.
+Culling the Weak	other	30	1-mana ritual: sacrifice a creature for BBBB; a net three mana at a real cost.
+Culmination of Studies	other	30	Makes Treasures from exiled lands, but it's random and loses cards.
+Cultivator Colossus	lands	48	7-mana body that drops lands from hand, drawing for each; big payoff.
+Cultivator Drone	dorks	34	3-mana dork: its mana only casts colorless spells and abilities.
+Cultivator's Caravan	rocks	52	3-mana rock for any color; also a late 5/5 vehicle.
+Curious Homunculus // Voracious Reader	dorks	38	2-mana dork limited to instants and sorceries; flips into a cost reducer.
+Cutthroat Negotiator	other	40	4-mana attacker that makes Treasures only when it connects with nonland reveals; also feeds opponents cards.
+Cycle of Renewal	lands	55	3-mana instant: sacrifice a land, get two basics tapped; net one extra land and thins the deck.
+Daily Bugle Newspaper	other	38	Slow Treasure maker that costs {2} per activation; barely nets mana.
+Dal R'El, Augment Orphan	other	50	3-mana 3/3: each land drop adds R or G, a small ramp boost.
+Dalakos, Crafter of Wonders	dorks	45	3-mana dork: {C}{C} only for artifacts, so an artifact-deck piece.
+Dance of the Tumbleweeds	lands	68	3 mana for an untapped basic onto the battlefield; Rampant Growth with a token option late.
+Danitha Capashen, Paragon	other	30	Cuts Aura and Equipment costs by {1}; only helps a narrow theme.
+Darigaaz's Attendant	dorks	25	5 mana for a 3/3 that sacrifices for BRG: costly one-shot ramp.
+Dark Petition	other	28	Only refunds mana when spell mastery is on; tutor is the real job.
+Darksteel Ingot	rocks	58	3-mana indestructible rock for any color; slow but fixes and survives wipes.
+Darkwater Egg	rocks	33	1 mana, then pay 2 and sacrifice for UB and a card; no net mana, just a cantrip fixer.
+Daru Warchief	other	30	Only cuts Soldier spell costs; tribal only.
+David and Carol Marcus, Creators	lands	55	3-mana 1/3: makes a tapped land token for any color, so it ramps and fixes.
+Davvol, Evincar of Rath	other	38	4-mana creature: adds {B} whenever another creature enters, but needs a creature deck and costs life.
+Dawn's Reflection	other	56	4-mana aura: a land taps for three mana in any colors, but it risks a two-for-one.
+Dawnhart Rejuvenator	dorks	52	4-mana dork that makes any color and gains 3 life; slow.
+Dawntreader Elk	lands	62	2-mana body that sacrifices for a tapped basic; fixes and thins.
+Deadeye Plunderers	other	34	5-mana body that makes a Treasure for {2}{U}{B}; costly and slow.
+Death to Our Enemies	other	44	3 mana: makes up to four tapped Treasures from noncreature spells, then deals 7 damage.
+Deathbloom Gardener	dorks	60	3-mana dork for any color with deathtouch; pricey but fixes and blocks.
+Deathbloom Ritualist	dorks	36	5-mana two-color body; mana scales with creatures in your graveyard, often little early.
+Deathcap Cultivator	dorks	70	2-mana dork for B or G with late deathtouch; good in Golgari.
+Deathrite Shaman	dorks	48	1-mana dork, but it needs a land card in a graveyard to make mana.
+Deathsprout	lands	48	Fetches a tapped basic, attached to a four-mana removal spell.
+Decadent Dragon // Expensive Taste	other	38	4-mana flyer that makes a Treasure each attack; ramp is a side benefit.
+Decanter of Endless Water	rocks	56	3-mana rock for one mana of any color; fixes but is slow.
+Deconstruct	other	30	Mana is a one-shot refund that needs an artifact target.
+Deep Gnome Terramancer	lands	32	2-mana flash 2/2; ramps only when opponents' lands enter unplayed.
+Deep Reconnaissance	lands	66	3 mana: tapped basic, and flashback for a second one later.
+Deeproot Wayfinder	lands	38	2-mana 2/3: needs to connect to return a land from the graveyard.
+Dependable Quinjet	rocks	52	3-mana rock that taps for any color, with a flying vehicle body you rarely crew.
+Depths of Desire	other	34	One-shot Treasure with a bounce; ramp is a side effect.
+Deranged Assistant	dorks	58	2-mana dork for {C} that mills you a card each tap.
+Desperate Ritual	other	44	2 mana for RRR: a one-shot ritual that nets one red mana.
+Diamond Kaleidoscope	rocks	25	4 mana, then 3 per Prism that gives one mana; very slow and costly.
+Diamond Lion	dorks	32	2-mana 2/2: discard your hand and sacrifice for three mana; a combo ritual at best.
+Diamond Pick-Axe	other	45	1-mana equipment: attacker makes a Treasure each attack; needs creature and equip.
+Dictate of Karametra	other	38	5-mana enchantment doubles land mana, but for every player at the table.
+Dig Up	lands	40	1-mana sorcery fetches a land to hand; fixes but doesn't ramp past your land drop.
+Dihada, Binder of Wills	other	32	Three-color 4-drop; -3 digs legends and makes Treasures, only in a legends deck.
+Diligent Farmhand	lands	62	1-mana creature: pay {1}{G} and sacrifice for a tapped basic, so it fixes and thins.
+Dimir Cluestone	rocks	48	3-mana rock for U or B that cashes in for a card later.
+Dimir Keyrune	rocks	47	3-mana rock for U or B that can attack as a 2/2.
+Dimir Locket	rocks	50	3-mana two-color rock; sacrifice late for two cards.
+Dire Fleet Hoarder	other	32	2-mana 2/1 that leaves a Treasure when it dies; slow, one-shot ramp.
+Dire Mimic	rocks	38	2 mana for a one-shot Treasure with flash; it can also animate as a 5/5.
+Discerning Financier	other	43	Three-mana body that makes Treasure only when behind on lands; also a politics piece.
+Disorienting Choice	lands	42	Fetches a tapped land only if the opponent declines the exile; sorcery for four.
+District Guide	lands	40	3-mana 2/2 that finds a basic to hand; card advantage, but no immediate ramp.
+Divergent Growth	other	18	1 mana: lands make any color this turn; fixing only, no extra mana.
+Doc Aurlock, Grizzled Genius	other	32	2-mana cost reducer for graveyard, exile and plot spells; needs a theme.
+Doc Samson, Super Psychiatrist	dorks	58	5-mana 3/6 that taps for three mana of one color; slow but big.
+Domri, Anarch of Bolas	other	58	3-mana walker adds R or G each turn and makes creature spells uncounterable.
+Domri, Chaos Bringer	other	50	4-mana walker adds R or G each turn; pricey for ramp.
+Don Andres, the Renegade	other	25	Needs spells you don't own, like stolen or impulse cards; rarely works.
+Dori, Bearer of Friends	other	36	3-mana 3/2 trampler that makes one Treasure; a one-shot burst of mana.
+Doric, Nature's Warden // Doric, Owlbear Avenger	lands	60	4-mana 3/3 vigilance body that puts a Forest onto the battlefield tapped.
+Down in the Valley	lands	46	3-mana saga: fetches a basic to hand, then makes Elves on landfall.
+Draconic Disciple	dorks	52	3-mana dork for any color; late it sacrifices into a 5/5 flyer.
+Dragon's Desire	other	22	4-mana sorcery ritual that depends on opposing artifacts.
+Dragon's Hoard	rocks	60	3-mana rock tapping for any color; the Dragon draw is a bonus.
+Dragonbroods' Relic	rocks	40	2-mana rock that must tap a creature each use, so it's clunky.
+Dragonlord's Servant	other	30	Cost cutter only for Dragon spells, so it needs a Dragon theme.
+Dragonrage	other	38	3-mana instant ritual that scales with attackers; needs a wide attack to pay off.
+Dragonspeaker Shaman	other	32	3-mana cost reducer that only helps Dragon spells.
+Dragonstorm Globe	rocks	52	3-mana rock for any color; fixes but is slow.
+Drake-Skull Cameo	rocks	42	3-mana two-color rock; slow and pricey for what it does.
+Dreamscape Artist	lands	36	Costs a card and a land plus 3 mana to net one extra untapped basic; slow and card-negative.
+Dreamstone Hedron	rocks	50	6-mana rock for three colorless, with a late-game draw-three escape.
+Dromar's Attendant	dorks	26	5 mana for a 3/3 that nets only one-shot mana; poor ramp.
+Dromoka Monument	rocks	56	3-mana two-color rock with a late-game dragon mode.
+Drover of the Mighty	dorks	66	2-mana 1/1 dork that taps for any color; bigger with a Dinosaur.
+Druid Class	other	50	2-mana Class: extra land drop at level 2 and a land-creature finisher at level 3.
+Druid of the Anima	dorks	62	2-mana 1/1 elf dork: taps for R, G or W, so it fixes a bit.
+Druid of the Cowl	dorks	60	2-mana 1/3 elf dork for {G}; sturdy body, no fixing.
+Druid of the Emerald Grove	lands	56	4-mana 2/2 fetches two basics; often both go to hand, sometimes ramps.
+Druidic Satchel	other	35	3-mana artifact; {2} each turn can put a land onto the battlefield, but only about 40% of the time.
+Druids' Repository	other	40	3-mana enchantment: attacks charge it, then spend counters for any color. Needs an attacking deck.
+Drumhunter	dorks	42	4-mana 2/2 colorless dork; expensive for ramp.
+Dungeon Map	rocks	42	3-mana colorless rock with a pricey venture ability.
+Dungeoneer's Pack	other	30	Only a one-shot Treasure after a lot of mana.
+Dustin, Gadget Genius	dorks	36	4-mana dork: {C}{C} only for artifacts, so it needs an artifact deck.
+Dyfed, the Guiding Hand	other	50	5 mana: +1 makes two tapped Powerstones each turn, ramping you hard for artifact decks.
+Earthbender Ascension	lands	66	3 mana: ramps a basic onto the battlefield tapped, plus earthbend and a landfall counter payoff.
+Ebony Fly	rocks	46	2-mana tapped rock for {C} with a clunky flying animate mode.
+Ecologist's Terrarium	lands	38	2-mana artifact: a basic land to hand, which ramps only through your land drop.
+Edge of Autumn	lands	62	2 mana: basic land onto the battlefield tapped while you have four or fewer lands; late it cycles.
+Edward Kenway	other	32	5-mana three-color body; Treasures need tapped Pirates, Assassins or Vehicles.
+Eladamri's Vineyard	other	36	1 mana for GG each turn, but every opponent gets it too.
+Elanor Gardner	lands	38	4-mana body that fetches a basic only if you sacrifice a Food; needs a Food outlet.
+Eldrazi Confluence	other	35	Can make three Scions for one-shot mana, but costs four and needs colorless mana.
+Elemental Masterpiece	other	34	Two mana and a discard for one Treasure; or a pricey two 4/4s.
+Elemental Resonance	other	50	4-mana aura: big mana each turn from your costliest permanent; the mana empties by main phase 1.
+Elemental Teachings	lands	52	5-mana instant: two tapped lands, two in the graveyard; also fuels land recursion.
+Elementalist's Palette	rocks	47	3-mana rock for any color; grows for X spells.
+Elfhame Druid	dorks	56	2-mana dork for {G}; the extra mana only helps kicked spells.
+Elfhame Sanctuary	lands	38	2-mana enchantment: trades each draw for a basic land in hand, slow ramp.
+Elven Chorus	other	56	4 mana: your creatures tap for any color, plus you cast creatures off the top.
+Elvish Aberration	dorks	38	Expensive body that taps for GGG; mostly a Forestcycler that fetches a land.
+Elvish Guidance	other	40	3-mana land aura that adds G per Elf; needs elves and risks a 2-for-1.
+Elvish Harbinger	dorks	64	3-mana any-color dork that also sets up an Elf on top.
+Elvish Pioneer	lands	46	1 mana: a basic from hand enters tapped, a one-shot ramp that costs a land card.
+Elvish Reclaimer	lands	30	Pays 2 and a land to fetch a land tapped; no real ramp, only thinning.
+Elvish Rejuvenator	lands	54	3-mana body: dig five for a land that enters tapped; usually hits.
+Elvish Spirit Guide	other	42	Free one-shot {G} from hand; a burst of mana, or a 2/2 body late.
+Embermouth Sentinel	lands	44	2-mana body that sets up a land draw; only ramps with a Dragon.
+Embodiment of Spring	lands	38	Cheap body, but costs three total mana across two colors to fetch one tapped basic.
+Embrace the Paradox	lands	22	Only an incidental land drop from hand, not real ramp.
+Emergent Sequence	lands	72	2-mana land ramp: tapped basic that becomes a growing creature, though it is risky to removal.
+Empowered Autogenerator	rocks	48	4 mana tapped, then makes 1, 2, 3... mana each turn; slow but scales.
+Emrakul's Hatcher	other	42	5-mana 3/3 with three Spawn: a burst of three mana, but expensive.
+Emrakul, the Exigent Doom	lands	40	Pay 3 to exile it; a land taps for CC. Slow ramp, and it stays castable later.
+Encroaching Dragonstorm	lands	58	4 mana: two basics tapped; reusable with Dragons, but slow versus 3-mana land ramp.
+Endless Horizons	lands	38	4 mana: stash Plains and get one card each upkeep; thins the deck and gives land drops, slow.
+Endrider Catalyzer	dorks	44	2-mana 3/1 that taps for {R}{R} only at max speed, which takes several turns of opponent damage.
+Endurance Bobblehead	rocks	54	3-mana rock for any color, with a mana sink that makes your team indestructible.
+Enduring Vitality	other	68	3-mana 3/3: all your creatures tap for any color, and it returns as an enchantment when it dies.
+Energy Tap	other	38	1-mana sorcery: tap a creature for colorless equal to its value; needs a big untapped creature.
+Enter the Unknown	other	38	1 mana: explore and an extra land drop; only ramps if you hold a spare land.
+Enterprising Scallywag	other	34	2-mana 2/2; Treasure only if a permanent card went to your graveyard that turn.
+Enthusiastic Mechanaut	other	40	2-mana flyer that discounts artifact spells; two colors and best in artifact decks.
+Entish Restoration	lands	58	3-mana instant: sacrifice a land for two tapped basics, or three with a 4-power creature.
+Erica Ortegas, Plucky Pilot	other	30	4-mana haste body; extra land only on tapping and you bounce one back.
+Esika, God of the Tree // The Prismatic Bridge	dorks	68	3-mana 1/4 dork for any color; legendary creatures you control tap for mana too.
+Esper Origins // Summon: Esper Maduin	other	38	Flashback side gives GG once, a minor one-shot ramp.
+Essence Feed	other	30	Six mana for a drain 3 and three one-shot Spawn; ramp is an afterthought.
+Ether	rocks	18	4 mana for one blue mana once; the copy rider is niche.
+Etherium Sculptor	other	48	2-mana cost reducer for artifacts; needs an artifact deck.
+Eureka Moment	lands	38	Gives an extra land drop, but costs 4 and you need a land in hand.
+Evendo Brushrazer	dorks	30	Sacrifices a land for RR, so it is a burst of mana not true ramp.
+Evendo, Waking Haven	other	50	Station adds G per creature for G, only after 12 charge counters.
+Everbark Shaman	lands	14	Needs a Treefolk card in your graveyard to fetch two Forests; rarely works in singleton.
+Everglades	lands	42	Gains one mana net, but only in black decks with Swamps.
+Everything Pizza	lands	42	2 mana: a basic land to hand, which smooths land drops but doesn't add mana.
+Evolution Charm	lands	46	2 mana instant: basic land to hand; not real ramp but flexible.
+Excavation Explosion	other	30	Leaves a tapped Powerstone as a side bonus.
+Exhibition Magician	other	38	3-mana body that makes a one-shot Treasure.
+Expand the Sphere	lands	52	4 mana: up to two lands from the top six onto the battlefield tapped; proliferate if you miss.
+Expedition Map	lands	30	Fetches a land to hand, not onto the battlefield; finds utility lands like Bojuka Bog or Cabal Coffers.
+Exploding Barrel	rocks	55	3-mana rock for any color; pressure counters build toward a cheaper sorcery-speed creature kill.
+Exploding Borders	lands	52	4-mana RG sorcery: fetch a basic tapped, then deal damage equal to your basic land types.
+Exploration Broodship	other	42	1 mana but needs station 3 for the extra land drop; slow.
+Explore	other	45	2-mana cantrip with an extra land drop this turn; one-shot.
+Explore the Underdark	lands	55	5 mana: two lands onto the battlefield plus the initiative.
+Explorer's Scope	lands	34	Needs an attacking creature; occasionally puts a land onto the battlefield.
+Extraplanar Lens	rocks	38	3 mana, exile a land; doubles only lands with that name, so best with a basic type and many copies.
+Exuberant Firestoker	dorks	42	3-mana dork for {C} only; slow, with a small bonus ping.
+Eye of Ojer Taq // Apex Observatory	rocks	54	3-mana rock for any color; slow but fixes, and has a craft side.
+Eye of Ramos	rocks	38	3-mana rock for one blue; poor rate, only a one-shot burst extra.
+Eyeless Watcher	other	38	4 mana for two Scions: one-shot colorless burst, thin ramp.
+Fable of the Mirror-Breaker // Reflection of Kiki-Jiki	other	42	Goblin token makes Treasures when it attacks; minor ramp.
+Fabrication Foundry	rocks	38	One white for artifacts only; theme ramp that also recurs artifacts.
+Faeburrow Elder	dorks	64	3-mana GW dork that taps for one mana per color you control, often two or more.
+Fain, the Broker	other	38	3/3 that makes Treasure only by spending counters; needs a counters theme.
+Fallaji Excavation	other	45	5 mana for three tapped Powerstones (nonartifact-spell mana only) and 3 life.
+Famished Worldsire	lands	42	8-mana devour body that puts lands onto the battlefield.
+Fanatic of Rhonas	dorks	72	2-mana 1/4 dork; taps for GGGG with a 4-power creature.
+Fangorn, Tree Shepherd	other	28	7 mana and needs Treefolk attacking; tribal ramp with a high price.
+Far Wanderings	lands	58	3-mana land ramp; a basic tapped, or three with threshold.
+Farfinder	lands	38	3-mana body that only fetches a basic to hand; no mana gain.
+Fblthp, Knows the Way	lands	38	Creature that fetches basics to hand, not onto the battlefield; no real ramp.
+Fertilid	lands	60	3-mana body: pay {1}{G} twice to put two basics onto the battlefield, or keep it as a 2/2.
+Fertilid's Favor	lands	44	4-mana instant: one basic tapped onto the battlefield plus counters; expensive for one land.
+Field Trip	lands	60	3 mana: tapped Forest to the battlefield, plus learn; slower than Rampant Growth.
+Fieldmist Borderpost	rocks	50	Two-color rock, cheap with a land bounce; enters tapped.
+Final Frontier	lands	72	3-mana sorcery: basic land onto the battlefield tapped, or two mana via Beam me up.
+Find the Path	other	50	3-mana aura: a land taps for GG and you venture, but it risks a two-for-one.
+Firdoch Core	rocks	50	3-mana rock for any color; also a manland, but slow for a rock.
+Fire Sprites	dorks	40	2-mana dork that only converts {G} into {R}; fixes but adds no mana.
+Firebrand Ranger	lands	30	2-mana 2/1 that needs {G} to drop a land from hand; narrow red-green ramp.
+Firemind Vessel	rocks	50	4-mana tapped rock for two colors; slow but strong fixing and a big mana boost.
+Firewild Borderpost	rocks	52	Tapped two-color rock; alt cost returns a land, so it's card-neutral but slow.
+Five Hundred Year Diary	rocks	38	4-mana tapped rock for U, one more with other Clues; weak.
+Flamebraider	dorks	38	2-mana dork for two mana, but only for Elemental spells and abilities.
+Flamekin Gildweaver	other	36	4-mana 4/3 trampler; the Treasure is a one-shot ramp rider.
+Flare of Cultivation	lands	66	3 mana: two basics, one on the battlefield and one in hand; sacrifice a green creature to cast free.
+Flick a Coin	other	36	Makes one Treasure; one-shot ramp that also draws.
+Flourishing Bloom-Kin	lands	48	Costs 3 plus 5 to flip: fetches two Forests, one onto the battlefield; slow.
+Flower // Flourish	other	32	1 mana fetches a Forest or Plains to hand; no mana gain, just land-drop insurance.
+Flubs, the Fool	other	38	3-mana body: extra land drop each turn, but needs three colors and lands in hand.
+Flywheel Racer	rocks	44	2-mana vehicle: taps for any color only while crewed, so it needs a creature.
+Font of Fertility	lands	50	3 mana total for a tapped basic, spread over two turns; a slow Rampant Growth.
+Font of Magic	other	22	4 mana, reduces spells only after commander casts; slow and low impact.
+Food Chain	other	50	3 mana: exile a creature for creature-only mana; combo enabler but needs setup.
+Foraging Wickermaw	dorks	45	2-mana 1/3 that fixes any color but needs {1} per use, so it doesn't add mana.
+Foreboding Statue // Forsaken Thresher	dorks	52	3-mana any-color dork that becomes a 5/5 mana-maker after three taps.
+Forge, Neverwinter Charlatan	other	30	4-mana body; Treasure only once per turn when a creature is sacrificed.
+Forger's Foundry	rocks	52	3-mana rock for {U}, with spell-recasting upside in spell decks.
+Forging the Tyrite Sword	other	42	3-mana two-color saga: two Treasures, then an Equipment tutor.
+Foriysian Totem	rocks	42	3-mana rock for one red mana, with a costly 4/4 animation.
+Fork in the Road	lands	48	2 mana: two basics, one to hand and one to the graveyard; thins and fuels land recursion, but does not ramp this turn.
+Formidable Speaker	dorks	40	Can untap a land or rock for net zero mana with a {1} cost; weak ramp.
+Forsaken Monument	other	38	5 mana; doubles colorless mana only, so it needs Eldrazi or artifacts.
+Forsworn Paladin	other	38	Turns {1}{B} and 1 life into a Treasure; slow and net-zero mana.
+Foundry Inspector	other	38	3-mana 3/2 that makes artifacts cheaper; only good in artifact decks.
+Fountain of Ichor	rocks	52	3-mana rock making any color; can become a 3/3 for 3.
+Fractured Powerstone	rocks	56	2-mana rock for {C}; the planar die roll is a gamble.
+Freestrider Lookout	lands	35	3/3 reach body; land ramp only when you commit a crime.
+Frenzied Tilling	lands	30	5 mana, two colors: land destruction plus a tapped basic, poor ramp.
+Freya Crescent	dorks	28	1-mana dork whose mana only pays for Equipment and equip, so only equipment decks want it.
+Freyalise, Llanowar's Fury	other	58	5 mana: +2 each turn makes a mana-tapping Elf, ramping and protecting itself.
+Frog Butler	dorks	66	2-mana dork: any color of mana, with a deathtouch body.
+Frogtosser Banneret	other	32	Cost cutter only for Goblin and Rogue spells.
+From Beyond	other	42	4 mana for a Scion each upkeep, which is one-shot mana each.
+Frontier Guide	lands	38	2-mana 1/1 whose {3}{G} land fetch is slow and costly.
+Frontier Siege	other	64	4 mana: adds GG every main phase for a lot of mana each turn.
+Frost Fair Lure Fish	other	34	7-mana body that nets two tapped Treasures; ramp is incidental.
+Fyndhorn Elder	dorks	66	3-mana elf that taps for GG: net two extra mana per turn.
+Fíli and Kíli, Joyous	dorks	36	3-mana dork for RR, only for Dwarves, Equipment and Sagas.
+Gadrak, the Crown-Scourge	other	42	Treasure for each nontoken creature dying; good in sacrifice decks.
+Gaea's Balance	lands	22	Costs 4 and five lands; mostly a fixing and landfall trick.
+Gaea's Bounty	lands	30	3 mana to put two Forests in hand; doesn't ramp this turn.
+Gaea's Cradle	other	70	Explosive mana with a wide board, weak when you have few creatures.
+Gaea's Touch	other	38	GG for an extra Forest drop each turn or a one-shot GG; needs Forests in hand.
+Gala Greeters	other	48	2-mana 1/1 that makes a tapped Treasure when another creature enters.
+Galadriel of Lothlórien	lands	34	3-mana 3/3; scry triggers put lands out but needs Ring or scry support.
+Galadriel, Gift-Giver	other	46	5-mana 4/4: Treasure on entry and on every attack.
+Galadriel, Light of Valinor	other	38	Adds GGG when another creature enters, once per turn; costs five.
+Galazeth Prismari	other	48	4-mana flyer: Treasure, and artifacts tap for spell-only mana.
+Ganax, Astral Hunter	other	38	5-mana flyer that leaves one Treasure, more with other Dragons.
+Gardenize	other	32	3-mana enchantment that grows as your creatures die; slow, and needs a sacrifice deck.
+Garruk Wildspeaker	other	52	Untaps two lands each turn while making 3/3 Beasts; strong but costs four.
+Gatecreeper Vine	lands	47	Fetches a land to hand, not to the battlefield; fixes and blocks but doesn't ramp.
+Gatewatch Beacon	rocks	38	3 mana for a one-color rock that taps for W; the loyalty bonus is minor.
+Gathering Stone	other	32	4-mana cost reducer for one creature type; it works only in tribal decks.
+Gauntlet of Might	other	48	4 mana: Mountains tap for extra {R} and red creatures get +1/+1; only for heavy red.
+Gauntlet of Power	other	42	5 mana: basics of one color tap for double, but it also helps opponents using that color.
+Geist of Saint Thalia	other	50	2-mana flyer discounting noncreature spells by {1}; a cost cutter for spell decks.
+Gem of Becoming	lands	30	Costs 6 total to put three lands in hand; card advantage, not real ramp.
+Gemcutter Buccaneer	other	40	4-mana body that leaves one Treasure; weak ramp unless Pirates.
+Gemhide Sliver	dorks	62	2-mana dork for any color; also gives Slivers mana.
+Gemstone Array	rocks	25	4 mana and 2 per counter; only stores mana and fixes.
+Gene Pollinator	dorks	60	1-mana dork for any color, but must tap another permanent.
+Generator Servant	dorks	48	One-shot dork: sacrifice for {C}{C} once, with a haste bonus.
+Generous Plunderer	other	60	2-mana menace body making a Treasure each upkeep; opponents get one too.
+Genesis Device	lands	58	3-mana artifact that fetches a basic tapped; late-game land swap.
+Geology Enthusiast	rocks	50	5-mana body that makes a tapped Powerstone every turn; slow but steady ramp.
+Geosurge	other	36	RRRR for seven red mana, creature and artifact spells only; a burst.
+Ghirapur Orrery	other	32	4 mana: extra land drops for everyone, plus draw three for empty hands; helps opponents too.
+Giada, Font of Hope	dorks	34	2-mana dork, but its mana only casts Angels.
+Giant's Boulder	rocks	28	Costs {1} to make one mana of any color, so it fixes but doesn't ramp.
+Giant-Man, Gargantuan Genius	other	48	5-mana 6/6 that adds G per big creature each turn; ramp only after it survives.
+Gideon's Memorial	rocks	34	2-mana rock that only pays for planeswalkers; the token anthem is a minor rider.
+Gift of Estates	lands	42	2-mana sorcery: three Plains to hand if behind on lands; only helps when behind, mono-white.
+Gift of Paradise	other	52	3-mana aura: a land taps for two mana of one color and you gain 3 life.
+Gilanra, Caller of Wirewood	dorks	58	3-mana dork for {G}; draws when it pays for a 6+ mana spell, and has partner.
+Gilded Ghoda	other	30	2-mana creature that needs to saddle and attack to make a Treasure each turn.
+Gilded Pinions	other	38	2 mana for a Treasure plus a flying equipment; the Treasure basically refunds the cost.
+Gimli of the Glittering Caves	other	30	A 1/1 that makes Treasure only after connecting; weak ramp.
+Gladiolus Amicitia	lands	38	6-mana body that fetches a land; too expensive for ramp.
+Glamorous Outlaw	other	35	Pay {2} from hand to make one land tap for three colors; a niche, slow fixing effect.
+Gleaming Barrier	other	33	2-mana wall that becomes a one-shot Treasure when it dies.
+Gleaming Splendor	other	38	2-mana enchantment: Treasure when opponents draw extra cards; needs draw-heavy tables.
+Glimpse the Core	lands	66	2 mana: a basic Forest onto the battlefield tapped; Rampant Growth-like.
+Glistening Sphere	rocks	50	3-mana tapped rock for any color, with proliferate; slow.
+Glittering Frost	other	50	3-mana aura: a land taps for an extra mana of any color; risks a 2-for-1.
+Glittering Stockpile	rocks	44	3-mana red rock that grows a stash for a big sacrifice later; slow.
+Glittermonger	other	52	4-mana 1/4 that makes a Treasure each turn; slow but steady ramp and fixing.
+Glorious Sunrise	other	48	5-mana enchantment: a land taps for GGG each turn, among other modes.
+Gloryheath Lynx	lands	33	Fetches Plains to hand, not battlefield, and only when saddled and attacking.
+Gluntch, the Bestower	other	43	Makes two Treasures each turn, but you can only take one of three gifts unless opponents are chosen.
+Glóin the Mighty // Easy Pickings	dorks	56	4-mana 4/3 that adds RR in your first main phase every turn.
+Glóin, Dwarf Emissary	other	42	3-mana 3/3 making a Treasure per turn only on historic spells; best in artifact decks.
+Gnarlroot Trapper	dorks	38	1-mana dork whose G only casts Elf creatures; elf tribal only.
+Go Forth	lands	30	1-mana instant fetches a basic to hand; no ramp until you play it.
+Goblin Clearcutter	dorks	30	4 mana and a Forest sacrificed for a burst of three mana; clunky.
+Goblin Electromancer	other	52	2-mana cost reducer for instants and sorceries; needs a spell deck and two colors.
+Goblin Glasswright // Craft with Pride	other	40	One-shot Treasure for R, plus a 2/2 body option; small ramp.
+Goblin Warchief	other	38	Makes Goblin spells cheaper by {1}; only good in Goblin decks.
+Gold Myr	dorks	56	2-mana artifact dork for {W}; fragile and only one color.
+Gold Pan	other	40	2 mana for a Treasure and a cheap equipment; one-shot ramp.
+Gold Rush	other	38	2-mana instant: one Treasure plus a combat trick; a one-shot ramp piece.
+Golden Egg	rocks	22	Costs {1} to sacrifice for one mana; no real ramp.
+Golden Hind	dorks	60	2-mana dork for {G}.
+Goldhound	dorks	38	1-mana creature that sacrifices itself for one mana of any color; a one-shot burst.
+Goldlust Triad	other	22	5-mana flyer; a Treasure only if it connects, so ramp is incidental.
+Goldspan Dragon	other	56	5-mana haste flyer that makes Treasures and doubles them; ramp is a side job.
+Goldvein Pick	other	32	Equipment that makes Treasures only if the creature hits a player; slow and unreliable.
+Golgari Cluestone	rocks	50	3-mana two-color rock that cashes in for a card late.
+Golgari Keyrune	rocks	53	Three-mana two-color rock with a deathtouch blocker option.
+Golgari Locket	rocks	52	Three-mana two-color rock that cashes in for two cards late.
+Goobbue Gardener	dorks	60	2-mana 1/3 dork for {G}; sturdy but slower than one-drops.
+Gorbag of Minas Morgul	other	33	Needs a connecting Orc or Goblin to make a Treasure; tribal.
+Grabby Giant // That's Mine	other	40	2-mana instant adventure makes one Treasure, then a 4/3 body later.
+Grafted Growth	other	58	3-mana aura: land taps for two of one color, plus a counter; risks land loss.
+Grand Arbiter Augustin IV	other	53	Cost cutter for white and blue spells; also taxes opposing spells by {1}.
+Grand Architect	dorks	38	Taps blue creatures for CC, but only for artifacts; needs a blue artifact deck.
+Grand Nagus Zek	other	42	3-mana creature making a Treasure per turn when something dies; needs deaths.
+Grand Warlord Radha	dorks	50	4-mana haste body: attack to add mana per attacker, R/G only; needs to attack safely.
+Gravestone Strider	dorks	42	Fixes one color but costs {1} to activate, so it doesn't ramp.
+Great Desert Prospector	other	40	5 mana: tapped powerstones for each other creature; needs a board and is clunky.
+Great Divide Guide	dorks	56	2-mana body that fixes every land and itself to any color; no extra mana.
+Great Forest Druid	dorks	62	2-mana 0/4 dork tapping for any color: ramps and fixes.
+Great Train Heist	other	34	Treasure mode only works if creatures connect; mainly a combat trick.
+Greater Tanuki	lands	52	3-mana channel fetches a basic tapped, or a 6/5 trampler late; flexible.
+Greedy Freebooter	other	30	1-mana 1/1 that makes a Treasure on death; one-shot ramp.
+Green Goblin, Nemesis	other	30	4-mana flyer; Treasure only when you discard lands, needs discard outlets.
+Green Mana Battery	rocks	22	4 mana, slow to charge, and only makes green mana.
+Greenhouse Propagator	dorks	56	3-mana 2/3 that taps for G and gains a little life.
+Greenseeker	lands	38	Costs a card per land fetched; fixes land drops but no real ramp.
+Greenweaver Druid	dorks	62	3-mana elf dork that taps for {G}{G}; slow but doubles up and fills green decks.
+Gretchen Titchwillow	lands	38	Its expensive ability can put a land from hand onto the battlefield, but it's slow.
+Grilka, Widowed Warrior	other	25	Six-mana threaten body; Treasure only if the stolen creature connects.
+Grim Bounty	other	30	The Treasure is a small rider on a removal spell.
+Grim Hireling	other	44	4-mana creature: two Treasures when your creatures connect; needs damage to go through.
+Grinning Ignus	other	38	Net +2 mana once per turn at sorcery speed, but re-cast costs three each time.
+Groundchuck & Dirtbag	other	38	6-mana 8/8 trampler that adds {G} per land tapped; big body, but late ramp.
+Grow from the Ashes	lands	68	3 mana: basic land untapped, or two for 5 mana with kicker.
+Growth Spasm	lands	62	3 mana: tapped basic plus a Spawn for extra mana.
+Gruul Cluestone	rocks	46	3-mana two-color rock that cashes in for a card late.
+Gruul Keyrune	rocks	47	3-mana two-color rock that can attack as a 3/2 trampler.
+Gruul Locket	rocks	47	3-mana two-color rock; late it cashes in to draw two.
+Guardian Idol	rocks	54	2-mana tapped colorless rock that can also become a 2/2 creature.
+Guidelight Optimizer	dorks	40	2-mana dork whose mana only pays for artifacts and abilities.
+Guild Artisan	other	30	Background: Treasures only if your commander attacks the player with the most life.
+Gumato	dorks	50	5-mana 4/5 vigilance that taps for GGG; pricey but big mana.
+Guy in the Chair	dorks	56	3-mana dork that fixes any color; slower than the usual 1-2 mana dorks.
+Gwenna, Eyes of Gaea	dorks	56	3-mana dork for two mana, but only for creatures and creature abilities.
+Gyre Engineer	dorks	62	3-mana dork that taps for two mana in two colors; fragile 1/1 and gold only.
+Gyre Sage	dorks	48	2-mana dork that only taps for mana once it grows via evolve; needs bigger creatures.
+H.E.R.B.I.E. Scout Unit	lands	38	Puts a land from hand onto the battlefield tapped; one-shot and costs four.
+H.E.R.B.I.E., Lovable Robot	dorks	66	2-mana flying artifact dork for {C}; can filter to any color for {1}.
+Hakbal of the Surging Soul	lands	38	Attacking puts a land from hand onto the battlefield, but it must attack and survive.
+Halo Scarab	other	32	2-mana body that becomes a one-shot Treasure from the graveyard for {2}.
+Hamza, Guardian of Arashin	other	38	Cost reducer for creature spells, but only works with +1/+1 counter creatures.
+Harabaz Druid	dorks	34	2-mana dork that makes one mana alone, more only with Allies.
+Hardbristle Bandit	dorks	62	2-mana dork that taps for any color and can untap after a crime.
+Harold and Bob, First Numens	other	42	Only ramps after it dies, then a Forest makes three mana and rad counters.
+Haruspex	dorks	38	4-mana creature that turns death counters into mana; slow and inconsistent.
+Harvest Season	lands	38	3-mana sorcery: basics equal to tapped creatures; needs a creature board that taps.
+Harvester Druid	dorks	64	2-mana dork that fixes any color your lands can make.
+Haughty Djinn	other	48	3-mana flyer that makes your instants and sorceries cost {1} less; spells decks only.
+Haunted Screen	rocks	56	3-mana rock that makes all five colors, with a late-game 7/7 mode.
+Hazel of the Rootbloom	dorks	50	Taps tokens for mana; strong in token decks, needs tokens to work.
+Heaped Harvest	lands	58	3 mana: a tapped basic now and another later when sacrificed; slow but real ramp.
+Heart Warden	dorks	62	2-mana elf dork for {G} that cashes in for a card later.
+Heart of Ramos	rocks	38	3 mana for a single red; poor rate even as ramp.
+Heartbeat of Spring	other	38	Doubles land mana for every player, helping opponents as much as you.
+Heartless Summoning	other	42	2-mana cost reducer for creatures, but shrinks your own team too.
+Heartwood Crafter // Soul Tether	dorks	38	1-mana dork whose colorless mana can't cast spells from hand.
+Hedron Crawler	dorks	52	2-mana colorless dork; slower than Signets but fits any deck.
+Helga, Skittish Seer	dorks	34	Three-color 1/3; mana only for big creature spells and starts with 1.
+Helionaut	dorks	26	3-mana flyer that filters {1} into any color; it fixes but adds no mana.
+Herald of Kozilek	other	32	3-mana body; only colorless spells cost {1} less, which needs an Eldrazi theme.
+Herald of Slaanesh	other	25	3-mana body; only helps Demon spells, so it needs a Demon tribe.
+Herald of War	other	28	5-mana flyer; discounts only Angels and Humans, and only once it has grown.
+Herald of the Pantheon	other	42	2-mana body; enchantment spells cost {1} less, which needs an enchantress deck.
+Herald's Horn	other	38	3-mana artifact; one chosen type costs {1} less and the upkeep look gives small card advantage.
+Heraldic Banner	rocks	54	3-mana one-color rock; the +1/+0 anthem helps a mono-colored creature deck.
+Herd Heirloom	rocks	56	2-mana rock for any color, but only for creature spells; the second ability adds some value.
+Herd Migration	lands	40	Landcycling for {1}{G} fetches any basic to hand; slow and costly compared with real land ramp.
+Heritage Druid	dorks	42	1-mana elf that needs three untapped Elves to make GGG; elf decks only.
+Hermitic Herbalist	dorks	68	2-mana 2/3 dork that taps for any color; two colors required.
+Heroes for Hire	other	45	5 mana for three Treasures; a one-shot burst of mana that can also turn into cards.
+Heronblade Elite	dorks	38	3-mana 1/1 that taps for 1 mana unless you play many Humans; weak without a Human theme.
+Hew the Entwood	other	22	5 mana, sacrifice lands for a random chance at artifacts and lands; poor and a land-count loss.
+Hexhaven Invigorator	lands	40	Needs GGGG and to be damaged; a big 6/6 that ramps lands when it takes hits.
+Hickory Woodlot	other	32	Tapped land that gives GG twice, then goes away; temporary burst.
+Hidden Herbalists	other	34	2/2 that adds GG only if a permanent left this turn; needs fetch or sacrifice.
+Hierophant's Chalice	rocks	52	3-mana rock for {C} with a small drain; slow but fits any deck.
+High Tide	other	48	1-mana instant burst: extra U per Island tapped; needs Islands and a combo shell.
+Hinata, Dawn-Crowned	other	38	Three colors; cost cutter only for spells with targets.
+Hit It!	lands	45	3 mana: one land from the top five enters tapped, the rest are milled; haste for your team is a bonus.
+Hithlain Rope	lands	46	2-mana artifact fetches a basic tapped, but it passes to the right-hand player after each use.
+Hiveheart Shaman	lands	48	4-mana 3/5 that ramps only when it attacks, and only for a new basic type.
+Hoard Robber	other	30	2-mana 1/3 that makes Treasure only if it connects; unreliable at a 4-player table.
+Hoarding Ogre	other	42	4-mana 3/3 making Treasures when it attacks; needs to attack safely.
+Honest Rutstein	other	42	Creature spells cost {1} less; a cost reducer for creature decks, not real mana.
+Honor-Worn Shaku	rocks	40	3-mana colorless rock; can untap by tapping a legendary permanent for double mana.
+Honored Heirloom	rocks	48	3-mana rock for any color; fixes and has graveyard hate attached.
+Honored Hierarch	dorks	56	1-drop that needs to connect once to tap for any color; slow and fragile.
+Hope Tender	dorks	42	2-mana creature that untaps lands; needs mana to make mana.
+Horizon Seeker	lands	30	3-mana 3/2; boast needs an attack to fetch a basic land to hand, not onto the battlefield.
+Horizon Spellbomb	lands	38	1 mana, then 2 to sac for a basic land in hand; fixes land drops, not true ramp.
+Horn of Ramos	rocks	38	3 mana for one green; a slow mono-color rock that is poor value.
+Hot Dog Cart	rocks	52	3-mana rock that taps for any colour and leaves a Food; slow but fixes.
+Hour of Promise	lands	46	5 mana: two lands onto the battlefield tapped; slow, and the Desert bonus is rarely active.
+Hourglass of the Lost	rocks	42	3-mana rock for {W}; time counters add a niche reanimation option.
+Howlsquad Heavy	dorks	32	Taps for R per Goblin, but only at max speed, which a Commander game rarely reaches.
+Huatli, Poet of Unity // Roar of the Fifth People	lands	52	3-mana body that fetches a basic to hand; late flip makes Dinosaurs and mana.
+Hugs, Grisly Guardian	other	38	Extra land drops each turn help only if you have lands in hand or exiled.
+Hulking Raptor	dorks	66	4-mana 5/3 with ward 2 that adds GG every turn in your first main phase.
+Humble Naturalist	dorks	45	2-mana dork for any color, but only for creature spells.
+Hunting Cheetah	lands	22	3-mana 2/3 that fetches a Forest to hand only if it connects.
+Hunting Wilds	lands	58	4-mana sorcery: two Forests onto the battlefield, with a late kicker finisher.
+Hydraulic Helper	dorks	30	Two-mana dork whose blue mana only casts artifact spells.
+Hydro-Channeler	dorks	34	Two-mana dork whose mana only casts instants and sorceries; fits spell decks.
+Hydro-Man, Fluid Felon	dorks	45	UU 2/2 that becomes a mana land each turn cycle; heavy blue cost and fragile.
+Iceberg	other	32	Pay X+UU to store X colorless mana for later; just a delayed one-shot ritual.
+Icetill Explorer	other	60	4-mana 2/4: extra land drop each turn and lands replayable from the graveyard.
+Ichor Elixir	rocks	58	4-mana rock for {C}{C}: a real mana boost, but slow and colorless.
+Idol of False Gods	other	38	Slow token-maker needing colorless mana; spawns give one-shot mana, so it is weak ramp.
+Ignis Scientia	lands	40	3-mana body that digs six deep for a tapped land, only sometimes hitting.
+Illuminor Szeras	dorks	30	3-mana 3/3 that turns sacrificed creatures into black mana; needs fodder.
+Ilysian Caryatid	dorks	66	2-mana dork for any color, doubles with a power 4+ creature.
+Immortus, Master of Eternity	dorks	30	4-mana 2/2: mana only after drawing, only for noncreature spells.
+Implements of Sacrifice	rocks	28	2 mana, then pay 1 and sacrifice for two mana: a net loss of tempo.
+Impulsive Pilferer	other	36	1-mana 1/1 that gives a one-shot Treasure when it dies; slow and fragile.
+Incoming!	lands	30	8-mana symmetric land fetch that mainly builds a board for all players.
+Indatha Crystal	rocks	42	3-mana rock for W, B or G; cycles later but slow.
+Indulge // Excess	other	30	Aftermath makes Treasures only for creatures that hit a player, so it is unreliable and one-shot.
+Infernal Idol	rocks	46	3-mana rock for {B} only; sacrifice to draw two.
+Infernal Plunge	other	30	1-mana ritual that costs a creature for a net +2 red.
+Inga and Esika	dorks	56	4-mana 4/4: your creatures tap for creature-only mana of any color.
+Inherited Envelope	rocks	56	3-mana any-color rock that also tempts you with the Ring.
+Inner Fire	other	30	4-mana one-shot ritual; at best a burst for a big hand, and it is a card itself.
+Inquisitive Glimmer	other	38	Cheap body that discounts enchantments only; needs an enchantment theme.
+Insidious Roots	other	32	2-mana enchantment: only helps if you make creature tokens; needs a token deck.
+Inspired Tinkering	other	40	Three Treasures for five mana is a one-shot burst, not true ramp.
+Intelligence Bobblehead	rocks	50	3-mana rock for any color, with a costly draw ability that rarely scales.
+Interdimensional Web Watch	rocks	32	4-mana rock: two mana, but only for spells cast from exile.
+Into the North	lands	38	2-mana land ramp, but only snow lands, so needs a snow deck.
+Into the Wilds	other	50	4-mana enchantment: free land from the top of your library most upkeeps.
+Intrepid Paleontologist	dorks	70	2-mana dork for any color, which also exiles graveyard cards.
+Intrepid Stablemaster	dorks	62	2-mana dork with reach: taps for {G}, or more for Mounts and Vehicles.
+Invasion of Ergamon // Truga Cliffcharger	other	42	2 mana RG: one Treasure and an optional loot, a one-shot.
+Invasion of Zendikar // Awakened Skyclave	lands	68	4 mana: two basics tapped, then a 4/4 land creature later.
+Irencrag Feat	other	30	Burst: four mana for seven {R}, but only one more spell allowed this turn.
+Iridescent Tiger	other	38	Five mana back on a 5-mana body; net zero but fixes colors and pays for a 5-drop.
+Iron Lad, Young Avenger	other	50	3-mana flyer: noncreature spells cost {1} less, a cost reducer.
+Iron Man, Titan of Innovation	other	50	Makes a Treasure every attack for repeated ramp, but costs five and must connect.
+Iron Myr	dorks	56	2-mana dork that taps for {R}; colorless to cast, dies to sweepers.
+Isolinear Processor	rocks	34	2-mana rock whose mana only pays for artifacts and artifact abilities.
+Ixalli's Lorekeeper	dorks	28	1-mana dork, but its mana only pays for Dinosaurs.
+Izzet Cluestone	rocks	52	3-mana rock for U or R that can sacrifice to draw.
+Izzet Keyrune	rocks	50	3-mana two-color rock; can animate and loot, but slow.
+Izzet Locket	rocks	47	3-mana two-color rock that cashes in for two cards late.
+J. Jonah Jameson	other	32	Treasure only when menace creatures attack; needs a menace theme.
+Jace's Sanctum	other	42	4-mana cost reducer for instants and sorceries with a scry; good in spells decks.
+Jade Orb of Dragonkind	rocks	42	Three mana for a single G; Dragon bonus is minor.
+Jadzia Dax, Living Legacy	dorks	66	2-mana dork that adds 1 G first turn, then more each turn; fragile 0/1 but scales fast.
+Jaheira's Respite	lands	34	5-mana instant fog that ramps per attacker; only when you're attacked.
+Jaheira, Friend of the Forest	other	50	3-mana body that turns tokens into mana dorks; needs a token deck.
+James, Wandering Dad // Follow Him	dorks	34	3-mana 2/4 that taps for CC, but only for abilities; narrow.
+Jan Jansen, Chaos Crafter	other	28	Three colors; needs artifact creatures to sacrifice for Treasures.
+Janice Rand, Essential Aide	lands	58	4-mana 3/3 that puts a land into play each time your commander enters or attacks.
+Jasmine Boreal of the Seven	dorks	28	Makes two mana, but only for vanilla creature spells.
+Jaspera Sentinel	dorks	58	1-mana dork that needs another untapped creature; fixes any color.
+Jaya Ballard	other	44	+1 adds RRR for instants and sorceries only; good in spell decks.
+Jegantha, the Wellspring	dorks	32	5-mana dork: five colored mana, none for generic costs.
+Jenson Carthalion, Druid Exile	dorks	22	Its {5} mana ability nets nothing; not real ramp.
+Jeskai Banner	rocks	48	3-mana rock for U, R or W; fixes Jeskai and cycles late.
+Jeskai Devotee	dorks	32	2-mana 2/2 that only filters mana into Jeskai colors; no net mana gain.
+Jeskai Monument	other	42	2 mana: tutors a basic to hand, no immediate mana; a land drop fixer.
+Jewel Thief	other	44	3-mana 3/3 that leaves a one-shot Treasure.
+Jewel-Eyed Cobra	other	36	3-mana deathtouch body; Treasure arrives only when it dies.
+Jeweled Amulet	rocks	32	Free, but you pay {1} to store one mana for later; just a delayed mana battery.
+Jhoira's Familiar	other	34	4-mana 2/2 flyer that cuts historic spells by {1}; needs an artifact-heavy deck.
+Jiang Yanggu, Wildcrafter	other	52	3-mana walker: each -1 makes a creature a mana source; three counters then it is gone.
+Joiner Adept	dorks	42	2-mana 2/1 that gives lands any-color mana; fixes but adds no extra mana by itself.
+Jolene, Plundering Pugilist	other	40	3-mana 4/2 that makes Treasure when power-4 creatures attack.
+Joraga Treespeaker	dorks	72	1-mana elf; pay {1}{G} once and it taps for GG, with elf-wide upside.
+Journey of Discovery	lands	48	3-mana sorcery: two basics to hand, not onto the battlefield; entwine for extra land drops.
+Journey to the Lost City	lands	40	4 mana: each upkeep may give a land on low rolls, or a Wolf.
+Journeyer's Kite	lands	28	Costly {3} tap to fetch a basic to hand; slow, not real ramp.
+Jugan Defends the Temple // Remnant of the Rising Star	other	42	3-mana saga: makes a 1/1 Monk that taps for G, plus counters and a flying body later.
+Jukai Naturalist	other	36	2-mana 2/2 lifelink that discounts enchantments; needs an enchantment deck.
+Juniper Order Druid	dorks	38	3-mana creature that untaps a land for one extra mana.
+Ka-Zar of the Savage Land	lands	42	5-mana body: play lands from the top of your library, with a growing Cat.
+Kalain, Reclusive Painter	other	46	2 mana: leaves a Treasure, so it pays for itself once, with a minor counter bonus.
+Kaleidostone	rocks	28	2-mana cantrip artifact; the 6-mana-total ramp is a one-shot and too slow.
+Kamahl's Druidic Vow	other	40	X sorcery that drops lands and legends, but it is random and mills the rest.
+Kami of Whispered Hopes	dorks	50	3-mana dork: taps for 1 and grows with counters, doubling its own mana.
+Karametra's Acolyte	dorks	50	4-mana dork that taps for at least 2 G, more in heavy green decks.
+Karametra's Favor	rocks	56	2-mana cantrip aura: a creature taps for any color; summoning sick and fragile.
+Karametra, God of Harvests	lands	55	Fetches a land for each creature spell; slow at five mana and GW only.
+Karfell Harbinger	dorks	50	2-mana dork whose U only casts instants, sorceries and foretell.
+Karn, Legacy Reforged	other	42	Five mana to get artifact-only mana each upkeep; strong in artifact decks, narrow elsewhere.
+Karn, Living Legacy	other	50	4-mana walker making a tapped Powerstone each turn; slow but repeatable ramp.
+Karolina Dean, Runaway	dorks	38	Big mana each turn but can't cast spells from hand; only abilities or cast-from-elsewhere.
+Kaslem's Stonetree // Kaslem's Strider	lands	50	3 mana: look at six cards and put a land onto the battlefield tapped, with a 5/5 later.
+Katilda, Dawnhart Prime	dorks	38	2-mana dork that only taps Humans for mana; needs a Human theme.
+Kayla's Command	lands	25	Fetches a basic Plains to hand, not onto the battlefield; not real ramp.
+Keeper of Progenitus	other	50	4-mana doubler for Mountain/Forest/Plains taps, but it helps all opponents too.
+Keeper of the Accord	lands	46	4-mana 3/4 that fetches a Plains when opponents have more lands; conditional but easy in 4 players.
+Kefnet's Monument	other	32	Cost reducer for blue creature spells only, with a small tempo rider; needs a blue creature deck.
+Kellan, Inquisitive Prodigy // Tail the Suspect	other	35	Adventure gives an extra land drop and a Clue; the ramp is minor.
+Kellogg, Dangerous Mind	other	38	3-mana body that makes a Treasure only when it attacks; fragile and needs to connect.
+Kessig Naturalist // Lord of the Ulvenwald	dorks	38	Two-color 2-drop that only makes mana when it attacks, so it is unreliable.
+Kethis, the Hidden Hand	other	34	Cost reducer only for legendary spells, so it is a theme card for legend decks.
+Ketria Crystal	rocks	46	Three-mana rock for three colors that can cycle away if you don't need it.
+Keys to the House	lands	30	Costs 2 total to fetch a basic to hand; it fixes and thins but doesn't ramp.
+Khalni Gem	rocks	45	4 mana, returns two lands, then taps for two of one color; slow and clunky.
+Khalni Heart Expedition	lands	50	2 mana; needs three land drops to fetch two basics, slow but strong in landfall decks.
+Kheru Goldkeeper	other	32	Three-color 4-drop; Treasure only if your graveyard is used on your turn.
+Kibo, Uktabi Prince	other	38	3-mana creature: Banana tokens give mana, but every player gets one.
+Killmonger, Ruthless Usurper	other	30	3-mana 3/3: Treasure only when it connects, plus an artifact sacrifice.
+Kingpin, Wilson Fisk	other	46	4-mana 3/6 that makes two Treasures per turn off sacrifices; needs a sac outlet.
+Kinjalli's Caller	other	22	Only cheapens Dinosaur spells; needs a tribal deck.
+Kinnan, Bonder Prodigy	dorks	70	2-mana creature that adds a mana whenever a rock or dork taps; strong with cheap mana permanents.
+Kiora, Master of the Depths	other	38	+1 untaps a land for a small mana boost each turn.
+Knight of the Reliquary	lands	50	3-mana creature that swaps a Forest or Plains for any land each turn; slow and doesn't add land count.
+Knight of the Stampede	other	28	Four-mana body that only discounts Dinosaurs; needs a tribal theme.
+Knotvine Mystic	dorks	45	3-mana 3-color dork: nets +2 mana a turn but needs Naya and summoning sickness.
+Knuckles the Echidna	other	40	4-mana haste double striker: makes a Treasure when it connects.
+Kodama of the West Tree	lands	35	3/3 body; land ramp only if modified creatures connect.
+Kolaghan Monument	rocks	52	3-mana two-color rock with a late-game 4/4 flying dragon mode.
+Kolvori, God of Kinship // The Ringhart Crest	rocks	42	2-mana rock that only pays for legendary or chosen-type creatures; a commander-heavy niche.
+Konstrari Charm	other	32	Two mana for three colorless is a small one-shot ritual.
+Kor Cartographer	lands	46	4-mana 2/2 puts a Plains onto the battlefield tapped; costly for the ramp.
+Korvold and the Noble Thief	other	40	4 mana for two Treasures over two turns, then a small steal of three cards.
+Koth, Fire of Resistance	lands	38	+2 fetches a Mountain to hand each turn, but only in heavy-red decks and costs 4.
+Koth, the Geomancer	other	40	3-mana 3/2 that adds {R} on Mountain drops; landfall deck piece, not real ramp.
+Kozilek's Channeler	dorks	42	5-mana 4/4 that taps for {C}{C}; slow ramp with a body for big colorless costs.
+Kozilek's Command	other	36	Spawn tokens for X mana; one-shot, needs colorless mana.
+Kozilek's Predator	other	44	4-mana 3/3 plus two Spawn that sacrifice for {C}; one-shot burst of ramp with a body.
+Kozilek's Translator	dorks	33	5-mana body that adds only one colorless a turn; too slow to ramp.
+Krark-Clan Ironworks	rocks	46	4-mana engine that turns artifacts into mana; powerful in artifact combo decks only.
+Krark-Clan Stoker	dorks	30	3-mana dork that burns an artifact per activation; only works in artifact sacrifice decks.
+Krosan Restorer	dorks	42	3-mana creature that untaps a land for one extra mana; more with threshold.
+Krosan Tusker	lands	47	Cycle for 3 to fetch a basic into hand, or cast as a late 6/5; also draws.
+Krosan Warchief	other	30	3-mana 2/2 that only discounts Beast spells; needs a Beast theme.
+Krosan Wayfarer	lands	50	1-mana body that sacrifices to drop an extra land from hand; ramps one land, then it's gone.
+Kura, the Boundless Sky	lands	42	5-mana flyer; when it dies, three lands to hand. Slow and not real ramp.
+Kwia Vigorbloom	other	50	6-mana bomb; its lifelink makes a three-mana Lotus each turn.
+Kydele, Chosen of Kruphix	dorks	34	4-mana dork that needs extra draws to make mana; weak alone.
+Kykar, Wind's Fury	other	38	Spirits sacrificed for {R}; needs noncreature spells and three colors.
+Kyoshi Island Plaza	lands	48	4 mana to fetch one tapped basic; extra Shrines are rare.
+Kyren Toy	rocks	28	Three-mana rock that costs mana to charge; slow and clunky.
+La Forge, Perceptive Engineer	dorks	48	Two-mana dork for artifact spells only; good in artifact decks.
+Land Grant	lands	38	Fetches a Forest to hand only; no extra land drop, so it does not ramp.
+Landscaper Colos	lands	30	Landcycling {1}{W} fetches a basic to hand, not onto the battlefield.
+Lantern of Revealing	rocks	48	3-mana any-color rock; slow, with a pricey extra ability.
+Lapis Orb of Dragonkind	rocks	38	3-mana one-color rock; scry only helps Dragon spells.
+Lara Croft, Tomb Raider	other	38	Three-color body that makes a Treasure only if it attacks; slow and costly.
+Larval Scoutlander	lands	58	3 mana: sacrifice a land for two basics tapped, a net +1 land.
+Laser Screwdriver	rocks	48	3-mana rock for one mana of any color, with surveil and goad extras.
+Lavabrink Floodgates	rocks	52	4-mana rock for {R}{R}; the doom counter drawback makes it risky and it can sweep your own board.
+Lavinia, Foil to Conspiracy	dorks	40	3-mana dork whose {C}{C} only works on opponents' turns; fine for instants and flash.
+Lay of the Land	lands	30	1 mana: basic land to hand; fixes but doesn't ramp past the land drop.
+Leaden Myr	dorks	54	2-mana artifact dork that taps for {B}.
+Leaf Gilder	dorks	66	2-mana Elf dork for {G}.
+Leafkin Avenger	dorks	50	4 mana 4/3 that taps for {G} by itself, more with other big creatures.
+Leafkin Druid	dorks	66	2-mana 0/3 dork for {G}, or {G}{G} with four creatures.
+Lessons from Life	other	22	Only puts a land from hand in tapped as a rider.
+Letter of Acceptance	rocks	50	3-mana rock for any color that can cash in for a card later.
+Ley Druid	dorks	42	3-mana 1/1 that untaps a land for one extra mana, slow and fragile.
+Ley Weaver	dorks	40	4-mana 2/2 that untaps two lands, a net one extra mana.
+Leyline Immersion	other	50	4-mana aura: your legendary creature taps for five spell mana, but needs a legend and is risky.
+Leyline Prowler	dorks	66	3-mana two-color dork with deathtouch and lifelink; fixes any color.
+Leyline of Abundance	other	62	Opening-hand-free enchantment: every creature mana tap adds extra {G}; great in elf decks.
+Life Insurance	other	30	5 mana; makes Treasure when nontoken creatures die, but costs you life each time.
+Life of Toshiro Umezawa // Memory of Toshiro	other	30	Flips into a creature that makes B only for instants and sorceries, slowly and with a life cost.
+Lifespring Druid	dorks	55	3-mana elf dork that fixes any color, but slow for a dork.
+Liliana of the Dark Realms	lands	38	Fetches Swamps to hand each turn; needs a heavy black deck.
+Liliana's Shade	lands	33	4-mana body fetches a Swamp to hand; slow, only a land drop.
+Liquimetal Torque	rocks	48	2-mana rock for {C} only; the artifact-granting ability is minor.
+Llanowar Dead	dorks	56	2-mana BG Zombie Elf dork tapping for {B}; gold cost limits it.
+Llanowar Druid	other	36	Sacrifice to untap Forests: one-shot burst mana in a Forest-heavy deck.
+Llanowar Envoy	dorks	25	3-mana body that only filters mana; no net ramp.
+Llanowar Loamspeaker	dorks	74	2-mana dork for any color, plus a land-animating bonus.
+Llanowar Mentor	dorks	42	Costs a card and G each time to make a dork; slow.
+Llanowar Scout	other	50	2-mana creature that gives an extra land drop each turn.
+Llanowar Tribe	dorks	68	3-mana 3/3 that taps for GGG; heavy green needed.
+Llanowar Visionary	dorks	68	3-mana dork that replaces itself with a card.
+Loam Dryad	dorks	50	1-mana dork, but taps another creature too, so it's clunky.
+Loam Dweller	lands	22	Needs Spirit or Arcane spells; rarely triggers outside that theme.
+Lobelia Sackville-Baggins	other	30	3-mana flash body; Treasures only when a creature just died, so it's unreliable.
+Locke, Treasure Hunter	other	37	Needs to attack; sometimes makes a Treasure when a land is milled.
+Loki's Scepter	rocks	62	3-mana rock for any color with a Threaten on entry.
+Long-Bodied Grey Dog	other	38	3-mana flash body that leaves a tapped Treasure: one-shot ramp that is slow.
+Longshot, Rebel Bowman	other	38	4-mana creature that shaves {1} off noncreature spells; needs a spell-heavy deck.
+Loot Dispute	other	46	4 mana: initiative plus a Treasure now and more when you hit the holder.
+Loot, Exuberant Explorer	other	50	3-mana 1/4 that allows an extra land drop each turn; good with land-heavy ramp.
+Loot, the Nexus	dorks	48	3-mana dork that often taps for 1-3 mana, depending on varied powers.
+Loot, the Pathfinder	dorks	50	5-mana three-color creature that can make three mana once, one use of its exhaust abilities.
+Lotho, Corrupt Shirriff	other	50	2-mana 2/1 that makes Treasure whenever anyone casts a second spell in a turn.
+Lotus Bloom	rocks	48	Free to cast but waits three turns, then a one-shot three mana burst.
+Lotus Blossom	rocks	30	Slow one-shot mana: needs many turns to pay off and does nothing meanwhile.
+Lotus Guardian	dorks	22	Seven mana for a body that taps for one; ramp barely matters at that cost.
+Lotus Ring	rocks	32	Costly equip and a sacrificed creature for a one-shot three mana.
+Loyal Warhound	lands	50	2-mana body: a tapped Plains when behind on lands, often true.
+Luck Bobblehead	rocks	48	3-mana any-color rock; slowly makes Treasures with spare mana.
+Luke Cage, Hero for Hire	other	62	4-mana 4/4 that makes a Treasure each turn at your combat.
+Lukka, Bound to Ruin	other	45	5-mana walker adds RG each turn but only for creatures.
+Lullmage's Familiar	dorks	55	3-mana 2/4 body that taps for G or U; slow but sturdy and fixes.
+Lumbering Worldwagon	lands	66	3 mana: fetches a basic tapped on entry, and again whenever it attacks with crew 4.
+Luxurious Locomotive	other	34	5-mana vehicle: needs to attack and be crewed to make a Treasure each turn.
+Lys Alana Dignitary	dorks	50	Taps for GG only with an Elf in the graveyard; costs 4 without an Elf to behold.
+Lyse Hext	other	56	3-mana body: noncreature spells cost {1} less in spells decks.
+Machine God's Effigy	rocks	40	4 mana for a single blue; can also copy a creature while still tapping for U.
+Maestros Theater	lands	30	It swaps itself for a basic, so it fixes but doesn't add mana.
+Magda, Brazen Outlaw	other	50	2-mana Dwarf: makes a Treasure whenever a Dwarf taps, including itself when it attacks.
+Magda, the Hoardmaster	other	38	2-mana 2/2 that makes a Treasure only when you commit a crime; needs targeting.
+Magma Opus	other	36	Can be discarded for a Treasure at two mana; one-shot ramp.
+Magnifying Glass	rocks	44	3-mana colorless rock; Investigate sink late.
+Magus Lucea Kane	dorks	50	4-mana three-color dork: taps for {C}{C} and grows a creature each turn.
+Magus of the Coffers	dorks	50	5-mana 4/4: pay {2}, T for {B} per Swamp, strong only in heavy-black decks.
+Magus of the Library	dorks	55	GG 1/1 that taps for {C}; a decent dork with a hard-to-meet draw clause.
+Magus of the Vineyard	dorks	30	1-mana creature giving GG each turn, but every opponent gets it too.
+Mahadi, Emporium Master	other	42	3/3 that makes Treasures for each creature that died, including opponents', but needs deaths.
+Malcolm, Keen-Eyed Navigator	other	38	Flyer that makes Treasures when Pirates connect; needs Pirate support.
+Malevolent Rumble	other	35	Only a one-shot Spawn for mana, with some dig attached.
+Mana Bloom	other	50	Flexible fixing enchantment that makes one mana a turn, then returns to hand.
+Mana Cache	other	22	Any player can use the counters, and it needs untapped lands at end step.
+Mana Cylix	rocks	15	Costs {1} to make one mana; fixes color but adds no mana.
+Mana Echoes	other	35	Big mana in tribal decks and token swarms; weak elsewhere.
+Mana Flare	other	48	Doubles land mana but helps opponents as much as you.
+Mana Geode	rocks	46	3-mana rock for any color with a scry 1; slow but fixes.
+Mana Geyser	other	18	5-mana sorcery ritual that depends on opponents having tapped lands.
+Mana Matrix	other	25	6-mana cost reducer for instants and enchantments only.
+Mana Prism	rocks	42	3-mana rock for {C}; fixing costs {1} extra.
+Mana Reflection	other	46	6-mana mana doubler; powerful when ahead, but costly.
+Manabond	other	30	1-mana enchantment: dump your hand's lands, but discard the rest; narrow.
+Manakin	dorks	55	2-mana 1/1 that taps for {C}; any deck can run it.
+Manamorphose	other	42	Costs 2, adds 2 of any colors; a fixer that draws a card.
+Manaweft Sliver	dorks	50	2-mana 1/1 that taps for any color itself, plus other Slivers.
+Many Partings	lands	40	1 mana: basic land to hand plus Food; no ramp this turn, only a land drop.
+Map the Frontier	lands	58	4 mana: two basics onto the battlefield tapped; slow but a big boost.
+Map the Wastes	lands	52	3 mana: one basic land tapped plus bolster 1; a slow Rampant Growth.
+Maraleaf Pixie	dorks	66	2-mana flying dork for {G} or {U}; fixes two colors in Simic.
+Marauding Raptor	other	50	Creature cost reducer for {1}, but it deals 2 damage to each creature you cast.
+Mardu Banner	rocks	46	3-mana rock for R, W or B; sacrifices to draw.
+Mardu Devotee	dorks	38	1-drop that only filters {1} into a color, no net mana.
+Mardu Warshrieker	other	32	4-mana 3/3 that gives three mana only if you attacked; a one-shot burst.
+Mark of Sakiko	other	28	Aura that makes mana only when the creature connects with a player; slow and risky.
+Market Festival	other	55	4-mana aura: a land taps for three mana, but it's one land and the aura is vulnerable.
+Marshals' Pathcruiser	lands	36	3 mana artifact that tutors a basic land to hand; no mana gained right away.
+Marut	other	12	Costs 8; the Treasure refund needs Treasure mana, so it's no real ramp.
+Marwyn, the Nurturer	dorks	66	3-mana dork that taps for G now and grows with other Elves; strong in elf decks.
+Mary Read and Anne Bonny	other	32	Treasures only when discarding Islands, Pirates or Vehicles; needs theme.
+Masked Bandits	lands	38	Pay {2} to give one land three colors, then cast the 5/5 later; narrow to Jund and slow.
+Master of Ceremonies	other	42	4-mana 3/4: Treasure each upkeep if chosen, but it also helps opponents.
+Master of Dark Rites	dorks	28	1-mana creature: sacrifice a creature for BBB, only for Vampire, Cleric or Demon spells.
+Meeting of the Five	other	8	Eight mana, five colors, and only exactly-three-color spells from the top ten.
+Metalworker	dorks	40	3-mana dork that explodes only in artifact-heavy hands; weak otherwise.
+Metamorphosis	other	30	Sacrifice a creature for creature-only mana; a one-shot with a real cost.
+Meteorite	rocks	42	5-mana any-color rock; the 2 damage is a small bonus.
+Meticulous Artisan	other	33	4-mana body with a one-shot Treasure; little ramp.
+Midnight Clock	rocks	50	3-mana one-color rock with a slow Timetwister payoff.
+Migratory Greathorn	lands	42	4-mana 3/4; the land only comes from mutating, which needs a target creature.
+Millikin	dorks	47	2-mana 0/1 dork: mill a card for {C}; fragile and slower than other 2-drops.
+Mimic	rocks	32	2 mana for a one-shot Treasure that can also animate into a 3/3.
+Mina and Denn, Wildborn	other	50	4-mana 4/4: extra land drop each turn; needs lands in hand to help.
+Mindsplice Apparatus	other	38	4-mana cost reducer for instants and sorceries; slow, needs a spell-heavy deck.
+Mine Raider	other	25	Treasure only with another outlaw; mostly a plain 3/2.
+Mishra's Workshop	other	60	Taps for three mana, but only for artifact spells, so it needs an artifact deck.
+Misleading Signpost	rocks	42	3-mana rock for one blue; flash redirect is a small bonus.
+Mistform Warchief	other	34	Cost cutter that needs a shared creature type; it can become any type.
+Mistvein Borderpost	rocks	55	Tapped two-color rock; alt cost makes it cheap but not net mana at first.
+Mizzix of the Izmagnus	other	38	4-mana 2/2 that cuts instant and sorcery costs; needs spell deck.
+Mm'menon, the Right Hand	dorks	38	5-mana flyer: artifacts tap for U only for non-hand spells; artifact decks.
+Mobile Homestead	lands	32	Crew 2 vehicle that may drop a land tapped when it attacks.
+Mocking Sprite	other	42	3-mana flyer; instants and sorceries cost {1} less.
+Model of Unity	rocks	56	3-mana rock that taps for any color; slow but fixes.
+Moldering Gym // Weight Room	lands	62	3-mana enchantment ramps a basic tapped, with a late-game body from Weight Room.
+Molt Tender	dorks	48	1-mana dork that needs graveyard fuel; self-mill first, then taps for any color.
+Molten Man, Inferno Incarnate	lands	50	3 mana: a tapped Mountain and a growing body, but you sacrifice a land when it leaves.
+Mona Lisa, Science Geek	dorks	45	3-mana dork that taps for one mana unless pumped.
+Mongoose Lizard	lands	38	Mountaincycling {2} fetches a land at instant speed, a modest fixer late-game body.
+Monologue Tax	other	42	3-mana enchantment: Treasure when an opponent casts a second spell each turn; slow and inconsistent.
+Monument to Perfection	lands	33	2 mana: pay 3 and tap to fetch a basic to hand; slow and doesn't ramp directly.
+Moon-Boy, Dino Rider	other	24	Only discounts Dinosaur spells, which few decks play.
+Moonsilver Key	lands	42	Costs 3 total over two turns to fetch a basic land to hand; slow.
+Moonsnare Prototype	rocks	38	1-mana rock that must tap another artifact or creature, so it nets no extra mana.
+Morgue Toad	dorks	24	3-mana body that sacrifices for one burst of {U}{R}.
+Morselhoarder	other	30	6 mana for a body that returns two mana once; poor ramp.
+Mossfire Egg	other	32	One-shot rock that costs 2 to make RG and cantrip; no net mana.
+Most Wanted	other	30	3-mana aura: two Treasures only when the enchanted creature dies.
+Mox Jasper	rocks	38	Free mox that only works with a Dragon; fine in dragon decks only.
+Mox Tantalite	rocks	66	Free any-color mox, but it arrives after a three-turn suspend; still strong ramp.
+Muerra, Trash Tactician	other	58	3-mana 2/4 that adds R or G at the start of your main phase, no summoning sickness issue.
+Mul Daya Channelers	dorks	56	3-mana elf taps for two mana whenever a land is on top; unreliable.
+Multani's Harmony	other	44	1-mana aura: turns a creature into a dork, but risks losing the card and needs a body.
+Murasa Rootgrazer	lands	52	2-mana creature: tap to put a basic from hand onto the battlefield, a land drop each turn.
+Murmuring Volume	rocks	48	3-mana rock for any color, with a rummage-style draw on the side.
+Mwonvuli Acid-Moss	lands	42	4 mana: land destruction that nets you a Forest tapped; slow ramp.
+Mycosynth Wellspring	other	30	2 mana: fetches a basic to hand, but adds no mana by itself.
+Myr Convert	dorks	58	2-mana colorless dork that taps for any color at 2 life each time.
+Myr Reservoir	rocks	32	3-mana rock whose mana only works for Myr; needs a Myr deck.
+Myriad Landscape	lands	52	Land that pays {2} and sacrifices to put two basics onto the battlefield tapped.
+Mystic Skull // Mystic Monstrosity	rocks	38	2-mana rock that costs {1} to tap, so it only fixes; late it flips into a 5/6.
+Naga Vitalist	dorks	64	2-mana dork that fixes for what your lands make.
+Naiad of Hidden Coves	other	30	Spells cost {1} less only off your turn; helps flash and instant decks.
+Namazu Trader	other	34	4-mana body that makes one Treasure; ramp is minor and one-shot.
+Nantuko Elder	dorks	62	3-mana dork that taps for {C}{G}: nets a mana but slow and fragile.
+Nardole, Resourceful Cyborg	dorks	30	Taps for mana only with counters on it, and only for noncreature spells.
+Natural Connection	lands	50	3-mana instant: basic land tapped; a slow Rampant Growth.
+Nature's Embrace	other	50	3-mana aura: a land taps for two mana of one color, or a creature gets +2/+2.
+Navigation Orb	lands	38	3 mana plus 2 to sacrifice: one land onto the battlefield, one to hand.
+Necklace of Girion	rocks	58	3-mana rock for {G} that also grows creatures from green spells and Forests.
+Necra Disciple	dorks	30	1-mana dork that needs green to make any color; fixes but gains no mana.
+Neheb, the Eternal	other	34	5-mana body that adds mana only after opponents lose life.
+Nervous Gardener	lands	38	Fetches a land to hand, not onto the battlefield; no real ramp.
+Nest Invader	other	40	2-mana 2/2 that leaves a Spawn for one-shot colorless mana.
+Network Terminal	rocks	46	3-mana rock for any color; slow but fixes, with an artifact loot bonus.
+Neverwinter Dryad	lands	40	One-mana 1/1 that costs {2} and itself to fetch a tapped Forest; slow ramp.
+New Frontiers	lands	48	Scalable land ramp, but every opponent ramps too.
+New Generation's Technique	lands	66	4 mana for two tapped basics; a Kodama's Reach-style ramp spell that costs more and gives no hand card.
+New Horizons	lands	52	3-mana aura: a land taps for two of one color, but it is vulnerable and slow.
+Nexos	dorks	32	Doubles basics' mana, but only for X costs; needs an X deck.
+Nicanzil, Current Conductor	lands	32	Puts lands from hand in only when your creatures explore; needs an explore theme.
+Night of the Sweets' Revenge	other	36	4 mana for one Food that taps for G; needs more Foods to matter.
+Nightscape Familiar	other	42	2-mana body: blue and red spells cost {1} less; needs UR spells to matter.
+Nightshade Dryad	dorks	70	2-mana deathtouch dork that taps for any color; fixes and blocks well.
+Nikya of the Old Ways	other	45	5-mana 5/5 doubling land mana, but you can't cast noncreature spells.
+Ninja Pizza	other	55	3 mana: a Food each turn that sacrifices for one mana of any color; slow but repeatable.
+Nirkana Revenant	other	42	6-mana body that doubles Swamp mana; ramp only matters after it lands.
+Nissa's Expedition	lands	52	Convoke makes it cheaper: two basics tapped, but still sorcery-speed and costly.
+Nissa's Pilgrimage	lands	60	3 mana: one Forest tapped, one to hand; spell mastery gets more. Forest-only.
+Nissa's Renewal	lands	47	6 mana for three tapped basics and 7 life; slow but big.
+Nissa's Triumph	lands	38	GG: two Forests to hand, not onto the battlefield; no ramp this turn.
+Nissa, Nature's Artisan	lands	38	6 mana; -4 puts lands onto the battlefield and the rest in hand, then little.
+Nissa, Resurgent Animist	dorks	58	3-mana 3/3: each land drop adds a mana of any color; needs extra land drops to be strong.
+Nissa, Steward of Elements	lands	40	X planeswalker that can put lands onto the battlefield from the top; slow and inconsistent.
+Nissa, Vastwood Seer // Nissa, Sage Animist	lands	55	3-mana body that fetches a Forest to hand; flips late into a strong planeswalker.
+Nissa, Who Shakes the World	other	72	5-mana walker: Forests tap for double mana; huge in Forest-heavy decks.
+Nissa, Worldwaker	other	64	5-mana walker: untaps four Forests every turn, effectively +4 mana; best in Forest decks.
+Noble's Purse	rocks	38	2 mana, enters tapped: makes up to three one-shot Treasures, one per turn.
+Nog, Ambitious Cadet	other	42	2-mana body; pay {1} then {3} to play extra lands and lands from graveyard.
+Noggle Robber	other	46	3-mana 3/3 that makes a Treasure on entry and another on death.
+Nogi, Draco-Zealot	other	22	Dragon spells cost {1} less; only works in Dragon decks.
+Nomadic Elf	dorks	22	Only filters mana at a cost of two; fixes color but adds no mana.
+Noxious Newt	dorks	66	2-mana 1/2 deathtouch dork tapping for {G}.
+Nuka-Cola Vending Machine	other	30	3 mana; pay {1} for Food, then sacrificing Food yields a tapped Treasure: slow and clunky.
+Nykthos, Shrine to Nyx	lands	42	Ramp only in heavy-devotion decks; otherwise it taps for {C} at a cost.
+Nylea's Intervention	lands	48	Sorcery that puts X lands in hand; it ramps only through land drops and costs GG extra.
+Nylea, Keen-Eyed	other	52	4-mana enchantment: creature spells cost {1} less; good in creature decks.
+Nyx Lotus	rocks	38	4-mana tapped rock; only big in heavy-devotion decks.
+Oaken Siren	dorks	40	2-mana flyer; mana only for artifacts, so it needs an artifact deck.
+Oashra Cultivator	lands	42	1-mana blocker; pay 3 and sacrifice for a tapped basic. Slow.
+Oasis Gardener	dorks	50	3-mana artifact dork: any color, gains 2 life; slow for ramp.
+Oasis Ritualist	dorks	47	4-mana dork with fixing; exert gives two mana but is slow and costly.
+Oath of Ajani	other	33	Planeswalker cost cut plus counters; needs two colors and walkers.
+Oath of the Grey Host	other	30	4 mana saga: a Treasure on chapter II, slow, with a drain and flyers as extras.
+Obelisk of Bant	rocks	46	3-mana rock for one that fixes three colors; slow.
+Obelisk of Esper	rocks	46	3-mana rock for one that fixes three colors; slow.
+Obelisk of Grixis	rocks	46	3-mana rock for one that fixes three colors; slow.
+Obelisk of Jund	rocks	46	3-mana rock for one that fixes three colors; slow.
+Obelisk of Naya	rocks	46	3-mana rock for one that fixes three colors; slow.
+Oberth-Class Starship	lands	30	2 mana: fetch a Plains to hand; no mana acceleration.
+Oblivion Sower	other	47	6-mana 5/8 that can steal several lands from the top of an opponent's library.
+Obscuring Aether	other	12	Only discounts face-down spells by {1}; needs a morph theme.
+Obsidian Obelisk	rocks	55	2-mana tapped rock for {C}; colors only for multicolored spells.
+Ognis, the Dragon's Lash	other	38	4-mana haste body that makes a tapped Treasure when hasty creatures attack; needs haste.
+Ojutai Monument	rocks	50	Three-mana two-color rock for W/U with a late manland mode.
+Old Rutstein	other	42	3-mana body: Treasure only when it mills a land, so ramp is inconsistent.
+Olivia, Opulent Outlaw	other	38	Treasure only after dealing combat damage; three colors and a mostly body-first card.
+Omen Hawker	dorks	38	1-mana dork whose mana only pays for abilities.
+Omen of the Hunt	lands	62	3-mana flash Rampant Growth effect with a late scry 2.
+Omenpath Journey	lands	50	4 mana: a free tapped land every end step for five turns, and it fixes.
+Ominous Parcel	lands	46	Slow land fetch to hand, not true ramp, but flexible.
+Omnath, Locus of the Void	other	35	7-mana body; landfall makes two colorless but it costs too much to ramp.
+Omni-Cheese Pizza	rocks	32	2 mana cantrip; a one-shot mana only costs you net nothing, so barely ramp.
+On the Trail	lands	30	Needs extra draw each turn to put a tapped land in; narrow shell.
+Ondu Giant	lands	56	4-mana body that fetches a tapped basic; slow but a real card.
+One with Nature	lands	24	1-mana aura: land only if the creature hits a player; unreliable and risky.
+Opaline Unicorn	dorks	52	3-mana artifact dork: taps for any color, fixes but is slow.
+Open the Omenpaths	other	42	3-mana one-shot ritual: four mana, only for creature or enchantment spells.
+Open the Way	lands	62	GG+X sorcery: up to 4 lands tapped in a 4-player game, so 6 mana for a big ramp.
+Orazca Relic	rocks	48	3-mana rock for {C}; late it can cash in for a card and 3 life.
+Orb of Dragonkind	rocks	28	Mana only for Dragons; needs a Dragon deck.
+Orcish Lumberjack	dorks	32	Burns a Forest for a net +2 mana once; needs Forests and summoning sickness.
+Orcrist, Goblin-cleaver	other	34	Treasures need an equipped creature to connect; equip 3 is slow.
+Ordeal of Nylea	lands	30	2-mana aura; needs three attacks to fetch two tapped basics.
+Ore-Rich Stalactite // Cosmium Catalyst	rocks	40	2-mana rock for {R}, only for instants and sorceries.
+Oreskos Explorer	lands	53	2-mana body fetching Plains to hand when opponents have more lands.
+Ornithopter of Paradise	dorks	67	2-mana artifact dork with flying that taps for any color; fixes colors and dodges sorcery-speed wipes less often.
+Orochi Leafcaller	dorks	30	1-mana creature that turns {G} into any color; fixes but doesn't add mana.
+Orochi Merge-Keeper	dorks	60	2-mana dork for {G}; taps for GG when modified.
+Orochi Soul-Reaver	other	28	Expensive body; a Treasure only after connecting.
+Orochi Sustainer	dorks	58	2-mana dork for {G}.
+Orzhov Cluestone	rocks	46	3-mana rock for {W} or {B}; sacrifice to draw.
+Orzhov Keyrune	rocks	50	3-mana two-color rock that can turn into a 1/4 lifelinker.
+Orzhov Locket	rocks	48	3-mana two-color rock; cash it in for two cards late.
+Osgood, Operation Double	dorks	34	Two 2/2s for 4 that tap for artifact-only mana.
+Otepec Huntmaster	other	30	Only cheapens Dinosaur spells; needs a tribal deck.
+Outcaster Greenblade	lands	42	3-mana 1/2 that tutors a basic to hand; slow, no immediate mana, but a body and card advantage.
+Outcaster Trailblazer	other	36	Only a one-shot mana on entry; a small burst of ramp.
+Overabundance	other	32	Doubles land mana for every player and pings them; symmetric and painful.
+Overeager Apprentice	other	33	3-mana creature: discard a card and sacrifice for BBB; a one-shot ritual that costs two cards.
+Overgrown Battlement	dorks	60	2-mana wall that taps for G, more with other defenders; solid body and mana dork for green.
+Overgrown Zealot	dorks	62	2-mana 0/4 body that taps for any color; solid blocker, fixes and ramps.
+Overgrowth	other	50	3-mana aura gives a land +GG; strong boost but vulnerable to land removal and costs a card.
+Overlaid Terrain	other	38	Sacrifices all your lands for doubled mana; risky and a big setback, only fits some decks.
+Overlord of the Hauntwoods	lands	62	Makes a tapped any-basic-type land on entry and each attack; impending for 3 mana.
+Page, Loose Leaf	dorks	62	2-mana colorless dork in any deck; 0/2 body is fragile but fine.
+Pain Distributor	other	42	3-mana body: you get a Treasure each turn, but opponents do too.
+Palladium Myr	dorks	70	3-mana dork that taps for {C}{C}: strong ramp in any deck.
+Paradise Mantle	rocks	68	0-mana equipment: turns any creature into a dork for {1}.
+Paradise Plume	rocks	38	4-mana one-color rock with a minor lifegain rider.
+Parcelbeast	lands	46	4-mana body: {1},{T} puts a top land onto the battlefield or the card into hand.
+Patchwork Banner	rocks	62	3-mana rock for any color, with a small tribal anthem.
+Path of Annihilation	other	38	4 mana for two Spawn that make mana any color; Eldrazi help.
+Path of the Animist	lands	56	4-mana sorcery: two basics tapped; solid but slow ramp, the Planechase vote is random.
+Path to the Festival	lands	64	3-mana Rampant Growth with flashback for another land later.
+Path to the World Tree	lands	38	2 mana: basic to hand only, so it fixes land drops but doesn't ramp.
+Patient Naturalist	other	40	3-mana body that gives a land to hand or a Treasure; slow, one-shot ramp.
+Patriar's Seal	rocks	52	3-mana rock for any color; costs too much for what it adds.
+Patron of the Arts	other	46	3-mana body that makes a Treasure on entry and another on death.
+Patron of the Moon	lands	42	Cheap with offering; dumps two lands per {1}, but needs a hand full of lands.
+Pelargir Survivor	dorks	40	2-mana dork whose mana only casts instants and sorceries.
+Pendant of Prosperity	lands	22	Opponent owns it and gets the same land drop; ramp only when you activate it.
+Pentad Prism	rocks	38	2-mana rock that stores one or two one-shot mana; fixes colors but doesn't ramp permanently.
+Perception Bobblehead	rocks	50	3-mana rock for any color, plus a pricey free-cast dig.
+Peregrination	lands	55	4-mana sorcery: one basic tapped, one to hand, scry 1.
+Peregrine Drake	other	56	5-mana flyer that untaps five lands; net mana and a combo piece.
+Perilous Forays	lands	32	5 mana, then pay a creature each time to fetch a land tapped; slow and costly.
+Petalmane Baku	dorks	20	Needs Spirit or Arcane spells to build ki counters; rarely makes mana in normal decks.
+Phial of Galadriel	rocks	55	3-mana rock that taps for any color; fixes but slow.
+Photon, Mighty Marvel	other	33	4-mana flyer; adds 2 mana only when it connects.
+Phyrexian Altar	rocks	52	3-mana rock that needs creatures to sacrifice; strong in sac decks, weak otherwise.
+Phyrexian Atlas	rocks	46	3-mana rock for one mana of any color; fixes but is slow.
+Phyrexian Lens	rocks	42	3-mana rock for one mana of any color, paying 1 life per tap.
+Phyrexian Totem	rocks	44	3-mana rock making only {B}, with a risky 5/5 mode.
+Pictures of Spider-Man	other	38	Sacrifice for a single Treasure after card advantage; weak ramp.
+Piggy Bank	other	22	3/2 body that leaves one Treasure when it dies; barely ramp.
+Pillar of Origins	rocks	32	2-mana rock for creatures of one chosen type only; needs a tribal deck.
+Pir's Whim	lands	46	4 mana: fetch a tapped land for you; opponents may be friends or sacrifice.
+Piracy	other	46	2 mana: tap opposing lands for spell mana; a huge burst in a combo turn.
+Pit Automaton	dorks	25	2-mana wall: mana only for abilities.
+Pitiless Plunderer	other	45	4-mana body that makes Treasures only when your creatures die; good in sacrifice decks.
+Plague Myr	dorks	62	2-mana colorless dork; fine in any deck, infect is irrelevant.
+Planar Atlas	rocks	53	2-mana tapped rock for {C} that also finds a land on entry.
+Planar Engineering	lands	58	4 mana: net +2 tapped basics, thins the deck and fixes, but slow.
+Planar Gate	other	28	6-mana cost reducer for creatures only; far too expensive.
+Planar Genesis	lands	40	Can put a land onto the battlefield tapped, but you often take the card instead.
+Plundering Barbarian	other	36	3-mana 2/2 body that leaves a one-shot Treasure.
+Plundering Pirate	other	38	3-mana 3/2 with a one-shot Treasure on entry.
+Poetic Ingenuity	other	40	3-mana enchantment: Treasures from Dinosaur attacks, needs an artifact theme.
+Point the Way	lands	22	Needs speed and 4 more mana to fetch lands; slow and usually only one or two.
+Poison Dart Frog	dorks	66	2-mana dork for any color; fixes as it ramps and blocks with deathtouch.
+Potioner's Trove	rocks	52	3-mana rock for any color, untapped, with a minor lifegain bonus.
+Power Artifact	other	28	UU aura for artifact ability discounts; needs a specific artifact and combo setup.
+Powerstone Shard	rocks	20	3 mana for a single {C} in singleton; far worse than other rocks.
+Preston Garvey, Minuteman	other	38	5-mana three-color 4/4 that grows mana each combat; hard to cast and slow.
+Priest of Gix	other	48	3 mana 2/1 that refunds BBB on entry; net-zero mana but leaves a body.
+Priest of Urabrask	other	48	3 mana 2/1 that refunds RRR on entry; net-zero mana but leaves a body.
+Priest of Yawgmoth	dorks	44	2-mana creature that sacrifices artifacts for B; needs artifacts to feed it.
+Primal Amulet // Primal Wellspring	other	42	4-mana cost reducer for instants and sorceries; needs a spells deck.
+Primal Druid	lands	38	2-mana wall that ramps a land only when it dies.
+Primal Growth	lands	60	3-mana sorcery: a basic untapped, or two for a sacrificed creature.
+Primal Witchstalker	lands	40	3-mana menace 2/1 that mills four and may return a milled land.
+Primeval Herald	lands	55	4-mana 3/1 that ramps a basic on entry and each attack, but it is fragile.
+Princess Lucrezia	dorks	27	6-mana 5/4 that taps for U; too expensive to count as ramp.
+Princess Yue	dorks	35	3-mana 3/2 that scries; only becomes a colorless mana source after it dies.
+Prishe's Wanderings	lands	58	3-mana instant: tapped basic or Town onto the battlefield plus a +1/+1 counter.
+Prismatic Geoscope	rocks	48	5-mana tapped rock that taps for several mana with domain.
+Prismatic Lens	rocks	60	2-mana rock for {C} that can filter into any color.
+Prismatic Undercurrents	lands	52	4 mana: basics to hand plus extra land drops each turn.
+Pristine Talisman	rocks	46	3-mana rock for {C} with a point of life each tap; slow but fine filler.
+Prize Pig	dorks	62	2-mana dork taps for any color; lifegain can untap it for extra mana.
+Prized Statue	other	38	2 mana for a Treasure now and another if it dies; one-shot mana.
+Prizefight	other	30	Treasure is a minor rider on a fight spell.
+Proctor's Gaze	lands	58	4-mana instant: ramp a basic and bounce a permanent.
+Professional Face-Breaker	other	42	3-mana creature making Treasures when your creatures connect; needs combat damage.
+Professional Wrestler	other	36	4-mana 4/4 with one Treasure; a one-shot ramp bonus.
+Progenitor's Icon	rocks	52	3-mana rock for any color; the flash rider is minor.
+Prompto Argentum	other	38	2-mana 2/2 haste; Treasure only when you cast a noncreature spell with 4+ mana.
+Prophetic Prism	rocks	46	2-mana filter that draws a card; fixes but adds no net mana.
+Prosper, Tome-Bound	other	50	Makes Treasure whenever you play a card from exile, which is every turn.
+Prosperous Bandit	other	38	3-mana first striker: Treasure only if it connects with a player.
+Prosperous Innkeeper	other	52	2-mana 1/1 that makes a Treasure on entry: one-shot ramp with a body.
+Prosperous Partnership	other	47	3-mana enchantment: two tokens, then tap three creatures for a Treasure.
+Prosperous Pirates	other	38	5-mana body that nets two one-shot Treasures; slow for ramp.
+Prosperous Thief	other	30	Treasure only when Ninjas or Rogues connect; needs a tribal deck.
+Prying Blade	other	32	Cheap equipment, but Treasure needs an equipped creature to connect each turn.
+PuPu UFO	lands	56	2-mana 0/4 flyer: tap to put an extra land from hand onto the battlefield every turn.
+Pull Through the Weft	lands	28	Returns lands from graveyard only; situational ramp.
+Puppet Master, String Puller	other	34	3-mana 2/4 that makes Treasure only when goaded creatures connect.
+Purestrain Genestealer	lands	42	3-mana creature that must attack to fetch a tapped basic; slow and unreliable.
+Purple Dragon Punks	dorks	38	2-mana dork whose red mana only pays for artifact spells and abilities.
+Pyramid of the Pantheon	rocks	40	Costs 2 per tap for three turns, then makes three mana of one color.
+Pyre Rhymer // Molten Tide	other	30	1-mana instant ritual that doubles Mountain mana for the turn.
+Pyretic Ritual	other	40	2-mana ritual for RRR: net one mana, one-shot and red only.
+Pyromancer's Goggles	rocks	30	5-mana rock for one red; the spell copy is only a bonus in red spell decks.
+Qarsi Deceiver	dorks	25	Dork whose mana only works for morph and manifest costs.
+Qo'noS Quartermaster	dorks	42	2-mana menace body that makes mana of any color only when it attacks.
+Quandrix Cultivator	lands	58	4-mana 3/4 that puts a Forest or Island onto the battlefield untapped.
+Quark, Humble Proprietor	other	68	3 mana: a Treasure every upkeep, so about two per round; fragile 1/2 body.
+Queen's Diamond	rocks	12	4-mana rock with no way to add charge counters by itself; mana only for your commander.
+Quinjet Technician	dorks	58	2-mana dork for {R}; fragile and a bit slow, but still plain ramp.
+Quirion Elves	dorks	62	2-mana elf dork that fixes a second color; slower than a one-drop.
+Quirion Explorer	dorks	56	2-mana elf dork; makes colors your opponents' lands can, so usually fine in 4-player.
+Quirion Sentinel	other	34	2-mana 2/1 that refunds one mana once; a one-shot, not real ramp.
+Quirion Trailblazer	lands	50	4-mana body that ramps a basic tapped; slow but leaves a creature.
+RMS Titanic	other	25	4-mana crew-3 vehicle; one hit gives Treasures, but it is slow and unreliable.
+Radha, Heir to Keld	dorks	64	2-mana two-color elf dork: taps for {G}, and attacking adds {R}{R}.
+Radiant Lotus	rocks	30	6 mana; sacrifice artifacts for three mana of one color each, but needs an artifact deck.
+Ragavan, Nimble Pilferer	other	50	1-drop that makes a Treasure on connecting; hard to connect in 4-player pods.
+Raiders' Karve	lands	25	Needs crew 3 and an attack; occasionally puts a land onto the battlefield.
+Rain of Filth	other	18	Costs B and your lands for B each; it gains no mana.
+Rain of Riches	other	38	5 mana for two Treasures and a one-time cascade.
+Rainbow Dash	dorks	28	Burst of five mana only after charging coolness with attacks.
+Rainveil Rejuvenator	dorks	45	4-mana dork that taps for two green; pricey ramp with some self-mill.
+Rakdos Cluestone	rocks	47	3-mana two-color rock that cashes in for a card later.
+Rakdos Keyrune	rocks	47	3-mana two-color rock that can turn into a 3/1 first striker.
+Rakdos Locket	rocks	48	3-mana two-color rock that later cashes in to draw two.
+Rakdos, Lord of Riots	other	25	Cost reduction only after opponents lose life; hard to cast itself.
+Rakish Revelers	other	30	Costs 2 to fix one land with three colors; not real ramp, needs three colors.
+Ral, Monsoon Mage // Ral, Leyline Prodigy	other	44	2-mana creature: instants and sorceries cost {1} less; only helps spell decks.
+Ramirez DePietro, Pillager	other	52	4-mana 4/3 that leaves two Treasures; one-shot ramp with an upside body.
+Ramos, Dragon Engine	other	32	6-mana flyer; removing counters makes ten mana once a turn but needs many colored spells.
+Rampaging Growth	lands	52	4-mana instant: a basic onto the battlefield untapped, plus a temporary 4/3 attacker.
+Rampant Rejuvenator	lands	46	4-mana 2/2 that fetches two basics when it dies, if it dies.
+Rampart Architect	lands	42	4-mana body; ramps only when a defender creature dies.
+Ranging Raptors	lands	44	3-mana 2/3 that ramps only when damaged; needs combat or pingers.
+Rapacious Dragon	other	38	5-mana flyer leaves two one-shot Treasures; ramp is a rider.
+Rapturous Moment	other	30	Costs six and returns five mana; a mostly net-neutral ritual.
+Rashmi and Ragavan	other	50	4-mana three-color creature: a Treasure each turn on your first spell, plus a free-ish steal.
+Rasputin Dreamweaver	other	38	6 mana for a 4/1 that taps its counters for colorless mana; slow and fragile.
+Rasputin, the Oneiromancer	other	42	3-mana 4/1 that taps counters for a little colorless mana once; gives opponents Goblins.
+Rattleclaw Mystic	dorks	66	2-mana dork for G, U or R; fixes three colors.
+Raucous Audience	dorks	62	2-mana dork for G, or GG with a big creature.
+Raugrin Crystal	rocks	42	3-mana rock for three colors that can cycle away late.
+Reach the Horizon	lands	58	4-mana sorcery: two basics onto the battlefield tapped.
+Realm Seekers	lands	30	6-mana body; fetches lands to hand for {2}{G} each, slow and not true ramp.
+Realmbreaker, the Invasion Tree	lands	38	3-mana artifact: 2 each turn to take a land from an opponent's milled cards, slow and uncertain.
+Realms Uncharted	lands	40	3-mana instant: two lands to hand, no battlefield ramp; good with land recursion.
+Reap and Sow	lands	52	4-mana sorcery: any land onto the battlefield untapped, with a land-destroy mode.
+Reckless Barbarian	dorks	32	2-mana 2/2 that sacs for RR: net one mana, one time.
+Reckless Ransacking	other	32	Combat trick that leaves a Treasure; a one-shot mana maker at best.
+Reclaim the Wastes	lands	38	1-mana land to hand; no mana gained this turn, kicked for two lands at 4.
+Reclusive Taxidermist	dorks	68	2-mana 1/2 dork that taps for any color; sometimes becomes a 4/4.
+Reconnaissance Partition	lands	46	4-mana 3/3 that ramps a tapped basic up to twice, or draws instead.
+Recross the Paths	lands	50	3-mana sorcery: put the first land from the top onto the battlefield untapped; may return.
+Red Death, Shipwrecker	dorks	50	2-mana two-color dork for {R}; goads a creature but gives an opponent a card.
+Red Mana Battery	rocks	22	4 mana and slow {2} charging for red-only burst; very poor ramp.
+Redcap Thief	other	38	3-mana 2/3 body that leaves a one-shot Treasure.
+Redshift, Rocketeer Chief	dorks	22	2-mana dork whose mana only pays for abilities; very narrow ramp.
+Regal Behemoth	other	48	6-mana body: monarch doubles your land mana, but you must keep the crown.
+Relic Retriever	other	32	Treasure only when cards leave your graveyard; needs a graveyard deck.
+Relic of Legends	rocks	55	3-mana rock for any color; legends can add extra mana.
+Relic of Sauron	rocks	52	4-mana rock for two mana, but only in U, B and R.
+Renegade Map	other	30	1 mana: sacrifice to fetch a basic to hand; fixing, not real ramp.
+Renewal	lands	32	3 mana, sacrifice a land: get a basic untapped and draw later; no net mana.
+Renowned Weaponsmith	dorks	38	2-mana dork for {C}{C}, but only for artifact spells and abilities.
+Replicating Ring	rocks	55	3-mana rock that fixes; after eight turns it makes eight more rocks.
+Reshape the Earth	lands	30	9 mana for up to ten lands: far too slow, though it thins the deck.
+Resonating Lute	other	45	4 mana: lands tap for two mana, but only for instants and sorceries; needs a spell deck.
+Restorative Technique	lands	55	3-mana sorcery: basic land tapped, plus a counter and 2 life.
+Restore	lands	28	2 mana: needs a land in a graveyard, which is often missing.
+Return from the Wilds	lands	56	3 mana: tapped basic plus a token or Food; slower than Rampant Growth but adds value.
+Rev, Tithe Extractor	other	38	4-mana 3/3 that makes a Treasure when your creatures hit a player.
+Revel in Riches	other	33	5-mana enchantment: Treasures only when opposing creatures die; slow, can win.
+Rhonas's Monument	other	42	3-mana cost reducer for green creatures only; a creature-deck fit.
+Rift Sower	dorks	56	Dork that taps for any color; suspend for G makes it a turn-two mana source.
+Rikala, Homarid King	other	30	3-mana 0/4 that adds extra U from Islands only one turn in four; slow and narrow.
+Ring of the Lucii	rocks	62	4 mana for {C}{C} each turn, plus a tap ability for utility.
+Risen Reef	lands	42	3-mana body that sometimes puts a land onto the battlefield; mostly a card.
+Rishkar, Peema Renegade	dorks	62	3 mana: counters on up to two creatures, which then tap for G, usually itself and another.
+Rite of Flame	other	38	1 mana for RR in singleton: net one mana, a one-shot burst.
+Rith's Attendant	dorks	22	5-mana 3/3 that sacrifices for RGW; a poor ramp piece.
+Rivaz of the Claw	dorks	38	3-mana dork whose mana only casts Dragons; theme only.
+Riven Turnbull	dorks	20	7-mana 5/7 that taps for one black; barely ramp.
+Riveteers Requisitioner	other	30	Creature that makes one Treasure when it dies; a one-shot at best.
+Road // Ruin	lands	62	3-mana instant Rampant Growth with a later removal half from the graveyard.
+Roads Go Ever, Ever On	other	30	Fetches two Plains into hand over two turns; slow and white-only.
+Roamer's Routine	lands	57	3-mana sorcery: a tapped basic, and harmonize can do it again later.
+Rocketeer Boostbuggy	other	38	2-mana Vehicle: Treasure per attack, but it needs crew and a safe attack.
+Rodeo Pyromancers	other	48	4-mana body that nets RR each turn after your first spell; red-only and slow.
+Roiling Regrowth	lands	68	3-mana instant: sacrifice a land for two tapped basics.
+Rok-Tahk, Budding Scientist	dorks	58	6-mana 5/5: every creature you control taps for GG.
+Rom and Leeta, Unlikely Pair	other	38	4-mana 4/3 whose Treasures need a second draw each turn; needs a draw deck.
+Rootcoil Creeper	dorks	64	2-mana Simic dork: taps for any color, with extra mana for graveyard casts.
+Rootrider Faun	dorks	62	2-mana 1/3 that taps for G, or any color with {1}.
+Rootweaver Druid	lands	38	3 mana: you get a tapped basic, but opponents get two or more.
+Rose Room Treasurer	other	46	4-mana 4/3 that makes Treasures when creatures enter; best in creature decks.
+Rosethorn Acolyte // Seasonal Ritual	dorks	58	3-mana fixing dork, with a G ritual to cast it next turn off an adventure.
+Rosheen Meanderer	dorks	38	4-mana 4/4 dork; its mana only pays for X costs, so it needs an X-spell deck.
+Rosheen, Roaring Prophet	dorks	32	Needs X cards in hand to make mana, and only for X costs; theme-only.
+Rotating Fireplace	rocks	50	3-mana rock that starts at 1 and grows by time travel for {4}, slow.
+Rousing Refrain	other	35	Burst of red mana from an opponent's hand; slow and unreliable, one shot.
+Rowan, Scholar of Sparks // Will, Scholar of Frost	other	38	Cuts instant and sorcery costs by one; only helps spell-heavy decks.
+Roxanne, Starfall Savant	dorks	62	Makes a mana rock every attack and doubles artifact-token mana.
+Rubble Rouser	dorks	42	3-mana dork that needs graveyard cards to exile each tap; pings 1.
+Ruby, Daring Tracker	dorks	62	2-mana two-color dork: taps for R or G, haste, but only for Gruul decks.
+Ruin in Their Wake	lands	42	2-mana basic land to hand; ramps only if you control Wastes.
+Rulik Mons, Warren Chief	lands	38	4-mana menace body; attacking can drop a land onto the battlefield or make a Goblin.
+Runadi, Behemoth Caller	dorks	62	3-mana 1/3 dork for {G} that buffs your big creatures.
+Runaway Steam-Kin	dorks	38	Needs three red spells before it makes RRR once; slow and mono-red only.
+Rustvine Cultivator	dorks	40	1-mana elf that untaps a land every other turn; slow ramp.
+Sacellum Godspeaker	dorks	50	3-mana dork that taps for G per power-5+ creature revealed; great in big-creature decks.
+Sachi, Daughter of Seshiro	dorks	58	4-mana dork that taps for GG itself; more with other Shamans.
+Sacrifice	other	35	Costs a creature for a burst of B; needs a big creature.
+Safana, Calimport Cutthroat	other	36	Treasure only if you have the initiative; needs that theme.
+Sage of the Maze	dorks	72	3-mana dork that taps for two mana of any colors and fixes.
+Sage of the Unknowable	dorks	38	2-mana dork whose colorless mana is restricted to colorless spells and abilities.
+Sagu Wildling // Roost Seek	lands	48	1-mana sorcery: basic land to hand, or a 5-mana flyer; no ramp itself.
+Sailor of Means	other	42	3-mana 1/4 body that leaves a one-shot Treasure; slow ramp but a good blocker.
+Sakiko, Mother of Summer	other	30	6 mana and needs combat damage to pay off; only good in aggressive creature decks.
+Sakura-Tribe Scout	lands	54	1-mana dork that plays an extra land each turn; needs lands in hand and no summoning sickness.
+Sakura-Tribe Springcaller	dorks	48	4-mana body that gives one green mana every upkeep, and the mana carries through the turn.
+Sanar, Unfinished Genius // Wild Idea	other	52	2-mana body: tap for a Treasure each turn you cast an instant or sorcery.
+Sanctum Weaver	dorks	60	2-mana dork that taps for at least one mana of one color and grows with enchantments in an enchantress deck.
+Sanctum of Fruitful Harvest	other	46	3 mana: adds one mana of any color each turn, and more with other Shrines.
+Sand Scout	lands	34	Fetches a Desert only when behind on lands, and Deserts are few in a typical deck.
+Sarevok's Tome	rocks	52	4-mana rock: colorless 1 or 2 with the initiative, which is hard to keep at a 4-player table.
+Sarkhan Unbroken	other	40	Plus ability adds one mana as you draw, but only once it is on the board.
+Sarkhan, Dragon Ascendant	other	35	2-mana 2/2; the Treasure needs a Dragon to behold, so it is a one-shot in dragon decks.
+Sarkhan, Fireblood	other	32	Adds two mana each turn but only for Dragon spells.
+Sarkhan, Soul Aflame	other	30	3-mana 2/4: Dragon spells cost 1 less; dragon decks only.
+Saruli Caretaker	dorks	42	1-mana dork that needs another untapped creature to tap, so it's slow and clunky.
+Satyr Hedonist	dorks	36	One-shot sacrifice for a net +1 mana; needs red.
+Saurian Explorer	lands	32	Slow six-mana ramp ability on a 4-drop body; late-game mana sink.
+Savage Ventmaw	other	38	6-mana flier that nets mana on attack; needs to survive and is expensive.
+Savai Crystal	rocks	42	3-mana rock for R/W/B with cycling for flexibility.
+Savvy Profiteer	dorks	60	2-mana dork for {R} with a late-game Treasure maker; fragile 2/1.
+Sazh Katzroy	lands	38	4-mana body that fetches a basic land to hand; slow, not true ramp.
+Scale the Heights	other	38	3-mana cantrip with an extra land drop; only ramps if you hold a land.
+Scaled Herbalist	lands	50	2-mana body that drops an extra land from hand each turn; needs lands in hand.
+Scaled Nurturer	dorks	62	2-mana dork for {G}; extra life with Dragons.
+Scampering Surveyor	lands	50	4-mana 3/2 that puts a basic onto the battlefield tapped; good value but slow.
+Scapeshift	lands	35	4-mana land swap that ramps little; strong only in Valakut-style decks.
+Scaretiller	lands	36	4 mana; only ramps when it becomes tapped, which needs vehicles or tap outlets.
+Sceptre of Eternal Glory	rocks	48	4-mana any-color rock; triples mana only with three same-name lands, good in basic-heavy decks.
+Scholar of New Horizons	lands	42	Fetches Plains each turn, but needs a counter and an opponent ahead on lands to ramp.
+Scholarship Sponsor	lands	38	4-mana body that catches you up on lands only if an opponent has more.
+Scion of Opulence	other	32	3-mana 3/1 that leaves a Treasure when it dies; one-shot ramp at best.
+Scorned Villager // Moonscarred Werewolf	dorks	60	2-mana dork for {G}; flips into a {G}{G} dork when a turn passes quietly.
+Scout the Wilderness	lands	60	3-mana sorcery: basic land onto the battlefield tapped; kicker adds two Soldiers.
+Scouting Hawk	lands	46	3-mana 1/1 flyer: fetches a Plains only when an opponent has more lands, often true in 4 players.
+Sculptor of Winter	dorks	44	2-mana dork that needs snow lands; otherwise does nothing.
+Scuttlemutt	dorks	56	3-mana artifact dork making any color; fixes but slow.
+Scuzzback Scrounger	other	42	2-mana 3/2 that makes Treasure each turn if you pay the blight cost.
+Sea Scryer	dorks	52	2-mana dork for {C}, or {1} into {U}; slow and fragile.
+Search for Tomorrow	lands	72	Suspend for G or 3 mana: puts a basic onto the battlefield untapped, a good turn-one-style ramp spell.
+Seashell Cameo	rocks	42	3-mana rock for W or U: slow, one-mana-rock effect at a three-mana price.
+Season of the Bold	other	34	5 mana for up to five tapped Treasures, a one-shot.
+Seedguide Ash	lands	42	5-mana 4/4: when it dies, three Forests arrive tapped; slow, needs to die.
+Seek the Horizon	lands	38	4 mana: three basics to hand, but no land enters the battlefield.
+Seer's Lantern	rocks	44	3 mana for a single colorless; the scry is a small extra.
+Seething Song	other	42	3 mana for RRRRR: a burst ritual, net two mana.
+Seize the Spoils	other	32	One-shot Treasure attached to a rummage-draw; ramp is minor.
+Seize the Spotlight	other	33	Can make Treasures per opponent, but that depends on their choices.
+Selesnya Cluestone	rocks	50	3-mana rock for G or W that cashes in for a card late.
+Selesnya Keyrune	rocks	50	3-mana rock for G or W that animates into a 3/3.
+Selesnya Locket	rocks	50	3-mana rock for G or W; later sacrifice for two cards.
+Selvala, Eager Trailblazer	dorks	58	4-mana body that taps for several mana in a wide board; strong but needs varied powers.
+Selvala, Explorer Returned	dorks	58	3-mana dork that taps for G per nonland revealed; random but also draws everyone cards.
+Selvala, Heart of the Wilds	dorks	68	3-mana dork that taps for X mana by your greatest power; explosive with big creatures.
+Semblance Anvil	other	42	3-mana cost reducer costing a card; discounts creatures or other types by {2}.
+Serra's Sanctum	lands	56	Big mana in enchantment decks, but conditional on enchantment count.
+Serum Powder	rocks	40	3-mana rock for one colorless; slow, with a free mulligan helper.
+Servant of the Conduit	dorks	46	2-mana dork that only makes two mana total unless you have other energy.
+Seton, Krosan Protector	dorks	22	GGG 2/2 that only taps other Druids for mana; needs a Druid theme.
+Setzer, Wandering Gambler	other	38	3-mana two-color body with a flying Vehicle; Treasures are random and need hits.
+Shadowblood Egg	rocks	34	One-shot rock that costs {2} to crack, so it nets no mana; it only fixes and cantrips.
+Shai-Hulud	lands	30	Fetches lands at nine mana; too late to count as ramp.
+Shaman of Forgotten Ways	dorks	58	3-mana dork for two mana, but only for creature spells.
+Shambling Ghast	other	38	1-mana 1/1 that leaves a Treasure when it dies, which is one-shot ramp.
+Shang-Chi, Master of Kung Fu	dorks	38	2-mana dork for {G}{G}-ish value, but mana is only for creature abilities.
+Shared Roots	lands	68	2-mana sorcery: basic land onto the battlefield tapped, like Rampant Growth.
+Shattered Seraph	other	36	Pay 2 from hand to make a land tap for WUB; it is a three-color card.
+Shaun & Rebecca, Agents	dorks	40	4-mana three-color 4/4 that taps for {C}.
+Shefet Monitor	lands	52	Cycle for 4: put a basic or Desert onto the battlefield; a 6/5 body if cast.
+Sheltered Aerie	other	50	3-mana aura: a land taps for two mana of any one color, but it risks a 2-for-1.
+Shigeki, Jukai Visionary	lands	42	Slow repeatable land dig that mills the rest; costs a re-cast each time.
+Shimmerwilds Growth	other	52	2-mana aura: land taps for an extra mana and fixes, but risks a 2-for-1.
+Shiny Impetus	other	30	Goads the creature and only makes Treasure if it attacks; best on an opponent's creature.
+Shire Scarecrow	dorks	28	Only filters mana ({1} in, one out); fixes but doesn't ramp.
+Shizuko, Caller of Autumn	other	38	Gives you GGG each upkeep but every opponent too; symmetrical and risky.
+Shrine of Boundless Growth	rocks	33	3-mana one-shot rock that grows slowly; sacrifice for a burst of colorless.
+Shuri, Wakandan Inventor	other	38	2-mana cost reducer for artifacts only; needs an artifact theme.
+Sidequest: Raise a Chocobo // Black Chocobo	lands	22	Needs four Birds to flip and fetch a land; mostly just a 2/2.
+Silhana Starfletcher	dorks	52	3-mana dork for one chosen color; slow but a body with reach.
+Silkwing Scout	lands	35	Needs {G} too; flyer that sacrifices for a basic.
+Silumgar Monument	rocks	45	3-mana two-color rock for U or B with a late-game dragon mode.
+Silver Myr	dorks	60	2-mana colorless-cost Myr dork that taps for U.
+Silverback Elder	lands	40	Can put a land onto the battlefield with each creature cast, but costs five.
+Silverglade Elemental	lands	48	5-mana 4/4 that puts a Forest onto the battlefield; slow but leaves a body.
+Silverglade Pathfinder	lands	38	2-mana 1/1 that pays a card and 2 mana per land; slow and costly.
+Simian Spirit Guide	other	45	Free one-shot ritual from hand for R; otherwise a 3-mana 2/2.
+Simic Cluestone	rocks	46	3-mana two-color rock that cashes in for a card later.
+Simic Keyrune	rocks	47	3-mana two-color rock that can animate into a 2/3 hexproof blocker.
+Simic Locket	rocks	48	3-mana two-color rock that later sacrifices to draw two.
+Simulacrum Shaper	lands	66	3-mana body: fetches a basic tapped and draws a card when it dies.
+Sisay's Ring	rocks	50	4-mana rock for {C}{C}; slow and colorless, but net +1 mana each turn.
+Sisters of the Flame	dorks	40	3-mana dork for {R}; slow and needs RR.
+Skittering Invasion	other	33	7 mana for five Spawn that return 5 mana; a poor ramp rate.
+Skittering Surveyor	lands	44	3-mana 1/2 that finds a basic land to hand; no immediate ramp.
+Skull Prophet	dorks	58	2-mana two-color dork that fixes B and G, but needs both colors to cast.
+Skull of Ramos	rocks	38	3-mana rock for one black mana; too slow and weak.
+Skullport Merchant	other	38	Makes one Treasure; a one-shot bit of ramp on a body.
+Skyclave Relic	rocks	62	3-mana indestructible rock for any color; kicked for 6 it makes three.
+Skycloud Egg	rocks	30	One-shot rock that nets no mana; it just fixes and cantrips.
+Skyserpent Seeker	lands	48	2-mana flier; pay {4} once for two tapped lands, but exhaust makes it a one-shot.
+Skyshroud Elf	dorks	64	2-mana elf dork for {G}; {1} filters into R or W.
+Skyshroud Ranger	lands	58	1-mana elf that makes an extra land drop each turn, but only if you hold lands.
+Skyshroud Troopers	dorks	40	4-mana 3/3 body that taps for {G}; too slow for ramp but a decent body.
+Skyward Eye Prophets	lands	38	Taps to put lands onto the battlefield, but costs six and three colors.
+Slimefoot's Survey	lands	50	5 mana: two typed lands tapped plus a top-of-library filter; slow but gets lots of fixing.
+Slobad, Iron Goblin	dorks	35	Sacrifices artifacts for artifact-only red mana; needs an artifact theme.
+Smaug the Magnificent	other	58	4-mana flying haste dragon that makes a Treasure every upkeep.
+Smaug, Wicked Worm	other	42	5-mana flyer; Treasures depend on opposing artifacts.
+Smokebraider	dorks	35	2-mana dork for two mana, but only for Elementals; needs a tribe.
+Smuggler's Share	other	38	Makes Treasures only when opponents play two lands in a turn.
+Sméagol, Helpful Guide	lands	38	3-mana 4/2: puts a land onto the battlefield when a creature of yours dies.
+Snapping Voidcraw	dorks	66	3-mana dork for {C}{C} that also draws late.
+Sokka, Swordmaster	other	30	Equipment cost reducer needing Allies and equipment; theme only.
+Sol Grail	rocks	38	Three mana for one mana of one color; slow and poor value.
+Sol Talisman	rocks	72	Suspend for {1}: a Sol Ring-like rock three turns later; slow but cheap.
+Solar Array	rocks	46	3-mana rock for one mana of any color; fixes but is slow.
+Solar Transformer	rocks	58	2-mana tapped rock for {C}, with three uses of any color.
+Soldevi Adnate	dorks	22	Needs a black or artifact creature to sacrifice each time; not real ramp.
+Soldevi Machinist	dorks	32	2-mana dork for {C}{C}, but only for artifact abilities; needs an artifact deck.
+Somberwald Sage	dorks	48	3-mana dork making three mana, creature spells only; good in creature decks.
+Song of Freyalise	other	42	2-mana saga: creatures tap for mana for two turns; needs creatures, then a team counter.
+Songs of the Damned	other	38	1-mana instant ritual; needs creatures in your graveyard to pay off.
+Sonic Screwdriver	rocks	50	3-mana rock for any color, with scry and unblockable utility.
+Sonic the Hedgehog	other	30	3-color legend; Treasure only when haste or flash creatures are dealt damage.
+Sorcerer Class	other	38	Level 2 makes creatures tap for mana, only for spells and levels.
+Soul of Windgrace	lands	48	Puts a land from any graveyard onto the battlefield on entering and each attack; needs three colors.
+Soulbright Flamekin	other	35	2-mana creature: pay {2} three times for a burst of RRRRRRRR, net +2.
+Soulbright Seeker	other	32	Pay R three times for RRRR: net +1 mana, only a slight ramp.
+Sowing Mycospawn	lands	62	4-mana 3/3 that puts any land onto the battlefield untapped on cast; kicker exiles a land.
+Space Marine Scout	lands	40	3-mana 2/1; fetches a tapped Plains only when behind on lands, which is conditional.
+Spawning Breath	other	32	2-mana instant: a Spawn token for one-shot mana plus a 1-damage ping.
+Spawnsire of Ulamog	other	30	10-mana body that makes Spawns for 4 each; too costly as ramp.
+Spectral Searchlight	rocks	44	3-mana rock: one mana of any color, but slow for the cost.
+Spell Satchel	rocks	30	2-mana rock that needs instants or sorceries cast first to make colorless.
+Spelunking	lands	52	3 mana: cantrip, put a land into play, and lands enter untapped; a land-deck engine.
+Sphere of the Suns	rocks	38	Enters tapped and makes only three mana in total, in any color.
+Spider Manifestation	dorks	66	2-mana 2/2 reach dork for R or G; untaps on big spells for extra mana, castable in either color.
+Spider-Man, Brooklyn Visionary	lands	50	5-mana 4/3 that puts a basic onto the battlefield tapped; web-slinging makes it 3 mana.
+Spinning Wheel	rocks	50	3-mana rock for any color; slow but fixes, with an expensive tapper mode.
+Spiteful Banditry	other	30	Treasure only when opposing creatures die, once per turn.
+Splendid Reclamation	lands	38	4-mana sorcery: needs lands in the yard, strong in land sacrifice decks.
+Splitting the Powerstone	other	25	Costs an artifact to make two tapped Powerstones; a narrow, slow ramp.
+Spoils of Evil	other	30	One-shot ritual that depends on the opponent's graveyard filling up.
+Spoils of Victory	lands	62	3-mana sorcery: an untapped basic-type land, including dual lands with basic types.
+Sporocyst	lands	62	Scalable land ramp: X=1 costs 3 for one land, X=2 costs 5 for two, plus a defender body.
+Spring // Mind	lands	58	3-mana sorcery fetches a tapped basic; Mind later draws two for six.
+Springbloom Druid	lands	60	3-mana body: swap a land for two basics, a net extra land.
+Springleaf Parade	other	50	X tokens that tap for mana, but summoning sick and fragile.
+Sprouting Goblin	lands	33	Needs R and G; only fetches a land to hand, no mana gain.
+Sprouting Vines	lands	22	3 mana for a basic land in hand; it doesn't ramp, it only finds a land.
+Stable Wormhole	other	52	3-mana enchantment: a tapped land token whenever you attack.
+Staff of Compleation	rocks	46	3-mana rock for 2 life a tap; any color, slow to pay back.
+Standing Stones	rocks	15	Costs 3 and needs {1} and life to tap; it fixes but does not ramp.
+Star Compass	rocks	55	2-mana tapped rock for basic-land colors; slightly better than a one-color rock.
+Starfield Mystic	other	36	2-mana creature discounting enchantments; only good in enchantment decks.
+Starfield Shepherd	lands	38	Fetches a Plains to hand, which is not true ramp.
+Stark Industries Executive	other	38	Slow Treasure maker: costs 2 to make one Treasure each turn, net no mana.
+Starnheim Aspirant	other	28	Angel-only cost reduction; theme-only and a vanilla 2/2 otherwise.
+Starnheim Courser	other	42	3-mana flyer that discounts artifacts and enchantments; good in those decks.
+Starnheim Memento	rocks	42	Three-mana rock for one white; makes no real mana gain and the flying ability is minor.
+Starting Column	rocks	52	3-mana rock for any color; max speed lets it sacrifice to draw two and discard one.
+Steelswarm Operator	dorks	42	2-mana flyer; mana only for artifact spells and artifact abilities, so it needs an artifact deck.
+Steward of Valeron	dorks	66	2-mana 2/2 vigilance dork that taps for G; two colors needed.
+Sticky Fingers	other	32	1-mana aura: Treasure only if the creature connects; needs an attacker and risks a 2-for-1.
+Stimulus Package	other	42	4 mana for two Treasures, one-shot ramp that can turn into 1/1 tokens instead.
+Stinkdrinker Daredevil	other	14	Cost reducer for Giants only; almost never matters.
+Stoic Farmer	lands	42	4-mana body fetches a Plains, onto the battlefield only if opponents have more lands.
+Stone Calendar	other	38	5-mana cost reducer: each spell costs {1} less; slow and low impact.
+Stone-Seeder Hierophant	dorks	47	4 mana: untaps a land each turn, effectively a delayed land-doubler.
+Stonespeaker Crystal	rocks	56	4 mana for {C}{C}: pricey rock, but it pays back quickly.
+Stonybrook Banneret	other	36	2-mana cost reducer only for Merfolk and Wizards.
+Storm Skreelix	other	35	5-mana cost reducer for instants and sorceries only; needs a spells deck.
+Stormcatch Mentor	other	52	2-mana cost reducer for instants and sorceries; needs a spells deck.
+Stormscape Familiar	other	36	2-mana flyer taking {1} off white and black spells; needs specific colors.
+Strength Bobblehead	rocks	50	3-mana rock for any color; slow but fixes and has a mana sink.
+Strike It Rich	other	40	1 mana for a Treasure, with flashback for a second one later.
+Strixhaven Skycoach	lands	42	3-mana artifact that gets a basic to hand; helps land drops, not mana.
+Strixhaven Stadium	rocks	46	3-mana colorless rock with a slow, rare alternate win.
+Subway Train	lands	30	Fetches a land to hand, not onto the battlefield, so it's not ramp; a weak vehicle with a land tutor.
+Sudden Breakthrough	other	32	2-mana trick that leaves a one-shot Treasure; a small ramp rider.
+Sultai Banner	rocks	46	3-mana three-color rock; late sac to cantrip.
+Sultai Devotee	dorks	40	Dork that only filters {1} into a color once a turn; no net mana.
+Sultai Monument	lands	42	2 mana: basic to hand, no ramp itself, but fixes and makes tokens late.
+Summer Bloom	other	42	2-mana sorcery: three extra land drops; needs lands in hand.
+Summon: Fenrir	lands	68	3-mana 3/2 that puts a basic onto the battlefield tapped, with later upside.
+Summon: G.F. Ifrit	other	28	Only adds {R} on chapters III and IV; minor ramp.
+Summoning Materia	rocks	42	3-mana equipment: grants a creature {T}: Add {G}, but needs equip {2}.
+Sunastian Falconer	dorks	46	5-mana 4/4 that taps for {C}{C}; slow, two colors, but a solid body.
+Sunbird Standard // Sunbird Effigy	rocks	48	3-mana rock for any color; fixes but costs three for one mana.
+Sunblade Samurai	lands	38	Channel for {2} fetches a Plains to hand; weak ramp, mostly a body.
+Sungrass Egg	rocks	25	Costs 3 total for two mana and a card; no real ramp, one use.
+Sunscape Familiar	other	42	2-mana wall: green and blue spells cost {1} less; needs white plus those colors.
+Sunseed Nurturer	dorks	38	3-mana colorless dork; slow and weak, with a small lifegain rider.
+Sunset Strikemaster	dorks	60	2-mana 3/1 that taps for R; fragile but a decent dork with a flyer-kill mode.
+Supportive Parents	dorks	36	3-mana 3/3: tap two creatures for one mana of any color; costly and clunky.
+Surveyor's Scope	lands	36	2-mana catch-up land ramp; only works when behind by two lands.
+Susan Foreman	dorks	60	2-mana 1/1 dork for G; slower than one-drops but a plain green dork.
+Sutina, Speaker of the Tajuru	lands	64	3-mana 2/2 that puts a basic onto the battlefield tapped; a Wood Elves-like body.
+Svella, Ice Shaper	rocks	46	3-mana 2/4 that pays {3} and taps to make Icy Manaliths; slow but it adds up.
+Swarming of Moria	other	38	One-shot Treasure with a small Army body for three mana.
+Swashbuckler Extraordinaire	other	38	3-mana 2/2 that makes one Treasure; one-shot ramp on a body.
+Swell of Growth	lands	38	2-mana instant: +2/+2 and an extra land drop, but no mana gained.
+Sword of Hearth and Home	lands	42	Fetches a basic land onto the battlefield and blinks a creature, but only after a hit.
+Sword of Wealth and Power	other	33	Makes a Treasure only after connecting with an equipped creature.
+Sword of the Animist	lands	66	2-mana equipment: a basic land onto the battlefield on every attack. Needs a creature that attacks.
+Sylvan Ranger	lands	42	Fetches a basic to hand only, so it ensures land drops but gives no extra mana.
+Sylvan Scrying	lands	38	2 mana: any land to hand; fixes but does not add a land to the battlefield.
+Sylvok Explorer	dorks	52	2-mana dork that fixes off opposing lands; weak in a table of few colors.
+Séance Board	rocks	32	2-mana rock that grows slowly with deaths; mana is restricted to spells.
+Tablet of Compleation	rocks	36	2-mana rock that makes no mana for two turns; very slow.
+Tablet of Discovery	rocks	50	3-mana red rock with a free card on entry and RR for spells.
+Tam, the Possibility	other	30	Cuts planeswalker costs by {1}; only helps a planeswalker theme.
+Tamiyo, Compleated Sage	other	25	Only the ultimate makes a cost-reducing rock; far too slow to count as ramp.
+Tangled Florahedron // Tangled Vale	dorks	50	2-mana 1/1 dork for G, or a tapped land late.
+Tangleroot	rocks	30	3 mana; only makes G when creatures are cast, and opponents get it too.
+Tanuki Transplanter	other	43	4 mana; attacking makes mana equal to power that carries over the turn.
+Tataru Taru	other	38	Treasure only when opponents draw on your turn... off their own turn; situational.
+Tavern Scoundrel	other	22	Costs a permanent per coin flip for a 50% chance at two Treasures.
+Team Transmitter	rocks	46	Three-mana rock that fixes any color; slow but untapped.
+Tectonic Split	other	48	Six mana plus sacrificing half your lands, then lands tap for three of one color; huge mana.
+Temporal Conqueror	other	42	3-mana 2/3 that gives a land back to hand or a Treasure on entry.
+Tempt with Discovery	lands	62	4 mana: a land onto the battlefield, plus one more per accepting opponent.
+Tempting Contract	other	38	4 mana: a Treasure each upkeep only if opponents also take one.
+Temur Banner	rocks	48	3-mana rock for three colors; can cash in for a card late.
+Temur Battlecrier	other	38	3-mana 4/3 that cuts costs on your turn, mostly itself and other big creatures.
+Temur Devotee	dorks	38	2-mana 3/3 wall; only filters {1} into a color, no net mana.
+Temur Monument	lands	40	2 mana to fetch a basic to hand: fixes and keeps land drops, no mana gain.
+Tend the Sprigs	lands	56	3-mana land ramp, one tapped basic; makes a 3/4 reach with seven lands.
+Tender Wildguide	dorks	68	2-mana dork: any color of mana, or grow itself with counters.
+Terisiare's Devastation	other	42	Pay life and mana for tapped Powerstones; one-shot ramp that is expensive.
+Terminal Moraine	lands	30	Land swap for a basic, not real ramp.
+Terrain Generator	lands	32	Extra land drops for {2} each turn, but you need lands in hand and it's costly.
+Terramorph	lands	52	Two untapped basics over two turns, but it costs four mana and is slow.
+Terrarion	rocks	40	One-shot burst of two fixed mana that replaces itself; not real ramp.
+Tesak, Judith's Hellhound	other	30	4-mana 3/3 that adds {R} per attacker, but only a combat-dependent, aggressive-deck fit.
+Tezzeret the Schemer	other	52	4-mana walker: a one-shot mana token every turn, and it also pings creatures.
+Thalia and The Gitrog Monster	other	38	Extra land drop only helps with lands in hand; a big body in a 4-color deck.
+Thaumatic Compass // Spires of Orazca	other	36	Fetches lands to hand slowly for {3}; not real acceleration.
+Thawing Glaciers	lands	40	Fetches a tapped basic each turn but uses your land drop.
+The Aetherspark	other	33	Ten mana is far off; loyalty builds slowly.
+The Balrog of Moria	other	30	Cycling for {3}{R} makes two Treasures, a small one-shot burst.
+The Beacon of Kahless	rocks	55	3-mana rock for any one color, with extra mana after attacking.
+The Belligerent	other	38	4-mana vehicle: a Treasure per attack, but needs crew 3 and an attack.
+The Birth of Meletis	lands	38	2 mana: a Plains to hand, plus a 0/4 wall; does not ramp until you play the land.
+The Brothers' War	rocks	38	Two tapped Powerstones for 4 mana: slow, colorless-only ramp.
+The Cabbage Merchant	other	38	Foods from opposing noncreature spells turn into mana, two Foods per mana.
+The Celestus	rocks	62	3-mana rock for any color that also loots and gains life when day changes.
+The Darkness Crystal	other	38	4-mana artifact that makes black spells cost {1} less; only works in heavy black.
+The Destined Warrior	other	28	4-mana, three-color body that discounts only party-type creature spells.
+The Earth Crystal	other	38	4 mana; green spells cost {1} less, plus counter doubling for counter decks.
+The Earth King	lands	56	4 mana for two bodies; the Bear attacks to fetch basic lands each turn.
+The Emperor of Palamecia // The Lord Master of Hell	dorks	56	2-mana UR dork for noncreature spells only; good in spells decks.
+The Enigma Jewel // Locus of Enlightenment	rocks	34	1-mana tapped rock for {C}{C}, only for abilities; needs an ability-heavy deck.
+The Eternity Elevator	rocks	56	5-mana rock tapping for {C}{C}{C}, an immediate net gain of 3 mana each turn.
+The Fire Crystal	other	42	4 mana: cuts red spells by {1} and gives haste, but only helps red decks.
+The Ghoul, Gunslinger	other	30	3-mana body that makes a Treasure only when a Zombie or Mutant dies, and you get rad counters.
+The Gitrog Monster	lands	38	Extra land drop each turn, but it eats a land every upkeep.
+The Golden Throne	rocks	36	4 mana; sacrifice a creature each time for three mana of any colors.
+The Great Henge	rocks	62	Taps for GG and 2 life once it is out, often for little mana.
+The Immortal Sun	other	38	Only a {1} discount per spell, and it costs six.
+The Irencrag	rocks	56	2-mana colorless rock that can later turn into a +3/+3 equipment.
+The Legend of Kyoshi // Avatar Kyoshi	other	38	Flips late into a creature that taps for lots of mana, but costs six and takes three turns.
+The Lion-Turtle	dorks	46	3-mana dork for any color with 3 life and a big body, but only in two colors.
+The Mana Rig	rocks	38	Makes tapped Powerstones only when you cast multicolored spells.
+The Mightstone and Weakstone	rocks	38	Five-mana rock whose CC only pays for artifacts.
+The Mind Stone	rocks	60	2-mana indestructible rock for W only, with a late-game blink ability.
+The Misty Mountains Cold	other	50	3 mana for slow Treasures, ending in a 6/6 flying Dragon.
+The Naked Time	lands	42	2-mana saga: fetches a Mountain tapped, but chapter three sacrifices a land, so it nets zero.
+The Notary Hobbits	dorks	50	5 mana for three bodies that tap for {C} per Halfling: 9 mana next turn, but fragile.
+The Reaver Cleaver	other	37	Equip 3 and needs combat damage to make Treasures.
+The Regalia	lands	46	4-mana vehicle: ramps a land per attack but needs crew and a connecting attack.
+The Ring Goes South	lands	42	4-mana sorcery: lands equal to your legendary creatures, plus Ring tempts.
+The Sackville-Bagginses	other	38	2-mana 2/2: sacrifice a creature or artifact for a Treasure and a card.
+The Soul Stone	rocks	58	2-mana indestructible rock for {B}; one color only, plus a late reanimation sink.
+The Unluckiest Planeswalker	other	32	3-mana walker adds one mana each turn, but it's most useful in Aura decks.
+The Vision and Scarlet Witch	other	43	4-mana flyer that refunds {R} on each spell you cast; mostly a mana-neutral body.
+The Warring Triad	rocks	58	3-mana rock-like: tap and mill a card for any color; becomes a big flyer late.
+The Water Crystal	other	45	4-mana artifact: blue spells cost {1} less, a modest cost reducer in mono-blue.
+The Weatherseed Treaty	lands	62	3-mana saga: a basic onto the battlefield, a token and a pump later.
+The Wind Crystal	other	43	4-mana artifact: white spells cost {1} less; niche cost reducer.
+There and Back Again	lands	42	5-mana saga: Mountain onto the battlefield, then a 6/6 flying Dragon that leaves Treasure.
+They Went This Way	lands	62	3-mana sorcery: basic land tapped plus a Clue.
+Thieves' Tools	other	38	2 mana: one Treasure on entry plus a cheap evasion equipment.
+Thieving Varmint	dorks	30	2-mana dork: mana only casts spells you don't own, a niche use.
+Thirsting Roots	lands	42	1-mana sorcery fetches a basic land to hand; no ramp itself.
+Thorin, Company's Leader	other	32	5-mana body: Treasures only when Dwarves hit players, and most decks have few Dwarves.
+Thorin, King of Durin's Folk	other	38	5-mana body: makes a Treasure on entry, with more in a Dwarf deck.
+Thornscape Familiar	other	35	2-mana 2/1 that cuts red and white spells by {1}; needs those colors alongside green.
+Thornvault Forager	dorks	66	2-mana dork for {G}; forage makes it tap for two mana of any colors.
+Thran Turbine	rocks	30	1 mana for {C}{C} each upkeep, but not for casting spells.
+Thranduil the Strategist	dorks	42	5-mana lord that makes Elves tap for mana; only works well in Elf decks.
+Thranduil's Company	other	36	Extra land drop needs another Elf; mostly a landfall body.
+Threats Around Every Corner	lands	50	4 mana: a land now, plus more with manifest or morph effects; slow without face-down support.
+Three Tree City	other	36	Big mana with a tribe but needs creature count; mostly a colorless land.
+Three Tree Mascot	dorks	38	2-mana 2/1 that only filters mana for {1}; fixes but adds none.
+Three Tree Rootweaver	dorks	67	2-mana 1/3 dork: taps for any color, so it ramps and fixes.
+Throne of Eldraine	rocks	46	5-mana rock: four mana only for mono-colored spells of one color.
+Through the Forest Gate	lands	42	8 mana: dig twenty cards for every land, tapped, plus 8 life; very expensive.
+Thunder Totem	rocks	42	3-mana rock for only {W}, with a manland mode.
+Thunderclap Drake	other	42	2-mana flyer that discounts instants and sorceries by {1}; needs a spell-heavy deck.
+Thunderherd Migration	lands	62	3 mana in practice: a basic onto the battlefield tapped; a Rampant Growth with a worse rate.
+Thunderscape Familiar	other	36	2-mana creature that cuts black and green spells by one; needs those colors.
+Ticket Tortoise	other	35	2-mana defender; one Treasure only if you are behind on lands.
+Tigereye Cameo	rocks	42	3-mana rock for two colors; slow and clunky next to Signets and Talismans.
+Timeless Lotus	rocks	50	5-mana tapped rock for five colored mana; fixes perfectly but is slow.
+Tin Street Gossip	dorks	22	Mana only casts face-down spells or unmorphs; rarely usable.
+Tinder Wall	dorks	48	1-mana wall that sacrifices for RR; one-shot ramp that doubles as a combo piece.
+Titania's Command	lands	42	6 mana to put two lands in play tapped plus a second mode; too slow for ramp.
+Titans' Nest	other	30	Three colors for 4 mana; exiling graveyard cards makes colorless mana for colored spells.
+Tithe	lands	40	1-mana instant that finds Plains to hand; gives no mana by itself.
+Tivit, Seller of Secrets	other	38	6-mana three-color flyer; Treasures come from votes, and you may vote twice.
+Tokka & Rahzar, Unsupervised	other	38	A Treasure when your creatures leave, once per turn; best with sacrifice and blink.
+Tome of the Guildpact	rocks	42	Five-mana any-color rock; expensive for ramp.
+Tooth of Ramos	rocks	30	3-mana rock that makes only {W}; it doesn't ramp.
+Topiary Lecturer	dorks	50	3-mana elf that taps for G and grows when you cast bigger spells.
+Topiary Stomper	lands	58	3-mana body that puts a basic onto the battlefield; later a 4/4 vigilance.
+Torgal, A Fine Hound	dorks	68	2-mana dork that taps for any color, fixing as it ramps; the Human trigger is minor.
+Tower Worker	dorks	40	3-mana colorless dork; the named-creature bonus almost never happens in singleton.
+Trace of Abundance	other	46	2-mana aura: a land taps for an extra mana of any color, but it's a card on one land.
+Trail of Mystery	lands	30	Fetches a basic land only when face-down creatures enter; needs a morph theme.
+Trailtracker Scout	dorks	66	2-mana 1/3 dork: taps for any color, so it fixes too.
+Transdimensional Bovine	dorks	68	3-mana blocker that taps for two mana of any one color.
+Transmogrant Altar	rocks	30	3-mana artifact: sacrifice a creature for {C}{C}{C}; needs fodder and black mana.
+Travel Through Caradhras	lands	42	Six mana: ramps basics or returns cards by vote; expensive for ramp.
+Traveler's Amulet	lands	32	Costs 2 total to fetch a basic to hand; fixes but doesn't really ramp.
+Traverse the Outlands	lands	46	Can fetch several lands with a big creature, but needs one and costs five.
+Traverse the Ulvenwald	lands	33	1-mana land fetch to hand; it doesn't ramp until you play the land.
+Treasonous Ogre	other	28	4-mana body that turns life into red mana; a ritual-like burst at best.
+Treasure Chest	other	34	3 to cast, 4 to crack: mostly five Treasures; slow and random.
+Treasure Dredger	other	46	2-mana 2/2 that nets Treasure for {1} and 1 life; slow, but it fixes.
+Treva's Attendant	other	14	5 mana to net 3 mana once and lose the body; a poor ramp piece.
+Troll-Horn Cameo	rocks	45	3-mana rock for R or G: slow and two colors only.
+Troop of Ponies	lands	50	Colorless 2-drop; pay 2 and sacrifice for two basics, one ramped.
+Trove of Temptation	other	44	4-mana enchantment: a Treasure every turn, but it forces all opponents to attack you.
+Troyan, Gutsy Explorer	dorks	50	3-mana dork for GU, only for spells with MV 5+ or X; also loots.
+Tunnel Tipster	dorks	56	2-mana dork for {G}; the counter rider rarely matters.
+Turtle Tracks	lands	46	3-mana sorcery: you fetch a basic untapped, but chosen opponents may too, so it is symmetric.
+Twitching Doll	dorks	66	2-mana dork for any color; leaves Spider tokens later.
+Type-03 Borg Vessel	other	30	Only a one-mana cost cut for artifacts; mostly a token engine.
+Typhoid Mary, Fractured	other	32	Attack trigger sometimes makes a Treasure; random and needs to connect, so weak ramp.
+Tyvar Kell	other	50	Elves tap for B and it makes Elf tokens each turn, but it needs an Elf deck.
+U.S.S. Voyager, Lone Wanderer	lands	58	4 mana: two lands from the library onto the battlefield tapped, leaves a ship.
+Ultima, Origin of Oblivion	other	46	5-mana flyer: extra {C} whenever you tap a land for {C}; weak in most decks.
+Ultimate Green Goblin	other	55	3-mana 5/4: a Treasure each upkeep, but you discard a card each turn.
+Ulvenwald Captive // Ulvenwald Abomination	dorks	58	2-mana dork for {G} that can flip late into a 4/6 making {C}{C}.
+Ulvenwald Hydra	lands	42	6-mana big reach body that fetches any land tapped; too expensive to count as ramp.
+Unblinking Observer	dorks	38	2-mana dork whose mana only pays for instants and sorceries.
+Unbridled Growth	other	38	1-mana aura: fixing on a land, then sacrifice to draw; no net mana.
+Undead Warchief	other	30	4-mana lord: discounts Zombie spells by {1}; only works in Zombie decks.
+Undercellar Myconid	dorks	60	3-mana dork for any color, with a Saproling on entry and on death.
+Undercity Scrounger	other	42	3-mana 1/4 that makes Treasure only after a creature died.
+Undercover Skrull	dorks	70	2-mana dork for any color that grows later.
+Undermountain Adventurer	dorks	58	4-mana 3/4 that taps for GG and takes the initiative; pricey for a dork.
+Unexpected Results	lands	40	4-mana sorcery: free spell or land and replay, high variance.
+Unexpected Windfall	other	40	Makes two Treasures but costs a card and 4 mana.
+Unlucky Cabbage Merchant	lands	52	2-mana body with a Food: sacrificing it puts a basic onto the battlefield tapped.
+Unstable Obelisk	rocks	50	3-mana colorless rock; slow but has a late-game sink.
+Untamed Wilds	lands	60	3-mana sorcery: basic land onto the battlefield untapped.
+Ur-Golem's Eye	rocks	50	Four mana for a rock tapping for {C}{C}; works but it is slow.
+Urabrask // The Great Work	other	38	Spellslinger body that adds {R} per instant or sorcery, but only works in spell decks.
+Urban Utopia	lands	42	2 mana: draws a card and makes a land tap for any color, but no extra mana.
+Urborg Elf	dorks	64	2-mana dork that fixes B, G or U.
+Uro, Titan of Nature's Wrath	lands	62	3 mana: gain 3, draw, and put a land from hand onto the battlefield; can escape later.
+Urza, Lord High Artificer	other	50	Taps artifacts for {U}; needs an artifact deck to produce mana.
+Urza, Lord Protector // Urza, Planeswalker	other	48	3-mana 2/4 making artifacts, instants and sorceries cost {1} less.
+Utopia Mycon	dorks	22	Very slow; makes a Saproling every three turns, then a single mana.
+Utopia Tree	dorks	66	2-mana dork that fixes any color; summoning sick and dies to everything.
+Utopia Vow	other	40	Gives the enchanted creature a mana ability, but it is a removal aura first.
+Vaan, Street Thief	other	32	Treasure only when it connects and you skip the cast; needs combat damage.
+Valeria Richards, Precocious	other	46	Noncreature spells cost {1} less; a cost reducer, not true mana.
+Valleymaker	other	34	Sacrifice a Forest for GGG; costs lands and six mana, weak ramp.
+Vastwood Surge	lands	55	4 mana for two tapped basics; pricey but a real ramp spell, kicker is a late-game bonus.
+Vault Robber	other	33	2-mana body: make Treasures by exiling creature cards, slow and costly.
+Vedalken Engineer	dorks	50	2-mana dork for two mana, but only for artifact spells and abilities.
+Veinfire Borderpost	rocks	50	Tapped two-color rock; the land-bounce alt cost makes it free of mana tempo but no net ramp.
+Veloheart Bike	rocks	60	3-mana rock for any color, gains 2 life, and can crew into a 4/2 later.
+Vengeful Regrowth	lands	40	6 mana: up to three lands back tapped plus 4/2 tokens, with flashback.
+Ventifact Bottle	rocks	30	3-mana rock that costs mana to charge and pays out a turn late; slow.
+Venture Forth	lands	48	Suspend 3 for two mana, or 4 mana: puts a land onto the battlefield untapped; slow.
+Verdant Confluence	lands	50	6 mana: three basics onto the battlefield tapped; flexible but expensive.
+Verdant Crescendo	lands	50	4 mana: a basic onto the battlefield tapped; the Nissa tutor is mostly irrelevant.
+Verdant Eidolon	dorks	42	4 mana body that nets only two extra mana when sacrificed; recurs with multicolored spells.
+Verdant Haven	other	56	3-mana aura: a land taps for an extra mana of any color, and it fixes; risks losing the land.
+Verdant Mastery	lands	60	4 mana: two basics tapped for you and one for an opponent, plus one to hand; a bit slow.
+Vernal Bloom	other	42	4-mana enchantment: doubles Forest mana, but helps opponents' Forests too.
+Vesper Ghoul	dorks	52	3-mana dork: any color for 1 life, slow but fixes.
+Vessel of Endless Rest	rocks	52	3-mana rock for any color with a small graveyard-tuck bonus.
+Vessel of Volatility	other	38	Pay 4 total for RRRR once; a one-shot burst of mana.
+Veteran Explorer	lands	44	1-drop that ramps everyone when it dies; helps opponents too.
+Vexing Puzzlebox	rocks	52	3-mana rock for any color; the artifact-tutor half is very slow.
+Vhal, Candlekeep Researcher	dorks	32	4-mana dork whose mana can't cast spells from hand; abilities only.
+Vibrance	lands	50	5-mana 4/4 that tutors a land to hand with GG; card advantage more than ramp.
+Victory Chimes	rocks	46	3-mana rock that taps on each turn cycle; the mana is only colorless.
+Viewpoint Synchronization	lands	58	Two tapped basics plus one to hand; pricey at 5 unless freerun for 3.
+Vine Trellis	dorks	60	2-mana dork for {G} that also blocks well as a 0/4.
+Viridian Acolyte	dorks	40	1-mana elf that only filters {1} into any color; fixes but adds no mana.
+Viridian Emissary	lands	50	2-mana body that ramps a land when it dies; needs to trade or be sacrificed.
+Viridian Joiner	dorks	50	3-mana dork that taps for one G; grows with counters.
+Virtue of Strength // Garenbrig Growth	other	38	Seven mana to triple basic land mana; powerful but slow.
+Visage of Bolas	rocks	42	4-mana rock for U, B or R; too expensive.
+Vivi Ornitier	dorks	56	3-mana 0/3 that makes more mana as noncreature spells grow it; needs spells deck.
+Vodalian Arcanist	dorks	36	2-mana dork: its colorless mana only casts instants and sorceries.
+Volshe Tideturner	dorks	42	2-mana dork that only pays for instants, sorceries and kicked spells.
+Vorinclex // The Grand Evolution	lands	50	5-mana 6/6 that puts two Forests in hand; card advantage more than speed.
+Vorinclex, Voice of Hunger	other	42	8 mana to double your land mana; too costly to ramp, but locks opposing lands.
+Voyager Quickwelder	other	38	3-mana 2/4 cost reducer for artifacts only; needs an artifact deck.
+Voyaging Satyr	dorks	58	2-mana dork that untaps a land for one extra mana; fine in green.
+Vraska, Soul of Stone	other	38	Three-color 3/3 that makes one-shot mana tokens off noncreature spells; narrow colors and slow.
+Vraska, the Silencer	other	46	3-mana deathtouch body; pay {1} when their creatures die to turn them into Treasures.
+Vulshok Factory	rocks	45	3-mana red-only rock; can later become a Golem.
+Walking Atlas	lands	46	2-mana creature: an extra land drop each turn.
+Wall of Roots	dorks	55	2-mana blocker giving {G} each turn, even on the turn it enters, but it shrinks.
+Wand of the Worldsoul	rocks	47	3-mana tapped rock for {W} that also gives convoke; slow and one color.
+Wanderer's Twig	lands	38	1 mana plus 1 to fetch a basic to hand; no real ramp, just land smoothing.
+Wandertale Mentor	dorks	66	2-mana two-color dork for R or G that also grows.
+Warden of Geometries	dorks	38	4-mana dork: too slow for ramp, though it leaves a 2/3 body.
+Warden of the Wall	rocks	44	3-mana tapped colorless rock that also blocks as a 2/3 flyer.
+Warp Core	lands	38	2 mana for a basic land in hand; it doesn't add mana, only guarantees a land drop.
+Warp Speed	lands	40	3 mana to fetch a basic to hand and make lands untapped; no real acceleration.
+Warping Wail	other	34	One-shot 1/1 Scion that sacrifices for {C}; small ramp.
+Warren Soultrader	other	40	3/3 body; turns spare creatures into Treasures for 1 life each.
+Way of the Paradox	other	30	3-mana enchantment: extra land drop per loyalty activation; needs planeswalkers.
+Way of the Pyromancer	other	33	2-mana enchantment: planeswalkers gain a +1 to add {R}; needs several walkers.
+Wayward Swordtooth	other	52	3-mana extra land drop each turn; helps only if you hold extra lands.
+Weather Maker	rocks	60	3-mana rock: any color, with landfall counters for extra mana.
+Weathered Wayfarer	lands	46	1-mana creature that fetches lands to hand, only when behind on lands.
+Weatherseed Totem	rocks	44	3-mana rock for one green; a pricey man-land late.
+Weaver of Blossoms // Blossom-Clad Werewolf	dorks	66	3-mana dork for any color; the night side taps for two.
+Weaver of Currents	dorks	56	3-mana GU dork that taps for {C}{C}.
+Weirding Wood	other	55	3-mana aura: land taps for two mana of one color and a Clue.
+Werebear	dorks	66	2-mana dork for {G} that grows into a 4/4 later.
+Whisperer of the Wilds	dorks	66	2-mana dork for {G}, doubling with a big creature.
+White Lotus Tile	rocks	34	4-mana tapped rock; only good with a big tribe of shared creature types.
+White Mana Battery	rocks	27	4-mana battery: pay {2} to store, then burst white mana later; very slow.
+Wickersmith's Tools	rocks	46	3-mana rock that taps for any color; a plain three-for-one-mana rock.
+Widespread Thieving	other	36	3-mana enchantment: a Treasure per multicolored spell; the five-color free-cast is rarely paid.
+Wight of the Reliquary	lands	42	2-mana body: sacrifice another creature to fetch a land; it costs a creature each time.
+Wild Cantor	dorks	42	1-mana creature that sacrifices for one mana of any color; a one-shot dork.
+Wild Endeavor	lands	48	6 mana: bodies plus one to three tapped basics; slow ramp with a payoff.
+Wild Wanderer	lands	56	4-mana 3/2 that puts a basic onto the battlefield tapped; an Elf body.
+Wild-Field Scarecrow	lands	40	3-mana defender wall that sacrifices for two basic lands in hand; slow and clunky.
+Wildfield Borderpost	rocks	56	Tapped two-color rock; cheap alt cost by bouncing a basic, but it only fixes two colors.
+Will Riker, First in the Field	other	38	Gives two extra lands only through combat, and they are sacrificed at end step.
+Will of the Sultai	lands	38	5 mana: returns all lands from your graveyard tapped; only strong in land-recursion decks.
+Wily Goblin	other	42	RR 1/1 that leaves a one-shot Treasure; a small ramp body.
+Wirewood Channeler	dorks	50	4-mana dork: taps for mana equal to Elves on the battlefield; strong in elf decks, mediocre otherwise.
+Wirewood Elf	dorks	64	2-mana 1/2 elf that taps for {G}; a fine but unexciting dork.
+Witch Engine	other	25	6 mana for a one-shot BBBB, and the opponent keeps the 4/4 afterward.
+Wizard's Rockets	rocks	35	1-mana one-shot burst of X mana in any colors that replaces itself; not real ramp.
+Wizards of Thay	other	38	4-mana body that cuts instants and sorceries by {1}; only helps spell decks.
+Wolfwillow Haven	other	62	2-mana aura: enchanted land taps for an extra G; later sacrifice for a 2/2 Wolf.
+Woodland Mystic	dorks	66	2-mana elf dork for {G}.
+Woodland Weavemaster	dorks	42	2-mana elf dork; makes mana only for Elf spells and abilities, so it needs an elf deck.
+Workhorse	other	22	6 mana for a body that gives back only four colorless once.
+World Map	lands	38	1 mana, then 1 more: a basic to hand; only fixes land drops.
+Worldsoul's Rage	lands	38	Puts up to X lands from hand or graveyard onto the battlefield, but only a side effect of the burn.
+Wose Pathfinder	dorks	68	2-mana dork that taps for any color; also a late-game pump.
+Wrenn and Realmbreaker	other	58	3 mana: your lands tap for any color, fixes and protects with 3/3 lands.
+Wrenn and Seven	lands	58	5 mana: puts lands from hand onto the battlefield and makes a huge reach Treefolk.
+Writhing Chrysalis	other	42	4-mana body that makes two Spawn for one-shot mana.
+Xenagos, the Reveler	other	56	4-mana walker: +1 adds mana per creature, 0 makes a hasty 2/2 to keep scaling.
+Xenobotanist	dorks	62	2-mana 1/3 dork that taps for any color: ramp and fixing.
+Yasharn, Implacable Earth	lands	38	Puts two basics in hand for land drops, not onto the battlefield; also shuts off life and sac costs.
+Yavimaya Dryad	lands	52	3-mana body that fetches a Forest tapped, for you or an opponent; weaker than Wood Elves.
+Yavimaya Elder	lands	48	Gets two basics into hand when it dies, but no immediate mana.
+Yavimaya Granger	lands	50	Fetches a basic tapped on entry, but echo makes it clunky.
+Yedora, Grave Gardener	lands	38	5-mana 5/5; dead creatures come back as Forests, slowly adding lands.
+You Happen On a Glade	lands	48	Instant: two basics to hand; card advantage but slow ramp, needs land drops.
+You've Been Caught Stealing	other	30	Sorcery Treasures only if opponents were damaged first; unreliable one-shot.
+Young Red Dragon // Bathe in Gold	other	42	2-mana instant Treasure, then a 4-mana flyer; one-shot ramp with body.
+Yuna, Grand Summoner	dorks	47	4-mana 1/5 dork for any color; needs three colors.
+Yurlok of Scorch Thrash	other	48	4-mana three-color body that adds BRG for {1} but gives every opponent the mana too.
+Zagorka, Mother of Sanctum	other	42	4-mana three-color body that makes a tapped land token each end step, but gives opponents lands too.
+Zagoth Crystal	rocks	46	3-mana rock for B, G or U with cycling {2} so it is never dead.
+Zaxara, the Exemplary	dorks	60	4-mana dork that taps for two mana of any one color, but needs three colors and dies easily.
+Zell Dincht	other	40	Extra land drop each turn, but it returns a land each end step, so net ramp is small.
+Zhentarim Bandit	other	34	2-drop that makes Treasure only when it attacks; fragile.
+Zhur-Taa Ancient	other	42	5-mana 7/5 that doubles land mana, but helps opponents too.
+Zhur-Taa Druid	dorks	58	2-mana RG dork tapping for G that pings each opponent.
+Ziatora, the Incinerator	other	38	Six-mana body; makes three Treasures only by sacrificing creatures each turn.
+Zimone's Experiment	lands	47	Four-mana sorcery: puts found lands in tapped and finds creatures; inconsistent.
+Zimone, Quandrix Prodigy	lands	38	Puts an extra land from hand tapped for {1}; slow ramp.
+Zookeeper Mechan	dorks	60	2-mana dork for {R} with a 1/3 body; the sorcery-speed pump is a late sink.

@@ -10,9 +10,12 @@ Inputs
 Outputs (under --out, default ./public)
   tiers/data/<role>.json  one entry per card in that list
   tiers/data/index.json   hub summary: roles, sub-lists, counts, top cards
-  data/cards.json         compact index of every card (deck checker, slot finder)
+  data/cards.json         compact index of every card, with its function tags (tags.py)
   data/tier-index.json    card name -> role tiers and ranks (search page badges)
   <report>/<role>.txt     plain-text report per list; <report>/new-candidates.txt lists new cards to review
+  <report>/tags.txt       tag counts, sample cards per tag and every card with no job tag
+The build stops if fewer than 96.5% of cards get a job tag or if the tags score under 95% precision
+against tests/tags-gold.tsv (a hand-checked sample); under 97% coverage it only warns.
 Unreviewed cards are squeezed into C, D and F (58 at most) until someone reviews them.
 EDHREC shares in edhrec.json are shown beside the tier as a sanity check; they never change a score.
 """
@@ -28,8 +31,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from pool import load_pool, cost_tokens, mana_value, strip_reminder  # noqa: E402
 import roles as R  # noqa: E402
+import tags as TG  # noqa: E402
 
 UNREVIEWED_CAP = 58
+TAG_COVERAGE_MIN, TAG_COVERAGE_WARN, TAG_PRECISION_MIN = 0.965, 0.97, 0.95
+TAG_CODE = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&()*+-;<=>?@^_~"   # one character per tag
+            ".,:/[]{}|`'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏ")                     # room for 108; core.js reads any character
 
 
 def unreviewed(auto):
@@ -170,6 +177,46 @@ def main():
         with open(os.path.join(a.out, "tiers", key, "index.html"), "w", encoding="utf-8") as fh:
             fh.write(STUB % dict(title="%s Tier List" % title, to="../#" + key, js="'../#%s' + (location.hash.length > 1 ? '/' + location.hash.slice(1) : '')" % key))
     json.dump(dict(built=built, roles=hub), open(os.path.join(a.out, "tiers", "data", "index.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    # function tags for every card (tags.py), checked against the hand-labeled sample
+    def produced_of(c):
+        return R.produced_card(c) if any(re.search(r"\bLand\b", f["types"]) for f in c["faces"]) else ""
+    card_tags = TG.tag_pool(pool, produced_of)
+    assert len(TG.KEYS) <= len(TAG_CODE) == len(set(TAG_CODE))
+    coverage = TG.coverage(card_tags)
+    gold_path = os.path.join(HERE, "..", "..", "tests", "tags-gold.tsv")
+    gold = TG.read_gold(gold_path)
+    sc = TG.score(card_tags, gold) if gold else None
+    hold = TG.read_gold(os.path.join(HERE, "..", "..", "tests", "tags-holdout.tsv"))
+    sh = TG.score(card_tags, hold) if hold else None
+    print("tags: %.2f%% of cards have a job tag" % (100 * coverage) +
+          (", precision %.1f%% / recall %.1f%% on %d hand-checked cards" % (100 * sc["precision"], 100 * sc["recall"], sc["n"]) if sc else "") +
+          (", holdout %.1f%% / %.1f%%" % (100 * sh["precision"], 100 * sh["recall"]) if sh else ""))
+    if coverage < TAG_COVERAGE_MIN: problems.append("tags: only %.2f%% of cards have a job tag (needs %.1f%%)" % (100 * coverage, 100 * TAG_COVERAGE_MIN))
+    elif coverage < TAG_COVERAGE_WARN: print("NOTE tags: coverage %.2f%% is under %.0f%%; see %s" % (100 * coverage, 100 * TAG_COVERAGE_WARN, os.path.join(a.report, "tags.txt")))
+    if sc and sc["precision"] < TAG_PRECISION_MIN: problems.append("tags: precision %.1f%% on tests/tags-gold.tsv (needs %.0f%%)" % (100 * sc["precision"], 100 * TAG_PRECISION_MIN))
+    with open(os.path.join(a.report, "tags.txt"), "w", encoding="utf-8") as fh:
+        by_tag = defaultdict(list)
+        for name, ks in card_tags.items():
+            for k in ks: by_tag[k].append(name)
+        fh.write("Function tags: %.2f%% of %d cards have a job tag.\n" % (100 * coverage, len(card_tags)))
+        if sc:
+            fh.write("Hand-checked sample: precision %.1f%%, recall %.1f%% (%d cards).\n" % (100 * sc["precision"], 100 * sc["recall"], sc["n"]))
+            for k in TG.KEYS:
+                if k in sc["per"]:
+                    tp, fp, fn = sc["per"][k]
+                    if fp or fn: fh.write("  %-12s right %3d  wrong %2d  missed %2d\n" % (k, tp, fp, fn))
+        fh.write("\nCount and sample cards per tag (fix wrong ones in reviews/tags.tsv: name<TAB>+tag -tag<TAB>note)\n")
+        for k in TG.KEYS:
+            names = sorted(by_tag.get(k, []))
+            step = max(1, len(names) // 12)
+            fh.write("%-12s %5d  %s\n" % (k, len(names), "; ".join(names[::step][:12])))
+        untagged = sorted(n for n, ks in card_tags.items() if not set(ks) - TG.TYPE_ONLY)
+        newest = sorted((c for c in pool if c["name"] in set(untagged) and c["first"] >= recent), key=lambda c: c["first"], reverse=True)
+        fh.write("\nNew cards (since %s) with no job tag: %d\n" % (recent, len(newest)))
+        for c in newest: fh.write("  %s  (%s)\n" % (c["name"], c["first"]))
+        fh.write("\nAll cards with no job tag: %d\n" % len(untagged))
+        for n in untagged: fh.write("  %s\n" % n)
+    tag_index = {k: i for i, k in enumerate(TG.KEYS)}
     # card index for the deck checker and slot finder
     subs_of = {k: list(s) for k, _, _, s in R.ROLES}
     rows = []
@@ -188,8 +235,10 @@ def main():
             rr = [x for x in index_roles.get(c["name"], []) if x[0] == role_keys.index("ramp")]
             if rr: prod = R.produced(c["faces"][0]) or ""
         role_str = ",".join("%d:%d:%d:%d%s" % (ri, s, si, rk, "" if rv else "u") for ri, s, si, rv, rk in index_roles.get(c["name"], []))
-        rows.append([c["name"], c["mv"], type_letters(c), c["identity"], "".join(cost_tokens(c["faces"][0]["cost"]) and [",".join(cost_tokens(c["faces"][0]["cost"]))] or []), prod, flags, role_str])
-    json.dump(dict(built=built, roles=role_keys, subs=subs_of, cols=["name", "mv", "types", "identity", "cost", "produces", "flags", "roles"], rows=rows),
+        tag_str = "".join(TAG_CODE[tag_index[k]] for k in card_tags.get(c["name"], []))
+        rows.append([c["name"], c["mv"], type_letters(c), c["identity"], "".join(cost_tokens(c["faces"][0]["cost"]) and [",".join(cost_tokens(c["faces"][0]["cost"]))] or []), prod, flags, role_str, tag_str])
+    json.dump(dict(built=built, roles=role_keys, subs=subs_of, tags=[list(t) for t in TG.TAGS], tagcode=TAG_CODE,
+                   cols=["name", "mv", "types", "identity", "cost", "produces", "flags", "roles", "tags"], rows=rows),
               open(os.path.join(a.out, "data", "cards.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     tier_index = {name: [[ri, s, si, rk, 1 if rv else 0] for ri, s, si, rv, rk in v] for name, v in index_roles.items()}
     json.dump(dict(built=built, roles=role_keys, names=[r[1] for r in R.ROLES], subs=subs_of, cards=tier_index),
@@ -207,7 +256,7 @@ def main():
     sizes = {f: os.path.getsize(os.path.join(a.out, "tiers", "data", f)) for f in os.listdir(os.path.join(a.out, "tiers", "data"))}
     print("bytes:", sum(sizes.values()), "tiers;", os.path.getsize(os.path.join(a.out, "data", "cards.json")), "cards.json;",
           os.path.getsize(os.path.join(a.out, "data", "tier-index.json")), "tier-index.json")
-    if any(p.startswith(tuple(role_keys)) and ("banned" in p or "not in the pool" in p or "unknown sub" in p) for p in problems):
+    if any(p.startswith(tuple(role_keys)) and ("banned" in p or "not in the pool" in p or "unknown sub" in p) or p.startswith("tags:") for p in problems):
         sys.exit(1)
 
 

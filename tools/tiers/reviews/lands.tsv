@@ -214,3 +214,989 @@ Razorgrass Ambush // Razorgrass Field	spell-lands	62	Spell-land: 3 damage to an 
 Witch Enchanter // Witch-Blessed Meadow	spell-lands	66	Spell-land: a creature that destroys an artifact or enchantment, or a land that can enter untapped.
 Hydroelectric Specimen // Hydroelectric Laboratory	spell-lands	60	Spell-land: a flash creature that redirects a spell, or a land that can enter untapped.
 Boggart Trawler // Boggart Bog	spell-lands	64	Spell-land: a creature that exiles a graveyard, or a land that can enter untapped.
+# grade_api merged, 2026-11-24
+A.I.M. Labs	fixing	50	Tapped UB dual that gains 1 life.
+Abandoned Air Temple	utility	52	Mono-white land, usually untapped; late-game team counters for 4 mana.
+Abandoned Campground	fixing	46	Dual land that is almost always tapped in early game at 40 life.
+Abandoned Outpost	fixing	42	Tapped mono-white land; sacrifice for one mana of any color.
+Abraded Bluffs	fixing	50	Tapped R/W dual that pings an opponent for 1 on entry; also a Desert.
+Abstergo Entertainment	utility	60	Colorless land that fixes for {1} and can rebuy a historic card while exiling graveyards.
+Abundant Countryside	utility	62	Untapped land: fixes creature spells and makes changeling tokens for six mana.
+Access Tunnel	utility	42	Colorless land with a costly unblockable ability for small creatures.
+Aclazotz, Deepest Betrayal // Temple of the Dead	spell-lands	48	Back face is only a mono-black land; the front is a strong creature, not a spell-land.
+Adagia, Windswept Bastion	utility	42	Tapped Plains with a very slow station copy ability for artifacts and enchantments.
+Adventurer's Inn	utility	38	Colorless land that gains 2 life; no fixing, but it has no downside.
+Aether Hub	fixing	50	Colorless land with limited energy: only one entry gives a color.
+Agna Qel'a	utility	50	Mono-blue land that taps for U and loots late; conditional tapped entry.
+Airship Engine Room	fixing	54	Tapped U/R dual that can be sacrificed for a card late in the game.
+Akoum Refuge	fixing	50	Gain land: tapped two-color fixing with a small life bonus.
+Akoum Warrior // Akoum Teeth	spell-lands	52	Spell-land: tapped red land, or a late 6-mana 4/5 trampler.
+Alchemist's Refuge	utility	56	Colorless utility land: GU and tap gives your spells flash for the turn.
+Ally Encampment	utility	30	Taps for colorless; color mana only for Allies.
+Alpine Meadow	fixing	56	Tapped snow dual with both basic types: fetchable and fixes RW.
+Amonkhet Raceway	utility	30	Colorless land; haste needs max speed, which rarely comes up outside Speed decks.
+An-Havva Township	fixing	42	Slow filter: costs extra mana for colors, enters untapped; weak fixing.
+Ancient Amphitheater	fixing	46	R/W dual that is tapped unless you reveal a Giant.
+Ancient Den	utility	42	Plain white land that is an artifact; matters only for artifact themes.
+Ancient Spring	fixing	38	Tapped Island that can sacrifice for WB once.
+Ancient Ziggurat	fixing	56	Untapped any-color land, but the mana only pays for creature spells.
+Andoria	fixing	48	Tapped U/R dual with a 1 life gain on entry.
+Animal Sanctuary	utility	22	Colorless land whose counter ability only hits a few creature types.
+Arcane Lighthouse	utility	52	Colorless utility land: opposing creatures lose hexproof and shroud for removal.
+Arcane Sanctum	fixing	56	Tapped three-color Esper land; fixes well but has no fetch or cycling.
+Archaeological Dig	fixing	30	One-shot fixing that costs you the land; weak compared to real duals.
+Archway Commons	fixing	38	Any color, but enters tapped and costs {1} to keep.
+Archway of Innovation	utility	42	Mono-blue land with a minor improvise ability, tapped without an Island.
+Arctic Flats	fixing	48	Tapped GW dual with no upside beyond snow.
+Arctic Treeline	fixing	52	Tapped GW dual with basic types, so fetchable and fixes.
+Arena	utility	38	Colorless land; {3} fight where opponent picks the victim.
+Arena of Glory	utility	46	Mono-red land with a haste bonus; often enters tapped without a Mountain.
+Argoth, Sanctum of Nature	utility	58	Green land that makes a 2/2 Bear for four mana; often enters tapped.
+Arguel's Blood Fast // Temple of Aclazotz	spell-lands	60	Spell-land: draw engine, or a black land that sacs creatures for life.
+Arid Archway	utility	48	Tapped bounce land making {C}{C}; no fixing.
+Artificial Anomaly	utility	50	Colorless land that later turns into an any-color land and drains 2.
+Asgardian Citadel	fixing	48	Tapped R/W dual with a little life gain.
+Ash Barrens	fixing	58	Colorless land that cycles for {1} to fetch a basic.
+Auntie's Hovel	fixing	46	Tapped B/R dual unless a Goblin is revealed.
+Avengers Hangar	fixing	50	Tapped W/U dual that gains 1 life; standard gain land.
+Avengers Tower	utility	38	Untapped colorless land; color and dig only help Hero decks.
+Avishkar Raceway	utility	38	Colorless land; max speed loot is rarely reached outside Speed decks.
+Axgard Armory	utility	46	Tapped Plains that cashes in for an Aura and Equipment; needs red.
+Aysen Abbey	fixing	50	Untapped but slow fixing; needs extra mana for colors.
+Azorius Guildgate	fixing	47	Tapped two-color gate with no upside.
+Ba Sing Se	utility	50	Green land, usually untapped; {2}{G},T earthbend 2 makes a mana sink.
+Bad River	fixing	52	Tapped bounce-free fetch: sacrifice for an Island or Swamp, fetches duals.
+Bajor	fixing	48	Tapped R/W dual that gains 1 life.
+Balamb Garden, SeeD Academy // Balamb Garden, Airborne	fixing	54	Tapped G/U dual that can later become a 5/4 flying card-drawing vehicle.
+Baldur's Gate	utility	30	Taps for {C}; the colored ability needs other Gates, which are rare in most decks.
+Balduvian Trading Post	utility	34	Costs you a Mountain to play; taps for {C}{R} and pings attackers.
+Ballroom	fixing	56	Tapped W/B dual with a late-game {4} investigate, so it has a use when flooding.
+Bant Panorama	fixing	48	Taps for colorless; pay 1 and sacrifice to fetch a tapped Forest, Plains or Island.
+Barad-dûr	utility	40	Mono-black land, often tapped; amass needs a creature to have died this turn.
+Barbarian Ring	utility	48	Red land that pings you; late-game sacrifice deals 2 damage to any target.
+Baron, Airship Kingdom	fixing	47	Tapped U/R dual with no other upside.
+Barren Moor	utility	50	Tapped mono-color land that cycles for B late.
+Base Camp	fixing	42	Tapped land; color only for a few creature types.
+Basilisk Gate	utility	42	Colorless land with a sorcery-speed pump that scales only with Gates.
+Baxter Building	utility	48	Colorless land; expensive filtering and conditional draw need big creatures.
+Bazaar of Baghdad	utility	42	Free land slot that digs, but loses a card each tap; graveyard decks only.
+Bedeck // Bedazzle	spell-lands	0	Not a land.
+Beyeen Veil // Beyeen Coast	spell-lands	50	Tapped blue land that doubles as a weak 2-mana fog-ish instant.
+Big Apple, 3 a.m.	utility	48	Tapped land of any chosen color with a late-game Rat maker.
+Billiard Room	fixing	54	Tapped dual in B/R with a late-game Clue maker.
+Birnin Zana Plaza	fixing	47	Tapped G/W dual with 1 life gain.
+Black Dragon Gate	fixing	47	Tapped dual that taps for black or a chosen color; no upside.
+Blackbloom Rogue // Blackbloom Bog	spell-lands	50	Tapped mono-black land, or a menace 2/3 when you need a body.
+Blasted Landscape	utility	48	Colorless land that cycles for {2} late in the game.
+Blazemire Verge	fixing	74	Untapped B/R dual that needs a Swamp or Mountain for red, like a check land.
+Bleachbone Verge	fixing	74	Verge land: untapped, black always, white with a Plains or Swamp (it can't count itself).
+Bleeding Woods	fixing	54	Rarely untapped at 40 life: a two-color land that's usually tapped early.
+Blighted Cataract	utility	46	Colorless land; late-game sacrifice for two cards at a steep price.
+Blighted Fen	utility	50	Colorless land with a late edict; fine utility slot in black decks.
+Blighted Gorge	utility	46	Colorless land; sac for 2 damage to any target at high cost.
+Blighted Steppe	utility	44	Colorless land; life gain scales with creatures, only fits go-wide decks.
+Blighted Woodland	utility	54	Colorless land that turns into two basics later; fixes and thins.
+Blinkmoth Nexus	utility	56	Colorless manland: a 1/1 flier that dodges sorcery-speed wipes.
+Blinkmoth Well	utility	42	Colorless land that taps a noncreature artifact for {2}.
+Bloodfell Caves	fixing	48	Gain land: tapped B/R dual that gains 1 life.
+Bloodsoaked Insight // Sanguine Morass	spell-lands	52	Tapped B/R dual that doubles as a costly late-game spell.
+Blossoming Sands	fixing	48	Tapped dual that gains 1 life.
+Bog Wreckage	fixing	47	Tapped B land that sacrifices for one mana of any color; weak fixing.
+Boiling Rock Prison	fixing	56	Tapped Swamp/Mountain dual that cashes in for a card late.
+Bojuka Bog	utility	56	Tapped Swamp with a graveyard-exile trigger.
+Bonders' Enclave	utility	58	Colorless land that draws for 3 with a power-4 creature out.
+Boreal Shelf	fixing	47	Tapped W/U dual with no upside except being snow.
+Boros Guildgate	fixing	47	Tapped dual with no upside.
+Boseiju, Who Shelters All	utility	50	Tapped colorless land; 2 life each tap, but makes a spell uncounterable.
+Botanical Plaza	fixing	54	Tapped G/W dual that cycles late for a card.
+Bottomless Vault	utility	32	Tapped mono-black storage land; slow and clunky.
+Bountiful Landscape	fixing	56	Colorless land that sacrifices for a tapped basic in three types, or cycles late.
+Branch of Vitu-Ghazi	utility	50	Colorless land that can disguise and unmorph into a burst of two colored mana.
+Brass's Tunnel-Grinder // Tecutlan, the Searing Rift	spell-lands	35	Land side only appears after descending three times; slow flip.
+Bretagard Stronghold	utility	46	Tapped green land: sacrifice for counters on two creatures, needs G and WW.
+Bridgeworks Battle // Tanglespan Bridgeworks	spell-lands	62	Spell-land: a green land that can enter untapped, or a fight spell late.
+Bristling Backwoods	fixing	50	Tapped two-color land with a 1-damage ping on entry; Desert type is minor.
+Brokers Hideout	fixing	48	Cycling-style land: becomes a tapped basic of three types, nets no extra land.
+Brotherhood Headquarters	utility	22	Colorless land whose colored mana only works for Assassin and freerunning spells.
+Bucolic Ranch	utility	30	Colorless land whose fixing and dig only work for Mounts.
+Cabal Stronghold	utility	42	Colorless land; pay 3 to make B per basic Swamp, only good in heavy-Swamp decks.
+Cabaretti Courtyard	fixing	50	Tapped tri-land that fetches a basic of its colors and gains 1 life.
+Cactus Preserve	fixing	56	Tapped Desert that fixes to your lands' colors and becomes a creature with your commander's size.
+Calciform Pools	utility	42	Colorless land that slowly stores mana for W/U; clunky fixing.
+Caldera Lake	fixing	58	Tapped painland-style dual: fixes U/R for 1 damage.
+Canopy Vista	fixing	70	Battle land with both basic types: untapped early with two basics, fetchable.
+Canyon Slough	fixing	66	Cycling tapped dual with both basic types, so it is fetchable.
+Capital City	fixing	60	Untapped colorless land that filters any color for 1, and cycles.
+Captivating Cave	utility	50	Colorless land that filters for {1} and can cash in for counters late; low-impact utility.
+Cardassia Prime	fixing	48	Tapped W/B dual with 1 life on entry; plain filler fixing.
+Cascading Cataracts	utility	50	Indestructible; expensive filter that fixes any colors late.
+Castle Doom	utility	44	Untapped colorless land that fixes artifacts only; makes a 3/3 for an artifact.
+Castle Embereth	utility	54	Red land with a team +1/+0 pump; best in aggressive token decks.
+Castle Sengir	fixing	50	Untapped land that pays {1} or {2} for black, blue or red; slow fixing.
+Cave of Temptation	utility	48	Untapped colorless land; {1} filter, late-game sacrifice for counters.
+Cave of the Frost Dragon	utility	55	Mono-white creature land: 3/4 flyer for {4}{W}, tapped late.
+Cavernous Maw	utility	30	Colorless land whose animation needs three Caves; rarely turns on in singleton.
+Celestial Colonnade	fixing	72	Tapped WU dual that becomes a 4/4 flying vigilant threat late.
+Centaur Garden	utility	30	Painful Forest-like land; the threshold pump is rarely worth sacrificing it.
+Cephalid Coliseum	utility	38	Painful Island that sacrifices for a draw three discard three at threshold.
+Chocobo Camp	utility	46	Mono-green land that often enters tapped; late-game 2/2 token maker.
+Cinder Barrens	fixing	48	Tapped dual for black and red with no upside.
+Cinder Glade	fixing	72	Slow land: Mountain Forest types, fetchable, untapped with two basics.
+Cinder Marsh	fixing	42	Taps for colorless, or B/R but then stays tapped; weak dual.
+Citadel Gate	fixing	48	Tapped dual with white plus a chosen color; no upside beyond being a Gate.
+City of Shadows	utility	32	Costs a creature per counter and taps for little at first; slow and clunky.
+City of Traitors	utility	55	Fast two colorless mana, gone on your next land drop.
+Cliffgate	fixing	46	Tapped dual with no upside; red plus a chosen color.
+Clive's Hideaway	utility	38	Colorless land; the hideaway needs four legendary creatures.
+Cloudcrest Lake	fixing	46	Colored mana locks the land down next turn; mostly a colorless land with occasional fixing.
+Cloudpost	utility	22	Enters tapped and taps for one colorless in singleton; no Locus to pair with.
+Coastal Peak	fixing	56	Tapped Island Mountain dual with cycling {2}; fetchable by basic types.
+Coastal Tower	fixing	47	Plain tapped W/U dual with no upside.
+Command Bridge	fixing	48	Tapped five-color land with a sacrifice clause; tapping a permanent usually avoids it.
+Commercial District	fixing	62	Tapped triome-style dual with both basic types and surveil 1, fetchable.
+Conduit Pylons	fixing	62	Untapped Desert: surveil 1, taps for {C} or filters any color for {1}.
+Conqueror's Galleon // Conqueror's Foothold	spell-lands	52	Four-mana vehicle you must crew and attack with to flip into a card-advantage land.
+Conservatory	fixing	56	Tapped G/W dual with a late-game Clue maker.
+Contaminated Aquifer	fixing	50	Tapped dual with both basic types, so it is fetchable.
+Contaminated Landscape	fixing	52	Colorless land that fetches a tapped basic in three colors and cycles late.
+Contested Cliffs	utility	38	Colorless land whose fight ability needs a Beast; almost never works.
+Contested War Zone	utility	36	Colorless land with a minor attack pump; any combat hit gives it away.
+Coral Atoll	utility	50	Karoo land: returns an Island, taps for {C}{U}; mono-blue only.
+Cori Mountain Monastery	utility	56	Mono-red land, usually untapped in RW or UR, with a late-game impulse draw.
+Corrupted Crossroads	utility	30	Colorless land whose colored mana only works for devoid spells.
+Country Roads	utility	38	Mostly a tapped Plains that you can sacrifice for a Pilot token; only good with Vehicles or Mounts.
+Cradle of the Accursed	utility	42	Colorless land that cashes in for a 2/2 Zombie late; a minor upside.
+Crawling Barrens	utility	60	Colorless land that turns spare mana into a growing threat.
+Creeping Tar Pit	fixing	62	Tapped UB dual that becomes a 3/2 unblockable creature land.
+Creosote Heath	fixing	50	Tapped WG dual that deals 1 damage and is a Desert.
+Crosis's Catacombs	fixing	52	Three-color land that bounces one of your lands; fixing, but it costs tempo.
+Crossroads Village	fixing	47	Tapped land that picks one color as it enters; flexible but no upside.
+Crucible of the Spirit Dragon	utility	28	Colorless land; its stored mana only helps Dragon decks.
+Crumbling Necropolis	fixing	52	Tapped three-color land with no upside; plain Grixis fixing.
+Crumbling Vestige	fixing	42	Tapped colorless land; the one-time any-color mana barely helps.
+Crypt of Agadeem	utility	48	Tapped mono-black land; its mana boost needs black creatures in your graveyard.
+Crypt of the Eternals	fixing	52	Untapped utility filter into three colors, but it needs {1} each time and taps for colorless.
+Cryptic Caves	utility	50	Colorless land that cycles itself into a card with five lands out.
+Cryptic Spires	fixing	50	Tapped dual you configure at deckbuilding; plain two-color fixing with no extras.
+Crystal Grotto	fixing	49	Tapped utility land: scry 1, colorless, or pay {1} for any color; slow but fixes.
+Crystal Quarry	fixing	35	Colorless land whose fixing costs {5}; too expensive to matter.
+Crystal Vein	utility	45	Colorless land that sacrifices for a one-shot {C}{C} burst.
+Daily Bugle Building	fixing	52	Untapped colorless land; {1} filter for any color, but it costs extra mana to fix.
+Dakmor Salvage	utility	42	Tapped mono-black land that can dredge; only good in graveyard decks.
+Dalkovan Encampment	utility	50	Mono-white land with a token-making attack ability; enters tapped without a Swamp or Mountain.
+Darigaaz's Caldera	fixing	58	Bounce land for three colors that enters untapped but returns a land.
+Dark Depths	utility	42	Needs 30 mana or a combo piece like Thespian's Stage; slow and colorless alone.
+Dark Fortress	fixing	56	Untapped B/R dual that needs a basic land, otherwise taps for colorless.
+Darkmoss Bridge	fixing	52	Tapped dual; indestructible dodges land destruction and artifact hate is a risk.
+Darksteel Citadel	utility	28	Colorless land only; mostly for artifact synergies.
+Darkwater Catacombs	fixing	66	Untapped filter land: {1} becomes UB, though it needs another mana source.
+Deceptive Landscape	fixing	46	Colorless land that fetches Plains, Swamp or Forest; slow fixing.
+Dedicated Commons	fixing	46	RW dual that is usually tapped unless you run planeswalkers.
+Demolition Field	utility	56	Colorless land that can become Strip Mine for nonbasics; it gives the opponent a basic and you one too.
+Den of the Bugbear	utility	56	Mono-red manland: untapped early, becomes a 3/2 that makes attacking goblins; tapped late.
+Desert	utility	48	Colorless land that pings attackers for 1; finishes small creatures.
+Desert of the Fervent	utility	48	Tapped Mountain-type land that cycles late for {1}{R}.
+Desert of the Glorified	utility	48	Tapped black land that cycles late for {1}{B}.
+Desert of the Indomitable	utility	48	Tapped green land that cycles late for {1}{G}.
+Desert of the Mindful	utility	48	Tapped blue land that cycles late for {1}{U}.
+Desert of the True	utility	48	Tapped white land that cycles late for {1}{W}.
+Deserted Temple	utility	52	Colorless land that untaps another land for {1}, a small ramp boost with no fixing.
+Desolate Lighthouse	utility	46	Colorless land with a costly {1}{U}{R} loot; only fits Izzet decks.
+Desolate Mire	fixing	50	Makes no mana alone; {1} filters into {W}{B}, but needs another mana source.
+Detection Tower	utility	50	Colorless land: pay {1} to target hexproof opponents and creatures.
+Diamond City	utility	42	Colorless land with a shield counter trick that needs two creatures entering in a turn.
+Dimension X	fixing	47	Tapped R/W dual with a 1-life gain; plain filler fixing.
+Dimir Guildgate	fixing	47	Tapped dual with no upside.
+Dining Room	fixing	52	Tapped R/G dual; spends {4} to investigate late.
+Disciple of Freyalise // Garden of Freyalise	spell-lands	58	Green land that enters untapped for 3 life, or a late-game sacrifice-for-cards creature.
+Dismal Backwater	fixing	50	Tapped U/B dual with a point of life; filler fixing.
+Dormant Volcano	utility	50	Karoo land: bounce a Mountain, then tap for {C}{R}; needs Mountains.
+Dowsing Dagger // Lost Vale	spell-lands	66	Land side taps for three of one color; the Dagger is a weak back face.
+Dowsing Device // Geode Grotto	spell-lands	50	Land side taps for R with haste ability; spell side is artifact-themed.
+Dragon-Cursed Halls	utility	42	Colorless land whose Treasure ability needs combat damage; low impact.
+Drannith Ruins	utility	45	Colorless land with a minor counter ability; hurts colored mana.
+Dread Statuary	utility	48	Colorless manland with an expensive 4/2 animation; fine filler.
+Dreadship Reef	fixing	42	Slow storage fixing for U/B; mostly taps for colorless.
+Drifting Meadow	utility	46	Tapped mono-white land that cycles for 2 late.
+Dromar's Cavern	fixing	56	Three-color bounce land: fixes Esper, returns a land.
+Drossforge Bridge	fixing	50	Tapped Rakdos dual that is indestructible and an artifact.
+Drowner of Truth // Drowned Jungle	spell-lands	56	Tapped G/U dual that can instead be a big 7-mana body late.
+Drownyard Temple	utility	50	Colorless land that recurs for {3}; resilient against land destruction.
+Dryad of the Ilysian Grove	fixing	58	3-mana 2/4 that turns all your lands into every color, with an extra land drop.
+Dunes of the Dead	utility	42	Colorless land that leaves a Zombie if destroyed or sacrificed; a small perk.
+Dungeon Descent	utility	32	Tapped colorless land with an expensive venture ability that needs a legend.
+Dust Bowl	utility	50	Colorless land that can trade a land for a nonbasic, at a high cost.
+Dwarven Hold	utility	35	Tapped mono-red land that banks mana; slow and clunky.
+Dwarven Mine	utility	42	Mountain that makes a 1/1 late in mono-red; tapped early.
+Dwarven Ruins	utility	30	Tapped mono-red land with a one-shot sacrifice; no real upside.
+Earth, Sector 001	fixing	48	Tapped green-blue dual that gains 1 life.
+Ebon Stronghold	utility	38	Tapped mono-black land that can sac for BB once.
+Echoing Deeps	utility	58	Taps for {C} or becomes a copy of a land in any graveyard, tapped.
+Eclipsed Realms	utility	46	Taps for {C}, or any color for the chosen type; only helps a tribal deck.
+Eclipsed Steppe	fixing	64	Plains Swamp dual that enters untapped early with two basics; fetchable.
+Eden, Seat of the Sanctum	utility	55	Colorless land: pay {5}, sacrifice to return a permanent card from your graveyard.
+Edgewall Inn	utility	38	Tapped mono-color land; returns an Adventure card only in Adventure decks.
+Eiganjo Castle	utility	48	Untapped white land that can prevent 2 damage to a legendary creature.
+Eldrazi Temple	utility	38	Colorless land; the extra mana only helps colorless Eldrazi decks.
+Elegant Parlor	fixing	66	Tapped Mountain Plains dual with surveil 1; fetchable and types for basics.
+Elephant Graveyard	utility	22	Colorless land whose regeneration only helps Elephants.
+Elfhame Palace	fixing	47	Tapped dual for {G} or {W} with no upside.
+Elven Passage	utility	38	Land that sacrifices itself for a basic land (untapped with an Elf); slow and costs life.
+Elvenking's Halls	fixing	47	Tapped GU dual with an Elf-only sacrifice rider.
+Emergence Zone	utility	48	Colorless land; pay 1 and sacrifice for a turn of flash, a niche utility.
+Emeria, the Sky Ruin	utility	42	Tapped white land; the reanimation needs seven Plains, which is rare in Commander.
+Encroaching Wastes	utility	50	Colorless utility land with expensive one-shot nonbasic land destruction.
+Endless Sands	utility	52	Colorless land that can save a creature from removal and later return it, at a land's cost.
+Eroded Canyon	fixing	50	Tapped U/R dual with a 1-damage ping; also a Desert.
+Escape Tunnel	utility	48	Land that cracks for a tapped basic; it never taps for mana itself.
+Esper Panorama	fixing	50	Slow colorless land that fetches a tapped basic of three colors.
+Etched Cornfield	fixing	50	Two-color land that enters tapped unless a player is at 13 life or less.
+Eumidian Hatchery	utility	30	Taps only for B at a life each time; the Insect tokens are small value.
+Evendo, Waking Haven	utility	56	Tapped green land that becomes a big mana engine once stationed, which is slow but strong in creature decks.
+Everglades	utility	50	Karoo-style land: taps for {C}{B}, but needs a Swamp and enters tapped.
+Eye of Ugin	utility	50	Colorless land that tutors colorless creatures for 7; strong only in Eldrazi decks.
+Faceless Haven	utility	42	Colorless manland that needs three snow mana, so it only works in snow decks.
+Faerie Conclave	utility	50	Tapped blue manland that becomes a 2/1 flyer for {1}{U}.
+Fatehold Annex	fixing	47	WU dual that enters tapped unless you control a planeswalker; usually just a tapped dual.
+Ferenginar	fixing	48	Tapped dual for {B} or {G} that gains 1 life; a plain gain land.
+Ferrous Lake	fixing	50	Pay {1} and tap for {U}{R}: net-positive fixing, but it needs other mana.
+Fertile Thicket	utility	40	Tapped mono-green land with a small land-selection rider; filler.
+Festering Gulch	fixing	47	Tapped dual with a 1-damage ETB ping; plain tapped dual territory.
+Festering Thicket	fixing	58	Tapped dual with basic types, fetchable, and it cycles late.
+Fetid Pools	fixing	58	Tapped dual with basic types, fetchable, and it cycles late.
+Fields of Strife	fixing	50	Tapped two-color land with a minor late-game surveil.
+Fire Nation Palace	utility	47	Mono-red land with a minor firebending buff; enters tapped only without a basic.
+Fisk Tower	fixing	47	Tapped dual with a 1-life gain; plain gain-land filler.
+Flagstones of Trokair	utility	42	Taps for W and replaces itself with a Plains only if it dies.
+Flamekin Village	utility	47	Usually enters tapped in singleton Elemental-light decks; haste is a small perk.
+Flood Plain	fixing	48	Enters tapped; sacrifice to fetch a Plains or Island, fixing two colors.
+Floodfarm Verge	fixing	72	Untapped W/U dual; the blue needs a Plains or Island, but white is always available.
+Foggy Bottom Swamp	fixing	55	Tapped B/G dual that cycles itself for {4} late game.
+Fogwell's Gym	utility	42	Painful red land with a pricey rummage ability; below a basic Mountain in value.
+Fomori Vault	utility	38	Colorless land that digs for a card, but needs artifacts and a discard.
+Foot Headquarters	fixing	50	Tapped W/B dual with 1 life; a common budget fixer.
+Forbidding Watchtower	utility	52	Tapped Plains that animates into a 1/5 for {1}{W}; a decent defender.
+Foreboding Landscape	fixing	52	Colorless land that sacrifices to fetch a tapped Swamp, Forest or Island, or cycles late.
+Forge of Heroes	utility	40	Colorless land with a tiny commander-counter bonus.
+Forgotten Cave	utility	44	Tapped mono-red land that cycles late for one mana.
+Forgotten Monument	utility	30	Colorless land that only helps if you play other Caves, so it's a theme-only piece.
+Forlorn Flats	fixing	48	Tapped W/B dual that pings an opponent for 1; it also counts as a Desert.
+Formidable Commons	fixing	47	Golgari dual that is almost always tapped without a planeswalker.
+Forsaken City	fixing	22	Costs a card every upkeep to keep untapping; terrible.
+Forsaken Sanctuary	fixing	47	Plain tapped Orzhov dual with no upside.
+Fortified Beachhead	fixing	46	WU dual that is usually tapped without Soldiers; weak pump ability.
+Forum of Amity	fixing	55	Tapped WB dual with a late-game surveil sink.
+Foul Orchard	fixing	47	Tapped two-color land with no upside.
+Foul Roads	utility	38	Mono-black land that usually enters tapped; Pilot token ability is marginal.
+Foundry of the Consuls	utility	55	Colorless land that turns into two 1/1 flying Thopters late for 5 mana.
+Fountain of Cho	utility	22	Tapped land that slowly stores white mana; weak and slow.
+Fountainport	utility	70	Colorless land that makes Fish, Treasure, and draws cards by sacrificing tokens.
+Frontier Bivouac	fixing	52	Tapped three-color land with no upside; fixes Temur.
+Frost Marsh	fixing	50	Tapped U/B dual with no upside; plain filler fixing.
+Frostwalk Bastion	utility	50	Colorless manland; needs snow mana to animate.
+Fungal Reaches	utility	40	Colorless land that slowly stores mana for R/G; weak fixing.
+Gallifrey Council Chamber	utility	48	Colorless land with surveil 1; colored mana only for Time Lords and Aliens.
+Gargoyle Castle	utility	68	Colorless land that sacrifices for a 3/4 flier, so it costs no spell slot.
+Gaseous Anomaly	utility	58	Colorless land with a six-mana late-game cash-in for two cards and a fixing land.
+Gates of Istfell	utility	45	Tapped W land that cashes in for two cards at 6 mana; needs UU, so only WU decks.
+Gateway Plaza	fixing	47	Tapped five-color land that costs {1} on entry; fixes but is slow.
+Gathering Place	fixing	58	Untapped GW land that works with any basic; it is mostly a colorless land at first.
+Geier Reach Sanitarium	utility	42	Colorless land: {2},{T} makes each player draw then discard; helps opponents too.
+Gemstone Caverns	utility	48	Colorless land; free early land as a second player at the cost of a card.
+Gemstone Mine	fixing	30	Three taps of any color then it's gone; poor in 100-card decks.
+Geothermal Bog	fixing	56	Tapped dual with both basic types, so it is fetchable.
+Geothermal Crevice	fixing	42	Tapped red land; sacrifice for BG one time as fixing.
+Ghitu Encampment	utility	50	Tapped red manland: becomes a 2/1 first striker for {1}{R}.
+Ghost Town	utility	42	Colorless land that returns to hand on others' turns; dodges land hate, little else.
+Gilt-Leaf Palace	fixing	50	B/G dual that enters tapped unless you reveal an Elf, so usually a tapped dual.
+Gingerbread Cabin	utility	52	Forest that is untapped in heavy-green decks and gives a Food; otherwise tapped.
+Glacial Floodplain	fixing	56	Tapped W/U dual with basic types, so it is fetchable.
+Glamorous Outlaw	spell-lands	38	Hand-exile ability turns a land into a Grixis tri-land, but only in three-color decks.
+Glasswing Grace // Age-Graced Chapel	spell-lands	55	Tapped W/B dual that can late-game be an aura giving flying and lifelink.
+Gleaming Bastion	fixing	68	Untapped W/U dual that needs a basic (or the turn it enters) for color.
+Glimmervoid	fixing	34	Fixes any color but dies at end of turn without an artifact.
+Glittering Massif	fixing	56	Tapped Mountain Plains dual with cycling; fetchable and never dead.
+Gloomlake Verge	fixing	74	Untapped dual that needs an Island or Swamp for black; a slow-land-level dual.
+Gnottvold Slumbermound	utility	50	Tapped red land; 6 mana to destroy a land and make a 4/4 trampler, needs RGG.
+Goblin Burrows	utility	35	Colorless land whose pump ability only matters in Goblin decks.
+Goblin-town	fixing	50	Tapped Rakdos dual with a niche counters ability for Goblins and Orcs.
+Gods' Eye, Gate to the Reikai	utility	38	Colorless land that leaves a 1/1 Spirit when it dies; little else.
+Gohn, Town of Ruin	fixing	47	Tapped two-color land with no upside.
+Golden Guardian // Gold-Forge Garrison	spell-lands	56	Spell-land: land taps for two of one color and makes 4/4 Golems.
+Goldmire Bridge	fixing	50	Tapped W/B dual that is indestructible, which dodges land destruction but gives little else.
+Golgari Guildgate	fixing	46	Tapped dual with no upside; plain two-color fixing.
+Gond Gate	fixing	46	Untapped colorless land; fixing only with other Gates you control.
+Gongaga, Reactor Town	fixing	47	Tapped two-color dual with no upside.
+Grand Coliseum	fixing	50	Tapped five-color land with a painland-style ping; fine filler fixing.
+Grasping Dunes	utility	56	Colorless land; sacrifice to kill an X/1 or shrink a creature.
+Grasping Shadows // Shadows' Lair	spell-lands	42	Slow 4-mana enchantment that needs lone attacks to flip into a land.
+Grasslands	fixing	50	Tapped, sac to fetch a Forest or Plains; fixes two colors but slow.
+Graypelt Refuge	fixing	47	Tapped green-white dual that gains 1 life; basic gain-land filler.
+Great Arashin City	utility	50	Mono-black land, often tapped, with a slow graveyard-to-token ability.
+Great Divide Guide	fixing	46	Gives all your lands any-color fixing, but it is a creature that can die.
+Great Furnace	utility	38	Artifact basic-like land for red; only helps artifact synergies.
+Great Hall of Starnheim	utility	42	Tapped mono-black land; costs a creature and the land for a 4/4 flyer.
+Great Hall of the Biblioplex	utility	62	Untapped colorless land; fixes for instants and sorceries and becomes a 2/4.
+Great Hall of the Citadel	utility	50	Colorless land with filter for legendary spells; good in legend commanders.
+Greenhouse // Rickety Gazebo	fixing	48	3-mana enchantment: every land taps for any color; other door digs permanents back.
+Griffin Canyon	utility	25	Colorless land whose ability only works with Griffins.
+Grim Backwoods	utility	52	Colorless land with an expensive sacrifice-to-draw ability for BG decks.
+Grixis Panorama	fixing	50	Slow fetch-style fixing for three colors; taps for colorless.
+Grove of the Burnwillows	fixing	77	Untapped R/G dual; each colored tap gives an opponent 1 life.
+Grove of the Guardian	utility	42	Colorless land; expensive sacrifice makes an 8/8 but taps two creatures.
+Growing Rites of Itlimoc // Itlimoc, Cradle of the Sun	spell-lands	55	Spell-land: dig four for a creature, flips into a big green mana land.
+Gruul Guildgate	fixing	47	Tapped dual with no upside.
+Guadosalam, Farplane Gateway	fixing	46	Plain tapped GU dual with no upside.
+Guildmages' Forum	fixing	50	Untapped utility land; pay {1} to get any color, but taps for colorless alone.
+HELIOS One	utility	56	Colorless land with a slow, costly sacrifice to destroy a nonland permanent.
+Hadana's Climb // Winged Temple of Orazca	spell-lands	50	Only becomes a land after three counters; then it fixes any color and gives flying.
+Halimar Depths	utility	42	Tapped Island with a small top-three rearrangement; a minor upside over a basic.
+Hall	fixing	52	Tapped R/W dual with a late-game {4} investigate sink.
+Hall of Echoes	utility	38	Colorless land with an expensive creature-copy ability; rarely worth the slot.
+Hall of Oracles	fixing	54	Untapped colorless land that fixes any color for {1}; counter mode is a minor bonus.
+Hall of Storm Giants	utility	62	Untapped early blue land that becomes a 7/7 ward {3} threat late.
+Hall of Tagsin	fixing	56	Colorless land that fixes any color for {1} and slowly makes Powerstones.
+Hall of the Bandit Lord	utility	26	Enters tapped and costs 3 life per tap for colorless mana.
+Hashep Oasis	utility	40	Mono-green painland-style mana land with a minor sacrifice pump; filler.
+Haunted Fengraf	utility	48	Colorless land; pay 3 and sacrifice for a random creature back, a small late-game bonus.
+Haunted Mire	fixing	50	Tapped B/G dual with basic types, so it is fetchable but has no other upside.
+Haven of the Spirit Dragon	utility	52	Colorless land with Dragon-only color, plus Dragon or Ugin recursion; best in dragon decks.
+Havenwood Battleground	utility	38	Tapped mono-green land; sacrificing for GG is a small burst that costs the land.
+Hawkins National Laboratory // The Upside Down	utility	48	Colorless land with a clue engine; reanimation needs three clues.
+Heap Gate	fixing	52	Colorless land with paid any-color fixing; Treasure needs another Gate.
+Heart of Yavimaya	utility	38	Costs you a Forest for a minor +1/+1 pump; rarely worth it.
+Hedge Maze	fixing	60	Tapped Forest Island dual that surveils 1 and is fetchable.
+Hell's Kitchen	fixing	50	Tapped two-color dual with a 1 life gain; plain filler fixing.
+Hellion Crucible	utility	46	Colorless land that spends mana over turns to become a 4/4 haste.
+Henge of Ramos	fixing	50	Untapped colorless land; pay {2} for any color, which is slow and costly.
+Hexhaven Dueling Arena	utility	38	Colorless land whose ability only matters for prepared-creature cards.
+Hickory Woodlot	utility	30	Enters tapped, two taps for GG and then sacrificed.
+Hidden Cataract	utility	48	Tapped Island that cashes in for discover 4 late game.
+Hidden Courtyard	utility	48	Tapped Plains that cashes in for discover 4 late game.
+Hidden Grotto	fixing	50	Colorless land that surveils and pays {1} for any color; slow fixing.
+Hidden Hideout	fixing	58	Tapped land that taps for any color in your commander's identity; full fixing but slow.
+Hidden Lair	fixing	66	Untapped UB dual that needs a basic in play or the turn it enters; colorless otherwise.
+Hidden Necropolis	utility	52	Tapped mono-black land that cashes in for Discover 4 late game.
+Hidden Nursery	utility	52	Tapped mono-green land that cashes in for Discover 4 late game.
+Hidden Volcano	utility	52	Tapped mono-red land that cashes in for Discover 4 late game.
+Highland Forest	fixing	50	Tapped Mountain Forest dual with no upside; fetchable by type.
+Highland Lake	fixing	48	Plain tapped blue-red dual with no upside.
+Highland Weald	fixing	48	Plain tapped red-green snow dual with no upside.
+Hissing Quagmire	fixing	58	Tapped BG dual that becomes a 2/2 deathtouch creature.
+Hive of the Eye Tyrant	utility	62	Untapped early manland: a 3/3 menace attacker that exiles a graveyard card.
+Hobbit Hole	utility	52	Colorless land that sacs for a basic, or cycles late; fixes at a cost of tempo.
+Holdout Settlement	fixing	50	Untapped land: colorless, or any color by tapping an untapped creature.
+Hollow Trees	utility	30	Enters tapped and stores green mana; slow and clunky.
+Horizon of Progress	fixing	62	Untapped any-type fixing for 1 life, with ramp and draw modes; colorless of its own.
+Hostile Desert	utility	40	Colorless manland that needs a land in your graveyard; hard to turn on in most decks.
+Hostile Hostel // Creeping Inn	utility	38	Colorless land; flipping costs three creature sacrifices, so it fits only sacrifice decks.
+Howltooth Hollow	utility	38	Tapped Swamp whose hideaway needs all hands empty, which is rare in Commander.
+Hushwood Verge	fixing	70	Untapped two-color land; white needs a Forest or Plains, which most decks have.
+Icatian Store	utility	30	Tapped land that banks white mana; slow and gives no fixing.
+Ice Floe	utility	42	Colorless land that locks down one non-flying attacker, but only after it attacks you.
+Ice Tunnel	fixing	50	Tapped dual with basic types: fixes blue and black and is fetchable.
+Idyllic Beachfront	fixing	52	Tapped dual with basic types, so it is fetchable, but it has no other upside.
+Idyllic Grange	utility	38	Plains that usually enters tapped; needs three other Plains to get untapped.
+Ifnir Deadlands	utility	50	Colorless or painful black mana, with a costly sorcery-speed removal that needs a Desert to sacrifice.
+Illegitimate Business	fixing	48	Tapped dual for B/G with 1 life.
+Immersturm Skullcairn	utility	40	Tapped black land that later sacrifices for 3 damage and a discard.
+Inkmoth Nexus	utility	52	Colorless manland that dodges sorcery-speed wipes; infect is a weak clock in singleton.
+Innovative Commons	fixing	47	Tapped dual in most decks; only untapped with a planeswalker.
+Insomnia, Crown City	fixing	48	Tapped dual for W/B with no upside.
+Interplanar Beacon	utility	50	Untapped colorless land that fixes only for planeswalker spells; good in superfriends.
+Ipnu Rivulet	utility	42	Colorless or blue for 1 life; the mill ability sacrifices itself and barely matters.
+Iron Hills	fixing	47	Tapped red-white dual; the Dwarf ability is mostly irrelevant.
+Irrigated Farmland	fixing	62	Tapped dual with basic types that cycles for {2}.
+Irrigation Ditch	fixing	38	Tapped white land; sacrifice for a one-time GU.
+Ishgard, the Holy See // Faith & Grief	spell-lands	50	Tapped white land with a late recursion spell option.
+Island of Wak-Wak	utility	30	Land that only shrinks flyers' power; no mana, so very weak.
+Isolated Watchtower	utility	38	Colorless land with a situational scry and land ramp when behind.
+Izzet Guildgate	fixing	46	Tapped dual with no upside; basic fixing for UR.
+Jadzi, Oracle of Arcavios // Journey to the Oracle	spell-lands	28	Not a land; the Journey side only dumps lands from hand, a rare payoff.
+Jagged Barrens	fixing	50	Tapped B/R dual that pings for 1; Desert type helps Scavenger Grounds.
+Jasmine Dragon Tea Shop	utility	42	Colorless land that makes Ally tokens for 5; fixing only for Allies.
+Jidoor, Aristocratic Capital // Overture	spell-lands	47	Tapped mono-blue land with a six-mana mill-half spell side; little use outside mill.
+Journey to Eternity // Atzal, Cave of Eternity	spell-lands	45	Flips into a land that taps for any color and reanimates, but only after the creature dies.
+Jund Panorama	fixing	40	Slow tri-color fetch: pay {1}, sacrifice for a tapped basic; worse than Evolving Wilds.
+Jungle Basin	utility	42	Karoo land that taps for {C}{G} but needs an untapped Forest to return; mono-green only.
+Jungle Hollow	fixing	48	Tapped dual with a point of life; filler fixing.
+Jungle Shrine	fixing	52	Tapped three-color land with no extra upside.
+Junktown	utility	42	Colorless land; late-game sacrifice for three Junk tokens.
+Jwar Isle Refuge	fixing	47	Tapped U/B dual that gains 1 life.
+Jwari Disruption // Jwari Ruins	spell-lands	58	Spell-land: tapped blue land, or a cheap tax counter late.
+Kabira Crossroads	utility	45	Tapped mono-white land that gains 2 life.
+Kabira Takedown // Kabira Plateau	spell-lands	56	Spell-land: tapped Plains-like land or a creature-count removal spell.
+Karn's Bastion	utility	44	Colorless land with proliferate; only useful in counter or planeswalker decks.
+Karoo	fixing	50	Plains bounce land: tapped, returns a Plains, taps for {C}{W}.
+Kavaron, Memorial World	utility	38	Tapped Mountain; late-game station makes Robots by sacrificing lands.
+Kazandu Mammoth // Kazandu Valley	spell-lands	56	Tapped mono-green land that doubles as a 3-mana 3/3 with landfall.
+Kazandu Refuge	fixing	47	Tapped two-color gain land with no upside beyond 1 life.
+Kazuul's Fury // Kazuul's Cliffs	spell-lands	55	Tapped Mountain that doubles as a sacrifice burn spell.
+Keldon Megaliths	utility	46	Tapped mono-red land; hellbent ping is a late-game mana sink.
+Keldon Necropolis	utility	44	Colorless land; five mana and a creature for 2 damage is clunky.
+Khalni Ambush // Khalni Territory	spell-lands	58	Tapped Forest side with a fight spell; flexible but a weak spell.
+Khalni Garden	utility	46	Tapped mono-color land that leaves a 0/1 chump blocker.
+Kher Keep	utility	50	Colorless land with a slow chump-blocker token maker for red decks.
+Kishla Village	utility	48	Mono-green land with late-game surveil; often enters tapped.
+Kitchen	fixing	52	Tapped two-color land with a mana-sink Investigate for late games.
+Kjeldoran Outpost	utility	48	Token-making Plains-ish land, but it costs you a Plains to play.
+Konstrari Annex	fixing	46	Two-color land that is usually tapped without a planeswalker.
+Koskun Keep	fixing	38	Taps for colorless or pays {1} or {2} for red, black or green; slow fixing.
+Krosan Verge	fixing	56	Tapped land that later fetches Forest and Plains for GW fixing, giving a land of ramp.
+Kyoshi Village	fixing	52	Tapped two-color land with a late-game cycle option.
+Labyrinth of Skophos	utility	48	Untapped colorless land; 4 mana to pull a creature from combat, a clunky fog-like trick.
+Lair of the Hydra	utility	56	Green manland: becomes an X/X Hydra; enters tapped after turn two.
+Lake of the Dead	utility	32	Costs a Swamp to play; sacrifice Swamps for BBBB in swamp-heavy decks only.
+Lake-town	fixing	50	Tapped WU dual with a minor Human counter sacrifice ability.
+Lakeside Shack	fixing	50	Green-blue dual that is usually tapped until someone is at 13 life.
+Land Cap	fixing	42	White-blue dual that can only tap every other turn.
+Lantern-Lit Graveyard	fixing	42	Colorless land, or B/R with a no-untap penalty; poor fixing.
+Lava Tubes	fixing	38	Two colors, but it skips untapping after each tap, halving its mana.
+Lavaclaw Reaches	fixing	56	Tapped two-color manland: fixes B/R and attacks as a pumpable 2/2.
+Lazotep Quarry	utility	46	Colorless land with a sac outlet and a one-shot reanimation; costs a lot.
+Leechridden Swamp	utility	46	Tapped Swamp with a repeatable drain 1 if you control two black permanents.
+Legion Leadership // Legion Stronghold	spell-lands	56	Tapped R/W dual that doubles as a combat trick; fixing for Boros.
+Legion's Landing // Adanto, the First Fort	spell-lands	58	Cheap lifelink token that flips into a land with a token-making ability.
+Leyline of the Guildpact	fixing	42	Makes every land you control tap for any color; costly four-hybrid enchantment, free from hand.
+Library	fixing	56	Tapped U/R dual that can make Clues late, which is a small upside over a plain tapped dual.
+Lilypad Village	utility	47	Untapped land with blue for creatures only; surveil needs a Bird, Frog, Otter or Rat.
+Lindblum, Industrial Regency // Mage Siege	spell-lands	52	Tapped red land that can instead be a 3-mana instant making a spell-pinging token.
+Littjara Mirrorlake	utility	50	Tapped blue land that can be sacrificed to clone your creature for six mana.
+Llanowar Reborn	utility	48	Tapped mono-green land with a graft counter bonus.
+Lonely Arroyo	fixing	50	Tapped W/U dual that pings an opponent for 1 on entry.
+Lonely Sandbar	utility	48	Tapped mono-blue land that cycles for U; smooths draws but gives no fixing.
+Looming Spires	utility	46	Tapped red land with a small combat trick on entry.
+Lorehold Campus	fixing	52	Tapped RW dual with a late-game scry 1 for {4}.
+Los Diablos Missile Base	fixing	50	Tapped R/G dual with a point of life gain.
+Lotus Vale	utility	62	Enters untapped for two untapped lands; net +1 mana at once but a risky drawback.
+Lounge	fixing	54	Tapped Golgari dual that can turn spare mana into Clues late.
+Lumbering Falls	fixing	66	Tapped GU dual that becomes a hexproof 3/3 for four mana.
+Lupinflower Village	utility	47	Colorless land with creature-only white and a narrow tribal tutor ability.
+Lush Oasis	fixing	50	Tapped GU dual that pings an opponent for 1 on entry.
+Lush Portico	fixing	58	Tapped GW dual with basic types and surveil 1.
+Maelstrom of the Spirit Dragon	utility	40	Untapped colorless land; colors only for Dragons or Omens, and it can tutor a Dragon.
+Maestros Theater	fixing	42	Free land that fetches a tapped Island, Swamp or Mountain; it doesn't add a land drop.
+Mage-Ring Network	utility	40	Colorless land that banks mana in storage counters; slow, low impact.
+Magosi, the Waterveil	utility	35	Tapped Island that trades a skipped turn for an extra one.
+Makindi Stampede // Makindi Mesas	spell-lands	52	Tapped mono-white land that doubles as a late-game team pump.
+Manascape Refractor	utility	38	3-mana tapped rock that copies all lands' abilities; unreliable.
+Manor Gate	fixing	47	Tapped two-color land, always includes green; no upside beyond fixing.
+Mariposa Military Base	utility	45	Colorless land with a mana-sink card draw that gets cheaper with rad counters.
+Maze of Shadows	utility	22	Colorless land with an ability that almost never matters.
+Maze's End	utility	32	Tapped colorless land; only worthwhile in a Gates deck.
+Meandering River	fixing	47	Plain tapped dual: two colors, no upside.
+Mech Hangar	utility	38	Colorless land; color only for Pilot or Vehicle spells, plus a vehicle animator.
+Meditation Pools	fixing	50	Tapped green-blue dual that can cash in for a card late.
+Memorial to Folly	utility	55	Tapped land that later becomes creature recursion for {2}{B}.
+Memorial to Genius	utility	57	Tapped land that later cashes in for two cards.
+Memorial to Glory	utility	54	Tapped land that later makes two 1/1 Soldiers.
+Memorial to Unity	utility	53	Tapped land that later digs five for a creature.
+Memorial to War	utility	48	Tapped land with an expensive land-destruction ability.
+Mercadian Bazaar	utility	28	Enters tapped and stores mana for a red burst later; slow and clunky.
+Meteor Crater	fixing	55	Taps for any color you control; fixes in multicolor decks but needs colored permanents.
+Meticulous Archive	fixing	74	Surveil land with both basic types: tapped but fetchable, with selection.
+Meticulous Commons	fixing	48	Tapped W/B dual that rarely enters untapped.
+Midgar, City of Mako // Reactor Raid	spell-lands	50	Tapped Swamp that doubles as a sac-for-two-cards sorcery.
+Mikokoro, Center of the Sea	utility	52	Colorless land with a symmetric draw ability; helps group-hug or wheel decks.
+Minamo, School at Water's Edge	utility	55	Taps for {U} and untaps a legendary permanent; good with legendary commanders.
+Minas Morgul, Dark Fortress	utility	40	Tapped black land; the shadow-counter ability is expensive and rarely useful.
+Minas Tirith	utility	58	Taps for {W}, often untapped, and draws after you attack with two creatures.
+Mines of Moria	utility	48	Mono-red land, often tapped; late-game Treasure maker costing graveyard cards.
+Mirage Mesa	utility	42	Tapped land of one chosen color; Desert for Scavenger Grounds-style synergy only.
+Miren, the Moaning Well	utility	45	Colorless utility land: a costly sac outlet that gains life; marginal.
+Mirkwood	fixing	48	Tapped BG dual; the sacrifice ability is minor tribal upside.
+Mirrex	utility	62	Untapped land: any color on entry, then colorless and a Mite maker.
+Mirrodin's Core	fixing	50	Slow fixing: store a counter by skipping mana, then make any color.
+Mirrorpool	utility	52	Tapped utility land: sacrifice to copy a spell or creature.
+Mishra's Factory	utility	66	Colorless manland: a 2/2 attacker or blocker that pumps itself, no spell slot.
+Mishra's Foundry	utility	62	Colorless manland: 2/2 for {2}, and it pumps an attacking Assembly-Worker.
+Mistrise Village	utility	50	Blue land, often untapped in Temur; makes a spell uncounterable for a cost.
+Mistvault Bridge	fixing	50	Tapped UB dual; indestructible but artifact-vulnerable and no other upside.
+Mistveil Plains	utility	42	Tapped Plains with a conditional recursion-to-library ability.
+Misty Palms Oasis	fixing	52	Tapped WB dual with a late-game cycle option.
+Mobilized District	utility	50	Colorless manland; costs {4} to animate, cheaper with legends.
+Mogg Hollows	fixing	38	Taps for colorless or R/G, but then skips its next untap.
+Molten Slagheap	utility	42	Colorless land that slowly stores counters for B/R mana; weak fixing.
+Molten Tributary	fixing	56	Tapped dual with both basic types, so it's fetchable and fixes two colors.
+Monumental Henge	utility	50	Mono-white land with a costly historic-card dig; sometimes enters tapped.
+Moonring Island	fixing	38	Tapped basic-type Island; the look ability is minor and needs two blue permanents.
+Moorland Haunt	utility	60	Untapped utility land: makes 1/1 flyers from graveyard creatures for WU.
+Mortuary Mire	utility	50	Tapped Swamp that sets up a creature on top of your library.
+Mossfire Valley	fixing	56	Filter land for R and G, but needs other mana.
+Mosswort Bridge	utility	44	Tapped Forest; free spell needs 10 total power, which is hard.
+Mount Doom	utility	60	BR land with a drain ping; the wipe needs a legendary artifact.
+Mountain Valley	fixing	48	Tapped land that sacrifices to fetch a Mountain or Forest untapped.
+Mouth of Ronom	utility	52	Colorless land that doubles as slow creature removal; needs snow mana for the ability.
+Mudflat Village	utility	40	Colorless land with narrow creature-only black and a tribal recursion ability.
+Multiversal Passage	fixing	60	Choose a basic type each game; untapped for 2 life, or tapped for free.
+Muraganda Raceway	utility	38	Colorless land; double mana only at max speed, which is rare outside Aetherdrift decks.
+Murky Sewer	fixing	58	UB dual that enters tapped early and untapped once someone is at 13 or less.
+Murmuring Bosk	fixing	46	WB dual that is nearly always tapped and pings you every tap; Forest type only helps a little.
+Mutant Town	fixing	48	Tapped two-color land with a point of lifegain.
+Mutavault	utility	76	Colorless land that turns into a 2/2 creature on demand.
+Mystic Monastery	fixing	60	Tapped three-color land for Jeskai with no extra ability.
+Mystifying Maze	utility	58	Colorless land: pay 4 to exile an attacker until end of turn; a defensive trick.
+Nantuko Monastery	utility	46	Colorless manland needing seven cards in the graveyard and GW to animate.
+Naya Panorama	fixing	49	Pay {1} and sacrifice: fetch a basic of three colors, tapped.
+Needle Spires	fixing	58	Tapped RW dual that becomes a 2/1 double striker for 4 mana.
+Neglected Manor	fixing	46	W/B dual that usually enters tapped unless someone is at 13 or less life.
+Nephalia Academy	utility	30	Colorless land with a rare discard protection.
+Nephalia Drownyard	utility	44	Colorless land with a repeatable mill-three that costs {1}{U}{B}.
+Nesting Grounds	utility	42	Colorless land that moves counters; only matters in counter decks.
+New Benalia	utility	46	Tapped Plains-style land with a scry 1; small upside.
+Ni'Var Science Academy	utility	46	Mono-blue land that enters untapped with two other lands and surveils 1; no fixing.
+Night Market	utility	47	Tapped land of one chosen color with late-game cycling.
+Nimbus Maze	fixing	50	Untapped two-color land that needs an Island or Plains to make colors.
+Nivix, Aerie of the Firemind	utility	50	Colorless land: pay four to exile the top card and maybe cast it.
+Nomad Outpost	fixing	50	Tapped tri-land: R, W or B for Mardu decks.
+Nomad Stadium	utility	32	Taps for W with 1 damage each time; can cash in for 4 life late.
+North Pole Gates	fixing	52	Tapped W/U dual with a late-game cycle-like sacrifice for a card.
+Northampton Farm	utility	42	Colorless utility land that blinks a creature away from a wipe, but costs a land and mana.
+Novijen, Heart of Progress	utility	48	Colorless land with a GU counter-making ability for creature decks.
+Nylea's Presence	fixing	40	Makes one land every basic type: fixing, though it costs a card slot and risks a land.
+Oakhollow Village	utility	50	Untapped colorless land with creature-only green; counters ability is narrow.
+Oboro, Palace in the Clouds	utility	38	Blue land that returns itself to hand; it protects itself from land destruction.
+Obscura Storefront	fixing	46	Fetches a tapped basic of three types; it replaces itself and gains 1 life.
+Ojer Axonil, Deepest Might // Temple of Power	spell-lands	58	Creature that returns as a mono-red land when it dies; not a land on its own.
+Ojer Kaslem, Deepest Growth // Temple of Cultivation	spell-lands	52	Five-mana threat that comes back as a green land; fine as a flexible land slot in green decks.
+Ojer Pakpatiq, Deepest Epoch // Temple of Cyclical Time	spell-lands	54	Four-mana flyer that comes back as a blue land; decent flexible land slot in blue decks.
+Ojer Taq, Deepest Foundation // Temple of Civilization	spell-lands	52	Six-mana token-tripling body that returns as a white land; niche but fine in token decks.
+Okina, Temple to the Grandfathers	utility	38	Taps for G; pump for legendary creatures is minor and narrow.
+Omashu City	fixing	54	Tapped R/G dual that cycles itself late for {4}.
+Ominous Asylum	fixing	50	Tapped Rakdos dual with a 4-mana surveil sink.
+Ominous Cemetery	utility	50	Colorless utility land: pay 5, sacrifice it to tuck a creature.
+Ondu Inversion // Ondu Skyruins	spell-lands	52	Tapped white land that doubles as a late-game wipe.
+Opulent Palace	fixing	56	Tapped three-color land; fine fixing but no other upside.
+Oran-Rief, the Vastwood	utility	48	Tapped green land that counters up new green creatures; fine in creature decks.
+Orion	fixing	47	Tapped R/G dual that gains 1 life; no other upside.
+Orzhov Guildgate	fixing	46	Tapped dual with no upside: basic fixing only.
+Orzhova, the Church of Deals	utility	38	Colorless land with a costly 1-point drain; weak mana sink.
+Oscorp Industries	fixing	56	Tapped three-color land; fixes Grixis but slow.
+Overflowing Basin	fixing	50	Filter-style land: pay {1} for GU, but no colorless-free tap and weaker than real filter lands.
+Painted Bluffs	fixing	56	Untapped Desert: colorless, or pay {1} for any color.
+Paradox Gardens	fixing	52	Tapped GU dual with an expensive surveil ability.
+Path of Mettle // Metzali, Tower of Triumph	spell-lands	40	Flips into a fixing land with damage, but needs evasive attackers.
+Peat Bog	utility	24	Enters tapped and burns out after two taps, so it is a land you lose.
+Peculiar Lighthouse	fixing	50	U/R dual that is usually tapped early, but is untapped once anyone is at 13 or less.
+Pelakka Predation // Pelakka Caverns	spell-lands	58	Spell-land: tapped black land or a 3-mana targeted discard.
+Pendelhaven	utility	47	Taps for G untapped; pump only helps 1/1s, which is a narrow theme.
+Perilous Landscape	fixing	52	Colorless land that fetches Island, Mountain or Plains tapped; clunky cycling.
+Petrified Field	utility	46	Colorless land that can sac to rebuy a land; fine with fetches, but no fixing.
+Petrified Hamlet	utility	55	Colorless land that turns off a utility or manland of the opponents' choice of name.
+Phyrexia's Core	utility	38	Colorless land with a minor artifact-for-life ability.
+Pillar of the Paruns	fixing	50	Land fixing any color for multicolored spells only; good in many-color decks.
+Pine Barrens	fixing	47	Tapped B/G painland-style dual: colors cost 1 life, colorless is free.
+Pinecrest Ridge	fixing	47	R/G dual that taps for color but then stays tapped a turn; colorless is free.
+Pinnacle Monk // Mystic Peak	spell-lands	58	Spell-land: red land untapped for 3 life, or a body that recurs a spell.
+Pit of Offerings	utility	50	Tapped colorless land with graveyard hate and occasional fixing.
+Planar Nexus	fixing	58	Colorless land; {1} makes any color, and it triggers nonbasic land synergies.
+Plaza of Harmony	fixing	58	Untapped land; fixes only with Gates, so it is often just colorless.
+Plaza of Heroes	utility	66	Untapped land: fixes for legends and can exile itself to protect a legendary creature.
+Polluted Mire	utility	48	Tapped mono-black land that cycles for {2} late.
+Port of Karfell	utility	46	Tapped Island with a six-mana sacrifice to reanimate; needs UBB.
+Power Depot	fixing	48	Tapped artifact land; colorless, or any color only for artifacts, and modular.
+Prahv, Spires of Order	utility	46	Colorless land with an expensive WU damage-prevention ability; low-impact utility.
+Prairie Stream	fixing	64	Fast-land style dual with basic types; fetchable, but enters tapped late.
+Primal Amulet // Primal Wellspring	spell-lands	48	Cost reducer for spells that flips to a rainbow land copying spells; needs a spells deck.
+Primal Beyond	fixing	38	Colorless land that enters tapped unless you reveal an Elemental; fixes only for Elementals.
+Prismari Campus	fixing	52	Tapped UR dual with a late-game scry sink.
+Prismatic Omen	fixing	40	2-mana enchantment that fixes all colors but is mostly for domain and Dryad decks.
+Promising Vein	fixing	50	Colorless land that pays {1} and sacrifices itself to fetch a basic tapped.
+Public Thoroughfare	fixing	46	Any-color land, but enters tapped and sacrifices unless you tap another land or artifact.
+Pulse of Llanowar	fixing	30	4-mana fixing enchantment for basics; slow, no ramp.
+Pym Technologies	fixing	50	Tapped two-color dual that gains 1 life.
+Q Continuum	utility	52	Mono-green land that is usually untapped later and surveils 1 on entry.
+Qo'noS	fixing	48	Tapped B/R dual with a point of lifegain.
+Quandrix Campus	fixing	55	Tapped GU dual with a late-game scry 1.
+Quark's Bar	utility	50	Red land that is untapped from turn three with a small ping or surveil; no fixing.
+Quicksand	utility	50	Colorless land; sacrifice to kill a small non-flying attacker.
+Rabanastre, Royal City	fixing	47	Plain tapped R/W dual with no upside.
+Racers' Ring	fixing	52	Tapped R/G dual that cashes in for a card late.
+Radiant Fountain	utility	38	Colorless land that gains 2 life; no fixing.
+Radiant Grove	fixing	52	Tapped G/W dual with both basic types, so it is fetchable.
+Radiant Summit	fixing	64	R/W dual with both basic types; untapped with two basics, otherwise tapped.
+Raging Ravine	utility	62	Tapped RG dual that becomes a growing 3/3 threat; fixing plus a manland.
+Rain-Slicked Copse	fixing	62	Tapped dual with basic types for fetching, and it cycles late.
+Rainbow Vale	fixing	22	Any-color land that an opponent takes each turn; you rarely keep it.
+Rakdos Guildgate	fixing	47	Tapped dual with no upside.
+Ramunap Ruins	utility	50	Colorless land with painful red and a costly 2-damage finisher.
+Rath's Edge	utility	38	Colorless land; costs a land and 4 mana to ping 1, which is very slow.
+Raucous Carnival	fixing	52	RW dual that is tapped until someone is at 13 or less life; mostly tapped early.
+Raucous Theater	fixing	60	Tapped BR surveil land with basic types, so it can be fetched.
+Ravaged Highlands	fixing	38	Tapped Mountain that sacrifices for one mana of any color; weak fixing.
+Razortide Bridge	fixing	50	Tapped W/U dual that is indestructible but gives no other upside.
+Razortrap Gorge	fixing	53	B/R dual that comes in untapped later in the game once a player is at 13 or less.
+Realm of Koh	utility	50	Black land that makes evasive-ish 1/1 Spirits for {3}{B}; can enter tapped.
+Realms Uncharted	utility	30	Fetches lands to hand and fills graveyard; no immediate fixing.
+Realmwright	fixing	50	1-mana 1/1: all your lands also become a chosen basic type, fixing one color across the board.
+Reef Roads	utility	38	Usually a tapped Island; sacrifice for a 1/1 Pilot is minor value.
+Remote Isle	utility	48	Tapped mono-blue land that cycles for {2} late.
+Restless Anchorage	fixing	58	Tapped W/U dual that becomes a 2/3 flyer and makes Maps.
+Restless Bivouac	fixing	56	Tapped R/W dual manland with a counter-granting attack trigger.
+Restless Cottage	fixing	58	Tapped B/G dual manland; a 4/4 that makes Food.
+Restless Fortress	fixing	58	Tapped W/B dual manland whose attack drains for 2.
+Restless Prairie	fixing	56	Tapped G/W dual manland that pumps your other attackers.
+Restless Reef	fixing	58	Tapped U/B dual manland; a 4/4 deathtouch that mills.
+Restless Ridgeline	fixing	56	Tapped R/G dual manland; a 3/4 that buffs another attacker.
+Restless Spire	fixing	57	Tapped U/R dual manland that animates for two and scries.
+Restless Vents	fixing	57	Tapped B/R dual manland; a 2/3 menace that loots.
+Restless Vinestalk	fixing	60	Tapped GU dual with a manland ability; solid but slow.
+Revitalizing Repast // Old-Growth Grove	spell-lands	56	Tapped B/G dual that doubles as a 1-mana indestructible trick.
+Rhystic Cave	fixing	56	Any-color land, but any opponent can tax each tap for {1}.
+Riftstone Portal	utility	33	Colorless land that only fixes once it's in the graveyard; hard to trigger.
+Rimewood Falls	fixing	52	Tapped snow dual with Forest Island types; fetchable but no upside.
+Riptide Laboratory	utility	35	Colorless utility land that only helps Wizard decks reuse enters effects.
+Risa	fixing	48	Tapped G/W dual that gains 1 life.
+Rishadan Port	utility	60	Colorless land that taps an opposing land each turn; slows mana and taps down utility lands.
+Rith's Grove	fixing	58	Bounce land for RGW; ramps a land drop but needs a land to return.
+Rivendell	utility	42	Mono-blue land, needs legendary creatures to be untapped and scry.
+River Delta	fixing	30	U/B dual that doesn't untap every other turn; slow.
+River of Tears	fixing	56	Untapped dual-ish; black only after a land drop.
+Riverpyre Verge	fixing	72	Untapped dual: red always, blue if you control an Island or Mountain.
+Riveteers Overlook	fixing	54	Sacrifices itself to fetch a tapped basic of three types and gain 1 life.
+Rix Maadi, Dungeon Palace	utility	35	Colorless land whose symmetric discard ability costs three mana.
+Roadside Reliquary	utility	48	Colorless land that cashes in for one or two cards late.
+Rockface Village	utility	42	Untapped colorless land with a creature-only red mode; the ability needs rare tribes.
+Rocky Roads	utility	36	Mono-red land, often tapped; the Pilot token needs Vehicles or Mounts.
+Rocky Tar Pit	fixing	50	Tapped land: sacrifice to fetch a Swamp or Mountain, including duals with those types.
+Romulus	fixing	50	Tapped UB dual with a little life gain on entry.
+Room of Refuge	utility	40	Tapped one-color land; late sacrifice for two counters.
+Rootwater Depths	fixing	42	Makes U or B but skips your next untap; a weak dual.
+Rugged Highlands	fixing	47	Tapped dual that gains 1 life; plain filler fixing.
+Ruins of Oran-Rief	utility	36	Tapped colorless land; counter only helps colorless creatures that entered this turn.
+Ruins of Trokair	utility	38	Tapped mono-white land that can sacrifice for WW once.
+Rumble Arena	fixing	54	Untapped colorless land with scry 1; pay {1} to filter any color.
+Rupture Spire	fixing	48	Any-color land, but enters tapped and costs {1} to keep.
+Rush of Inspiration // Crackling Falls	spell-lands	52	Tapped U/R dual that doubles as a draw-two spell late.
+Rushwood Grove	utility	38	Tapped storage land: slow bursts of green mana; a weak utility land.
+Rustvale Bridge	fixing	52	Tapped R/W dual; indestructible, dodges land hate but still tapped.
+Sacred Peaks	fixing	50	Tapped dual with both basic types; fetchable.
+Safe Haven	utility	48	Colorless utility land that stashes creatures from wipes.
+Salt Flats	fixing	50	Tapped W/B dual with a painful tap for color; no upside beyond fixing.
+Salt Marsh	fixing	48	Tapped U/B dual with no upside; basic filler fixing.
+Saltcrusted Steppe	utility	40	Slow storage land: colorless tap, pay to bank G/W mana later.
+Sanctum of Eternity	utility	48	Colorless land that can rescue your commander from removal and saves you a recast tax.
+Sanctum of Ugin	utility	40	Colorless land with a payoff only in Eldrazi-style decks.
+Sand Silos	utility	32	Tapped storage land: slow, and gives only blue mana when you cash it in.
+Sandsteppe Citadel	fixing	58	Tapped three-color land with no cycling or fetch ability, solid fixing for Abzan.
+Sandstone Bridge	utility	38	Tapped mono-white land; the +1/+1 trick on entry barely matters.
+Sandstone Needle	utility	22	Tapped land that sacrifices itself after two uses and gives you a net land loss.
+Sandstorm Verge	utility	42	Colorless Desert; pricey can't-block ability, minor utility.
+Saprazzan Cove	utility	30	Tapped storage land that gives delayed blue mana; slow and clunky.
+Saprazzan Skerry	utility	22	Tapped land that gives UU twice, then is sacrificed; a net loss of a land.
+Savage Lands	fixing	52	Tapped three-color land with no extra ability; Jund fixing.
+Savage Mansion	fixing	52	Tapped R/G dual with a pricey surveil sink; a bit above a plain tapped dual.
+Scabland	fixing	50	Tapped painland-style R/W dual; colored mana costs 1 life.
+Scattered Groves	fixing	60	Tapped dual with basic types, fetchable, and it cycles for {2}.
+Scavenger Grounds	utility	50	Colorless land that doubles as graveyard hate, but it gives no fixing.
+Scene of the Crime	utility	52	Tapped colorless land with creature-tap fixing and a late sacrifice to draw a card.
+School of the Unseen	fixing	48	Untapped colorless land that fixes any color if you pay {2}.
+Scorched Geyser	fixing	68	Typed dual that is untapped with two basics; weaker in nonbasic-heavy decks.
+Scorched Ruins	utility	40	Sacrifice two lands for a land tapping for four colorless; clunky and risky.
+Scoured Barrens	fixing	48	Tapped dual in W/B that gains 1 life.
+Scrying Sheets	utility	40	Colorless land whose dig only works with snow cards.
+Sea Gate	fixing	48	Tapped dual that always gives blue plus a chosen color; no other upside.
+Sea Gate Wreckage	utility	50	Colorless utility land that refuels only when your hand is empty.
+Seafloor Debris	fixing	45	Tapped mono-blue land that can sacrifice for any color once.
+Search for Azcanta // Azcanta, the Sunken Ruin	spell-lands	58	Surveils each upkeep, then flips into an Island that digs for noncreature spells.
+Seaside Citadel	fixing	54	Tapped three-color land for Bant; fixing without any extra upside.
+Seaside Haven	utility	28	Colorless land whose draw ability needs Birds to sacrifice.
+Seat of the Synod	utility	42	Untapped Island that is an artifact, which helps artifact decks.
+Secluded Courtyard	fixing	58	Untapped, any color for chosen creature type; good in tribal, colorless otherwise.
+Secluded Glen	fixing	46	UB dual that is almost always tapped outside Faerie decks.
+Secluded Starforge	utility	60	Untapped colorless land with a repeatable 5-mana token maker mana sink.
+Secluded Steppe	utility	46	Tapped mono-white land that cycles for W late.
+Secret Passage	fixing	52	Tapped UB dual with a late-game Clue maker.
+Secret Tunnel	utility	38	Colorless land: the unblockable ability needs creatures that share a type.
+Seething Landscape	fixing	52	Colorless land that cycles or fetches a basic of three colors.
+Sejiri Refuge	fixing	50	Gain-land dual in W/U: tapped, but it fixes both colors and gains 1 life.
+Sejiri Steppe	utility	47	Tapped Plains with a small protection trick on entry; it needs a creature to do anything.
+Selesnya Guildgate	fixing	47	Tapped dual with no upside.
+Sequestered Stash	utility	38	Colorless land with a costly artifact-recursion sacrifice; only for artifact decks.
+Seraph Sanctuary	utility	42	Colorless land that gains 1 life on entry; minor upside.
+Serpent's Pass	fixing	50	Tapped U/B dual that cashes in for a card late.
+Shadowblood Ridge	fixing	66	Filter land: pay {1} to get B and R, untapped and fixes both colors.
+Shadowy Backstreet	fixing	62	Tapped Plains Swamp dual with surveil 1; fetchable by types, small upside over a plain tapped dual.
+Shambling Vent	fixing	56	Tapped WB dual that becomes a 2/3 lifelinker; a creature-land with some value.
+Sharlayan, Nation of Scholars	fixing	48	Plain tapped W/U dual with no upside.
+Shattered Landscape	fixing	58	Colorless land that fetches a Mountain, Plains or Swamp later, or cycles late.
+Shefet Dunes	utility	47	Untapped white-or-colorless land with a one-shot team pump.
+Shelldock Isle	utility	42	Tapped Island; free spell only when a library has 20 or fewer cards.
+Sheltered Thicket	fixing	66	Tapped dual with basic types, fetchable, and it cycles for 2 late.
+Sheltering Landscape	fixing	60	Colorless land that sacrifices to fetch a basic of three colors, or cycles for RGW.
+Shifting Woodland	utility	45	Mono-green land; often untapped, with a niche delirium copy ability.
+Shimmerdrift Vale	fixing	35	Tapped land with one chosen color; snow matters only a little.
+Shimmering Grotto	fixing	48	Untapped utility fixing, but costs {1} to make a color; weak filter.
+Shire Terrace	fixing	54	Colorless land that cracks for a basic; slow, colorless-until-used fixing.
+Shivan Gorge	utility	42	Colorless land with an expensive 1-damage drain to each opponent; slow mana sink.
+Shivan Oasis	fixing	47	Tapped R/G dual with no upside.
+Shizo, Death's Storehouse	utility	38	Taps for B; fear for legends is minor and rarely matters.
+Shore Leave Planet	utility	50	Tapped blue land with a pricey creature-copy ability.
+Shrine of the Forsaken Gods	utility	46	Colorless land; two mana for colorless spells late, but hurts colored mana.
+Sidequest: Catch a Fish // Cooking Campsite	spell-lands	30	Not a land until it flips; slow impulse-style card advantage.
+Silundi Vision // Silundi Isle	spell-lands	58	Spell-land: tapped Island, or a dig for an instant or sorcery.
+Silverbluff Bridge	fixing	52	Tapped two-color land, indestructible and an artifact; avoids Wasteland.
+Silverquill Campus	fixing	50	Tapped W/B dual with a scry 1 sink for late game.
+Simic Guildgate	fixing	47	Tapped dual with no upside; basic fixing in green-blue.
+Sinister Hideout	fixing	52	Tapped UB dual with a pricey surveil sink; plain filler fixing.
+Skarrg, the Rage Pits	utility	40	Colorless land with a pricey pump and trample; mostly a Gruul combat filler.
+Skemfar Elderhall	utility	58	Tapped green land that later sacrifices for -2/-2 and two 1/1 tokens; needs black.
+Skybridge Towers	fixing	53	Tapped W/U dual that cashes in for a card late.
+Skyclave Cleric // Skyclave Basilica	spell-lands	50	Spell-land: tapped mono-W land or a small lifegain body.
+Skycloud Expanse	fixing	67	Filter land: pay {1} for any mix of white and blue; needs other mana.
+Skycoach Waypoint	utility	30	Colorless land with a costly, narrow prepare ability.
+Skyline Cascade	utility	47	Tapped Island that freezes an opposing creature once.
+Skyshroud Forest	fixing	50	Tapped GU land that pings you for colored mana.
+Slagwoods Bridge	fixing	50	Tapped two-color land; indestructible against land destruction but vulnerable to artifact removal.
+Slayers' Stronghold	utility	50	Colorless land that gives a creature +2/+0, vigilance and haste for RW.
+Slippery Karst	utility	48	Tapped mono-green land that cycles for {2} late.
+Sliver Hive	utility	50	Untapped colorless land; color only for Slivers, and it makes tokens if you control a Sliver.
+Smoldering Crater	utility	45	Tapped mono-red land that cycles late; filler.
+Smoldering Marsh	fixing	72	Snarl-style Swamp Mountain: untapped early, typed so it's fetchable.
+Smoldering Spires	utility	38	Tapped mono-red land with a minor can't-block effect.
+Snowfield Sinkhole	fixing	50	Tapped W/B dual with basic types, so it is fetchable; no other upside.
+Soaring Seacliff	utility	42	Tapped mono-blue land with a minor flying trigger on entry.
+Sodden Verdure	fixing	66	Typed Forest Island dual; untapped early with two basics, fetchable, tapped in late nonbasic decks.
+Soldevi Excavations	utility	50	Sacrifice an Island for a land that taps for two mana and scries; slow, blue only.
+Song-Mad Treachery // Song-Mad Ruins	spell-lands	55	Spell-land: tapped red land, or a late Threaten effect; low-impact spell side.
+Sorrow's Path	utility	18	Hurts you and your creatures every time it taps; almost never worth it.
+Soulstone Sanctuary	utility	46	Colorless manland: a 3/3 vigilance for {4}; hurts colored mana.
+Soured Springs	fixing	50	Tapped UB dual that pings for 1 and is a Desert.
+Spatial Anomaly	utility	48	Colorless land; late it deals 2 to a creature and leaves a tapped any-color land.
+Spawning Bed	utility	40	Colorless land that turns into three Scions for six mana late.
+Spawning Pool	utility	50	Tapped mono-black manland with regeneration; dodges sorcery-speed wipes.
+Spectacle Summit	fixing	55	Tapped UR dual with a surveil mana sink.
+Spikefield Hazard // Spikefield Cave	spell-lands	56	Tapped Mountain that doubles as a 1-damage instant when you need it.
+Spinerock Knoll	utility	42	Tapped mono-red land; the free spell needs 7 damage to an opponent in one turn.
+Spire of Industry	fixing	68	Untapped utility fixer; needs an artifact for color, costs 1 life per tap.
+Springjack Pasture	utility	48	Colorless land that makes Goats slowly for mana and life.
+Spymaster's Vault	utility	50	Black land, untapped with a Swamp; connive after creatures die.
+Stalking Stones	utility	42	Colorless manland: animates for {6} into a 3/3.
+Stardew Valley	utility	42	Colorless land whose abilities are slow and costly; niche politics and Food.
+Starfleet Academy	utility	38	Colorless land; its mana ability needs five mana and a wide board of types.
+Stark Industries	fixing	50	Tapped two-color land with a little lifegain; plain gain-land tier.
+Starlit Sanctum	utility	30	Colorless land whose abilities need Clerics; weak outside that theme.
+Starting Town	fixing	66	Untapped early, then tapped; any color for 1 life gives full fixing.
+Stensia Bloodhall	utility	46	Colorless utility land: pay five for 2 damage to a player; a slow reach option needing B and R.
+Stingerquill Annex	fixing	47	B/R dual that is usually tapped unless you have a planeswalker; a gain-land-level dual.
+Stirring Wildwood	fixing	58	Tapped GW dual that becomes a 3/4 reach creature.
+Stone Quarry	fixing	47	Tapped R/W dual with no upside.
+Storm the Vault // Vault of Catlacan	spell-lands	38	Gold enchantment that needs five artifacts to flip into a land.
+Strangled Cemetery	fixing	50	B/G dual that is mostly tapped until a player is low on life.
+Strength of the Harvest // Haven of the Harvest	spell-lands	52	Tapped G/W land with a weak aura option; a fixing land that costs no slot.
+Study	fixing	54	Tapped two-color land with a late-game clue ability.
+Study Hall	fixing	52	Untapped colorless land that filters to any color for {1}, with commander scry.
+Stump Stomp // Burnwillow Clearing	spell-lands	62	Spell-land: a tapped R/G dual, or a cheap bite spell when needed.
+Submerged Boneyard	fixing	48	Tapped UB dual with no upside.
+Subspace Anomaly	utility	42	Colorless land; 5 mana sacrifice for two tokens and a fixing land.
+Subterranean Cavern	fixing	49	Tapped BG gain land.
+Subterranean Hangar	utility	25	Tapped slow storage land that only makes black.
+Suburban Sanctuary	fixing	50	Tapped two-color land with a small surveil sink; a bit above a plain gain land.
+Sulfur Vent	fixing	38	Tapped mono-black land; sacrificing it gives UR once. Fixes poorly.
+Sulfurous Mire	fixing	52	Tapped dual with basic types, fetchable but slow with no extra upside.
+Sun-Blessed Peak	fixing	52	Tapped R/W dual that cycles away late for a card.
+Sunbillow Verge	fixing	72	Verge dual: always makes W, R once you have a Mountain or Plains.
+Sungrass Prairie	fixing	58	Colorless-fed filter for GW; fixes but taps for no mana without another source.
+Sunhome, Fortress of the Legion	utility	55	Colorless land that gives double strike for 4; fine in Boros aggro, it's a colorless drag otherwise.
+Sunken Citadel	utility	46	Tapped mono-color land; the double mana only pays for land abilities, so it's niche.
+Sunken Hollow	fixing	72	Battle land: UB with basic types, untapped with two basics, fetchable.
+Sunken Palace	utility	50	Tapped Island-ish land; late game copies a spell by exiling seven cards.
+Sunlit Marsh	fixing	52	Tapped WB dual with basic types, so fetchable.
+Sunscorched Divide	fixing	56	Untapped filter land for RW; needs another mana source to work.
+Suppression Ray // Orderly Plaza	spell-lands	54	Tapped W/U dual that doubles as a late-game tap-down spell.
+Surtland Frostpyre	utility	46	Tapped red land; costly late-game sacrifice for 2 damage to each creature.
+Surveillance Room	fixing	48	Enters tapped-free land with surveil 1; fixing costs {1} each tap.
+Survivors' Encampment	fixing	50	Untapped colorless land; any color needs you to tap a creature, so it fixes with a cost.
+Susur Secundi, Void Altar	utility	46	Tapped Swamp with a slow station upgrade that sacrifices a creature to draw.
+Svogthos, the Restless Tomb	utility	50	Colorless manland that grows with creatures in your graveyard; best in BG.
+Svyelunite Temple	utility	38	Tapped mono-blue land with a one-shot UU burst; low impact.
+Swarmyard	utility	28	Colorless land; regeneration only for Insects, Rats, Spiders and Squirrels.
+Swiftwater Cliffs	fixing	48	Gain land: tapped U/R dual with 1 life, no other upside.
+TCRI Building	fixing	50	Tapped two-color land with a point of life; plain filler dual.
+Tainted Field	fixing	52	Untapped dual that needs a Swamp for colors; colorless otherwise.
+Tainted Isle	fixing	52	Untapped dual that needs a Swamp for colors; colorless otherwise.
+Tainted Peak	fixing	52	Untapped dual that needs a Swamp for colors; colorless otherwise.
+Tainted Wood	fixing	62	Untapped B/G dual that needs a Swamp for colors; fine in Golgari.
+Talon Gates of Madara	utility	62	Colorless land with a filter ability and a phase-out protection trick when put in from hand.
+Tangled Florahedron // Tangled Vale	spell-lands	52	Flexible: tapped mono-colored land or a two-mana dork.
+Tangled Islet	fixing	60	Tapped dual with both basic types, so it's fetchable by fetches and land searches.
+Tanglepool Bridge	fixing	50	Tapped Bridge dual: G or U, indestructible, but no untapped mode.
+Tarnation Vista	fixing	52	Tapped land with a chosen color and a filter ability that can fix mana.
+Tarnished Citadel	fixing	50	Untapped any-color mana for 3 damage a tap; fine colorless otherwise.
+Tarrian's Journal // The Tomb of Aclazotz	spell-lands	35	Awkward artifact that discards your hand to become a land with graveyard casting.
+Tectonic Edge	utility	66	Colorless land that doubles as repeatable-free nonbasic land removal in a pinch.
+Teetering Peaks	fixing	38	Tapped mono-color land; the pump is minor.
+Teferi's Isle	utility	50	Tapped land making UU, but phasing means it is gone every other turn.
+Temple of Abandon	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Deceit	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Enlightenment	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Epiphany	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Malady	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Malice	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Mystery	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Plenty	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Silence	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of Triumph	fixing	58	Tapped dual with a scry 1; better than a plain tapped dual, below triomes.
+Temple of the Dragon Queen	fixing	47	Taps for any one chosen color, but enters tapped without a Dragon.
+Temporal Anomaly	utility	50	Colorless land that turns into a fixing land and a card for {3}{G}.
+Tendo Ice Bridge	fixing	45	Colorless land with a single any-color tap; weak fixing.
+Terminal Moraine	fixing	48	Colorless land that cashes in for a tapped basic, fixing slowly.
+Terrain Generator	utility	42	Colorless land that dumps extra basics from hand for 2; slow and clunky.
+Thalakos Lowlands	fixing	46	Taps for W or U but skips your next untap; a weak dual that is fine for colorless.
+Thaumatic Compass // Spires of Orazca	spell-lands	50	Slow land-fetching artifact that flips into a colorless land with a minor trick.
+Thawing Glaciers	utility	46	Tapped land that ramps a basic each turn but costs your land drop to replay.
+The Autonomous Furnace	utility	48	Tapped Mountain that cycles itself away for a card late.
+The Biblioplex	utility	50	Colorless land whose dig ability needs exactly zero or seven cards in hand.
+The Black Gate	utility	52	Black land that enters untapped for 3 life; evasion ability is a modest extra.
+The Dross Pits	utility	46	Tapped mono-black land that can cycle itself late for {1}{B}.
+The Everflowing Well // The Myriad Pools	spell-lands	42	Not a real MDFC; the land side needs descend 8 to flip.
+The Fair Basilica	utility	52	Tapped Plains that cycles itself late for {1}{W}.
+The Gold Saucer	utility	46	Colorless land with a weak coin-flip Treasure and a costly artifact-sacrifice draw.
+The Great Mound	utility	46	Colorless land with expensive late-game draw and token abilities.
+The Grey Havens	utility	42	Colorless land with scry; colored mana needs legends in the graveyard.
+The Hunter Maze	utility	47	Tapped mono-green land that cycles itself late for {1}{G}.
+The Lonely Mountain	utility	48	Mono-red land with a pricey token maker; tapped unless you have an Equipment.
+The Monumental Facade	utility	46	Colorless land with two uses of an artifact/creature counter ability.
+The Mycosynth Gardens	utility	62	Land that filters any color for {1} and can copy an artifact you control.
+The Seedcore	utility	30	Untapped colorless land; color only for Phyrexian creatures, corrupted rarely matters.
+The Shire	utility	42	Taps for {G}, often tapped without a legend; Food-making costs a creature tap.
+The Surgical Bay	utility	48	Tapped mono-blue land that cashes in for a card late; a small upside over a basic.
+The Unicomplex	utility	56	Mono-black land that enters untapped late and gives surveil or puts a creature on top.
+The World Tree	fixing	58	Tapped green land that fixes every color with six lands.
+Theorist's Sanctum	utility	42	Island that enters tapped without a Jace; the empower ability only matters for Jace.
+Theorix Annex	fixing	47	UB dual that is nearly always tapped unless you run planeswalkers.
+Thespian's Stage	utility	50	Costs 2 to become a copy of a land (e.g. a utility land); taps for colorless otherwise.
+Thornglint Bridge	fixing	50	Tapped indestructible dual for G/W; no other upside.
+Thornspire Verge	fixing	66	Verge dual: untapped red, and green once you control a Mountain or Forest.
+Thornwood Falls	fixing	50	Tapped GU dual that gains 1 life; fixes but is slow.
+Thran Portal	fixing	46	Takes a chosen basic type but costs 1 life a tap and can enter tapped.
+Thran Quarry	fixing	40	Taps for any color but is sacrificed with no creatures out.
+Three Tree City	utility	50	Colorless land; with a tribal deck it makes big mana for {2}.
+Thriving Bluff	fixing	50	Tapped dual with a chosen second color; no other upside.
+Thriving Grove	fixing	50	Tapped dual with a chosen second color; no other upside.
+Thriving Heath	fixing	50	Tapped dual with a chosen second color; no other upside.
+Thriving Isle	fixing	50	Tapped dual with a chosen second color; no other upside.
+Thriving Moor	fixing	50	Tapped dual with a chosen second color; no other upside.
+Throne of the High City	utility	56	Colorless land that cashes in for the monarch late, but costs the land.
+Thundering Falls	fixing	62	Tapped UR dual with both basic types, fetchable, and surveil 1.
+Timber Gorge	fixing	47	Plain tapped R/G dual with no upside.
+Timberland Ruins	fixing	42	Tapped mono-green land that sacs once for any color; weak fixing.
+Timberline Ridge	fixing	30	R/G dual that only taps every other turn.
+Tinder Farm	fixing	42	Tapped green land; sacrifice for a burst of RW is a one-time fixing.
+Titan's Grave	fixing	50	Tapped Golgari dual with a costly surveil ability.
+Tocasia's Dig Site	utility	42	Colorless land; {3},{T} to surveil 1 is a slow mana sink.
+Tolaria	fixing	30	An untapped Island that doesn't count as basic; the banding clause does nothing.
+Tolaria West	utility	42	Tapped Island that transmutes into a 0-mana card like Mox or Ancient Tomb.
+Tomb Fortress	utility	50	Tapped Swamp that late-game exiles itself to mill four and reanimate.
+Tomb of Urami	utility	42	Mono-black land with a pinging drawback; the sacrifice-all-lands 5/5 is a rare late-game play.
+Tomb of the Spirit Dragon	utility	30	Colorless land whose lifegain needs colorless creatures; mostly a colorless-theme land.
+Tournament Grounds	utility	35	Colorless land; colored mana only for Knights and Equipment.
+Tower of the Magistrate	utility	34	Colorless land whose ability rarely matters; protection from artifacts is narrow.
+Training Compound	fixing	66	Untapped two-color land that needs a basic or a fresh drop; fine in basic-heavy RG decks.
+Tramway Station	fixing	52	Tapped dual with a late-game sacrifice to draw a card.
+Tranquil Cove	fixing	47	Tapped dual that gains 1 life; plain filler fixing.
+Tranquil Expanse	fixing	46	Plain tapped dual with no upside.
+Tranquil Garden	fixing	38	Untapped dual that doesn't untap after colored mana; clunky.
+Tranquil Landscape	fixing	50	Colorless land that fetches a basic of three types; cycling is costly but it fixes late.
+Transformative Commons	fixing	46	Tapped GU dual that rarely gets untapped without planeswalkers.
+Transguild Promenade	fixing	48	Taps for any color, but enters tapped and costs {1} or it is sacrificed.
+Treasure Map // Treasure Cove	spell-lands	56	2-mana artifact: scry, three Treasures, then flips into a land that draws.
+Treasure Vault	utility	54	Colorless land that sacrifices for X Treasures: late ramp burst.
+Treetop Village	utility	62	Tapped Forest-like land that turns into a 3/3 trampling threat; solid in green decks.
+Trenchpost	utility	36	Colorless land whose mill ability is slow and weak; barely worth a slot.
+Treno, Dark City	fixing	47	Plain tapped UB dual with no upside.
+Trenzalore Clocktower	utility	28	Just an untapped Island in practice; the wheel needs a Time Lord and twelve counters.
+Tresserhorn Sinks	fixing	47	Plain tapped BR dual; snow is a small bonus.
+Treva's Ruins	fixing	56	Three-color bounce-style land; fixes Bant and nets a land drop's worth of mana.
+Turbulent Crater	fixing	50	Tapped dual with basic types, fetchable; rarely untapped.
+Turbulent Fen	fixing	50	Tapped dual with basic types, fetchable; rarely untapped.
+Turbulent Moor	fixing	50	Tapped dual with basic types, fetchable; rarely untapped.
+Turbulent Shore	fixing	50	Tapped dual with basic types, fetchable; rarely untapped.
+Turbulent Springs	fixing	50	Tapped dual with basic types, fetchable; rarely untapped.
+Turbulent Steppe	fixing	50	Tapped dual with both basic types; almost always enters tapped, but fetchable.
+Turbulent Wetlands	fixing	50	Tapped dual with both basic types; almost always enters tapped, but fetchable.
+Turbulent Wilderness	fixing	50	Tapped dual with both basic types; almost always enters tapped, but fetchable.
+Twisted Landscape	fixing	54	Colorless land that fetches Swamp, Mountain or Forest tapped; cycles late.
+Twists and Turns // Mycoid Maze	spell-lands	40	Spell side is weak; the land side only makes green and digs for creatures late.
+Tyrite Sanctum	utility	45	Colorless utility land: a +1/+1 counter on a legend each turn and God protection, but costs mana.
+Ugin's Labyrinth	utility	30	Colorless land; imprint needs a colorless 7+ card in hand.
+Umara Wizard // Umara Skyfalls	spell-lands	55	Spell-land: a mono-blue tapped land that is a 5-mana 4/3 when you need a body.
+Umbral Expanse	fixing	62	Tapped dual with both basic types, fetchable, and it cycles for {2} late.
+Uncharted Haven	fixing	38	Tapped land choosing one color; no real fixing.
+Unclaimed Territory	fixing	58	Untapped land with any-color mana for one creature type; great in tribal.
+Undercity Sewers	fixing	60	Tapped dual with basic types that surveils 1; fetchable.
+Underdark Rift	utility	55	Colorless utility land with a costly, random late-game tuck.
+Underground Mortuary	fixing	60	Tapped dual with basic types that surveils 1; fetchable.
+Undiscovered Paradise	fixing	40	Any color for one tap, then it bounces to hand; weak as a land drop though it dodges land removal.
+Unexplored Territory	fixing	50	Colorless land that later turns itself into a basic for {1}.
+Unholy Grotto	utility	38	Colorless land whose ability only helps Zombie decks.
+University Campus	fixing	52	Tapped W/U dual with a mana sink to surveil 1 late.
+Unknown Shores	fixing	46	Untapped colorless land; pay {1} to make any color. Slow fixing.
+Unstable Frontier	fixing	46	Colorless land that turns another land into a chosen basic type for the turn.
+Untaidake, the Cloud Keeper	utility	38	Tapped land; {C}{C} only for legendary spells, costing 2 life.
+Urban Retreat	fixing	52	Tapped three-color land; can be dropped in by bouncing a tapped creature.
+Urborg	utility	22	Taps for B; the first strike removal ability almost never matters.
+Urborg Volcano	fixing	48	Tapped B/R dual with no upside.
+Urza's Cave	utility	42	Colorless land that pays 3 to sacrifice and fetch any land tapped.
+Urza's Factory	utility	46	Colorless land with an expensive 2/2 token maker as a late mana sink.
+Urza's Mine	utility	36	Colorless land; makes two mana only with the other two Urza lands.
+Urza's Power Plant	utility	36	Colorless land; makes two mana only with the other two Urza lands.
+Urza's Tower	utility	38	Taps for {C}; only strong with the other Tron lands, rare in singleton.
+Urza's Workshop	utility	40	Taps for {C}; the metalcraft bonus needs other Urza lands, so it is small.
+Uthros, Titanic Godcore	utility	45	Tapped mono-blue land; late it can make lots of mana in artifact decks.
+Valakut, the Molten Pinnacle	utility	48	Tapped Mountain-matters land; the 3-damage trigger needs six Mountains.
+Valgavoth's Lair	fixing	46	Tapped, hexproof land that makes one chosen color; no real fixing.
+Valki, God of Lies // Tibalt, Cosmic Impostor	spell-lands	10	Not a land.
+Vance's Blasting Cannons // Spitfire Bastion	spell-lands	40	Back face is a land only after a hard-to-hit transform; the front is a 4-mana enchantment.
+Vastwood Fortification // Vastwood Thicket	spell-lands	50	Tapped mono-green land that doubles as a weak 1-mana counter spell.
+Vault of Whispers	utility	40	Black artifact land: helps artifact themes but is easy to hit with removal.
+Vault of the Archangel	utility	60	Colorless land with a W/B team deathtouch and lifelink ability.
+Vec Townships	fixing	38	Taps for colorless, or G/W at the cost of not untapping; clunky two-color land.
+Vector, Imperial Capital	fixing	48	Plain tapped B/R dual land with no extra upside.
+Veldt	fixing	25	G/W land that only untaps every other turn; slow and clunky.
+Vernal Fen	fixing	67	Battle-style dual with basic types: untapped early, fetchable by basic fetches.
+Vesuva	fixing	62	Tapped clone land: copies any land, including utility or fixing.
+Vibrant Cityscape	fixing	50	Colorless land: sacrifice to fetch a basic tapped, thins the deck and fixes.
+Vigorbloom Annex	fixing	47	GW dual that is usually tapped; only untapped with a planeswalker.
+Villainous Hideout	utility	38	Colorless land whose colored mana only works for Villain spells; theme-only.
+Viridescent Bog	fixing	50	Filter land: pay {1} to get {B}{G}; needs another mana source.
+Vitu-Ghazi, the City-Tree	utility	56	Colorless land that makes a 1/1 token for {2}{G}{W}; needs GW.
+Vivid Crag	fixing	47	Enters tapped; red land with two uses of any-color mana.
+Vivid Creek	fixing	47	Enters tapped; blue land with two uses of any-color mana.
+Vivid Grove	fixing	50	Tapped land; fixes any color just twice, then it is a tapped Forest.
+Vivid Marsh	fixing	50	Tapped land; fixes any color just twice, then it is a tapped Swamp.
+Vivid Meadow	fixing	50	Tapped land; fixes any color just twice, then it is a tapped Plains.
+Volatile Fault	utility	58	Colorless land that can become a one-shot nonbasic land kill and leave a Treasure.
+Volatile Fjord	fixing	52	Tapped UR dual with basic types, so it is fetchable; no other upside.
+Voldaren Estate	utility	50	Untapped colorless land with Blood-making; fixing only for Vampire spells.
+Volrath's Stronghold	utility	66	Colorless land that recurs a creature to the top of your library each turn for {1}{B}.
+Vulcan	fixing	48	Tapped W/U dual that gains 1 life; plain gain-land fixing.
+Wandering Fumarole	fixing	56	Tapped UR dual with a manland ability that is a bit slow to animate.
+Wanderwine Hub	fixing	48	WU dual that is almost always tapped without Merfolk.
+Warped Landscape	fixing	45	Colorless land that turns into a basic for {2}; slow fixing but costs no slot.
+Wastewood Verge	fixing	72	Verge land: always untapped, green always and black with a Swamp or Forest.
+Waterfront District	fixing	52	Tapped Dimir dual that cycles for a card late; no basic types.
+Waterlogged Teachings // Inundated Archive	spell-lands	66	Tapped U/B dual that doubles as a late-game instant tutor.
+Waterveil Cavern	fixing	46	Colorless freely, or U/B at the cost of not untapping.
+Welcome to . . . // Jurassic Park	spell-lands	30	Saga that ends as a land; slow and needs Dinosaurs.
+White Lotus Hideout	fixing	48	Untapped colorless land; any color costs {1} extra, or free only for Lessons and Shrines.
+Wild Roads	utility	38	Mono-green land that is often tapped; the Pilot token only matters in Vehicle decks.
+Willowrush Verge	fixing	74	Verge: always taps for U, and for G once you control a Forest or Island.
+Wind-Scarred Crag	fixing	47	Tapped two-color gain land; no upside beyond 1 life.
+Windbrisk Heights	utility	44	Tapped Plains that needs a three-creature attack to cast its hidden card.
+Winding Canyons	utility	50	Colorless land that lets creatures flash in for {2}.
+Windurst, Federation Center	fixing	47	Plain tapped G/W dual with no upside.
+Wintermoon Mesa	utility	42	Tapped colorless land; sacrifice to tap two lands is a rare tempo trick.
+Wirewood Lodge	utility	42	Colorless land that untaps an Elf for {G}; only useful in elf decks.
+Witch's Clinic	utility	42	Colorless land that can give your commander lifelink; niche for lifegain decks.
+Witch's Cottage	utility	55	Swamp that is often untapped in heavy-black decks and sets up a creature draw.
+Witherbloom Campus	fixing	54	Tapped dual with a late scry 1 mana sink.
+Wizards' School	fixing	52	Untapped colorless land; pay {1} for blue or {2} for white or black, but slow.
+Wooded Ridgeline	fixing	50	Tapped dual with both basic types; fetchable but slow.
+Woodland Chasm	fixing	50	Tapped dual with both basic types; fetchable but slow.
+Woodland Stream	fixing	47	Tapped GU dual with no upside.
+Yavimaya Hollow	utility	55	Colorless land that regenerates a creature for G; modest protection.
+Zanarkand, Ancient Metropolis // Lasting Fayth	spell-lands	52	Tapped mono-green land with a late-game token spell, so it costs no slot.
+Zhalfirin Void	utility	48	Colorless land that scries 1 on entry; no fixing.
+Zoetic Cavern	utility	42	Colorless land that can become a 2/2 morph creature; hurts colored mana.
+Zof Consumption // Zof Bloodbog	spell-lands	56	Spell-land: tapped black land, or a late-game drain for 4.

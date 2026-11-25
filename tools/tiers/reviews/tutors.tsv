@@ -58,3 +58,394 @@ Dizzy Spell	any	50	Transmute for a 1-drop.
 Foresight		x	Exiles three cards from your library; not a tutor.
 Manipulate Fate		x	Exiles three cards from your library; not a tutor.
 Treasure Chest		x	A random roll that rarely finds what you need.
+# grade_api merged, 2026-11-24
+Acquire	artifact-enchantment	46	5 mana: put an artifact from an opponent's library onto the battlefield.
+Adventure Awaits	creature	40	Digs five cards for a creature, with a fallback draw.
+Adéwalé, Breaker of Chains	creature	34	3-mana 4/1 that finds only Pirates, Assassins or Vehicles.
+Ajani, Valiant Protector	creature	40	6-mana walker: +1 repeatedly fetches the next creature card to hand.
+Altar of Bone	creature	60	2 mana and a sacrifice: any creature to hand; needs a creature and GW.
+Amrou Scout	other	22	Rebel-only tutor for {4} and tap; few Rebels exist in Commander.
+An Unearthly Child	other	30	Only finds Doctors, companions or Vehicles; strong only in a Doctor Who or Vehicle deck.
+Anchor to Reality	artifact-enchantment	38	4 mana plus a sacrifice: put an Equipment or Vehicle onto the battlefield.
+Arachnus Spinner	other	28	Can only find one named card, Arachnus Web, on a six-mana body.
+Archdruid's Charm	creature	64	3-mana instant: a creature to hand, or a land onto the battlefield tapped.
+Arcum Dagsson	artifact-enchantment	30	Needs artifact creatures; mostly a janky tutor for an artifact.
+Arena Rector	other	38	4-mana 1/2 that tutors a planeswalker onto the battlefield when it dies; needs a walker deck.
+Artificer Class	artifact-enchantment	42	Level 2 digs up a random artifact into hand; slow, artifact decks only.
+Artificer's Intuition	artifact-enchantment	38	Repeatable but costs an artifact card and only finds MV 0-1 artifacts.
+Astor, Bearer of Blades	other	40	4-mana 4/4 that digs seven deep for an Equipment or Vehicle.
+Auratouched Mage	artifact-enchantment	38	6-mana body that finds an Aura. Narrow and expensive.
+Aurochs Herd	other	8	Only finds another Aurochs card, which barely exists in singleton.
+Ayara's Oathsworn	any	38	Needs four connects with a 2-drop; tutors any card but slow and fragile.
+Basic Conjuration	creature	40	3-mana sorcery: dig six for a creature, gain 3 life; random not a true tutor.
+Behold the Beyond	any	42	7-mana sorcery: discard your hand, then fetch any three cards.
+Benefaction of Rhonas	creature	42	Digs five for a creature and an enchantment; random and mills the rest.
+Beseech the Queen	any	65	BBB sorcery tutor to hand for a card up to your land count; weaker early.
+Bilbo, Birthday Celebrant	creature	8	Needs 111 life to activate; almost never works.
+Birthing Pod	creature	70	Repeatable creature tutor onto the battlefield, sacrificing up the curve.
+Bitterheart Witch	other	14	5-mana body that only finds a Curse on death; almost no Curses in a deck.
+Blood Speaker	creature	30	Only finds a Demon, and is recurred only by Demons.
+Bloodline Shaman	creature	28	Taps to guess a type; only hits with a matching tribe, otherwise mills.
+Board the Weatherlight	other	38	2-mana dig five for a historic card; narrow but common.
+Bog Glider	other	22	Costs a land per use and only finds cheap Mercenaries.
+Boggart Harbinger	creature	30	3-mana body that puts a Goblin on top of the library. Tribal only.
+Booster Tutor	any	38	1-mana instant: pick the best of a random pack's cards, not your deck.
+Brainspoil	any	46	Transmute for 3 finds a card with mana value 5, which is narrow.
+Brightglass Gearhulk	creature	58	4-mana 4/4 body that fetches two cards of MV 1 or less.
+Bring to Light	creature	46	5 mana in GU: find and cast a spell with MV 2 or less; weak without five colors.
+Bringer of the Black Dawn	any	50	Costly body that tutors any card to the top each upkeep for 2 life.
+Brutalizer Exarch	creature	44	Puts a creature on top, costs six, and leaves a 3/3 body.
+Burning-Rune Demon	any	74	6-mana 6/6 flyer that finds two cards; the opponent picks one, the other goes to the graveyard.
+Call the Gatewatch	other	40	3-mana sorcery: planeswalker to hand; only good in superfriends decks.
+Captain America, Liberator	artifact-enchantment	40	5-mana body that puts an Equipment of MV 3 or less onto the battlefield; narrow and costly.
+Captain Sisay	other	62	Repeatable tutor for legendary cards: great with legend-heavy decks, but narrow and slow.
+Caradora, Heart of Alacria	other	30	4-mana body that tutors only a Mount or Vehicle; narrow type.
+Case of the Stashed Skeleton	any	62	2 mana body, then {1}{B} sorcery tutor for any card once the Skeleton dies or is removed.
+Cateran Brute	other	28	Slow creature tutor for a narrow type: few Mercenaries in singleton.
+Cateran Enforcer	other	27	Five-mana body, then {4} per fetch; only Mercenaries.
+Cateran Kidnappers	other	27	Four-mana body with a {3} fetch for Mercenaries only.
+Cateran Overlord	other	24	Seven-mana body, {6} per fetch; only Mercenaries.
+Cateran Persuader	other	22	Cheap but can only find one-drop Mercenaries, which are very few.
+Cateran Slaver	other	25	Six-mana body, {5} per fetch; only Mercenaries.
+Cateran Summons	creature	36	1-mana Mercenary tutor; only good in a Mercenary tribal deck.
+Celestial Reunion	creature	56	X+G sorcery: creature tutor, can put it onto the battlefield.
+Central Elevator // Promising Stairs	other	30	Four-mana enchantment that only finds a Room card; theme only.
+Citanul Flute	creature	50	5-mana artifact: pay X to fetch a creature with MV X or less, repeatably but slowly.
+Cloud, Midgar Mercenary	artifact-enchantment	56	WW 2/1 body that finds any Equipment, only a narrow type.
+Clutch of the Undercity	any	34	Transmute for 3: finds a card with mana value 4, at sorcery speed.
+Conduit of Ruin	creature	42	6-mana 5/5; finds a colorless 7+ creature to the top, which is narrow.
+Conflux	any	46	8 mana sorcery: five cards of five colors to hand, but needs a five-color deck and costs a turn.
+Congregation at Dawn	creature	58	3-mana instant: stack three creatures on top; good with Reveillark-style or draw engines.
+Cool but Rude	any	52	Level 3 for 6 total mana tutors any card, with a random discard.
+Coralhelm Chronicler	other	30	Digs five for a kicker card only; narrow, few kicker cards in a deck.
+Corpse Connoisseur	creature	56	Tutors a creature to the graveyard, twice with unearth; good in reanimator.
+Corpse Harvester	creature	33	5-mana body: sacrifice a creature to fetch a Zombie card plus a Swamp; tribal.
+Courier of Comestibles	other	25	2-mana body that tutors only a Food card, a very narrow target in singleton.
+Coveted Prize	any	62	Any card to hand; costs up to 5, cheaper with a party, free spell with a full one.
+Cranial Extraction	other	12	Exiles a named card; does not find anything for you.
+Cruel Tutor	any	68	3-mana sorcery: any card to the top for 2 life; slow but finds anything.
+Curse of Misfortunes	other	15	5 mana to fetch only Curses, which are rare in singleton decks.
+Curse-Marred Demon	any	66	4-mana 4/4 flyer that tutors any card to hand; random discard costs a card.
+Cynical Loner	any	38	2-mana 3/1 that must attack, then puts any card into the graveyard, not hand; only helps reanimator.
+Dark Petition	any	62	5-mana tutor for any card; with spell mastery it refunds BBB and is nearly free.
+Deadeye Quartermaster	other	42	4-mana body that finds an Equipment or Vehicle; narrow type.
+Deathbellow War Cry	creature	10	8 mana and needs four different Minotaurs in singleton; almost never works.
+Defense of the Heart	creature	48	4 mana: two creatures onto the battlefield once an opponent has three creatures.
+Defiant Falcon	other	28	2-mana flyer that fetches only cheap Rebels for 4 mana each time.
+Defiant Vanguard	other	25	3-mana body; 5 and tap to fetch a Rebel with mana value 4 or less.
+Delivery Moogle	artifact-enchantment	56	4-mana flyer that fetches an artifact of MV 2 or less, like Sol Ring or a signet.
+Demonic Collusion	any	52	5-mana any-card tutor; buyback costs two cards.
+Demonic Consultation	any	68	1-mana instant: finds any named card, but risks exiling your library.
+Demonic Counsel	any	58	2 mana: any card with delirium, otherwise only a Demon.
+Diabolic Revelation	any	50	X+5 mana sorcery: X cards of your choice to hand; flexible but costly.
+Diabolic Vision	any	50	2 mana UB: look at five, take any card, rest on top.
+Dichotomancy	other	38	Suspend for 3: fetch same-name cards for tapped permanents; unreliable in singleton, mostly basic lands.
+Dimir House Guard	any	40	Transmute for 3: find any card with mana value 4.
+Dimir Infiltrator	any	42	Transmute for 3: find any card with mana value 2.
+Dimir Machinations	any	45	Transmute for any MV 3 card; otherwise mostly mills or stacks the top of a library.
+Dina's Guidance	creature	66	3-mana instant: a creature to hand or graveyard, which also sets up reanimation.
+Disciple of Deceit	any	50	2-mana body: once untapped, discard a nonland card to tutor one of equal mana value.
+Disciples of Gix	artifact-enchantment	38	6-mana 4/4 that mills three artifacts into the graveyard; no hand access.
+Distant Memories	any	62	4 mana: tutor any card, or draw three if no opponent lets you have it; opponents usually give it to you.
+Divining Witch	any	42	Repeatable named tutor for 2 mana and a discard; exiles six cards and is slow.
+Djeru, With Eyes Open	other	40	5-mana body that tutors only a planeswalker; needs a walker-heavy deck.
+Doomsday	any	62	BBB sorcery: stack any five cards on top, but you lose half your life and exile the rest.
+Doubling Chant	creature	8	Needs same-name creatures; in singleton it almost never finds anything.
+Draconic Muralists	creature	38	4/3 body that tutors a Dragon on death; only helps Dragon decks.
+Dragonologist	instant-sorcery	46	3-mana body that digs six deep for an instant, sorcery or Dragon; a random pick, not a true tutor.
+Dragonstorm	creature	32	9-mana storm tutor that puts Dragons onto the battlefield; too costly and too narrow.
+Dragonstorm Forecaster	other	26	Only finds two named cards, so it's a narrow tutor.
+Drift of Phantasms	any	38	Transmute for 3: fetch a mana value 3 card; narrow but flexible.
+Dwarven Recruiter	other	28	Dwarf-only tutor to the top; needs a dwarf tribal deck.
+Dyfed, the Guiding Hand	artifact-enchantment	38	-6 puts an artifact onto the battlefield, but takes several turns to reach.
+Ecological Appreciation	creature	58	X sorcery: finds four creatures; two go to the battlefield, two shuffle back.
+Eerie Procession	other	8	3 mana to find an Arcane card; almost no targets in a singleton deck.
+Ellywick Tumblestrum	creature	50	4-mana walker: dig six deep for a creature, repeatable twice-ish.
+Elvish Harbinger	creature	30	Only finds an Elf, and only to the top of the library.
+Emergent Ultimatum	other	40	Three-color 7-mana: get three monocolored cards, cast two free; clunky and narrow.
+Enduring Ideal	artifact-enchantment	45	7 mana: an enchantment straight onto the battlefield, then repeats each upkeep; needs a good target.
+Enigmatic Incarnation	creature	50	Four-mana engine: sacrifice an enchantment each turn to cheat a creature onto the battlefield.
+Entrust the Spark	other	22	5 mana, sacrifice a planeswalker to fetch another; only works in planeswalker decks.
+Ethereal Usher	any	42	Transmute for 3 finds another card with mana value 6, which is narrow.
+Evolving Door	creature	38	Sac a creature to tutor one with more colors; clunky, needs mana to cast and multicolor creatures.
+Extract	other	20	Searches an opponent's library, not yours; it only removes a card.
+Eye of Ugin	creature	36	7 mana and tap for a colorless creature; very slow and narrow.
+Faerie Harbinger	creature	30	4-mana flash flyer; only finds a Faerie, to the top of the library.
+Fang-Druid Summoner	creature	38	4-mana body that finds only creatures with no abilities; a thin target pool.
+Federation Resupply	other	44	2-mana sorcery: fetch an Aura, Equipment or Spacecraft; narrow but a common type set.
+Fervent Mastery	any	60	4-5 mana sorcery: take three cards then discard three at random; the opponent may reroll their hand.
+Fiend Artisan	creature	68	2-mana repeatable creature tutor onto the battlefield, needs fodder and sorcery speed.
+Fierce Empath	creature	58	3-mana body that fetches a big creature to hand.
+Fighter Class	artifact-enchantment	48	2 mana: an Equipment to hand, but only in equipment decks.
+Final Parting	any	64	5-mana sorcery: any card to hand and another to graveyard, which helps reanimator.
+Firemind's Foresight	instant-sorcery	40	7 mana for three specific instants; slow, narrow and needs the right ones in the deck.
+Flamekin Harbinger	creature	30	1-mana body that only finds an Elemental, and only to the top.
+Fleshwrither	creature	52	3/3 body that can transfigure into another 4-drop creature for 3 mana at sorcery speed.
+For the Ancestors	creature	30	3-mana instant: dig six for one creature type; flashback, but tribal-only.
+Forerunner of the Coalition	creature	28	3-mana body that tutors only Pirates, a rare tribe.
+Forerunner of the Empire	creature	28	Only finds a Dinosaur and puts it on top; needs a tribal deck.
+Forerunner of the Heralds	creature	27	Only finds a Merfolk and puts it on top; tribal only.
+Forerunner of the Legion	creature	29	Only finds a Vampire and puts it on top; tribal only.
+Forging the Anchor	artifact-enchantment	47	3 mana: take any artifacts from the top five; good in artifact decks.
+Forging the Tyrite Sword	artifact-enchantment	36	Slow Equipment-only tutor on chapter III.
+Formidable Speaker	creature	63	3-mana body that tutors any creature for a discard; untap ability gives extra mana.
+Foster	creature	38	4-mana enchantment: a random creature to hand each time yours dies, milling the rest.
+From Beyond	creature	38	Finds an Eldrazi only; mostly a token engine in the right deck.
+From Father to Son	other	30	Only finds Vehicles, which are rare in most decks.
+Frostpyre Arcanist	instant-sorcery	14	Needs a same-named card; in singleton it rarely finds anything.
+Fugitive of the Judoon	other	22	5-mana saga; the tutor only finds a Doctor and needs a Human and an artifact.
+Garruk Relentless // Garruk, the Veil-Cursed	creature	44	Flipped side sacrifices a creature to tutor a creature; slow and conditional.
+Garruk, Caller of Beasts	creature	42	6 mana: reveals five each turn for all creatures, no choice beyond that.
+Garruk, Unleashed	creature	32	Only an emblem at -7 tutors creatures; far from a real tutor.
+Gather the Pack	creature	42	2-mana look at five for a creature; the rest go to the graveyard, which suits self-mill.
+General Tazri	creature	30	5-mana body that only finds an Ally; a tribal tutor.
+Giant Harbinger	other	28	Only finds a Giant, and only to the top of your library.
+Glamdring, Foe-hammer // Gleam of Death	instant-sorcery	42	4-mana sorcery adventure: mill six, take the instants and sorceries.
+Goblin Engineer	artifact-enchantment	38	Only puts an artifact into the graveyard, not your hand; useful for a reanimation plan.
+Goblin Matron	creature	30	3-mana body that fetches a Goblin; it only helps in Goblin decks.
+Goblin Recruiter	creature	30	2 mana: stacks Goblins on top; only works in Goblin decks.
+Godo, Bandit Warlord	artifact-enchantment	46	6-mana body that puts an Equipment onto the battlefield; only finds Equipment.
+Gravebreaker Lamia	any	50	5-mana lifelink body that tutors any card to the graveyard; good for reanimator, but no hand.
+Green Sun's Twilight	creature	48	Sorcery dig for a creature and a land; X 5+ puts both onto the battlefield, but it's random.
+Grim Reminder	any	74	3-mana instant: any nonland card to hand, and it recurs from the graveyard every upkeep for BB.
+Grim Servant	any	52	4-mana 3/2 body; tutor is limited by devotion, usually only finds a 1-4 drop in heavy black.
+Grozoth	other	30	Transmute for 3 finds a 3-drop; the 9-mana body only fetches 9-drops.
+Guardian Sunmare	any	46	5-mana body that needs saddle 4 to attack, then puts a permanent of MV 3 or less onto the battlefield.
+Guided Passage	any	38	3 mana in three colors: opponent picks a creature, a land and a spell, so you get a hand of three.
+Guidelight Pathmaker	artifact-enchantment	48	6-mana 6/5 vehicle that tutors any artifact, putting cheap ones straight onto the battlefield.
+H.M.S. Bounty, Unlikely Timeship	other	22	Only finds a Whale, almost nobody has one.
+Harper Recruiter	creature	30	Attack trigger digs four deep, but only for four specific creature types.
+Heliod's Pilgrim	other	44	3-mana body that fetches an Aura: good with Aura themes or removal Auras, narrow otherwise.
+Heroes' Podium	creature	25	Slow, X-cost dig for legendary creatures only, so it needs a legends deck.
+Hibernation's End	creature	40	5 mana plus growing upkeep: put a creature of each rising mana value onto the battlefield.
+Higure, the Still Wind	creature	30	Needs combat damage and finds only Ninjas.
+Hoarding Broodlord	any	58	Convoke flyer that finds any card; costs 8 but convoke makes it easier, and it has a body.
+Hoarding Dragon	artifact-enchantment	50	5-mana flyer that finds an artifact, but you only get it if the Dragon dies.
+Honored Knight-Captain	artifact-enchantment	38	Six mana and a sacrifice to put an Equipment onto the battlefield; fine in equipment decks.
+Hour of Victory	any	58	3 mana: a 2/2, then with max speed sacrifice to tutor any card; needs the speed track.
+Ignite the Beacon	other	40	5-mana instant: two planeswalkers to hand, only good in superfriends decks.
+Illicit Shipment	any	62	5-mana sorcery: any card to hand, and casualty 3 can copy it for a second tutor.
+Imperial Hellkite	creature	25	Dragon-only tutor behind an expensive morph flip.
+Iname as One	other	22	12 mana for a body that fetches a Spirit; needs a Spirit theme and huge mana.
+Iname, Death Aspect	other	22	Six-mana body that only puts Spirit cards in the graveyard; very narrow.
+Incoming!	any	38	8 mana: every player fetches a pile of permanents onto the battlefield; symmetric and slow.
+Incubation // Incongruity	creature	48	1-mana look at five for a creature; hybrid cost, not guaranteed to hit.
+Inevitable Betrayal	creature	62	Suspend 3: puts the best creature from an opponent's library onto the battlefield under your control.
+Infernal Tutor	any	52	2-mana sorcery: any card only with an empty hand; otherwise it finds nothing in singleton.
+Infinite Obliteration	other	10	Exiles one named creature from an opponent; in singleton it barely does anything.
+Insidious Dreams	any	42	4-mana instant: discard X to stack X chosen cards on top; costs card parity.
+Instrument of the Bards	creature	44	1-mana artifact: slow creature tutor, pay {3}{G} each use at a rising mana value.
+Invasion of Arcavios // Invocation of the Founders	instant-sorcery	52	5 mana: instant or sorcery to hand from library or graveyard; back side copies your spells.
+Invasion of Ikoria // Zilortha, Apex of Ikoria	creature	67	{X}{G}{G}: put a non-Human creature from library or graveyard onto the battlefield; scales, sorcery speed.
+Invasion of Theros // Ephara, Ever-Sheltering	artifact-enchantment	47	3 mana: tutor an Aura, God or Demigod.
+Invert // Invent	instant-sorcery	50	6 mana instant: fetches an instant and a sorcery.
+Iron Man, Titan of Innovation	artifact-enchantment	46	Attack: trade a noncreature artifact for one costing 1 more, put onto the battlefield.
+Isperia the Inscrutable	creature	28	Needs combat damage and a correct name guess to find a flyer; mostly a body.
+Jarad's Orders	creature	62	4 mana: two creatures, one to hand and one to the graveyard for reanimation.
+Kaho, Minamo Historian	instant-sorcery	62	4-mana body: exile three instants, then cast them free over turns.
+Karn, the Great Creator	artifact-enchantment	40	-2 gets an exiled artifact back; wishboard is rare in Commander, mostly artifact decks.
+Kasmina, Enigma Sage	instant-sorcery	20	The -8 ultimate takes many turns and casts the spell free; rarely matters.
+Kellan, the Fae-Blooded // Birthright Boon	artifact-enchantment	42	2-mana sorcery fetches an Aura or Equipment; narrow, but it leaves a body.
+Kithkin Harbinger	creature	28	3-mana 1/3 that puts a Kithkin on top; tribal only.
+Kuldotha Forgemaster	artifact-enchantment	30	5-mana body; sacrifice three artifacts to put an artifact onto the battlefield. Heavy cost.
+Lagomos, Hand of Hatred	any	32	Tutor for any card, but only after five creatures die in one turn; rarely happens.
+Last Light of Durin's Day	creature	30	Needs six Mountains, then puts a Dragon onto the battlefield; narrow type.
+Library of Lat-Nam	any	50	5-mana sorcery: an opponent picks between a tutor and draw three at next upkeep.
+Lifespinner	other	22	Needs three Spirits sacrificed to fetch a legendary Spirit; a tribal-only tutor.
+Light-Paws, Emperor's Voice	artifact-enchantment	38	2-mana body that finds an Aura onto itself; only works in Aura decks.
+Liliana Vess	any	57	5-mana walker: -2 tutors any card to the top, and it can repeat.
+Lin Sivvi, Defiant Hero	creature	22	Only finds Rebels, which few decks play; needs a Rebel theme.
+Lively Dirge	any	46	Cheap mode puts any card into the graveyard, not your hand; reanimation setup only.
+Lo and Li, Twin Tutors	other	28	5-mana body that only finds a Lesson or Noble; few exist.
+Lost Auramancers	artifact-enchantment	48	4-mana body that puts any enchantment onto the battlefield after 3 turns.
+Lost Legacy	other	0	placeholder
+Lotuslight Dancers	other	38	Tutors three cards into the graveyard only, for a three-color five-drop; fits reanimator but is clunky.
+Loyal Inventor	artifact-enchantment	48	3-mana body: artifact to the top of your library, a slow tutor.
+Loyal Tutor	other	38	1-mana instant: a planeswalker to the top; only planeswalker decks.
+Maelstrom of the Spirit Dragon	creature	28	4 mana and a land sacrifice to find a Dragon; only works in Dragon decks.
+Magda, Brazen Outlaw	artifact-enchantment	30	Sacrifice five Treasures to put an artifact or Dragon onto the battlefield; slow.
+Magus of the Order	creature	34	4-mana body, then sacrifice it and another green creature to fetch a green creature onto the battlefield.
+Maralen of the Mornsong	any	42	Everyone tutors each draw step for 3 life; symmetric and hurts you too.
+Mask of the Mimic	creature	30	Needs a duplicate name; singleton makes it nearly dead outside special cards.
+Mausoleum Secrets	other	50	2-mana instant: black card up to your graveyard's creature count; weak early.
+Maximus, Knight Apparent	artifact-enchantment	40	4-mana body that fetches only a 2-mana Equipment; narrow target pool.
+Merrow Harbinger	other	28	Merfolk-only tutor to the top on a 4-mana body.
+Micromancer	instant-sorcery	50	4-mana 3/3 body: finds a 1-mana instant or sorcery.
+Mishra, Artificer Prodigy	artifact-enchantment	30	Only finds copies of artifacts you cast, which is almost never in singleton.
+Moggcatcher	other	32	Repeatable Goblin-only tutor onto the battlefield; needs a Goblin deck.
+Momir Vig, Simic Visionary	creature	55	5-mana body: green creature casts tutor a creature to the top; blue ones dig.
+Moon-Blessed Cleric	artifact-enchantment	52	3-mana 3/2 body that puts an enchantment on top of your library, not into hand.
+Moonsilver Key	artifact-enchantment	42	2 mana plus 1 to find a mana artifact like Sol Ring or a basic; slow but flexible.
+Mornsong Aria	any	38	Tutors every draw step, but opponents tutor too and you lose 3 life each turn.
+Mwonvuli Beast Tracker	creature	48	3-mana body: finds a keyword creature to the top; narrow but wide pool in green.
+Myr Kinsmith	creature	25	4-mana body that only finds a Myr; tribal only.
+Myr Turbine	creature	25	5-mana artifact: needs five Myr to tutor a Myr creature; very narrow.
+Mystical Teachings	instant-sorcery	59	4-mana instant: any instant or flash card to hand, with a 6-mana flashback.
+Nature's Rhythm	creature	66	XGG: put a creature of mana value X onto the battlefield; Harmonize recasts it later.
+Nazahn, Revered Bladesmith	artifact-enchantment	40	6-mana body that finds an Equipment; narrow target.
+Neoform	creature	68	2 mana: sacrifice a creature to put a creature one MV higher onto the battlefield; two colors.
+Nephilim Epochal	other	22	Fetches only a Nephilim card; a four-color body with almost no targets.
+Netherborn Phalanx	any	40	Transmute for 3 at sorcery speed finds only a 6-drop; narrow and slow.
+Night Dealings	any	38	Slow: needs damage to opponents, then 4 mana to find a card of that value.
+Nissa's Encouragement	other	8	Five mana to fetch three named cards; nearly dead in singleton.
+Noble Benefactor	any	50	3-mana 2/2 that tutors any card when it dies, but every player tutors too.
+Open the Armory	artifact-enchantment	50	2 mana: fetch an Aura or Equipment; great in equipment decks, narrow otherwise.
+Oriq Loremage	any	45	4-mana 3/3 that tutors any card to the graveyard each turn; good for reanimator, it never reaches your hand.
+Oswald Fiddlebender	artifact-enchantment	50	2-mana body: sac an artifact to fetch one costing 1 more onto the battlefield, sorcery speed.
+Parallel Thoughts	any	52	5 mana: set aside any seven cards and draw them in place of normal draws.
+Pattern of Rebirth	creature	50	4-mana aura: when the creature dies, fetch any creature onto the battlefield.
+Peer Through Depths	instant-sorcery	50	2-mana instant: dig five for an instant or sorcery, rest on the bottom.
+Perplex	any	36	Transmute at 3 mana finds another 3-drop in gold UB colors; narrow.
+Phantom Carriage	other	32	6-mana flyer: puts a flashback or disturb card into the graveyard, not to hand.
+Phyrexian Portal	any	50	Colorless artifact tutor for 3 each activation; opponent splits piles, so you get a decent card.
+Pia, Aether Ascetic	artifact-enchantment	52	3-mana body: discard a card to fetch any enchantment.
+Pictures of Spider-Man	creature	50	3 mana: top five for up to two creatures, then a Treasure later.
+Planar Bridge	other	42	Costs 6 then 8 per use: puts any permanent onto the battlefield, very slowly.
+Planar Portal	any	42	6 mana per search for any card, repeatable but very slow.
+Plea for Guidance	artifact-enchantment	42	6-mana sorcery: two enchantments to hand, only good in enchantress decks.
+Plunge into Darkness	any	58	2-mana instant: pay life to dig X deep and take any card; also a sacrifice-for-life mode.
+Praetor's Grasp	any	62	3 mana: take any card from an opponent's library and play it; a tutor that also denies them.
+Priest of the Wakening Sun	creature	28	Dinosaur-only tutor on a 1-drop; costs {3}{W}{W} and a sacrifice.
+Primal Command	creature	50	5 mana: a creature to hand, with a second mode like tucking a permanent.
+Prime Speaker Vannifar	creature	55	4-mana repeatable sac-tutor: creature one mana value higher onto the battlefield.
+Protean Hulk	creature	72	Dies into up to 6 mana of creatures from the library; combo staple with sac outlets.
+Pyre of Heroes	creature	42	Sacrifice a creature to find a same-type creature one mana value higher; needs tribal.
+Quest for the Holy Relic	artifact-enchantment	38	1 mana, slow: after five creature spells fetches any Equipment onto the battlefield.
+Radioactive Spider	creature	22	Sacrifice for a Spider Hero only; very few targets in Commander.
+Ramosian Captain	creature	25	Rebels only; expensive repeatable tutor that needs a Rebel deck.
+Ramosian Commander	creature	25	Rebels only; six mana each activation, tribal only.
+Ramosian Lieutenant	creature	26	Rebels only; low-impact tutor that needs a Rebel deck.
+Ramosian Sergeant	other	22	Rebel-only tutor on a 1/1; almost no targets in singleton.
+Ramosian Sky Marshal	other	20	Rebel-only tutor for 7 mana; flying body is the real value.
+Ranger of Eos	creature	52	4-mana body that finds two 1-drops; strong with good one-drops.
+Ranger-Captain of Eos	creature	46	3/3 body that finds a creature with MV 1 or less; can shut off noncreature spells.
+Ratcatcher	creature	27	6-mana 4/4 fear that tutors only Rat cards; very few Rats exist in singleton.
+Rathi Assassin	other	25	Only finds Mercenary permanents of mana value 3 or less.
+Rathi Fiend	other	25	Only puts a Mercenary of mana value 3 or less onto the battlefield.
+Rathi Intimidator	other	26	Only puts a Mercenary of mana value 2 or less onto the battlefield.
+Razaketh's Rite	any	60	5-mana sorcery: any card to hand; cycles for B when you don't need it.
+Razaketh, the Foulblooded	any	46	8-mana body; sacrifice creatures and pay 2 life to tutor any card repeatedly.
+Reckless Handling	artifact-enchantment	50	2-mana artifact tutor with a random discard; hurts without a full hand.
+Relic Seeker	other	42	2-mana body that fetches an Equipment after connecting once.
+Repurposing Bay	artifact-enchantment	46	3-mana artifact: slow chain, sacrifice an artifact to put the next one onto the battlefield.
+Reshape	artifact-enchantment	50	Sorcery: sacrifice an artifact to put a bigger artifact onto the battlefield; artifact decks only.
+Ring of Three Wishes	any	55	5 to cast, then 5 per tutor for any card, three times; slow but unrestricted.
+Rocco, Cabaretti Caterer	creature	58	XRGW body that puts a creature onto the battlefield, but it needs three colors.
+Rootless Yew	creature	42	5-mana 5/4 that finds a power or toughness 6+ creature when it dies.
+Sacred Guide	any	38	Sacrifice for a random white card; mono-white only, no selection.
+Saheeli Rai	artifact-enchantment	30	The ultimate at 7 loyalty fetches three artifacts, but it is slow.
+Sanar, Unfinished Genius // Wild Idea	instant-sorcery	48	Prepared spell: 5-mana sorcery tutor for an instant or sorcery.
+Sanctum of All	other	25	5-color mana to fetch only Shrines; needs a Shrine theme to do anything.
+Sanctum of Ugin	creature	34	Land that tutors a colorless creature, but only after casting a 7+ colorless spell.
+Sarkhan's Triumph	creature	33	3-mana instant tutor for Dragons only; fine in Dragon decks, poor elsewhere.
+Savage Order	creature	22	Needs a power 4+ sacrifice and only finds Dinosaurs; very narrow.
+Scion of the Ur-Dragon	creature	30	Dragon-only search that puts the card in the graveyard; it needs a Dragon theme.
+Scour for Scrap	artifact-enchantment	50	4-mana instant: fetch any artifact, and can also rebuy one from the graveyard.
+Scrapyard Recombiner	other	32	Sacrifice an artifact to find a Construct; only good in Construct decks.
+Seahunter	other	38	Repeatable tutor but only for Merfolk permanents; tribal only.
+Search for Glory	any	52	3-mana sorcery: fetch a legendary, Saga or snow permanent, which covers most commanders' key pieces.
+Secret Salvage	other	12	5 mana: in singleton it only returns the exiled card's name, which is just one card.
+Seismic Sense	creature	42	1 mana: dig lands-many cards for a creature or land; random, often misses.
+Self-Assembler	creature	25	5-mana 4/4 that only fetches another Assembly-Worker, a rare type.
+Shadow-Rite Priest	creature	32	Needs another Cleric and 5 mana per use to fetch a black creature.
+Shadowborn Apostle	creature	5	Needs six copies sacrificed to find a Demon; hopeless in a 100-card singleton deck.
+Shard Convergence	other	10	Fetches lands only to hand for four mana; poor.
+Shared Summons	creature	58	5-mana instant: two creatures to hand, a two-for-one creature tutor.
+Shield-Wall Sentinel	creature	32	4-mana 1/3 body that finds a defender creature; few good targets in most decks.
+Shrine Steward	artifact-enchantment	38	5-mana body: fetch an Aura or Shrine; narrow and expensive.
+Shrine of Piercing Vision	any	34	2-mana slow dig: sacrifice to take one of the top X cards.
+Sidisi, Undead Vizier	any	62	5-mana deathtouch body: sacrifice a creature to tutor any card.
+Signal the Clans	creature	45	2-mana instant: random creature of three, two-color.
+Silver Surfer, Galactus's Herald	other	8	Only fetches one named card, which almost never matters.
+Siona, Captain of the Pyleas	artifact-enchantment	34	3-mana body that finds an Aura only; narrow to aura decks.
+Sisay, Weatherlight Captain	other	40	Five-color activation finds a cheaper legendary permanent; needs legends and heavy fixing.
+Sivitri, Dragon Master	creature	32	-3 finds a Dragon; only good in dragon decks.
+Skyship Weatherlight	any	46	4 mana, then {4} per random card; you only get random picks, so it isn't a precise tutor.
+Skyshroud Poacher	creature	36	4-mana body; {3} and tap puts an Elf onto the battlefield, so it's tribal-only.
+Sliver Overlord	creature	42	Repeatable {3} tutor, but it only finds Slivers and costs WUBRG.
+Sorin's Guide	other	20	5-mana 4/2 that fetches only Sorin, Vampire Lord by name.
+Sovereigns of Lost Alara	artifact-enchantment	40	6-mana body; attack alone to fetch an Aura onto the battlefield, needs Auras.
+Sphinx Summoner	creature	38	Five-mana two-color flyer that finds only an artifact creature; a body softens the cost.
+Sphinx's Herald	other	8	Needs a white, blue and black creature sacrificed to fetch one named card; almost never works.
+Splinter's Technique	any	64	4-mana sorcery: any card to hand; Sneak lowers the cost to 2 if you return an unblocked creature.
+Spoils of the Vault	any	60	1-mana instant: name and fetch any card at a variable life cost, and it can lose the game.
+Squad Rallier	creature	36	3 mana, repeatable: dig four deep for a creature with power 2 or less.
+Stain the Mind	other	8	Only exiles cards; it does not find anything for you.
+Star Charter	creature	30	A conditional look at four cards for a small creature.
+Starfield Shepherd	creature	43	Body that finds a Plains or 1-drop creature; narrow, but a flyer with a cheap warp.
+Steelshaper Apprentice	other	36	4-mana body that tutors only Equipment; it must bounce itself to do so.
+Sterling Grove	artifact-enchantment	60	2 mana: sacrifice to put an enchantment on top; also shrouds your other enchantments.
+Stoneforge Acolyte	other	32	Digs for Equipment only, and needs another untapped Ally.
+Stonehewer Giant	artifact-enchantment	52	5-mana 4/4: repeatable Equipment tutor straight into play, needs Equipment.
+Sun-Spider, Nimble Webber	artifact-enchantment	50	4-mana body: tutors an Aura or Equipment to hand.
+Sunforger	instant-sorcery	33	Not a real tutor: casts a red or white instant from library for RW, but it's slow to set up.
+Supply // Demand	other	56	3-mana sorcery: tutor any multicolored card; strong in multicolor decks, plus an X-token mode.
+Sylvan Tutor	creature	62	1 mana: creature to the top of the library; cheap but costs your next draw.
+Tainted Pact	any	46	2-mana instant: in singleton you just take the first card exiled, so it's a draw.
+Taj-Nar Swordsmith	artifact-enchantment	50	4-mana 2/3 that tutors Equipment straight onto the battlefield, paying X; needs equipment.
+Tale of Momo	creature	22	Only finds Allies; needs a tribal deck.
+Tallowisp	artifact-enchantment	28	2-mana 1/3 that fetches Auras only when you cast Spirits or Arcane spells.
+Tamiyo's Journal	any	57	5 mana, slow: a Clue each turn, then three Clues fetch any card; also draws.
+Tapping at the Window	creature	48	2-mana dig three for a creature, with flashback; also fuels the graveyard.
+Teferi's Wavecaster	other	32	5-mana flash 3/3 that fetches only Teferi, Timeless Voyager.
+Tezzeret the Seeker	artifact-enchantment	56	5-mana walker: put an artifact straight onto the battlefield, repeatedly, and untap rocks.
+Tezzeret, Agent of Bolas	artifact-enchantment	50	4-mana walker: repeatedly digs five deep for an artifact, but only artifacts.
+Tezzeret, Cruel Captain	artifact-enchantment	50	3 mana: -3 fetches an artifact with mana value 1 or less, like Sol Ring or Mana Vault.
+Thada Adel, Acquisitor	artifact-enchantment	30	3-mana 2/2 that needs to connect to take an artifact from their library.
+Thalia's Lancers	other	56	5-mana 4/4 first strike that fetches any legendary card; great with legend-heavy decks.
+The Arkenstone // Seek the Heart	creature	42	3-mana sorcery: finds a legendary creature, useful mainly with legend-heavy decks.
+The Caves of Androzani	other	18	Four chapters to find only a Doctor; almost no decks can use it.
+The Creation of Avacyn	any	62	3 mana: tutor any card over three turns; creatures can enter the battlefield.
+The Cruelty of Gix	any	62	5 mana: discard, tutor any card for 3 life, then reanimate a creature from any graveyard.
+The Eleventh Hour	creature	28	4-mana saga that finds only a Doctor; very narrow, though you get a copy later.
+The First Doctor	other	15	Fetches only a card named TARDIS; nearly dead in most decks.
+The Five Doctors	other	22	6-mana sorcery that only finds Doctor cards; few exist in a normal deck.
+The Hunger Tide Rises	creature	50	Slow saga: three tokens, then sacrifice for a creature of matching mana value onto the battlefield.
+The Huntsman's Redemption	creature	52	3-mana saga: a 3/3 body, then sacrifice a creature to tutor a creature or basic land.
+The Masters of Evil	other	22	Only finds Plan cards, a tiny set; mostly a 6-mana body.
+The Restoration of Eiganjo // Architect of Restoration	other	40	3-mana saga: fetches a basic Plains to hand only, with value after.
+The Seriema	creature	56	3 mana: legendary creature to hand; fine in commander-heavy legend decks, a leftover artifact after.
+Thieves' Fortune	any	47	3-mana instant: take one of the top four cards; prowl is rarely on.
+Threats Undetected	creature	62	3 mana: two creatures to hand from four different powers; opponent picks which two you keep.
+Three Dreams	artifact-enchantment	28	5 mana to fetch Auras only; needs an aura deck and is clunky.
+Thundertrap Trainer	any	44	2-mana body that digs four deep for a noncreature spell.
+Tiamat	creature	42	Seven mana in five colors for a body and up to five Dragons; needs a dragon deck.
+Time of Need	creature	54	2 mana: a legendary creature to hand; good in legend-heavy decks, narrow otherwise.
+Tolaria West	other	38	Transmute for 3 finds only mana value 0 cards, such as Moxen, artifacts and lands.
+Totem-Guide Hartebeest	artifact-enchantment	42	5-mana 2/5 body: fetches an Aura, useful mainly in Aura decks.
+Transit Mage	artifact-enchantment	52	3-mana body that fetches an artifact with mana value 4 or 5.
+Transmutation Font	artifact-enchantment	30	5-mana artifact: slow tutor-to-battlefield needing three differently named tokens.
+Transmute Artifact	artifact-enchantment	60	2-mana sorcery: sacrifice an artifact, tutor an artifact straight onto the battlefield.
+Trapmaker's Snare	other	25	2-mana instant that finds only a Trap; few exist in the format.
+Traverse the Ulvenwald	creature	42	1 mana: with delirium fetches a creature to hand; otherwise just a basic land.
+Treasure Mage	artifact-enchantment	46	3-mana body that finds a 6+ mana artifact; good with big artifacts.
+Tribute Mage	artifact-enchantment	56	3-mana 2/2 that fetches a 2-drop artifact like a Signet or Talisman.
+Trinket Mage	artifact-enchantment	60	3-mana 2/2 that finds Sol Ring-class artifacts with mana value 0-1.
+Tunnel Vision	any	22	6-mana sorcery: name a card, it only lands on top if it is in the library.
+Turtles Forever	creature	42	4-mana instant: gets two legendary creatures from four, opponent picks; needs legends in the deck.
+Twice Upon a Time // Unlikely Meeting	other	20	Only finds a Doctor card; the extra-turn half needs two Doctors.
+Uncage the Menagerie	creature	52	Grabs X creatures of mana value X; strong for X=2-3 but costs X+2.
+Uncovered Clues	instant-sorcery	36	Digs four cards for up to two instants or sorceries; random, not a real tutor.
+Unmarked Grave	any	52	2-mana sorcery: put a nonlegendary card into your graveyard for reanimation or flashback.
+Urza's Saga	artifact-enchantment	50	Chapter III fetches a 0 or 1 cost artifact onto the battlefield.
+Varragoth, Bloodsky Sire	any	58	3-mana deathtouch body; boast puts any card on top for {1}{B} once it has attacked.
+Vile Entomber	any	55	4-mana deathtouch 2/2 that tutors any card to the graveyard for reanimation.
+Vision Quest	creature	50	X UR sorcery: put an artifact creature onto the battlefield from library or graveyard, with counters.
+Vivien on the Hunt	creature	52	6-mana walker: +2 sacrifices a creature to put one a mana value higher onto the battlefield; also makes 4/4s.
+Vivien, Monsters' Advocate	creature	45	-2 cheats a smaller creature from the library when you cast a creature.
+Vorinclex // The Grand Evolution	other	30	Only finds Forest cards, which are lands.
+Wandering Mind	any	46	Gold flyer that digs six deep for a noncreature spell on entry.
+War of the Last Alliance	creature	52	Two legendary creature tutors for 4 mana, slow but good value.
+Wargate	any	58	GWU X sorcery: any permanent onto the battlefield; three colors needed.
+Waterlogged Teachings // Inundated Archive	instant-sorcery	50	4-mana instant tutor for an instant or flash card, flexible as a land.
+Weird Harvest	creature	47	XGG: fetch X creatures to hand, but each opponent does too.
+Wild Pair	creature	52	6-mana enchantment: free creature tutor onto the battlefield on each creature cast.
+Wild Research	artifact-enchantment	40	Needs W or U too; repeatable tutor for enchantments or instants with random discard.
+Wirewood Herald	creature	40	2-mana elf that fetches another Elf when it dies; only good in elf decks.
+Witness the Future	any	42	3 mana sorcery: look at four, take one; a mediocre dig that also reshuffles graveyard.
+Woodland Bellower	creature	47	6-mana 6/5 that puts a cheap green creature onto the battlefield.
+Worldly Counsel	any	52	2-mana instant: take the best of the top few cards, usually 2-4 in multicolor decks.
+Yisan, the Wanderer Bard	creature	55	3-mana body: each turn puts a creature of rising mana value onto the battlefield; slow.
+Yuna's Whistle	creature	57	3-mana instant: random creature to hand, with counters on your creature.
+Zirilan of the Claw	other	32	Fetches only a Dragon that is exiled at end of turn; needs Dragon theme.
+Zur the Enchanter	artifact-enchantment	52	4-mana flyer that fetches a cheap enchantment onto the battlefield on each attack.

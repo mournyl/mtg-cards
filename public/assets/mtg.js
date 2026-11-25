@@ -1,6 +1,6 @@
 /* mournyl mtg — shared helpers for the tier lists, My decks and card search.
    Data comes from the site's own files (built weekly by tools/tiers/build.py):
-     data/cards.json        every Commander-legal card: mana value, types, identity, cost, flags, role scores
+     data/cards.json        every Commander-legal card: mana value, types, identity, cost, flags, role scores, function tags
      data/tier-index.json   card name -> [role, score, sub, rank, reviewed]
      tiers/data/<role>.json one entry per card in a role list (score, tier, reason, rules text)
    Scryfall is only asked for images of cards on screen, one request at a time, 550 ms apart
@@ -176,7 +176,59 @@
     unrev: CI(12, 12, 9) + P("M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6h.01"),
     identity: CI(9, 12, 6) + CI(15, 12, 6),
     dot: CI(12, 12, 3),
+    // function tags
+    edict: P("M12 4v10") + P("m7 10 5 5 5-5") + P("M5 20h14"),
+    pinger: CI(12, 12, 2.5) + P("M12 3v4M12 17v4M3 12h4M17 12h4"),
+    steal: P("M4 12h12") + P("m12 8 4 4-4 4") + P("M20 4v16"),
+    tapper: `<rect x="3" y="7" width="18" height="11" rx="2"/>` + P("M7 4h10"),
+    lock: `<rect x="5" y="11" width="14" height="10" rx="2"/>` + P("M8 11V7.5a4 4 0 0 1 8 0V11"),
+    cloud: P("M7 18a4 4 0 0 1-.6-8A5.5 5.5 0 0 1 17 8.6 4.7 4.7 0 0 1 17.5 18z"),
+    tagcut: P("M3 12V4h8l10 10-8 8z") + CI(7.5, 7.5, 1.2),
+    gem: P("M6 3h12l3 6-9 12L3 9z") + P("M3 9h18M9 3l3 6 3-6"),
+    regen: SHIELD + P("M12 9v6M9 12h6"),
+    counters: `<rect x="4" y="4" width="16" height="16" rx="3"/>` + P("M12 8v8M8 12h8"),
+    altar: P("M4 20h16") + P("M6 20v-6h12v6") + P("M12 14v-3") + P("M10.5 8.5c0-1.7 1.5-3.5 1.5-3.5s1.5 1.8 1.5 3.5a1.5 1.5 0 0 1-3 0z"),
+    skull: P("M5 11a7 7 0 0 1 14 0c0 2.6-1.4 4.1-3 5v3H8v-3c-1.6-.9-3-2.4-3-5z") + CI(9.5, 11, 1.2) + CI(14.5, 11, 1.2),
+    heart: P("M12 20s-7.5-4.6-7.5-10.4A4.1 4.1 0 0 1 12 7.3a4.1 4.1 0 0 1 7.5 2.3C19.5 15.4 12 20 12 20z"),
+    drain: P("M12 20s-7.5-4.6-7.5-10.4A4.1 4.1 0 0 1 12 7.3a4.1 4.1 0 0 1 7.5 2.3C19.5 15.4 12 20 12 20z") + P("M9 12h6"),
+    mill: P("M5 5h14M5 9h14M5 13h14") + P("m12 16 0 5M9.5 18.5 12 21l2.5-2.5"),
+    discard: `<rect x="6" y="3" width="12" height="18" rx="2"/>` + P("m10 10 4 4M14 10l-4 4"),
+    copy: `<rect x="8" y="8" width="12" height="12" rx="2"/>` + P("M4 16V6a2 2 0 0 1 2-2h10"),
+    clone: P("M12 3v18") + P("M8 7 4 12l4 5") + P("m16 7 4 5-4 5"),
+    landfall: P("m3 20 6-9 4 5 3-3 5 7z") + P("M15 3v5M12.5 5.5 15 8l2.5-2.5"),
+    double: P("M5 7l6 10M11 7l-6 10") + P("M14 10a2.5 2.5 0 1 1 4.2 1.8L14 17h5"),
+    swap: P("M7 20V4") + P("m4 7 3-3 3 3") + P("M17 4v16") + P("m14 17 3 3 3-3"),
+    up: P("M12 20V5") + P("m6 11 6-6 6 6"),
+    chart: P("M4 20h16") + P("M7 16v-3M12 16V9M17 16V5"),
+    untap: P("M20 12a8 8 0 1 1-2.3-5.7") + P("M20 4v5h-5"),
+    target: CI(12, 12, 9) + CI(12, 12, 5) + CI(12, 12, 1),
+    wing: P("M3 18c5 0 10-2.5 13.5-8.5L21 4c-.8 7-4.5 12.3-11 14z") + P("M7 14h6"),
+    speed: P("M4 8h7M2 12h9M4 16h7") + P("m14 6 6 6-6 6"),
+    wall: `<rect x="3" y="5" width="18" height="14" rx="1"/>` + P("M3 12h18M9 5v7M15 12v7"),
+    clock: CI(12, 12, 9) + P("M12 7v5l3 2"),
+    goad: P("M5 19 19 5") + P("M10 5h9v9"),
+    vote: `<rect x="4" y="4" width="16" height="16" rx="3"/>` + P("m8 12 3 3 5-6"),
+    enter: P("M10 17l5-5-5-5") + P("M15 12H3") + P("M15 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"),
+    halo: `<ellipse cx="12" cy="5.5" rx="6" ry="2"/>` + CI(12, 15, 5),
+    vehicle: P("M3 16l2-6h14l2 6z") + CI(7, 18, 2) + CI(17, 18, 2),
+    book: P("M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z") + P("M4 19V5M8 7h6"),
+    face: CI(12, 12, 9) + P("M9 10h.01M15 10h.01") + P("M8.5 15.5c2.2-1.6 4.8-1.6 7 0"),
   };
+  // function tag -> icon
+  const FTAG_ICON = { removal: "removal", edict: "edict", wipe: "wipes", counter: "counter", bounce: "bounce", pinger: "pinger", burn: "flame",
+    steal: "steal", gyhate: "grave", tapper: "tapper", stax: "lock", fog: "cloud", ramp: "ramp", landramp: "land", costreduce: "tagcut", treasure: "gem",
+    draw: "draw", select: "eye", tutor: "tutor", protect: "shield", phasing: "phasing", blink: "blink", regen: "regen", resilient: "indestructible",
+    reanimate: "rise", recursion: "returns", cheat: "play", tokens: "tokens", counters: "counters", proliferate: "sparkle", sacoutlet: "altar",
+    death: "skull", lifegain: "heart", drain: "drain", mill: "mill", discard: "discard", copy: "copy", clone: "clone", landfall: "landfall",
+    spellpayoff: "bolt", gycast: "grave", double: "double", swap: "swap", anthem: "creatures", pump: "up", buff: "plus", scaling: "chart",
+    extracombat: "sword", untap: "untap", lure: "target", animate: "sparkle", manasink: "funnel", evasion: "wing", deathtouch: "face",
+    firststrike: "sword", haste: "speed", flash: "bolt", defender: "wall", keyword: "ability", vanilla: "card", extraturn: "clock", goad: "goad",
+    monarch: "crown", vote: "vote", kindred: "creatures", fixing: "identity", utilityland: "ability", basic: "land", monoland: "land",
+    etb: "enter", attack: "sword", aura: "halo", equipment: "sword", vehicle: "vehicle", saga: "book", planeswalker: "star",
+    abilityremove: "lock", landdestroy: "land", wheel: "draw", freecast: "play", pillowfort: "wall", selfmill: "mill", triggerdouble: "copy",
+    doubler: "double", damageamp: "flame", artifactpay: "sparkle", enchantpay: "halo", poison: "skull", cmdrpay: "crown", grouphug: "heart",
+    lifecost: "heart", selfdiscard: "discard", sacrifice: "altar", exilecost: "grave", helpsopp: "vote", upkeep: "clock", tapped: "untap",
+    symmetric: "swap", restricted: "wall" };
   // tier-list keys and card-search role keys
   const ROLE_ICON = { counterspells: "counter", counter: "counter", ramp: "ramp", draw: "draw", removal: "removal", wipes: "wipes", wipe: "wipes",
     tutors: "tutor", tutor: "tutor", protection: "shield", protect: "shield", gyhate: "grave", recursion: "rise", lands: "land",
@@ -205,6 +257,16 @@
     return `<span class="tag"${t}>${body}</span>`;
   }
   const idTag = id => tag({ icon: "identity", html: `<span class="ids">${idSyms(id)}</span><span class="mut">Color identity</span>`, title: "Color identity" });
+  // a tier row under a tile: the full list name, or its short name where tiles are narrow (CSS picks)
+  const tierLabel = k => { const R = ROLE_INFO[k]; return R.short && R.short !== R.label ? `<span class="lg">${esc(R.label)}</span><span class="sh">${esc(R.short)}</span>` : esc(R.label); };
+  // a function tag; on card search it filters in place (data-role), elsewhere it links to card search
+  function ftag(idx, k, here) {
+    const t = idx && idx.tagInfo[k]; if (!t) return "";
+    const o = { icon: FTAG_ICON[k] || "dot", text: t.label, title: `${t.group}: find more cards tagged ${t.label.toLowerCase()}` };
+    return tag(here ? { ...o, role: k } : { ...o, href: page("search", "role=" + k) });
+  }
+  // function tags under a card tile, after its tier rows (roleKeys = the tier lists shown already)
+  const ftags = (idx, c, n = 3, roleKeys = [], here) => c ? C.showTags(c, n, roleKeys).map(k => ftag(idx, k, here)).join("") : "";
 
   // ---------- data ----------
   let cardsP, hubP, tierIdxP;
@@ -456,7 +518,7 @@
     const s = scry(name), front = s ? (s.card_faces ? s.card_faces[0] : s) : null;
     const ty = front ? Object.keys(TYPE_LETTER).filter(w => (front.type_line || s.type_line || "").split(" // ")[0].includes(w)).map(w => TYPE_LETTER[w]).join("") : "";
     return { n: s ? s.name : String(name), mv: s ? s.cmc || 0 : 0, ty, id: s ? (s.color_identity || []).join("") : "",
-      cost: ((front && front.mana_cost) || "").match(/\{[^}]+\}/g)?.map(t => t.slice(1, -1)) || [], prod: "", fl: "", roles: [] };
+      cost: ((front && front.mana_cost) || "").match(/\{[^}]+\}/g)?.map(t => t.slice(1, -1)) || [], prod: "", fl: "", roles: [], tags: [] };
   }
 
   // ---------- recommendations for a card opened from a deck ----------
@@ -553,6 +615,8 @@
         <div>
           ${faces.map(fc => `<div class="face"><div class="nameline"><h2>${esc(fc.n)}</h2>${cost(fc.c)}</div>
             <div class="typeline">${esc(fc.ty)}${fc.pt ? ` · ${esc(fc.pt)}` : ""}</div><div class="oracle">${para(fc.o) || `<p class="muted">Rules text loads from Scryfall when it can be reached.</p>`}</div></div>`).join("")}
+          ${c.tags && c.tags.some(k => !C.TYPE_ONLY.has(k) && !C.DOWNSIDES.has(k)) ? `<h3>What it does</h3><div class="tags wide">${c.tags.filter(k => !C.TYPE_ONLY.has(k) && !C.DOWNSIDES.has(k)).map(k => ftag(idx, k)).join("")}</div>` : ""}
+          ${c.tags && c.tags.some(k => C.DOWNSIDES.has(k)) ? `<h3>Downsides</h3><div class="tags wide down">${c.tags.filter(k => C.DOWNSIDES.has(k)).map(k => ftag(idx, k)).join("")}</div>` : ""}
           ${roles.length ? `<h3>Tiers</h3><div class="troles">${tierRows}</div>` : `<p class="muted">Not on any tier list yet.</p>`}
           ${better}
           <div class="meta"><span>Mana value <b>${c.mv}</b></span><span>Identity <b>${c.id ? idSyms(c.id) : "Colorless"}</b></span></div>
@@ -696,7 +760,7 @@
   window.MTG = {
     ROOT, PREVIEW, url, page, $, esc, cap, sleep, fmt, norm, store, toast, getJSON,
     TIERS, TIER, tierOf, tb, ROLE_INFO, COLORS, TYPE_NAMES, fits, BROADER,
-    loadSprite, sym, bigSym, syms, cost, para, idSyms, tag, idTag, tagIcon, subIcon, ROLE_ICON,
+    loadSprite, sym, bigSym, syms, cost, para, idSyms, tag, idTag, tagIcon, subIcon, ROLE_ICON, FTAG_ICON, ftag, ftags, tierLabel, showTags: C.showTags, mainTag: C.mainTag, GENERIC: C.GENERIC, DOWNSIDES: C.DOWNSIDES, ROLE_TAGS: C.ROLE_TAGS,
     loadCards, loadHub, loadTierIndex, loadRole, findCard, flags, betterOptions, hubSubName,
     scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; deckP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
     sheetHistory, setProfileHidden, cardSize, setCardSize, condensed, sizeButtons, sizeTabs, sizeBar, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,

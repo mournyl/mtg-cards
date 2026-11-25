@@ -1,0 +1,72 @@
+# Rebuilds the tier lists and card index from the Forge card database every Monday (and on demand),
+# then commits the changed data files. The site deploys from the push like any other commit.
+# The build fails, and nothing is committed, if a hand-reviewed card is banned, missing or misfiled,
+# or if the function tags drop under 96.5% coverage or 95% precision on the hand-checked sample.
+name: Refresh tier data
+
+on:
+  schedule:
+    - cron: "23 9 * * 1"        # Mondays 09:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-tiers
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch the Forge card database (cards, sets and formats only)
+        run: |
+          git clone --depth 1 --filter=blob:none --sparse https://github.com/Card-Forge/forge.git "$RUNNER_TEMP/forge"
+          git -C "$RUNNER_TEMP/forge" sparse-checkout set forge-gui/res/cardsfolder forge-gui/res/editions forge-gui/res/formats
+          echo "FORGE_SHA=$(git -C "$RUNNER_TEMP/forge" rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+      - name: Build tier lists and the card index
+        run: python tools/tiers/build.py "$RUNNER_TEMP/forge/forge-gui/res" --out public | tee "$RUNNER_TEMP/build.log"
+
+      - name: Check the tag rules
+        run: python tests/tags_test.py
+
+      - name: Check the deck logic against the new data
+        run: node --test tests/core.test.mjs
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Tier data (Forge ${FORGE_SHA:-?})"
+            echo '```'; cat "$RUNNER_TEMP/build.log" 2>/dev/null; echo '```'
+            echo "### New cards waiting for a review"
+            echo '```'; head -80 tools/tiers/out/new-candidates.txt 2>/dev/null; echo '```'
+            echo "### Function tags (new cards with no job tag at the bottom)"
+            echo '```'; head -40 tools/tiers/out/tags.txt 2>/dev/null; sed -n '/^New cards (since/,/^All cards with no job tag/p' tools/tiers/out/tags.txt 2>/dev/null | head -60; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tier-reports
+          path: tools/tiers/out/
+          retention-days: 30
+
+      - name: Commit if anything changed
+        run: |
+          git add public/data public/tiers
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh tier data (Forge ${FORGE_SHA})"
+          git push

@@ -255,6 +255,8 @@ def draw(card):
             rest = t
             for z in sents: rest = rest.replace(z, "")
             rest = re.sub(r"(^|\n)(flash|flying|cycling[^\n]*|scry \d|vigilance|reach|defender|haste|trample|lifelink|deathtouch|ward[^\n]*)(?=\n|$)", "", rest)
+            # a tiny rider doesn't stop a spell from being a cantrip (Twisted Image switches power and toughness, then draws)
+            rest = re.sub(r"switch (target|a) creature's power and toughness( until end of turn)?\.?", "", rest)
             incidental = bool(re.search(r"\b(destroy|exile|counter target|damage|return|create|gets? [+-]|gain control|search|sacrifice|tap target|untap target|fights?|prevent|gain \d+ life|counters? on|loses?|target creature|target player|each opponent|each creature|attacks?|blocks?)\b", rest))
             static_extra = bool(re.search(r"draws? an additional card", t))
             wheel = bool(re.search(r"discards? (their|his or her|your) hand,? (and |then )?(each player )?draws? seven|draws? seven cards", t))
@@ -583,7 +585,8 @@ def protection(card):
         elif re.search(r"(equipped|enchanted) (creature|permanent|artifact) (has|gains|gets [^.]{0,40}and (has|gains))[^.]*%s" % KW, t) and is_type(f, "Equipment", "Aura", "Artifact", "Enchantment"):
             sub = "equipment"
         elif re.search(r"(up to one |another |up to two )?target (creature|permanent|artifact|nonland permanent|legendary creature|commander|creature or planeswalker)( you control)? (gains|gets [^.]{0,40}and (gains|has)|has|phases out|and each [^.]* gain)[^.]*(%s|phases? out)" % KW, t) or \
-             re.search(r"target (creature|permanent|nonland permanent)( you control)? phases out", t):
+             re.search(r"target (creature|permanent|nonland permanent)( you control)? phases out", t) or \
+             re.search(r"\btarget (artifact|creature|land|enchantment|permanent)(, (artifact|creature|land|enchantment))*,? or (artifact|creature|land|enchantment|planeswalker)( you control)? phases out", t):
             sub = "one"
         elif re.search(r"(spells|creature spells|noncreature spells|spells you control|commander spells)( you control)? can't be countered|your opponents can't cast spells (during your turn|this turn)|each opponent can't cast spells|spells and abilities your opponents control can't be cast|your opponents can't cast spells or activate abilities", t):
             sub = "counter"

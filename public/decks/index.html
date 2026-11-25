@@ -114,7 +114,7 @@
     </div>
     <div class="controls">
       <div class="ctl"><span class="lab" id="gLab">Group by</span><div class="seg" id="groupSeg" role="group" aria-labelledby="gLab">
-        <button type="button" data-g="role">Role</button><button type="button" data-g="type">Card Type</button><button type="button" data-g="mv">Mana Value</button><button type="button" data-g="tier">Tier</button></div></div>
+        <button type="button" data-g="role">Role</button><button type="button" data-g="tag">Tag</button><button type="button" data-g="type">Card Type</button><button type="button" data-g="mv">Mana Value</button><button type="button" data-g="tier">Tier</button></div></div>
       <div class="ctl"><span class="lab" id="sLab">Sort</span><div class="seg" id="sortSeg" role="group" aria-labelledby="sLab">
         <button type="button" data-s="tier">Tier</button><button type="button" data-s="mv">Mana Value</button><button type="button" data-s="name">Name</button></div></div>
 
@@ -138,11 +138,17 @@
   const view = () => M.condensed() ? "list" : "cards";   // full cards unless Card size is Condensed
 
   // ---------- how cards sort ----------
-  // Role = the jobs from the tier lists. A card goes under its best-scored job unless you moved it.
+  // Role = the jobs from the tier lists. A card goes under its best-scored job unless you moved it;
+  // a card on no tier list goes under its main function tag (Tokens, Anthem, Lifegain ...).
+  // Tag = every card under its main function tag.
   const ROLE_ORDER = ["ramp", "draw", "removal", "wipes", "counterspells", "tutors", "protection", "recursion", "gyhate"];
   const CATS = [...ROLE_ORDER.map(k => ({ k, label: M.ROLE_INFO[k].label, icon: M.ROLE_ICON[k] })),
     { k: "creatures", label: "Other creatures", icon: "creature" }, { k: "other", label: "Other spells", icon: "card" }, { k: "lands", label: "Lands", icon: "land" }];
   const CAT = Object.fromEntries(CATS.map(c => [c.k, c]));
+  // a group for a function tag: "t:tokens"
+  const tagCat = k => { const t = idx && idx.tagInfo[k]; return t ? { k: "t:" + k, label: t.label, icon: M.FTAG_ICON[k] || "dot" } : null; };
+  const catInfo = k => CAT[k] || (k && k.startsWith("t:") && tagCat(k.slice(2))) || null;
+  const TAG_ORDER = () => idx ? idx.tags.map(t => "t:" + t.k) : [];
   const TYPES = [["C", "Creatures", "creature"], ["P", "Planeswalkers", "ability"], ["B", "Battles", "sword"], ["A", "Artifacts", "permanent"],
     ["E", "Enchantments", "sparkle"], ["I", "Instants", "bolt"], ["S", "Sorceries", "card"], ["L", "Lands", "land"]];
   const cardOf = n => (idx && M.findCard(idx, n)) || null;
@@ -152,9 +158,10 @@
     if (!c) return "other";
     if (isLand(c)) return "lands";
     const b = best(c); if (b) return b.k;
+    const m = M.mainTag(c); if (m && tagCat(m)) return "t:" + m;
     return c.ty.includes("C") ? "creatures" : "other";
   }
-  const catOf = e => (e.cat && CAT[e.cat]) ? e.cat : autoCat(cardOf(e.n));
+  const catOf = e => (e.cat && catInfo(e.cat)) ? e.cat : autoCat(cardOf(e.n));
   const typeOf = c => { if (!c) return "?"; if (isLand(c)) return "L"; const t = TYPES.find(([k]) => c.ty.includes(k)); return t ? t[0] : "?"; };
   // the placement a row shows: the job it's grouped under, else its best job
   function placement(e, gkey) {
@@ -171,7 +178,14 @@
     for (const e of deck.cards) {
       const c = cardOf(e.n);
       if (isCmd(e)) { add("cmd", "Commander", icon("crown"), e); continue; }
-      if (pref.group === "role") { const k = catOf(e); add(k, CAT[k].label, icon(CAT[k].icon), e); }
+      if (pref.group === "role") { const k = catOf(e), ci = catInfo(k); add(k, ci.label, icon(ci.icon), e); }
+      else if (pref.group === "tag") {
+        if (!c) { add("?", "Not in the card index", icon("dot"), e); continue; }
+        if (isLand(c)) { add("lands", "Lands", icon("land"), e); continue; }
+        const m = M.mainTag(c), ci = m && tagCat(m);
+        if (ci) add(ci.k, ci.label, icon(ci.icon), e);
+        else add(c.ty.includes("C") ? "creatures" : "other", c.ty.includes("C") ? "Other creatures" : "Other spells", icon(c.ty.includes("C") ? "creature" : "card"), e);
+      }
       else if (pref.group === "type") { const t = typeOf(c), T = TYPES.find(x => x[0] === t); add(t, T ? T[1] : "Not in the card index", icon(T ? T[2] : "dot"), e); }
       else if (pref.group === "mv") {
         if (!c) add("?", "Not in the card index", icon("dot"), e);
@@ -179,7 +193,7 @@
         else { const v = Math.min(c.mv, 7); add("m" + v, v === 7 ? "7 or more mana" : `${v} mana`, `<b class="ti" aria-hidden="true">${v === 7 ? "7+" : v}</b>`, e); }
       } else { const b = best(c, true); add(b ? b.t : "none", b ? `${b.t} tier` : "Not on a tier list", b ? `<b class="ti t${b.t}" aria-hidden="true">${b.t}</b>` : icon("dot"), e); }
     }
-    const order = { role: ["cmd", ...CATS.map(c => c.k)], type: ["cmd", ...TYPES.map(t => t[0]), "?"],
+    const order = { role: ["cmd", ...ROLE_ORDER, ...TAG_ORDER(), "creatures", "other", "lands"], tag: ["cmd", ...TAG_ORDER(), "creatures", "other", "lands", "?"], type: ["cmd", ...TYPES.map(t => t[0]), "?"],
       mv: ["cmd", "m0", "m1", "m2", "m3", "m4", "m5", "m6", "m7", "L", "?"], tier: ["cmd", "S", "A", "B", "C", "D", "F", "none"] }[pref.group];
     const gs = order.filter(k => out.has(k)).map(k => out.get(k));
     for (const g of gs) g.items.sort((a, b) => {
@@ -291,11 +305,22 @@
     const face = src ? `<img loading="lazy" src="${src}" alt="${esc(e.n)}" onload="this.classList.add('in')">`
       : `<span class="lbl"><b>${esc(e.n)}</b><span>${c ? cost(c.cost) : ""}</span></span>`;
     const ts = c ? c.roles.slice().sort((a, b) => b.s - a.s).slice(0, 2) : [];
-    const tags = ts.map(x => M.tag({ tier: x.t, text: M.ROLE_INFO[x.k].label, rank: "#" + fmt(x.r), href: M.page("tiers", x.k), title: `${M.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}` })).join("");
+    const tags = ts.map(x => M.tag({ tier: x.t, html: M.tierLabel(x.k), rank: "#" + fmt(x.r), href: M.page("tiers", x.k), title: `${M.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}` })).join("") +
+      M.ftags(idx, c, Math.min(3, 4 - ts.length), c ? c.roles.map(x => x.k) : []);
     return `<div class="tile"><div class="cw"><button type="button" class="card" data-open="${esc(e.n)}" aria-label="${esc(e.n)}">${face}</button>` +
       (e.q > 1 ? `<span class="qb">×${e.q}</span>` : "") +
       (readOnly ? "" : `<button type="button" class="more" data-menu="${esc(e.n)}" aria-label="Options for ${esc(e.n)}" aria-haspopup="true">⋯</button>`) + `</div>` +
       `<div class="tags">${tags}</div></div>`;
+  }
+
+  // groups a card can move to: the tier jobs, the deck's tag groups, the card's own tags, and the catch-alls
+  function moveCats(c, e) {
+    const keys = new Set([...ROLE_ORDER]);
+    deck.cards.forEach(x => { const k = catOf(x); if (k.startsWith("t:")) keys.add(k); });
+    (c ? c.tags : []).filter(k => !M.GENERIC.has(k)).forEach(k => keys.add("t:" + k));
+    const k0 = catOf(e); keys.add(k0);
+    const order = [...ROLE_ORDER, ...TAG_ORDER(), "creatures", "other", "lands"];
+    return order.filter(k => keys.has(k) || ["creatures", "other", "lands"].includes(k)).map(catInfo).filter(Boolean);
   }
 
   // ---------- per-card menu: commander, copies, move to another group, remove ----------
@@ -309,7 +334,7 @@
       (cmd ? `<button type="button" data-a="uncmd">Not the commander</button>` : (!c || f.commander) ? `<button type="button" data-a="cmd">Make commander</button>` : "") +
       (stack || e.q > 1 ? `<button type="button" data-a="plus">Add a copy (${e.q} now)</button>` : "") +
       (e.q > 1 ? `<button type="button" data-a="minus">Remove a copy</button>` : "") +
-      (cmd ? "" : `<label>Move to group<select data-a="move">${CATS.map(x => `<option value="${x.k}"${x.k === catOf(e) ? " selected" : ""}>${esc(x.label)}</option>`).join("")}</select></label>`) +
+      (cmd ? "" : `<label>Move to group<select data-a="move">${moveCats(c, e).map(x => `<option value="${x.k}"${x.k === catOf(e) ? " selected" : ""}>${esc(x.label)}</option>`).join("")}</select></label>`) +
       (e.cat ? `<button type="button" data-a="auto">Let it sort itself again</button>` : "") +
       `<button type="button" class="rm" data-a="rm">Remove from deck</button>`;
     const done = () => { menu.remove(); document.removeEventListener("mousedown", off); document.removeEventListener("keydown", key); };
@@ -331,7 +356,7 @@
       const k = ev.target.value; done();
       if (k === autoCat(c)) delete e.cat; else e.cat = k;
       if (pref.group !== "role") { pref.group = "role"; M.store.set("deck-grouping", "role"); }
-      M.saveDeck(deck); toast(`Moved to ${CAT[k].label}`);
+      M.saveDeck(deck); toast(`Moved to ${catInfo(k).label}`);
     });
     document.body.appendChild(menu);
     const r = anchor.getBoundingClientRect(), w = menu.offsetWidth, h = menu.offsetHeight;

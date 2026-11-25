@@ -59,3 +59,1118 @@ Raise Dead	to-hand	50	1 mana: a creature back to hand.
 Codex Shredder	to-hand	50	Mill tool that returns a card for {5}.
 Argivian Find	to-hand	50	An artifact or enchantment back to hand.
 Tragic Poet	to-hand	50	Sacrifice it: an enchantment back to hand.
+# grade_api merged, 2026-11-24
+Abandoned Sarcophagus	cast	28	Cast cycling cards from the graveyard; only works in cycling decks.
+Aberrant Mind Sorcerer	to-hand	44	5-mana 3/4 that returns an instant or sorcery on a d20 roll of 10 or more.
+Aberrant Return	reanimate	58	6 mana: up to three creatures from any graveyards, each smaller by one.
+Abiding Grace	reanimate	38	3-mana enchantment: returns a 1-mana creature each turn; narrow but repeatable.
+Abuelo's Awakening	reanimate	46	X spell: returns an artifact or non-Aura enchantment as a flying creature with counters.
+Abyssal Harvester	reanimate	42	3-mana tapper-copier: reanimates creatures that died this turn as tokens.
+Academy Ruins	to-hand	42	Recurs one artifact per turn to the top of library; slow, costs a draw.
+Acolyte of Affliction	to-hand	56	4-mana two-color body that returns any permanent card from the graveyard.
+Admiral Brass, Unsinkable	reanimate	32	Three colors for 5 mana; reanimates only Pirates each combat, so it needs a tribal deck.
+Adun Oakenshield	to-hand	33	Three colors and BRG each activation to return a creature; slow and demanding.
+Aerith, Last Ancient	to-hand	56	4-mana lifelinker: returns a creature each turn it gains life, or reanimates it at 7 life.
+Aether Helix	to-hand	42	5-mana sorcery: returns a permanent card to hand plus a bounce.
+Afterlife from the Loam	reanimate	58	Delve sorcery: take a creature from every graveyard; expensive without a full yard.
+Agadeem Occultist	reanimate	22	Needs Allies to reanimate anything meaningful; alone it reaches only 0-1 MV targets.
+Agadeem's Awakening // Agadeem, the Undercrypt	reanimate	62	X BBB sorcery returns several creatures with different mana values; flexible as a land.
+Against All Odds	reanimate	45	4-mana sorcery: return a creature or artifact with MV 3 or less, plus a blink.
+Aid the Fallen	to-hand	50	2-mana sorcery: creature card back to hand, plus a planeswalker if present.
+Ajani, Adversary of Tyrants	reanimate	42	-2 returns a creature with mana value 2 or less; a small piece of a walker.
+Akoum Firebird	reanimate	30	Only returns itself, for six mana on a land drop; a slow self-recursion.
+Akuta, Born of Ash	reanimate	32	Returns only itself, needs a Swamp sacrifice and a bigger hand than every opponent.
+Alesha, Who Laughs at Fate	reanimate	62	3-mana attacker that reanimates a creature each turn up to its growing power.
+Alesha, Who Smiles at Death	reanimate	50	3-mana attacker that returns power 2 or less creatures for two hybrid mana.
+All Hallow's Eve	reanimate	42	4 mana, delayed two turns: mass reanimation for every player.
+All Suns' Dawn	to-hand	50	5 mana: up to five cards back, one per color; best in multicolor decks.
+Along the Crooked Way	to-hand	50	3-mana enchantment: return a creature card to hand, with a little amass upside.
+Altar of Bhaal // Bone Offering	reanimate	50	Costs 3 and a creature each use at sorcery speed to reanimate another; adventure adds a 4/1 body.
+Amok Time	to-hand	42	Chapter III returns a creature card to hand two turns later.
+Anarchist	to-hand	40	5-mana body that regrows a sorcery: slow but fine value in sorcery decks.
+Ancestral Communion	to-hand	56	2 mana: any permanent card back to hand, doubled with your commander out.
+Ancient Brass Dragon	reanimate	44	7-mana flyer: on combat damage, d20 worth of creatures return from any graveyard.
+Ancient Greenwarden	cast	62	6-mana body: replay lands from graveyard and double landfall.
+Angel of Flight Alabaster	to-hand	22	Only returns Spirits each upkeep; rarely does anything in singleton.
+Angel of Glory's Rise	reanimate	38	7 mana for a flyer plus all your Humans back; strong only in Human decks.
+Angel of Indemnity	reanimate	58	6-mana flying lifelink body returns a permanent of MV 4 or less; encore adds more.
+Annie Flash, the Veteran	reanimate	42	Flash body that returns a permanent with mana value 3 or less on entry.
+Another Chance	to-hand	52	3-mana instant: return up to two creatures to hand.
+Anti-Venom, Horrifying Healer	reanimate	52	5-mana 5/5 that returns a creature from your graveyard on entry; WWWWW is hard to cast.
+Aphetto Dredging	to-hand	32	4 mana sorcery: up to three creatures of one type back, so only good in tribal decks.
+Aquatic Alchemist // Bubble Up	to-hand	38	3-mana sorcery adventure: an instant or sorcery goes on top of your library, so it costs you a draw.
+Archaeomender	to-hand	47	Body that returns an artifact; narrower than Archaeomancer.
+Archenemy's Charm	to-hand	58	Returns up to two creature or planeswalker cards to hand at instant speed.
+Archon of Falling Stars	reanimate	32	Death trigger returns an enchantment; narrow and costs six.
+Archpriest of Shadows	reanimate	42	Returns a creature when it deals combat damage to a player; needs to connect.
+Arclight Phoenix	reanimate	32	Only recurs itself with three instants or sorceries in a turn.
+Ardent Elementalist	to-hand	52	4-mana body returning an instant or sorcery to hand.
+Argivian Archaeologist	to-hand	40	Repeatable artifact recursion on a 1/1; only artifacts.
+Argivian Restoration	reanimate	42	4-mana sorcery: an artifact from graveyard to battlefield.
+Artisan of Kozilek	reanimate	42	9-mana body that reanimates a creature when cast; very expensive.
+Ascend from Avernus	reanimate	62	WWW+X sorcery: mass reanimate creatures and walkers up to X value.
+Ascent of the Worthy	reanimate	55	3-mana saga: reanimates a creature on chapter III, a turn-three delay.
+Ashcoat of the Shadow Swarm	to-hand	30	4-mana 3/4 that only returns Rat creatures; needs a Rat theme.
+Ashen Powder	reanimate	56	4-mana sorcery: reanimate from an opponent's graveyard only, which is common in Commander.
+Ashiok, Sculptor of Fears	reanimate	52	6 mana: -5 reanimates any creature from any graveyard, then stays as a walker.
+Assimilate the Wounded	reanimate	30	3-mana instant: take a creature that died this turn; narrow window.
+Astelli Reclaimer	reanimate	55	5/4 flyer returns an artifact or enchantment to the battlefield; warp for 3.
+Athreos, God of Passage	to-hand	50	3-mana enchantment that returns your dead creatures to hand unless they pay 3 life.
+Athreos, Shroud-Veiled	reanimate	46	6 mana: coin counters make a creature return to the battlefield when it dies or is exiled.
+Auramancer	to-hand	42	3-mana 2/2 that returns an enchantment card to hand.
+Auriok Salvagers	to-hand	38	Repeatable return of mana value 0-1 artifacts; narrow but useful in artifact decks.
+Auriok Survivors	reanimate	32	Expensive body that only reanimates Equipment.
+Auroral Procession	to-hand	55	Two-mana instant: any card from your graveyard back to hand, but two colors.
+Avengers Quinjet	to-hand	14	Only works with Hero creature cards; almost never does anything.
+Awaken the Honored Dead	to-hand	30	Chapter III returns a creature or land with a discard.
+Ayara, Widow of the Realm // Ayara, Furnace Queen	reanimate	40	Flips for 6 mana to reanimate a creature or artifact each combat temporarily.
+Back for More	reanimate	50	Instant for 6: reanimate a creature and have it fight.
+Back for Seconds	to-hand	58	3 mana: two creatures to hand, or one reanimated if bargained.
+Back in Town	reanimate	22	Only returns outlaw creatures, which are rare in most decks.
+Back on Track	reanimate	52	5-mana sorcery: reanimate a creature or Vehicle and get a 1/1 token.
+Badlands Revival	reanimate	66	5 mana: reanimate a creature and return a permanent to hand.
+Balduvian Atrocity	reanimate	38	Kicked with R: returns a 3-or-less creature for one turn; needs both colors.
+Baloth Null	to-hand	58	6-mana body that returns two creatures to hand; strong value but expensive and two colors.
+Balthor the Defiled	reanimate	40	Symmetric mass reanimation for BBB; only good in a black-red reanimator shell.
+Balustrade Wurm	reanimate	32	Only returns itself, and needs delirium; a fine body but narrow recursion.
+Barrow Witches	to-hand	25	5-mana body that only returns Knights, which is a rare target.
+Barrowin of Clan Undurr	reanimate	38	Reanimates cheap creatures on attack, but only after you complete a dungeon.
+Battle of Hoover Dam	reanimate	50	4 mana: each end step reanimate a creature with MV 3 or less, repeatable.
+Beacon of Unrest	reanimate	56	5-mana sorcery: reanimate an artifact or creature from any graveyard, then it reshuffles.
+Behold the Sinister Six!	reanimate	58	7 mana: up to six creatures return at once; huge in a reanimator deck.
+Bereaved Survivor // Dauntless Avenger	reanimate	35	3-mana body that flips on a death, then returns a 2-or-less creature each attack.
+Betor, Ancestor's Voice	reanimate	42	5-mana three-color body that returns a creature up to life lost each end step.
+Betrayal of Flesh	reanimate	42	6-mana instant reanimation mode; entwine costs three lands.
+Biblioplex Assistant	to-hand	40	4-mana flyer: puts an instant or sorcery back on top, costing a draw.
+Bilbo, Thief in the Night	cast	58	2-mana 2/2 that casts an artifact, instant or sorcery from the graveyard each attack.
+Bilbo, Unexpected Adventurer	reanimate	50	4-mana body that reanimates a 3-or-less permanent when it connects.
+Bishop of Rebirth	reanimate	50	5-mana body that returns a cheap creature each attack.
+Black Sun's Twilight	reanimate	36	Reanimates only at X of 5 or more, a costly 6-mana bonus.
+Bladewing the Risen	reanimate	30	7-mana flyer that only returns a Dragon, so it needs a Dragon theme.
+Blood Beckoning	to-hand	50	1-mana sorcery: a creature card back to hand, or two if kicked for 3 more.
+Blood Fountain	to-hand	58	1 mana, then {3}{B} and sacrifice: two creatures to hand, with a Blood token too.
+Blood Spatter Analysis	to-hand	38	After five deaths, it returns a creature card to hand.
+Blood for Bones	reanimate	58	4 mana and a sacrifice: reanimate one creature and regrow another, two-for-one.
+Blood on the Snow	reanimate	40	The reanimation rider needs snow mana, which limits how often it works.
+Bloodghast	reanimate	50	Returns itself from the graveyard on each land drop; a sticky aggressive body, not a engine for other cards.
+Bloodline Bidding	reanimate	42	8-mana convoke mass reanimation, but only one creature type per cast.
+Bloodline Necromancer	reanimate	38	5-mana body that returns only a Vampire or Wizard from your graveyard.
+Body Launderer	reanimate	50	4-mana deathtouch body that reanimates a smaller non-Rogue creature when it dies.
+Body Snatcher	reanimate	47	Discard a creature to keep it; when it dies, reanimate any creature card.
+Boggart Birth Rite	to-hand	22	1 mana: Goblin card back to hand. Only works in Goblin decks.
+Bond of Insight	to-hand	46	4-mana sorcery: mill four, then two instants or sorceries back to hand.
+Bond of Revival	reanimate	52	5-mana sorcery: reanimate your creature with haste; pricey for the job.
+Bone Dancer	reanimate	34	Needs to attack unblocked; reanimates only the top creature of an opposing graveyard.
+Bone Harvest	to-hand	38	3-mana instant stacks creatures on top; slow, you redraw them one at a time.
+Bonebind Orator	to-hand	50	2-mana body that later exiles itself to return a creature card to hand.
+Bonecaller Cleric	reanimate	55	2-mana body; pay 4 and sacrifice to reanimate any creature from your graveyard.
+Boneyard Lurker	to-hand	38	4-mana 4/4; the permanent-card return only happens when it mutates.
+Boneyard Parley	reanimate	46	7 mana: reanimate a pile of up to five creatures from any graveyard; needs full yards.
+Bortuk Bonerattle	reanimate	52	6-mana body: returns a creature from your graveyard, to the battlefield if cheap enough.
+Bound // Determined	to-hand	35	Bound costs five and a sacrifice for a few cards; weak.
+Braids's Frightful Return	to-hand	44	3-mana saga: returns a creature card to hand on chapter two, plus extras.
+Breach the Multiverse	reanimate	56	7-mana sorcery: reanimate one creature or planeswalker from every graveyard, including yours.
+Breaking // Entering	reanimate	52	Entering is 6-mana sorcery reanimation from any graveyard; fused with Breaking it fuels itself.
+Brilliance Unleashed	reanimate	30	Returns one artifact from your graveyard as a 3/3 flyer, only as a bonus mode on a six-mana spell.
+Brilliant Restoration	reanimate	38	7 mana for WWWW to mass-return artifacts and enchantments; only good in a theme deck.
+Bringer of the Last Gift	reanimate	56	8-mana flyer that mass-reanimates graveyards after sacrificing other creatures; a combo finisher.
+Bringer of the White Dawn	reanimate	32	Hard-to-cast body that reanimates one artifact each upkeep; narrow card type.
+Broodheart Engine	reanimate	58	2-mana artifact: surveil each upkeep, then pay 4 and sacrifice to reanimate a creature at sorcery speed.
+Brotherhood Outcast	reanimate	32	3-mana 3/2 that returns a cheap Aura or Equipment to the battlefield; narrow.
+Brought Back	reanimate	50	2-mana instant: undo a wipe or removal on up to two permanents that died this turn.
+Bruna, the Fading Light	reanimate	40	7-mana 5/7 flyer that reanimates an Angel or Human on cast; narrow and expensive.
+Builder's Talent	reanimate	38	Level 3 returns a noncreature nonland permanent, at a total cost of 7 mana.
+Bygone Marvels	to-hand	56	2 mana: any permanent card back to hand, with copies if the yard is full.
+Cabal Surgeon	to-hand	38	4-mana 2/1 that pays 4 and two cards each turn to return a creature to hand.
+Cadaver Imp	to-hand	54	3-mana flyer that returns a creature to hand; a small Gravedigger.
+Call Damage Control	to-hand	56	2-mana sorcery: return two cards of different types to hand.
+Call a Surprise Witness	reanimate	54	2-mana sorcery: reanimate a cheap creature with flying.
+Call of the Death-Dweller	reanimate	55	3-mana sorcery: reanimate up to two cheap creatures with total MV 3, plus counters.
+Call to Mind	to-hand	46	3 mana: an instant or sorcery back to hand; decent in spell decks.
+Call to the Netherworld	to-hand	42	1 mana: a black creature back to hand; narrow but cheap.
+Campus Renovation	reanimate	43	5-mana gold sorcery: artifact or enchantment back to play, plus two impulse cards.
+Can't Stay Away	reanimate	58	2-mana reanimation for a 3-or-less creature, with flashback for a second creature.
+Carmen, Cruel Skymarcher	reanimate	48	5-mana flyer that returns a permanent to the battlefield on each attack, capped by power.
+Carnage, Crimson Chaos	reanimate	48	4-mana body returns a creature with MV 3 or less, but it must attack and is sacrificed on a hit.
+Carrion Cruiser	to-hand	50	3-mana vehicle: mill two, then return a creature or Vehicle to hand.
+Carrion Thrash	to-hand	34	Three-color 4/4; on death pay {2} to return another creature to hand.
+Cartographer	to-hand	36	3-mana 2/2 that returns only a land card from your graveyard to hand.
+Cauldron Dance	reanimate	42	6-mana combat-only: temporary reanimation that returns to hand, plus a hasty hand cheat.
+Cauldron of Essence	reanimate	50	3-mana artifact: sacrifice a creature to reanimate another, plus a drain on deaths.
+Cauldron's Gift	reanimate	50	5-mana sorcery reanimation with a counter and optional self-mill.
+Cavalier of Night	reanimate	36	On death returns a creature with mana value 3 or less.
+Celestial Gatekeeper	reanimate	28	5-mana flyer; returns only Birds or Clerics, a narrow type pair.
+Celestine, the Living Saint	reanimate	48	Lifelink flyer that returns a creature each end step based on life gained.
+Cemetery Recruitment	to-hand	46	2 mana: creature back to hand; draws for Zombies.
+Chainer, Dementia Master	reanimate	64	5-mana body that reanimates from any graveyard each turn for BBB and 3 life.
+Chainer, Nightmare Adept	cast	58	4-mana body: discard a card each turn to recast a creature from the graveyard.
+Chakra Meditation	to-hand	40	Returns one instant or sorcery on entry.
+Champion of Stray Souls	reanimate	42	Expensive body; repeatable mass reanimation by sacrificing other creatures.
+Chandra, Flame's Catalyst	cast	36	6 mana: -2 recasts a red instant or sorcery from the graveyard.
+Chaos Shrine's Black Crystal	reanimate	50	4-mana artifact: your dead creatures return one per upkeep, only those after it.
+Charmbreaker Devils	to-hand	46	6-mana body returning a random instant or sorcery every upkeep; good in spell decks.
+Charnel Serenade	reanimate	56	Reanimates any creature from your graveyard with surveil 3; suspend for 3 or hard cast for 6.
+Charnelhoard Wurm	to-hand	30	7-mana three-color trampler; returns a card only if it connects with an opponent.
+Charred Graverobber	to-hand	38	3-mana 3/1 that returns only an outlaw card; it can also escape later.
+Chorale of the Void	reanimate	34	4-mana aura: steals graveyard creatures on attack, but is sacrificed unless something leaves.
+Chronosavant	reanimate	30	Only brings itself back, and each time costs you a turn.
+Chthonian Nightmare	reanimate	50	Reusable reanimation limited by 3 energy and a sacrifice; sorcery speed and clunky.
+Cid, Freeflier Pilot	to-hand	40	2-mana body that returns Equipment or Vehicles for {2}; theme only.
+Circle of the Land Druid	to-hand	36	2-mana 1/1 that returns a land when it dies; narrow, and self-mill helps it.
+Claim // Fame	reanimate	45	1 mana: return a creature with mana value 2 or less to the battlefield.
+Clear the Stage	to-hand	36	Returns a creature to hand, but needs a power 4+ creature.
+Cleric Class	reanimate	42	1 mana now, 9 total across levels: reanimate a creature and gain life.
+Coalstoke Gearhulk	reanimate	46	5-mana 5/4 body; borrows a cheap creature from any graveyard for a turn.
+Coati Scavenger	to-hand	42	3/2 body that returns a permanent once four permanent cards are in your yard.
+Coffin Puppets	reanimate	30	Self-recursion for two lands; a steep cost for one body.
+Coffin Queen	reanimate	54	3-mana body: repeatable reanimation from any graveyard while it stays tapped.
+Coiling Rebirth	reanimate	52	5-mana sorcery: reanimate a creature from your graveyard, plus a 1/1 copy if you gift a card.
+Coin of Fate	reanimate	38	Needs two creatures in your graveyard and 4 mana to reanimate one and take the monarchy.
+Colfenor's Urn	reanimate	24	Slow: needs three big creatures to die before anything returns.
+Colfenor, the Last Yew	to-hand	42	6-mana Abzan body that returns a lesser-toughness creature whenever your creatures die.
+Colossal Skyturtle	to-hand	42	Channel for three: any card from graveyard to hand, or cast as a 7-drop.
+Conduit of Worlds	cast	62	4 mana: replay lands from the graveyard and recast a nonland permanent each turn.
+Confront the Past	reanimate	34	X sorcery: return a planeswalker from your graveyard; needs planeswalkers.
+Connive // Concoct	reanimate	50	Concoct is 5 mana gold sorcery: surveil 3 and reanimate a creature.
+Consumed by Greed	to-hand	42	Optional gift returns a creature card to hand as a rider on an edict.
+Continue?	reanimate	40	2-mana instant: returns creatures that died this turn; only works right after a wipe.
+Cormela, Glamour Thief	to-hand	40	Returns an instant or sorcery on death; Grixis only and needs to die.
+Corpse Churn	to-hand	50	2-mana instant: mill three, return a creature to hand.
+Corpse Dance	reanimate	40	3-mana instant: top graveyard creature returns for a turn, then exiled; buyback repeats.
+Corpse Hauler	to-hand	50	2-mana body; pay 3 and sacrifice to return another creature card to hand.
+Cosmic Rebirth	reanimate	56	3-mana instant: permanent with MV 3 or less to play, or any permanent to hand; gain 3.
+Counterpoint	cast	46	Free recast of a creature, instant, sorcery or planeswalker, but only after countering a spell.
+Courier Bat	to-hand	42	3-mana flyer that returns a creature to hand, but only if you gained life this turn.
+Court of Ardenvale	to-hand	56	Returns a cheap permanent each upkeep, to the battlefield if monarch.
+Crawl from the Cellar	to-hand	47	1 mana: a creature back to hand, and flashback gives a second use.
+Creeping Renaissance	to-hand	58	5 mana: return every card of one permanent type, and it has flashback for a second use.
+Crime // Punishment	reanimate	47	Five-mana WB: steal a creature or enchantment from an opponent's graveyard.
+Crop Sigil	to-hand	38	1-mana enchantment: self-mill, then return a creature and a land once you have four card types.
+Cruel Ultimatum	to-hand	36	Returns one creature card to hand as part of a huge spell.
+Crypt Angel	to-hand	27	5-mana flyer that returns only a blue or red creature from the graveyard; very narrow.
+Crypt Champion	reanimate	42	Symmetric reanimation of 3-or-less creatures; needs red to keep the body.
+Crystal Chimes	to-hand	36	Slow 3-plus-3 mana: returns every enchantment from the graveyard, only useful in enchantment decks.
+Crystal Dragon // Rob the Hoard	to-hand	52	2-mana sorcery returns an artifact, enchantment or legend, then leaves a 4/4 flyer for later.
+Curious Forager	to-hand	52	3-mana 3/2: forage to return any permanent card to hand.
+Custodi Soulcaller	reanimate	42	3-mana 1/2 that must attack to return a creature worth about 3 or less.
+Custodi Squire	to-hand	55	5-mana flyer that returns a permanent card; the vote usually gives you at least one back.
+Daily Bugle Reporters	to-hand	38	4-mana body that returns a creature with mana value 2 or less to hand.
+Damage Control Crew	to-hand	47	Returns a mana value 4+ card from your graveyard to hand, with a body.
+Dance of the Manse	reanimate	48	XWU: returns artifacts and non-Aura enchantments to the battlefield; costs scale fast.
+Daniels, Temporal Agent	to-hand	52	4-mana body that returns a creature to hand on entry; can recycle itself for life.
+Danitha, New Benalia's Light	cast	42	Recasts one Aura or Equipment per turn; only good in a theme deck.
+Danse Macabre	reanimate	42	Edict that steals the best sacrificed creature; needs you to have a creature and costs 5.
+Daretti, Rocketeer Engineer	reanimate	42	5-mana body that reanimates an artifact each attack by sacrificing one.
+Daretti, Scrap Savant	reanimate	40	-2 returns an artifact from your graveyard, but you sacrifice one.
+Darigaaz's Charm	to-hand	38	Returns one creature card to hand at instant speed, but needs three colors.
+Daring Archaeologist	to-hand	42	4-mana 3/3 that returns an artifact card from the graveyard to hand; best in artifact decks.
+Dark Intimations	to-hand	40	Returns a creature or planeswalker to hand and draws a card, but costs five in three colors.
+Dawn of the Dead	reanimate	47	5-mana enchantment: reanimate a creature with haste every upkeep, exiled at end of turn.
+Dawn to Dusk	to-hand	36	Returns only an enchantment card to hand, as a bonus mode.
+Dawnbreak Reclaimer	reanimate	48	6-mana 5/5 flyer that reanimates a creature each end step, but opponents get one back too.
+Dead Revels	to-hand	55	Two creatures back to hand for 4 mana, or 2 with spectacle.
+Deadbridge Chant	reanimate	62	6-mana enchantment: random card back every upkeep after a 10-card mill.
+Deadly Brew	to-hand	38	Returns a permanent card only if you sacrificed one to it.
+Deadwood Treefolk	to-hand	54	6-mana body: returns a creature card on entering and again when it leaves.
+Death Denied	to-hand	58	Instant for XBB: return X creature cards to hand; scales well late.
+Death Tyrant	reanimate	30	It can return itself for six mana, but it only recurs itself.
+Death or Glory	reanimate	46	5-mana sorcery: reanimates about half your graveyard's creatures, with the opponent picking the piles.
+Death's Duet	to-hand	52	3 mana: two creatures from graveyard to hand, but creature-only.
+Death's Oasis	to-hand	42	Three colors: returns a cheaper creature when yours dies, but is hard to cast.
+Debtors' Knell	reanimate	62	7-mana enchantment: reanimate any creature from any graveyard every upkeep.
+Decaying Soil	to-hand	28	Needs seven cards in graveyard while exiling your own cards each upkeep.
+Decoy Ploy	to-hand	10	2-mana instant that only returns Villain or Hero cards; almost no card qualifies.
+Defiled Crypt // Cadaver Lab	to-hand	56	1-mana door returns a creature card to hand; other door makes 2/2 tokens.
+Defossilize	reanimate	58	5-mana sorcery: reanimate any of your creatures and explore twice.
+Defy Death	reanimate	52	5-mana sorcery: return any creature from your graveyard; bonus for Angels.
+Deliver Unto Evil	to-hand	42	3-mana sorcery: return two of up to four cards, opponent picks.
+Demon of Dark Schemes	reanimate	50	Gathers energy from deaths, then pays 4 energy and 3 mana to reanimate any creature repeatedly.
+Den Protector	to-hand	58	Megamorph for 5 total: flip to return any card from your graveyard; slow but a flexible body.
+Desecrator Hag	to-hand	50	4-mana 2/2 body that returns your best creature card to hand.
+Desperate Plea	reanimate	42	Sacrifice a creature to reanimate one of equal or lower power; needs fodder.
+Devoted Crop-Mate	reanimate	40	3-mana body returns a 2-or-less creature when it attacks; narrow but repeatable-ish.
+Dewdrop Cure	reanimate	50	3-mana sorcery: return two or three cheap creatures to the battlefield; gift helps an opponent.
+Diabolic Servitude	reanimate	60	4-mana enchantment: reanimate a creature, and it returns to hand if the creature dies for reuse.
+Dig Up the Body	to-hand	50	3-mana instant: mill two, then return a creature card to hand; casualty copies it.
+Dina's Guidance	reanimate	30	Only fills your graveyard; it needs other reanimation to do the job.
+Diregraf Rebirth	reanimate	56	5-mana gold sorcery: reanimate your creature, with flashback for a second use.
+Disciple of the Sun	to-hand	47	5-mana lifelink body that returns a permanent with mana value 3 or less.
+Disentomb	to-hand	46	1-mana sorcery: return a creature card to hand.
+Disturbed Burial	to-hand	50	2-mana creature regrowth with buyback {3} for repeatable recursion.
+Disturbing Plot	to-hand	47	2-mana regrowth for creatures; conspire can copy it to get two back.
+Diviner of Mist	cast	56	4/5 flyer: each attack casts a cheap instant or sorcery from the yard free.
+Doctor Jane Foster	to-hand	46	4-mana body that returns a cheap creature, or reanimates it with lifegain.
+Does Machines	to-hand	30	Level 2 returns up to two artifacts, but costs more mana and is narrow.
+Dogmeat, Ever Loyal	to-hand	35	RGW body that returns an Aura or Equipment on entry; narrow card types.
+Donnie & April, Adorkable Duo	to-hand	40	Returns an artifact, instant or sorcery to hand on entry, on a body.
+Doombot Harbinger	to-hand	56	3-mana flyer: when it dies, exile it to return a creature card to hand.
+Doomed Necromancer	reanimate	56	3-mana body: {B}, tap, sacrifice to reanimate any creature in your graveyard.
+Dose of Dawnglow	reanimate	60	5-mana instant: return any creature from your graveyard to the battlefield.
+Down // Dirty	to-hand	52	3 mana: any card from graveyard to hand; fuse adds a discard mode.
+Dowsing Shaman	to-hand	38	5-mana 3/4: repeatable enchantment-only recursion for 3 mana.
+Dr. Leonard "Bones" McCoy	to-hand	62	3-mana flash body: returns any non-Doctor permanent card from your graveyard to hand.
+Dr. Madison Li	reanimate	28	Needs five energy to return an artifact; too slow and narrow.
+Drana, the Last Bloodchief	reanimate	40	Attack trigger reanimates, but the defender picks the worst card.
+Draugr Recruiter	to-hand	40	4-mana 3/3; boast needs it to attack, then returns a creature to hand.
+Dreams of the Dead	reanimate	36	Repeatable instant reanimation, but only white or black creatures and each carries cumulative upkeep.
+Dredge the Mire	reanimate	52	4-mana sorcery: steal a creature from each opponent's graveyard, they choose which.
+Driver of the Dead	reanimate	50	4-mana body: returns a cheap creature to the battlefield when it dies.
+Dross Skullbomb	to-hand	42	Three mana plus the artifact returns a creature and draws.
+Druidic Ritual	to-hand	50	3-mana sorcery: mill three, then a creature and a land back to hand.
+Dryad's Revival	to-hand	55	3 mana: any card back to hand, and flashback gives a second use.
+Dukhara Scavenger	to-hand	33	Six mana to put a card on top of your library; slow and costs you a draw.
+Dundoolin Weaver	to-hand	55	2-mana body that gets back any permanent card, but needs three creatures out.
+Durable Coilbug	to-hand	30	Only returns itself for five mana; slow self-recursion.
+Dusk // Dawn	to-hand	40	Dawn returns small creatures en masse, but costs five and needs aftermath.
+Dutiful Attendant	to-hand	52	3-mana body: when it dies, a creature card returns to hand.
+Dutiful Return	to-hand	47	4-mana sorcery: two creature cards to hand, which is pricey for the job.
+Déjà Vu	to-hand	38	3-mana sorcery that returns only a sorcery, using a card to get one back.
+Eccentric Farmer	to-hand	36	Body that returns only a land from the self-mill.
+Echoing Return	to-hand	47	1-mana Raise Dead for creatures.
+Eddie Brock // Venom, Lethal Protector	reanimate	40	3/3 body that returns a creature with mana value 1 or less from your graveyard.
+Eden, Seat of the Sanctum	to-hand	40	Costs six mana and the land to get one permanent back; a slow land-slot recursion.
+Edgar's Awakening	reanimate	52	5-mana sorcery: reanimate a creature from your graveyard; can be discarded to recur one for B.
+Edgar, Master Machinist	cast	56	4-mana body: recast an artifact from your graveyard each turn; strong only in artifact decks.
+Eerie Soultender	to-hand	50	3-mana body that later exiles itself for five mana to return a creature to hand.
+Efreet Flamepainter	cast	40	4-mana body; needs to connect to cast a free instant or sorcery from the graveyard.
+Elder Owyn Lyons	to-hand	42	4-mana body that returns an artifact card when it enters and when it dies; artifact decks only.
+Elderfang Ritualist	to-hand	36	3-mana body that returns another Elf card when it dies; elf decks only.
+Elena, Turk Recruit	to-hand	52	3-mana 1/4: returns an artifact, legend or saga from the graveyard.
+Elixir	to-hand	30	Slow 5-mana shuffle of nonland graveyard cards back into library.
+Elixir of Immortality	to-hand	34	Cheap life gain that shuffles your graveyard into your library; good for reset or anti-mill.
+Elspeth Conquers Death	reanimate	58	Chapter III returns a creature or planeswalker with a counter.
+Elven Cache	to-hand	42	4-mana sorcery: any one card back to hand; Regrowth costs far less.
+Elvish Regrower	to-hand	56	4-mana 4/3 body that returns any permanent card to hand on entry.
+Emerge from the Cocoon	reanimate	50	5-mana sorcery reanimation with a little life; slow but any creature from your yard.
+Emergency Weld	to-hand	58	2 mana: artifact or creature back to hand plus a 1/1 token.
+Emeria Shepherd	reanimate	56	7-mana flyer: each land returns a nonland permanent, to the battlefield for Plains.
+Emet-Selch of the Third Seat	cast	50	Recasts an instant or sorcery each turn once opponents lose life; needs a drain or combat.
+Emptiness	reanimate	42	Returns a creature of mana value 3 or less when cast with WW.
+Empty the Catacombs	to-hand	40	4-mana sorcery: returns all your creatures but gives every opponent theirs too.
+Endbringer's Revel	to-hand	38	Repeatable creature recursion for {4}, but any player can use it.
+Endless Obedience	reanimate	56	Convoke sorcery: take any creature from any graveyard; cheap with a wide board.
+Enduring Renewal	to-hand	38	Returns creatures that die to hand, but it also sends creature draws to the graveyard.
+Entomber Exarch	to-hand	55	4-mana 2/2 that returns a creature card to hand, or takes a noncreature card.
+Entreat the Dead	reanimate	57	Scalable mass reanimation; expensive unless it miracles, and heavy on black mana.
+Espers to Magicite	reanimate	38	Copies a creature from opposing graveyards as an artifact token.
+Estrid, the Masked	reanimate	28	Seven-loyalty ultimate returns enchantments, which is slow and only works in an enchantment deck.
+Eternal Taskmaster	to-hand	46	2-mana body that returns a creature each attack for 3 more mana.
+Ethereal Forager	to-hand	32	Returns an instant or sorcery exiled with it, but only when it attacks.
+Ever After	reanimate	52	6-mana sorcery returns two creatures to the battlefield; strong value but expensive.
+Everquill Phoenix	reanimate	24	4/4 flyer; the Feather only returns Phoenixes, which is rare in singleton.
+Evil Reawakened	reanimate	55	5-mana sorcery: any creature from your graveyard returns bigger, but costly versus cheap reanimation.
+Evolution Charm	to-hand	48	2-mana instant: return a creature card from your graveyard to hand.
+Evolution Witness	to-hand	51	3-mana body: pay {1}{G} to adapt and return any permanent card from your graveyard.
+Exalted Flamer of Tzeentch	to-hand	46	Random instant or sorcery back each upkeep; strong in spells decks but random and two colors.
+Excava, the Risen Past	reanimate	55	Evasive attacker that reanimates a cheap card as a 1/1 flyer each attack.
+Excavation Elephant	to-hand	36	Seven mana to get back an artifact; narrow card type on a body.
+Exhumer Thrull	to-hand	42	6-mana body that returns a creature to hand on entry, with a haunt rebuy.
+Experimental Overload	to-hand	48	4-mana UR sorcery: returns an instant or sorcery and makes a Weird token, but is narrow to spells decks.
+Exploration Broodship	cast	30	Station 8 is far off; then casts a permanent from graveyard each turn.
+Extract from Darkness	reanimate	58	5 mana: mill two each, then reanimate any creature from any graveyard.
+Extraction Specialist	reanimate	46	3-mana lifelink body that returns a 2-or-less creature, which can't attack or block.
+Extus, Oriq Overlord // Awaken the Blood Avatar	to-hand	50	Returns a nonlegendary creature each time you cast an instant or sorcery; needs a spell-heavy deck.
+Faith's Reward	reanimate	42	Instant: returns everything that died this turn; good after a wipe.
+False Defeat	reanimate	52	4-mana sorcery: return a creature from your graveyard to the battlefield.
+False Mourning	to-hand	38	1 mana puts a graveyard card on top of your library; costs a draw to get it.
+Fantastic Elasticity	to-hand	46	Regrows an instant or sorcery, and rebound gives a second use.
+Fated Return	reanimate	50	7-mana instant: reanimate any creature from any graveyard, indestructible.
+Fates' Reversal	to-hand	52	2-mana sorcery: a creature card back to hand plus a venture.
+Fateshaper Aspirant	to-hand	36	5-mana 3/4 that returns a legendary card; narrow but the body is fine.
+Fearsome Awakening	reanimate	46	5-mana sorcery reanimation of your own creature; fair but pricey.
+Fell Gravship	to-hand	50	3-mana artifact: mill three, then return a creature or Spacecraft to hand, with a late flyer.
+Fell Horseman // Deathly Ride	to-hand	52	2-mana sorcery adventure returns a creature to hand, then you still get a 3/3 body later.
+Festival of Embers	cast	50	5-mana enchantment: recast spells from your graveyard for 1 life, but it exiles new cards.
+Fiendish Panda	reanimate	42	4-mana body that reanimates a creature when it dies, limited by its power.
+Fight On!	to-hand	52	3-mana instant: up to two creatures from graveyard to hand.
+Finale of Devastation	reanimate	62	Can pull a creature from your graveyard straight onto the battlefield for X plus GG.
+Finale of Promise	cast	55	X RR: free-cast an instant and a sorcery from your graveyard, up to MV X each.
+Find // Finality	to-hand	58	Find: 2 mana returns two creature cards from graveyard to hand.
+Fire Nation Salvagers	reanimate	45	5-mana menace body that reanimates opponents' dead creatures when a countered creature connects.
+Firewing Phoenix	to-hand	22	Only recurs itself, and the cost needs heavy red.
+Fix What's Broken	reanimate	52	4-mana sorcery: pay X life, return all artifact and creature cards of that value.
+Flood of Recollection	to-hand	42	UU sorcery: instant or sorcery back to hand; a one-shot Regrowth.
+Foggy Swamp Visions	reanimate	35	Makes temporary copies of graveyard creatures, sacrificed at end step.
+Font of Return	to-hand	50	Six mana total for up to three creatures back to hand; slow but strong value.
+Footbottom Feast	to-hand	45	3-mana instant: stack creatures on top of your library and draw one; slow and card neutral.
+Footsteps of the Goryo	reanimate	46	3-mana sorcery: reanimate a creature for one turn, only for enters triggers or a quick attack.
+Forever Young	to-hand	40	2 mana: stack creatures on top then draw one; slow and clunky.
+Forge Anew	reanimate	33	Returns only an Equipment to the battlefield; needs an equipment deck.
+Forgotten Lore	to-hand	48	1 mana: opponent picks a graveyard card; pay G more to narrow their options and get something better.
+Forked-Branch Garami	to-hand	40	5-mana 4/4 that returns up to two Spirits with MV 4 or less when it dies; needs a Spirit theme.
+Fortuitous Find	to-hand	52	3-mana sorcery: return an artifact and a creature card to hand.
+Forum Filibuster	reanimate	30	5-mana enchantment: flyer each turn, returns Auras or Equipment only.
+Forum Necroscribe	reanimate	42	6-mana 5/4 with ward; reanimates only when you cast targeted creature spells.
+Fossil Find	to-hand	38	1 mana: a random card from graveyard returns to hand.
+Foul Renewal	to-hand	50	4-mana instant: return a creature card to hand, plus removal.
+From the Catacombs	reanimate	66	5 mana: any creature from any graveyard plus initiative, and it can escape later.
+From the Rubble	reanimate	38	6 mana: tribal repeatable reanimation, one creature type, finality counters.
+Funeral Room // Awakening Hall	reanimate	46	Second door costs 8 to return all your creatures; slow, but huge.
+Fungal Rebirth	to-hand	56	3-mana instant: any permanent card back to hand, plus tokens if a creature died.
+Gale, Waterdeep Prodigy	cast	60	3-mana wizard: cast an instant or sorcery from graveyard when you cast the other type.
+Garland, Knight of Cornelia // Chaos, the Endless	reanimate	38	Only returns itself from the graveyard for seven mana; narrow self-recursion.
+Garna, the Bloodflame	to-hand	44	Flash body that recovers creatures that died this turn; good after a wipe.
+Gathering of Darkness	to-hand	46	4-mana sorcery: a creature card back to hand, plus an amassed Goblin army.
+General Leo Cristophe	reanimate	50	5-mana body that returns a creature with MV 3 or less and grows; fair but slow.
+Generous Revival	reanimate	56	Returns a cheap creature with a counter, then again by flashback for 5.
+Genesis	to-hand	56	4/4 body; once dead, pay 2G each upkeep to rebuy a creature.
+Gerrard, Weatherlight Hero	reanimate	38	On death, returns creatures and artifacts that died this turn; a pseudo-wipe recovery.
+Geth's Summons	reanimate	52	4-mana sorcery: return a creature from your graveyard to the battlefield.
+Geth, Lord of the Vault	reanimate	58	6-mana 5/5 that repeatedly steals artifacts or creatures from opponents' graveyards.
+Geth, Thane of Contracts	reanimate	60	3-mana body that reanimates a creature each turn at sorcery speed; shrinks your others.
+Ghastly Conscription	reanimate	47	7 mana: manifest every creature card from one graveyard; also exiles them.
+Ghen, Arcanum Weaver	reanimate	28	3 mana in three colors; costs 3 more and an enchantment per use to return another enchantment.
+Ghitu Chronicler	to-hand	46	6 mana kicked: a body that returns an instant or sorcery; flexible early as a 2-drop.
+Ghost Lantern // Bind Spirit	to-hand	50	2-mana instant: creature card back to hand, plus a cheap equipment afterward.
+Ghostly Dancers	to-hand	40	5-mana flyer: returns an enchantment card from your graveyard to hand.
+Ghoulcaller's Chant	to-hand	50	1 mana: return a creature card from your graveyard to hand.
+Ghouls' Night Out	reanimate	50	5-mana sorcery: reanimate a creature from each graveyard, but they have decayed.
+Gigapede	to-hand	20	Only returns itself to hand each upkeep, at the cost of a discard.
+Gisa and Geralf	cast	38	Recasts Zombies from the graveyard each turn; needs a Zombie theme.
+Gisa, Glorious Resurrector	reanimate	42	Steals opposing creatures that die; works best in a wipe or removal deck.
+Gix's Command	to-hand	50	Returns up to two creature cards to hand as one of its modes.
+Gixian Puppeteer	reanimate	42	4-mana body that returns a creature with mana value 3 or less when it dies.
+Glacierwood Siege	cast	38	Sultai mode replays lands from graveyard; narrow to lands only.
+Gleancrawler	to-hand	42	6-mana 6/6 trampler that returns creatures that died this turn to hand; narrow, needs sacrifice or wipes.
+Glissa, the Traitor	to-hand	42	Strong body that returns artifacts when opposing creatures die; artifact-only recursion.
+Gloomshrieker	to-hand	58	3-mana BG body that returns any permanent card to hand; two colors required.
+Go-Shintai of Life's Origin	reanimate	28	Needs WUBRG each time to return an enchantment; mostly a 3/4 with a token.
+Goblin Welder	reanimate	52	1-mana creature that swaps an artifact for one in a graveyard; needs artifacts.
+Golbez, Crystal Collector	to-hand	40	2-mana body that returns a creature each end step, but needs four artifacts.
+Golgari Brownscale	to-hand	30	Dredge 2 lets it return itself to hand repeatedly, but it only recurs itself.
+Golgari Findbroker	to-hand	56	4-mana 3/4 body that returns any permanent card to hand; BBGG is demanding.
+Golgari Guildmage	to-hand	38	Costs five mana plus a creature sacrifice to return a creature card; slow.
+Graceful Restoration	reanimate	50	5-mana sorcery: reanimate one creature with a counter, or two small ones.
+Grapple with the Past	to-hand	50	2-mana instant: mill three, then get back a creature or land.
+Grave Betrayal	reanimate	36	7-mana enchantment: steals creatures as they die, but slow and delayed.
+Grave Endeavor	reanimate	46	7-mana instant: reanimate with counters and drain; random but strong.
+Grave Exchange	to-hand	40	6 mana: creature back to hand plus an edict.
+Grave Scrabbler	to-hand	34	4-mana 2/2; the creature return needs madness, which is rarely enabled.
+Grave Sifter	to-hand	46	6-mana 5/7 that returns a whole creature type; symmetric, so opponents benefit too.
+Grave Upheaval	reanimate	56	6 mana, two colors: any creature from any graveyard with haste; landcycles early.
+Grave Venerations	to-hand	60	Monarch plus a creature back every turn while you hold it; drains when your creatures die.
+Gravedig	to-hand	52	2-mana sorcery: a creature back to hand, or both modes with entwine.
+Gravepurge	to-hand	33	Stacks creatures on top of library, then draws one; slow recursion.
+Graveshifter	to-hand	56	4-mana body that returns a creature to hand; Gravedigger with changeling.
+Gravespawn Sovereign	reanimate	32	Needs five untapped Zombies to reanimate; tribal and expensive.
+Gravewaker	reanimate	46	6-mana flying 5/5 that reanimates a creature for 7 mana a turn; slow but repeatable.
+Graveyard Shift	reanimate	50	5-mana reanimation of your own creature; flash only with five mana values in the yard.
+Greenhouse // Rickety Gazebo	to-hand	44	Rickety Gazebo mills four and returns up to two permanents; 4 mana, random.
+Griffin Dreamfinder	to-hand	40	5-mana flying body that returns an enchantment card from your graveyard to hand.
+Grim Captain's Call	to-hand	30	Needs four specific creature types; only good in tribal-mix decks.
+Grim Discovery	to-hand	50	2 mana: creature and land card back to hand, together if both are in the graveyard.
+Grim Harvest	to-hand	54	2-mana instant: creature card to hand, and it can come back with recover.
+Grim Reaper's Scythe	reanimate	38	Costs 3 plus 4 and two creatures to reanimate; weak outside graveyard themes.
+Grim Reaper, Lethal Legionnaire	reanimate	50	4-mana body: pay 4 on attack to return a creature attacking; needs to survive attacking.
+Grim Return	reanimate	45	Instant reanimation, but only a creature that died this turn; needs a death first.
+Grimoire of the Dead	reanimate	40	Takes three discard turns to reanimate every creature from all graveyards.
+Groundskeeper	to-hand	30	1-mana body that rebuys basic lands for {1}{G}; narrow value.
+Grub, Storied Matriarch // Grub, Notorious Auntie	to-hand	30	Returns only a Goblin card to hand; needs a Goblin theme.
+Gruesome Encore	reanimate	48	3 mana: borrow an opponent's dead creature for a turn, then exile it.
+Gruesome Menagerie	reanimate	48	5 mana: reanimate a 1-, 2- and 3-drop from your graveyard.
+Guardian Scalelord	reanimate	55	5-mana flyer: each attack returns a nonland permanent of mana value up to its power.
+Gurgling Anointer	reanimate	44	3-mana flyer; returns a creature with MV up to its power when it dies.
+Haakon, Stromgald Scourge	cast	38	Recasts itself from the graveyard, and Knights too while it is out; only helps knight decks.
+Hakim, Loreweaver	reanimate	26	Returns an Aura to itself each upkeep; only Auras, and it must stay unenchanted.
+Hana Kami	to-hand	8	Only returns Arcane cards, almost none exist in a typical deck.
+Hanna, Ship's Navigator	to-hand	46	Repeatable artifact/enchantment recursion on a body, but costs three each time.
+Harald Unites the Elves	reanimate	38	4-mana saga that returns an Elf or Tyvar from your graveyard, after milling three.
+Harbinger of Spring	to-hand	30	Soulshift 4 returns a Spirit with MV 4 or less when it dies; narrow.
+Harness the Storm	cast	15	Singleton makes same-name copies nearly nonexistent, so it rarely works.
+Harnessed Snubhorn	reanimate	32	Needs combat damage to a player; returns an artifact or enchantment.
+Harvest Wurm	to-hand	22	Needs a basic land in your graveyard to stick; mostly a land-recursion trick.
+Haunted Crossroads	to-hand	40	3-mana enchantment: repeatable B to put a creature on top of library; slow, costs a draw.
+Haunted Fengraf	to-hand	38	Land that sacrifices to return a random creature card to hand; costs 3 and is random.
+Haunting Voyage	reanimate	40	6 mana for up to two creatures of one type; much better in tribal decks.
+Havi, the All-Father	reanimate	34	6-mana 3-color body that reanimates smaller legends when legends die; narrow.
+Hazel's Nocturne	to-hand	58	Instant: two creatures back to hand plus a 2-point drain; pricey but solid value.
+Hazezon, Shaper of Sand	cast	14	Only replays Deserts from the graveyard; needs a Desert theme.
+Healing Technique	to-hand	52	4-mana sorcery returns any card to hand; demonstrate can copy it for another.
+Heiko Yamazaki, the General	cast	30	Cast graveyard artifacts when attacking alone, but only if it is itself a Samurai.
+Heliod, the Radiant Dawn // Heliod, the Warped Eclipse	to-hand	47	4-mana 4/4 that returns an enchantment from your graveyard to hand on entry.
+Hell's Caretaker	reanimate	42	4-mana repeatable reanimation, but it costs a creature and works only in your upkeep.
+Helm of Obedience	reanimate	40	Mills an opponent until a creature and steals it; slow, needs an X payment.
+Helmut Zemo, Mastermind	cast	48	Recasts cheap spells when it attacks, but a 2/2 attacker survives rarely.
+Helping Hand	reanimate	44	1-mana sorcery: return a creature with mana value 3 or less to the battlefield tapped.
+Herald of the Forgotten	reanimate	30	8-mana flyer; returns only permanents with cycling, which is a narrow set.
+Hero of the Dunes	reanimate	50	5-mana body returns an artifact or creature with MV 3 or less, but only in two colors.
+Heroic Return	reanimate	50	6-mana instant reanimation from your graveyard; costs 4 when attacked.
+Hildibrand Manderville // Gentleman's Rise	cast	38	Recasts itself after dying; only recurs this one card.
+Holistic Wisdom	to-hand	30	Costs a card from hand plus {2} each time, and the types must match.
+Hologram Stalker	to-hand	50	6-mana body returns any permanent card to hand; may make a 3/3 when it leaves your yard.
+Honest Rutstein	to-hand	55	3-mana body returns a creature card to hand on entry; Gravedigger-like in two colors.
+Horde of Notions	cast	30	Five-color 5/5; the ability needs WUBRG and few Elementals.
+Hourglass of the Lost	reanimate	35	Returns permanents of one mana value, limited by counters.
+Hua Tuo, Honored Physician	to-hand	40	Repeatable creature recursion to library top, but it costs your draw step and is slow.
+Hymn of Rebirth	reanimate	56	5-mana sorcery: any creature from any graveyard to the battlefield, but two colors and pricey.
+Icetill Explorer	cast	38	Replays lands from the graveyard, which suits self-mill and landfall decks.
+Ichorid	reanimate	30	Only returns itself, and only by exiling a black creature from your graveyard.
+Ill-Gotten Gains	to-hand	50	4 mana: you get back three cards, but every opponent does too.
+Illicit Masquerade	reanimate	40	4-mana flash enchantment: dying marked creatures reanimate another creature, needs a board first.
+Immortal Servitude	reanimate	52	X sorcery: mass reanimate every creature of one mana value; strong in creature decks.
+Imperial Recovery Unit	to-hand	38	Vehicle that must attack and be crewed to return a 2-or-less creature or vehicle card.
+Iname, Life Aspect	to-hand	25	Six-mana body; returns only Spirits, which are rare in singleton.
+Incarnation Technique	reanimate	56	5-mana sorcery: mill five, then reanimate a creature; demonstrate can double it.
+Infernal Caretaker	to-hand	25	Returns only Zombies to hand, and it also helps opponents' Zombies.
+Infernal Offering	reanimate	42	5-mana sorcery: reanimate a creature, but an opponent gets one too.
+Infernal Rebirth	to-hand	55	Instant returns two creatures to hand, and landcycles for {2}.
+Ink-Eyes, Servant of Oni	reanimate	42	Expensive body that reanimates from an opponent's graveyard only if it connects.
+Inscription of Ruin	reanimate	38	Returns a creature with MV 2 or less; narrow target.
+Inspiration from Beyond	to-hand	50	3-mana sorcery: mill three, get back an instant or sorcery, flashback later for a second.
+Interceptor Mechan	to-hand	56	4-mana flyer: returns an artifact or creature card on entry.
+Invasion of Ikoria // Zilortha, Apex of Ikoria	reanimate	48	Can pull a non-Human creature from your graveyard onto the battlefield for X plus GG.
+Invasion of Shandalar // Leyline Surge	to-hand	56	5 mana: up to three permanents back to hand.
+Invasion of Tolvada // The Broken Sky	reanimate	55	5 mana, two colors: any permanent from your graveyard to the battlefield.
+Inventive Iteration // Living Breakthrough	to-hand	32	Chapter II returns an artifact or draws a card.
+Invoke Justice	reanimate	50	5 mana, WWWW: return any permanent from graveyard, plus four +1/+1 counters.
+Iridescent Drake	reanimate	30	Flyer that returns an Aura from any graveyard; depends on Aura being there.
+Ironclad Slayer	to-hand	37	3/2 body returning an Aura or Equipment; narrow, only for equipment decks.
+Ironsoul Enforcer	reanimate	38	Big body returns an artifact when attacking alone; narrow and slow.
+Isareth the Awakener	reanimate	62	3-mana deathtouch body reanimates creatures each attack.
+Ishgard, the Holy See // Faith & Grief	to-hand	44	5-mana sorcery: two artifacts or enchantments to hand.
+It Doesn't Add Up	reanimate	55	5-mana instant: reanimate your creature, but it's suspected so it can't block.
+Izzet Chronarch	to-hand	54	5-mana 2/2 that regrows an instant or sorcery.
+Jackdaw Savior	reanimate	50	Flying body that reanimates a lesser creature when flyers die; needs fliers.
+Jailbreak	reanimate	58	2 mana: return a permanent from their yard, plus one of yours; gives them theirs back.
+Jet Collector	reanimate	50	2-mana body: pay X and B to reanimate a creature of exact mana value.
+Jolted Awake	reanimate	48	1-mana sorcery: reanimate a cheap artifact or creature with energy; cycles.
+Jorn, God of Winter // Kaldring, the Rimestaff	cast	22	Kaldring replays snow permanents from the graveyard; needs a snow deck.
+Joshua, Phoenix's Dominant // Phoenix, Warden of Fire	reanimate	38	Transforms at 5 mana plus a turn to reanimate creatures worth 6 total.
+Journey to Eternity // Atzal, Cave of Eternity	reanimate	46	Returns the enchanted creature, then Atzal can reanimate for five mana.
+Julian Bashir, Frontier Doctor	reanimate	38	3-mana 1/1: attack to reanimate a creature with mana value up to its power; fragile.
+Junji, the Midnight Sky	reanimate	48	Big body; when it dies it can reanimate a non-Dragon from any graveyard.
+Junk Diver	to-hand	34	Small flyer; on death returns another artifact card to hand.
+Kairi, the Swirling Sky	to-hand	38	Six-mana flyer; on death can return two instants or sorceries, a side mode.
+Kami of Restless Shadows	to-hand	38	5-mana body; gets back a Ninja or Rogue, or tucks any creature on top of your library.
+Kami of the Honored Dead	to-hand	28	7-mana flyer; soulshift 6 returns a Spirit only, which is rare.
+Kami of the Palace Fields	to-hand	25	6-mana flyer; soulshift 5 only finds a Spirit, which is rare.
+Karador, Ghost Chieftain	cast	62	Repeatable creature casting from the graveyard, but 3 colors and expensive without a full yard.
+Karai, Future of the Foot	to-hand	44	3-mana 3/3 that must connect to return a creature; reanimates if sneaked in.
+Kardur's Vicious Return	reanimate	44	Slow saga that reanimates a creature on chapter III after a sacrifice and discard.
+Kefka, Dancing Mad	cast	42	Casts opponents' graveyard cards free each end step, at 7 mana and in two colors; random and costly to them.
+Kenrith, the Returned King	reanimate	40	Needs B mana at 4B per reanimation, rarely castable in full across five colors.
+Kheru Lich Lord	reanimate	38	Three-color 6-drop; pay 3 each upkeep for a random temporary reanimation.
+Kirri, Talented Sprout	to-hand	38	Three colors for a repeatable land or Plant return each turn.
+Kishla Trawlers	to-hand	50	3-mana body: exile a creature card, return an instant or sorcery.
+Knights' Charge	reanimate	28	Eight mana to return your Knights; only works in a Knight tribal deck.
+Kolaghan's Command	to-hand	54	Returns a creature to hand alongside another mode at instant speed.
+Kotis, Sibsig Champion	cast	56	3-mana body casts a creature from graveyard each turn for three exiled cards; Sultai only.
+Kraven's Last Hunt	to-hand	40	Chapter III returns a creature card to hand after two turns.
+Krile Baldesion	to-hand	50	2-mana body returns a creature when you cast a noncreature spell of matching mana value.
+Krosan Reclamation	to-hand	25	Only shuffles cards back into library; helps recycle key spells.
+Kroxa and Kunoros	reanimate	48	6-mana three-color body that reanimates each attack, but needs five graveyard cards each time.
+Lagonna-Band Storyteller	to-hand	30	4-mana 3/4 that puts an enchantment on top of the library; narrow and slow.
+Late to Dinner	reanimate	56	4-mana sorcery: any creature from your graveyard to play, plus Food.
+Layla Hassan	to-hand	50	4-mana 3/4 first strike that returns an artifact, legend or saga on entry.
+Leonardo's Technique	reanimate	50	4-mana sorcery: reanimate two cheap creatures. Value in decks with small creatures.
+Leonin Squire	to-hand	34	2-mana body that returns only a cheap artifact card, which is narrow.
+Lethal Protection	to-hand	42	Returns up to one creature card to hand as a bonus on a removal spell.
+Lich-Knights' Conquest	reanimate	46	5 mana: sacrifice artifacts, enchantments or tokens to reanimate that many creatures; needs fodder.
+Lie in Wait	to-hand	46	3 mana: returns a creature to hand and bites with it; three-color cost.
+Lier, Disciple of the Drowned	cast	56	Gives every instant and sorcery in your graveyard flashback at full cost.
+Life // Death	reanimate	68	2-mana reanimation of any creature from your graveyard, paying life equal to its mana value.
+Life from the Loam	to-hand	56	2-mana sorcery: three lands back to hand, and dredge makes it repeatable in land decks.
+Lifeline	reanimate	37	5-mana artifact: dying creatures return at end step, and it can bring back opponents' creatures too.
+Liliana the Repentant	reanimate	50	2-mana body: 6-mana sorcery reanimation of a creature or walker, once.
+Liliana, Death Mage	to-hand	43	+1 returns a creature card to hand each turn.
+Liliana, Death Wielder	reanimate	30	Ultimate at 10 loyalty returns all your creatures; slow.
+Liliana, Death's Majesty	reanimate	68	5 mana: -3 reanimates a creature, and +1 makes Zombies to protect her.
+Liliana, Heretical Healer // Liliana, Defiant Necromancer	reanimate	42	3-mana body flips to a walker that reanimates nonlegendary creatures.
+Liliana, Untouched by Death	cast	28	-3 casts Zombies from the graveyard; tribal only.
+Liliana, Waker of the Dead	reanimate	30	Only the -7 emblem reanimates, which is far off.
+Liliana, the Last Hope	to-hand	62	3 mana: mill two and return a creature to hand, plus a -2/-1 ping.
+Liliana, the Necromancer	to-hand	52	5 mana: -1 returns a creature card to hand each turn.
+Lim-Dûl the Necromancer	reanimate	40	7-mana body that steals dying opposing creatures for 2 mana each; too expensive.
+Live or Die	reanimate	52	5-mana instant: return a creature from your graveyard to the battlefield.
+Lively Dirge	reanimate	58	Spree: tutor a card to graveyard, and reanimate two cheap creatures for four mana total.
+Living End	reanimate	50	Cascade-deck mass reanimation; symmetric and needs a graveyard full of creatures.
+Living Lightning	to-hand	42	Body that returns an instant or sorcery when it dies.
+Llanowar Greenwidow	reanimate	28	Returns only itself from graveyard, for a lot of mana.
+Loamcrafter Faun	to-hand	58	3-mana 3/3: discard lands to regrow that many nonland permanents.
+Long Rest	to-hand	50	XGGG sorcery: returns X cards with different mana values to hand; heavy green cost.
+Loran, Disciple of History	to-hand	42	Returns an artifact card on entry; narrow but repeatable with legends.
+Lorcan, Warlock Collector	reanimate	38	Seven mana flyer that reanimates opponents' dying creatures for life.
+Lord Windgrace	reanimate	36	-3 returns two lands from the graveyard to the battlefield.
+Lord of the Undead	to-hand	30	Repeatable Zombie-only regrowth on a 3-mana lord; tribal only.
+Lore Drakkis	to-hand	42	Needs a mutate target; returns an instant or sorcery, and only once per mutate.
+Lorehold Charm	reanimate	42	Instant-speed return of an artifact or creature with MV 2 or less.
+Lost Monarch of Ifnir	to-hand	50	4-mana 4/4 that returns a creature to hand each turn if a Zombie dealt combat damage.
+Lotus-Eye Mystics	to-hand	38	4-mana body that returns only an enchantment from your graveyard.
+Loyal Retainers	reanimate	56	Sacrifice: return a legendary creature to the battlefield, in your turn.
+Lychguard	to-hand	30	Body that sacrifices to return legendary creatures; narrow and costs four.
+Macabre Mockery	reanimate	30	4-mana instant: steal a graveyard creature for one turn only; it is sacrificed at end step.
+Macabre Reconstruction	to-hand	55	4 mana sorcery: two creatures to hand; costs 2 less if a creature hit the graveyard.
+Macabre Waltz	to-hand	57	2-mana sorcery: two creatures back to hand, then discard a card.
+Maestros Ascendancy	cast	38	3 colors: recast an instant or sorcery each turn, but you sacrifice a creature each time.
+Maestros Confluence	to-hand	36	Returns up to three monocolored instants or sorceries, but costs six.
+Magister of Worth	reanimate	46	Grace vote returns all creatures, but it needs the votes and helps opponents.
+Magnetic Snuffler	reanimate	30	5-mana 4/4 that only returns an Equipment; narrow in singleton.
+Magus of the Will	cast	52	3-mana body; pay {2}{B} and exile it for a one-turn Yawgmoth's Will.
+Make a Wish	to-hand	46	4-mana sorcery: two random cards back to hand; random but a 2-for-1.
+Makeshift Mannequin	reanimate	58	4-mana instant reanimation; the creature is sacrificed if targeted.
+Malevolent Awakening	to-hand	34	Repeatable creature recursion, but each use costs 3 mana and a creature.
+March from the Tomb	reanimate	10	Needs Ally creatures in your graveyard; almost never works.
+March of the Drowned	to-hand	46	1-mana sorcery: return a creature card to hand.
+March of the Returned	to-hand	46	4 mana sorcery: two creature cards back to hand.
+Marshal's Anthem	reanimate	58	Four-mana anthem; each extra {1}{W} returns a creature from your graveyard to the battlefield.
+Marwyn, the Preserver	to-hand	42	2-mana 3/2 that returns lands from your graveyard for {2} each; land-only.
+Masked Admirers	to-hand	35	Only returns itself, but repeatably for creature casts.
+Master Skald	to-hand	40	5-mana 4/4 returns an artifact or enchantment, costing a creature card from the graveyard.
+Mausoleum Turnkey	to-hand	40	4-mana body that returns a creature, but an opponent picks which one.
+Mavinda, Students' Advocate	cast	58	3-mana flyer: recast a graveyard instant or sorcery each turn; free if it targets your creature.
+Meanders Guide	reanimate	30	Needs an attack and a second untapped Merfolk; tribal reanimation.
+Meldweb Curator	to-hand	42	4-mana 3/4 that puts an instant or sorcery back on top, costing you a draw.
+Memorial to Folly	to-hand	44	Sacrifice the land to return a creature card to hand.
+Memory's Journey	to-hand	25	Cheap instant that only shuffles cards into the library; it's an effect, not real recursion.
+Meren of Clan Nel Toth	reanimate	74	4-mana 3/4 that returns a creature each end step, to the battlefield as experience grows.
+Metallurgic Summonings	to-hand	40	Needs six artifacts for the mass rebuy; mostly a spells-matter token engine.
+Metamorphosis Fanatic	reanimate	58	Six-mana body that reanimates a creature on entry, with a cheap miracle option.
+Midnight Recovery	to-hand	48	4-mana sorcery: a creature to hand, and cipher can repeat it on combat damage.
+Midnight Scavengers	to-hand	46	5-mana 3/3 body that returns a creature with mana value 3 or less to hand.
+Mike, the Dungeon Master	reanimate	38	3-mana body; {2},T returns a creature that died this turn, tapped; narrow window.
+Mikey & Mona, Mutant Sitters	to-hand	38	3-mana 2/2; one mode returns a creature or land to hand, but another player may get a mode.
+Mine Excavation	to-hand	44	2-mana sorcery: artifact or enchantment from any graveyard; narrow type.
+Miraculous Recovery	reanimate	55	5-mana instant: reanimate your creature with a counter; costly but flexible.
+Mirko, Obsessive Theorist	reanimate	62	3-mana flier that reanimates a smaller creature each end step; the power limit is a catch.
+Mirkwood Elk	to-hand	30	6-mana body that only returns Elf cards; needs an elf deck.
+Mizzix's Mastery	cast	56	4 mana: free copy of a graveyard spell; overload at 8 recasts them all.
+Mnemonic Deluge	cast	30	9 mana: three free copies of a graveyard instant or sorcery.
+Moira and Teshar	reanimate	42	Big flyer; historic spells reanimate a permanent for a turn, needs artifacts or legends.
+Moira, Urborg Haunt	reanimate	30	Needs to connect, and only returns a creature that died this turn.
+Molderhulk	reanimate	22	Only returns a land; mostly a big discounted body.
+Moldgraf Monstrosity	reanimate	38	7-mana 8/8; on death returns two random creatures, a slow and unreliable reanimation.
+Mole Man, Moloid Master	cast	46	3-mana creature: replay lands from your graveyard, great with fetches, narrow to lands.
+Moment of Reckoning	reanimate	52	7-mana sorcery: return several nonland permanents from your graveyard to the battlefield.
+Monastery Loremaster	to-hand	42	Megamorph for six returns a noncreature, nonland card to hand.
+Monastery Messenger	to-hand	33	Expensive three-color body that sets a spell on top of the library; slow and narrow.
+Monk Idealist	to-hand	46	3-mana body that returns an enchantment; fine in enchantment decks.
+Monster Manual // Zoological Study	to-hand	40	3-mana sorcery: mill five, return one creature to hand; then a creature-cheating artifact.
+Moorland Rescuer	reanimate	42	6-mana body; on death returns creatures with total power 4, but only if it dies.
+Morbid Plunder	to-hand	56	3-mana sorcery: two creature cards back to hand; good value, creatures only.
+Morcant's Loyalist	to-hand	35	3-mana 3/2 that returns only an Elf card when it dies; elf decks only.
+Morgue Burst	to-hand	40	6 mana: creature card to hand, plus damage equal to its power.
+Morgue Theft	to-hand	50	2-mana creature to hand, with flashback for a second.
+Moriok Scavenger	to-hand	32	4-mana body that returns only an artifact creature.
+Moseo, Vein's New Dean	reanimate	50	3-mana flyer plus Pest; reanimates a creature when you gained life, which is easy with the Pest.
+Mourner's Surprise	to-hand	50	2 mana: a creature card back to hand, plus a 1/1 token.
+Mtenda Griffin	to-hand	8	Only returns Griffin cards; singleton makes it nearly dead.
+Multani, Yavimaya's Avatar	to-hand	30	Only returns itself from the graveyard by bouncing two lands.
+Murasa Sproutling	to-hand	22	Kicked for 5: returns a kicker card only; few such cards in singleton.
+Myojin of Grim Betrayal	reanimate	38	8 mana: reanimates creatures that died this turn, best after a wipe.
+Myr Reservoir	to-hand	30	Returns a Myr card to hand for 3 mana; tribal only.
+Myr Retriever	to-hand	52	2-mana body that returns an artifact card when it dies.
+Mystic Retrieval	to-hand	46	4-mana sorcery: instant or sorcery to hand, and flashback in red gets another.
+Mystic Sanctuary	to-hand	36	Free land drop that puts an instant or sorcery on top, only when untapped.
+Mythos of Brokkos	to-hand	54	4 mana: two permanent cards from graveyard to hand.
+Necromantic Selection	reanimate	45	Part of a 7-mana wrath: returns a creature that died to it under your control.
+Necromantic Summons	reanimate	58	5-mana sorcery: reanimate any creature from any graveyard, often with two counters.
+Necromantic Thirst	to-hand	28	4-mana aura: return a creature to hand when the enchanted creature hits a player.
+Necropanther	reanimate	46	Mutate for 4: return a creature with MV 3 or less; needs a target creature to mutate onto.
+Necrosavant	reanimate	33	Only returns itself, for five mana and a creature, in upkeep.
+Nemesis Phoenix	reanimate	30	Only recurs itself, and only when attacking two or more opponents.
+Nethroi, Apex of Death	reanimate	46	Mutate for 7 returns several small creatures; hard to cast in three colors.
+Neva, Stalked by Nightmares	to-hand	56	4-mana two-color body that returns a creature or enchantment card to hand on entry.
+Nezumi Freewheeler // Hideous Fleshwheeler	reanimate	36	Late-game transform for 6 returns a permanent with MV 2 or less from any graveyard; slow.
+Nezumi Graverobber // Nighteyes the Desecrator	reanimate	46	Flipped side reanimates any creature from any graveyard for 5 mana each time.
+Nicol Bolas, the Ravager // Nicol Bolas, the Arisen	reanimate	38	Flipped side reanimates a creature or walker from any graveyard.
+Night Nurse, Healer of Heroes	to-hand	40	Flash 2/1 lifelink that returns a permanent that hit the graveyard this turn.
+Nim Deathmantle	reanimate	58	2-mana equipment: pay {4} to return each nontoken creature that dies; strong in sacrifice decks.
+Nim Devourer	reanimate	30	Returns only itself from the graveyard, and costs a sacrifice.
+Nimraiser Paladin	to-hand	46	5-mana 4/4 that returns a creature with mana value 3 or less to hand.
+Ninja Teen	cast	50	Level 3 casts creatures from your graveyard for 3B each; needs 3 mana invested over turns.
+Nissa of Shadowed Boughs	reanimate	40	4 mana walker: -5 returns a creature from hand or graveyard, but takes landfall to reach it.
+Nissa, Vital Force	to-hand	52	5-mana walker: -3 returns any permanent card from your graveyard to hand.
+No One Left Behind	reanimate	57	5-mana sorcery reanimation of any creature; only 2 mana for a small one.
+No Rest for the Wicked	to-hand	40	2-mana enchantment: get back creatures that died this turn, after a wipe.
+Noctis, Prince of Lucis	cast	38	4-mana three-color body that recasts artifacts from the graveyard for 3 life.
+Nomad Mythmaker	reanimate	42	{W},{T}: put an Aura from any graveyard onto your creature; needs Auras.
+Norika Yamazaki, the Poet	cast	36	Needs an attack alone; she is a Samurai herself, so it works, but enchantments only and it is risky.
+Nostalgic Dreams	to-hand	38	Two mana to turn discarded cards into chosen cards; no card advantage, only filtering.
+Nucklavee	to-hand	50	6-mana 4/4 that returns a red sorcery and a blue instant; needs UR spells.
+Nullpriest of Oblivion	reanimate	56	2-mana menace lifelinker; kicked at 6 it reanimates a creature from your graveyard.
+Nurgle's Conscription	reanimate	56	5-mana instant: steal a creature from an opponent's graveyard, then exile that graveyard.
+Nyx Weaver	to-hand	52	3-mana BG body that later exiles itself to return any card to hand.
+Oath of Ghouls	to-hand	30	Returns a creature only when you trail on creatures in graveyard; opponents use it too.
+Obsessive Stitcher	reanimate	55	Looter that reanimates any creature from your graveyard for four mana.
+Obzedat's Aid	reanimate	55	5-mana sorcery: any permanent from your graveyard to the battlefield.
+Odunos River Trawler	to-hand	15	Only returns enchantment creatures, which are rare in a singleton deck.
+Offspring's Revenge	reanimate	42	Five mana, three colors: repeatable 1/1 copies of R, W or B creatures from your graveyard.
+Ogre Battlecaster	cast	40	3-mana first striker that recasts a graveyard spell for RR when attacking; needs to connect.
+Okiba Salvage	reanimate	50	5-mana sorcery: return any creature or Vehicle from your graveyard to the battlefield.
+Olivia, Crimson Bride	reanimate	57	6-mana flying haste body that reanimates a creature every attack.
+Oltec Archaeologists	to-hand	38	5-mana 4/4 that returns one artifact card; narrow card type.
+Omen of the Dead	to-hand	52	1-mana flash: return a creature card to hand, then scry 2 later.
+Onakke Oathkeeper	reanimate	33	Six-mana graveyard ability returns only a planeswalker; needs a walker deck.
+Once and Future	to-hand	58	Instant-speed: any card back to hand, two with GGG; four mana.
+One Last Job	reanimate	58	5 mana for a creature back, plus flexible modes; one mode stacks with others.
+Open the Vaults	reanimate	40	6-mana mass return of artifacts and enchantments from all graveyards; symmetric and narrow.
+Orah, Skyclave Hierophant	reanimate	28	Returns only lesser Clerics when a Cleric dies; needs a Cleric theme.
+Orcus, Prince of Undeath	reanimate	55	Mass reanimation of X total mana value with haste, on a big flyer.
+Order of Midnight // Alter Fate	to-hand	50	2-mana sorcery returns a creature to hand, then a flying body later.
+Order of Whiteclay	reanimate	49	Repeatable reanimation of 3-or-less creatures, but costs 3 each time.
+Oskar, Rubbish Reclaimer	cast	42	Cast your discarded nonland cards; needs a discard theme.
+Osteomancer Adept	cast	58	2-mana deathtouch body: cast graveyard creatures by foraging, once per turn tap.
+Ovalchase Daredevil	to-hand	30	Returns itself from the graveyard to hand when an artifact enters; only recurs itself.
+Overflow Submatrix	cast	42	3-mana body that recasts artifact creatures from the graveyard, but only works in artifact-creature decks.
+Overlord of the Balemurk	to-hand	66	Returns a creature or planeswalker on entry and each attack, with a self-mill. Cheap impending mode.
+Oversold Cemetery	to-hand	48	2-mana engine: a creature to hand each upkeep, once four are in the yard.
+Palace Siege	to-hand	55	5 mana: return a creature card to hand every upkeep, or drain 2 instead.
+Paleoloth	to-hand	36	6-mana body; recursion only when another power 5+ creature enters.
+Patch Up	reanimate	40	3 mana: return small creatures totaling MV 3 to the battlefield.
+Path of the Schemer	reanimate	50	5-mana sorcery: mill two each, then take any creature from any graveyard.
+Peerless Recycling	to-hand	56	2-mana instant: permanent card back, or two with a gift to an opponent.
+Perennation	reanimate	44	6 mana in three colors: any permanent returns hexproof and indestructible.
+Perennial Behemoth	cast	34	Plays lands from the graveyard; mostly a body with unearth.
+Pestilent Cauldron // Restorative Burst	to-hand	50	Restorative Burst: 5 mana returns two creature, land or planeswalker cards; also gives opponents 4 life.
+Pharika's Mender	to-hand	52	5-mana 4/3 body that returns a creature or enchantment card to hand.
+Phoenix Down	reanimate	42	1 mana artifact, then 2 more: returns a creature with MV 4 or less once.
+Phyrexian Delver	reanimate	58	5-mana body that reanimates any creature; life loss equals its mana value.
+Phyrexian Grimoire	to-hand	30	Costly repeatable return of a card from your graveyard, but an opponent chooses which.
+Phyrexian Missionary	to-hand	50	Cheap lifelink body; with W+B kicker it returns a creature card.
+Phyrexian Reclamation	to-hand	58	1-mana engine: return a creature to hand each turn for 2 mana and 2 life.
+Pia's Revolution	to-hand	35	Artifact decks only: returns dying artifacts unless the opponent takes 3.
+Pillardrop Rescuer	to-hand	42	5-mana flyer that returns a cheap creature to hand; expensive for the value.
+Pillardrop Warden	to-hand	38	4-mana wall that sacs for an instant or sorcery at sorcery speed.
+Pinnacle Monk // Mystic Peak	to-hand	42	5-mana 2/2 returns an instant or sorcery on entry.
+Pit Keeper	to-hand	33	2-mana body; returns a creature only with four already in your graveyard.
+Pitchstone Wall	to-hand	28	Wall that saves a discarded card by sacrificing itself; needs discard outlets.
+Planar Birth	reanimate	22	Only basic lands, from every graveyard, for everyone.
+Planewide Celebration	to-hand	40	7 mana: up to four permanents back to hand, or tokens and life.
+Polluted Cistern // Dim Oubliette	reanimate	48	5-mana room: mill three, then reanimate any creature from your graveyard.
+Portal to Phyrexia	reanimate	52	9 mana: reanimate any creature from any graveyard every upkeep.
+Possessed Skaab	to-hand	50	5-mana 3/2 body: return an instant, sorcery or creature card to hand.
+Postmortem Lunge	reanimate	40	X spell: return a creature with haste for one turn; best for enter triggers.
+Pothole Mole	to-hand	38	3-mana 2/3 that mills three and returns a land from the graveyard.
+Practiced Scrollsmith	cast	46	3-mana first striker: recast a noncreature spell from your graveyard through next turn.
+Praetor's Counsel	to-hand	46	8 mana: your entire graveyard returns to hand; huge refill but very expensive.
+Pre-War Formalwear	reanimate	50	3 mana: return a MV 3 or less creature, with a +2/+2 equipment on it.
+Primary Research	reanimate	42	5 mana: returns a permanent of MV 3 or less, then may draw.
+Primevals' Glorious Rebirth	reanimate	38	7 mana: return all legendary permanents from your graveyard; needs a legends deck.
+Prison Break	reanimate	54	5-mana sorcery reanimation from your graveyard with a +1/+1 counter; mayhem makes it cheaper.
+Prized Amalgam	reanimate	24	Returns itself only when something enters from your graveyard; not a real recursion source.
+Proclamation of Rebirth	reanimate	30	Reanimates MV 1 or less creatures only; narrow in most decks.
+Profane Command	reanimate	55	X sorcery can return a creature of MV X or less, plus a second mode.
+Profane Procession // Tomb of the Dusk Rose	reanimate	42	Flipped land reanimates creatures exiled with it, but needs three exiled first.
+Professor Zei, Anthropologist	to-hand	38	Sacrifice it to return an instant or sorcery on your turn.
+Profound Journey	reanimate	52	7 mana: return a permanent, then again next upkeep via rebound.
+Protomatter Powder	reanimate	30	Costs 3, then 5 more with a sacrifice to return an artifact; slow and needs two colors.
+Psionic Ritual	cast	38	6 mana: exile an instant or sorcery from any graveyard and cast a copy free.
+Psychic Intrusion	cast	42	5 mana: steal a card from a graveyard or hand to cast; slow, mostly a discard-theft.
+Puca's Covenant	to-hand	30	Needs a creature with counters to die; once a turn, theme-only recursion.
+Pull Through the Weft	to-hand	58	5 mana: two permanents to hand plus two lands back; big value.
+Pull from the Deep	to-hand	46	4 mana: instant and sorcery back; good in spells decks.
+Pull from the Grave	to-hand	54	3 mana: two creatures back to hand plus 2 life.
+Pulse of Murasa	to-hand	58	3-mana instant: creature or land card back to hand, plus 6 life.
+Pulsemage Advocate	reanimate	60	3-mana 1/3: tap to reanimate a creature each turn, but it gives an opponent three cards back.
+Puppeteer Clique	reanimate	47	5-mana persist flyer that borrows an opponent's dead creature for a turn.
+Purgatory	reanimate	34	4 mana, then 4 mana and 2 life each upkeep to return a creature; slow and expensive.
+Pyretic Rebirth	to-hand	55	4-mana instant: artifact or creature back to hand, plus damage equal to its mana value.
+Pyrrhic Revival	reanimate	55	6-mana mass reanimation; symmetric, but it brings back your whole yard.
+Quarry Beetle	reanimate	35	5-mana body that returns only a land from the graveyard.
+Queen's Bay Paladin	reanimate	38	Strong body but only returns Vampires, costing life; tribal only.
+Quest for the Necropolis	reanimate	46	Cheap enchantment; reanimates from any graveyard for 6 mana, less with landfall counters.
+Quintorius, Loremaster	cast	50	5 mana: exiles a noncreature card from your graveyard each turn and lets you recast it free.
+Ragamuffin Raptor	to-hand	52	5-mana 4/3 that returns a creature to hand on entry.
+Raise the Draugr	to-hand	54	2-mana instant: one creature back, or two that share a type.
+Raise the Past	reanimate	42	4-mana mass reanimate limited to cheap creatures.
+Rakdos Joins Up	reanimate	56	5 mana: any creature from your graveyard returns bigger.
+Rakshasa Debaser	reanimate	50	6/6 body that steals a creature from a graveyard each attack; needs to attack and survive.
+Ral Zarek, Guest Lecturer	reanimate	44	3-mana walker: -2 returns a creature with mana value 3 or less to the battlefield.
+Rally the Ancestors	reanimate	50	Instant mass reanimation for X+2, but the creatures are exiled next upkeep; best in sacrifice or ETB decks.
+Rat King, Verminister	reanimate	34	2-mana body that needs three Rats to reanimate; hard to power up without a Rat theme.
+Ratchet, Field Medic // Ratchet, Rescue Racer	reanimate	30	Needs lifegain to return an artifact from the graveyard; narrow and conditional.
+Ratonhnhaké:ton	reanimate	32	Returns only an Equipment, and only after its first hit connects.
+Ravos, Soultender	to-hand	68	5-mana flyer: anthem and a free creature recursion each upkeep.
+Razor Hippogriff	to-hand	42	5-mana 3/3 flyer: returns an artifact and gains life; needs an artifact.
+Reap	to-hand	28	2-mana instant: returns cards equal to the opponent's black permanents; needs a black opponent.
+Reap the Past	to-hand	38	X+2 mana: X random cards back to hand, but only in R/G and no choice.
+Reaping Willow	reanimate	40	4-mana body; once, removes two counters to reanimate a creature with MV 3 or less.
+Reaping the Graves	to-hand	46	3-mana instant: a creature card back to hand; storm is rarely relevant.
+Reassembling Skeleton	reanimate	40	Only recurs itself for {1}{B}; a sacrifice engine piece, not general recursion.
+Reborn Hope	to-hand	33	2-mana sorcery: returns only a multicolored card to hand.
+Recall	to-hand	42	Discard X to return X cards for 2X+1 mana; costs cards.
+Reclaim	to-hand	38	1-mana instant: a card goes back on top, but you lose the next draw.
+Recollect	to-hand	50	3-mana sorcery: any card from your graveyard to hand.
+Recommission	reanimate	50	2-mana sorcery: return an artifact or creature with MV 3 or less, with an extra counter.
+Reconstruct History	to-hand	52	4 mana, two colors: up to five noncreature cards back to hand; can be a big refill.
+Reconstruction	to-hand	42	1 mana: one artifact card back to hand; narrow but cheap.
+Recover	to-hand	52	3 mana: a creature card back to hand and a cantrip.
+Red XIII, Proud Warrior	to-hand	38	3-mana 3/3 that regrows an Aura or Equipment; narrow card types.
+Redemption Choir	reanimate	42	4-mana lifelink 3/3; coven returns a cheap permanent but needs three different powers.
+Redress Fate	reanimate	44	Mass-returns artifacts and enchantments; strong only in the right deck, and miracle helps.
+Redtooth Vanguard	to-hand	25	Only returns itself, and only with enchantments; theme-only.
+Refurbish	reanimate	42	4-mana sorcery returns an artifact to the battlefield; narrow type.
+Regenesis	to-hand	56	5-mana instant: two permanent cards back to hand.
+Reincarnation	reanimate	34	3-mana instant: needs a creature to die this turn, then returns a creature to its owner.
+Reinforcements	to-hand	38	1-mana instant: stack three graveyard creatures on top, but you redraw them slowly.
+Rejoin the Fight	reanimate	42	6-mana sorcery: opponents pick creatures from your graveyard to return; hits several but is costly.
+Relearn	to-hand	46	3-mana sorcery: return an instant or sorcery to hand; narrow card type, but common.
+Relentless X-ATM092	reanimate	25	Only recurs itself, for eight mana; a slow self-recursion.
+Relive the Past	reanimate	34	7-mana two-color sorcery that returns up to three noncreature permanents.
+Remember the Fallen	to-hand	56	3 mana: creature and artifact card back to hand, either or both.
+Renegade Rallier	reanimate	40	3-mana GW 3/2; revolt returns a cheap permanent from the graveyard.
+Renewing Touch	to-hand	22	1 mana: shuffle creatures back into the library; no card gained.
+Repair and Recharge	reanimate	50	5 mana: an artifact, enchantment or planeswalker returns to play, plus a tapped Powerstone.
+Replenish	reanimate	48	4-mana sorcery: all your enchantments return to play; needs an enchantment deck.
+Repository Skaab	to-hand	42	4-mana 3/3: sacrifice a creature to return an instant or sorcery.
+Rescue Skiff	reanimate	46	6 mana: return a creature or enchantment to the battlefield, with a flyer later if you station it.
+Rescue from the Underworld	reanimate	40	5-mana instant: sacrifice a creature, then both it and a graveyard creature return next upkeep.
+Resistance Is Futile	reanimate	30	Second mode only returns an artifact creature with mana value 3 or less.
+Resourceful Return	to-hand	50	2-mana sorcery: creature card to hand, plus a draw with an artifact.
+Restart Sequence	reanimate	58	4-mana sorcery: reanimate your creature; 2 mana with freerunning.
+Restless Dreams	to-hand	38	1 mana: discard X cards to return X creatures; it's card-neutral at best.
+Restoration Gearsmith	to-hand	56	4-mana 3/3 that returns an artifact or creature card.
+Restoration Seminar	reanimate	50	7 mana: any nonland permanent returns, and paradigm recasts it later.
+Restoration Specialist	to-hand	44	2-drop that sacrifices to return an artifact and an enchantment.
+Restore with Empathy	to-hand	56	3-mana instant: any permanent card back to hand, plus 4 life.
+Resurrection	reanimate	52	4-mana sorcery: return a creature from your graveyard to the battlefield.
+Retether	reanimate	22	4 mana: Auras return from the graveyard, but only an Aura deck can use it.
+Retrieve	to-hand	56	3-mana sorcery: a creature and a noncreature permanent back to hand.
+Retrofitted Transmogrant	reanimate	28	Only recurs itself from the graveyard for 4 mana; it doesn't get other cards back.
+Return Triumphant	reanimate	52	2-mana reanimation of a cheap creature (MV 3 or less) with a Role attached.
+Return Upon the Tide	reanimate	52	5-mana reanimation of any creature; foretell softens the cost, Elves add tokens.
+Return from Extinction	to-hand	50	2-mana creature regrowth; can return two cards if they share a type.
+Return of the Nightstalkers	reanimate	6	7 mana for a nearly nonexistent type, and it destroys your Swamps.
+Return to Battle	to-hand	52	1-mana creature regrowth; cheap but creature-only.
+Return to the Light Realms	reanimate	42	9-mana sorcery: return every nonland permanent from your graveyard.
+Return to the Ranks	reanimate	50	Convoke X: return small creatures from your graveyard to the battlefield.
+Returned Pastcaller	to-hand	46	6-mana flyer that returns an instant, sorcery or Spirit on entry.
+Reunion of the House	reanimate	46	7-mana sorcery: reanimate several creatures with total power 10 or less.
+Revival // Revenge	reanimate	48	2-mana sorcery: reanimate a creature with mana value 3 or less.
+Revival Experiment	reanimate	50	6 mana: return up to one card per permanent type to the battlefield, costing life.
+Revive	to-hand	40	2 mana: a green card from your graveyard to hand.
+Revive the Fallen	to-hand	43	2 mana: any graveyard's creature to hand; clash may rebuy it.
+Revive the Shire	to-hand	56	2 mana: any permanent card to hand, plus a Food.
+Revivify	to-hand	38	3-mana instant: returns creatures that died this turn; battlefield only on a 15+ roll.
+Reviving Melody	to-hand	52	3-mana sorcery: creature and enchantment back to hand, two-for-one at best.
+Revoke Demise	reanimate	56	5-mana sorcery reanimation, 3 mana for cheap creatures; gains 2 life.
+Revolutionist	to-hand	42	6-mana 3/3 body that returns an instant or sorcery; madness makes it cheaper.
+Rewrite History	to-hand	40	Slow: after four taps it sacrifices to return two instants or sorceries.
+Rewrite Regrets	reanimate	55	4-mana sorcery: reanimate a creature or planeswalker with MV 6 or less.
+Reya Dawnbringer	reanimate	43	9-mana flyer: reanimates a creature every upkeep, but far too expensive.
+Rise // Fall	to-hand	42	Two-color 2-mana sorcery: a creature card back to hand plus a bounce.
+Rise Again	reanimate	46	5-mana sorcery reanimation, your graveyard only.
+Rise from the Grave	reanimate	52	5-mana sorcery: any graveyard's creature, yours to control.
+Rise from the Wreck	to-hand	59	3 mana: up to two creature cards plus Mount and Vehicle back to hand.
+Rise of the Dark Realms	reanimate	48	9 mana: every creature in every graveyard comes back under you.
+Rise of the Witch-king	reanimate	54	Edict that returns any permanent card if you sacrificed a creature.
+Rise to Glory	reanimate	47	5-mana two-color sorcery: reanimate a creature and maybe an Aura.
+Rite of Renewal	to-hand	54	4 mana sorcery: two permanent cards back to hand, plus a graveyard shuffle.
+Rite of the Moth	reanimate	60	4 mana sorcery: reanimate any creature in your graveyard, flashback for another; exiled if it dies.
+Ritual of Restoration	to-hand	42	1-mana sorcery: return an artifact card to hand.
+Rivaz of the Claw	cast	34	Recasts one Dragon from the graveyard each turn; dragon decks only.
+Riveteers Ascendancy	reanimate	38	Needs three colors and sacrifice outlets; returns lesser creatures once a turn.
+Road of Return	to-hand	52	2-mana sorcery: get a permanent back, or your commander; entwine does both.
+Rodolf Duskbringer	reanimate	50	6-mana lifelinker that reanimates a creature each end step, scaled by life gained.
+Rofellos's Gift	to-hand	42	1-mana sorcery: enchantments back to hand, needs green cards to reveal.
+Rogues' Gallery	to-hand	56	3-mana sorcery: up to five creatures back to hand, one per color; best in multicolor decks.
+Rona, Disciple of Gix	cast	42	3-mana 2/2 lets you cast a historic card from graveyard, once on entry.
+Roots of Wisdom	to-hand	38	2-mana sorcery: land or Elf back to hand, else draw a card.
+Rootwater Diver	to-hand	38	1-mana body that trades itself for an artifact card back.
+Rot Hulk	reanimate	38	7 mana for a body that returns only Zombies, up to three in a pod; tribal.
+Runic Repetition	to-hand	12	Needs a flashback card in exile; almost never works.
+Runo Stromkirk // Krothuss, Lord of the Deep	to-hand	33	3-mana flyer puts a creature from graveyard on top of library; slow, costs a draw.
+Ruthless Technomancer	reanimate	40	4-mana body: sacrifice artifacts to reanimate a creature; needs artifacts.
+Ruxa, Patient Professor	to-hand	38	4/4 body that returns creatures with no abilities on entry and attack; narrow targets.
+Rydia's Return	to-hand	52	5 mana: two permanent cards back to hand, or a team +3/+3.
+Sacred Excavation	to-hand	30	4-mana sorcery: two cycling cards back to hand; narrow.
+Sage's Knowledge	to-hand	33	3 mana: one sorcery back to hand; narrow card type.
+Said // Done	to-hand	46	3-mana sorcery: instant or sorcery back to hand; narrow but common in spell decks.
+Sail into the West	to-hand	42	Return mode gives everyone two cards back, so it helps opponents too.
+Salvage	to-hand	32	Puts any card on top, costing your next draw; weak recursion.
+Salvage Scout	to-hand	38	Cheap body that returns an artifact once; narrow card type.
+Salvager of Ruin	to-hand	35	3-mana body: sacrifice to get back a permanent that hit the graveyard this turn.
+Salvager of Secrets	to-hand	45	5-mana body that returns an instant or sorcery to hand.
+Salvation Engine	reanimate	38	Needs Crew 6 to attack, then returns an artifact; only fits artifact decks.
+Sam's Desperate Rescue	to-hand	53	1 mana: a creature card back to hand, and the Ring tempts you.
+Samwise Gamgee	to-hand	38	2-mana body: needs three Foods to return a historic card, which is slow and narrow.
+Samwise the Stouthearted	to-hand	50	2-mana flash body: return a permanent that died this turn, a narrow window.
+Sanctum Gargoyle	to-hand	42	4-mana flyer that returns an artifact card to hand.
+Sandbender Scavengers	reanimate	38	2-mana body that returns a small creature on death, needs sacrifice growth for anything bigger.
+Sanguine Indulgence	to-hand	46	4-mana sorcery: two creatures to hand; 1 mana with lifegain.
+Satsuki, the Living Lore	to-hand	30	Only returns Sagas or enchantment creatures, so it's saga-theme only.
+Sauron, Lord of the Rings	reanimate	38	Eight-mana three-color body; cast trigger reanimates a creature from your graveyard.
+Sauron, the Necromancer	reanimate	50	Repeatable temporary reanimation on attack; the copies are exiled at end step.
+Savior of the Small	to-hand	46	4-mana body that returns a cheap creature when it has tapped.
+Savvy Trader	cast	50	4-mana 3/3: replay a permanent from your graveyard; cost cut for cast-from-elsewhere decks.
+Say Its Name	to-hand	50	2 mana: mill three, then return a creature or land to hand.
+Scarecrone	reanimate	40	Taps and pays 4 to return artifact creatures; slow but repeatable in artifact decks.
+Scavenger's Talent	reanimate	34	Level 3 reanimates a creature but costs three nonland permanents; narrow sacrifice-theme card.
+Scholar of the Ages	to-hand	40	7-mana body returns two instants or sorceries; slow but strong value.
+Scholar of the Lost Trove	cast	52	7-mana 5/5 flyer that casts a spell or artifact from the graveyard for free.
+Scion of Darkness	reanimate	36	Eight mana 6/6 trampler that steals graveyard creatures on combat damage; cycling helps.
+Scout for Survivors	reanimate	46	3-mana sorcery: returns up to three small creatures with counters; low total mana value limits it.
+Scrap Trawler	to-hand	38	3-mana body that returns a cheaper artifact whenever an artifact of yours dies.
+Scrap Welder	reanimate	40	3-mana 3/3 that sacrifices an artifact to reanimate a cheaper one; needs artifacts.
+Scribe of the Mindful	to-hand	46	3-mana body that costs 1 more to return an instant or sorcery to hand.
+Scrivener	to-hand	38	5-mana body that returns only an instant; Archaeomancer does more for less.
+Scrounge	reanimate	30	Opponent picks the artifact from their yard; unreliable and sorcery speed.
+Scrounge for Eternity	reanimate	52	3-mana reanimation of a cheap creature, but costs a sacrifice; leaves a Lander.
+Scythe of the Wretched	reanimate	38	Equip 4 is costly; returns creatures the wielder damaged when they die, under your control.
+Search for Survivors	reanimate	22	3-mana random graveyard card; only returns a creature by chance and exiles the rest.
+Season of Renewal	to-hand	58	3-mana instant: get back a creature, an enchantment, or both.
+Secret Salvage	to-hand	32	5-mana sorcery returns one nonland card from the graveyard to hand.
+Seeds of Renewal	to-hand	48	Undaunted sorcery: return two cards to hand; costs less in a 4-player game.
+Seedship Broodtender	reanimate	52	2-mana 2/3 that mills three; five mana and a sacrifice reanimates a creature.
+Sefris of the Hidden Ways	reanimate	32	Three colors; completing a dungeon takes many turns to reanimate.
+Seluma, Light of Aysen	reanimate	32	Returns Angels only after combat damage; narrow tribal reanimation on a 5-mana body.
+Sepulchral Primordial	reanimate	50	7-mana body: takes a creature from each opponent's graveyard onto your side.
+Serra Paragon	cast	68	4-mana 3/4 flyer: replay a land or cheap permanent from the graveyard each turn.
+Sevinne's Reclamation	reanimate	52	3-mana sorcery: return a permanent with MV 3 or less to play; flashback.
+Shadow of the Enemy	cast	44	Six mana to steal cast rights to a graveyard's creatures; good value but slow.
+Shadow of the Grave	to-hand	22	Only returns cards discarded or cycled this turn; rarely does anything.
+Shark Shredder, Killer Clone	reanimate	40	4-mana 4/4 first striker: steals a creature from a graveyard if it connects.
+Sharuum the Hegemon	reanimate	46	3-color 5/5 flyer returns an artifact from the graveyard on entry.
+Shattered Crypt	to-hand	50	BB plus X: return X creatures to hand for X life; scales but creature-only.
+Shelob, Dread Weaver	reanimate	52	4-mana body that exiles dying creatures, then reanimates them for X plus 2.
+Sheoldred's Restoration	reanimate	52	4-mana sorcery: reanimate any creature; lose life equal to its mana value unless kicked.
+Sheoldred, Whispering One	reanimate	58	7-mana body: reanimates a creature every upkeep.
+Shepherd of the Clouds	to-hand	50	5-mana flyer: returns a permanent with mana value 3 or less to hand.
+Shepherd of the Cosmos	reanimate	46	6-mana flyer: returns a permanent with mana value 2 or less to the battlefield.
+Shigeki, Jukai Visionary	to-hand	50	Channel for XXGG returns X nonlegendary cards to hand; scalable but pricey.
+Shilgengar, Sire of Famine	reanimate	55	5-mana flyer; six Blood and three mana return every creature card from graveyard.
+Shipwreck Dowser	to-hand	50	5-mana body that regrows an instant or sorcery; solid in spell decks.
+Shirei, Shizo's Caretaker	reanimate	30	5-mana for a narrow power-1-or-less recursion engine.
+Shreds of Sanity	to-hand	48	3-mana sorcery: return an instant and a sorcery, then discard a card.
+Shrouded Lore	to-hand	50	1 mana returns a card to hand; extra {B} makes the opponent's choices worse.
+Shuri's Fabricator	reanimate	40	4-mana artifact; {6} sorcery-speed ability returns an artifact to the battlefield.
+Sibsig Muckdraggers	to-hand	38	Delve body that returns a creature to hand; costs a lot of graveyard.
+Sidar Jabari of Zhalfir	reanimate	24	Returns only Knights on combat damage; narrow tribal.
+Sidisi, Regent of the Mire	reanimate	46	Repeatable sorcery-speed sacrifice: reanimates a creature costing one more.
+Sigardian Savior	reanimate	52	5-mana flyer that reanimates two cheap creatures on entry.
+Sigil of the New Dawn	to-hand	55	Repeatable creature recursion for {1}{W} each time one dies.
+Silent Sentinel	reanimate	33	7-mana flyer returning an enchantment each attack; slow and narrow.
+Sinister Waltz	reanimate	47	5 mana returns two random creatures from three; needs three in the yard and two colors.
+Sins of the Past	cast	43	6 mana to cast one instant or sorcery free from the graveyard, then exile it.
+Sister Hospitaller	reanimate	58	6-mana body that returns any creature from your graveyard and gains life.
+Sivriss, Nightmare Speaker	to-hand	33	Sacrifice a creature or artifact to maybe get a milled card back; costly and unreliable.
+Skeleton Shard	to-hand	30	Repeatable return of artifact creatures only; narrow in most decks.
+Skull of Orm	to-hand	28	3-mana artifact, 5 more per use: returns only an enchantment card to hand.
+Skullwinder	to-hand	58	3-mana deathtouch body returns any card; an opponent gets one back too.
+Skyclave Shade	cast	32	Recasts only itself from the graveyard on your land drops; not real recursion.
+Slimefoot and Squee	reanimate	42	3-color body that makes tokens and can return itself plus a creature for 4 mana at sorcery speed.
+Sliver Gravemother	reanimate	30	WUBRG 6/6 giving Sliver cards encore; only useful in Sliver decks.
+Slogurk, the Overslime	to-hand	42	3/3 trampler; returns lands to hand when it leaves, which is narrow and needs lands in the graveyard.
+Slumbering Walker	reanimate	42	5-mana body that returns power-2-or-less creatures, only twice at most.
+Smile at Death	reanimate	58	Repeatable reanimation of power 2 or less creatures; slow but strong value engine.
+Song of Inspiration	to-hand	50	5-mana instant: up to two permanents back to hand, plus life on a high roll.
+Sorceress's Schemes	to-hand	50	Returns an instant or sorcery for 4 and refunds {R}; flashback is a second use.
+Sorin, Vengeful Bloodlord	reanimate	55	4-mana walker: reanimate a creature by paying loyalty equal to its mana value.
+Soul Exchange	reanimate	50	BB: exile your creature to return one from your graveyard; costs a body.
+Soul Manipulation	to-hand	46	Instant-speed creature return, usable alongside the counter mode.
+Soul Salvage	to-hand	50	3-mana sorcery: two creature cards back to hand.
+Soul Stair Expedition	to-hand	52	1 mana: after three land drops, sacrifice to return two creatures to hand.
+Soul Strings	to-hand	38	Returns two creatures unless an opponent pays X; you must overpay.
+Soul Transfer	to-hand	50	Modal: return a creature or planeswalker card from graveyard to hand.
+Soul of Innistrad	to-hand	60	6/6 deathtouch body; {3}{B}{B} returns three creatures, repeatable, and works from the graveyard.
+Soulcoil Viper	reanimate	56	3-mana body that sacs to reanimate any creature of yours, sorcery speed.
+Soulless Revival	to-hand	46	2-mana instant: a creature card back to hand; narrow to creatures.
+Spawnbed Protector	to-hand	30	Seven-mana body; returns only Eldrazi creatures, which is a narrow theme.
+Spectral Steel	to-hand	22	Graveyard ability returns an Aura or Equipment, narrow card types.
+Spellkeeper Weird	to-hand	42	3-mana 1/4 that costs 2 and itself to return an instant or sorcery.
+Spellpyre Phoenix	to-hand	22	5-mana flyer; returns cycling spells only, a very narrow theme.
+Spirit-Sister's Call	reanimate	34	5 mana; sacrifice a permanent each turn to return one that shares a type, exiled if it leaves.
+Splendid Reclamation	reanimate	36	Returns only lands from the graveyard to the battlefield tapped.
+Split the Spoils	to-hand	46	3-mana sorcery: opponent picks a pile of up to five permanents; you get one pile.
+Spring-Leaf Avenger	to-hand	38	Needs to connect with a player to return a permanent card.
+Squall, SeeD Mercenary	reanimate	42	4-mana body; on combat damage returns a permanent of MV 3 or less.
+Squirming Emergence	reanimate	60	3-mana sorcery: return any nonland permanent whose MV fits your graveyard count.
+Staff of Eden, Vault's Key	reanimate	38	6 mana: returns a legendary permanent from any graveyard, narrow.
+Starfield of Nyx	reanimate	52	5 mana: returns an enchantment from graveyard every upkeep; enchantress decks only.
+Stir the Grave	reanimate	58	Flexible X reanimation from your graveyard at fair cost.
+Stitchwing Skaab	reanimate	25	Only returns itself, at the cost of two cards.
+Stoic Builder	to-hand	35	3-mana body that returns only a land from your graveyard.
+Storm of Souls	reanimate	50	6-mana mass reanimation, but creatures return as 1/1 flyers.
+Storrev, Devkarin Lich	to-hand	47	4-mana 5/4 trampler: combat damage returns a creature or walker card from graveyard to hand.
+Strands of Night	reanimate	44	Repeatable reanimation, but costs BB, 2 life and a Swamp each time.
+Stray from History	to-hand	42	3-mana sorcery: return one or two creatures or Spacecraft to hand.
+Strongarm Thug	to-hand	10	Only returns Mercenaries; almost never has a target in singleton.
+Sudden Reclamation	to-hand	55	4-mana instant: mill four, then get back a creature and a land.
+Sudden Salvation	reanimate	40	4-mana instant: undo up to three permanents dying this turn, like after a wipe.
+Summon Undead	reanimate	58	5-mana sorcery: reanimate a creature from your own graveyard, with optional self-mill.
+Summon: Titan	reanimate	30	Only returns lands, and only the ones you milled; mostly a big body.
+Summoned Dromedary	to-hand	30	Only recurs itself for {1}{W} at sorcery speed.
+Sun-Blessed Healer	reanimate	50	Kicked for 4: a nonland permanent with MV 2 or less returns.
+Super Mutant Scavenger	to-hand	38	Body that gets back an Aura or Equipment, twice; narrow card types.
+Superior Spider-Man	reanimate	50	4-mana 4/4 that copies any graveyard creature, gaining its enter effects.
+Supper for Spiders	reanimate	38	2-mana instant: take creatures that died this turn, but only a narrow window.
+Surgical Suite // Hospital Room	reanimate	50	2-mana room that returns a creature with mana value 3 or less to the battlefield.
+Surreal Memoir	to-hand	38	4 mana, random instant back to hand twice with rebound; slow and random.
+Survivors' Bond	to-hand	62	2-mana sorcery: get back two creatures, one Human and one non-Human, which is any creature pair.
+Sword of Light and Shadow	to-hand	46	Returns a creature card to hand each time the carrier connects, plus 3 life.
+Sword of Once and Future	cast	42	Recasts an instant or sorcery with MV 2 or less from the graveyard, but only after a hit.
+Sylvan Hierophant	to-hand	46	2-mana body that returns another creature card to hand when it dies.
+Szarel, Genesis Shepherd	cast	30	5-mana three-color body; only replays lands from the graveyard.
+Takenuma, Abandoned Mire	to-hand	50	Channel for 4 mana: mill three, return a creature or planeswalker; no spell slot.
+Tale of Tinúviel	reanimate	48	5-mana saga: reanimates a creature on chapter II plus indestructible and lifelink.
+Tamiyo, Collector of Tales	to-hand	45	4-mana walker: -3 returns any card from graveyard to hand, then +1 digs for a named card.
+Tamiyo, Compleated Sage	reanimate	50	-X makes a token copy of a permanent card from your graveyard; flexible but loyalty-hungry.
+Tamiyo, Inquisitive Student // Tamiyo, Seasoned Scholar	to-hand	38	Flip side returns an instant or sorcery, but flipping needs a third draw each turn.
+Tariel, Reckoner of Souls	reanimate	38	7-mana three-color body; taps to steal a random creature from an opponent's graveyard.
+Tasigur, the Golden Fang	to-hand	42	Repeatable but opponent picks the worst nonland card; needs green or blue mana.
+Tayam, Luminous Enigma	reanimate	42	Costly repeatable reanimation of cheap permanents, needs three counters and three colors.
+Tazeem Roilmage	to-hand	50	Six mana total for a body plus an instant or sorcery back; flexible early or late.
+Technomancer	reanimate	38	Seven mana; returns artifact creatures only, so it needs an artifact deck.
+Tempt with Immortality	reanimate	54	5-mana reanimate that gets extra creatures if opponents take theirs.
+Tenacious Tomeseeker	to-hand	46	3-mana 3/2 that returns an instant or sorcery when you sacrifice a permanent.
+Teneb, the Harvester	reanimate	50	6-mana 6/6 flyer: pay {2}{B} on a hit to reanimate any creature from any graveyard.
+Terra, Herald of Hope	reanimate	48	Three-color 3/3 that reanimates power 3 or less creatures when it hits; needs a three-color deck.
+Terror of Towashi	reanimate	50	4-mana deathtouch body; pay {3}{B} on attack to reanimate, but it must connect and survive.
+Teshar, Ancestor's Apostle	reanimate	46	Flying 2/2 that reanimates 3-or-less creatures on each historic spell; best in artifact or legend decks.
+Test of Loyalty	to-hand	50	1-mana sorcery returns a creature card to hand; flexible with a graveyard exile cantrip mode.
+Tethmos High Priest	reanimate	22	Needs spells targeting it to return a small creature; very conditional.
+Tezzeret, Master of the Bridge	to-hand	38	6 mana: -3 returns an artifact card from your graveyard to hand; artifact decks only.
+The Binding of the Titans	to-hand	44	Chapter III returns a creature or land to hand after a mill; slow.
+The Cauldron of Eternity	reanimate	42	Repeatable reanimation, but costs 12 minus graveyard creatures and is slow.
+The Cruelty of Gix	reanimate	54	Chapter III reanimates a creature from any graveyard, after two other chapters of value.
+The Dawning Archaic	cast	40	Cheaper with spells in graveyard; attacking recasts one free, but it needs to survive.
+The Eighth Doctor	cast	46	6-mana body; each turn recast an artifact, legend or land from the graveyard.
+The Eldest Reborn	reanimate	62	5-mana saga: edict, discard, then reanimate any creature or walker from any graveyard.
+The Falcon, Airship Restored	reanimate	48	3-mana 4/3 flyer vehicle; connecting lets you reanimate a creature, and it can recur itself.
+The Holodeck	cast	52	7 mana; replay one graveyard permanent each turn.
+The Immortal Weapons	to-hand	52	5-mana 4/4 body that returns an instant or sorcery when it enters.
+The Inner Light	reanimate	46	5 mana to reanimate a green or white creature, with a possible draw and a Treasure.
+The Last Ronin	to-hand	42	Chapter II returns a creature to hand after milling four, but only after the wrath.
+The Master, Transcendent	reanimate	32	Only returns creatures milled this turn; needs mill support in three colors.
+The Mending of Dominaria	to-hand	46	Slow 5-mana saga: two creature returns, then lands back and a shuffle.
+The Mirari Conjecture	to-hand	50	Returns an instant and a sorcery over two turns, then copies spells.
+The Mountain-king's Return	reanimate	48	3-mana saga: returns a creature with mana value 3 or less on chapter two, plus a token.
+The Night of the Doctor	reanimate	42	Chapter two reanimates only a legendary creature, one turn after the wipe.
+The Promise of Kahless	reanimate	18	Needs Klingons or Warriors in a deck; very narrow.
+The Restoration of Eiganjo // Architect of Restoration	reanimate	44	Chapter II returns a 2-or-less permanent for a discard; slow but also leaves a body.
+The Scarab God	reanimate	70	5-mana body: repeatable reanimation of any graveyard's creatures as 4/4 copies; recurs itself.
+The Three Seasons	to-hand	27	Returns only snow permanents, rare in most decks, and chapter III shuffles graveyards away.
+The Underworld Cookbook	to-hand	40	1 mana, then 4 and a sacrifice later: one creature card back to hand, slow one-shot.
+The War in Heaven	reanimate	46	Chapter III returns up to three creatures with total value 8, two turns later.
+Theoretical Necromancer	to-hand	52	3-mana 4/1 body; later pay four and exile it to return a creature card to hand.
+Those Old Scientists	to-hand	42	Chapter II returns an artifact, instant or sorcery; narrow and slow.
+Thrilling Encore	reanimate	47	5-mana instant: take every creature that died this turn, ideal after a wipe.
+Thunderkin Awakener	reanimate	30	Returns only low-toughness Elementals, tapped and attacking, for one turn; needs Elementals.
+Thwart the Grave	reanimate	50	Returns two creatures for six mana, cheaper with a party; second target is type-limited.
+Tilling Treefolk	to-hand	38	3-mana body that returns up to two lands; narrow card type.
+Timely Hordemate	reanimate	42	Body that returns a 2-drop after you attack; conditional and small.
+Tinybones, the Pickpocket	cast	38	1-mana deathtouch that must connect to cast a permanent from an opponent's graveyard.
+Titania, Protector of Argoth	reanimate	38	5-mana body that returns one land from the graveyard; narrow recursion.
+Tomb Fortress	reanimate	38	Costs five mana and the land: mill four, then reanimate a creature.
+Tombstone, Career Criminal	to-hand	15	Only returns Villain cards, which are rare in singleton decks outside the theme.
+Too Evil to Stay Dead	reanimate	56	3-mana sorcery: reanimate a creature with mana value 4 or less from your graveyard.
+Too Greedily, Too Deep	reanimate	48	7 mana: take any creature from any graveyard; its power hits every other creature.
+Toph, Hardheaded Teacher	to-hand	48	4-mana 3/4: discard a card to return an instant or sorcery to hand.
+Torrent of Souls	reanimate	47	5-mana sorcery reanimation for one creature; flexible red mode is a minor extra.
+Tortured Existence	to-hand	46	1-mana enchantment: discard a creature to get back a better one, repeatable.
+Toshiro Umezawa	cast	50	3-mana 2/2: recasts a graveyard instant whenever an opposing creature dies.
+Trading Post	to-hand	36	Sacrifice a creature to return an artifact card to hand; narrow and slow.
+Trash for Treasure	reanimate	36	3-mana sorcery: sacrifice an artifact to return another; artifact decks only.
+Travel Through Caradhras	to-hand	36	Opponents' votes may return cards to your hand, but the effect is slow and unreliable.
+Treason of Isengard	to-hand	38	3 mana: instant or sorcery to library top, plus a 2/2 Army; slow and costs a draw.
+Treasure Hunter	to-hand	40	3-mana 2/2 body that returns one artifact card to hand.
+Treasured Find	to-hand	56	2 mana in BG: any card from graveyard to hand.
+Treasury Thrull	to-hand	52	6-mana 4/4 with extort; each attack returns a creature, artifact or enchantment.
+Triassic Egg	reanimate	42	4 mana plus 6 more over two turns to reanimate or cheat a creature.
+Triumphant Reckoning	reanimate	38	9 mana to mass-reanimate non-creature permanents; very expensive.
+Trove Warden	reanimate	33	4-mana 3/4 that stores cheap permanents and returns them when it dies.
+True Ancestry	to-hand	59	2-mana sorcery: any permanent card back to hand, plus a Clue.
+Trusty Packbeast	to-hand	38	3-mana body that returns one artifact card from your graveyard to hand.
+Trusty Retriever	to-hand	42	4-mana body that returns an artifact or enchantment card from your graveyard to hand.
+Trystan's Command	to-hand	46	One mode returns up to two permanent cards to hand, paired with removal.
+Tune Up	reanimate	40	4-mana sorcery returning an artifact to the battlefield; narrow to artifact decks.
+Tunnel Rats	reanimate	30	Only recurs itself, for five mana, as a tapped 2/2.
+Twilight Shepherd	to-hand	32	6-mana 5/5 body; returns cards that hit the graveyard this turn from the battlefield.
+Twilight's Call	reanimate	50	6 mana: every player reanimates all their creatures; symmetric, flash for 8.
+Tyvar, Jubilant Brawler	reanimate	45	3-mana walker: mill three, return a creature with MV 2 or less; small targets.
+U.S.S. Reliant, From Hell's Heart	reanimate	56	4 mana: reanimate an MV 4 or less creature on entry, again if it connects.
+Ulamog's Reclaimer	to-hand	26	5-mana 2/5; the instant or sorcery return needs an opponent's exiled card, which is rare.
+Unbreakable Bond	reanimate	48	5-mana sorcery: reanimate a creature from your graveyard with lifelink.
+Unbury	to-hand	48	2-mana instant: a creature card back to hand.
+Uncle's Musings	to-hand	50	4-mana: up to X permanents back to hand, X by colors spent; best in 3+ colors.
+Undead Butler	to-hand	52	2-mana body: mills three, then returns a creature card to hand when it dies.
+Under the Skin	to-hand	52	3-mana sorcery: manifest dread and return any permanent card to hand.
+Undergrowth Recon	reanimate	38	3-mana enchantment: returns a land from your graveyard each upkeep; needs fetches or land loss.
+Undertaker	to-hand	46	2-mana body: discard a card and pay B to return a creature card; card-neutral.
+Underworld Sentinel	reanimate	38	Slow 4/5 body that stores graveyard creatures on attack and reanimates them when it dies.
+Unearth	reanimate	55	1-mana sorcery: reanimate a creature with mana value 3 or less; it cycles when there is no target.
+Unfinished Business	reanimate	50	5-mana sorcery: reanimate a creature, bonus if Auras or Equipment are in the yard.
+Unforgiving One	reanimate	42	3-mana menace body; attack returns creatures, but needs modified creatures.
+Unliving Legionnaire	to-hand	40	4-mana flyer; its 7-mana power-up returns one creature card to hand.
+Unmake the Graves	to-hand	50	Instant with convoke: return two creature cards to hand.
+Unnatural Restoration	to-hand	56	2-mana sorcery: any permanent card back to hand, plus proliferate.
+Unseal the Necropolis	to-hand	52	3-mana instant: up to two creatures back to hand after a symmetric mill.
+Urborg Repossession	to-hand	58	1 mana: raise dead with life; kicked in BG it also returns a permanent.
+Urborg Uprising	to-hand	50	5 mana: two creatures back to hand plus a card; creature-only and pricey.
+Valgavoth's Faithful	reanimate	58	1-mana body; pay 4 and sacrifice it to reanimate any creature from your graveyard.
+Valkyrie's Call	reanimate	50	Returns each dying nontoken creature to the battlefield with a counter.
+Vampire Charmseeker	to-hand	35	8 mana, assist helps; returns an instant, sorcery or creature from any graveyard to hand.
+Vampire Soulcaller	to-hand	46	5-mana flyer: returns a creature card from your graveyard to hand on entry.
+Vanille, Cheerful l'Cie // Ragnarok, Divine Deliverance	to-hand	56	4-mana 3/2: mill two, return any permanent card to hand.
+Vat Emergence	reanimate	62	5-mana reanimation from any graveyard, plus proliferate; expensive sorcery but flexible.
+Vat of Rebirth	reanimate	38	Cheap but slow: needs four of your things to die first, then {2}{B} to reanimate once.
+Veinwitch Coven	to-hand	46	3-mana 3/3 menace body; recursion needs lifegain and B each time.
+Venerable Warsinger	reanimate	50	3/3 trampler that reanimates a creature when it hits a player; needs to connect.
+Vengeful Rebirth	to-hand	42	6 mana: any card back to hand, plus damage equal to its mana value.
+Verdant Confluence	to-hand	46	Can return up to three permanent cards to hand, at six mana.
+Vexing Scuttler	to-hand	43	Emerge body that returns an instant or sorcery when cast; narrow and costly.
+Viconia, Drow Apostate	to-hand	38	3-mana 2/3 returns random creatures, but only with four creature cards in the graveyard.
+Victor Mancha, Runaway	cast	45	5-mana 4/4: replay any graveyard card while it lives.
+Victor, Valgavoth's Seneschal	reanimate	38	Third enchantment in a turn reanimates any creature; needs an enchantment deck.
+Vigor Mortis	reanimate	58	4-mana sorcery: reanimate your own creature, bonus counter with green.
+Virtue of Persistence // Locthwain Scorn	reanimate	55	7-mana enchantment reanimates a creature from any graveyard each upkeep.
+Virtue of Strength // Garenbrig Growth	to-hand	50	1 mana: creature or land card back to hand, then a late ramp enchantment.
+Virtus's Maneuver	to-hand	46	Returns a creature card to hand for you, plus edicts.
+Vision Quest	reanimate	38	Can reanimate an artifact creature from the graveyard, but only artifact creatures.
+Visions of Dread	reanimate	52	3 mana: steal the worst creature an opponent picks from their yard; flashback later.
+Vivid Revival	to-hand	38	Five-mana sorcery that returns up to three multicolored cards; narrow in a typical deck.
+Vohar, Vodalian Desecrator	cast	38	Sacrifice for {2} to recast an instant or sorcery once at sorcery speed.
+Volcanic Vision	to-hand	42	7 mana: rebuy an instant or sorcery and hit opposing creatures for its mana value.
+Volrath's Stronghold	to-hand	46	Repeatable but slow: puts a creature on top of the library, costing your draw.
+Vulpine Harvester	reanimate	30	Needs Phyrexian attackers to return artifacts; very narrow.
+Wail of War	to-hand	56	3-mana instant: two creature cards back to hand.
+Wake the Dead	reanimate	38	Temporary reanimation only on opponent's combat; creatures get sacrificed.
+Wake the Past	reanimate	35	7 mana: all artifacts return from the graveyard, but only artifact decks want it.
+Wake to Slaughter	reanimate	52	5 mana, flashback: one creature to hand and a temporary one in play; the opponent picks which.
+Walk with the Ancestors	to-hand	55	5 mana: any permanent back to hand plus a free discover 4.
+Walk-In Closet // Forgotten Cellar	cast	42	Play lands from the graveyard; the other door casts spells from it for one turn.
+Wander in Death	to-hand	56	3 mana: two creatures back to hand, and it cycles when there are none.
+Warden of the Eye	to-hand	40	5-mana three-color body that regrows an instant, sorcery or artifact.
+Warren Pilferers	to-hand	54	5-mana 3/3 body that returns a creature card to hand.
+Wayspeaker Bodyguard	to-hand	42	4-mana 3/4 returning a nonland permanent with MV 2 or less; body makes up for the narrow return.
+What Must Be Done	reanimate	38	Reanimates only historic permanents (artifacts, legendaries, sagas) for five mana.
+Whip of Erebos	reanimate	62	Repeatable temporary reanimation for 4 each turn, plus team lifelink.
+Whisper, Blood Liturgist	reanimate	42	4-mana body: sacrifice two creatures to reanimate one; costly but repeatable.
+White Widow, Free Agent	to-hand	38	4-mana body that returns an artifact or enchantment card to hand.
+Wildest Dreams	to-hand	62	Return X cards of any type to hand for 2X plus G; scales into a big refill.
+Wildwood Escort	to-hand	50	Five-mana 3/3 body that returns a creature card to hand.
+Wildwood Rebirth	to-hand	52	2-mana instant: a creature card back to hand.
+Will of the Abzan	reanimate	56	4-mana sorcery: reanimate a creature from your graveyard, with an edict if your commander is out.
+Will of the Sultai	reanimate	34	Returns only land cards from your graveyard; narrow and expensive.
+Winter Soldier, Icy Assassin	reanimate	35	Returns only itself from the graveyard for 5 mana; a recursive body.
+Winter Soldier, Reborn Avenger	reanimate	54	5-mana 3/5: each attack reanimates a creature of mana value 3 or less, repeatably.
+Winter, Cynical Opportunist	reanimate	44	Delirium end-step reanimation of a permanent, but needs four card types and is exile-costly.
+Wisdom of Ages	to-hand	46	7 mana sorcery: all instants and sorceries back, no hand limit.
+Witch of the Moors	to-hand	45	Returns a creature card to hand at end step when you gained life.
+Woebearer	to-hand	34	5-mana fear body; must connect to return a creature card.
+Woodland Guidance	to-hand	52	4-mana sorcery: any card from graveyard to hand, with a clash bonus.
+Woodland Sleuth	to-hand	38	4-mana 2/3; random creature back to hand only if a creature died this turn.
+Workshop Assistant	to-hand	35	3-mana 1/2: when it dies, get another artifact back.
+World Shaper	reanimate	42	4-mana 3/3 that returns all your graveyard lands tapped when it dies.
+Wort, Boggart Auntie	to-hand	32	4-mana fear body that returns only Goblins each upkeep; it needs a Goblin deck.
+Wrenn and Realmbreaker	to-hand	50	-2 mills three and takes a permanent; ultimate casts permanents from graveyard.
+Wrenn and Six	to-hand	60	2 mana: returns fetchlands and other lands from graveyard each turn, and pings.
+Wretched Confluence	to-hand	50	5-mana instant: return up to three creature cards from graveyard to hand.
+Writ of Return	reanimate	50	5-mana sorcery: reanimate a creature tapped; cipher can repeat it.
+Xiahou Dun, the One-Eyed	to-hand	42	4-mana evasive body; sacrifice to get a black card back, on your turn only.
+Xu-Ifit, Osteoharmonist	reanimate	60	3-mana repeatable reanimator at sorcery speed; returned creatures lose abilities.
+Yathan Roadwatcher	reanimate	42	4-mana 3/3 that reanimates a cheap creature after milling four; hard three-color cost.
+Yawgmoth's Agenda	cast	52	Cast spells and play lands from your graveyard, limited to one spell a turn.
+Yawgmoth's Vile Offering	reanimate	62	5-mana sorcery: reanimate from any graveyard and destroy a creature too.
+Yore-Tiller Nephilim	reanimate	42	4-color 2/2 that must attack to reanimate a creature each time; fragile and hard to cast.
+You Happen On a Glade	to-hand	52	Three-mana instant: any permanent card back to hand, flexible with land mode.
+Young Necromancer	reanimate	52	5-mana body: exile two cards to reanimate any creature from your graveyard.
+Yuna's Decision	to-hand	55	4-mana sorcery: return up to two permanent cards from graveyard to hand.
+Yuna, Hope of Spira	reanimate	50	5-mana body that returns an enchantment from graveyard every end step.
+Zareth San, the Trickster	reanimate	32	Needs a combat hit to take a permanent from a graveyard; slow and unreliable.
+Zask, Skittering Swarmlord	cast	34	Replays lands from the graveyard, but Insect spells are rare; a big body with narrow value.
+Zealous Lorecaster	to-hand	48	6-mana 4/4 body that returns an instant or sorcery to hand.
+Zombie Apocalypse	reanimate	32	Six-mana mass reanimation that only works in Zombie decks; the Human wipe is a side effect.
+Zoraline, Cosmos Caller	reanimate	72	3-mana flying body that repeatedly returns permanents with MV 3 or less when it attacks.
+Zuko's Conviction	reanimate	56	1-mana instant raise dead; kicked at 5 it reanimates the creature tapped.
+Zul Ashur, Lich Lord	cast	32	2-mana ward body that recasts only Zombies from the graveyard, so it needs a Zombie theme.

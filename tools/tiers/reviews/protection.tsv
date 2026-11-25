@@ -97,3 +97,678 @@ Brago, King Eternal	board	45	Blinks your permanents only after combat damage; no
 Ricochet Trap	one	42	Four-mana redirect unless an opponent cast a blue spell this turn.
 Divert	one	40	Redirect they can pay {2} to stop.
 Shimmering Efreet	one	30	Random phasing that's hard to aim.
+# grade_api merged, 2026-11-24
+Abeyance	counter	56	2-mana instant: one player can't cast instants/sorceries or activate abilities; draws a card.
+Abnormal Endurance	one	58	2-mana instant: creature comes back tapped if it dies this turn, +2/+0.
+Aboshan's Desire	equipment	12	Aura: shroud needs seven cards in graveyard and invites removal on the target.
+Absolute Virtue	board	45	8-mana flyer: you have protection from every opponent, but it's slow and dies to wipes.
+Abuelo, Ancestral Echo	one	52	3-mana flyer; 3 mana at instant speed blinks your creature or artifact to dodge removal.
+Abuna Acolyte	one	22	Taps to prevent 1 damage; barely protects anything.
+Abuna's Chant	one	25	4-mana instant that prevents 5 damage to a creature, or gains life.
+Accelerated Evolution	equipment	38	3-mana flash aura: hexproof for a turn and +2/+2; risks a 2-for-1.
+Adamant Will	one	50	2-mana instant: +2/+2 and indestructible saves a creature from damage or destroy effects.
+Adept Watershaper	board	40	3-mana body: tapped creatures get indestructible, which helps attackers survive combat and wipes.
+Aegis Angel	one	40	6-mana 5/5 flyer; gives another permanent indestructible while it lives.
+Aegis of the Gods	board	42	2-mana body giving you hexproof; stops targeted spells at you but not your permanents.
+Aerie Mystics	board	36	Team shroud needs green and blue mana in a white deck; rarely usable.
+Against All Odds	one	32	Sorcery-speed blink can't dodge removal in response.
+Ainok Strike Leader	board	32	2-mana body that can sacrifice to make your tokens indestructible.
+Airbender Ascension	one	32	Slow enchantment: blinks a creature only after four creatures enter; no instant protection.
+Airbender's Reversal	one	46	Instant: airbend your creature out of the way of removal, for two mana.
+Airtight Alibi	one	50	Flash aura: hexproof for a turn and a permanent +2/+2, but it stays on a creature you can lose.
+Ajani's Presence	one	60	1-mana instant: indestructible for a creature, scalable to the team at high cost.
+Akroma's Blessing	board	56	Instant: team protection from one color, which beats a targeted spell or wipe of that color; cycles.
+Alabaster Potion	one	28	Prevents X damage to one target at instant speed; pricey and weak in Commander.
+Alesha's Legacy	one	52	2-mana instant: one creature gains indestructible for the turn, plus deathtouch.
+Alexi's Cloak	equipment	42	2-mana flash aura: shroud on a creature, but it also blocks your own targeting.
+Allosaurus Shepherd	counter	46	1-mana elf: green spells can't be countered, but no other protection.
+Almost Perfect	equipment	26	6-mana aura: indestructible 9/10, but loses the creature to exile or bounce.
+Alpha Authority	equipment	34	2-mana aura: hexproof for one creature, but it is sorcery speed and dies with its host.
+Alseid of Life's Bounty	one	56	1-mana body: pay 1 and sacrifice for protection from a color on a creature or enchantment.
+Anara, Wolvid Familiar	board	24	Only protects your commander on your own turn, so it misses most removal.
+And They Shall Know No Fear	board	55	2-mana instant: indestructible for all creatures of one type; best in tribal decks.
+Angel of Condemnation	one	52	Flickers a creature at instant speed to dodge removal, for {2}{W} each time.
+Angel of Salvation	board	34	Flash flyer that prevents some damage; expensive and a weak protection effect.
+Angel's Grace	board	48	1-mana split second: you can't lose this turn; buys a turn, no board help.
+Angelheart Protector	one	38	3-mana 3/2: gives a creature indestructible for a turn on entry; sorcery-speed.
+Angelic Intervention	one	58	2-mana instant: protection from a color for a creature or planeswalker, plus a +1/+1 counter.
+Anoint	one	28	1 mana: prevent 3 damage to a creature; buyback for 3 more.
+Aquitect's Defenses	one	56	2-mana flash aura: hexproof for a turn on a creature, then +1/+2, but it dies with the creature.
+Archangel Avacyn // Avacyn, the Purifier	board	74	Flash body that makes your team indestructible in response to removal or wipes.
+Archetype of Endurance	board	38	Eight mana for team hexproof; dies to wipes and the cost is very high.
+Armguard Familiar	equipment	38	Gives ward {2} to an equipped creature, but reconfigure costs 4.
+Armor of Shadows	one	52	1-mana instant: indestructible for one creature; stops damage and destroy effects only.
+Armored Guardian	one	42	5-mana body: repeatable protection from a color for a creature, but costly and two colors.
+Arwen, Mortal Queen	one	40	One-shot indestructible for another creature, with counters; body is the main value.
+Aspect of Mongoose	equipment	30	Gives shroud, but blocks your own targeting and is sorcery-speed.
+Assure // Assemble	one	58	2-mana instant: +1/+1 counter and indestructible on one creature; hybrid cost.
+Aurora Eidolon	one	32	Sacrifice to prevent 3 damage; recurs when you cast multicolored spells.
+Avabruck Caretaker // Hollowhenge Huntmaster	board	40	6-mana hexproof body; night side gives your other permanents hexproof.
+Avacyn's Memorial	board	20	8 mana to make legends indestructible; far too slow and narrow.
+Avacyn, Angel of Hope	board	50	8 mana: your permanents are indestructible, but it's slow and doesn't stop exile or bounce.
+Avacyn, Guardian Angel	one	38	Repeatable damage prevention for creatures, but it doesn't stop removal that isn't damage.
+Aven Liberator	one	36	Morph unmorph costs 3W for one-creature protection; slow and clunky.
+Aven Redeemer	one	30	Taps to prevent 2 damage; too small to save a creature from most removal.
+Aven Warcraft	board	46	3-mana instant: +0/+2 to the team; threshold adds protection from a color.
+Azra Smokeshaper	one	38	4-mana 3/3 or ninjutsu; indestructible for a creature this turn.
+Baboon Spirit	one	43	3-mana 2/4 that blinks another creature for {3}{U}, saving it from removal.
+Bastion Protector	board	62	3-mana body that makes your commander indestructible and +2/+2, but dies to removal.
+Bathe in Light	board	56	2-mana instant: protection from a color for a creature and its color-mates; dodges removal or wraths of one color.
+Battle-Rage Blessing	one	56	2-mana instant: one creature gains indestructible, saving it from destroy effects and wraths.
+Beaming Defiance	one	56	2-mana instant: one creature gains hexproof and +2/+2 for the turn.
+Bedrock Tortoise	board	44	4-mana body: team hexproof on your turn only; doesn't stop removal on opponents' turns.
+Benevolent Blessing	one	42	2-mana flash aura: protection from a color on one creature, but it is an aura and can be answered.
+Bilbo's Ring	equipment	30	Hexproof only on your turn, so it barely protects.
+Biosynthic Burst	one	62	2-mana instant: indestructible for one creature, plus a counter and untap.
+Black Ward	equipment	22	Only stops black removal on one creature, and it's an aura.
+Bladed Battle-Fan	one	46	2-mana flash equipment: indestructible for a turn on a creature, then a small +1/+0.
+Blessed Breath	one	55	1-mana instant: protection from a color dodges removal or a block, but only one color.
+Blessed Hippogriff // Tyr's Blessing	one	56	1-mana instant: a creature gains indestructible, plus a flyer later; doesn't stop exile.
+Blinding Fog	board	58	3-mana instant: your creatures gain hexproof, and damage to creatures is prevented.
+Blizzard Strix	one	30	Flash blink needs another snow permanent; rarely on.
+Blossoming Calm	board	38	Gives only you hexproof; it doesn't protect your permanents.
+Blue Ward	equipment	8	1-mana aura: protection from blue only.
+Blur	one	58	3-mana instant blink for a creature that draws a card.
+Bofur, Reliable Guardian // Concerted Care	one	64	2-mana instant: artifact or creature gains hexproof and indestructible, plus a 1-drop body.
+Bolt Bend	one	46	Redirects removal aimed at your stuff, but only if it has a single target.
+Bombadil's Song	one	68	2-mana instant: hexproof for one creature plus Ring tempt.
+Boon of Safety	one	56	1-mana instant: shield counter stops one destroy or damage event, plus scry 1.
+Borg Incursion	board	38	3-mana instant: two tokens and protection only for artifact creatures; mostly artifact decks.
+Boromir, Warden of the Tower	board	63	Sacrifice for team indestructible at instant speed; answers a wrath.
+Bound // Determined	counter	42	Determined makes your other spells uncounterable for a turn, and draws.
+Breathkeeper Seraph	board	36	6-mana flyer; paired creatures return at next upkeep when they die. Slow and clunky.
+Brilliant Wings	equipment	45	2-mana flash aura gives hexproof to one creature and re-attaches for {1}; it's still a card-disadvantage aura.
+Brokers Confluence	one	42	Phase out creatures at instant speed, but costs five mana in three colors.
+Bronze Guardian	board	32	Ward {2} for your other artifacts; only matters in artifact decks.
+Brotherhood Regalia	equipment	42	2-mana equipment: ward {2} and unblockable; cheap equip on legends.
+Bulwark Ox	board	42	2-mana body: sacrifice for hexproof and indestructible, but only for creatures with counters.
+Burdened Stoneback	one	30	Sorcery-speed indestructible for a creature, so it rarely answers removal.
+Burrenton Forge-Tender	board	28	1-mana body that stops one red source's damage; only matters against red.
+Caduceus, Staff of Hermes	equipment	38	Indestructible only while you're at 30+ life; lifelink helps get there but it's slow.
+Canopy Cover	equipment	42	2-mana aura: one creature can't be targeted by opponents, but it is exposed to wipes and sorcery-speed answers.
+Captain America, Super-Soldier	board	50	3-mana body: you get hexproof while its shield counter lasts; other Heroes are rare.
+Captain America, Unbowed	board	46	Flash body: indestructible for Soldiers and Heroes only, so it is mostly itself.
+Cauldron Haze	board	58	2-mana instant: persist for your team this turn; saves creatures from removal and wipes.
+Cauldron of Souls	board	48	5-mana rock-like artifact: repeatable persist for your team at instant speed.
+Celestial Armor	one	62	3-mana flash: hexproof and indestructible for a turn, then a lasting equipment.
+Center Soul	one	62	2-mana instant protection from a color, rebounds for a second turn of cover.
+Champion's Helm	equipment	50	Cheap equip gives your legendary commander hexproof and +2/+2; weaker with nonlegendary creatures.
+Chance for Glory	board	18	Indestructible for one turn, but you lose at the extra turn's end unless you win first.
+Change of Plans	board	60	Instant for X+2: phase out any number of your creatures in response to a wipe, with connive on top.
+Changing Loyalty	one	46	2-mana flash aura: enchanted creature returns when it dies, replicate for more; exile and bounce beat it.
+Channel Harm	board	36	6-mana instant: prevents all damage from sources you don't control; stops only damage, not removal.
+Chaplain of Alms // Chapel Shieldgeist	board	48	Back side gives all your creatures ward {1}; cheap body.
+Charm Peddler	one	22	Costs a card and mana to prevent damage to one creature; no help against destroy or exile.
+Charming Prince	one	42	2-mana body that can blink your own creature to dodge removal or reuse an enters effect.
+Chase Inspiration	one	58	1-mana instant: hexproof for one creature, dodging targeted removal.
+Chimil, the Inner Sun	counter	48	6 mana: your spells can't be countered, plus a free discover 5 each turn.
+Cho-Manno's Blessing	one	38	2-mana flash aura: protection from one color; weak against colorless and multicolor.
+Chromatic Armor	equipment	24	3-mana two-color aura: damage protection from one color, hard to use well.
+Chromium, the Mutable	one	18	Only protects itself; a big three-color body, not protection for other permanents.
+Cliffside Rescuer	one	55	2-mana body that sacrifices for protection from all opponents on one permanent.
+Cloak and Dagger	equipment	34	2-mana equipment: shroud on one creature, but equip {3} and it blocks your own spells.
+Cloud Cover	board	42	4 mana: bounce your targeted permanents in response; costs tempo and is repeatable.
+Coalition Flag	one	30	1-mana aura: redirects targeted spells to your creature, which does not protect it.
+Coalition Honor Guard	board	40	4-mana 2/4: opponents' targeted spells must target it, shielding your others.
+Codsworth, Handy Helper	board	32	Ward 2 for commanders only, on a 3-mana body.
+Collective Resistance	one	62	Instant hexproof and indestructible for one creature, two mana with removal flexibility.
+Commander's Plate	equipment	46	Cheap equip on commander gives protection from off-color spells, but it is slow and mostly dodges few things.
+Conciliator's Duelist	one	35	Body with draw; blinks a creature when you cast a targeted spell.
+Conjurer's Closet	one	30	5-mana artifact: blink a creature each end step; slow, only dodges nothing at instant speed.
+Conqueror's Flail	counter	58	2 mana: with it attached, opponents can't cast spells in your turn; needs a creature and equip.
+Consecrate Land	one	18	1-mana aura protecting one land from destruction; very narrow.
+Contractual Safeguard	board	34	3 mana: a shield counter in your main phase, but it needs counters on your creatures to do anything.
+Cosmic Intervention	board	58	Instant (foretell 2): your dying permanents get exiled and return at end step; beats wipes.
+Courageous Resolve	one	62	3-mana instant: one creature gets protection from opponents this turn, and you draw a card.
+Crab Umbra	equipment	42	1-mana umbra aura: saves the creature from destruction by being lost instead.
+Cradle of Safety	one	52	2-mana flash aura: hexproof for a turn on one creature, but it's a card spent on a body.
+Crimson Acolyte	one	22	Protection from red only; helps against red removal and little else.
+Crown of Awe	equipment	38	2-mana aura: protection from black and red, or a team-wide trick.
+Crumb and Get It	one	52	1-mana instant: indestructible for one creature if you gift a Food.
+Crypsis	one	38	2-mana instant: protection from opposing creatures only; misses most removal and wipes.
+Cryptek	one	30	Only protects other artifact creatures and costs mana each time.
+Cryptothrall	board	22	4-mana 3/3 that only protects other artifact creatures; a narrow theme.
+Crystal Barricade	board	42	2-mana wall: you gain hexproof and your creatures are safe from noncombat damage.
+Crystal Carapace	equipment	35	Aura with ward {2} and +3/+3; cycles away if unneeded, but it's a card-disadvantage risk.
+Cunning Nightbonder	counter	33	2-mana flash body; only makes flash spells uncounterable.
+Curator's Ward	one	42	3-mana aura: hexproof for one permanent, sorcery speed, and a card refund if it was historic.
+Daring Fiendbonder	one	28	Late-game sorcery-speed indestructible counter by exiling it from the graveyard; weak.
+Dark Dabbling	one	38	3-mana instant regeneration plus a card; regeneration is weak against exile and -X/-X.
+Dark Endurance	one	50	2-mana instant: indestructible for one creature saves it from destroy and wraths.
+Daru Mender	one	25	Morph flip regenerates one creature; costs four mana total and is slow.
+Dauntless Bodyguard	one	52	1-mana body: sacrifice to make the chosen creature indestructible, but it's chosen on entry.
+Dauntless Escort	board	62	3/3 body that sacrifices for a free team-wide indestructible: beats a wrath at instant speed.
+Dawnglade Regent	board	48	7-mana 8/8: hexproof for all your permanents while you stay monarch.
+Daydream	one	38	Sorcery-speed blink with flashback; it can't save a creature from removal in response.
+Deathless Angel	one	48	6-mana body; WW gives indestructible at instant speed, repeatably.
+Deflection	one	38	4-mana instant: redirect a single-target spell; pricey and only spells.
+Demonic Gifts	one	58	2-mana instant: a creature comes back if it dies this turn, a cheap save from removal or a wipe.
+Destined // Lead	one	52	2-mana instant: indestructible for one creature this turn.
+Devoted Caretaker	one	55	1-mana body that repeatedly shields a permanent from instant and sorcery removal.
+Diplomatic Escort	one	46	Repeatable creature protection, but it costs a card and needs U open.
+Diplomatic Immunity	equipment	30	2-mana aura giving one creature shroud; it also stops your own targeting.
+Displace	one	58	3-mana instant blink for two creatures: dodges removal and reuses enters triggers.
+Displacer Kitten	one	45	Blinks a permanent per noncreature spell; protects only if you have spells in hand, and dies easily.
+Distinguished Conjurer	one	30	Five-mana tap blink at instant speed can save a creature, but it is slow and costly.
+Dive Down	one	62	1-mana instant hexproof for a creature, plus +0/+3 against damage.
+Divine Light	board	18	Sorcery fog for your creatures; only useful on your own turn's combat.
+Djeru's Resolve	one	28	Prevents damage to one creature for the turn; no help against destroy or exile.
+Dominaria's Judgment	board	50	3-mana instant: team protection from colors matching your basic land types; best in basics decks.
+Dora Milaje Elite	board	30	2-mana 2/2 first striker; sacrifice protects only your legendary permanents.
+Dragonfire Blade	equipment	40	Hexproof from monocolored only; equip is cheap only on multicolor creatures.
+Dragonlord Dromoka	counter	48	Uncounterable body that shuts off opposing spells on your turn.
+Dread Linnorm // Scale Deflection	one	48	4-mana instant: hexproof for one creature, plus counters and an untap.
+Dress Down	board	34	Flash: creatures lose abilities, which can blank hexproof or triggers briefly.
+Drogskol Captain	board	36	Gives other Spirits hexproof; only protects a Spirit tribal deck.
+Dwarven Mattock	equipment	32	Ward {1} on equipped creature is a minor protection; equip {3} is steep.
+Eagle of Deliverance	one	42	6-mana flyer: permanent indestructible counter on another creature, sometimes draws.
+Earthshape	board	66	3-mana instant: makes a land creature, and small creatures plus you get hexproof and indestructible.
+Eel Umbra	one	55	2-mana flash aura: +1/+1 and umbra armor saves one creature from destruction.
+Efflorescence	one	32	3-mana instant: counters, and indestructible only if you gained life this turn.
+Eight-and-a-Half-Tails	one	44	Repeatable protection from white only; mostly helps in white decks, plus it can make threats white.
+Eland Umbra	equipment	40	2-mana aura with umbra armor: the creature survives destroy effects once, but it is slow and loses the aura.
+Elder Owyn Lyons	board	34	Gives your artifacts ward {1}, a small tax that only helps artifact decks.
+Eldrazi Confluence	one	45	Instant blink of up to three permanents dodges removal, but needs {C}{C} and four mana.
+Eldrazi Displacer	one	52	Repeatable instant-speed blink for one creature at {2}{C}; needs colorless mana.
+Eldrazi Monument	board	38	Makes your creatures indestructible, but costs 5 and needs a sacrifice each upkeep.
+Eldritch Immunity	one	58	Instant protection from each color for a creature, or your team with overload; needs {C} mana.
+Elgaud Shieldmate	one	38	4-mana creature: pairs for hexproof on two creatures, but it's sorcery-speed and fragile.
+Emerge Unscathed	one	62	1-mana instant: protection from a color for a creature, and rebound gives a second use.
+Emeria's Call // Emeria, Shattered Skyclave	board	36	Seven mana for two Angels and indestructible for non-Angels, a slow rebuild after a wipe.
+Emiel the Blessed	one	50	Repeatable instant-speed blink for {3} saves a creature from removal, on a 4/4 body.
+Emissary of Grudges	one	33	Big haste flyer; once redirects a targeted spell or ability, but costs six.
+Endless Sands	one	46	Exile your creature at instant speed for {2}, then sacrifice the land to bring it back.
+Endurance Bobblehead	board	36	Sorcery-speed {3} activation grants indestructible, so it can't answer a wipe in response.
+Endure	board	38	5-mana instant: prevents all damage to you and your stuff, but not destroy or exile effects.
+Enduring Angel // Angelic Enforcer	board	40	5-mana body: you have hexproof and survive lethal life loss once, but it protects only you.
+Enter the Avatar State	one	66	1-mana instant: hexproof for one creature, plus flying, first strike and lifelink.
+Ephemeral Shields	one	52	Cheap convoke instant: indestructible for one creature; stops damage and destroy but not exile.
+Escape Protocol	one	28	2-mana enchantment: blink a permanent of yours per cycle; needs cycling cards.
+Essence of Antiquity	board	46	Disguise for 3 then 2W flip: team hexproof and untap; slow but a repeatable wall.
+Etchings of the Chosen	one	30	Sacrifice a creature for indestructible; needs a tribe, and costs a creature.
+Everybody Lives!	board	60	2-mana instant: your team is hexproof and indestructible, but so is everyone else's.
+Fae Flight	one	47	Flash aura gives one creature hexproof for a turn, then flying; the aura is at risk.
+Faith's Reward	board	42	Undoes a wipe or removal for your permanents at four mana.
+Faith's Shield	one	58	1-mana instant: protection from a color for one permanent.
+Fake Your Own Death	one	50	2-mana instant: a creature returns when it dies and you get a Treasure.
+Falcon's Wing Harness	equipment	42	2-mana equipment: ward {1}, flying and +1/+1 for one creature.
+False Demise	equipment	40	3-mana aura that brings the creature back when it dies, but it can't stop exile or bounce.
+Favorable Destiny	equipment	28	2-mana aura: shroud for one creature, white only for the pump.
+Feat of Resistance	one	58	2-mana instant: protection from a color dodges removal and adds a counter.
+Felidar Guardian	one	40	4-mana 1/4 whose enter trigger blinks another permanent; only a slow, narrow way to save it.
+Felidar Umbra	equipment	52	2-mana aura: lifelink, and umbra armor saves the creature from destruction and can be reattached.
+Ferocity of the Hunt	equipment	50	2-mana flash aura: if the creature dies, it comes back tapped; deathtouch too.
+Field Surgeon	one	25	Prevents 1 damage per tapped creature; barely matters.
+Fight as One	one	62	1-mana instant: indestructible to a creature, or two with both modes.
+Final Showdown	board	50	1-mana instant: indestructible for a creature, or a wrath with the one saved.
+Fleeting Reflection	one	58	2-mana instant: hexproof for one creature, plus untap and an optional copy.
+Flickering Ward	equipment	46	Cheap reusable color protection on one creature, but sorcery speed.
+Flickerwisp	one	48	Flying body whose enter can save a permanent from removal only at sorcery speed.
+Floating Shield	one	40	3-mana aura: color protection on a creature; sacrifice it for a one-turn save.
+Flowering of the White Tree	board	42	2-mana anthem; legendary creatures get ward {1}, so it only guards legends.
+Foggy Nelson, On Retainer	one	50	3-mana flash body that gives one creature hexproof for a turn, and a counter.
+Fool's Demise	one	38	5-mana aura: creature returns when it dies and the aura returns to hand, but it is slow.
+Foot Elite	one	32	3-mana 2/4: gives another creature indestructible only when it attacks.
+Forfend	board	42	2-mana instant: stops damage to creatures; answers burn or damage wipes, but not destroy effects.
+Fountain Watch	board	32	5-mana 2/4: your artifacts and enchantments get shroud, but that blocks your own targeting.
+Frenzied Baloth	counter	48	2-mana haste body; creature spells you control can't be countered.
+Fungal Fortitude	equipment	44	2-mana flash aura: creature comes back once if it dies; exposed to removal.
+Gaea's Gift	one	68	2-mana instant: hexproof and indestructible for one creature, plus a counter.
+Gaea's Herald	counter	42	2-mana 1/1: your creature spells can't be countered, and so can opponents'.
+Galepowder Mage	one	38	Attack trigger can blink your own creature, but only on attack and it is a fragile body.
+Gallifrey Falls // No More	board	58	3-mana instant: phase out any number of your creatures to dodge a wipe or removal.
+Geistwave	one	50	Bounce your own threatened permanent at instant speed and draw a card.
+General's Kabuto	equipment	32	Shroud on one creature; costly, and it stops your own targeting.
+Gerrard's Hourglass Pendant	board	30	{4} exile reanimates your permanents that died this turn, an awkward post-wipe protection.
+Getaway Glamer	one	58	2-mana instant blink saves your creature from removal; nontoken creatures only.
+Giant Ankheg	board	24	8 mana gives your other creatures ward {2}, but it's mostly a big body.
+Giant's Amulet	equipment	33	Gives hexproof while untapped to one creature; the 4/4 mode is the main use.
+Gideon Blackblade	one	48	+1 grants indestructible or lifelink to another creature each turn, but only on your turn.
+Gideon's Intervention	board	28	Names one card to stop it and its damage; narrow for four mana.
+Gideon's Phalanx	board	33	7-mana instant tokens; indestructible only with spells in graveyard, so a weak, pricey protection.
+Gift of Doom	equipment	34	5-mana aura giving one creature indestructible; slow, sorcery speed, and exposed to removal.
+Gift of Immortality	one	40	3-mana aura: enchanted creature returns once when it dies, then the aura comes back.
+Gilded Light	board	30	Instant shroud for you only; it doesn't protect your permanents, but it cycles.
+Gilt-Leaf's Embrace	one	42	3-mana flash aura: indestructible for a turn only, but it can save a creature from a wrath.
+Glimmerpoint Stag	one	50	Creature ETB blinks one of your permanents out of removal, at sorcery speed.
+Glint	one	55	2-mana instant: hexproof for one creature; it stops targeted removal but not wipes.
+Glory	board	42	Only works from the graveyard: pay 2W to give the team protection from a color.
+Go Ninja Go	one	38	Sorcery-speed blink for one creature; can't answer removal on the stack.
+Gold-Forged Thopteryx	board	34	Gives legendary permanents ward {2}; only helps a legend-heavy deck.
+Graceful Reprieve	one	55	2-mana instant: a creature that dies this turn comes back.
+Greater Auramancy	board	40	2-mana enchantment: shroud for your other enchantments and enchanted creatures; narrow.
+Green Ward	equipment	10	Only protects one creature from green; rarely matters.
+Guardian Angel	one	38	Instant damage prevention scaling with mana; no help against destroy or exile.
+Guardian Archon	board	36	6-mana flyer with a one-shot protection from one opponent.
+Guardian Augmenter	board	55	3-mana flash body: your commander gets hexproof, but it is fragile.
+Guardian Beast	board	30	Makes noncreature artifacts indestructible while untapped; only helps artifact decks.
+Guildscorn Ward	equipment	25	1-mana aura: protection from multicolored only; narrow and weak in Commander.
+Gyome, Master Chef	one	46	Costs {1} and a Food to make a creature indestructible; Food comes from creatures entering.
+Hajar, Loyal Bodyguard	board	40	2-mana body that sacs to give legends indestructible; needs legends and costs the creature.
+Hakoda, Selfless Commander	board	52	4-mana body; sac for +0/+5 and indestructible on your creatures, which answers a wipe.
+Hammer of Nazahn	equipment	50	4-mana equipment: indestructible, attaches itself on entry, but equip {4} is steep.
+Hanna's Custody	board	22	Symmetric shroud on all artifacts; only fits artifact decks and shields opponents too.
+Hapatra's Mark	one	58	1-mana instant hexproof on one creature; counters targeted removal.
+Hardened Escort	one	25	Attack trigger gives indestructible to another creature, only on your attacks.
+Harvestguard Alseids	one	36	3-mana body that prevents damage to a creature on enchantment entries.
+Hazduhr the Abbot	one	22	Costly body redirecting damage only for white creatures; rarely matters.
+Helvault	one	48	{1}: exile your creature at instant speed to dodge removal; it returns if Helvault dies.
+Hero of Goma Fada	board	33	5-mana 4/3 whose ETB indestructible only helps on entry; Ally decks only.
+Hexing Squelcher	counter	58	2-mana body: your spells can't be countered and your creatures get ward—pay 2 life.
+Hisoka's Guard	one	32	Costs {1}{U} each time to give one creature shroud while it stays tapped.
+Hold at Bay	one	38	2-mana instant: prevent 7 damage to a target; stops damage but not exile or destroy.
+Holy Mantle	equipment	34	4-mana aura: protection from creatures, but it exposes you to removal and doesn't stop spells.
+Horrid Vigor	one	56	2-mana instant: one creature gains indestructible, dodging destroy and damage.
+Hunter's Bow	equipment	42	Equipment giving ward {2} and reach to one creature; the bite is the real draw.
+Hydromorph Guardian	one	38	Sacrifice to counter a spell targeting your creature; leaves a body until needed.
+Hydromorph Gull	one	34	Flyer that protects another creature from targeted spells by sacrificing.
+Hyena Umbra	one	50	1-mana aura: umbra armor saves the creature from destruction once, though it is sorcery speed.
+Hypochondria	one	22	Prevents 3 damage once or twice, costing a card; barely protects anything in Commander.
+Icewind Stalwart	one	28	4-mana 3/3 with an ETB blink, so it only saves a creature when it enters in response to removal.
+Iconic Shield	equipment	28	Cheap equipment, but the equip cost is 3 and it only protects another attacking creature.
+Illusionist's Stratagem	one	56	4-mana instant blink for two creatures dodges removal and cantrips.
+Illvoi Light Jammer	equipment	50	Flash equipment: hexproof for a turn to one creature, then +1/+2.
+Imperial Mask	board	34	5 mana for permanent player hexproof only; protects no permanents.
+Indestructibility	equipment	35	4-mana sorcery-speed aura: indestructible only, dies to exile and bounce, and loses to its own removal.
+Indestructible Aura	one	38	1-mana instant: stops damage to one creature, so it does nothing against destroy or exile effects.
+Indomitable Archangel	board	32	4-mana 4/4 flyer: shrouds your artifacts with three artifacts out, which only fits artifact decks.
+Infuse with Vitality	one	50	2-mana instant: a creature returns tapped if it dies this turn; gain 2 life.
+Inner Sanctum	board	30	Stops damage to your creatures, but cumulative life upkeep grows fast and it doesn't stop other removal.
+Invasion of Gobakhan // Lightshield Array	board	36	Back side sacrifices for team hexproof and indestructible, but you must flip the battle first.
+Ivory Mask	board	22	4 mana: you have shroud, but it doesn't protect your permanents; blanks your own targeting.
+Jennifer Walters // The Sensational She-Hulk	counter	66	2-mana body: opponents can't cast spells on your turn, so combos resolve.
+Join Shields	board	55	5-mana instant: team hexproof and indestructible, beats wipes, but gold and costly.
+Journey to Eternity // Atzal, Cave of Eternity	equipment	50	3-mana aura: creature returns when it dies and the aura becomes a land.
+Justiciar's Portal	one	50	2-mana instant blink: save a creature from removal and reuse its enter effect.
+K'Vort-Class Raider	board	30	4-mana artifact: hexproof on your turn only, so it barely stops removal.
+Kaldra Compleat	equipment	30	Gives indestructible, but at 7 mana it is a finisher, not real protection.
+Kaya the Inexorable	one	38	+1 returns a nontoken creature to hand if it dies or is exiled.
+Keen-Eared Sentry	board	56	2-mana 2/1 body giving you hexproof, but it dies to removal and your permanents stay exposed.
+Kei Takahashi	one	30	Prevents 2 damage to one creature each turn; weak against Commander removal.
+Kindred Boon	board	38	4 mana plus {1}{W} per creature for indestructible; best in a tribal deck.
+King Darien XLVIII	board	33	Sacrifice gives tokens hexproof and indestructible; only helps token decks.
+King of the Oathbreakers	one	22	Only protects itself and other Spirits from targeted spells.
+Kira, Great Glass-Spinner	board	66	3-mana flyer: each of your creatures counters the first targeting spell or ability each turn.
+Kithkin Armor	one	22	Aura that can prevent damage to one creature once; weak protection.
+Knight Exemplar	board	30	Indestructibility only for Knights, a tribal-only effect.
+Kutzil, Malamet Exemplar	counter	66	3-mana body: opponents can't cast spells on your turn, like Grand Abolisher.
+Kykar, Zephyr Awakener	one	46	4-mana flyer; noncreature spells can blink a creature to dodge removal.
+Kyodai, Soul of Kamigawa	one	60	Flash flyer gives indestructible to a permanent in response to a wipe.
+Kytheon, Hero of Akros // Gideon, Battle-Forged	one	27	Planeswalker side can grant indestructible to a creature, but it only flips in attack decks.
+Lae'zel's Acrobatics	board	50	4-mana instant: exile your creatures and return them at end step, dodging removal or wipes.
+Lavaspur Boots	equipment	58	1-mana equipment: ward {1} and haste; cheap but weak protection.
+Leave // Chance	one	46	2-mana instant: return your permanents to hand to dodge removal or a wipe.
+Legion's Initiative	board	50	RW: exile your creatures and return them at combat; dodges a wipe, plus small boosts.
+Legolas's Quick Reflexes	one	62	1-mana split-second instant: hexproof for a creature, and it can bite another creature.
+Lena, Selfless Champion	board	38	6-mana body whose sacrifice ability gives smaller creatures indestructible; it works as a wipe answer.
+Leonin Abunas	board	38	4-mana 2/5 that gives artifacts hexproof; only good in artifact decks.
+Leyline Immersion	equipment	25	Ward {2} on a legend is a minor side benefit of a ramp aura.
+Leyline of Lifeforce	counter	42	Free from hand: your creature spells can't be countered, but it also protects opponents' creatures.
+Lier, Disciple of the Drowned	counter	42	Spells can't be countered, but it protects opponents' spells too.
+Lightfoot Technique	one	58	2-mana instant: indestructible for one creature, plus a counter, but it doesn't stop exile or bounce.
+Liliana the Faultless	one	47	1-mana body: pay {1} and discard to give hexproof to another creature or walker.
+Lilysplash Mentor	one	24	Sorcery-speed blink only; it can't dodge removal.
+Linvala, Shield of Sea Gate	board	56	Sacrifice for team hexproof or indestructible at instant speed on a 3-mana flyer.
+Long Road Home	one	56	2-mana instant: blink your creature to dodge removal and return it with a +1/+1 counter.
+Lord of the Unreal	board	22	Hexproof only for Illusions; barely protects anything outside the tribe.
+Lorehold Command	board	50	Instant: team gets indestructible and haste, plus a second mode.
+Lotusguard Disciple	one	42	3-mana flyer whose entry trigger saves a creature from damage or destroy for a turn.
+Loxodon Anchorite	one	30	Taps to prevent 2 damage to any target; small effect.
+Loyal Unicorn	board	34	Combat-damage prevention only with your commander out; no real protection.
+Mage's Guile	one	46	2-mana instant shroud for one creature; cycles for {U} when not needed.
+Magic Damper	one	58	1-mana instant: a creature gains hexproof until end of turn and untaps; doesn't stop wraths.
+Majestic Metamorphosis	one	28	Turns a threatened artifact or creature into a 4/4 flyer for a turn and cantrips, but doesn't protect it.
+Make a Stand	board	60	3-mana instant: your team gains indestructible, beats damage wipes and removal.
+Mammoth Umbra	equipment	38	Umbra armor saves the creature once, but five mana is steep for it.
+Mandate of Peace	counter	42	2-mana fog that also stops spells; only works during combat.
+Manhole Cover	one	52	2-mana flash: indestructible for one creature, then cash in to draw.
+March of Swirling Mist	board	62	Instant X-cost phase-out saves several creatures from removal or a wipe.
+Martyr's Cause	board	30	Costs a creature per prevention; weak protection that only trades bodies for damage.
+Mask of Avacyn	equipment	50	Cheap hexproof equipment, but equip {3} is slow and protects one creature.
+Mask of Law and Grace	equipment	30	Cheap aura, but only covers two colors and doesn't stop wipes.
+Master Apothecary	board	22	Prevents 2 damage per Cleric tapped; WWW and needs many Clerics.
+Master Healer	board	25	5-mana 1/4: prevent 4 damage a turn, but only to damage.
+Masterful Flourish	one	58	1-mana instant: indestructible for one creature, which stops damage and destroy effects but not exile.
+Maximum Overdrive	one	50	2-mana instant: indestructible and a counter on one creature for a turn.
+Maze's Mantle	equipment	22	Just a +2/+2 flash aura; hexproof needs toxic.
+Melira, the Living Cure	one	50	2-mana 3/3 that sacrifices itself to bring back a dying creature or artifact.
+Mending Hands	one	22	1-mana instant: stops 4 damage, but not other removal.
+Metropolis Reformer	board	38	Gives you hexproof but protects only you and dies easily.
+Midvast Protector	one	38	4-mana body that grants one creature protection from a color on entry, at sorcery timing.
+Minion's Return	one	48	3-mana flash aura: enchanted creature returns under your control when it dies, and works on opposing creatures too.
+Mirror Shield	equipment	55	2-mana equipment: hexproof to one creature, but slow to move.
+Misdirection	one	58	Free instant: redirect removal aimed at your permanent to something else.
+Mishra, Tamer of Mak Fawa	board	46	Five-mana 4/4 giving all your permanents ward by sacrificing a permanent.
+Mist Dragon	one	22	Only protects itself for five mana; no help for other permanents.
+Mistfire Weaver	one	46	Morph flip gives one creature hexproof at instant speed; a flyer body attached.
+Mistmeadow Witch	one	44	Repeatable instant-speed blink for 4 mana; needs both W and U.
+Mizzium Skin	board	62	1-mana instant hexproof; overload for 2 protects your whole team.
+Moment of Valor	one	52	3-mana instant: untap a creature and make it indestructible.
+Monk Gyatso	one	46	Exiles your targeted creature to recast later; saves it from removal but costs tempo.
+Moogles' Valor	board	62	5-mana instant: indestructible team plus a 1/2 lifelink token per creature; beats wraths that destroy.
+Moonlit Strider	one	42	4-mana body; sacrifice to give a creature protection from a color, plus soulshift value.
+Mortal's Resolve	one	50	2-mana instant: one creature gains indestructible, which stops destroy effects and wraths.
+Muck Drubb	one	38	5-mana flash redirect for creature-targeted spells; costly but leaves a body.
+Mutational Advantage	board	50	3-mana instant: counter permanents gain hexproof and indestructible; needs counters.
+My Precious // Allure of Power	equipment	50	3-mana equipment: hexproof and unblockable, but equip costs 2 and 2 life.
+Myrel, Shield of Argive	counter	66	4-mana creature: opponents can't cast spells or use abilities on your turn.
+Mystic Veil	one	36	2-mana aura: shroud, but if flashed in the aura gets sacrificed at cleanup.
+Nahiri's Machinations	one	34	Indestructible only on your combat; doesn't help against wipes on other turns.
+Necrogen Communion	equipment	35	2-mana aura: the creature returns when it dies, but it risks a 2-for-1.
+Necromancer's Magemark	equipment	30	3-mana aura: enchanted creature returns to hand instead of dying, but needs the aura on it.
+Nephalia Smuggler	one	33	Slow and expensive blink; the tap ability can dodge removal but costs 4.
+Neurok Stealthsuit	equipment	42	2-mana equipment gives shroud and can reattach for UU at instant speed.
+Noble Heritage	board	42	Background: you gain protection from opponents who take counters.
+Northampton Farm	one	32	Exile your own creature at instant speed to dodge removal, then return it by sacrificing the land.
+Oak Street Innkeeper	board	40	3-mana body; tapped creatures get hexproof on opponents' turns.
+Oath of Teferi	one	32	5 mana: one blink on entry can dodge removal once; the planeswalker doubling is the real payoff.
+Oblivion's Hunger	one	48	2-mana instant indestructible for one creature; draws with a counter.
+Obsidian Acolyte	one	22	Only protects a creature from black; narrow.
+Octopus Form	one	60	1-mana instant: hexproof for one creature, with an untap.
+Offer Immortality	one	48	Two-mana instant: one creature gains indestructible against destroy effects for a turn.
+Oji, the Exquisite Blade	one	42	Gold 4-drop that blinks a creature when you cast a second spell; slow and conditional protection.
+Old Fat Spider Can't See Me	one	40	3-mana saga: hexproof for one creature while it stays, and it draws two later.
+Ollenbock Escort	one	34	1-mana body that protects only a creature with a +1/+1 counter.
+Orbs of Warding	board	35	5 mana for player hexproof and 1 damage prevention; doesn't protect permanents.
+Orcish Medicine	one	58	2-mana instant: indestructible for one creature, plus an Army token.
+Origin of Metalbending	one	50	Instant indestructible plus a +1/+1 counter on one creature; flexible with the removal mode.
+Orim's Touch	one	22	1-mana instant: prevents 2 damage, or 4 if kicked. Too small against Commander threats.
+Orim, Samite Healer	one	28	3-mana creature that prevents 3 damage a turn; stops burn but not destroy or exile effects.
+Oriss, Samite Guardian	one	29	3-mana creature that stops all damage to one creature; it doesn't stop destroy or exile effects.
+Otherworldly Journey	one	62	2-mana instant blink: save a creature from removal and reuse its enter trigger.
+Overprotect	one	72	2-mana instant: hexproof and indestructible to one creature, plus a pump.
+Padeem, Consul of Innovation	board	45	Artifacts you control have hexproof; only helps artifact decks.
+Pain 101	one	50	2-mana instant: one creature comes back if it dies this turn.
+Paladin Danse, Steel Maverick	board	32	Exile it to give artifact and Human creatures indestructible; costs the body.
+Paladin's Arms	equipment	30	Equipment with ward {1}; the equip cost is steep for such a small boost.
+Pale Wayfarer	one	28	7-mana body; protection costs four mana and untapping it each time.
+Palisade Giant	board	33	6-mana wall that soaks damage for you and your permanents; dies to big hits.
+Panacea	one	22	Costly damage-prevention artifact; barely protects anything.
+Parallax Wave	board	56	Instant-speed exile of your own creatures dodges removal and wipes.
+Part the Veil	board	42	4-mana instant: save your whole team from a wipe by bouncing it to hand.
+Parting Gust	one	56	Without the gift, exiles your creature and returns it at end of turn with a counter, dodging removal.
+Patriot, Shield Wielder	one	50	2-mana body that grants hexproof to another creature at instant speed for {2}.
+Pegasus Guardian // Rescue the Foal	one	52	2-mana instant blink to dodge removal, then a 3/3 flyer later.
+Pemmin's Aura	one	38	Aura: {U} gives shroud at instant speed, but it's a three-mana aura that dies with the creature.
+Pentarch Ward	one	37	3-mana cantrip aura: protection from one color on a creature; sorcery speed and vulnerable.
+Perch Protection	board	58	6-mana instant: phase out your board and gain protection, at the cost of giving an extra turn.
+Perigee Beckoner	one	33	4/5 body that gives one creature a death-return shield for a turn.
+Personify	one	62	2-mana instant blink for one creature, plus a 1/1 token.
+Pippin, Guard of the Citadel	one	58	2-mana ward body that repeatedly protects a creature from a card type.
+Planar Incision	one	62	2-mana instant blink dodges removal and re-triggers enters effects, with a counter.
+Plate Armor	equipment	33	Ward {1} on equipped creature is a small protection rider on a combat equipment.
+Plaxcaster Frogling	one	30	{2}: shroud for a creature with a +1/+1 counter; needs counters.
+Pledge of Loyalty	equipment	30	2-mana aura: protects one creature from your own colors only, little use.
+Plumecreed Escort	one	62	2-mana flash flyer: hexproof for a creature at instant speed, plus a body.
+Plunge into Darkness	board	32	Instant sacrifice of creatures in response for life; saves little.
+Presumed Dead	one	56	2-mana instant: a creature that dies comes back, but it becomes suspected.
+Prismatic Boon	board	50	Instant: X creatures gain protection from a color; answers a mono-color wipe or removal.
+Prismatic Ward	one	22	2-mana aura stops one color's damage to a creature; weak against removal and wipes.
+Professor's Warning	one	56	1-mana instant: indestructible on one creature, or a +1/+1 counter.
+Protection Magic	board	66	2-mana instant: shield counters on three creatures stop destroy and damage once.
+Protective Bubble	equipment	30	4-mana aura giving one creature shroud and evasion; slow and weak to wipes.
+Proud Pack-Rhino	one	38	3-mana 3/3 that puts a shield counter on a permanent when it enters.
+Prowling Serpopard	counter	48	3-mana 4/3 that makes your creature spells uncounterable.
+Psychic Paper	equipment	30	2-mana equipment: ward {1} on one creature plus unblockable; very light protection.
+Purging Stormbrood // Absorb Essence	one	58	2-mana instant gives one creature hexproof, +2/+2 and lifelink; the Dragon comes later.
+Rage-Scarred Berserker	one	22	5-mana 5/4 body; the ETB indestructible only helps on the turn it enters.
+Rakish Scoundrel	one	32	4-mana body whose ETB gives one creature indestructible for a turn; easily outpaced.
+Ranger-Captain of Eos	counter	50	Sacrifice: opponents can't cast noncreature spells this turn, protecting a combo or wipe turn.
+Rattlechains	one	36	Gives hexproof only to a Spirit; works mainly in Spirit decks.
+Razor Barrier	one	56	2-mana instant: protection from a color for one permanent; dodges targeted removal.
+Ready // Willing	board	60	Instant: team indestructible beats a wipe or combat; fuse for more.
+Reality Ripple	one	56	2-mana instant: phase out one of your creatures to dodge removal; can also hit an opposing blocker.
+Rebbec, Architect of Ascension	board	38	Makes your artifacts nearly untouchable by spells and sources, but only artifacts.
+Rebuff the Wicked	counter	47	1 mana instant: counters removal aimed at your permanents.
+Recuperate	one	30	4 mana instant: prevent 6 damage to a creature; weak protection.
+Red Ward	one	12	Aura that only stops red; almost never relevant.
+Redeem	one	34	2-mana instant: stops damage to two creatures, but not destroy or exile effects.
+Redeem the Lost	one	52	2-mana instant: protection from a color for one creature; may return on a clash.
+Reflecting Mirror	counter	22	4-mana rock that redirects spells aimed at you; expensive and narrow.
+Refraction Trap	board	22	Prevents 3 damage and reflects it; rarely worth it in multiplayer.
+Refresh	one	38	3-mana regeneration only stops destroy effects, but it cantrips.
+Reigning Victor	one	30	Body with a combat-trick indestructible on entry; not real protection.
+Release to the Wind	one	38	3-mana instant flicker on your own permanent; resets it but it must be recast.
+Relic Ward	equipment	30	Flash aura giving shroud to one artifact; narrow and it blocks your own targeting.
+Renegade's Getaway	one	52	3-mana instant: indestructible for one permanent, plus a 1/1 Servo.
+Reroute Systems	one	56	1-mana instant: indestructible for an artifact or creature, or 2 damage to a tapped creature.
+Rescue	one	52	1-mana instant: bounce your own permanent to dodge removal.
+Rescue Girl, First Responder	one	25	3-mana flyer that bounces your permanents, but only on your turn, so it can't dodge removal.
+Resolute Watchdog	one	42	1-mana wall; pay {1} and sacrifice to make a creature indestructible once.
+Restricted Office // Lecture Hall	board	30	The Lecture Hall side costs 7 for hexproof on other permanents; too slow.
+Resurrection Orb	equipment	40	2-mana equipment that returns the creature when it dies; costly equip {4}.
+Return to Action	one	42	Stops a creature dying for a turn, but doesn't stop exile or bounce.
+Reverent Mantra	board	42	Free by exiling a white card: all creatures gain protection from a color; mostly combat.
+Revitalizing Repast // Old-Growth Grove	one	50	1-mana instant: indestructible and a counter on one creature.
+Rhythm of the Wild	counter	34	Creature spells can't be countered; two colors and only helps creature decks.
+Riders of Gavony	board	30	4-mana 3/3: Humans gain protection from one creature type; needs a Human deck.
+Rienne, Angel of Rebirth	board	32	5-mana three-color flyer: multicolored creatures that die return to hand.
+Ring of Evos Isle	equipment	54	Cheap equip for repeatable hexproof at instant speed; costs mana each time.
+Ripples of Potential	board	38	2-mana instant phase-out, but only for permanents that gain a counter.
+Robe of Mirrors	one	28	1-mana aura: shroud on one creature, but it also stops your own targeting.
+Robe of Stars	equipment	48	Cheap equipment: pay {1}{W} to phase out the equipped creature at instant speed.
+Roon of the Hidden Realm	one	38	Three colors; {2},T blinks a creature to dodge removal.
+Root Sliver	counter	22	Only makes itself and Sliver spells uncounterable; very narrow.
+Rootborn Defenses	board	62	3-mana instant: indestructible team plus a populate copy, but only beats destroy effects.
+Royal Treatment	one	62	1-mana instant hexproof for one creature, plus a Role buff.
+Runed Halo	one	28	Protection from one named card only; narrow and mostly useful against a known commander.
+Rush of Vitality	one	56	2-mana instant: indestructible for one creature, dodges damage and destroy effects only.
+S.H.I.E.L.D. Flying Car	one	55	3-mana flash flyer: blinks your creature in response to removal.
+Sacred Ground	board	22	Only returns lands killed by opponents' effects; rarely matters.
+Safe Haven	one	40	Exile your creatures for 2 each, then sacrifice to return.
+Saffi Eriksdotter	one	50	2-mana creature: sacrifice to bring back a creature that dies this turn.
+Salvager of Ruin	one	32	Sac in response to removal to rebuy a permanent, but the cost is clunky.
+Salvation Swan	one	55	Flash flyer that blinks one creature, dodging removal and resetting enters effects.
+Samite Elder	board	48	3-mana creature: team protection from your permanent's colors, which dodges colored removal and blocks.
+Sanctuary Blade	equipment	38	Equip {3} for protection from one color; slow and narrow.
+Sanctum Custodian	one	32	Taps to prevent 2 damage to any target; weak at this table.
+Sanctum Guardian	one	33	Sacrifice to prevent one damage instance; cheap shield for a creature or you.
+Sanctum of Eternity	one	34	Return your commander to hand for {2}, but only on your turn, so it can't answer removal.
+Saru, Unthreatened	one	52	3-mana flash body: gives one other creature hexproof for the turn.
+Saryth, the Viper's Fang	board	58	4-mana body: your other untapped creatures have hexproof, a static fort for creature decks.
+Savage Summoning	counter	48	1 mana: next creature spell can't be countered, has flash and gets a counter.
+Saved by the Shell	one	62	2-mana instant: hexproof and indestructible on one creature, plus a counter.
+Saving Grasp	one	50	1-mana instant: bounce your own creature to dodge removal, with flashback.
+Scales of Shale	one	55	3-mana instant: indestructible for one creature, but it doesn't stop exile or bounce.
+Scars of the Veteran	one	40	Free by pitching a white card: prevents 7 damage and grows a creature, but dodges only damage.
+Scrollshift	one	58	3-mana instant blink dodges removal on one permanent and cantrips.
+Scuttling Sentinel	one	50	3-mana flash body that gives one creature hexproof for a turn and a counter.
+Second Sunrise	board	50	Instant: undoes a wipe or sacrifice turn, returning your dead permanents; also helps opponents.
+Secret Identity	one	62	1-mana instant: hexproof for one creature, though it shrinks to 1/1.
+Seht's Tiger	board	46	Flash body that gives you protection from a color for a turn.
+Sejiri Shelter // Sejiri Glacier	one	58	2-mana instant: one creature gains protection from a color, or play it as a land.
+Sejiri Steppe	one	38	Only works when it enters, but it dodges removal while saving a land slot.
+Selfless Glyphweaver // Deadly Vanity	board	62	3-mana body that exiles to give team indestructible at instant speed.
+Selfless Safewright	board	58	Flash body that protects a chosen type from removal and wipes.
+Selfless Samurai	one	50	2-mana body that sacs to save one other creature.
+Selfless Savior	one	56	1-mana body that saves another creature from destroy effects.
+Selfless Spirit	board	66	2-mana flyer that sacs to save your team from a wrath or combat.
+Serra's Emissary	board	52	7-mana 7/7 flyer: you and your team gain protection from a card type, e.g. creatures.
+Serra's Hymn	board	28	Slow-building damage prevention; weak against wipes or removal and needs many turns to matter.
+Settle Beyond Reality	one	28	Sorcery-speed blink of your creature; too slow to dodge removal.
+Shade's Form	equipment	34	3-mana aura: if the creature dies, it returns under your control.
+Shadowbane	board	22	Prevents one source's damage once; rarely saves a permanent from removal or a wipe.
+Shaman en-Kor	one	34	2-mana body that soaks damage for your creatures; does nothing against destroy or exile effects.
+Shardmage's Rescue	one	55	1-mana flash aura: hexproof for a turn on one creature, plus +1/+1.
+Shell Shield	one	52	2 mana kicked: instant hexproof for one creature, +0/+3.
+Shelter	one	56	2-mana instant: protection from a color on one creature, and it draws a card.
+Sheltered by Ghosts	equipment	38	Gives a creature ward 2 and lifelink as a rider.
+Sheltering Light	one	58	1-mana instant: a creature gains indestructible, and you scry 1.
+Sheltering Word	one	58	2-mana instant: hexproof on a creature and life equal to its toughness.
+Shield of Duty and Reason	equipment	25	1-mana aura: protection from green and blue on one creature.
+Shield of Kaldra	equipment	40	4 mana, equip 4: indestructible, but it doesn't stop exile, bounce or -X/-X.
+Shield of the Avatar	equipment	28	1-mana equipment that prevents combat and burn damage only; weak against removal.
+Shield of the Oversoul	equipment	34	3-mana aura: indestructible on a green creature, but one target and exposed to 2-for-1s.
+Shield of the Realm	equipment	20	Prevents only 2 damage per source; barely protects against anything real.
+Shielded Passage	one	36	1-mana instant: stops damage to one creature only; doesn't stop destroy or exile.
+Shielded by Faith	equipment	42	3-mana aura: indestructible that moves to a new creature when yours dies.
+Shielding Plax	one	43	3-mana aura: replaces itself and gives hexproof from opponents, but it's an aura and sorcery speed.
+Shieldmate's Blessing	one	28	1-mana instant: prevent 3 damage; too small to save much in Commander.
+Shields Up!	one	63	2-mana instant: hexproof and indestructible for a creature or artifact, plus a counter.
+Shore Up	one	62	1-mana instant: hexproof and untap for one creature, dodging single-target removal.
+Sigarda, Font of Blessings	board	66	4-mana 4/4 flyer: other permanents have hexproof; you stay open to wipes.
+Silhouette	one	22	2-mana instant: only stops targeted damage to one creature.
+Silver Shroud Costume	one	30	Flash gives a creature shroud for a turn, but only as a one-time dodge.
+Silver Wyvern	one	33	Only protects itself, by redirecting targeted spells.
+Singer of Swift Rivers	one	40	Flash body that puts a shield counter on another creature of yours.
+Siren Stormtamer	one	55	Cheap body that protects you or a creature from targeted removal.
+Siren's Ruse	one	58	2-mana instant blink dodges removal for one creature; Pirates draw.
+Sivvi's Ruse	board	42	Prevents all damage to your creatures; sometimes free, but it does not stop destroy or exile.
+Sivvi's Valor	one	35	Redirects damage from one creature to you; only stops damage-based removal.
+Skrelv, Defector Mite	one	46	1-mana body: tap to give a creature hexproof from one color, a repeatable partial shield.
+Skycoach Conductor // All Aboard	one	52	One-mana instant blink dodges removal for a creature, and the flash flyer is a bonus.
+Slip On the Ring	one	66	2-mana instant blink dodges removal for one creature and tempts you with the Ring.
+Slippery Bogbonder	one	44	4-mana flash body that gives one creature a hexproof counter on entry.
+Sliver Hivelord	board	38	5-mana WUBRG; indestructible for Slivers is only good in a Sliver deck.
+Slobad, Goblin Tinkerer	one	30	Costs an artifact to protect another artifact; narrow and rarely worth it.
+Smoke Bomb	board	36	Shroud for everyone until your upkeep, mostly a symmetric trick with a delay.
+Smuggler's Surprise	board	50	2 mana: hexproof and indestructible for creatures with power 4 or more.
+Snakeform	one	33	3-mana instant cantrip: shrinks a creature for a turn; weak defense.
+Solitary Confinement	board	26	Protects only you, and costs your draw plus a discard each turn.
+Soratami Rainshaper	one	38	Instant shroud for {3} and a land bounce; costly but protects at instant speed.
+Soul of New Phyrexia	board	50	6-mana 6/6 body; {5} makes your permanents indestructible at instant speed, also from graveyard.
+Soulherder	one	42	Blinks a creature each end step, so it can only dodge removal on your own turn.
+Spaceshift	one	60	2-mana instant blink with a +1/+1 counter; saves your own creature or artifact.
+Spare from Evil	board	28	2-mana instant: protection from non-Humans; only helps in combat or against creature removal.
+Spearbreaker Behemoth	board	38	Indestructible body gives power-5+ creatures indestructible for {1}, but costs 7.
+Spectacular Tactics	one	56	2-mana instant: hexproof and a +1/+1 counter on one of your creatures.
+Spectra Ward	equipment	30	5-mana aura: the creature gets protection from every color but is stuck with one target.
+Spectral Cloak	equipment	30	UU aura: shroud for one creature only while it stays untapped, so it can't attack safely.
+Spectral Shield	one	32	3-mana gold aura: stops spell targeting on one creature; slow and weak to wipes.
+Spellbane Centaur	board	30	3-mana body that blanks blue targeting; only matters against blue opponents.
+Spellbreaker Behemoth	counter	40	4-mana 5/5 that makes big creature spells uncounterable; two-color, creature-only.
+Sphinx of the Final Word	counter	40	7-mana hexproof flyer keeping your instants and sorceries uncounterable.
+Spider Umbra	equipment	34	1-mana aura with umbra armor; protects its creature from one destroy effect, but it is clunky.
+Spider-Man, To the Rescue	one	46	Flash body that grants another creature indestructible for a turn; costs three mana.
+Spider-Punk	counter	50	2-mana body: your spells and abilities can't be countered, but it also stops your own counters.
+Spirit Mantle	equipment	30	Aura that makes one creature nearly unblockable and immune to creature removal, but not to spells.
+Spiritual Asylum	board	32	4 mana: shroud for creatures and lands, but it dies when you attack.
+Splash Portal	one	30	1-mana sorcery blink; can't dodge removal on the stack.
+Split-Tail Miko	one	38	2-mana 1/1: prevents 2 damage a turn, only helps against damage.
+Stalwart Pathlighter	board	33	Conditional team indestructible at combat on your turn only; rarely survives a wipe.
+Stand // Deliver	one	34	Stand prevents 2 damage for a creature; Deliver can save a permanent.
+Standard Bearer	board	46	2-mana body redirects targeted spells and abilities away from your other permanents.
+Star Whale	board	40	A big flyer that gives your team ward 2; suspend for 2 makes it castable.
+Starlit Mantle	one	44	Flash hexproof for one creature, but it's an aura and loses value if the creature is wiped.
+Stave Off	one	56	1-mana instant: a creature gains protection from a color, dodging targeted removal.
+Steely Resolve	board	30	2-mana enchantment: shroud for a chosen type; also hits opposing creatures and blocks your own spells.
+Stolen Stark Tech	equipment	32	2-mana equipment: one-turn indestructible on entry, then just +1/+0.
+Stone by Sunlight	one	50	Instant: indestructible for one creature this turn.
+Stonewood Invocation	one	50	Split second shroud on one creature: can't be responded to, but costs four.
+Stormscape Master	one	30	Gives protection for WW and a tap, but needs heavy white in a blue creature.
+Storvald, Frost Giant Jarl	board	34	7-mana three-color body giving your other creatures ward {3}.
+Strength of Will	one	58	2-mana instant: indestructible for one creature; doesn't stop exile or -X/-X.
+Sudden Strength	one	30	4-mana +3/+3 cantrip can save a creature from damage but is expensive.
+Sunfire Balm	one	22	Prevents 4 damage to one target; barely stops removal and only helps against damage.
+Sunpearl Kirin	one	55	2-mana flash flyer that saves a permanent from removal by bouncing it.
+Surrak Dragonclaw	counter	34	Three-color flash 6/6 that makes your creature spells uncounterable.
+Survive the Night	one	58	3-mana instant: indestructible for one creature plus a Clue; no help against exile.
+Svyelunite Priest	one	18	Shroud only in your upkeep; does not stop removal on opponents' turns.
+Sword of Body and Mind	equipment	36	Protection from only green and blue; mostly a value Sword.
+Sword of Feast and Famine	equipment	44	Pro-black and green on one creature dodges some removal, but it is not real protection for the board.
+Sword of Fire and Ice	equipment	48	Pro-red and blue protects the carrier from common removal and blockers.
+Sword of Forge and Frontier	equipment	42	Pro-red and green on one creature; narrow protection.
+Sword of Hearth and Home	equipment	42	Pro-green and white on one creature; narrow protection.
+Sword of Light and Shadow	equipment	44	Pro-white and black on one creature dodges common removal.
+Sword of Once and Future	equipment	44	Pro-blue and black on one creature; protects against some removal.
+Sword of Sinew and Steel	equipment	44	Pro-black and red on one creature dodges lots of removal.
+Sword of Truth and Justice	equipment	44	Pro-white and blue on one creature; the counter rider is not protection.
+Sword of War and Peace	equipment	44	Pro-red and white on one creature dodges common removal and wraths.
+Sword of Wealth and Power	equipment	45	Equipped creature dodges instants and sorceries, but it only protects one creature and needs equipping.
+Sygg, Wanderwine Wisdom // Sygg, Wanderbrine Shield	one	38	Back side gives protection from each color, but needs a flip and only lasts until your next turn.
+Sylvan Safekeeper	one	40	1-mana creature: sacrifice a land to give a creature shroud; costly each use.
+Taigam, Ojutai Master	counter	38	Makes your instants and sorceries uncounterable; narrow body.
+Take Up the Shield	one	50	2-mana instant: one creature gains indestructible and a counter; saves it from damage or destroy.
+Tale of Tinúviel	one	32	Chapter I gives one creature indestructible, but only at sorcery speed.
+Talon Gates of Madara	one	40	Costs {4} at instant speed to phase out a creature, but only one.
+Tam, Mindful First-Year	board	50	2-mana body: your other creatures get hexproof from their colors; colorless ones get nothing.
+Tattoo Ward	equipment	25	Only protects against enchantments; rarely relevant.
+Teferi's Veil	board	28	2 mana: attackers phase out after combat, only for attack decks.
+Tel-Jilad Defiance	one	22	Cantrip protects from artifacts only, rarely relevant.
+Teleportation Circle	one	35	Repeatable end-step blink; reuses enters effects, weak protection.
+Telim'Tor's Edict	one	52	1 mana: exile your own permanent to dodge removal, draw next upkeep.
+Temper	one	38	X-cost instant prevents damage to one creature and leaves counters.
+Tenth District Hero	board	34	Slow, costly upgrade eventually gives your other creatures indestructible.
+Teroh's Vanguard	board	22	Flash body; protection from black only matters against black removal with seven cards in graveyard.
+Terra Eternal	board	25	Protects lands from destroy effects only, for everyone; narrow and symmetric.
+Test of Priorities	one	54	2-mana instant exiles your creature until end step, dodging removal; flexible with a cantrip mode.
+Teyo, Lightshield Expert	one	58	2-mana flash body: hexproof on one permanent in response to removal, plus a counter.
+Teyo, the Shieldmage	board	40	3-mana walker: you have hexproof and it makes 0/3 walls, but your permanents stay exposed.
+Thancred Waters	one	40	Flash body that makes a legendary permanent indestructible while it lives.
+That Which Was Taken	board	32	Slow and costly: {4} per permanent, but the indestructibility is permanent.
+The Duke, Rebel Sentry	one	30	1-mana body that gives one creature hexproof once, but loses its counter.
+The Eternal Wanderer	one	38	+1 blinks your artifact or creature, but only at sorcery speed and as a side effect.
+The Moment	one	40	2 and tap to phase out a creature until it leaves; ends if it wipes.
+The One Ring	board	50	Protection from everything for a turn cycle when cast, but only once.
+The Stasis Coffin	board	42	3-mana artifact, 2 more to exile it: you gain protection from everything for a turn cycle.
+The Walls of Ba Sing Se	board	40	8 mana for static indestructible on your other permanents; protects from wraths but very expensive.
+The Wanderer	board	30	Prevents noncombat damage to you and your permanents; narrow.
+The Wandering Rescuer	board	48	Flash body that gives tapped creatures hexproof; protects attackers only.
+Theorist's Proxy	counter	30	2-mana flash 0/3: sacrifice for an uncounterable next spell; Jace-themed.
+Thorin Oakenshield	board	38	2-mana body: ward {1} for your team, but only after an enduring story, which is hard to get.
+Thornscape Master	one	30	{W}{W},{T}: protection from a color for one creature; needs heavy white.
+Thran Power Suit	equipment	42	2-mana equipment: ward {2} on one creature, equip {2}.
+Thryx, the Sudden Storm	counter	46	Flash 4/5 flyer making your 5+ spells uncounterable and cheaper.
+Tidal Barracuda	counter	40	3/4 body stops opponents casting on your turn, but gives everyone flash.
+Timely Ward	equipment	40	3-mana aura: indestructible, with flash on your commander; doesn't stop exile or bounce.
+Together Forever	one	30	Needs counters on the creature; returns it to hand after it dies, so it isn't real protection.
+Tortoise Formation	board	40	4-mana instant: shroud for your creatures, but it also stops your own targeting.
+Touch the Spirit Realm	one	46	Channel mode: 2-mana instant blink to dodge removal.
+Treefolk Umbra	one	34	Umbra armor saves the enchanted creature from destruction once, but it is a sorcery-speed aura.
+Triad of Fates	one	43	Repeatable blink of a creature after setting up a fate counter.
+Tundra Tank	one	28	Entry trigger gives one creature indestructible, but it is a sorcery-speed vehicle with one use.
+Turn Aside	one	50	1-mana instant answers removal aimed at your stuff.
+Twining Twins // Swift Spiral	one	42	2-mana instant blink of a creature dodges removal, but needs white and the body is blue.
+Tyrant Guard	board	38	Sac for hexproof and indestructible, but only for creatures with counters; needs a counters theme.
+U.S.S. Defiant, Mirror Migrant	one	62	2-mana flash: phase out a creature of yours, dodging removal at instant speed.
+Ultimate Magic: Holy	board	60	3-mana instant: your permanents gain indestructible; foretold also prevents damage to you.
+Umbra Mystic	board	33	Gives your auras umbra armor, protecting enchanted permanents; only works in aura decks.
+Undying Evil	one	55	1-mana instant: a creature gains undying this turn and returns with a +1/+1 counter if it dies.
+Unhallowed Pact	equipment	38	3-mana aura: enchanted creature returns when it dies.
+Unholy Indenture	one	38	3-mana aura: the creature returns with a counter if it dies.
+Unlikely Aid	one	46	2-mana instant: one creature gains indestructible for a turn, but it doesn't stop exile or bounce.
+Unquestioned Authority	equipment	42	3-mana aura that cantrips: protection from creatures, not removal or wipes.
+Unstable Molecule Suit	equipment	52	3-mana equipment: indestructible and +2/+2, equip commander for {2}.
+Valkyrie's Call	board	56	5-mana enchantment: your dying nontoken creatures come back bigger and flying.
+Valorous Stance	one	66	2-mana instant: indestructible to save a creature from damage or destroy effects, not exile.
+Vanish into Memory	one	50	4-mana instant blink for your creature that also draws cards equal to its power.
+Vanishing	one	33	1-mana aura: UU to phase a creature out; slow and fragile protection.
+Vassal's Duty	one	20	Costs {1} per damage redirected to you, and only for legendary creatures; clunky.
+Veil of Secrecy	one	42	2-mana instant: shroud on one creature for the turn, but it saves only one creature.
+Veilstone Amulet	board	40	3-mana artifact: your creatures can't be targeted after you cast a spell; no help vs wipes.
+Venser, the Sojourner	one	38	5-mana walker: blinks your own permanent to dodge removal at sorcery speed.
+Verdant Rebirth	one	55	2-mana instant: a creature returns to hand if it dies, and you draw a card; doesn't stop exile.
+Vexilus Praetor	board	62	Flash body that makes your commander untouchable by anything.
+Vexing Shusher	counter	50	2-mana body: {R/G} makes a spell uncounterable at instant speed.
+Vigorbloom Charm	one	68	2-mana instant: hexproof and indestructible for one permanent, plus flexible modes.
+Vincent's Limit Break	one	58	2-mana instant: a creature returns when it dies this turn, though exile still beats it.
+Vines of Vastwood	one	70	1-mana instant: hexproof a creature from opponents, kicker adds +4/+4.
+Vizier of Deferment	one	52	Flash body that blinks your attacked or blocked creature to dodge removal or damage.
+Voice of Victory	counter	68	2-mana body that stops opponents casting spells on your turn; not abilities.
+Void Grafter	one	58	3-mana flash 2/4 that gives another creature hexproof in response.
+Voidwalk	one	30	Sorcery blink for four; cipher adds value but little protection.
+Voyager Staff	one	44	1 mana, then {2}: blink a creature to save it or reset it; slow.
+Ward of Lights	one	38	2-mana flash aura: protection from one color, but it's a card spent and can be answered.
+Warg Tactics	one	50	2-mana instant: hexproof for one creature plus a counter.
+Water Wings	one	56	2-mana instant: one creature gains hexproof for the turn and becomes a 4/4 flyer.
+Werefox Bodyguard	one	48	Flash it in to blink-exile your own creature and dodge removal, though it can't return it unless it leaves.
+Whispersilk Cloak	equipment	48	Shroud on one creature plus evasion; blocks your own targeting and costs 3 plus equip 2.
+White Ward	one	14	Only protection from white on one creature; almost never relevant.
+Wild Shape	one	55	1-mana instant: gives one creature hexproof, though it shrinks it to a 1/3 until end of turn.
+Winged Boots	equipment	60	2-mana equipment with cheap equip: ward {4} protects one creature and gives flying.
+Wispweaver Angel	one	25	6-mana body whose blink only works as a clumsy sorcery-speed protection.
+Witchbane Orb	board	38	4 mana: you have hexproof, but your permanents are still exposed.
+Without Weakness	one	54	2-mana instant: indestructible for one creature; cycles when not needed.
+Withstand	one	33	3-mana instant: prevent 3 damage and draw; only stops small damage.
+Withstand Death	one	58	1-mana instant: indestructible for one creature; beats damage and destroy, not exile.
+Wondrous Crucible	board	38	7 mana for ward {2} on all your permanents plus a free random spell each turn.
+Woodcutter's Grit	one	50	3-mana instant: one creature gets hexproof and +3/+3 for a turn.
+Wrap in Vigor	board	46	2-mana instant: regenerate your team through destroy wipes and removal.
+Y'shtola Rhul	one	30	Six-mana body that only blinks at end step; too slow and sorcery-timed to dodge removal.
+You Look Upon the Tarrasque	board	34	Five-mana fog or indestructible pump; expensive and combat-only protection.
+You See a Guard Approach	one	54	1-mana instant: hexproof for a creature of yours, or tap a threat.
+Your Temple Is Under Attack	board	60	3-mana instant: your creatures gain indestructible, answering damage wipes and combat.
+Zack Fair	one	56	1-mana body: pay {1} and sacrifice it to give a creature indestructible and its counter.
+Zamriel, Seraph of Steel	equipment	25	Indestructible only on your turn and only for equipped creatures, so it rarely protects anything.
+Zephid's Embrace	equipment	24	4-mana aura giving shroud to one creature, which blocks your own tricks and is easy to lose.
+Zur, Eternal Schemer	board	30	Gives hexproof to enchantment creatures only, so it needs an enchantment-creature theme.

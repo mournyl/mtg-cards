@@ -1,0 +1,5 @@
+# Hand fixes for the function tags (tools/tiers/tags.py). One card per line:
+#   name<TAB>+tag -tag ...<TAB>note
+# +tag adds a tag the rules miss, -tag removes a wrong one. Tag keys are the first column of TAGS in tags.py
+# (removal, wipe, counter, ramp, draw, pinger, protect, phasing, swap, double, ...). build.py stops on an unknown key.
+Cyclonic Rift	+wipe	overloaded it bounces everything an opponent controls

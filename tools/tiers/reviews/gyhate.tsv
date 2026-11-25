@@ -60,3 +60,267 @@ Samurai of the Pale Curtain	repeatable	55	Permanents are exiled instead of going
 Honor the Fallen	one-shot	58	Instant, two mana: exiles every creature card in every graveyard.
 Dauntless Scrapbot	one-shot	58	Colorless three-drop that exiles every opponent's graveyard and leaves a Lander.
 Elspeth's Nightmare	one-shot	35	Slow: exiles one graveyard on chapter III, after a small kill and a discard.
+# grade_api merged, 2026-11-24
+Afterthought Sentry	repeatable	34	2-mana body exiling one graveyard card per attack; slow and fragile.
+Agatha's Soul Cauldron	repeatable	62	2-mana artifact exiles a graveyard card each turn, one at a time.
+Ambush Wolf	one-shot	42	Flash 4/2 that exiles one graveyard card on entry; a body, but small hate.
+Anafenza, the Foremost	repeatable	52	3-mana 4/4 body that exiles opposing creatures going to graveyards, but needs three colors.
+Angel of Finality	one-shot	52	4-mana flyer that exiles a graveyard on entry; a body with the hate attached.
+Apostle of Purifying Light	repeatable	55	2-mana body that exiles graveyard cards one at a time for {2}.
+Arashin Sunshield	one-shot	38	4-mana 3/4 that exiles two cards from one graveyard on entry, and it also taps a creature each turn.
+Armored Scrapgorger	repeatable	42	Exiles one graveyard card per tap; slow but repeatable.
+Ascendant Dustspeaker	repeatable	44	Flying body exiles one graveyard card each turn; slow and small.
+Ashnod's Harvester	repeatable	28	Exiles one graveyard card per attack; slow and fragile.
+Assimilation Assessor	one-shot	42	5-mana 5/5 body that exiles one opponent's graveyard on entry.
+Author of Shadows	one-shot	55	5-mana 3/3 exiles every opposing graveyard on entry and may steal a spell.
+Aven Interrupter	repeatable	30	Only taxes graveyard casts by {2}; does not shut them off.
+Bazaar of Wonders	one-shot	38	Five-mana exile of all graveyards; sorcery speed, enchantment.
+Beckon Apparition	one-shot	48	1-mana instant: exile one graveyard card and get a 1/1 flier; single card only.
+Blood Operative	one-shot	38	3-mana lifelink body that exiles one graveyard card on entry.
+Boggart Trawler // Boggart Bog	one-shot	52	3-mana 3/1 that exiles a graveyard on entry, or it plays as a land. Costs no spell slot.
+Boiling Rock Rioter	repeatable	38	3/3 that exiles graveyard cards, but needs untapped Allies to pay.
+Boneclad Necromancer	one-shot	38	5-mana body that exiles one creature card from a graveyard for a Zombie.
+Break Ties	one-shot	38	Instant mode exiles just one card from a graveyard.
+Callous Bloodmage	one-shot	44	3-mana body that exiles a graveyard on entry, or picks token or card.
+Canoptek Scarab Swarm	one-shot	55	4-mana flyer that exiles a graveyard on entry and makes Insects from its artifacts and lands.
+Carrion Beetles	repeatable	52	Cheap body; {2}{B} and tap exiles three cards from a graveyard each turn.
+Carrion Imp	one-shot	38	4-mana flyer; exiles one creature card from a graveyard on entry.
+Carrion Locust	one-shot	40	3-mana flyer; exiles one card from an opponent's graveyard on entry.
+Cease // Desist	one-shot	50	Cease: 2-mana instant exiles two cards from one graveyard and draws a card.
+Cemetery Desecrator	one-shot	30	Exiles one graveyard card on entry and death.
+Cemetery Prowler	repeatable	50	Exiles a card from a graveyard on entry and each attack.
+Cemetery Reaper	repeatable	50	Repeatably exiles creature cards from graveyards into Zombies.
+Chrome Companion	repeatable	36	2-mana body that tucks one graveyard card at a time for {2}.
+Cleanup Crew	one-shot	30	Can exile one graveyard card on entry, but at six mana.
+Coffin Purge	one-shot	58	1-mana instant: exile a graveyard card, twice with flashback; answers a reanimation target.
+Cogwork Archivist	repeatable	50	6-mana body: {2},T tucks a graveyard card each turn, a slow repeatable answer.
+Commander Raffi Musiker	one-shot	30	3-mana body that exiles one graveyard card on entry; a minor, single-card answer.
+Consecrate // Consume	one-shot	44	2-mana instant exiles one graveyard card and draws; Consume adds an edict.
+Conversion Chamber	repeatable	22	Only exiles artifact cards from graveyards, slowly; barely shuts off graveyard decks.
+Corpse Appraiser	one-shot	36	Exiles one creature card from a graveyard on entry; Grixis only.
+Creakwood Ghoul	repeatable	46	5-mana 3/3 that exiles a card from a graveyard each activation.
+Crossroads Candleguide	one-shot	34	4-mana body that exiles one graveyard card on entry; weak as real hate.
+Cry of the Carnarium	one-shot	22	Only exiles creatures that died this turn, so it barely touches existing graveyards.
+Crypt Creeper	one-shot	44	2-mana body that exiles a single graveyard card at instant speed; weak against decks.
+Crypt Incursion	one-shot	46	3-mana instant exiling creature cards from one graveyard; gains life but misses other types.
+Curse of Oblivion	repeatable	38	4 mana: one player's graveyard gets trimmed by two cards each upkeep; slow and one target.
+Dawnbringer Cleric	one-shot	38	2-mana body that exiles one card from a graveyard on entry.
+Dawnhand Dissident	repeatable	40	1-mana body exiles a graveyard card per turn, but needs Blight counters.
+Deadeye Tracker	repeatable	56	1-mana creature: repeatedly exiles two graveyard cards for {1}{B}.
+Deathbonnet Sprout // Deathbonnet Hulk	repeatable	30	Hulk side exiles a graveyard card each upkeep, but it's slow and needs a transform.
+Deathgorge Scavenger	repeatable	52	3-mana body that exiles one graveyard card on entry and each attack.
+Decompose	one-shot	42	2-mana sorcery: exile up to three cards from one graveyard; a small one-shot.
+Digsite Conservator	one-shot	50	2-mana body: sacrifice at sorcery speed to exile four cards from a graveyard; late discover 4.
+Dimir Doppelganger	repeatable	45	Repeatable: pay 3 to exile a creature card from any graveyard.
+Dino DNA	repeatable	42	1 mana, sorcery speed: exiles one creature card per activation, with a late-game payoff.
+Diregraf Horde	one-shot	42	5-mana body with tokens; exiles up to two graveyard cards on entry.
+Diregraf Scavenger	one-shot	40	4-mana deathtouch body; exiles only one graveyard card on entry.
+Disposal Mummy	one-shot	38	3-mana 2/3 body that exiles one graveyard card on entry; small effect.
+Disruptor Wanderglyph	repeatable	30	Exiles one graveyard card per attack; slow and needs to connect with attacking.
+Dominion Assault Force	one-shot	32	4/4 body that exiles one graveyard card on entry; weak as hate.
+Dreams of Steel and Oil	one-shot	32	1-mana sorcery exiles one creature or artifact card from a graveyard, plus one from hand.
+Dryad Militant	repeatable	50	1-mana 2/1 body: instants and sorceries are exiled, which stops flashback and recursion on spells.
+Dutiful Knowledge Seeker	repeatable	42	Repeatable {3}: tuck one graveyard card to the library bottom, which is slow.
+Eater of the Dead	repeatable	52	5-mana 3/4 that exiles creature cards from graveyards, but only while tapped.
+Ebony Charm	one-shot	48	1-mana instant: exile up to three cards from one graveyard.
+Emperor of Bones	repeatable	58	Cheap body that exiles a graveyard card every turn and can borrow it.
+Entrails Feaster	repeatable	46	1-mana creature that exiles a creature card from a graveyard each upkeep.
+Erebos's Intervention	one-shot	52	Instant mode exiles up to twice X cards from graveyards.
+Espers to Magicite	one-shot	52	4-mana instant exiling all opposing graveyards, with a token copy bonus.
+Ethereal Absolution	repeatable	66	Repeatable exile of opponents' graveyard cards that also makes spirits.
+Extirpate	one-shot	50	1-mana split-second exile of one card by name; stops a reanimation target but not a whole graveyard.
+Fade from Memory	one-shot	47	1-mana instant exiles one graveyard card, and it cycles when it isn't needed.
+Famished Ghoul	one-shot	42	4-mana body that sacrifices to exile two graveyard cards.
+Feral Appetite	repeatable	50	3-mana enchantment: pay {1}{G} to exile any graveyard card, one at a time, with Pest upside.
+Feral Deathgorger // Dusk Sight	one-shot	36	6-mana flyer exiles two graveyard cards on entry; a one-shot that cannot clear a whole graveyard.
+Festival of Embers	repeatable	38	Exiles cards going to graveyards, but it is your own engine and costs five.
+Final Act	one-shot	45	One mode exiles all graveyards, but it costs six mana.
+Flesh // Blood	one-shot	22	Flesh exiles just one creature card from a graveyard for five mana.
+Foggy Swamp Visions	one-shot	38	Exiles X creature cards from graveyards, but only creatures and X needs waterbend.
+Froghemoth	one-shot	34	Haste body that exiles graveyard cards only if it connects.
+Funeral Pyre	one-shot	34	1-mana instant exiles one card, but gives its owner a 1/1 flyer.
+General Kudro of Drannith	one-shot	38	Exiles one graveyard card per Human entering; slow and narrow.
+General's Enforcer	repeatable	56	2-mana body exiling graveyard cards one at a time for {2}{W}{B}; gold and slow.
+Ghastly Conscription	one-shot	30	Exiles one player's creature cards but costs seven.
+Ghost Vacuum	repeatable	62	1-mana artifact: tap to exile a graveyard card, later reanimates exiled creatures.
+Gisa, Glorious Resurrector	repeatable	42	Exiles opposing creatures that die, but not a full graveyard shutoff.
+Glorious Decay	one-shot	46	Exile one graveyard card at instant speed and draw a card.
+Go Blank	one-shot	50	3-mana sorcery: discard two and exile a graveyard; a one-shot with a body of discard.
+Grave Birthing	one-shot	24	Exiles only one card from a graveyard, chosen by the opponent.
+Grave Consequences	one-shot	36	2-mana instant: players may exile graveyards, then lose life per card left.
+Grave Robbers	repeatable	18	Only exiles artifact cards from graveyards; barely does the job.
+Gravegouger	one-shot	38	3-mana body exiles two cards from one graveyard, but they return if it dies.
+Graven Abomination	repeatable	30	3/1 body that exiles one card per attack; slow and fragile.
+Gravestone Strider	one-shot	42	Exiles one card from a graveyard for {2}, from the graveyard; weak.
+Gravestorm	repeatable	34	Slowly eats opponents' graveyards, one card a turn, if they choose to.
+Graveyard Shovel	repeatable	38	2-mana artifact exiling one graveyard card per turn for {2}; slow against reanimator.
+Grazing Kelpie	repeatable	44	Persist body that tucks two graveyard cards over its life for {1} each; good vs recursion.
+Grey Host Reinforcements	one-shot	52	4-mana flyer with ward 3; exiles one graveyard on entry and grows from the creatures.
+Griffnaut Tracker	one-shot	42	4-mana flyer that exiles two graveyard cards on entry; weak against a full graveyard.
+Grime Gorger	repeatable	36	Exiles graveyard cards only when it attacks; slow and needs to connect.
+Grixis Sojourners	one-shot	22	Exiles one card on cycle or death; three colors and single target.
+Haunting Echoes	one-shot	46	5-mana sorcery exiles one graveyard and the library copies; expensive for a one-shot.
+Hazel's Brewmaster	repeatable	52	Exiles a graveyard card on enter and each attack; slow but repeatable with a body.
+Headstone	one-shot	45	2-mana instant exile of one graveyard card that replaces itself with a draw.
+Heap Doll	one-shot	46	1-mana body that sacrifices to exile one graveyard card at instant speed.
+Hedonist's Trove	one-shot	38	7 mana to exile one graveyard, with some value afterward.
+Heirloom Mirror // Inherited Fiend	repeatable	33	Flipped side exiles creature cards for 3 each, but needs three activations first.
+Heritage Reclamation	one-shot	38	Instant exiles one graveyard card and draws a card; weak against a full graveyard.
+Hidetsugu Consumes All // Vessel of the All-Consuming	one-shot	52	3-mana saga: chapter II exiles all graveyards, plus chapter I sweep and a threat after.
+Hive of the Eye Tyrant	repeatable	38	Exiles one card per attack, which is slow and minor graveyard hate.
+Hoarding Recluse	one-shot	22	Death trigger tucks one graveyard card; too small to count as hate.
+Honored Heirloom	repeatable	54	Repeatable {2} exile of a graveyard card at instant speed, on a mana rock.
+Hoverstone Pilgrim	repeatable	46	5-mana flyer with ward; pay {2} to tuck graveyard cards, one at a time.
+Identity Crisis	one-shot	38	6-mana gold sorcery; exiles a graveyard and a hand, but it costs a full card and a lot of mana.
+Ignis Scientia	repeatable	34	Costly repeatable single-card exile on a 3-mana body; slow against a real graveyard deck.
+Immersturm Predator	repeatable	50	Flying body that exiles a graveyard card each time it taps.
+Intrepid Paleontologist	repeatable	50	Pay {2} to exile a card from a graveyard, again and again.
+Invasion of Innistrad // Deluge of the Dead	repeatable	25	Only the flipped side exiles graveyard cards, and a battle must be defeated first.
+Jack-o'-Lantern	one-shot	40	Cheap artifact that exiles one graveyard card and cantrips; hits one card only.
+Jade-Cast Sentinel	repeatable	43	Repeatable {2} tuck of one graveyard card at a time on a 1/5 body.
+Jirina, Dauntless General	one-shot	48	2-mana body that exiles one graveyard on entry; gold but cheap.
+Jund Charm	one-shot	44	Instant mode exiles a target player's graveyard; three colors makes it clunky.
+Junktroller	repeatable	42	Defender that tucks one graveyard card per turn; slow.
+Kaya's Guile	one-shot	50	Instant that exiles opponents' graveyards, plus another mode.
+Kaya, Geist Hunter	one-shot	30	Ultimate at 6 loyalty exiles all graveyards, but it is slow.
+Keeper of the Cadence	repeatable	38	Repeatable {3} tuck of graveyard artifacts, instants and sorceries; misses creatures.
+Kefka, Dancing Mad	repeatable	34	Exiles a random card from each opponent graveyard every end step, but it's seven mana.
+Klothys, God of Destiny	repeatable	52	Exiles one graveyard card every turn and is indestructible, but slow against a full graveyard.
+Kotose, the Silent Spider	one-shot	38	5-mana 4/4 exiles one named card from a graveyard; single-target hate, mostly a body.
+Kozilek's Command	one-shot	50	Instant mode exiles up to X graveyard cards; pairs with a second mode.
+Krosan Reclamation	one-shot	34	Shuffles two cards out of a graveyard, twice with flashback; weak against real graveyard decks.
+Kunoros, Hound of Athreos	repeatable	58	3-mana lifelink body that stops reanimation and graveyard casting; two colors.
+Kutzil's Flanker	one-shot	50	3-mana flash body that exiles one graveyard on entry; flexible modes.
+Landscaper Colos	one-shot	34	Tucks one graveyard card on entry; a body with landcycling, but weak hate.
+Lazav, Wearer of Faces	one-shot	42	2-mana body that exiles one graveyard card per attack; slow and needs to connect.
+Learn from the Past	one-shot	38	4-mana instant: shuffles a graveyard away and draws a card.
+Lochmere Serpent	one-shot	32	UB exiles five cards from a graveyard each time, but only at sorcery speed.
+Lord Skitter, Sewer King	repeatable	40	Exiles one opposing graveyard card per Rat entering; slow and piecemeal.
+Magic Pot	repeatable	45	Body that exiles one graveyard card at a time for {2}; slow gyhate.
+Malanthrope	one-shot	44	Flying body that exiles one player's graveyard on entry; two colors.
+Malevolent Chandelier	repeatable	50	6-mana flyer that tucks graveyard cards for {2} each, at sorcery speed.
+Mardu Woe-Reaper	one-shot	38	1-mana body exiles one creature card from a graveyard on entry; weak against recursion.
+Martyr of Bones	one-shot	38	1-mana body; exiles X cards from one graveyard, X is black cards revealed.
+Mastermind Plum	repeatable	38	3-mana 2/2 that exiles one graveyard card each attack; slow and has to survive combat.
+Mechanical Mobster	one-shot	32	Colorless creature exiling one graveyard card on entry; also connives.
+Memoricide	one-shot	30	4-mana sorcery that exiles one named card; weak graveyard hate.
+Merrow Bonegnawer	repeatable	48	1-mana body that exiles one graveyard card at a time, only slowly.
+Mirror Golem	one-shot	36	6-mana body that exiles one graveyard card on entry.
+Misfortune Teller	one-shot	46	4-mana deathtouch body that exiles one graveyard card on entry and when it connects.
+Misinformation	one-shot	33	1-mana instant: puts three graveyard cards back on top; stops reanimation but gives them redraws.
+Mnemonic Betrayal	one-shot	58	3-mana sorcery: exile opposing graveyards, cast from them this turn.
+Mnemonic Nexus	one-shot	38	4-mana instant: shuffles graveyards away, a temporary answer.
+Moratorium Stone	repeatable	48	1-mana artifact: exile one graveyard card at a time for {2}; slow against a full graveyard.
+Morbid Bloom	one-shot	30	6 mana to exile one creature card and make tokens; it doesn't stop a graveyard plan.
+Morningtide	one-shot	50	2-mana sorcery: exile every graveyard, but only once and at sorcery speed.
+Mortiphobia	one-shot	38	3-mana enchantment: exile a single graveyard card per activation, costing a card or itself.
+Mourner's Shield	one-shot	26	4-mana artifact exiles one graveyard card on entry; poor hate.
+Mudhole	one-shot	10	Only exiles lands from one graveyard; nearly useless.
+Myr Welder	repeatable	36	3-mana 1/4 body that exiles artifact cards from graveyards only.
+Nantuko Tracer	one-shot	32	2-mana body that tucks one card from a graveyard; tiny effect.
+Nautiloid Ship	one-shot	42	4-mana 5/5 flying vehicle that exiles one graveyard on entry.
+Necrodominance	repeatable	42	Static: cards going to graveyards are exiled instead, but it hurts your own graveyard plans.
+Necrogenesis	repeatable	60	2-mana enchantment: repeatably exile creature cards from graveyards and make Saprolings.
+Necromancer's Covenant	one-shot	48	6 mana: exile a graveyard's creatures and get a 2/2 lifelink Zombie for each. Expensive.
+Necromentia	one-shot	28	3-mana sorcery: name a card and exile it from graveyard, hand and library. One card in singleton.
+Never // Return	one-shot	38	Return half exiles one graveyard card and makes a Zombie; weak as real hate.
+Never Happened	one-shot	34	Exiles one nonland card from a hand or graveyard; too small to stop graveyard decks.
+Night Soil	repeatable	34	Repeatable graveyard exile of creatures, but slow and only creature cards.
+Nightmare Incursion	one-shot	14	Exiles from a library, not graveyards; 6 mana and slow.
+Not Forgotten	one-shot	32	Tucks a single card from a graveyard and leaves a 1/1 flyer.
+Noxious Revival	one-shot	38	Free-ish instant: tuck one card from a graveyard, stopping a single reanimation target.
+Nurgle's Conscription	one-shot	42	5-mana instant that exiles one opponent's graveyard after taking a creature.
+Offalsnout	one-shot	52	Flash body or one-mana evoke exiles one graveyard card; a single card only.
+Pestilent Cauldron // Restorative Burst	repeatable	42	Cauldron exiles four cards from a graveyard for {4},{T} and draws a card; slow.
+Pharika, God of Affliction	repeatable	50	Repeatable creature-card exile from graveyards, but gives the owner a 1/1 deathtouch Snake.
+Phyrexian Archivist	repeatable	40	6-mana body that puts a graveyard card on the library bottom for {2} each turn; slow.
+Phyrexian Scriptures	one-shot	34	Chapter III exiles opponents' graveyards, but it is slow and incidental.
+Pit of Offerings	one-shot	62	Land that exiles up to three graveyard cards on entry; costs no spell slot.
+Psionic Ritual	one-shot	20	Exiles only one card, so it barely works as graveyard hate.
+Purify the Grave	one-shot	42	1-mana instant exiles one graveyard card, twice with flashback; too small to stop a deck.
+Qutrub Forayer	one-shot	44	3-mana body that exiles up to two cards from one graveyard on entry.
+Rag Dealer	repeatable	54	1-mana body: pay 3 and tap to exile three graveyard cards at a time.
+Rapid Decay	one-shot	52	2-mana instant exiles three cards from a graveyard and cycles when not needed.
+Rats' Feast	one-shot	46	Scalable one-shot: exile X cards from one graveyard at sorcery speed.
+Raven Eagle	repeatable	50	Flying body that exiles a graveyard card each entry and attack.
+Reito Lantern	repeatable	38	Repeatable but slow: {3} tucks one graveyard card at a time.
+Reito Sentinel	repeatable	40	3/3 defender that tucks graveyard cards one at a time for {3}.
+Release to Memory	one-shot	47	4-mana instant: exile one opponent's graveyard with Spirit tokens; costly for a one-shot.
+Reminisce	one-shot	28	3-mana sorcery: shuffles a graveyard back, so cards can return later.
+Return to Nature	one-shot	40	2-mana instant mode exiles one graveyard card; weak as real hate.
+Rex, Cyber-Hound	repeatable	30	Exiles creature cards from graveyards, but needs energy and combat damage first.
+Riveteers Charm	one-shot	44	Instant mode exiles one player's graveyard.
+Rooftop Percher	one-shot	35	5-mana flyer exiles up to two cards from graveyards on entry.
+Rotfeaster Maggot	one-shot	42	5-mana body that exiles one creature card from a graveyard on entry.
+Rotten Reunion	one-shot	56	1-mana instant: exile a card from a graveyard, plus Zombies twice with flashback.
+Rysorian Badger	one-shot	25	Exiles two creature cards only when it attacks unblocked.
+S.S. Botany Bay	repeatable	56	3-mana artifact: tap each turn to exile a card from every opponent's graveyard.
+Saprazzan Bailiff	one-shot	22	Exiles only artifacts and enchantments from graveyards, and returns them when it leaves.
+Scarab Feast	one-shot	52	1-mana instant: exile three cards from one graveyard, and it cycles when not needed.
+Scavenging Harpy	one-shot	38	3-mana flyer exiling a single graveyard card; weak as real hate.
+Sela, Tal Shiar Paradox	repeatable	38	4-mana 3/3 that exiles one graveyard card per attack, which is slow and needs it to attack.
+Selesnya Eulogist	repeatable	50	3/3 body that exiles creature cards one at a time for {2}{G}.
+Selfless Exorcist	repeatable	50	Repeatable creature-card exile, but costs five and damages itself.
+Sentinel of Lost Lore	one-shot	56	3/4 body that exiles a graveyard when it enters.
+Sequence Engine	repeatable	53	3-mana artifact: repeatably exiles creature cards from graveyards, sorcery speed.
+Serene Remembrance	one-shot	38	1-mana sorcery: shuffles three cards out of a graveyard; weak, hits one graveyard.
+Sewerdreg	one-shot	27	5-mana 3/3 that sacrifices to exile one graveyard card.
+Shadow of the Enemy	one-shot	42	6-mana sorcery exiles creature cards from a graveyard, but leaves other cards.
+Shadowfeed	one-shot	38	1-mana instant exiling a single graveyard card; stops a lone target, not a deck.
+Shadows' Verdict	one-shot	30	Exiles cheap creature cards from graveyards as a side effect, but costs five.
+Shaman's Trance	one-shot	50	3-mana instant: opponents can't use graveyards this turn, and you can use theirs.
+Shamble Back	one-shot	42	1 mana: exile one creature card from a graveyard, make a 2/2 and gain 2.
+Shred Memory	one-shot	52	2-mana instant: exile four cards from one graveyard, with transmute flexibility.
+Sins of the Father	one-shot	32	Chapter III exiles one player's graveyard after two turns; slow.
+Skullsnatcher	repeatable	34	Needs combat damage to a player; exiles two cards per hit.
+Slaughter Games	one-shot	30	4 mana, two colors: names one card; in singleton it only exiles one card.
+Soul-Shackled Zombie	one-shot	50	4-mana body that exiles two graveyard cards once, with a small drain bonus.
+Sphere of Annihilation	one-shot	36	Exiles creature and planeswalker cards in graveyards at your next upkeep.
+Stain the Mind	one-shot	18	Names one card; singleton makes it narrow, though convoke helps cost.
+Startled Relic Sloth	repeatable	50	4/4 lifelink body that exiles a graveyard card each combat; slow but repeatable.
+Steamclaw	one-shot	38	2-mana artifact exiling one graveyard card at a time; slow and costly to use.
+Stonecloaker	one-shot	38	Flash flyer that exiles only one graveyard card.
+Stonespeaker Crystal	one-shot	50	Sacrifice for {2}: exile chosen graveyards and draw a card.
+Strategic Betrayal	one-shot	42	Sorcery that exiles one opponent's graveyard along with an edict.
+Suffer the Past	one-shot	58	Instant: exile X cards from one graveyard, draining 1 each; scales well.
+Summoner's Sending	repeatable	55	2-mana enchantment: exile a creature card from a graveyard each turn for a Spirit.
+Sundering Archaic	repeatable	32	Pay {2} to tuck graveyard cards one at a time.
+Sungold Sentinel	repeatable	52	2-mana 3/2 that exiles a graveyard card on entry and each attack; slow, one card at a time.
+Superior Spider-Man	one-shot	30	Exiles one creature card from a graveyard as it enters.
+Surgical Extraction	one-shot	60	Free-ish instant: exile a card and all its copies from graveyard, hand and library.
+Swiftgear Drake	one-shot	36	5-mana flyer that tucks one graveyard card; weak as graveyard hate.
+Szat's Will	one-shot	46	Instant one-shot exile of every opponent's graveyard, with Thrull tokens.
+Teachings of the Kirin // Kirin-Touched Orochi	repeatable	36	Flips into a 1/1 that exiles a graveyard card on each attack; slow and fragile.
+Territorial Kavu	repeatable	38	Two-mana creature that exiles one graveyard card per attack; weak, needs to attack.
+Test of Courage	one-shot	52	1-mana instant exiles one graveyard card and gains 2; answers a single reanimation target.
+Test of Loyalty	one-shot	46	1-mana sorcery exiles one graveyard card and draws; only a single-target answer.
+The Binding of the Titans	one-shot	42	2-mana saga: exiles up to two graveyard cards on chapter II, only a small slice.
+The Darkness Crystal	repeatable	32	Opponents' dying creatures are exiled, but it doesn't stop graveyard recursion.
+The Death of Gwen Stacy	one-shot	34	Chapter III exiles chosen players' graveyards, but only after two turns.
+The Ooze	repeatable	66	2 mana: exile a graveyard card every turn, one at a time.
+The Stone Brain	one-shot	38	Cheap artifact: name a card, exile it from their graveyard, hand and library; sorcery speed.
+Thraben Charm	one-shot	52	2-mana instant mode exiles any number of graveyards.
+Thraben Heretic	repeatable	52	2-mana 2/2 that exiles a creature card from a graveyard each turn.
+Thran Foundry	one-shot	50	1 mana artifact, then pay {1} and sac to shuffle a graveyard away.
+Titania's Command	one-shot	38	One mode exiles a graveyard with lifegain, but it costs six mana.
+Tombfire	one-shot	12	1-mana sorcery that only exiles flashback cards; barely stops graveyard decks.
+Tranquil Frillback	one-shot	46	Exiles a player's graveyard on entry for G, with a body.
+Turn the Earth	one-shot	46	Cheap instant shuffles three cards away, twice with flashback; not full hate.
+Tymaret, Chosen from Death	repeatable	58	2-mana body: {1}{B} exiles two graveyard cards each activation.
+Underworld Cerberus	repeatable	38	Stops targeting of graveyard cards, but not Animate Dead-style or exile effects; dies and returns all creatures.
+Unite the Coalition	one-shot	22	Can exile a graveyard at instant speed but costs seven mana and five colors.
+Unmoored Ego	one-shot	34	3-mana sorcery: exile a named card from graveyard, hand and library; clunky as graveyard hate.
+Urborg Scavengers	repeatable	52	3-mana body that exiles a graveyard card on entry and every attack; slow, one card at a time.
+Valgavoth, Terror Eater	repeatable	46	Exiles cards going to opponents' graveyards, but costs nine mana.
+Venom, Deadly Devourer	repeatable	54	Body that exiles creature cards from graveyards for {3} each, repeatably.
+Verdant Command	one-shot	40	2-mana instant: exile one graveyard card, plus a second mode; single card only.
+Vessel of Endless Rest	one-shot	35	Tucks one graveyard card on entry; a minor one-shot.
+Veteran Survivor	repeatable	51	1-mana creature that slowly exiles graveyard cards once it's tapped.
+Vile Rebirth	one-shot	42	1-mana instant exiles one creature card from a graveyard and leaves a 2/2.
+Vren, the Relentless	repeatable	38	Exiles opposing creatures instead of dying, so it stops creature reanimation; narrow hate.
+Waste Management	one-shot	56	Instant: exile a graveyard (kicked) and get Rogue tokens for creatures exiled.
+Watchers of the Dead	one-shot	50	2-mana body that exiles most of each opponent's graveyard when sacrificed; leaves two cards.
+Wizard's Spellbook	repeatable	30	7-mana repeatable exile of instants and sorceries; too costly and narrow for graveyard hate.
+Wreck Remover	repeatable	46	4-mana 3/4 that exiles a graveyard card on entry and each attack; cycles.
+Yawgmoth's Agenda	repeatable	28	Exiles your own cards only; does not hit opponents' graveyards.
+Zombie Cannibal	one-shot	22	1/1 that must connect to exile one graveyard card; barely does the job.

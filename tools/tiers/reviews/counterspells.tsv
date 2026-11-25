@@ -534,3 +534,23 @@ Temporal Extortion		x	Only counters itself if a player pays half their life.
 Brain Gorgers		x	Only counters itself if a player sacrifices a creature.
 Grandmother Goby		x	Only counters your own spells.
 Phantasmagorian		x	Only counters itself if a player discards three cards.
+# grade_api merged, 2026-11-24
+Aether Barrier	permanents	24	Symmetric {1} tax on creature spells; weak and hits you too.
+Bolt Bend	stack	42	Redirects a targeted spell or ability; 1 mana with a big creature.
+Deflecting Swat	stack	62	Free with a commander; redirects a spell or ability, even a removal or a combo piece.
+Deflection	stack	34	Four mana to redirect a single-target spell; no ability coverage.
+Imp's Mischief	spells	46	Redirects a single-target spell at instant speed; life cost and needs a good new target.
+Misdirection	stack	68	Free by pitching a blue card: redirect a single-target spell, which is a counter in the right spot.
+Rebound	stack	8	Only redirects spells targeting just a player; rarely matters.
+Redirect	stack	30	2-mana instant: change a spell's targets; works only on targeted spells.
+Redirect Lightning	stack	38	Instant: redirects a single-target spell or ability, for 5 life or {2} extra.
+Return the Favor	stack	48	RR instant: redirect a single-target spell or ability; the copy mode adds flexibility.
+Ricochet Trap	stack	40	Changes a spell's target, which can make it hit its caster or another opponent.
+Savage Summoning	creatures	28	1 mana makes one creature uncounterable and flash, but it's a pre-emptive effect.
+Shell of the Last Kappa	stack	30	Costs 3 each use to exile a spell targeting you, then can cast it free.
+Shunt	stack	36	3-mana redirect of a single-target spell; situational but can turn removal around.
+Sudden Setback	stack	50	4-mana instant: owner puts a spell on top or bottom of library; top lets them recast.
+Swat Away	stack	58	4 mana, or 2 when attacked: owner chooses top or bottom of library for a spell or creature.
+Thryx, the Sudden Storm	creatures	8	Doesn't counter anything; it only makes your spells uncounterable.
+Untimely Malfunction	stack	40	Redirects a single-target spell or ability; situational.
+Willbender	stack	58	Morph: 3 to cast face down, then {1}{U} to redirect a single-target spell or ability at instant speed.

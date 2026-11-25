@@ -30,9 +30,6 @@
   .more{display:flex;justify-content:center;margin-top:24px}
   .badge[data-role]{cursor:pointer}
   .badge[data-role]:hover{border-color:#777;color:#fff}
-  .whatdoes{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-  .whatdoes div{display:flex;gap:10px;align-items:baseline;font-size:15px}
-  .whatdoes q{color:var(--muted)}
   .flip{margin-top:10px;width:100%;justify-content:center}
   .flavor{font-style:italic;color:var(--muted)}
   .pt{font-weight:600;margin-top:6px}
@@ -138,8 +135,8 @@
           <option value="land">Land</option><option value="battle">Battle</option><option value="legendary creature">Legendary Creature</option>
         </select>
       </label>
-      <label class="frow"><span class="flabel">Role</span><select id="role"><option value="">Any</option></select></label>
-      <label class="frow" title="Tier from the site's tier lists: the role picked under Role, or the card's best role"><span class="flabel">Tier</span>
+      <label class="frow" title="What the card does, from the site's own tags for every Commander card"><span class="flabel">Tag</span><select id="role"><option value="">Any</option></select></label>
+      <label class="frow" title="Tier from the site's tier lists: the list that matches the tag picked under Tag, or the card's best list"><span class="flabel">Tier</span>
         <select id="tier">
           <option value="">Any</option><option value="S">S</option><option value="A">A or better</option>
           <option value="B">B or better</option><option value="C">C or better</option>
@@ -253,85 +250,23 @@
   const MT = window.MTG;   // shared tier data and helpers (assets/mtg.js)
   const COLORS = ["W","U","B","R","G","C"];
 
-  // ---- card roles: client-side regex (badges) + matching Scryfall query (filter) ----
-  const PERM = "(creature|permanent|artifact|enchantment|planeswalker|battle)";
-  const ROLES = [
-    { k:"removal", label:"Removal", col:"#e07a7a",
-      re:[new RegExp(`\\b(destroy|exile) (up to [a-z]+ )?target ([a-z-]+ )*${PERM}`, "i"),
-          /deals? [0-9x]+ damage to (target creature|any target|target (creature|planeswalker) or)/i,
-          /target creature [^.]*gets -[0-9x]+\/-[0-9x]+/i,
-          /fights? (target|another target|up to one target)/i,
-          /(target (player|opponent)|each opponent) sacrifices/i,
-          new RegExp(`target ([a-z-]+ )*${PERM}[^.]*(shuffles it into|on the bottom of)`, "i"),
-          new RegExp(`put target ([a-z-]+ )*${PERM}[^.]*on (the )?(top|bottom) of`, "i")],
-      sf:`(o:/(destroy|exile) (up to [a-z]+ )?target ([a-z-]+ )*${PERM}/ or o:/deals [0-9x]+ damage to (target creature|any target)/ or o:/target creature [^.]*gets -[0-9x]+/ or o:/fights (target|another target|up to one target)/ or o:/(target player|target opponent|each opponent) sacrifices/ or o:/target ([a-z-]+ )*${PERM}[^.]*(shuffles it into|on the bottom of)/)` },
-    { k:"wipe", label:"Board wipe", col:"#ff9d5c",
-      re:[/\b(destroy|exile) all (other )?(nonland |non-[a-z]+ )?(creatures|permanents|artifacts|enchantments|planeswalkers|nonland)/i,
-          /damage to each (other )?creature/i,
-          /all (other )?creatures get -/i,
-          /return all [^.]*to (their|its) owners?'?s? hands?/i,
-          /each player sacrifices (all|[a-z]+ creatures)/i],
-      sf:`(o:/(destroy|exile) all (other )?(nonland |non-[a-z]+ )?(creatures|permanents|artifacts|enchantments|planeswalkers|nonland)/ or o:/damage to each (other )?creature/ or o:/all (other )?creatures get -/ or o:/return all [^.]*to (their|its) owner/)` },
-    { k:"counter", label:"Counterspell", col:"#6fa8ff",
-      re:[/\bcounter target\b/i, /\bcounter that spell\b/i, /\bcounter it( unless|\.)/i],
-      sf:`(o:"counter target" or o:"counter that spell" or o:/counter it( unless|\\.)/)` },
-    { k:"bounce", label:"Bounce", col:"#7fd0e0",
-      re:[/return (up to [a-z]+ )?target [^.]*to (its|their) owners?'?s? hands?/i],
-      sf:`o:/return (up to [a-z]+ )?target [^.]*to (its|their) owner/` },
-    { k:"burn", label:"Burn", col:"#ff7043",
-      re:[/damage to (any target|each opponent|target player|target opponent|each player)/i],
-      sf:`o:/damage to (any target|each opponent|target player|target opponent|each player)/` },
-    { k:"ramp", label:"Ramp", col:"#6fcf7f", test: ty => !/\bLand\b/.test(ty),
-      re:[/\badd \{/i, /\badd (one|two|three|x) mana/i, /mana of any (one )?(color|type)/i,
-          /search your library for [^.]*land cards?/i, /put [^.]*land cards? [^.]*onto the battlefield/i,
-          /play (an )?additional lands?/i],
-      sf:`-t:land (o:/add \\{/ or o:/add (one|two|three|x) mana/ or o:/search your library for [^.]*land card/ or o:/put [^.]*land cards? [^.]*onto the battlefield/ or o:/play (an )?additional land/)` },
-    { k:"draw", label:"Card draw", col:"#a98cf0",
-      re:[/\bdraws? (a|an|one|two|three|four|five|six|seven|x|that many|[0-9]+) (additional )?cards?\b/i],
-      sf:`o:/draws? (a|one|two|three|four|five|seven|x|that many) (additional )?cards?/` },
-    { k:"tutor", label:"Tutor", col:"#e0b85c",
-      test: ty => !/\bLand\b/.test(ty),
-      re:[/search your library for [^.]*/i], reject:/\b(lands?|plains|island|swamp|mountain|forest|basic)\b/i,
-      sf:`-t:land (o:"search your library for" -o:/search your library for [^.]*(land|plains|island|swamp|mountain|forest|basic)/)` },
-    { k:"protect", label:"Protection", col:"#f0e08c",
-      re:[/\b(gains?|have|has) [^.]*\b(hexproof|indestructible|shroud|protection from)\b/i, /\bphases? out\b/i,
-          /can't be countered/i],
-      sf:`(o:/(gains?|have|has) [^.]*(hexproof|indestructible|shroud|protection from)/ or o:/phases? out/)` },
-    { k:"recursion", label:"Recursion", col:"#9ccc65",
-      re:[/return [^.]*from (your|a) graveyard to (the battlefield|your hand)/i, /(cast|play) [^.]*from your graveyard/i,
-          /put [^.]*cards? from (your|a|any) graveyards? onto the battlefield/i],
-      sf:`(o:/return [^.]*from (your|a) graveyard to (the battlefield|your hand)/ or o:/(cast|play) [^.]*from your graveyard/ or o:/put [^.]*cards? from (your|a|any) graveyards? onto the battlefield/)` },
-    { k:"gyhate", label:"Graveyard hate", col:"#b0a4c8",
-      re:[/exile (target player's|each opponent's|all cards from|all graveyards|target card from a graveyard|up to [a-z]+ target cards? from)/i],
-      sf:`o:/exile (target player's|each opponent's|all cards from|all graveyards|target card from a graveyard)/` },
-    { k:"tokens", label:"Tokens", col:"#8fd3c0",
-      re:[/(?<!(controller|owner) )\bcreates? [^.]*\btokens?\b/i],
-      sf:`o:/creates? [^.]*token/ -o:/(controller|owner) creates/` },
-  ];
-  const textOf = c => ((c.card_faces?.length ? c.card_faces.map(f => f.oracle_text || "").join("\n") : c.oracle_text) || "")
-    .replace(/\([^)]*\)/g, "");            // strip reminder text to avoid false hits
+  // ---- what cards do: the site's function tags (data/cards.json, built by tools/tiers/tags.py) ----
   const typeOf = c => c.type_line || (c.card_faces || []).map(f => f.type_line).join(" // ");
-  function sentenceAt(t, i) {
-    const s = Math.max(t.lastIndexOf(".", i - 1), t.lastIndexOf("\n", i - 1)) + 1;
-    let e = t.length; for (const ch of [".", "\n"]) { const j = t.indexOf(ch, i); if (j >= 0 && j < e) e = j + (ch === "." ? 1 : 0); }
-    const out = t.slice(s, e).trim(); return out.length > 160 ? out.slice(0, 157) + "…" : out;
+  let cardIdx = null;
+  const idxReady = MT.loadCards().then(i => { cardIdx = i; fillTagSelect(); return i; }).catch(() => null);
+  const indexCard = c => cardIdx ? (MT.findCard(cardIdx, c.name) || (c.card_faces?.[0]?.name && MT.findCard(cardIdx, c.card_faces[0].name)) || null) : null;
+  const tagsOf = c => { const x = indexCard(c); return x ? x.tags : []; };
+  // the Tag filter: every tag, grouped (Interaction, Resources, Defense ...)
+  function fillTagSelect() {
+    const sel = $("role"), want = pendingTag ?? sel.value, groups = new Map();
+    for (const t of cardIdx.tags) { if (!groups.has(t.group)) groups.set(t.group, []); groups.get(t.group).push(t); }
+    sel.innerHTML = `<option value="">Any</option>` + [...groups].map(([g, ts]) => `<optgroup label="${esc(g)}">` +
+      ts.map(t => `<option value="${t.k}">${esc(t.label)} (${cardIdx.byTag[t.k].length.toLocaleString()})</option>`).join("") + `</optgroup>`).join("");
+    sel.value = cardIdx.tagInfo[want] ? want : "";
+    pendingTag = null;
   }
-  function rolesOf(c) {
-    if (c._roles) return c._roles;
-    const t = textOf(c), ty = typeOf(c), out = [];
-    for (const r of ROLES) {
-      if (r.test && !r.test(ty)) continue;
-      for (const re of r.re) {
-        const m = t.match(re);
-        if (m && !(r.reject && r.reject.test(m[0]))) { out.push({ r, snip: sentenceAt(t, m.index) }); break; }
-      }
-    }
-    return (c._roles = out);
-  }
-  const badge = r => `<span class="badge" style="--bc:${r.col}" data-role="${r.k}" title="Find more ${r.label.toLowerCase()}">${r.label}</span>`;
-  const roleSel = $("role");
-  ROLES.forEach(r => roleSel.insertAdjacentHTML("beforeend", `<option value="${r.k}">${r.label}</option>`));
-  el.role = roleSel;
+  let pendingTag = null;
+  el.role = $("role");
   const selected = new Set();
   let nextPage = null, busy = false, lastReq = 0, searchToken = 0;
 
@@ -371,14 +306,13 @@
       parts.push(op + cs);
     }
     if (el.type.value) el.type.value.split(" ").forEach(t => parts.push(`t:${t}`));
-    if (el.role.value) parts.push(ROLES.find(r => r.k === el.role.value).sf);
     if (el.format.value && !(opt && opt.userOnly && el.format.value === "commander")) parts.push(`f:${el.format.value}`);
     if (el.rarity.value) parts.push(`r:${el.rarity.value}`);
     if (el.mvmin.value !== "") parts.push(`mv>=${+el.mvmin.value}`);
     if (el.mvmax.value !== "") parts.push(`mv<=${+el.mvmax.value}`);
     return parts.join(" ");
   }
-  const hasAnything = () => !!buildQuery({ userOnly: true });
+  const hasAnything = () => !!buildQuery({ userOnly: true }) || !!el.role.value;
 
   // ---- filters: centered on the start page, in a panel under the Filters button once you've searched ----
   const inHero = () => view === "search" && el.hero.style.display !== "none";
@@ -396,7 +330,7 @@
     const c = [], txt = k => el[k].selectedOptions[0].text;
     if (selected.size) c.push(["c", COLORS.filter(x => selected.has(x)).map(x => MT ? MT.sym(x) : x).join("")]);
     if (el.type.value) c.push(["type", txt("type")]);
-    if (el.role.value) c.push(["role", txt("role")]);
+    if (el.role.value) c.push(["role", cardIdx?.tagInfo[el.role.value]?.label || txt("role")]);
     if (el.tier.value) c.push(["tier", "Tier " + txt("tier")]);
     if (el.mvmin.value !== "" || el.mvmax.value !== "")
       c.push(["mv", el.mvmin.value !== "" && el.mvmax.value !== "" ? `MV ${el.mvmin.value}–${el.mvmax.value}` : el.mvmin.value !== "" ? `MV ${el.mvmin.value}+` : `MV ${el.mvmax.value} or less`]);
@@ -411,17 +345,15 @@
   }
 
   // ---- tiers from the site's tier lists (data/tier-index.json) ----
-  const TIER_ROLE = { removal:"removal", wipe:"wipes", counter:"counterspells", bounce:"removal", ramp:"ramp", draw:"draw",
-                      tutor:"tutors", protect:"protection", recursion:"recursion", gyhate:"gyhate" };
+  // the tier list that matches a tag
+  const TIER_ROLE = { removal:"removal", wipe:"wipes", counter:"counterspells", bounce:"removal", ramp:"ramp", landramp:"ramp", treasure:"ramp", draw:"draw",
+                      tutor:"tutors", protect:"protection", recursion:"recursion", reanimate:"recursion", gyhate:"gyhate",
+                      fixing:"lands", utilityland:"lands" };
   const TIER_MIN = { S:90, A:75, B:60, C:45 };
-  let tierIdx = null;
-  const tiersReady = MT ? MT.loadTierIndex().then(d => { tierIdx = d; return d; }).catch(() => null) : Promise.resolve(null);
+  const tiersReady = idxReady;
   function tiersOf(c) {
-    if (!tierIdx) return [];
-    const front = c.card_faces?.[0]?.name;
-    const rows = tierIdx.cards[c.name] || (front && tierIdx.cards[front]) || [];
-    return rows.map(([ri, s, si, r, rev]) => ({ k: tierIdx.roles[ri], s, r, rev, t: MT.tierOf(s), sub: tierIdx.subs[tierIdx.roles[ri]][si] }))
-      .sort((a, b) => b.s - a.s);
+    const x = c.n ? c : indexCard(c);
+    return x ? x.roles.map(r => ({ k: r.k, s: r.s, r: r.r, rev: r.rev, t: r.t, sub: r.sub })).sort((a, b) => b.s - a.s) : [];
   }
   function tierScore(c) {
     const ts = tiersOf(c); if (!ts.length) return null;
@@ -429,12 +361,13 @@
     if (want) { const x = ts.find(t => t.k === want); return x ? x.s : null; }
     return ts[0].s;
   }
-  // tags under a result tile: its two best tier placements, then other jobs it does, one per row
+  // tags under a result tile: its two best tier placements, then up to three more things it does, one per row
   function tileTags(c) {
-    const ts = tiersOf(c), have = new Set(ts.map(x => x.k));
+    const ts = tiersOf(c);
     const t = ts.slice(0, 2).map(x => { const R = MT.ROLE_INFO[x.k];
-      return MT.tag({ tier: x.t, text: R.label, rank: "#" + x.r, href: MT.page("tiers", x.k), title: `${R.label}: ${x.t} tier, #${x.r}${x.rev ? "" : " (unreviewed)"}` }); });
-    rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).forEach(x => t.push(MT.tag({ icon: MT.ROLE_ICON[x.r.k], text: x.r.label, role: x.r.k, title: `Find more ${x.r.label.toLowerCase()}` })));
+      return MT.tag({ tier: x.t, html: MT.tierLabel(x.k), rank: "#" + x.r, href: MT.page("tiers", x.k), title: `${R.label}: ${x.t} tier, #${x.r}${x.rev ? "" : " (unreviewed)"}` }); });
+    const me = indexCard(c);
+    if (me) t.push(MT.ftags(cardIdx, me, 3, ts.map(x => x.k), true));
     if (c.game_changer) t.push(MT.tag({ icon: "star", text: "Game Changer" }));
     return t.join("");
   }
@@ -477,12 +410,13 @@
     const token = ++searchToken;
     el.hero.style.display = "none";
     placeFilters();
-    el.grid.innerHTML = ""; shown = []; el.more.style.display = "none";
+    el.grid.innerHTML = ""; shown = []; el.more.style.display = "none"; localQueue = []; nextPage = null;
     el.status.innerHTML = "Searching…";
     const order = el.order.value === "tier" ? "edhrec" : el.order.value;
     const dir = ["released","power","rarity"].includes(order) ? "desc" : "auto";
     const url = `${API}/cards/search?` + new URLSearchParams({ q, order, dir, unique: el.unique.value, include_extras: "false" });
-    if (tierMode()) return searchTiered(q, url, token);
+    if (el.role.value && localOK()) return searchLocal(token);
+    if (tierMode() || el.role.value) return searchTiered(q, url, token);
     try {
       const r = await sf(url);
       if (token !== searchToken) return;
@@ -499,7 +433,65 @@
     }
   }
 
-  // Tier filter or tier sort: pull up to 6 pages (1,050 cards, 550 ms apart), then filter and sort here.
+  // ---- Tag filter without a text search: straight from the site's card list, then Scryfall for the pictures ----
+  // Works for Commander (and "any format", which here means the same card pool); colors, type, mana value and tier apply here.
+  const localOK = () => !el.q.value.trim() && (el.format.value === "commander" || el.format.value === "") && !el.rarity.value;
+  const TYPE_LETTER = { creature: "C", instant: "I", sorcery: "S", artifact: "A", enchantment: "E", planeswalker: "P", land: "L", battle: "B", "legendary creature": "K" };
+  let localQueue = [];
+  async function searchLocal(token) {
+    const idx = await idxReady;
+    if (token !== searchToken) return;
+    if (!idx) { el.status.innerHTML = `<span class="err">The site's card list didn't load, so tags can't be searched right now.</span>`; return; }
+    const k = el.role.value, info = idx.tagInfo[k];
+    const allowed = COLORS.filter(x => selected.has(x) && x !== "C").join(""), colorOn = selected.size > 0;
+    const tl = TYPE_LETTER[el.type.value], lo = el.mvmin.value === "" ? -1 : +el.mvmin.value, hi = el.mvmax.value === "" ? 99 : +el.mvmax.value;
+    const min = TIER_MIN[el.tier.value] ?? -1, want = TIER_ROLE[k];
+    const score = c => { const rs = c.roles.filter(r => !want || r.k === want); return rs.length ? Math.max(...rs.map(r => r.s)) : null; };
+    let rows = (idx.byTag[k] || []).filter(c => (!colorOn || MT.fits(c.id, allowed)) && (!tl || c.ty.includes(tl)) && c.mv >= lo && c.mv <= hi &&
+      !(el.format.value === "commander" && c.fl.includes("b")) && (min < 0 || (score(c) ?? -1) >= min));
+    const ord = el.order.value, byName = (a, b) => a.n < b.n ? -1 : a.n > b.n ? 1 : 0;
+    if (ord === "tier") rows.sort((a, b) => (score(b) ?? -1) - (score(a) ?? -1) || byName(a, b));
+    else if (ord === "cmc") rows.sort((a, b) => a.mv - b.mv || byName(a, b));
+    else rows.sort(byName);
+    const note = ["edhrec", "released", "power", "rarity"].includes(ord) ? ` <span style="opacity:.7">(sorted by name; add a search term to sort by ${esc(el.order.selectedOptions[0].text.toLowerCase())})</span>` : "";
+    el.status.innerHTML = `<b>${rows.length.toLocaleString()}</b> card${rows.length === 1 ? "" : "s"} tagged ${esc(info ? info.label.toLowerCase() : k)}` +
+      `${el.tier.value ? ` at ${el.tier.value === "S" ? "S" : el.tier.value + " or better"}${want ? " for " + MT.ROLE_INFO[want].label.toLowerCase() : ""}` : ""} · ${describe()}${note}`;
+    if (!rows.length) { el.status.innerHTML = `No cards found for ${describe()}.`; return; }
+    localQueue = rows.map(c => c.n);
+    nextPage = "local";
+    await loadTagPage(token);
+  }
+  // the next 60 cards of a tag search, pictures and all, in one or two Scryfall collection requests
+  async function loadTagPage(token) {
+    const names = localQueue.splice(0, 60);
+    const found = await sfCollection(names);
+    if (token !== searchToken) return;
+    render(names.map(n => found.get(n) || found.get(n.split(" // ")[0])).filter(Boolean));
+    nextPage = localQueue.length ? "local" : null;
+    el.more.style.display = nextPage ? "" : "none";
+  }
+  async function sfCollection(names) {
+    const out = new Map(), keep = c => { out.set(c.name, c); if (c.card_faces?.[0]?.name) out.set(c.card_faces[0].name, c); };
+    for (let i = 0; i < names.length; i += 75) {
+      const ids = names.slice(i, i + 75).map(n => ({ name: n.endsWith(" // ") ? n.slice(0, -4) : n }));
+      const r = await sfPost(`${API}/cards/collection`, { identifiers: ids });
+      (r.data || []).forEach(keep);
+      const retry = (r.not_found || []).map(x => x.name).filter(n => n && n.includes(" // ")).map(n => ({ name: n.split(" // ")[0] }));
+      if (retry.length) ((await sfPost(`${API}/cards/collection`, { identifiers: retry })).data || []).forEach(keep);
+    }
+    return out;
+  }
+  async function sfPost(url, body) {
+    const wait = Math.max(0, lastReq + 550 - Date.now());
+    if (wait) await new Promise(r => setTimeout(r, wait));
+    lastReq = Date.now();
+    const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) });
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok) { const e = new Error(j.details || `HTTP ${res.status}`); e.status = res.status; throw e; }
+    return j;
+  }
+
+  // Tier filter, tier sort, or a tag with a text search: pull up to 6 pages (1,050 cards, 550 ms apart), then filter and sort here.
   async function searchTiered(q, url, token) {
     const all = []; let next = url, total = 0, pages = 0;
     try {
@@ -511,14 +503,15 @@
       }
       await tiersReady;
       if (token !== searchToken) return;
-      const min = TIER_MIN[el.tier.value] ?? -1;
-      let rows = all.map(c => ({ c, s: tierScore(c) })).filter(x => min < 0 || (x.s != null && x.s >= min));
+      const min = TIER_MIN[el.tier.value] ?? -1, tg = el.role.value;
+      let rows = all.map(c => ({ c, s: tierScore(c) })).filter(x => (min < 0 || (x.s != null && x.s >= min)) && (!tg || tagsOf(x.c).includes(tg)));
       if (el.order.value === "tier") rows.sort((a, b) => (b.s ?? -1) - (a.s ?? -1));
       const role = TIER_ROLE[el.role.value] ? " for " + MT.ROLE_INFO[TIER_ROLE[el.role.value]].label.toLowerCase() : "";
-      el.status.innerHTML = `<b>${rows.length.toLocaleString()}</b> card${rows.length === 1 ? "" : "s"}${el.tier.value ? ` at ${el.tier.value === "S" ? "S" : el.tier.value + " or better"}${role}` : ""}` +
+      const tagWord = tg && cardIdx ? ` tagged ${esc(cardIdx.tagInfo[tg].label.toLowerCase())}` : "";
+      el.status.innerHTML = `<b>${rows.length.toLocaleString()}</b> card${rows.length === 1 ? "" : "s"}${tagWord}${el.tier.value ? ` at ${el.tier.value === "S" ? "S" : el.tier.value + " or better"}${role}` : ""}` +
         `${el.order.value === "tier" ? ", best tier first" : ""} · ${describe()}` +
-        (next ? ` <span style="opacity:.7">(ranked the first ${all.length.toLocaleString()} of ${total.toLocaleString()} matches; narrow the search to rank the rest)</span>` : "") +
-        (!tierIdx ? ` <span class="err">(tier data didn't load)</span>` : "");
+        (next ? ` <span style="opacity:.7">(checked the first ${all.length.toLocaleString()} of ${total.toLocaleString()} matches; narrow the search to check the rest)</span>` : "") +
+        (!cardIdx ? ` <span class="err">(the site's card list didn't load)</span>` : "");
       render(rows.map(x => x.c));
       nextPage = null; el.more.style.display = "none";
     } catch (e) {
@@ -532,6 +525,7 @@
     busy = true; el.more.textContent = "Loading…";
     const token = searchToken;
     try {
+      if (nextPage === "local") { await loadTagPage(token); return; }
       const r = await sf(nextPage);
       if (token !== searchToken) return;
       render(r.data);
@@ -542,9 +536,9 @@
 
   // condensed: one row per card, no image (the only view without card images)
   function condTags(c) {
-    const ts = tiersOf(c), have = new Set(ts.map(x => x.k));
+    const ts = tiersOf(c), me = indexCard(c);
     return ts.slice(0, 2).map(x => `<a href="${MT.page("tiers", x.k)}" onclick="event.stopPropagation()" title="${MT.ROLE_INFO[x.k].label}: ${x.t} tier, #${x.r}">${MT.tb(x.t)}${esc(MT.ROLE_INFO[x.k].label)} #${x.r}</a>`).join("") +
-      rolesOf(c).filter(x => !have.has(TIER_ROLE[x.r.k])).map(x => `<span>${esc(x.r.label)}</span>`).join("") + (c.game_changer ? `<span>Game Changer</span>` : "");
+      (me ? MT.showTags(me, 3, ts.map(x => x.k)).map(k => `<span>${esc(cardIdx.tagInfo[k].label)}</span>`).join("") : "") + (c.game_changer ? `<span>Game Changer</span>` : "");
   }
   function crowEl(c, extra = "") {
     const r = document.createElement("div");
@@ -585,7 +579,7 @@
       frag.appendChild(tile);
     });
     el.grid.appendChild(frag);
-    if (!tierIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile,.crow").forEach(t => { const c = cardCache.get(t.dataset.id); if (!c) return; if (t.classList.contains("crow")) t.querySelector(".ct").innerHTML = condTags(c); else t.querySelector(".tags").innerHTML = tileTags(c); }); });
+    if (!cardIdx) tiersReady.then(d => { if (!d) return; el.grid.querySelectorAll(".tile,.crow").forEach(t => { const c = cardCache.get(t.dataset.id); if (!c) return; if (t.classList.contains("crow")) t.querySelector(".ct").innerHTML = condTags(c); else t.querySelector(".tags").innerHTML = tileTags(c); }); });
   }
   // a new card size redraws what's on screen
   document.addEventListener("mtg:size", () => {
@@ -594,7 +588,7 @@
   });
 
   function reset() {
-    searchToken++;
+    searchToken++; localQueue = [];
     el.grid.innerHTML = ""; shown = []; el.status.innerHTML = ""; el.more.style.display = "none";
     el.hero.style.display = ""; if (view === "search") saveState();
     placeFilters();
@@ -639,9 +633,7 @@
           </div>`).join("")}
         <div id="tierBox"></div>
         <h3>What it does</h3>
-        <div class="whatdoes">${rolesOf(c).length
-          ? rolesOf(c).map(x => `<div>${badge(x.r)}<q>${syms(x.snip)}</q></div>`).join("")
-          : `<div style="color:var(--muted)">No role detected — read the rules text above.</div>`}</div>
+        <div id="whatBox">${whatHtml(c)}</div>
         <div class="meta">
           <span>Set <b>${esc(c.set_name)} (${esc(c.set?.toUpperCase())}) #${esc(c.collector_number)}</b></span>
           <span>Rarity <b>${esc(c.rarity)}</b></span>
@@ -676,6 +668,16 @@
     document.body.style.overflow = "hidden";
     (prev ? $("sheetBack") : el.sheet.querySelector(".close")).focus({ preventScroll: true });
     fillTiers(c);
+    if (!cardIdx) idxReady.then(() => { const w = $("whatBox"); if (w && nav.current() === c.id) w.innerHTML = whatHtml(c); });
+  }
+  // every tag the card has; click one to find more cards like it
+  function whatHtml(c) {
+    if (!cardIdx) return `<div style="color:var(--muted)">Loading…</div>`;
+    const all = tagsOf(c).filter(k => !["aura", "equipment", "vehicle", "saga", "planeswalker"].includes(k));
+    const ks = all.filter(k => !MT.DOWNSIDES.has(k)), down = all.filter(k => MT.DOWNSIDES.has(k));
+    const downHtml = down.length ? `<h3 style="margin-top:14px">Downsides</h3><div class="tags wide down">${down.map(k => MT.ftag(cardIdx, k, true)).join("")}</div>` : "";
+    return ks.length ? `<div class="tags wide">${ks.map(k => MT.ftag(cardIdx, k, true)).join("")}</div>${downHtml}`
+      : `<div style="color:var(--muted)">No tags for this card yet. Read the rules text above.</div>${downHtml}`;
   }
   async function fillTiers(c) {
     const box = $("tierBox"); if (!box || !MT) return;
@@ -1111,18 +1113,22 @@
     ["Counterspells for 2 or less", "mv<=2", "counter"],
     ["Board wipes", "", "wipe"],
     ["Izzet removal", "id<=UR", "removal"],
-    ["Pingers", 'o:"deals 1 damage to any target" t:creature'],
+    ["Pingers", "", "pinger"],
     ["Legendary dragons", "t:legendary t:dragon"],
   ];
   examples.forEach(([label, q, role]) => {
     const b = document.createElement("button");
     b.className = "qchip"; b.type = "button"; b.textContent = label;
-    b.onclick = () => { el.q.value = q; el.role.value = role || ""; search(); };
+    b.onclick = async () => { el.q.value = q; if (role && !cardIdx) await idxReady; el.role.value = role || ""; search(); };
     $("chips").appendChild(b);
   });
 
   if (MT) [["navTiers","tiers"],["footTiers","tiers"]].forEach(([id, pg]) => { if ($(id)) $(id).href = MT.page(pg); });
-  addEventListener("hashchange", () => { if (location.hash === "#saved") showView("saved"); });
+  // a filter link followed on this page (#role=pinger, #q=...) runs that search
+  addEventListener("hashchange", () => {
+    if (location.hash === "#saved") return showView("saved");
+    if (location.hash.length > 1) { const go = () => { if (loadState()) search(); }; /(^#|&)role=/.test(location.hash) && !cardIdx ? idxReady.then(go) : go(); }
+  });
   $("filtersBtn").onclick = e => { const o = $("filters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", o); };
   // the Filters button shows how many filters are on
   function countFilters() {
@@ -1134,9 +1140,9 @@
   countFilters();
   if (MT) MT.loadSprite().then(() => document.querySelectorAll(".pip").forEach(b => { b.innerHTML = MT.bigSym(b.dataset.c); }));
   initStore();
-  if (location.hash === "#saved") showView("saved");
-  else if (loadState()) search();
-  else placeFilters();
+  // a link with a tag in it (#role=pinger) waits for the tag list before searching
+  const startup = () => { if (location.hash === "#saved") showView("saved"); else if (loadState()) search(); else placeFilters(); };
+  if (/(^#|&)role=/.test(location.hash)) idxReady.then(startup, startup); else startup();
 })();
 </script>
 </body>

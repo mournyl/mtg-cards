@@ -56,3 +56,36 @@ test("betterOptions: higher score, same job, fits, at most one more mana", () =>
   const me = c.roles.find(r => r.k === "draw");
   assert.ok(opts.every(o => o.s > me.s && o.c.mv <= c.mv + 1 && K.fits(o.c.id, "U") && o.sub === me.sub));
 });
+
+test("function tags: every card's tags come through, and Tyler's examples read right", () => {
+  const tagged = idx.list.filter(c => c.tags.some(k => !K.TYPE_ONLY.has(k))).length;
+  assert.ok(tagged / idx.list.length >= 0.965, `only ${(100 * tagged / idx.list.length).toFixed(2)}% of cards have a job tag`);
+  const has = (n, ...ks) => ks.forEach(k => assert.ok(card(n).tags.includes(k), `${n} should be tagged ${k}: ${card(n).tags.join(" ")}`));
+  has("Twisted Image", "draw", "swap");
+  has("Bulk Up", "double");
+  has("Reality Ripple", "protect", "phasing");
+  has("Prodigal Pyromancer", "pinger");
+  has("Slip Out the Back", "protect", "phasing");
+  has("Grizzly Bears", "vanilla");
+  has("Command Tower", "fixing");
+  assert.ok(!card("Sol Ring").tags.includes("tutor"));
+  has("Sol Ring", "ramp"); has("Cultivate", "landramp"); has("Smothering Tithe", "treasure");
+  assert.ok(!card("Smothering Tithe").tags.includes("ramp") && !card("Cultivate").tags.includes("ramp"), "Ramp is split: Mana generation, Extra lands, Treasure tokens");
+  for (const k of Object.keys(idx.byTag)) assert.ok(idx.tagInfo[k].label && idx.tagInfo[k].group, k);
+  assert.ok(idx.byTag.pinger.length > 100 && idx.byTag.pinger.every(c => c.tags.includes("pinger")));
+});
+
+test("showTags: most specific first, skips what a tier row says, generic only as a fallback", () => {
+  const opt = card("Opt");   // draw + select; its Card draw tier row covers "draw"
+  assert.deepEqual(K.showTags(opt, 3, ["draw"]), ["select"]);
+  const bears = card("Grizzly Bears");
+  assert.deepEqual(K.showTags(bears, 3), ["vanilla"]);
+  const angel = card("Serra Angel");   // flying, vigilance: nothing but generic tags
+  assert.ok(K.showTags(angel, 3).length >= 1 && K.showTags(angel, 3).every(k => K.GENERIC.has(k)));
+  assert.equal(K.mainTag(card("Blood Artist")), "death");
+});
+
+test("tier lists: Twisted Image is a cantrip, Reality Ripple protects", () => {
+  assert.equal(card("Twisted Image").roles.find(r => r.k === "draw")?.sub, "cantrip");
+  assert.equal(card("Reality Ripple").roles.find(r => r.k === "protection")?.sub, "one");
+});
