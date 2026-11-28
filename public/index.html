@@ -24,9 +24,6 @@
   .qchips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
   .qchip{font-size:14px;padding:7px 14px;border-radius:var(--rc);border:1px solid var(--line);background:var(--panel);cursor:pointer}
   .qchip:hover{border-color:#fff}
-  .help{max-width:1000px;margin:28px auto 0;text-align:left;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;color:var(--muted)}
-  .help code{background:#222;padding:1px 6px;border-radius:5px;color:#fff}
-  .help td{padding:3px 12px 3px 0;vertical-align:top}
   .more{display:flex;justify-content:center;margin-top:24px}
   .badge[data-role]{cursor:pointer}
   .badge[data-role]:hover{border-color:#777;color:#fff}
@@ -44,13 +41,16 @@
   .iconbtn{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.72);color:#fff;cursor:pointer;display:grid;place-items:center;font-size:15px;line-height:1;padding:0}
   .iconbtn:hover{background:#000;border-color:#fff}
   .iconbtn.fav.on{background:#fff;color:#000;border-color:#fff}
-  .pop{position:fixed;z-index:60;background:var(--panel2);border:1px solid var(--line2);border-radius:10px;min-width:220px;padding:6px;box-shadow:0 14px 40px rgba(0,0,0,.7);display:none}
+  .pop{position:fixed;z-index:60;background:var(--panel2);border:1px solid var(--line2);border-radius:10px;min-width:220px;max-width:calc(100vw - 16px);max-height:min(70vh,520px);overflow:auto;padding:6px;box-shadow:0 14px 40px rgba(0,0,0,.7);display:none}
   .pop.open{display:block}
   .pop .ttl{font-size:12px;color:var(--muted);padding:6px 10px}
   .pop button{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:none;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:14px}
   .pop button:hover{background:#262626}
   .pop .popa{display:block;padding:8px 10px;border-radius:6px;font-size:14px;color:var(--text);text-decoration:none}
   .pop .popa:hover{background:#262626}
+  .pop .popsm{font-size:12px;color:var(--muted)}
+  .pop .popsep{margin-top:6px;border-top:1px solid var(--line);padding-top:10px}
+  .pop .popnote{margin:0;padding:6px 10px;font-size:13px;color:var(--muted)}
   .pop form{display:flex;gap:6px;padding:6px}
   .pop input{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 8px}
   #savedView{display:none}
@@ -61,6 +61,7 @@
   #tabs .tab.on{background:#fff;color:#000}
   #tabs .tab small{opacity:.7;margin-left:4px}
   .empty{text-align:center;padding:40px 0}
+  .savedDecks{margin:0 0 40px}
   .authbox{max-width:380px;margin:60px auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
   .authbox h2{font-family:var(--gothic);font-weight:400;font-size:42px;margin:0;text-align:center}
   .authbox p{color:var(--muted);text-align:center;margin:4px 0 20px;font-size:14px}
@@ -83,10 +84,10 @@
   .fb select,.fb textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
   .fb .rowx{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
   /* filters: one option per line, in a panel under the Filters button, or centered on the start page */
-  header .wrap{position:relative}
   #filters{flex-direction:column;align-items:stretch;gap:10px;width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
-  header #filters.open{display:flex;position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:calc(100% - 6px);z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.6);border-top:1px solid var(--line)}
-  /* start page: a wide box with the options in two columns, the same width as the examples and the syntax help */
+  .tool-l{position:relative}
+  .sizetop #filters.open{display:flex;position:absolute;left:0;top:calc(100% + 8px);z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.6);border-top:1px solid var(--line)}
+  /* start page: a wide box with the options in two columns, the same width as the examples */
   .hero #filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 36px;width:min(1000px,100%);margin:26px auto 0;text-align:left;padding:20px 22px}
   .hero #filters>.adv,.hero #filters>.fbtns{grid-column:1/-1}
   .hero #filters .adv .frow{max-width:calc(50% - 18px)}
@@ -107,7 +108,7 @@
   .fchip button{background:none;border:0;color:var(--muted);cursor:pointer;font-size:14px;line-height:1;padding:0 4px}
   .fchip button:hover{color:#fff}
   .fchip .ms{width:14px;height:14px}
-  @media (max-width:760px){ .card .acts{opacity:1} header #filters.open{left:16px;right:16px;width:auto} }
+  @media (max-width:760px){ .card .acts{opacity:1} .sizetop #filters.open{width:calc(100vw - 32px)} }
 </style>
 </head>
 <body>
@@ -121,7 +122,6 @@
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder='Search cards: "lightning bolt" or o:"draw a card" t:instant'>
         <div class="ac" id="ac"></div>
       </div>
-      <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
       <div class="me"><button type="button" class="melink" id="navSaved">Saved<span class="count" id="savedCount" hidden>0</span></button><button type="button" class="melink acct" id="navAcct">Log in</button></div>
     </div>
     <div class="filters" id="filters" role="group" aria-label="Filters">
@@ -146,14 +146,6 @@
         <span class="mvrange"><input type="number" id="mvmin" min="0" max="20" placeholder="Min" aria-label="Minimum mana value"><span>to</span>
         <input type="number" id="mvmax" min="0" max="20" placeholder="Max" aria-label="Maximum mana value"></span>
       </div>
-      <label class="frow"><span class="flabel">Sort</span>
-        <select id="order">
-          <option value="name">Name</option><option value="tier">Tier (best first)</option><option value="edhrec">EDHREC rank</option>
-          <option value="released">Newest</option><option value="cmc">Mana value</option>
-          <option value="power">Power</option>
-          <option value="rarity">Rarity</option>
-        </select>
-      </label>
       <details class="adv" id="adv"><summary>Advanced</summary>
         <label class="frow"><span class="flabel">Format</span>
           <select id="format">
@@ -176,6 +168,15 @@
   </div>
 </header>
 
+<button class="fbtn" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters">Filters</button>
+<label class="ctl" id="sortCtl"><span class="lab">Sort</span>
+  <select id="order">
+    <option value="name">Name</option><option value="tier">Tier (best first)</option><option value="edhrec">EDHREC rank</option>
+    <option value="released">Newest</option><option value="cmc">Mana value</option>
+    <option value="power">Power</option>
+    <option value="rarity">Rarity</option>
+  </select>
+</label>
 <main class="wrap">
   <section id="savedView">
     <div class="shead"><h2>Saved</h2>
@@ -197,19 +198,6 @@
     <p>Type a name in the search box, or pick filters below. Every search sticks to Commander-legal cards unless you change the format under Advanced.</p>
     <div id="heroFilters"></div>
     <div class="qchips" id="chips"></div>
-    <div class="help">
-      <table>
-        <tr><td><code>o:"draw a card"</code></td><td>Rules text contains</td></tr>
-        <tr><td><code>t:dragon</code></td><td>Type line contains</td></tr>
-        <tr><td><code>id&lt;=UR</code></td><td>Fits in an Izzet commander deck</td></tr>
-        <tr><td><code>is:commander</code></td><td>Can be your commander</td></tr>
-        <tr><td><code>pow&gt;=5 mv&lt;=4</code></td><td>Power / mana value comparisons</td></tr>
-        <tr><td><code>otag:ramp</code></td><td>Community function tags (ramp, removal, tutor…)</td></tr>
-        <tr><td><code>s:dsk</code></td><td>From a set (by code)</td></tr>
-        <tr><td><code>-t:creature</code></td><td>Prefix with − to exclude</td></tr>
-      </table>
-      Full reference: <a href="https://scryfall.com/docs/syntax" target="_blank" rel="noopener">scryfall.com/docs/syntax</a>
-    </div>
   </div>
   <div class="grid" id="grid"></div>
   <div class="more"><button class="btn" id="more" style="display:none">Load more</button></div>
@@ -320,10 +308,11 @@
     const f = $("filters"), slot = $("heroFilters"), home = inHero();
     if (home && f.parentElement !== slot) slot.appendChild(f);
     if (!home && f.parentElement === slot) {      // first search: fold the filters into the header
-      document.querySelector("header .wrap").appendChild(f);
+      $("toolL").appendChild(f);
       f.classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false");
     }
-    $("filtersBtn").hidden = home;
+    $("filtersBtn").hidden = home || view !== "search";
+    $("sortSlot").hidden = view !== "search";
   }
   // what the status line shows instead of the query: your own words plus a chip per filter
   function filterChips() {
@@ -336,7 +325,6 @@
       c.push(["mv", el.mvmin.value !== "" && el.mvmax.value !== "" ? `MV ${el.mvmin.value}–${el.mvmax.value}` : el.mvmin.value !== "" ? `MV ${el.mvmin.value}+` : `MV ${el.mvmax.value} or less`]);
     if (el.format.value !== "commander") c.push(["format", txt("format")]);
     if (el.rarity.value) c.push(["rarity", txt("rarity")]);
-    if (el.order.value !== "name") c.push(["order", "Sort: " + txt("order")]);
     return c.length ? `<span class="fchips">${c.map(([k, l]) => `<span class="fchip">${l}<button type="button" data-unf="${k}" aria-label="Remove filter">×</button></span>`).join("")}</span>` : "";
   }
   function describe() {
@@ -365,7 +353,7 @@
   function tileTags(c) {
     const ts = tiersOf(c);
     const t = ts.slice(0, 2).map(x => { const R = MT.ROLE_INFO[x.k];
-      return MT.tag({ tier: x.t, html: MT.tierLabel(x.k), rank: "#" + x.r, href: MT.page("tiers", x.k), title: `${R.label}: ${x.t} tier, #${x.r}${x.rev ? "" : " (unreviewed)"}` }); });
+      return MT.tag({ tier: x.t, html: MT.tierLabel(x.k), rank: "#" + x.r, href: MT.page("tiers", x.k), title: `${R.label}: ${x.t} tier, #${x.r}` }); });
     const me = indexCard(c);
     if (me) t.push(MT.ftags(cardIdx, me, 3, ts.map(x => x.k), true));
     if (c.game_changer) t.push(MT.tag({ icon: "star", text: "Game Changer" }));
@@ -549,7 +537,7 @@
     return r;
   }
   let shown = [];
-  MT.sizeBar();
+  MT.toolbar({ filtersBtn: $("filtersBtn"), sort: $("sortCtl") });
   function render(cards) {
     shown.push(...cards);
     const cond = MT.condensed();
@@ -687,7 +675,7 @@
     const me = idx && MT.findCard(idx, c.name);
     const total = k => idx ? idx.byRole[k].length.toLocaleString() : "";
     let html = `<h3>Tiers</h3><div class="tierrows">` + ts.map(x => `<div><span class="tl t${x.t}">${x.t}</span><a href="${MT.page("tiers", x.k)}"><b>${esc(MT.ROLE_INFO[x.k].label)}</b></a>
-      <small>${esc(MT.hubSubName(x.k, x.sub))} · #${x.r}${total(x.k) ? " of " + total(x.k) : ""} · score ${x.s}${x.rev ? "" : " · unreviewed"}</small></div>`).join("") + `</div>`;
+      <small>${esc(MT.hubSubName(x.k, x.sub))} · #${x.r}${total(x.k) ? " of " + total(x.k) : ""} · score ${x.s}</small></div>`).join("") + `</div>`;
     if (me) html += ts.filter(x => x.k !== "lands").map(x => {
       const opts = MT.betterOptions(idx, me, x.k, { limit: 4 });
       return opts.length ? `<h3>Better ${esc(MT.ROLE_INFO[x.k].label.toLowerCase())} in these colors</h3><div class="better">` +
@@ -853,14 +841,17 @@
   const pop = $("pop");
   function openListPop(anchor, c) {
     if (needLogin()) return;
-    let decks = null;
+    let decks = null, deckErr = "";
+    // your decks first, then your lists
     const draw = () => {
-      pop.innerHTML = `<div class="ttl">Add ${esc(c.name)} to a list</div>` +
+      pop.innerHTML = `<div class="ttl">Add ${esc(c.name)} to one of your decks</div>` +
+        (decks ? decks.map((d, i) => `<button data-d="${i}"><span>${esc(d.name)}</span><span>${MT.inDeck(d, c.name) ? "✓" : ""}</span></button>`).join("") +
+            (decks.length ? "" : `<p class="popnote">No decks yet.</p>`) +
+            `<a class="popa popsm" href="${MT.page("decks")}">${decks.length ? "Open My Decks" : "Make a deck in My Decks"}</a>`
+          : `<p class="popnote">${deckErr ? "Your decks didn't load." : "Loading your decks…"}</p>`) +
+        `<div class="ttl popsep">…or a list</div>` +
         store.lists.map((l, i) => `<button data-i="${i}"><span>${esc(l.name)}</span><span>${l.cards.has(c.id) ? "✓" : ""}</span></button>`).join("") +
-        `<form data-new="list"><input placeholder="New list name" maxlength="60" aria-label="New list name"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>` +
-        (decks ? `<div class="ttl" style="margin-top:6px">…or a deck</div>` +
-          decks.map((d, i) => `<button data-d="${i}"><span>${esc(d.name)}</span><span>${MT.inDeck(d, c.name) ? "✓" : ""}</span></button>`).join("") +
-          `<form data-new="deck"><input placeholder="New deck name" maxlength="60" aria-label="New deck name"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>` : "");
+        `<form data-new="list"><input placeholder="New list name" maxlength="60" aria-label="New list name"><button class="btn primary" style="width:auto;padding:6px 12px">Add</button></form>`;
       pop.querySelectorAll("button[data-i]").forEach(b => b.onclick = async () => { await toggleInList(store.lists[+b.dataset.i], c); draw(); });
       pop.querySelectorAll("button[data-d]").forEach(b => b.onclick = async () => {
         const d = decks[+b.dataset.d];
@@ -873,22 +864,16 @@
         const l = await createList(ev.target.querySelector("input").value);
         if (l) { await toggleInList(l, c); draw(); }
       };
-      const df = pop.querySelector("form[data-new=deck]");
-      if (df) df.onsubmit = async ev => {
-        ev.preventDefault();
-        const d = await MT.createDeck(ev.target.querySelector("input").value);
-        if (d && await MT.addToDeck(d, c.name)) { toast(`Added to ${d.name}`); decks = MT.deckInfo().decks; draw(); }
-      };
     };
     draw();
-    MT.loadDecks().then(list => { if (MT.deckInfo().error) return; decks = list; if (pop.classList.contains("open")) { draw(); place(); } }).catch(() => {});
+    MT.loadDecks().then(list => { deckErr = MT.deckInfo().error; if (!deckErr) decks = list; if (pop.classList.contains("open")) { draw(); place(); } })
+      .catch(() => { deckErr = "x"; if (pop.classList.contains("open")) draw(); });
     const place = () => {
       const r = anchor.getBoundingClientRect(), w = pop.offsetWidth, h = pop.offsetHeight;
       pop.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.right - w)) + "px";
       pop.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, Math.min(innerHeight - h - 8, r.top - h - 6)) : r.bottom + 6) + "px";
     };
     pop.classList.add("open"); place();
-    if (!store.lists.length) pop.querySelector("form[data-new=list] input").focus();
   }
   const closePop = () => pop.classList.remove("open");
   document.addEventListener("mousedown", e => { if (pop.classList.contains("open") && !pop.contains(e.target) && !e.target.closest("[data-act=add],#mAdd")) closePop(); });
@@ -924,14 +909,35 @@
     else saveState();
     placeFilters();
   }
-  const currentList = () => tab === "fav" ? null : store.lists.find(l => String(l.id) === String(tab));
+  const currentList = () => tab === "fav" || tab === "decks" ? null : store.lists.find(l => String(l.id) === String(tab));
+  // your decks, under Saved too: the commander's picture, a click opens the deck
+  let savedDecks = null;
+  function loadSavedDecks() {
+    MT.loadDecks().then(list => {
+      const first = !savedDecks; savedDecks = MT.deckInfo().error ? [] : list;
+      if (first && view === "saved") renderSaved();
+    }).catch(() => { savedDecks = []; });
+  }
+  document.addEventListener("mtg:decks", () => { savedDecks = MT.deckInfo().decks; if (view === "saved") renderSaved(); });
+  function renderDecksTab(g, empty) {
+    g.className = "decklist savedDecks"; g.innerHTML = "";
+    if (!savedDecks) { empty.style.display = ""; empty.textContent = "Loading your decks…"; return; }
+    const ds = savedDecks.slice().sort((a, b) => (b.updated || 0) - (a.updated || 0));
+    empty.style.display = ds.length ? "none" : "";
+    empty.innerHTML = `No decks yet. <a href="${MT.page("decks")}">Make one in My Decks</a>.`;
+    g.innerHTML = ds.map(d => MT.deckTile(d, cardIdx, MT.page("decks", "d-" + encodeURIComponent(d.id)))).join("");
+    MT.deckArt(ds).then(ok => { if (ok && view === "saved" && tab === "decks") renderSaved(); });
+    if (!cardIdx) idxReady.then(() => { if (view === "saved" && tab === "decks") renderSaved(); });
+  }
   function renderSaved() {
-    if (tab !== "fav" && !currentList()) tab = "fav";
+    if (tab !== "fav" && tab !== "decks" && !currentList()) tab = "fav";
+    if (!savedDecks) loadSavedDecks();
     const list = currentList();
     $("tabs").innerHTML = `<button class="tab ${tab === "fav" ? "on" : ""}" data-tab="fav">♥ Favorites<small>${store.fav.size}</small></button>` +
+      `<button class="tab ${tab === "decks" ? "on" : ""}" data-tab="decks">Decks<small>${savedDecks ? savedDecks.length : ""}</small></button>` +
       store.lists.map(l => `<button class="tab ${String(l.id) === String(tab) ? "on" : ""}" data-tab="${l.id}">${esc(l.name)}<small>${l.cards.size}</small></button>`).join("");
     $("tabs").querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { tab = b.dataset.tab; renderSaved(); });
-    $("listTools").style.display = "inline-flex";
+    $("listTools").style.display = tab === "decks" ? "none" : "inline-flex";
     $("renameList").style.display = $("deleteList").style.display = list ? "" : "none";
     const cards = [...(list ? list.cards : store.fav).values()];
     const g = $("savedGrid"); g.innerHTML = "";
@@ -940,6 +946,7 @@
       empty.style.display = ""; empty.innerHTML = `<a style="cursor:pointer;text-decoration:underline" id="emptyLogin">Log in</a> to see your saved cards.`;
       $("emptyLogin").onclick = () => openAuth("login"); return;
     }
+    if (tab === "decks") return renderDecksTab(g, empty);
     empty.style.display = cards.length ? "none" : "";
     empty.textContent = list ? "This list is empty — use + on any card to add it." : "No favorites yet — tap ♥ on any card.";
     g.className = MT.condensed() ? "crows" : "grid";
@@ -1090,11 +1097,12 @@
   $("clear").onclick = () => {
     selected.clear(); document.querySelectorAll(".pip").forEach(b => b.classList.remove("on"));
     el.cmode.value = "id"; ["role","tier","type","rarity","mvmin","mvmax"].forEach(k => el[k].value = ""); el.format.value = "commander";
-    el.order.value = "name"; $("adv").open = false;
+    $("adv").open = false;
     hasAnything() ? search() : reset();
   };
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") { closePop(); closeAuth(); if (el.modal.classList.contains("open")) closeCard(); }
+    if (e.key === "Escape") { closePop(); closeAuth(); if (el.modal.classList.contains("open")) closeCard();
+      else if ($("filters").classList.contains("open")) { $("filters").classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false"); } }
     if (e.key === "/" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName) && !el.modal.classList.contains("open")) { e.preventDefault(); el.q.focus(); }
   });
   // click a role badge -> show more cards with that role (keeps color/format filters, clears text)
@@ -1133,8 +1141,8 @@
   // the Filters button shows how many filters are on
   function countFilters() {
     const n = (selected.size ? 1 : 0) + ["type", "role", "tier", "rarity", "mvmin", "mvmax"].filter(k => el[k].value !== "").length +
-      (el.format.value !== "commander" ? 1 : 0) + (el.order.value !== "name" ? 1 : 0);
-    $("filtersBtn").innerHTML = `Filters${n ? ` <span class="n">${n}</span>` : ""}`;
+      (el.format.value !== "commander" ? 1 : 0);
+    $("filtersBtn").innerHTML = MT.filtersLabel(n);
   }
   $("filters").addEventListener("change", countFilters); $("filters").addEventListener("click", () => setTimeout(countFilters));
   countFilters();

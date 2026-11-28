@@ -111,26 +111,32 @@ main{padding-block:28px 60px;display:grid;gap:40px}
 
 /* card tiles and rows */
 /* card size (Full / Medium / Small) sets the column width of every card grid; Condensed swaps grids for name rows */
-:root{--cardw:150px}
-html[data-size="large"]{--cardw:220px}
-html[data-size="medium"]{--cardw:112px}
+:root{--cardw:240px}
+html[data-size="large"]{--cardw:310px}
+html[data-size="medium"]{--cardw:180px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cardw),1fr));gap:16px;align-items:start}
-html[data-size="full"] .grid,html[data-size="medium"] .grid{gap:12px}
+html[data-size="medium"] .grid{gap:14px}
 html[data-size="medium"] .tile .why{display:none}
-html[data-size="full"] .tag,html[data-size="medium"] .tag{gap:8px;padding:6px 8px;font-size:13px}
-html[data-size="full"] .tag .ti,html[data-size="medium"] .tag .ti{width:22px;height:22px}
-html[data-size="full"] .tag .ti svg,html[data-size="medium"] .tag .ti svg{width:13px;height:13px}
-html[data-size="full"] .tag b.ti,html[data-size="medium"] .tag b.ti{font-size:12px}
-html[data-size="medium"] .tag{font-size:12px;padding:5px 6px;gap:6px}
-html[data-size="medium"] .tag .rk{font-size:11px}
-html[data-size="medium"] .chip{font-size:11px;padding:1px 5px}
-html[data-size="medium"] .card .lbl{left:4px;right:4px;bottom:4px;padding:4px 5px}
-html[data-size="medium"] .card .lbl b{font-size:11px}
-html[data-size="medium"] .card .lbl span{display:none}
+html[data-size="medium"] .tag{gap:8px;padding:6px 8px;font-size:13px}
+html[data-size="medium"] .tag .ti{width:22px;height:22px}
+html[data-size="medium"] .tag .ti svg{width:13px;height:13px}
+html[data-size="medium"] .tag b.ti{font-size:12px}
+html[data-size="medium"] .tag .rk{font-size:12px}
 .sizetabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sizetabs .lab{font-size:13px;color:var(--muted)}
-.sizetop .wrap{display:flex;justify-content:flex-end;padding-top:10px}
+.sizetop .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:10px 16px;padding-top:12px;position:relative}
 .sizetop .seg button{padding:5px 11px;font-size:12.5px}
+.tool-l{display:flex;align-items:center;gap:8px;min-height:32px}
+.tool-l:empty{display:none}
+.tool-r{display:grid;justify-items:end;gap:8px;margin-left:auto}
+.sortslot .ctl,.sortslot label{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.sortslot select{background:var(--panel);border:1px solid var(--line2);border-radius:var(--rc);padding:5px 10px;color:var(--text);font-size:13px}
+/* Filters: a clear button with an icon and a count, its panel opens under it */
+.fbtn{display:inline-flex!important;align-items:center;gap:8px;padding:8px 14px!important;border-radius:var(--rc);border:1px solid #fff!important;background:#fff!important;color:#000!important;font:600 14px/1.2 var(--ui)!important;cursor:pointer}
+.fbtn svg{width:16px;height:16px}
+.fbtn .n{background:#000;color:#fff;border-radius:5px;padding:1px 7px;font-size:12px;font-weight:700}
+.fbtn[aria-expanded="true"]{background:#d9d9d9!important}
+.fbtn[hidden]{display:none!important}
 /* condensed rows (no images) */
 .crows{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden}
 .crow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.2fr) auto;gap:4px 14px;align-items:center;padding:8px 12px;min-width:0}
@@ -199,8 +205,8 @@ a.tag:hover,button.tag:hover{background:var(--panel2)}
 .tag .ids .ms{width:18px;height:18px;margin:0}
 .tag .mut{color:var(--muted)}
 .tag .sh{display:none}
-html[data-size="full"] .tile .tag .lg,html[data-size="medium"] .tile .tag .lg{display:none}
-html[data-size="full"] .tile .tag .sh,html[data-size="medium"] .tile .tag .sh{display:inline}
+html[data-size="medium"] .tile .tag .lg{display:none}
+html[data-size="medium"] .tile .tag .sh{display:inline}
 @media (max-width:760px){ .tile .tag .lg{display:none} .tile .tag .sh{display:inline} }
 /* the card sheet's "What it does": every tag, in a wrapping grid, always with its label */
 .tags.wide{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;border:0;background:none;overflow:visible;margin-bottom:14px}
@@ -367,13 +373,14 @@ footer .g{font-family:var(--gothic);font-size:16px;color:#fff}
   .tier-tag{position:static;display:flex;align-items:center;gap:14px;text-align:left;padding:8px 14px}
   .tier-tag .L{font-size:38px}
   .tier-head h2{font-size:22px}
-  :root{--cardw:104px} html[data-size="large"]{--cardw:150px} html[data-size="medium"]{--cardw:76px}
+  :root{--cardw:150px} html[data-size="large"]{--cardw:300px} html[data-size="medium"]{--cardw:96px}
   .grid{gap:10px}
   .crow{grid-template-columns:minmax(0,1fr) auto}
   .crow .ty{display:none}
   .crow .ct{grid-column:1/-1;grid-row:2}
   html[data-size="medium"] .tag .tx,html[data-size="medium"] .tag .rk{display:none}
   html[data-size="medium"] .tag{justify-content:center;padding:4px}
+  .sizetop .wrap{flex-wrap:wrap}
   .row,.rows.imgs .row{grid-template-columns:2.9em minmax(0,1fr)}
   .row .thumb{display:none!important}
   .row .why,.row .roles{grid-column:2/-1;justify-content:flex-start}
@@ -441,6 +448,15 @@ footer .g{font-family:var(--gothic);font-size:16px;color:#fff}
 .dcard h2{font:700 20px/1.2 var(--ui);margin:0;color:#fff;overflow-wrap:anywhere}
 .dcard .cmd{font-size:14px;color:var(--soft)}
 .dcard .foot{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.dcard.deck{padding:0;overflow:hidden;gap:0}
+.dcard .dart{display:block;aspect-ratio:626/457;background:#1b1b1b;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.dcard .dart img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .25s}
+.dcard .dart img.in{opacity:1}
+.dcard .dart .noart{position:absolute;inset:0;display:grid;place-items:center;font:400 64px/1 var(--gothic);color:#3a3a3a}
+.dcard .dbody{display:grid;gap:8px;padding:14px 16px 16px}
 .ids{display:inline-flex;gap:3px;align-items:center}
 .ids .ms{width:18px;height:18px;margin:0}
 .findbar{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap;margin:6px 0 14px}
+/* the tier lists' filters open as a row under the Filters button */
+.sizetop .wrap{flex-wrap:wrap}
+.sizetop .filters.open{flex-basis:100%;order:3;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-top:2px}

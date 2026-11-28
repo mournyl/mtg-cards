@@ -19,7 +19,6 @@
       <nav class="site" aria-label="Site"><a data-page="search">Card Search</a><a data-page="tiers">Tier Lists</a><a data-page="decks">My Decks</a><a data-page="users">Users</a></nav>
       <div class="searchbox"><label for="q" class="sr">Search</label>
         <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Find a card on every list"></div>
-      <button class="btn small" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters" hidden>Filters</button>
       <div class="me"><a class="melink" id="navSaved" data-page="saved">Saved<span class="count" id="savedCount" hidden>0</span></a><button type="button" class="melink acct" id="navAcct">Log in</button></div>
     </div>
     <div class="filters" id="filters">
@@ -34,7 +33,6 @@
       <label class="check" id="freeGroup"><input type="checkbox" id="free">Free to cast</label>
       <label class="fgroup">Game Changers
         <select id="gc"><option value="">Show</option><option value="hide">Hide</option><option value="only">Only</option></select></label>
-      <label class="check"><input type="checkbox" id="rev">Hand-reviewed only</label>
       <label class="fgroup" id="ptGroup" hidden>Protection type <select id="ptype"><option value="">Any</option></select></label>
       <label class="check" id="hardGroup" hidden><input type="checkbox" id="hard">Hide soft counters</label>
       <button class="btn small" id="clear" type="button">Clear filters</button>
@@ -44,6 +42,7 @@
   </div>
 </header>
 
+<button class="fbtn" id="filtersBtn" type="button" aria-expanded="false" aria-controls="filters" hidden>Filters</button>
 <div class="wrap" id="top">
   <section class="hero" id="hero"></section>
   <main id="board"><p class="empty">Loading the tier lists…</p></main>
@@ -51,7 +50,6 @@
     <h2>how it's ranked</h2>
     <p><b>One scale for every list.</b> Each card gets a 0–100 score for each job it does, judged for a four-player Bracket 3 table: efficiency (30 points: mana value for the effect, free or alternate costs), reach (25: what it can hit or how much it does), speed (15: instant or flash), value (15: card advantage, a body left behind, more than one thing handled) and reliability (15: no symmetry, no tax they can pay, no condition, no gift to opponents). An A in ramp means the same as an A in removal.</p>
     <p><b>Tiers by score:</b> S 90+, A 75–89, B 60–74, C 45–59, D 30–44, F under 30. Picking colors keeps the same scores and adds a rank among the cards shown, so white's best card shows first without an inflated tier.</p>
-    <p><b>Hand-reviewed vs unreviewed.</b> Every list's top cards were placed by hand, with a one-line reason that names the cost and the catch. The rest are scored by the detectors (the card details say so); their scores are squeezed into C, D and F (58 at most) until someone reviews them. Anchor cards keep lists consistent: Counterspell, Swords to Plowshares, Cultivate, Phyrexian Arena and Wrath of God.</p>
     <p><b>Tags never change a score:</b> Game Changer, free to cast, and the EDHREC play rate where we have it. Sub-lists rank cards only against cards that do the same job, and a card that does two jobs sits on both lists.</p>
     <p><b>Colors</b> follow color identity: mana cost, color indicator, mana symbols in the rules text and basic land types. Pick one color or several: a card shows when all of its colors are picked, and colorless cards show when Colorless is picked, so picking your commander's colors plus Colorless shows everything that fits the deck.</p>
     <p><b>Pool:</b> every card legal in Commander with a paper printing, from the Forge card database, rebuilt every week.</p>
@@ -67,6 +65,7 @@
   "use strict";
   const M = window.MTG, { $, esc, cap, fmt, tb, cost, syms } = M;
   M.initNav("tiers"); M.initAccount();
+  M.toolbar({ filtersBtn: $("filtersBtn"), filters: $("filters") });
 
   // Colors: pick any of W U B R G C. A card shows when all its colors are among the picks;
   // colorless cards only when Colorless is picked. No picks = every card.
@@ -77,7 +76,7 @@
     WUB: "Esper", WUR: "Jeskai", WUG: "Bant", WBR: "Mardu", WBG: "Abzan", WRG: "Naya", UBR: "Grixis", UBG: "Sultai", URG: "Temur", BRG: "Jund" };
   const inColors = e => !state.colors || (e.clr === "" ? state.colors.includes("C") : e.clr.split("").every(k => state.colors.includes(k)));
   const state = { role: null, colors: "", sub: "", q: "",
-    tiers: new Set("SABCDF"), type: "", mv: "", pt: "", inst: false, free: false, gc: "", rev: false, hard: false, shown: {} };
+    tiers: new Set("SABCDF"), type: "", mv: "", pt: "", inst: false, free: false, gc: "", hard: false, shown: {} };
   let hub = null, role = null, entries = [];
   const PT_NAMES = { hexproof: "Hexproof", shroud: "Shroud", indestructible: "Indestructible", phasing: "Phasing", blink: "Blink",
     protection: "Protection from", ward: "Ward", redirect: "Redirect", returns: "Comes back", prevent: "Damage prevention",
@@ -122,7 +121,6 @@
     if (state.free && !e.free) return false;
     if (state.gc === "hide" && e.gc) return false;
     if (state.gc === "only" && !e.gc) return false;
-    if (state.rev && !e.rev) return false;
     if (state.hard && e.soft) return false;
     if (state.pt && !(e.pt || []).includes(state.pt)) return false;
     if (state.q) {
@@ -198,9 +196,9 @@
   function renderHub() {
     document.title = "Tier Lists · mournyl mtg";
     $("filtersBtn").hidden = true; $("filters").classList.remove("open"); $("filtersBtn").setAttribute("aria-expanded", "false"); $("method").hidden = false;
-    const total = hub.roles.reduce((a, r) => a + r.count, 0), revd = hub.roles.reduce((a, r) => a + r.reviewed, 0);
+    const total = hub.roles.reduce((a, r) => a + r.count, 0);
     $("hero").innerHTML = `<h1>Tier Lists</h1><p>Ten deck-building jobs, every Commander-legal card that does them, ranked S to F on one scale. ` +
-      `${fmt(total)} placements, ${fmt(revd)} checked by hand. Updated ${esc(hub.built)}.</p>`;
+      `${fmt(total)} placements. Updated ${esc(hub.built)}.</p>`;
     $("q").placeholder = "Find a card on every list";
     if (state.q) return renderFind();
     $("board").innerHTML = `<div class="hub">` + hub.roles.map(r => {
@@ -208,7 +206,7 @@
       return `<a class="rcard" href="#${r.key}" style="border-top:3px solid ${info.col || "#555"}">
         <h2>${esc(r.name)}</h2><p>${esc(r.desc)} ${r.subs.map(s => esc(s.name)).join(" · ")}.</p>
         <ol>${r.top.map(t => `<li>${tb(t.t)}<span>${esc(t.n)}</span>${cost(t.c)}</li>`).join("")}</ol>
-        <span class="foot">${fmt(r.count)} cards · ${fmt(r.reviewed)} hand-reviewed</span></a>`;
+        <span class="foot">${fmt(r.count)} cards</span></a>`;
     }).join("") + `</div>`;
   }
   async function renderFind() {
@@ -272,8 +270,8 @@
   const SUB_LABEL = { counterspells: "What it counters", ramp: "Kind of ramp", draw: "Kind of draw", removal: "Kind of removal", wipes: "What it hits",
     tutors: "What it finds", protection: "What it protects", gyhate: "How often", recursion: "How it comes back", lands: "Kind of land" };
   function lede(nShown, nColors) {
-    const all = entries.length, rv = entries.filter(e => e.rev).length;
-    if (!state.colors) return `All ${fmt(all)} Commander cards that do this job, ${fmt(rv)} of them checked by hand. ${role.desc}`;
+    const all = entries.length;
+    if (!state.colors) return `All ${fmt(all)} Commander cards that do this job. ${role.desc}`;
     const w = colorWords(), tail = " Tiers use the same scale as every list; the rank number is the card's place among these cards.";
     if (!w.base) return `${fmt(nColors)} colorless cards, so any deck can run them.` + tail;
     if (w.list.length === 1) return `${fmt(nColors)} mono-${w.list[0]} cards${w.hasC ? ", plus colorless cards" : ""}.` + tail;
@@ -303,8 +301,8 @@
     }
     $("board").innerHTML = html || `<p class="empty">${state.tiers.size ? "Nothing here matches your filters." : "Pick at least one tier above."}</p>`;
     $("status").innerHTML = `<b>${fmt(shown)}</b> of ${fmt(view.length)} cards`;
-    const nf = [state.type, state.mv !== "", state.inst, state.free, state.gc, state.rev, state.hard, state.pt, state.tiers.size < 6].filter(Boolean).length;
-    $("filtersBtn").innerHTML = `Filters${nf ? ` <span class="n">${nf}</span>` : ""}`;
+    const nf = [state.type, state.mv !== "", state.inst, state.free, state.gc, state.hard, state.pt, state.tiers.size < 6].filter(Boolean).length;
+    $("filtersBtn").innerHTML = M.filtersLabel(nf);
     loadImages(visible);
   }
   let imgT;
@@ -336,7 +334,7 @@
     const set = (k, v) => { state[k] = v; state.shown = {}; render(); };
     ["type", "mv", "gc"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.value)));
     $("ptype").addEventListener("change", e => { state.pt = e.target.value; state.shown = {}; buildRoleChrome(); render(); });
-    ["inst", "free", "rev", "hard"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.checked)));
+    ["inst", "free", "hard"].forEach(k => $(k).addEventListener("change", e => set(k, e.target.checked)));
     $("filtersBtn").addEventListener("click", e => {
       const open = $("filters").classList.toggle("open"); e.currentTarget.setAttribute("aria-expanded", open);
     });
@@ -346,9 +344,9 @@
       b.classList.toggle("on", state.tiers.has(k)); b.setAttribute("aria-pressed", state.tiers.has(k)); render();
     });
     $("clear").addEventListener("click", () => {
-      Object.assign(state, { q: "", type: "", mv: "", inst: false, free: false, gc: "", rev: false, hard: false, pt: "", shown: {} });
+      Object.assign(state, { q: "", type: "", mv: "", inst: false, free: false, gc: "", hard: false, pt: "", shown: {} });
       state.tiers = new Set("SABCDF");
-      ["q", "type", "mv", "gc"].forEach(k => $(k).value = ""); ["inst", "free", "rev", "hard"].forEach(k => $(k).checked = false);
+      ["q", "type", "mv", "gc"].forEach(k => $(k).value = ""); ["inst", "free", "hard"].forEach(k => $(k).checked = false);
       buildRoleChrome(); render();
     });
     $("hero").addEventListener("click", e => {

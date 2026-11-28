@@ -70,7 +70,7 @@
 <script>
 (() => {
   "use strict";
-  const M = window.MTG, { $, esc, fmt, idSyms, toast } = M;
+  const M = window.MTG, { $, esc, fmt, toast } = M;
   M.initNav("users"); M.initAccount();
 
   let users = null, idx = null, me = null, prof = null, tab = "decks";
@@ -104,7 +104,12 @@
     const u = prof.user, mine = me && me.toLowerCase() === u.username.toLowerCase();
     document.title = `${u.username} · Users · mournyl mtg`;
     $("phead").innerHTML = `<h1>${esc(u.username)}</h1><span class="muted">Joined ${esc(joined(u.joined))}${mine ? " · this is you" : ""}</span>`;
-    $("pnote").innerHTML = mine && u.hidden ? `<p class="pnote">Your profile is hidden: only you can see this page. Show it again from your name at the top right.</p>` : "";
+    // the hide option is gone; a profile hidden before keeps a way back
+    $("pnote").innerHTML = mine && u.hidden ? `<p class="pnote">Your profile is hidden: only you can see this page. <button class="btn small" type="button" id="showMe">Show my profile on Users</button></p>` : "";
+    if ($("showMe")) $("showMe").onclick = async () => {
+      try { await M.setProfileHidden(false); M.toast("Your profile shows on Users again"); openProfile(u.username); }
+      catch (e) { M.toast(e.message || "Couldn't change that"); }
+    };
     if (!["decks", "fav"].includes(tab) && !prof.lists.some(l => "l" + l.id === tab)) tab = "decks";
     if (tab === "decks" && !prof.decks.length && prof.favorites.length) tab = "fav";
     renderProfile();
@@ -127,21 +132,12 @@
     const need = cards.filter(c => !c.image).map(c => c.name);
     if (need.length) M.scryfall(need).then(ok => { if (ok && prof && tab !== "decks") renderProfile(); });
   }
-  function identity(d) {
-    const cmd = d.commander && idx && M.findCard(idx, d.commander);
-    if (cmd) return cmd.id;
-    const set = new Set(); d.cards.forEach(e => { const c = idx && M.findCard(idx, e.n); if (c) for (const l of c.id) set.add(l); });
-    return "WUBRG".split("").filter(l => set.has(l)).join("");
-  }
   function renderDecks() {
     if (!prof.decks.length) { $("pbody").innerHTML = `<p class="empty">No decks yet.</p>`; return; }
     const mine = me && me.toLowerCase() === prof.user.username.toLowerCase();
-    $("pbody").innerHTML = `<div class="decklist" style="margin-top:0">${prof.decks.map(d => {
-      const n = d.cards.reduce((a, e) => a + e.q, 0), id = identity(d);
-      const href = M.page("decks", mine ? "d-" + d.id : `u-${encodeURIComponent(prof.user.username)}/${d.id}`);
-      return `<a class="dcard" href="${href}"><h2>${esc(d.name)}</h2><span class="cmd">${d.commander ? esc(d.commander) : "No commander yet"}</span>
-        <span class="foot">${idx ? `<span class="ids" title="Color identity">${id ? idSyms(id) : idSyms("C")}</span>` : ""}<span>${fmt(n)} / 100 cards</span></span></a>`;
-    }).join("")}</div>`;
+    $("pbody").innerHTML = `<div class="decklist" style="margin-top:0">${prof.decks.map(d =>
+      M.deckTile(d, idx, M.page("decks", mine ? "d-" + d.id : `u-${encodeURIComponent(prof.user.username)}/${d.id}`))).join("")}</div>`;
+    M.deckArt(prof.decks).then(ok => { if (ok && prof && tab === "decks") renderDecks(); });
   }
 
   // ---------- routing: #u-<name> is a profile, nothing is the list ----------

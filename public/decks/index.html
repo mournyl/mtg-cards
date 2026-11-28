@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>My Decks · mournyl mtg</title>
-<meta name="description" content="Build Commander decks and sort them by the jobs from the tier lists, card type, mana value or tier.">
+<meta name="description" content="Build Commander decks and sort them by the jobs from the tier lists, card type or mana value.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,7 +27,27 @@
   .stats{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;color:var(--muted);font-size:14px;margin:10px 0 18px}
   .stats b{color:var(--text);font-variant-numeric:tabular-nums}
   .stats .over{color:var(--warn)}
-  .addbar{display:flex;gap:8px;flex-wrap:wrap}
+  /* the add box stays at the top while you scroll the deck */
+  .addbar{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hh,70px));z-index:15;background:var(--bg);padding:10px 0;margin:0 0 4px;box-shadow:0 10px 14px -12px rgba(0,0,0,.9)}
+  .addbox .scope{display:none;align-items:center;gap:6px;flex:none;margin-right:6px;font-size:13px;padding:0 6px 0 10px;border:1px solid var(--line2);border-radius:var(--rc);background:var(--panel2);white-space:nowrap}
+  .addbox .scope button{all:unset;cursor:pointer;color:var(--muted);font-size:15px;padding:0 4px}
+  .addbox .scope button:hover{color:#fff}
+  .addbox.scoped .scope{display:inline-flex}
+  /* "+ Add a creature" after each group */
+  .addmore{all:unset;box-sizing:border-box;cursor:pointer;display:grid;place-items:center;align-content:center;gap:6px;text-align:center;border:1px dashed var(--line2);border-radius:var(--radius);color:var(--muted);font:500 14px/1.3 var(--ui);padding:14px}
+  .addmore:hover,.addmore:focus-visible{border-color:#fff;color:#fff}
+  .addmore b{font-size:26px;font-weight:400;line-height:1}
+  .gcards .addmore{aspect-ratio:63/88}
+  .drows .addmore{display:flex;justify-content:flex-start;gap:8px;width:100%;border:0;border-top:1px solid var(--line);border-radius:0;padding:9px 12px}
+  .drows .addmore b{font-size:18px}
+  .addmenu{width:min(340px,calc(100vw - 16px));max-height:min(70vh,520px);overflow:auto}
+  .addmenu .rec{display:flex;align-items:center;gap:6px}
+  .addmenu .rec button{flex:1;min-width:0;display:flex;align-items:center;gap:8px}
+  .addmenu .rec .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .addmenu .rec .plus{flex:none;width:auto;padding:6px 10px;border:1px solid var(--line2);border-radius:6px;text-align:center}
+  .addmenu .rec .plus:hover{border-color:#fff}
+  .addmenu .srch{border-top:1px solid var(--line);margin-top:4px;padding-top:10px}
+  .addmenu .muted{padding:4px 10px;margin:0;font-size:13px}
   .addbox{position:relative;flex:1;min-width:min(100%,260px);display:flex}
   .sugg{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;background:var(--panel2);border:1px solid var(--line2);border-radius:10px;padding:4px;box-shadow:0 14px 40px rgba(0,0,0,.7);max-height:340px;overflow:auto}
   .sugg button{all:unset;box-sizing:border-box;width:100%;display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:14px}
@@ -35,6 +55,8 @@
   .sugg .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .sugg .have{color:var(--muted);font-size:12px}
   .controls{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:18px 0 6px}
+  .sortslot .controls{display:grid;justify-items:end;gap:8px;margin:0}
+  .sortslot .seg button{padding:5px 11px;font-size:12.5px}
   .ctl{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .ctl .lab{font-size:13px;color:var(--muted)}
   .groups{margin:14px 0 60px}
@@ -72,6 +94,9 @@
   .paste .row2{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .paste .miss{font-size:13px;color:var(--warn);margin:0}
   @media (max-width:560px){
+    .addbar{flex-wrap:nowrap}
+    .addbox{min-width:0}
+    #pasteBtn{flex:none;padding-inline:12px;white-space:nowrap}
     .groups.list{grid-template-columns:minmax(0,1fr)}
     .gcards{gap:10px}
     .drow .cost{display:none}
@@ -94,7 +119,7 @@
 <main class="wrap" id="main">
   <section id="listView">
     <div class="hero"><h1>My Decks</h1>
-      <p>Build Commander decks from any card. Each deck sorts itself by the jobs from the tier lists, or by card type, mana value or tier, and you can move any card to a different group.</p>
+      <p>Build Commander decks from any card. Each deck sorts itself by the jobs from the tier lists, or by card type or mana value, and you can move any card to a different group.</p>
       <form class="newbar" id="newForm"><label for="newName" class="sr">New deck name</label><input id="newName" maxlength="60" placeholder="New deck name" autocomplete="off">
         <button class="btn primary" type="submit">New deck</button><button class="btn" type="button" id="importBtn">Paste a list</button></form>
       <p class="note" id="where"></p>
@@ -107,17 +132,17 @@
     <div class="dtop" id="dtop"></div>
     <div class="stats" id="stats" aria-live="polite"></div>
     <div class="addbar" id="addBar">
-      <div class="addbox"><label for="addCard" class="sr">Add a card</label>
+      <div class="addbox" id="addBox"><label for="addCard" class="sr">Add a card</label>
+        <span class="scope" id="scope"><span id="scopeTxt"></span><button type="button" id="scopeX" aria-label="Search every card">×</button></span>
         <input id="addCard" type="search" autocomplete="off" spellcheck="false" placeholder="Add a card: type a name" role="combobox" aria-expanded="false" aria-controls="sugg" aria-autocomplete="list">
         <div class="sugg" id="sugg" role="listbox" hidden></div></div>
       <button class="btn" type="button" id="pasteBtn">Paste a list</button>
     </div>
-    <div class="controls">
+    <div class="controls" id="deckCtl">
       <div class="ctl"><span class="lab" id="gLab">Group by</span><div class="seg" id="groupSeg" role="group" aria-labelledby="gLab">
-        <button type="button" data-g="role">Role</button><button type="button" data-g="tag">Tag</button><button type="button" data-g="type">Card Type</button><button type="button" data-g="mv">Mana Value</button><button type="button" data-g="tier">Tier</button></div></div>
+        <button type="button" data-g="role">Role</button><button type="button" data-g="type">Card Type</button><button type="button" data-g="mv">Mana Value</button></div></div>
       <div class="ctl"><span class="lab" id="sLab">Sort</span><div class="seg" id="sortSeg" role="group" aria-labelledby="sLab">
         <button type="button" data-s="tier">Tier</button><button type="button" data-s="mv">Mana Value</button><button type="button" data-s="name">Name</button></div></div>
-
     </div>
     <div id="groups" class="groups"></div>
   </section>
@@ -132,9 +157,13 @@
   "use strict";
   const M = window.MTG, { $, esc, fmt, cost, tb, idSyms, norm, toast } = M;
   M.initNav("decks"); M.initAccount();
+  M.toolbar({ sort: $("deckCtl") });   // Group by and Sort sit right under Card size
+  const showCtl = on => { $("sortSlot").hidden = !on; };
 
   let idx = null, deck = null, readOnly = null;   // readOnly = { user } while looking at someone else's deck
+  const GROUPS = ["role", "type", "mv"];
   const pref = { group: M.store.get("deck-grouping", "type"), sort: M.store.get("deck-sort", "tier") };   // Card Type unless changed
+  if (!GROUPS.includes(pref.group)) pref.group = "type";
   const view = () => M.condensed() ? "list" : "cards";   // full cards unless Card size is Condensed
 
   // ---------- how cards sort ----------
@@ -179,22 +208,15 @@
       const c = cardOf(e.n);
       if (isCmd(e)) { add("cmd", "Commander", icon("crown"), e); continue; }
       if (pref.group === "role") { const k = catOf(e), ci = catInfo(k); add(k, ci.label, icon(ci.icon), e); }
-      else if (pref.group === "tag") {
-        if (!c) { add("?", "Not in the card index", icon("dot"), e); continue; }
-        if (isLand(c)) { add("lands", "Lands", icon("land"), e); continue; }
-        const m = M.mainTag(c), ci = m && tagCat(m);
-        if (ci) add(ci.k, ci.label, icon(ci.icon), e);
-        else add(c.ty.includes("C") ? "creatures" : "other", c.ty.includes("C") ? "Other creatures" : "Other spells", icon(c.ty.includes("C") ? "creature" : "card"), e);
-      }
       else if (pref.group === "type") { const t = typeOf(c), T = TYPES.find(x => x[0] === t); add(t, T ? T[1] : "Not in the card index", icon(T ? T[2] : "dot"), e); }
-      else if (pref.group === "mv") {
+      else {
         if (!c) add("?", "Not in the card index", icon("dot"), e);
         else if (isLand(c)) add("L", "Lands", icon("land"), e);
         else { const v = Math.min(c.mv, 7); add("m" + v, v === 7 ? "7 or more mana" : `${v} mana`, `<b class="ti" aria-hidden="true">${v === 7 ? "7+" : v}</b>`, e); }
-      } else { const b = best(c, true); add(b ? b.t : "none", b ? `${b.t} tier` : "Not on a tier list", b ? `<b class="ti t${b.t}" aria-hidden="true">${b.t}</b>` : icon("dot"), e); }
+      }
     }
-    const order = { role: ["cmd", ...ROLE_ORDER, ...TAG_ORDER(), "creatures", "other", "lands"], tag: ["cmd", ...TAG_ORDER(), "creatures", "other", "lands", "?"], type: ["cmd", ...TYPES.map(t => t[0]), "?"],
-      mv: ["cmd", "m0", "m1", "m2", "m3", "m4", "m5", "m6", "m7", "L", "?"], tier: ["cmd", "S", "A", "B", "C", "D", "F", "none"] }[pref.group];
+    const order = { role: ["cmd", ...ROLE_ORDER, ...TAG_ORDER(), "creatures", "other", "lands"], type: ["cmd", ...TYPES.map(t => t[0]), "?"],
+      mv: ["cmd", "m0", "m1", "m2", "m3", "m4", "m5", "m6", "m7", "L", "?"] }[pref.group];
     const gs = order.filter(k => out.has(k)).map(k => out.get(k));
     for (const g of gs) g.items.sort((a, b) => {
       const ca = cardOf(a.n), cb = cardOf(b.n), byName = a.n < b.n ? -1 : a.n > b.n ? 1 : 0;
@@ -215,14 +237,13 @@
   }
   const total = d => d.cards.reduce((a, e) => a + e.q, 0);
   const idHtml = id => `<span class="ids" title="Color identity">${id ? idSyms(id) : idSyms("C")}</span>`;
-  const when = t => t ? new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: new Date(t).getFullYear() === new Date().getFullYear() ? undefined : "numeric" }) : "";
 
   // ---------- list of decks ----------
   function renderList() {
     markTab();
     const info = M.deckInfo();
     document.title = "My Decks · mournyl mtg";
-    $("listView").hidden = false; $("deckView").hidden = true;
+    $("listView").hidden = false; $("deckView").hidden = true; showCtl(false); clearScope();
     if (info.mode === "remote" && !info.user) {
       $("newForm").hidden = true; $("where").textContent = "";
       $("deckCards").innerHTML = `<div class="panel" style="grid-column:1/-1;text-align:center"><p style="margin:0 0 12px">Log in to build and keep decks.</p><button class="btn primary" type="button" id="loginBtn">Log in</button></div>`;
@@ -238,12 +259,9 @@
     $("newForm").hidden = false;
     $("where").textContent = info.mode === "local" ? "No server here, so decks are saved in this browser." : "";
     const ds = info.decks.slice().sort((a, b) => (b.updated || 0) - (a.updated || 0));
-    $("deckCards").innerHTML = ds.length ? ds.map(d => {
-      const n = total(d);
-      return `<a class="dcard" href="#d-${esc(encodeURIComponent(d.id))}"><h2>${esc(d.name)}</h2>
-        <span class="cmd">${d.commander ? esc(d.commander) : "No commander yet"}</span>
-        <span class="foot">${idHtml(identity(d))}<span>${fmt(n)} / 100 cards</span>${d.updated ? `<span>Updated ${esc(when(d.updated))}</span>` : ""}</span></a>`;
-    }).join("") : `<p class="empty" style="grid-column:1/-1;text-align:center">No decks yet. Name one above, or paste a list from another site.</p>`;
+    $("deckCards").innerHTML = ds.length ? ds.map(d => M.deckTile(d, idx, "#d-" + encodeURIComponent(d.id))).join("")
+      : `<p class="empty" style="grid-column:1/-1;text-align:center">No decks yet. Name one above, or paste a list from another site.</p>`;
+    M.deckArt(ds).then(ok => { if (ok && !deck && !readOnly && !$("listView").hidden) renderList(); });
   }
 
   // ---------- one deck ----------
@@ -252,7 +270,7 @@
   function renderDeck() {
     markTab();
     document.title = `${deck.name} · ${readOnly ? readOnly.user : "My Decks"} · mournyl mtg`;
-    $("listView").hidden = true; $("deckView").hidden = false;
+    $("listView").hidden = true; $("deckView").hidden = false; showCtl(true);
     $("addBar").hidden = !!readOnly;
     $("allDecks").textContent = readOnly ? `← ${readOnly.user}'s profile` : "← All Decks";
     if (readOnly) {
@@ -289,9 +307,10 @@
     box.className = "groups " + view();
     if (!deck.cards.length) { box.innerHTML = `<p class="empty">No cards yet. Type a name above, paste a list, or use <b>+ Add to deck</b> on any card in card search or the tier lists.</p>`; return; }
     const gs = groups();
+    const more = g => readOnly || !kindOf(g.key) ? "" : `<button type="button" class="addmore" data-addmore="${esc(g.key)}" aria-haspopup="true"><b aria-hidden="true">+</b><span>Add ${esc(kindOf(g.key).one)}</span></button>`;
     box.innerHTML = gs.map(g => `<section class="grp" aria-label="${esc(g.label)}"><h3 class="dgh">${g.block}<span>${esc(g.label)}</span><small>${fmt(g.n)}</small></h3>` +
-      (view() === "cards" ? `<div class="gcards">${g.items.map(e => tile(e, g.key)).join("")}</div>`
-        : `<div class="drows">${g.items.map(e => row(e, g.key)).join("")}</div>`) + `</section>`).join("");
+      (view() === "cards" ? `<div class="gcards">${g.items.map(e => tile(e, g.key)).join("")}${more(g)}</div>`
+        : `<div class="drows">${g.items.map(e => row(e, g.key)).join("")}${more(g)}</div>`) + `</section>`).join("");
     if (view() === "cards") M.scryfall(deck.cards.map(e => e.n)).then(ok => { if (ok && deck && view() === "cards") renderBody(); });
   }
   function row(e, gkey) {
@@ -366,6 +385,98 @@
     setTimeout(() => { document.addEventListener("mousedown", off); document.addEventListener("keydown", key); }, 0);
   }
 
+  // ---------- "+ Add" after each group: recommended cards of that kind, or a search for that kind ----------
+  const ROLE_NOUN = { ramp: "ramp", draw: "card draw", removal: "removal", wipes: "board wipes", counterspells: "counterspells", tutors: "tutors",
+    protection: "protection", recursion: "recursion", gyhate: "graveyard hate", lands: "lands" };
+  const TYPE_NOUN = { C: ["creature", "creatures"], P: ["planeswalker", "planeswalkers"], B: ["battle", "battles"], A: ["artifact", "artifacts"],
+    E: ["enchantment", "enchantments"], I: ["instant", "instants"], S: ["sorcery", "sorceries"], L: ["land", "lands"] };
+  const bestScore = c => c.roles.reduce((m, x) => Math.max(m, x.s), -1);
+  // { one: what the button says after "Add", many: what the search says, test(card), rank: role key to rank by (else best score) }
+  function kindOf(key) {
+    if (!key || key === "cmd" || key === "?" || key === "none") return null;
+    if (pref.group === "role") {
+      if (ROLE_NOUN[key]) return { one: "more " + ROLE_NOUN[key], many: ROLE_NOUN[key], role: key, test: c => key === "lands" ? isLand(c) : c.roles.some(x => x.k === key) && !isLand(c) };
+      if (key.startsWith("t:")) { const t = key.slice(2), ci = catInfo(key); return ci && { one: "more " + ci.label.toLowerCase(), many: ci.label.toLowerCase(), tag: t, test: c => c.tags.includes(t) && !isLand(c) }; }
+      if (key === "creatures") return { one: "another creature", many: "creatures", test: c => c.ty.includes("C") && !isLand(c) };
+      if (key === "other") return { one: "another spell", many: "noncreature spells", test: c => !c.ty.includes("C") && !isLand(c) };
+      if (key === "lands") return { one: "another land", many: "lands", test: isLand };
+      return null;
+    }
+    if (pref.group === "type") { const T = TYPE_NOUN[key]; return T && { one: "another " + T[0], many: T[1], test: c => typeOf(c) === key }; }
+    if (key === "L") return { one: "another land", many: "lands", test: isLand };
+    const v = +key.slice(1);
+    return { one: `another ${v === 7 ? "7+" : v}-mana card`, many: `${v === 7 ? "7+" : v}-mana cards`, test: c => !isLand(c) && Math.min(c.mv, 7) === v };
+  }
+  // the deck's colors: the commander's, else every color already in it (nothing yet: any card)
+  function deckAllowed() {
+    const cmd = deck.commander && cardOf(deck.commander);
+    return cmd ? cmd.id : identity(deck) || null;
+  }
+  function recsFor(key, n) {
+    const k = kindOf(key); if (!k) return [];
+    const allowed = deckAllowed(), have = new Set(deck.cards.map(e => norm(e.n)));
+    const ok = c => !have.has(norm(c.n)) && k.test(c) && !M.flags(c).banned && !M.flags(c).basic && (allowed === null || M.fits(c.id, allowed));
+    const out = [];
+    if (k.role) { for (const x of idx.byRole[k.role] || []) { if (ok(x.c)) { out.push({ c: x.c, t: x.t }); if (out.length >= n) break; } } return out; }
+    const pool = (k.tag ? idx.byTag[k.tag] || [] : idx.list).filter(c => ok(c) && bestScore(c) >= 0);
+    pool.sort((a, b) => bestScore(b) - bestScore(a) || a.mv - b.mv || (a.n < b.n ? -1 : 1));
+    return pool.slice(0, n).map(c => { const b = best(c, true); return { c, t: b ? b.t : "" }; });
+  }
+  // a card added for a Role group stays in that group
+  async function addFor(key, name) {
+    if (!(await M.addToDeck(deck, name))) return false;
+    if (pref.group === "role") {
+      const e = M.inDeck(deck, name), c = cardOf(name);
+      if (e && !isCmd(e) && catInfo(key) && autoCat(c) !== key) { e.cat = key; M.saveDeck(deck); }
+    }
+    toast(`Added ${name}`);
+    return true;
+  }
+  function addMenu(anchor, key) {
+    document.querySelector(".menu")?.remove();
+    const k = kindOf(key); if (!k) return;
+    const menu = document.createElement("div");
+    menu.className = "menu addmenu"; menu.setAttribute("role", "dialog"); menu.setAttribute("aria-label", `Add ${k.one}`);
+    const draw = () => {
+      const recs = recsFor(key, 8);
+      menu.innerHTML = `<div class="ttl">Recommended ${esc(k.many)} for ${esc(deck.commander ? deck.commander.split(",")[0] : "this deck")}</div>` +
+        (recs.length ? recs.map(o => `<div class="rec"><button type="button" data-open="${esc(o.c.n)}">${o.t ? tb(o.t) : ""}<span class="nm">${esc(o.c.n)}</span>${cost(o.c.cost)}</button>` +
+          `<button type="button" class="plus" data-add="${esc(o.c.n)}" aria-label="Add ${esc(o.c.n)}">+ Add</button></div>`).join("")
+          : `<p class="muted">Nothing left to recommend that fits this deck.</p>`) +
+        `<div class="srch"><button type="button" data-search>Search ${esc(k.many)}…</button></div>`;
+    };
+    draw();
+    const done = () => { menu.remove(); document.removeEventListener("mousedown", off); document.removeEventListener("keydown", esc2); };
+    const off = ev => { if (!menu.contains(ev.target) && !anchor.contains(ev.target) && !ev.target.closest(".modal")) done(); };
+    const esc2 = ev => { if (ev.key === "Escape" && !document.querySelector(".modal.open")) { done(); anchor.focus(); } };
+    menu.addEventListener("click", async ev => {
+      const a = ev.target.closest("[data-add]"), o = ev.target.closest("[data-open]"), sr = ev.target.closest("[data-search]");
+      if (a) { a.disabled = true; if (await addFor(key, a.dataset.add)) { draw(); menu.querySelector("[data-add]")?.focus(); } else a.disabled = false; }
+      else if (o) M.openCard(o.dataset.open, { deck, deckEdit: true });
+      else if (sr) { done(); setScope(key); }
+    });
+    document.body.appendChild(menu);
+    const r = anchor.getBoundingClientRect(), w = menu.offsetWidth, h = menu.offsetHeight;
+    menu.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left)) + "px";
+    menu.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, r.top - h - 6) : r.bottom + 6) + "px";
+    menu.querySelector("[data-add],[data-search]").focus();
+    setTimeout(() => { document.addEventListener("mousedown", off); document.addEventListener("keydown", esc2); }, 0);
+  }
+  // search for one kind of card: the add box at the top shows only that kind until you clear it
+  let scope = null;
+  function setScope(key) {
+    const k = kindOf(key); if (!k) return;
+    scope = { key, ...k };
+    $("addBox").classList.add("scoped"); $("scopeTxt").textContent = cap(k.many);
+    addIn.placeholder = `Search ${k.many}: type a name`;
+    addIn.value = ""; addIn.focus(); suggest();
+  }
+  function clearScope() {
+    scope = null; $("addBox").classList.remove("scoped");
+    addIn.placeholder = "Add a card: type a name";
+  }
+  const cap = t => t.charAt(0).toUpperCase() + t.slice(1);
+
   // ---------- add a card by name (from the site's own card list, no network) ----------
   const addIn = $("addCard"), sugg = $("sugg");
   let sItems = [], sIdx = -1;
@@ -377,35 +488,44 @@
     sugg.hidden = false; addIn.setAttribute("aria-expanded", "true");
     if (sIdx >= 0) addIn.setAttribute("aria-activedescendant", "sg" + sIdx); else addIn.removeAttribute("aria-activedescendant");
   }
-  addIn.addEventListener("input", () => {
+  function suggest() {
     const q = norm(addIn.value.trim());
-    if (q.length < 2 || !idx) return hideSugg();
+    if (!idx || !deck) return hideSugg();
+    // searching one kind with nothing typed yet: its best cards for this deck
+    if (q.length < 2) { if (!scope) return hideSugg(); sItems = recsFor(scope.key, 8).map(o => o.c); sIdx = -1; return showSugg(); }
     const exact = [], starts = [], has = [];
     for (const c of idx.list) {
+      if (scope && !scope.test(c)) continue;
       const n = norm(c.n);
       if (n === q) exact.push(c); else if (n.startsWith(q)) starts.push(c); else if (starts.length < 8 && has.length < 8 && n.includes(q)) has.push(c);
     }
     starts.sort((a, b) => a.n.length - b.n.length);
     sItems = exact.concat(starts, has).slice(0, 8); sIdx = sItems.length ? 0 : -1; showSugg();
-  });
+  }
+  addIn.addEventListener("input", suggest);
+  addIn.addEventListener("focus", () => { if (scope && !addIn.value.trim()) suggest(); });
+  $("scopeX").onclick = () => { clearScope(); hideSugg(); addIn.focus(); };
   addIn.addEventListener("keydown", e => {
     if (e.key === "ArrowDown" && sItems.length) { e.preventDefault(); sIdx = (sIdx + 1) % sItems.length; showSugg(); }
     else if (e.key === "ArrowUp" && sItems.length) { e.preventDefault(); sIdx = (sIdx - 1 + sItems.length) % sItems.length; showSugg(); }
     else if (e.key === "Enter") { e.preventDefault(); if (sItems.length) pick(sItems[Math.max(0, sIdx)]); }
-    else if (e.key === "Escape") hideSugg();
+    else if (e.key === "Escape") { if (sugg.hidden && scope) clearScope(); hideSugg(); }
+    else if (e.key === "Backspace" && scope && !addIn.value) { clearScope(); hideSugg(); }
   });
   addIn.addEventListener("blur", () => setTimeout(hideSugg, 150));
   sugg.addEventListener("mousedown", e => { const b = e.target.closest("[data-i]"); if (b) { e.preventDefault(); pick(sItems[+b.dataset.i]); } });
   async function pick(c) {
     hideSugg(); addIn.value = "";
-    if (await M.addToDeck(deck, c.n)) toast(`Added ${c.n}`);
+    if (scope) await addFor(scope.key, c.n);
+    else if (await M.addToDeck(deck, c.n)) toast(`Added ${c.n}`);
     addIn.focus();
   }
 
   // ---------- paste a list (Moxfield, Archidekt, MTGO, plain "1 Sol Ring" lines) ----------
   const SECTION = /^(commanders?|deck|main ?deck|mainboard|main|sideboard|maybeboard|considering|companion|tokens?|lands?|creatures?|instants?|sorcery|sorceries|artifacts?|enchantments?|planeswalkers?|battles?)(\s*\(\d+\))?:?$/i;
+  const legendaryCreature = c => !!c && c.ty.includes("C") && c.ty.includes("K");
   function parseList(txt) {
-    const cards = [], miss = []; let section = "main", commander = "";
+    const cards = [], miss = []; let section = "main", commander = "", first = null;
     for (let line of txt.split(/\r?\n/)) {
       line = line.trim();
       if (!line || /^(\/\/|#)/.test(line)) { if (/commander/i.test(line)) section = "commander"; continue; }
@@ -421,8 +541,11 @@
       const c = cardOf(name) || cardOf(name.split(" // ")[0]) || cardOf(name.split(" / ")[0]);
       if (!c) { miss.push(name); continue; }
       cards.push({ n: c.n, q: Math.max(1, Math.min(99, q)) });
+      if (!first) first = c;
       if (cmd && !commander) commander = c.n;
     }
+    // no Commander section: a list that starts with a legendary creature starts with its commander
+    if (!commander && legendaryCreature(first)) commander = first.n;
     return { cards, miss, commander };
   }
   function merge(d, parsed) {
@@ -440,8 +563,8 @@
     box.className = "modal open";
     box.innerHTML = `<div class="sheet small paste" role="dialog" aria-modal="true" aria-labelledby="pasteH"><button type="button" class="close" aria-label="Close">×</button>
       <form class="form" novalidate style="display:grid;gap:12px"><h2 id="pasteH" style="margin:0;font:700 22px/1.2 var(--ui)">${newDeck ? "New deck from a list" : `Paste cards into ${esc(deck.name)}`}</h2>
-      <p class="muted" style="margin:0;font-size:14px">One card per line, like <b>1 Sol Ring</b>. Lists copied from Moxfield, Archidekt or MTGO work; set codes and categories are ignored, and a <b>Commander</b> section sets the commander.</p>
-      ${newDeck ? `<label style="display:grid;gap:4px;font-size:13px;color:var(--muted)">Deck name<input name="name" maxlength="60" placeholder="New deck" style="padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg)"></label>` : ""}
+      <p class="muted" style="margin:0;font-size:14px">One card per line, like <b>1 Sol Ring</b>. Lists copied from Moxfield, Archidekt or MTGO work; set codes and categories are ignored. A <b>Commander</b> section sets the commander; without one, a list that starts with a legendary creature makes it the commander.</p>
+      ${newDeck ? `<label style="display:grid;gap:4px;font-size:13px;color:var(--muted)">Deck name<input name="name" maxlength="60" placeholder="Leave blank to name it after the commander" style="padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg)"></label>` : ""}
       <label class="sr" for="pasteTxt">Deck list</label><textarea id="pasteTxt" name="txt" spellcheck="false" placeholder="1 Sol Ring&#10;1 Arcane Signet&#10;30 Forest"></textarea>
       <p class="miss" id="pasteMiss" hidden></p>
       <div class="row2"><button class="btn primary" type="submit">${newDeck ? "Make deck" : "Add cards"}</button><button class="btn" type="button" data-x>Cancel</button></div></form></div>`;
@@ -454,9 +577,11 @@
     form.onsubmit = async e => {
       e.preventDefault();
       const parsed = parseList(form.txt.value);
+      // pasting into a deck that already has cards only sets a commander from a Commander section
+      if (!newDeck && deck.cards.length && parsed.commander && !/commander|\*CMDR\*/i.test(form.txt.value)) parsed.commander = "";
       if (!parsed.cards.length) { const m = $("pasteMiss"); m.hidden = false; m.textContent = parsed.miss.length ? `Didn't find any of those cards (${parsed.miss.slice(0, 5).join(", ")}${parsed.miss.length > 5 ? "…" : ""}).` : "Paste at least one card."; return; }
       let d = deck;
-      if (newDeck) { d = await M.createDeck(form.name.value || "New deck"); if (!d) return; }
+      if (newDeck) { d = await M.createDeck(form.name.value.trim() || parsed.commander || "New deck"); if (!d) return; }
       const added = merge(d, parsed);
       M.saveDeck(d); close();
       toast(`Added ${added} card${added === 1 ? "" : "s"}` + (parsed.miss.length ? `; didn't find ${parsed.miss.length}: ${parsed.miss.slice(0, 3).join(", ")}${parsed.miss.length > 3 ? "…" : ""}` : ""));
@@ -484,7 +609,7 @@
   // someone else's deck, from the Users page: #u-<name>/<deck id>
   async function openOther(name, id) {
     readOnly = { user: name }; deck = null; markTab();
-    $("listView").hidden = true; $("deckView").hidden = false; $("addBar").hidden = true;
+    $("listView").hidden = true; $("deckView").hidden = false; $("addBar").hidden = true; showCtl(true);
     $("dtop").innerHTML = ""; $("stats").innerHTML = "";
     $("allDecks").textContent = `← ${name}'s profile`;
     $("groups").className = "groups"; $("groups").innerHTML = `<p class="empty">Loading ${esc(name)}'s deck…</p>`;
@@ -531,6 +656,7 @@
   $("sortSeg").onclick = e => { const b = e.target.closest("[data-s]"); if (b) { pref.sort = b.dataset.s; M.store.set("deck-sort", pref.sort); renderBody(); } };
   document.addEventListener("mtg:size", () => { if (deck) renderBody(); });
   $("groups").addEventListener("click", e => {
+    const am = e.target.closest("[data-addmore]"); if (am && !readOnly) { e.stopPropagation(); return addMenu(am, am.dataset.addmore); }
     const m = e.target.closest("[data-menu]"); if (m && !readOnly) { e.stopPropagation(); return cardMenu(m, m.dataset.menu); }
     const o = e.target.closest("[data-open]"); if (o) M.openCard(o.dataset.open, { deck, deckEdit: !readOnly });
   });

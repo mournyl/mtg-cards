@@ -52,11 +52,25 @@
   const sizeButtons = () => SIZES.map(([k, l]) => `<button type="button" data-size="${k}" aria-pressed="${k === cardSize()}">${l}</button>`).join("");
   const sizeTabs = () => `<div class="sizetabs"><span class="lab" aria-hidden="true">Card size</span><div class="seg" role="group" aria-label="Card size">${sizeButtons()}</div></div>`;
   document.addEventListener("click", e => { const b = e.target.closest("button[data-size]"); if (b) setCardSize(b.dataset.size); });
+  // the bar under the header's divider line: the page's Filters button on the left; Card size on the right, with the
+  // page's Sort right under it. Pages hand their own controls over with toolbar().
   function sizeBar() {
     const hdr = document.querySelector("header");
     if (!hdr || document.querySelector(".sizetop")) return;
-    hdr.insertAdjacentHTML("afterend", `<div class="sizetop"><div class="wrap">${sizeTabs()}</div></div>`);
+    hdr.insertAdjacentHTML("afterend", `<div class="sizetop"><div class="wrap"><div class="tool-l" id="toolL"></div>` +
+      `<div class="tool-r">${sizeTabs()}<div class="sortslot" id="sortSlot" hidden></div></div></div></div>`);
   }
+  // filtersBtn and filters: moved into the bar (the panel drops down under the button); sort: an element shown under Card size
+  function toolbar({ filtersBtn, filters, sort } = {}) {
+    sizeBar();
+    const bar = document.querySelector(".sizetop .wrap"); if (!bar) return;
+    if (filtersBtn) { $("toolL").appendChild(filtersBtn); filtersBtn.classList.add("fbtn"); }
+    if (filters) bar.appendChild(filters);
+    if (sort) { const slot = $("sortSlot"); slot.appendChild(sort); slot.hidden = false; }
+  }
+  // the Filters button: an icon, the word, and how many filters are on
+  const filtersLabel = n => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>` +
+    `<span>Filters</span>${n ? `<span class="n">${n}</span>` : ""}`;
 
   let toastT;
   function toast(msg) {
@@ -413,17 +427,10 @@
       menu.className = "menu";
       menu.innerHTML = `<div class="ttl">Signed in as ${esc(m.user.username)}</div>` +
         `<a class="menu-a" href="${page("users", "u-" + encodeURIComponent(m.user.username))}">My profile</a>` +
-        `<button type="button" data-hide>${m.user.hidden ? "Show my profile on Users" : "Hide my profile from Users"}</button>` +
         `<button type="button" data-out>Log out</button>`;
       menu.style.top = r.bottom + 6 + "px"; menu.style.left = Math.max(8, r.right - 220) + "px";
       document.body.appendChild(menu);
       menu.querySelector("[data-out]").onclick = async () => { menu.remove(); try { await api("POST", "/api/logout", {}); } catch { /* already out */ } meP = null; toast("Logged out"); initAccount(); };
-      menu.querySelector("[data-hide]").onclick = async () => {
-        menu.remove();
-        try { const r2 = await setProfileHidden(!m.user.hidden); toast(r2 ? "Your profile is hidden from Users" : "Your profile shows on Users"); }
-        catch (err) { toast(err.message); }
-        initAccount();
-      };
       setTimeout(() => document.addEventListener("mousedown", function off(ev) { if (!menu.contains(ev.target)) { menu.remove(); document.removeEventListener("mousedown", off); } }), 0);
     };
   }
@@ -590,7 +597,7 @@
       const tierRows = roles.map((x, i) => {
         const e = entries[i], info = ROLE_INFO[x.k];
         return `<div class="trole">${tb(x.t)}<a href="${page("tiers", x.k)}"><b>${esc(info.label)}</b></a>
-          <span class="muted">${esc(idx.subs[x.k] ? (hubSubName(x.k, x.sub)) : x.sub)} · #${fmt(x.r)} of ${fmt(total(x.k))} · score ${x.s}${x.rev ? "" : " · unreviewed"}${e?.e != null ? ` · EDHREC ${pct(e.e)}` : ""}</span></div>
+          <span class="muted">${esc(idx.subs[x.k] ? (hubSubName(x.k, x.sub)) : x.sub)} · #${fmt(x.r)} of ${fmt(total(x.k))} · score ${x.s}${e?.e != null ? ` · EDHREC ${pct(e.e)}` : ""}</span></div>
           ${e ? `<p class="why" style="margin:-2px 0 6px 34px">${syms(e.why)}</p>` : ""}`;
       }).join("");
       const better = ctxOpt.deck ? recHtml(deckRecs(idx, c, ctxOpt.deck)) : roles.filter(x => x.k !== "lands" || c.ty.includes("L")).map(x => {
@@ -719,7 +726,7 @@
     if (d.commander && norm(d.commander) === norm(name)) d.commander = "";
     saveDeck(d);
   }
-  // "Add <card> to…" menu: every deck (✓ = in it; click again to take it out) and a new-deck box
+  // "Add <card> to…" menu: your decks (✓ = in it; click again to take it out); new decks are made on My Decks
   async function deckMenu(anchor, name) {
     if (await deckLogin()) return;
     if (deckErr) { await loadDecks(true); if (deckErr) return toast(`Your decks didn't load: ${deckErr}`); }
@@ -727,32 +734,48 @@
     const menu = document.createElement("div");
     menu.className = "menu deckmenu"; menu.setAttribute("role", "dialog"); menu.setAttribute("aria-label", `Add ${name} to a deck`);
     const draw = () => {
-      menu.innerHTML = `<div class="ttl">Add ${esc(name)} to…</div>` +
-        deckList.map((d, i) => `<button type="button" data-i="${i}"><span>${esc(d.name)}</span><span>${inDeck(d, name) ? "✓" : ""}</span></button>`).join("") +
-        `<form><input placeholder="New deck name" maxlength="60" aria-label="New deck name"><button class="btn primary small" type="submit">Add</button></form>` +
-        `<a class="melink-sm" href="${page("decks")}">Open My Decks</a>`;
+      menu.innerHTML = `<div class="ttl">Add ${esc(name)} to one of your decks</div>` +
+        (deckList.length ? deckList.map((d, i) => `<button type="button" data-i="${i}"><span>${esc(d.name)}</span><span>${inDeck(d, name) ? "✓" : ""}</span></button>`).join("")
+          : `<p class="muted" style="margin:4px 10px 8px;font-size:13px">No decks yet.</p>`) +
+        `<a class="melink-sm" href="${page("decks")}">${deckList.length ? "Open My Decks" : "Make a deck in My Decks"}</a>`;
       menu.querySelectorAll("button[data-i]").forEach(b => b.onclick = async () => {
         const d = deckList[+b.dataset.i];
         if (inDeck(d, name)) { removeFromDeck(d, name); toast(`Took ${name} out of ${d.name}`); }
         else if (await addToDeck(d, name)) toast(`Added to ${d.name}`);
         draw();
       });
-      menu.querySelector("form").onsubmit = async ev => {
-        ev.preventDefault();
-        const d = await createDeck(menu.querySelector("input").value, []);
-        if (d && await addToDeck(d, name)) { toast(`Added to ${d.name}`); draw(); }
-      };
     };
     draw();
     document.body.appendChild(menu);
     const r = anchor.getBoundingClientRect(), w = menu.offsetWidth, h = menu.offsetHeight;
     menu.style.left = Math.max(8, Math.min(innerWidth - w - 8, r.left)) + "px";
     menu.style.top = (r.bottom + h + 8 > innerHeight ? Math.max(8, r.top - h - 6) : r.bottom + 6) + "px";
-    (deckList.length ? menu.querySelector("button[data-i]") : menu.querySelector("input")).focus();
+    (menu.querySelector("button[data-i]") || menu.querySelector("a")).focus();
     const off = ev => { if (!menu.contains(ev.target) && ev.target !== anchor) { menu.remove(); document.removeEventListener("mousedown", off); document.removeEventListener("keydown", esc2); } };
     const esc2 = ev => { if (ev.key === "Escape") { ev.stopPropagation(); menu.remove(); anchor.focus(); document.removeEventListener("mousedown", off); document.removeEventListener("keydown", esc2); } };
     setTimeout(() => { document.addEventListener("mousedown", off); document.addEventListener("keydown", esc2); }, 0);
   }
+
+  // ---------- a deck as a card (My Decks, Saved): the commander's art across the top ----------
+  const deckTotal = d => d.cards.reduce((a, e) => a + e.q, 0);
+  function deckIdentity(d, idx) {
+    const cmd = d.commander && idx && findCard(idx, d.commander);
+    if (cmd) return cmd.id;
+    const set = new Set(); d.cards.forEach(e => { const c = idx && findCard(idx, e.n); if (c) for (const l of c.id) set.add(l); });
+    return "WUBRG".split("").filter(l => set.has(l)).join("");
+  }
+  const deckWhen = t => t ? new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric", year: new Date(t).getFullYear() === new Date().getFullYear() ? undefined : "numeric" }) : "";
+  // the picture: the commander, else the deck's first card
+  const deckFace = d => d.commander || (d.cards[0] && d.cards[0].n) || "";
+  function deckTile(d, idx, href) {
+    const face = deckFace(d), art = face && img(face, "art_crop"), id = deckIdentity(d, idx);
+    return `<a class="dcard deck" href="${esc(href)}"><span class="dart">${art ? `<img src="${esc(art)}" alt="" loading="lazy" onload="this.classList.add('in')">` : `<span class="noart">${esc((d.name || "?").slice(0, 1).toUpperCase())}</span>`}</span>` +
+      `<span class="dbody"><h2>${esc(d.name)}</h2><span class="cmd">${d.commander ? esc(d.commander) : "No commander yet"}</span>` +
+      `<span class="foot"><span class="ids" title="Color identity">${idSyms(id || "C")}</span><span>${fmt(deckTotal(d))} / 100 cards</span>` +
+      `${d.updated ? `<span>Updated ${esc(deckWhen(d.updated))}</span>` : ""}</span></span></a>`;
+  }
+  // load the pictures for these decks; resolves true when there's something new to draw
+  const deckArt = decks => scryfall(decks.map(deckFace).filter(Boolean));
 
   // a card sheet that was open when the page was reloaded comes back
   if (history.state && history.state.mtgSheet && history.state.mtgSheet.ns === "card") setTimeout(() => openCard(history.state.mtgSheet.key, { fromHistory: true }), 0);
@@ -763,6 +786,7 @@
     loadSprite, sym, bigSym, syms, cost, para, idSyms, tag, idTag, tagIcon, subIcon, ROLE_ICON, FTAG_ICON, ftag, ftags, tierLabel, showTags: C.showTags, mainTag: C.mainTag, GENERIC: C.GENERIC, DOWNSIDES: C.DOWNSIDES, ROLE_TAGS: C.ROLE_TAGS,
     loadCards, loadHub, loadTierIndex, loadRole, findCard, flags, betterOptions, hubSubName,
     scryfall, scry, img, hasImages, api, me, refreshMe: () => { meP = null; deckP = null; }, login, initNav, initAccount, openCard, closeCard, isCardOpen: isOpen, pct,
-    sheetHistory, setProfileHidden, cardSize, setCardSize, condensed, sizeButtons, sizeTabs, sizeBar, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
+    sheetHistory, setProfileHidden, cardSize, setCardSize, condensed, sizeButtons, sizeTabs, sizeBar, toolbar, filtersLabel, loadDecks, deckInfo, deckLogin, createDeck, saveDeck, deleteDeck, addToDeck, removeFromDeck, inDeck, deckMenu,
+    deckTile, deckArt, deckIdentity, deckTotal,
   };
 })();

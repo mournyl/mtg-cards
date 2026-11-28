@@ -210,6 +210,8 @@ async function newPage(browser, mode, viewport) {
       const searchCalls = sf.filter(x => x.url.includes("/cards/search"));
       const gaps = searchCalls.slice(1).map((x, i) => x.t - searchCalls[i].t);
       ok(gaps.every(g => g >= 500), `search pages are paced 500 ms+ apart (min gap ${Math.min(...gaps)} ms)`);
+      await page.keyboard.press("Escape");   // the open Filters panel sits over the first cards
+      ok(!(await page.isVisible("#type")), "Escape folds the Filters panel away");
       await page.click("#grid .tile .card"); await page.waitForSelector("#tierBox .tierrows");
       ok((await page.textContent("#tierBox")).includes("Tiers"), "card modal shows tiers");
       ok((await page.$$("#whatBox .tags.wide button.tag[data-role]")).length > 0, "card modal lists the card's tags");
@@ -329,9 +331,22 @@ async function newPage(browser, mode, viewport) {
     await page.fill("#addCard", "blood artist"); await page.waitForSelector("#sugg:not([hidden])"); await page.keyboard.press("Enter"); await page.waitForTimeout(300);
     await page.click(".sizetop [data-size=full]"); await page.click("#groupSeg [data-g=role]"); await page.waitForTimeout(300);
     ok(await inGroup("Death trigger", "Blood Artist") && await inGroup("Other creatures", "Grizzly Bears"), "Role grouping: a card on no tier list goes under its main tag (Blood Artist: Death trigger)");
-    await page.click("#groupSeg [data-g=tag]"); await page.waitForTimeout(300);
-    const tagGroups = await page.$$eval("#groups .dgh span", s => s.map(x => x.textContent));
-    ok(tagGroups.includes("Mana generation") && tagGroups.includes("Extra lands") && tagGroups.includes("Counterspell") && tagGroups.includes("Lands"), "Tag grouping: " + tagGroups.join(", "));
+    ok(!(await page.$("#groupSeg [data-g=tag]")) && !(await page.$("#groupSeg [data-g=tier]")), "no Tag or Tier grouping");
+    ok(await page.$(".sizetop #groupSeg") && await page.$(".sizetop #sortSeg"), "Group by and Sort sit under Card size");
+    // "+ Add" after a group: recommended cards of that kind, or a search for that kind
+    const addBtns = await page.$$eval("#groups [data-addmore]", bs => bs.map(b => b.textContent.trim()));
+    ok(addBtns.some(t => /Add more ramp/.test(t)) && !addBtns.some(t => /Commander/i.test(t)), "every group but the commander ends with + Add: " + addBtns.slice(0, 3).join(" | "));
+    await page.click("#groups [data-addmore=ramp]"); await page.waitForSelector(".addmenu [data-add]");
+    const rampRec = await page.getAttribute(".addmenu [data-add]", "data-add");
+    await page.click(".addmenu [data-add]"); await page.waitForTimeout(300);
+    ok(await inGroup("Ramp", rampRec), `+ Add more ramp adds a recommended ramp card (${rampRec})`);
+    await page.click(".addmenu [data-search]"); await page.waitForTimeout(200);
+    ok(/Ramp/i.test(await page.textContent("#scopeTxt")) && await page.isVisible("#sugg"), "Search ramp scopes the add box and shows ramp first");
+    await page.fill("#addCard", "llanowar"); await page.waitForTimeout(200);
+    ok(/Llanowar Elves/.test(await page.textContent("#sugg")), "scoped search finds ramp by name");
+    await page.click("#scopeX");
+    await page.evaluate(([n]) => { const d = JSON.parse(localStorage.getItem("mournyl-mtg-decks")); d[0].cards = d[0].cards.filter(c => c.n !== n); localStorage.setItem("mournyl-mtg-decks", JSON.stringify(d)); }, [rampRec]);
+    await page.reload(); await page.waitForSelector("#deckView:not([hidden]) .tile");
     const artistTags = await page.$$eval("#groups .tile", ts => { const t = ts.find(x => x.querySelector("[data-open='Blood Artist']")); return t ? [...t.querySelectorAll(".tag")].map(g => g.textContent.trim()) : []; });
     ok(artistTags.includes("Death trigger") && artistTags.length <= 4, "deck tiles show function tags: " + artistTags.join(" | "));
     await page.click("#groupSeg [data-g=role]"); await page.click(".sizetop [data-size=condensed]"); await page.waitForTimeout(200);
@@ -351,6 +366,10 @@ async function newPage(browser, mode, viewport) {
     ok(saved.includes("Arcane Signet"), "+ Add to deck on a card sheet adds it to the deck");
     await page.goto(`${BASE}/decks/`); await page.waitForSelector(".dcard");
     ok(/Simic test[\s\S]*Tatyova[\s\S]*36 \/ 100/.test(await page.textContent("#deckCards")), "deck list shows name, commander and count");
+    // a pasted list that starts with a legendary creature: that's the commander, and the deck takes its name
+    await page.click("#importBtn"); await page.fill("#pasteTxt", "1 Talrand, Sky Summoner\n1 Sol Ring\n10 Island"); await page.click(".paste [type=submit]");
+    await page.waitForSelector("#deckView:not([hidden]) #dtop h1");
+    ok((await page.textContent("#dtop h1")).trim() === "Talrand, Sky Summoner" && (await page.$$eval("#groups .grp", gs => gs[0].getAttribute("aria-label"))) === "Commander", "import: first legendary creature is the commander and names the deck");
     ok(errors.length === 0, "no script errors" + (errors.length ? ": " + errors.join(" | ") : ""));
     await ctx.close();
   }
