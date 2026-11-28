@@ -54,7 +54,17 @@
   document.addEventListener("click", e => { const b = e.target.closest("button[data-size]"); if (b) setCardSize(b.dataset.size); });
   // the bar under the header's divider line: the page's Filters button on the left; Card size on the right, with the
   // page's Sort right under it. Pages hand their own controls over with toolbar().
+  // a thin note above the header on every page: the site is in beta. Closing it hides it in this browser.
+  function betaBar() {
+    const hdr = document.querySelector("header");
+    if (!hdr || document.querySelector(".betabar") || store.get("beta-note-closed", false)) return;
+    hdr.insertAdjacentHTML("beforebegin", `<div class="betabar" role="note"><div class="wrap"><span class="betatag">Beta</span>` +
+      `<span class="bt">mournyl mtg is in beta: things may change or break while it's being built.</span>` +
+      `<button type="button" class="betax" aria-label="Hide the beta note">×</button></div></div>`);
+    document.querySelector(".betax").onclick = () => { store.set("beta-note-closed", true); document.querySelector(".betabar").remove(); };
+  }
   function sizeBar() {
+    betaBar();
     const hdr = document.querySelector("header");
     if (!hdr || document.querySelector(".sizetop")) return;
     hdr.insertAdjacentHTML("afterend", `<div class="sizetop"><div class="wrap"><div class="tool-l" id="toolL"></div>` +

@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="theme-color" content="#0a0a0a">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Card Search · mournyl mtg</title>
 <meta name="description" content="Search every Magic card, with Commander tiers for removal, ramp, draw and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/mtg.css">
 <style>
   /* card search: the shared look comes from assets/mtg.css; these rules are for what only this page has */
@@ -22,8 +26,8 @@
   .pip img{width:100%;height:100%;display:block}
   .fgroup input[type=number]{width:60px}
   .qchips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
-  .qchip{font-size:14px;padding:7px 14px;border-radius:var(--rc);border:1px solid var(--line);background:var(--panel);cursor:pointer}
-  .qchip:hover{border-color:#fff}
+  .qchip{font-size:14px;padding:7px 14px;border-radius:var(--pill);border:1px solid #272727;background:var(--knob);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+  .qchip:hover{border-color:#6a6a6a}
   .more{display:flex;justify-content:center;margin-top:24px}
   .badge[data-role]{cursor:pointer}
   .badge[data-role]:hover{border-color:#777;color:#fff}
@@ -84,17 +88,17 @@
   .fb select,.fb textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
   .fb .rowx{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
   /* filters: one option per line, in a panel under the Filters button, or centered on the start page */
-  #filters{flex-direction:column;align-items:stretch;gap:10px;width:min(440px,100%);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  #filters{flex-direction:column;align-items:stretch;gap:10px;width:min(440px,100%);background:var(--face);border:1px solid var(--edge);border-radius:18px;padding:16px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
   .tool-l{position:relative}
   .sizetop #filters.open{display:flex;position:absolute;left:0;top:calc(100% + 8px);z-index:30;box-shadow:0 18px 40px rgba(0,0,0,.6);border-top:1px solid var(--line)}
   /* start page: a wide box with the options in two columns, the same width as the examples */
-  .hero #filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 36px;width:min(1000px,100%);margin:26px auto 0;text-align:left;padding:20px 22px}
+  .hero #filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 36px;width:min(1000px,100%);margin:30px auto 0;text-align:left;padding:22px 24px}
   .hero #filters>.adv,.hero #filters>.fbtns{grid-column:1/-1}
   .hero #filters .adv .frow{max-width:calc(50% - 18px)}
   .hero .qchips{max-width:1000px;margin-left:auto;margin-right:auto}
   @media (max-width:720px){ .hero #filters{grid-template-columns:minmax(0,1fr);padding:16px} .hero #filters .adv .frow{max-width:none} }
-  .frow{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:10px;font-size:14px;color:var(--muted)}
-  .frow select,.frow input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--rc);padding:8px 10px;color:var(--text)}
+  .frow{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:10px;font-size:14.5px;color:#d6d6d6}
+  .frow select,.frow input{width:100%;background:#1a1a1a;border:1px solid #242424;border-radius:9px;padding:8px 12px;color:var(--text)}
   .frow .pips{gap:6px}
   .mvrange{display:flex;align-items:center;gap:8px}
   .mvrange span{color:var(--muted)}
@@ -223,7 +227,7 @@
 
 <div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 
-<footer><span class="g">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Tiers from the site's <a href="tiers/" id="footTiers">tier lists</a>. Unofficial fan content.</footer>
+<footer><span class="g">mournyl</span> · Card data and images © Wizards of the Coast, served by <a href="https://scryfall.com" target="_blank" rel="noopener">Scryfall</a>. Tiers from the site's <a href="tiers/" id="footTiers">tier lists</a>. Unofficial fan content. <span class="betaf">This site is in beta.</span></footer>
 
 <script src="assets/core.js"></script>
 <script src="assets/mtg.js"></script>

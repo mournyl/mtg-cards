@@ -460,3 +460,105 @@ footer .g{font-family:var(--gothic);font-size:16px;color:#fff}
 /* the tier lists' filters open as a row under the Filters button */
 .sizetop .wrap{flex-wrap:wrap}
 .sizetop .filters.open{flex-basis:100%;order:3;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px;margin-top:2px}
+
+/* =====================================================================
+   look (v1.0): the butterflies, serif titles, pill-shaped controls, soft panels.
+   Kept last so it sits over the rules above; "body" in a selector only
+   lifts it over a page's own <style>.
+   ===================================================================== */
+:root{
+  --serif:"Cormorant Garamond","Cormorant","EB Garamond","Crimson Text",Garamond,Georgia,serif;
+  --pill:999px; --radius:14px;
+  --bg:#0a0a0a; --panel:#141414; --panel2:#1c1c1c; --line:#232323; --line2:#2c2c2c;
+  --face:linear-gradient(180deg,#171717,#101010);   /* panels */
+  --knob:linear-gradient(180deg,#202020,#151515);   /* pills */
+  --edge:rgba(255,255,255,.075);
+  --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' fill='none' stroke='%23e0e0e0' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+html{background:var(--bg)}
+body{background:radial-gradient(1100px 520px at 50% -140px,#1d1d1d 0%,rgba(10,10,10,0) 72%) no-repeat,var(--bg)}
+
+/* header */
+header{background:rgba(10,10,10,.84);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo{align-items:center;gap:12px;font-size:36px}
+.logo::before{content:"";width:50px;height:43px;flex:none;background:url("butterfly-side.png") center/contain no-repeat;filter:drop-shadow(0 0 8px rgba(255,255,255,.18))}
+.logo small{font:500 17px/1 var(--serif);font-variant:small-caps;letter-spacing:.22em;text-transform:lowercase;color:#9d9d9d;align-self:flex-end;margin:0 0 4px -2px}
+nav.site{gap:4px}
+nav.site a{padding:8px 15px;border-radius:var(--pill);border:1px solid transparent;color:#d0d0d0;font-size:14.5px}
+nav.site a:hover{background:rgba(255,255,255,.04);color:#fff}
+nav.site a[aria-current="page"]{color:#fff;background:linear-gradient(180deg,#2b2b2b,#1a1a1a);border-color:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 6px 18px rgba(0,0,0,.5)}
+.searchbox input{border-radius:var(--pill);padding:11px 18px 11px 44px;border:1px solid #222;
+  background:#121212 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5' fill='none' stroke='%23e6e6e6' stroke-width='2.2'/%3E%3Cpath d='M15.5 15.5 21 21' stroke='%23e6e6e6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") 17px center/16px no-repeat}
+.searchbox input:focus{border-color:#4a4a4a;background-color:#161616}
+.searchbox input::placeholder{color:#7d7d7d}
+.melink{border-radius:var(--pill);padding:8px 15px;background:var(--knob);border-color:#272727}
+.melink:hover,.melink[aria-current="page"]{border-color:#5a5a5a}
+.melink .count{background:#4b4b4b;color:#ececec;border-radius:var(--pill);padding:1px 8px;font-weight:600}
+.melink.acct::before{background-color:transparent;background-size:100%}
+.melink.acct::after{content:"";width:10px;height:10px;flex:none;margin-left:-2px;background:var(--chev) center/contain no-repeat}
+
+/* pills: buttons, size and sort tabs, tier tabs, chips */
+.btn{border-radius:var(--pill);background:var(--knob);border-color:#2a2a2a}
+.btn:hover{border-color:#6a6a6a}
+.btn.primary{background:#f2f2f2;border-color:#f2f2f2;color:#000}
+.btn.primary:hover{background:#d9d9d9}
+.btn.danger{background:none}
+.fbtn{border-radius:var(--pill)}
+.seg{gap:7px}
+.seg button,.seg a{border-radius:var(--pill);border-color:#272727;background:rgba(255,255,255,.015);color:#bdbdbd}
+.seg button:hover,.seg a:hover{border-color:#5a5a5a}
+.seg .on,.seg [aria-current="page"],.seg [aria-pressed="true"]{background:#f2f2f2;border-color:#f2f2f2;box-shadow:0 2px 12px rgba(255,255,255,.07)}
+.sizetabs .lab,.sortslot .lab{color:#dadada;font-size:14px}
+.tab{border-radius:var(--pill)}
+.toast{border-radius:var(--pill)}
+.pip{opacity:.55}
+
+/* inputs and selects: dark fills, our own arrow */
+body select:not([multiple]){-webkit-appearance:none;appearance:none;background-image:var(--chev);background-repeat:no-repeat;background-position:right 12px center;background-size:11px;padding-right:32px;background-color:#1a1a1a;border-color:#242424;border-radius:9px}
+body select:focus,body input:focus{outline:none;border-color:#5a5a5a}
+
+/* panels: soft gradient, faint edge, rounder */
+.panel,.rcard,.method,.dcard,.crows,.tags,.drows,.sheet,.authbox,.menu,.pop,.sugg,.sizetop .filters.open{background:var(--face);border-color:var(--edge)}
+.panel,.rcard,.method,.dcard,.crows,.tags,.drows{border-radius:var(--radius)}
+.sheet{border-radius:20px}
+.menu,.pop,.sugg{border-radius:14px}
+.rcard:hover,.dcard:hover{border-color:rgba(255,255,255,.22)}
+.tags.wide{background:none}
+
+/* serif titles */
+.hero{position:relative}
+.hero h1{font-family:var(--serif);font-weight:400;letter-spacing:.005em;font-size:clamp(46px,7vw,78px);line-height:1.05;color:#f3f3f3;text-shadow:0 0 34px rgba(255,255,255,.07);margin-bottom:14px}
+.hero>h1+p{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.65vw,21px);line-height:1.45;color:#a8a8a8;max-width:62ch}
+.hero::after{content:"";position:absolute;right:max(0px,1.5vw);top:4px;width:clamp(100px,11vw,160px);aspect-ratio:360/308;background:url("butterfly.png") center/contain no-repeat;transform:rotate(-16deg);opacity:.78;pointer-events:none;filter:drop-shadow(0 0 18px rgba(255,255,255,.16))}
+.tier-head h2,.rcard h2,.method h2,.panel>h2,.sec-h,.dcard h2{font-family:var(--serif);font-weight:500;letter-spacing:.005em}
+.tier-head h2{font-size:32px}
+.rcard h2{font-size:27px}
+.dcard h2{font-size:25px}
+.method h2{font-size:26px}
+body .dtop h1,body .phead h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,4.6vw,52px);line-height:1.08}
+body .shead h2{font-family:var(--serif);font-weight:500;font-size:36px}
+.nameline h2{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.1}
+body .newbar input,body .addbox input{border-radius:var(--pill);padding-inline:18px;background:#121212;border-color:#242424}
+body .addbox .scope{border-radius:var(--pill)}
+@media (max-width:760px){
+  .hero::after{width:64px;right:0;top:0;opacity:.45}
+  .top{gap:10px}
+  .logo::before{width:30px;height:26px}
+  .logo{font-size:26px;gap:6px}
+  .logo small{font-size:14px;letter-spacing:.1em;margin:0 0 3px -1px}
+  .melink{padding:6px 9px;font-size:13px}
+  .me{gap:4px}
+  nav.site{gap:2px}
+  nav.site a{padding:7px 11px;font-size:14px}
+}
+
+/* beta note: a thin strip above the header, and a line in the footer */
+.betabar{background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.05) 50%,rgba(255,255,255,0));border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;color:#b5b5b5}
+.betabar .wrap{display:flex;align-items:center;justify-content:center;gap:10px;padding-block:7px;position:relative}
+.betatag{font:600 10.5px/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;color:#0a0a0a;background:#e9e9e9;border-radius:var(--pill);padding:4px 9px 3px}
+.betabar .bt{font-family:var(--serif);font-style:italic;font-size:15px;color:#c4c4c4}
+.betax{all:unset;cursor:pointer;position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);width:26px;height:26px;display:grid;place-items:center;border-radius:50%;color:#8c8c8c;font-size:17px;line-height:1}
+.betax:hover{color:#fff;background:rgba(255,255,255,.06)}
+.betax:focus-visible{outline:2px solid #fff}
+.betaf{display:inline-block;margin-left:4px;color:#bdbdbd;font-style:italic}
+@media (max-width:760px){ .betabar .wrap{justify-content:flex-start;padding-right:40px} .betabar .bt{font-size:14px;line-height:1.3} }
